@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>ISO 10303-238</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<p class=pagehead>Working Draft ISO 10303-238 Edition 2</p>
+
+<H2 CLASS="annex-clause"><A NAME="clause-C"></A>Annex C<BR>(normative)<BR><BR>Implementation method-specific requirements</H2>
+
+<P>The implementation method defines what types of exchange behaviour are required with respect to this part of ISO 10303. Conformance to this part of ISO 10303 shall be realized in an exchange structure described by either ISO 10303-21 or ISO 10303-28.</P>
+
+<H3><A NAME="clause-C-1"></A>C.1 Requirements specific to ISO 10303-21</H3>
+
+<P>If the implementation method is ISO 10303-21, the file format shall be encoded according to the syntax and EXPRESS language mapping defined in ISO 10303-21 and in the AIM defined in Annex A of this part of ISO 10303. The header of the exchange structure shall identify use of this part of ISO 10303 by the schema name `integrated_cnc_schema'.</P>
+
+<H3><A NAME="clause-C-2"></A>C.2 Requirements specific to ISO 10303-28</H3>
+
+<P>If the implementation method is ISO 10303-28, the file format shall be encoded according to the syntax and EXPRESS language mapping defined in ISO 10303-28 and in the AIM defined in Annex A of this part of ISO 10303.   The ISO 10303-28 configuration shown below shall be used.</P>
+
+<PRE CLASS="code">
+&lt;?xml version=&quot;1.0&quot;?&gt;
+&lt;configuration 
+   xmlns=&quot;urn:oid:1.0.10303.28.2.1.2&quot;
+   xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;
+
+   &lt;schema targetNamespace=&quot;urn:oid:1.0.10303.238.1.0.1&quot; /&gt;
+   &lt;option exp-attribute=&quot;attribute-content&quot; tagless=&quot;true&quot; /&gt;
+   &lt;uosElement name=&quot;iso_10303_28_terse&quot; &gt;
+     &lt;add_attribute name=&quot;schema&quot; type=&quot;xs:NMTOKEN&quot; usage=&quot;required&quot; /&gt;
+   &lt;/uosElement&gt;
+&lt;/configuration&gt;
+</PRE>
+
+<P>The iso_10303_28_terse element shall identify the use of this part of ISO 10303 by the namespace  `urn:oid:1.0.10303.238.1.0.1' and the `schema' attribute value of `integrated_cnc_schema'.</P>
+
+<P CLASS="example">
+EXAMPLE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The ISO 10303-28 configuration results in instance data written using the &quot;attribute-content&quot; encoding enclosed in the iso_10303_28_terse UOS element, as shown in the fragment below.</P>
+
+<PRE CLASS="example">
+&lt;?xml version=&quot;1.0&quot;?&gt;
+&lt;iso_10303_28_terse
+    xmlns=&quot;urn:oid:1.0.10303.238.1.0.1&quot;
+    xmlns:exp=&quot;urn:oid:1.0.10303.28.2.1.1&quot;
+    xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+    schema=&quot;integrated_cnc_schema&quot;&gt;
+
+   &lt;exp:header&gt;
+     &lt;exp:name&gt;dataset&lt;/exp:name&gt;
+     &lt;exp:preprocessor_version&gt;stepnc writer&lt;/exp:preprocessor_version&gt;
+   &lt;/exp:header&gt;
+
+  &lt;!-- instance data --&gt;
+  &lt;Axis2_placement_3d id=&quot;id1&quot; Name=&quot;&quot; Location=&quot;id2&quot; Axis=&quot;id3&quot; Ref_direction=&quot;id4&quot;/&gt;
+  &lt;Cartesian_point id=&quot;id2&quot; Name=&quot;loc&quot; Coordinates=&quot;3.5 -3.5 -4.16875&quot;/&gt;
+  &lt;Direction id=&quot;id3&quot; Name=&quot;Z direction&quot; Direction_ratios=&quot;0 0 1&quot;/&gt;
+  &lt;Direction id=&quot;id4&quot; Name=&quot;X direction&quot; Direction_ratios=&quot;1 0 0&quot;/&gt;
+&lt;/iso_10303_28_terse&gt;
+</PRE>
+
+
+<p class=pagefoot>Document TC184/SC4/WG15 Nxxx
+</body>
+</html>
