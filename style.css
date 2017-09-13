@@ -1,12 +1,7 @@
 
-
-
-DIV.contents UL { padding-left: 2em; }
+DIV.contents UL { padding-left: 1.5em; }
 DIV.contents UL LI { margin-top: 0; margin-bottom: 0; list-style-type: none; }
 DIV.contents UL LI.clause { margin-top: 1em; }
-
-DIV.framecontents UL { padding-left: 0em; }
-DIV.framecontents UL LI { margin-top: 1em; margin-bottom: 0; list-style-type: none; }
 
 DIV.index P { margin: 0em 1em 0em 1em; }
 DIV.index P.idx2 { text-indent: 2em; }
@@ -46,6 +41,16 @@ H4.section-underlined {
     font-size: 100%;
     font-weight: medium;
     text-decoration: underline ;
+}
+
+FIGURE {
+    margin: 3em;
+    text-align: center;
+}
+
+FIGCAPTION {
+    margin-top: 1em;
+    font-weight: bold;
 }
 
 
@@ -91,33 +96,3 @@ PRE.example {
     margin: 0pt 0pt 0pt 29pt; 
     font-size: 8pt;
 }
-
-SPAN.example-mono {
-    font-size: 8pt;
-    font-weight: medium;
-    font-style: Regular;
-    font-family: "monospace";
-}
-
-
-TABLE.charset { border-collapse: collapse; }
-TABLE.charset TD.noborder { border: none; }
-TABLE.charset TD {
-    padding: 2pt 2em;
-    text-align: center;
-    border:1px solid black; 
-    font-family: "Courier New";
-    font-size: 10pt;
-    font-weight: medium;
-}
-TABLE.charset TH {
-    padding: 2pt 2em;
-    text-align: center;
-    border:1px solid black; 
-    border-bottom: 3px double black; 
-    font-family: "Courier New";
-    font-size: 10pt;
-    font-weight: normal;
-}
-
-
