@@ -8,9 +8,9 @@ integrated manufacturing.
 
 During development of this working draft, the document is being managed at the following GitHub repository:
 
-    https://github.com/stepmfg/ap238e2 - Document Source
+ https://github.com/stepmfg/ap238e2 - Document Source
 
 You can view the source as a live document at the following link:
 
-    https://stepmfg.github.io/ap238e2/ - Viewable Version
+ https://stepmfg.github.io/ap238e2/ - Viewable Version
 
