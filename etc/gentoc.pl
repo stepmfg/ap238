@@ -202,7 +202,7 @@ sub main {
     foreach (@figs) {
 	my ($f1, $f2) = ($_, $_);
 	$f1 =~ s/%%TARGET%%//;
-	$f1 =~ s/%%TARGET%%/ target="body"/;
+	$f2 =~ s/%%TARGET%%/ target="body"/;
 	print DST $f1;
 	print DSTFRM $f2;
     }
