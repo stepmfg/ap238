@@ -8,16 +8,16 @@
 <body>
 <p class=pagehead>Working Draft ISO 10303-238 Edition 2</p>
 
-<H2 CLASS="annex-clause"><A NAME="clause-J"></A>Annex J<BR>(informative)<BR><BR>Annotated examples</H2>
+<H1 CLASS="annex"><A NAME="clause-J"></A>Annex J<BR>(informative)<BR><BR>Annotated examples</H1>
 
 
-<H3><A NAME="clause-J-1"></A>J.1  Introduction</H3>
+<H2><A NAME="clause-J-1"></A>J.1  Introduction</H2>
 
 <P>This annex provides four example data sets to assist implementors in understanding the use and structure of this part of ISO 10303.   The examples have been annotated with comments to illustrate the relationship between the application object concepts documented in 4.2 and the AIM instances organized according to the mapping paths documented in 5.1.</P>
 
 <P>The first data set is a conformance class one example that describes a simple workplan for milling a block using explicit toolpaths.  The second is a conformance class two example that adds workpiece and stock geometry descriptions to the first example. The third is a conformance class three example that describes a milling workplan for several features on a block.  This was adapted from an ARM example that appears in ISO 14649-11.  The fourth is a conformance class three example that describes a turning workplan for several features on a workpiece.  This was adapted from an ARM example that appears in ISO 14649-12.</P>
 
-<H3><A NAME="clause-J-2"></A>J.2  Annotation conventions</H3>
+<H2><A NAME="clause-J-2"></A>J.2  Annotation conventions</H2>
 
 <P>Each data set is described as an ISO 10303-21 exchange structure.   The AIM instances are grouped by ARM application object with a comment at the beginning of each block show how the instances are arranged to describe the application object and associated parameters.</P>
 
@@ -102,7 +102,7 @@ descriptive_representation_item.description</P>
 
 <P>It is hoped that this annotation will assist implementors in understanding the use and structure of the application objects, mapping reference paths, and corresponding integrated representation for the examples that follow.</P>
 
-<H3><A NAME="clause-J-3"></A>J.3  Machining project for CC1 and CC2 examples</H3>
+<H2><A NAME="clause-J-3"></A>J.3  Machining project for CC1 and CC2 examples</H2>
 
 <P>The first two examples describe a machining project with a single workplan and single workingstep. The workplan specifies explicit toolpaths to mill a simple block as shown in Figure J.1.</P>
 
@@ -115,7 +115,7 @@ descriptive_representation_item.description</P>
 
 <P>The example in J.4 is a conformance class one data set and contains only the machining workplan and toolpaths.   The example in J.5 is a conformance class two data set, and contains the machining worplan, toolpaths, rawpiece geometry, and workpiece geometry. </P>
 
-<H3><A NAME="clause-J-4"></A>J.4  Data set for CC1 example</H3>
+<H2><A NAME="clause-J-4"></A>J.4  Data set for CC1 example</H2>
 
 <P>The example below is a conformance class one (CC1) data set for the project described in J.3.   This describes a machining workplan with one workingstep. The workingstep refers to a freeform milling operation which contains twelve cutter location toolpath segments.</P>
 
@@ -1033,7 +1033,7 @@ END-ISO-10303-21;
 
 
 
-<H3><A NAME="clause-J-5"></A>J.5  Data set for CC2 example</H3>
+<H2><A NAME="clause-J-5"></A>J.5  Data set for CC2 example</H2>
 
 <P>The example below is a conformance class two (CC2) data set for the project described in J.3.   This describes the same machining workplan and toolpaths as the previous CC1 example, but also contains shape descriptions for both the workpiece and rawpiece.</P>
 
@@ -2665,7 +2665,7 @@ END-ISO-10303-21;
 </PRE>
 
 
-<H3><A NAME="clause-J-6"></A>J.6  Data set for ISO 14649-11 example #1 (CC3)</H3>
+<H2><A NAME="clause-J-6"></A>J.6  Data set for ISO 14649-11 example #1 (CC3)</H2>
 
 <P>The following test case is defined by Annex E of ISO 14649-11:2004.   It defines a simple machining project for a block that contains a hole and a pocket as shown in Figure J.2.  The data set follows the original ordering of application object instances in the ISO 14649-11 example.   This example is a conformance class three file and contains no toolpaths.   The processing system must generate toolpaths from the supplied features in order to machine the part.</P>
 
@@ -4355,7 +4355,7 @@ END-ISO-10303-21;
 </PRE>
 
 
-<H3><A NAME="clause-J-7"></A>J.7  Data set for ISO 14649-12 example #1 (CC3)</H3>
+<H2><A NAME="clause-J-7"></A>J.7  Data set for ISO 14649-12 example #1 (CC3)</H2>
 
 <P>The following example is defined by Annex D of ISO 14649-12:2005 and describes a machining project for a turned part containing the features shown in Figure J.3.  The data set follows the original ordering of application object instances in the ISO 14649-12 example.  This example is a conformance class three file and contains no toolpaths.   The processing system must generate toolpaths from the supplied features in order to machine the part. </P>
 

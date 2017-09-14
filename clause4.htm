@@ -8,7 +8,7 @@
 <body>
 <p class=pagehead>Working Draft ISO 10303-238 Edition 2</p>
 
-<H2 CLASS="clause"><A NAME="clause-4"></A>4 Information requirements</H2>
+<H1 CLASS="clause"><A NAME="clause-4"></A>4 Information requirements</H1>
 <P>
 This clause specifies the information required for manufacturing using numerical controlled machining and associated processes, including information requirements defined by the ISO 14649 data model for computerized numerical controllers.</P>
 <P>
@@ -21,7 +21,7 @@ NOTE 2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The information requirements correspond to 
 NOTE 3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The mapping table specified in 5.1 shows how the integrated resources and application interpreted constructs are used to meet the information requirements of this application protocol.</P>
 
 
-<H3><A NAME="clause-4-1"></A>4.1 Units of functionality</H3>
+<H2><A NAME="clause-4-1"></A>4.1 Units of functionality</H2>
 <P>
 This subclause specifies the units of functionality for the computerized numerical controllers application protocol. This part of ISO 10303 specifies the following units of functionality:</P>
 <UL>
@@ -578,7 +578,7 @@ The geometric dimensioning and tolerancing UoF specifies the information necessa
 <P>
 The following application objects are used by the geometric dimensioning and tolerancing UoF: </P>
 <P CLASS="example">
-NOTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The following application objects have been harmonized with the information requirements for geometric dimensions and tolerances defined by ISO 10303-1050 <A HREF="stepnc_aim.htm#86498" CLASS="XRef">See ISO 10303-1050, Industrial automation systems and integration -- Product data representation and exchange -- Part 1050: Application module: Dimension tolerance</A> and ISO 10303-1051 <A HREF="stepnc_aim.htm#41402" CLASS="XRef">See ISO 10303-1051, Industrial automation systems and integration -- Product data representation and exchange -- Part 1051: Application module: Geometric tolerance</A>, which themselves are the result of harmonization efforts between ISO 10303-224 and ISO 10303-214.   Application objects dealing with the numerical value of the tolerances (nominal, plus/minus, range, etc.) are addressed in the measure UoF.</P>
+NOTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The following application objects have been harmonized with the information requirements for geometric dimensions and tolerances defined by <a href="bibliography.htm#iso10303-1050">ISO 10303-1050</a> and <a href="bibliography.htm#iso10303-1051">ISO 10303-1051</a>, which themselves are the result of harmonization efforts between ISO 10303-224 and ISO 10303-214.   Application objects dealing with the numerical value of the tolerances (nominal, plus/minus, range, etc.) are addressed in the measure UoF.</P>
 <UL>
 <LI>Angular_location_dimension;</LI>
 <LI>Angular_size_dimension;</LI>
@@ -640,7 +640,7 @@ The library reference UoF provides the capability and mechanisms by which refere
 <P>
 The following application objects are used by the library reference UoF: </P>
 <P CLASS="example">
-NOTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The following application objects have been harmonized with the information requirements for library reference UoF defined by ISO 10303-240 <A HREF="stepnc_aim.htm#43293" CLASS="XRef">See ISO 10303-240, Industrial automation systems and integration -- Product data representation and exchange -- Part 240: Application protocol: Process plans for machined products</A>.</P>
+NOTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The following application objects have been harmonized with the information requirements for library reference UoF defined by <a href="bibliography.htm#iso10303-240">ISO 10303-240</a>.</P>
 <UL>
 <LI>BSU;</LI>
 <LI>Class_BSU;</LI>
@@ -658,7 +658,7 @@ The management UoF specifies the information necessary to describe the managemen
 <P>
 The following application objects are used by the management UoF: </P>
 <P CLASS="example">
-NOTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The following four Approval application objects have been harmonized with the information requirements for approvals defined by ISO 10303-1012 <A HREF="stepnc_aim.htm#45007" CLASS="XRef">See ISO 10303-1012, Industrial automation systems and integration -- Product data representation and exchange -- Part 1012: Application module: Approval</A>.</P>
+NOTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The following four Approval application objects have been harmonized with the information requirements for approvals defined by <a href="bibliography.htm#iso10303-1012">ISO 10303-1012</a>.</P>
 <UL>
 <LI>Approval;</LI>
 <LI>Approval_relationship;</LI>
@@ -671,14 +671,14 @@ NOTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The following four Approval application objec
 <LI>Last_modified_timestamp;</LI>
 </UL>
 <P CLASS="example">
-NOTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The following two Security_classification application objects have been harmonized with the information requirements for security classifications defined by ISO 10303-1015 <A HREF="stepnc_aim.htm#78718" CLASS="XRef">See ISO 10303-1015, Industrial automation systems and integration -- Product data representation and exchange -- Part 1015: Application module: Security classification</A>.</P>
+NOTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The following two Security_classification application objects have been harmonized with the information requirements for security classifications defined by <a href="bibliography.htm#iso10303-1015">ISO 10303-1015</a>.</P>
 <UL>
 <LI>Security_classification;</LI>
 <LI>Security_classification_assignment.</LI>
 </UL>
 
 
-<H3><A NAME="clause-4-2"></A>4.2 Application objects</H3>
+<H2><A NAME="clause-4-2"></A>4.2 Application objects</H2>
 <P>
 This subclause specifies the application objects for the computerized numerical controllers application protocol. Each application object is an atomic element that embodies a unique application concept and contains attributes specifying the data elements of the object. The application objects and their definitions are given below.</P>
 <P CLASS="example">
@@ -750,7 +750,7 @@ END_ENTITY;
 <P>
 An Angular_location_dimension is a type of Location_dimension <A HREF="stepnc_aim.htm#52309" CLASS="XRef">See Location_dimension</A> that defines the allowable variation in the angle between two elements of the shape of a part.</P>
 <P CLASS="example">
-NOTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This definition has been harmonized with the Angular_location_dimension definitions in ISO 10303-1050 and ISO 10303-214, as well as the Angular_dimension_tolerance definition in ISO 10303-224.   <A HREF="stepnc_aim_body.htm#74135" CLASS="XRef">See Angular_location_dimension</A> illustrates an Angular_location_dimension.     <A HREF="stepnc_aim_body.htm#71299" CLASS="XRef">See Angular_location_dimension versus Angular_size_dimension</A> illustrates the difference between an Angular_location_dimension and an Angular_size_dimension <A HREF="stepnc_aim.htm#11024" CLASS="XRef">See Angular_size_dimension</A>.    </P>
+NOTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This definition has been harmonized with the Angular_location_dimension definitions in ISO 10303-1050 and ISO 10303-214, as well as the Angular_dimension_tolerance definition in ISO 10303-224.   <A HREF="figure-1">Figure 1</A> illustrates an Angular_location_dimension.     <A HREF="figure-2">Figure 2</A> illustrates the difference between an Angular_location_dimension and an Angular_size_dimension <A HREF="stepnc_aim.htm#11024" CLASS="XRef">See Angular_size_dimension</A>.    </P>
 
 <FIGURE>
 <IMG SRC="images/dim_ang_loc.svg">
@@ -769,7 +769,7 @@ The data associated with an Angular_location_dimension are the following:</P>
 </UL>
 
 
-<H3><A NAME="clause-4-2-6-1"></A>4.2.6.1 orientation</H3>
+<H4><A NAME="clause-4-2-6-1"></A>4.2.6.1 orientation</H4>
 <P>
 The orientation specifies an axis placement establishing the direction of positive measure of the Angular_location_dimension.  The angle extends in the XY plane from the X axis towards Y, about the origin.</P>
 
@@ -778,7 +778,7 @@ The orientation specifies an axis placement establishing the direction of positi
 <P>
 An Angular_size_dimension is a type of Size_dimension <A HREF="stepnc_aim.htm#52476" CLASS="XRef">See Size_dimension</A> that defines the allowable variation in the angular size of an element of the shape of a part.</P>
 <P CLASS="example">
-NOTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This definition has been harmonized with the Angular_size_dimension definitions in ISO 10303-1050 and ISO 10303-214, as well as the Angular_size_dimension_tolerance definition in ISO 10303-224.  <A HREF="stepnc_aim_body.htm#23433" CLASS="XRef">See Angular_size_dimension</A> illustrates the parameter combinations of an Angular_size_dimension.  </P>
+NOTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This definition has been harmonized with the Angular_size_dimension definitions in ISO 10303-1050 and ISO 10303-214, as well as the Angular_size_dimension_tolerance definition in ISO 10303-224.  <A HREF="figure-3">Figure 3</A> illustrates the parameter combinations of an Angular_size_dimension.  </P>
 
 <FIGURE>
 <IMG SRC="images/dim_ang_size.svg">
@@ -793,12 +793,12 @@ The data associated with an Angular_size_dimension are the following:</P>
 </UL>
 
 
-<H3><A NAME="clause-4-2-7-1"></A>4.2.7.1 full</H3>
+<H4><A NAME="clause-4-2-7-1"></A>4.2.7.1 full</H4>
 <P>
 The full attribute specifies whether the Angular_size_dimension refers to the full angle or the half angle representing the size of the shape element.</P>
 
 
-<H3><A NAME="clause-4-2-7-2"></A>4.2.7.2 major_angle</H3>
+<H4><A NAME="clause-4-2-7-2"></A>4.2.7.2 major_angle</H4>
 <P>
 The major_angle specifies which of the two possible angles shall be considered. A value of `true' specifies the angle to be the larger of the two angles formed by the angular element.</P>
 
@@ -807,7 +807,7 @@ The major_angle specifies which of the two possible angles shall be considered. 
 <P>
 An Angularity_tolerance is a type of Geometric_tolerance <A HREF="stepnc_aim.htm#97219" CLASS="XRef">See Geometric_tolerance</A> that specifies a constraint on the location of a surface, of a centre plane, of an edge, or of an axis that lies theoretically at a specified angle (other than 90 degrees) from a datum plane or from a datum axis. An Angularity_tolerance specifies one of the following:</P>
 <P CLASS="example">
-NOTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This definition has been harmonized with the Angularity_tolerance definitions in ISO 10303-1051, ISO 10303-214, and ISO 10303-224.  This definition is derived from clause 14.9 of ISO 1101:2004.   <A HREF="stepnc_aim_body.htm#87924" CLASS="XRef">See Angularity_tolerance</A> illustrates an Angularity_tolerance for a plane surface.  </P>
+NOTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This definition has been harmonized with the Angularity_tolerance definitions in ISO 10303-1051, ISO 10303-214, and ISO 10303-224.  This definition is derived from clause 14.9 of ISO 1101:2004.   <A HREF="figure-4">Figure 4</A> illustrates an Angularity_tolerance for a plane surface.</P>
 
 <FIGURE>
 <IMG SRC="images/tol_angularity.svg">
@@ -824,7 +824,7 @@ The data associated with an Angularity_tolerance are the following:</P>
 </UL>
 
 
-<H3><A NAME="clause-4-2-8-1"></A>4.2.8.1 reference_datum</H3>
+<H4><A NAME="clause-4-2-8-1"></A>4.2.8.1 reference_datum</H4>
 <P>
 The reference_datum specifies the set of Datum_reference objects that define the reference frame for the geometric tolerance.  See <A HREF="stepnc_aim.htm#62571" CLASS="XRef">See Angularity_tolerance to Datum_reference</A> for the application assertion.</P>
 
@@ -926,24 +926,24 @@ The data associated with an Approval are the following:</P>
 </UL>
 
 
-<H3><A NAME="clause-4-2-15-1"></A>4.2.15.1 actual_date</H3>
+<H4><A NAME="clause-4-2-15-1"></A>4.2.15.1 actual_date</H4>
 <P>
 The actual_date specifies the point in time when the Approval actually became valid. The actual_date need not be specified for a particular Approval. </P>
 
 
-<H3><A NAME="clause-4-2-15-2"></A>4.2.15.2 planned_date</H3>
+<H4><A NAME="clause-4-2-15-2"></A>4.2.15.2 planned_date</H4>
 <P>
 The planned_date specifies the point in time when the Approval is or was supposed to be performed. The planned_date need not be specified for a particular Approval. </P>
 
 
-<H3><A NAME="clause-4-2-15-3"></A>4.2.15.3 purpose</H3>
+<H4><A NAME="clause-4-2-15-3"></A>4.2.15.3 purpose</H4>
 <P>
 The purpose specifies the text that completes the information provided within the status attribute, specifying the reason or goal of the Approval.</P>
 <P CLASS="example">
 EXAMPLE    'released for production' or 'preliminary design completed' are approval purposes.</P>
 
 
-<H3><A NAME="clause-4-2-15-4"></A>4.2.15.4 status</H3>
+<H4><A NAME="clause-4-2-15-4"></A>4.2.15.4 status</H4>
 <P>
 The status specifies the Approval_status that provides a user interpretable designation of the level of approval.  See <A HREF="stepnc_aim.htm#21158" CLASS="XRef">See Approval to Approval_status</A> for the application assertion.</P>
 
@@ -963,22 +963,22 @@ The data associated with an Approval_relationship are the following:</P>
 </UL>
 
 
-<H3><A NAME="clause-4-2-16-1"></A>4.2.16.1 description</H3>
+<H4><A NAME="clause-4-2-16-1"></A>4.2.16.1 description</H4>
 <P>
 The description specifies the text that provides further information about the Approval_relationship. The description need not be specified for a particular Approval_relationship. </P>
 
 
-<H3><A NAME="clause-4-2-16-2"></A>4.2.16.2 related_approval</H3>
+<H4><A NAME="clause-4-2-16-2"></A>4.2.16.2 related_approval</H4>
 <P>
 The related_approval specifies one of the Approval objects that is a part of the relationship. If one element of the relationship is dependent of the other, this attribute shall be the dependent one. See <A HREF="stepnc_aim.htm#41437" CLASS="XRef">See Approval_relationship to Approval (as related_approval)</A> for the application assertion.</P>
 
 
-<H3><A NAME="clause-4-2-16-3"></A>4.2.16.3 relating_approval</H3>
+<H4><A NAME="clause-4-2-16-3"></A>4.2.16.3 relating_approval</H4>
 <P>
 The relating_approval specifies one of the Approval objects that is a part of the relationship. See <A HREF="stepnc_aim.htm#17904" CLASS="XRef">See Approval_relationship to Approval (as relating_approval)</A> for the application assertion.</P>
 
 
-<H3><A NAME="clause-4-2-16-4"></A>4.2.16.4 relation_type</H3>
+<H4><A NAME="clause-4-2-16-4"></A>4.2.16.4 relation_type</H4>
 <P>
 The relation_type specifies the text that specifies the meaning of the relationship. Where applicable, the following values shall be used: </P>
 <UL>
@@ -1007,7 +1007,7 @@ The data associated with an Approval_status are the following:</P>
 </UL>
 
 
-<H3><A NAME="clause-4-2-17-1"></A>4.2.17.1 status_name</H3>
+<H4><A NAME="clause-4-2-17-1"></A>4.2.17.1 status_name</H4>
 <P>
 The status_name specifies the text by which the Approval_status is designated. </P>
 <P CLASS="example">
@@ -1029,22 +1029,22 @@ The data associated with an Approving_person_organization are the following:</P>
 </UL>
 
 
-<H3><A NAME="clause-4-2-18-1"></A>4.2.18.1 approval_date</H3>
+<H4><A NAME="clause-4-2-18-1"></A>4.2.18.1 approval_date</H4>
 <P>
 The approval_date specifies the point in time when the Approval has been given. The approval_date need not be specified for a particular Approving_person_organization. </P>
 
 
-<H3><A NAME="clause-4-2-18-2"></A>4.2.18.2 authorized_approval</H3>
+<H4><A NAME="clause-4-2-18-2"></A>4.2.18.2 authorized_approval</H4>
 <P>
 The authorized_approval specifies the Approval that has been given by the considered person or the organization. See <A HREF="stepnc_aim.htm#21303" CLASS="XRef">See Approving_person_organization to Approval</A> for the application assertion.</P>
 
 
-<H3><A NAME="clause-4-2-18-3"></A>4.2.18.3 person_organization</H3>
+<H4><A NAME="clause-4-2-18-3"></A>4.2.18.3 person_organization</H4>
 <P>
 The person_organization specifies the organization or person and organization that has granted the approval. </P>
 
 
-<H3><A NAME="clause-4-2-18-4"></A>4.2.18.4 role</H3>
+<H4><A NAME="clause-4-2-18-4"></A>4.2.18.4 role</H4>
 <P>
 The role specifies the text that indicates the role of the considered person or organization with respect to the approval. The role need not be specified for a particular Approving_person_organization.  By default, the person or organization shall only be considered as an approver without any specific role. </P>
 <P CLASS="example">
@@ -1069,12 +1069,12 @@ The data associated with an Assigned_date are the following:</P>
 </UL>
 
 
-<H3><A NAME="clause-4-2-20-1"></A>4.2.20.1 date_value</H3>
+<H4><A NAME="clause-4-2-20-1"></A>4.2.20.1 date_value</H4>
 <P>
 The date_value specifies the date that is assigned. </P>
 
 
-<H3><A NAME="clause-4-2-20-2"></A>4.2.20.2 role</H3>
+<H4><A NAME="clause-4-2-20-2"></A>4.2.20.2 role</H4>
 <P>
 The role specifies the text that indicates the role of the considered date.</P>
 <P CLASS="example">
@@ -1094,12 +1094,12 @@ The data associated with an Assigned_organization are the following:</P>
 </UL>
 
 
-<H3><A NAME="clause-4-2-21-1"></A>4.2.21.1 organization_value</H3>
+<H4><A NAME="clause-4-2-21-1"></A>4.2.21.1 organization_value</H4>
 <P>
 The organization_value specifies the organization that is assigned. </P>
 
 
-<H3><A NAME="clause-4-2-21-2"></A>4.2.21.2 role</H3>
+<H4><A NAME="clause-4-2-21-2"></A>4.2.21.2 role</H4>
 <P>
 The role specifies the text that indicates the role of the considered organization.</P>
 <P CLASS="example">
@@ -1119,12 +1119,12 @@ The data associated with an Assigned_person are the following:</P>
 </UL>
 
 
-<H3><A NAME="clause-4-2-22-1"></A>4.2.22.1 person_and_organization_value</H3>
+<H4><A NAME="clause-4-2-22-1"></A>4.2.22.1 person_and_organization_value</H4>
 <P>
 The person_and_organization_value specifies the person and organization that is assigned. </P>
 
 
-<H3><A NAME="clause-4-2-22-2"></A>4.2.22.2 role</H3>
+<H4><A NAME="clause-4-2-22-2"></A>4.2.22.2 role</H4>
 <P>
 The role specifies the text that indicates the role of the considered person and organization.</P>
 <P CLASS="example">
@@ -1144,12 +1144,12 @@ The data associated with an Assigned_time are the following:</P>
 </UL>
 
 
-<H3><A NAME="clause-4-2-23-1"></A>4.2.23.1 date_and_time_value</H3>
+<H4><A NAME="clause-4-2-23-1"></A>4.2.23.1 date_and_time_value</H4>
 <P>
 The date_and_time_value specifies the date and time that is assigned. </P>
 
 
-<H3><A NAME="clause-4-2-23-2"></A>4.2.23.2 role</H3>
+<H4><A NAME="clause-4-2-23-2"></A>4.2.23.2 role</H4>
 <P>
 The role specifies the text that indicates the role of the considered date and time.</P>
 <P CLASS="example">
@@ -1195,7 +1195,7 @@ END_ENTITY;
 </PRE>
 
 
-<H3><A NAME="clause-4-2-25-1"></A>4.2.25.1 commands</H3>
+<H4><A NAME="clause-4-2-25-1"></A>4.2.25.1 commands</H4>
 <P>
 The commands parameter is as defined by ISO 14649-10, but this part of ISO 10303 adds the requirement that the parameterisation of each bounded_curve shall be the same.  See <A HREF="stepnc_aim.htm#85843" CLASS="XRef">See Matching curve parameterization</A> for additional discussion on curve parameterization.</P>
 
@@ -1378,7 +1378,7 @@ END_ENTITY;
 </PRE>
 
 
-<H3><A NAME="clause-4-2-36-1"></A>4.2.36.1 boss_height</H3>
+<H4><A NAME="clause-4-2-36-1"></A>4.2.36.1 boss_height</H4>
 <P>
 The boss_height specifies a Linear_path along which the its_boundary profile is swept to define the volume of the Boss.  The placement and orientation of the course_of_travel shall be the same as the Boss feature.  See <A HREF="stepnc_aim.htm#70168" CLASS="XRef">See Boss to Linear_path</A> for the application assertion.</P>
 <P CLASS="example">
@@ -1444,7 +1444,7 @@ The data associated with a BSU are the following:</P>
 </UL>
 
 
-<H3><A NAME="clause-4-2-40-1"></A>4.2.40.1 code</H3>
+<H4><A NAME="clause-4-2-40-1"></A>4.2.40.1 code</H4>
 <P>
 The code specifies the designation of the identification of the information piece.</P>
 
@@ -1529,17 +1529,17 @@ END_ENTITY;
 </PRE>
 
 
-<H3><A NAME="clause-4-2-45-1"></A>4.2.45.1 chamfer_face</H3>
+<H4><A NAME="clause-4-2-45-1"></A>4.2.45.1 chamfer_face</H4>
 <P>
 The chamfer_face specifies the flat transition surface located between the first_face_shape and the second_face_shape surfaces. This is a set of one or more faces on the boundary representation of the workpiece. The chamfer_face need not be specified for a particular Chamfer.</P>
 
 
-<H3><A NAME="clause-4-2-45-2"></A>4.2.45.2 first_face_shape</H3>
+<H4><A NAME="clause-4-2-45-2"></A>4.2.45.2 first_face_shape</H4>
 <P>
 The first_face_shape specifies specifies one of two surfaces that the Chamfer feature will create a transition between.  This is a set of one or more faces on the boundary representation of the workpiece. The first_face_shape need not be specified for a particular Chamfer.</P>
 
 
-<H3><A NAME="clause-4-2-45-3"></A>4.2.45.3 second_face_shape</H3>
+<H4><A NAME="clause-4-2-45-3"></A>4.2.45.3 second_face_shape</H4>
 <P>
 The second_face_shape specifies the other surface that the Chamfer feature will create a transition between. This is a set of one or more faces on the boundary representation of the workpiece. The second_face_shape need not be specified for a particular Chamfer.</P>
 
@@ -1674,12 +1674,12 @@ The data associated with a Circular_runout_tolerance are the following:</P>
 </UL>
 
 
-<H3><A NAME="clause-4-2-54-1"></A>4.2.54.1 angle</H3>
+<H4><A NAME="clause-4-2-54-1"></A>4.2.54.1 angle</H4>
 <P>
 The angle specifies the direction in which the runout tolerance is controlled. The angle need not be specified for a particular Circular_runout_tolerance.  If the angle is specified, the runout tolerance applies in this angle which is fixed with respect to the datum axis. If the angle is not specified, the runout tolerance applies normal to the surface generated by the rotation.</P>
 
 
-<H3><A NAME="clause-4-2-54-2"></A>4.2.54.2 reference_datum</H3>
+<H4><A NAME="clause-4-2-54-2"></A>4.2.54.2 reference_datum</H4>
 <P>
 The reference_datum specifies the set of Datum_reference objects that define the reference frame for the geometric tolerance.  See <A HREF="stepnc_aim.htm#21456" CLASS="XRef">See Circular_runout_tolerance to Datum_reference</A> for the application assertion.</P>
 
@@ -1699,12 +1699,12 @@ The data associated with a Class_BSU are the following:</P>
 </UL>
 
 
-<H3><A NAME="clause-4-2-55-1"></A>4.2.55.1 defined_by</H3>
+<H4><A NAME="clause-4-2-55-1"></A>4.2.55.1 defined_by</H4>
 <P>
 The defined_by specifies Supplier_BSU object which describes the library supplier who defines the library class. See <A HREF="stepnc_aim.htm#12490" CLASS="XRef">See Class_BSU to Supplier_BSU</A> for the application assertion.</P>
 
 
-<H3><A NAME="clause-4-2-55-2"></A>4.2.55.2 version</H3>
+<H4><A NAME="clause-4-2-55-2"></A>4.2.55.2 version</H4>
 <P>
 The version specifies the designation of the version of the information piece.</P>
 
@@ -1755,7 +1755,7 @@ The data associated with a Coaxiality_tolerance are the following:</P>
 </UL>
 
 
-<H3><A NAME="clause-4-2-58-1"></A>4.2.58.1 reference_datum</H3>
+<H4><A NAME="clause-4-2-58-1"></A>4.2.58.1 reference_datum</H4>
 <P>
 The reference_datum specifies the set of Datum_reference objects that define the reference frame for the geometric tolerance.  See <A HREF="stepnc_aim.htm#26978" CLASS="XRef">See Coaxiality_tolerance to Datum_reference</A> for the application assertion.</P>
 
@@ -1798,7 +1798,7 @@ The data associated with a Common_datum are the following:</P>
 </UL>
 
 
-<H3><A NAME="clause-4-2-61-1"></A>4.2.61.1 made_up_by</H3>
+<H4><A NAME="clause-4-2-61-1"></A>4.2.61.1 made_up_by</H4>
 <P>
 The made_up_by specifies the set of Single_datum objects that form the Common_datum.   See <A HREF="stepnc_aim.htm#64919" CLASS="XRef">See Common_datum to Single_datum</A> for the application assertion.</P>
 
@@ -1935,12 +1935,12 @@ END_TYPE;
 </PRE>
 
 
-<H3><A NAME="clause-4-2-70-1"></A>4.2.70.1 feature_description</H3>
+<H4><A NAME="clause-4-2-70-1"></A>4.2.70.1 feature_description</H4>
 <P>
 The feature_description specifies text that provides further information about the Compound_feature. The feature_description need not be specified for a particular Compound_feature.</P>
 
 
-<H3><A NAME="clause-4-2-70-2"></A>4.2.70.2 feature_name</H3>
+<H4><A NAME="clause-4-2-70-2"></A>4.2.70.2 feature_name</H4>
 <P>
 The feature_name specifies a name for the Compound_feature. The feature_name need not be unique.</P>
 <P CLASS="example">
@@ -1969,7 +1969,7 @@ The data associated with a Concentricity_tolerance are the following:</P>
 </UL>
 
 
-<H3><A NAME="clause-4-2-71-1"></A>4.2.71.1 reference_datum</H3>
+<H4><A NAME="clause-4-2-71-1"></A>4.2.71.1 reference_datum</H4>
 <P>
 The reference_datum specifies the set of Datum_reference objects that define the reference frame for the geometric tolerance.  See <A HREF="stepnc_aim.htm#49600" CLASS="XRef">See Concentricity_tolerance to Datum_reference</A> for the application assertion.</P>
 
@@ -2280,7 +2280,7 @@ The data associated with a Curved_distance_dimension are the following:</P>
 </UL>
 
 
-<H3><A NAME="clause-4-2-92-1"></A>4.2.92.1 used_path</H3>
+<H4><A NAME="clause-4-2-92-1"></A>4.2.92.1 used_path</H4>
 <P>
 The used_path specifies a Measurement_path along which the Curved_distance_dimension is measured.    See <A HREF="stepnc_aim.htm#90966" CLASS="XRef">See Curved_distance_dimension to Measurement_path</A> for the application assertion.</P>
 
@@ -2329,17 +2329,17 @@ END_TYPE;
 </PRE>
 
 
-<H3><A NAME="clause-4-2-94-1"></A>4.2.94.1 its_toolaxis</H3>
+<H4><A NAME="clause-4-2-94-1"></A>4.2.94.1 its_toolaxis</H4>
 <P>
 The its_toolaxis parameter is defined by ISO 14649-10 to contain tilt and yaw angles, but this part of ISO 10303 modifies this requirement so that its_toolaxis shall contain the IJK components of the tool axis vector, as is defined by the Cutter_location_trajectory its_toolaxis parameter.</P>
 
 
-<H3><A NAME="clause-4-2-94-2"></A>4.2.94.2 path_maximum_deviation</H3>
+<H4><A NAME="clause-4-2-94-2"></A>4.2.94.2 path_maximum_deviation</H4>
 <P>
 The path_maximum_deviation specifies a linear distance.  If this distance is specified, the NC control shall not allow the physical motion of the cutter contact point during execution of the toolpath to exceed this distance from the basiccurve specified by the toolpath.  The path_maximum_deviation need not be specified for a particular Cutter_contact_trajectory. </P>
 
 
-<H3><A NAME="clause-4-2-94-3"></A>4.2.94.3 tool_axis_maximum_deviation</H3>
+<H4><A NAME="clause-4-2-94-3"></A>4.2.94.3 tool_axis_maximum_deviation</H4>
 <P>
 The tool_axis_maximum_deviation specifies a plane angle.  If this angle is specified, the NC control shall not allow the physical orientation of the tool axis during execution of the toolpath to exceed this angular distance from the its_toolaxis direction.  The tool_axis_maximum_deviation need not be specified for a particular Cutter_contact_trajectory. </P>
 <P CLASS="example">
@@ -2377,17 +2377,17 @@ END_ENTITY;
 </PRE>
 
 
-<H3><A NAME="clause-4-2-95-1"></A>4.2.95.1 surface_normal</H3>
+<H4><A NAME="clause-4-2-95-1"></A>4.2.95.1 surface_normal</H4>
 <P>
 The surface_normal parameter is defined by ISO 14649-10 remains unchanged, but this part of ISO 10303 clarifies the contents of this parameter so that surface_normal shall contain the IJK components of the surface normal vector.</P>
 
 
-<H3><A NAME="clause-4-2-95-2"></A>4.2.95.2 path_maximum_deviation</H3>
+<H4><A NAME="clause-4-2-95-2"></A>4.2.95.2 path_maximum_deviation</H4>
 <P>
 The path_maximum_deviation specifies a linear distance.  If this distance is specified, the NC control shall not allow the physical motion of the cutter centre point during execution of the toolpath to exceed this distance from the basiccurve specified by the toolpath.  The path_maximum_deviation need not be specified for a particular Cutter_location_trajectory. </P>
 
 
-<H3><A NAME="clause-4-2-95-3"></A>4.2.95.3 tool_axis_maximum_deviation</H3>
+<H4><A NAME="clause-4-2-95-3"></A>4.2.95.3 tool_axis_maximum_deviation</H4>
 <P>
 The tool_axis_maximum_deviation specifies a plane angle.  If this angle is specified, the NC control shall not allow the physical orientation of the tool axis during execution of the toolpath to exceed this angular distance from the its_toolaxis direction.  The tool_axis_maximum_deviation need not be specified for a particular Cutter_location_trajectory. </P>
 <P CLASS="example">
@@ -2480,7 +2480,7 @@ The data associated with a Datum_defined_by_feature are the following:</P>
 </UL>
 
 
-<H3><A NAME="clause-4-2-102-1"></A>4.2.102.1 defined_by</H3>
+<H4><A NAME="clause-4-2-102-1"></A>4.2.102.1 defined_by</H4>
 <P>
 The defined_by specifies the shape element that represents the Datum_defined_by_feature.  There shall be exactly one shape element that appears as defined_by for a Datum_defined_by_feature. </P>
 
@@ -2498,12 +2498,12 @@ The data associated with a Datum_defined_by_targets are the following:</P>
 </UL>
 
 
-<H3><A NAME="clause-4-2-103-1"></A>4.2.103.1 defined_by</H3>
+<H4><A NAME="clause-4-2-103-1"></A>4.2.103.1 defined_by</H4>
 <P>
 The defined_by specifies the set of Datum_target objects that form the Datum_defined_by_targets.  See <A HREF="stepnc_aim.htm#66170" CLASS="XRef">See Datum_defined_by_targets to Datum_target</A> for the application assertion.</P>
 
 
-<H3><A NAME="clause-4-2-103-2"></A>4.2.103.2 rule_description</H3>
+<H4><A NAME="clause-4-2-103-2"></A>4.2.103.2 rule_description</H4>
 <P>
 The rule_description specifies the type of datum that is formed by the Datum_defined_by_targets.  The rule_description need not be specified for a particular Datum_defined_by_targets.</P>
 <P CLASS="example">
@@ -2521,12 +2521,12 @@ The data associated with a Datum_reference are the following:</P>
 </UL>
 
 
-<H3><A NAME="clause-4-2-104-1"></A>4.2.104.1 precedence</H3>
+<H4><A NAME="clause-4-2-104-1"></A>4.2.104.1 precedence</H4>
 <P>
 The precedence specifies the position of the referenced_datum in a sequence of Datum objects when used to locate or orient a tolerance zone.</P>
 
 
-<H3><A NAME="clause-4-2-104-2"></A>4.2.104.2 referenced_datum</H3>
+<H4><A NAME="clause-4-2-104-2"></A>4.2.104.2 referenced_datum</H4>
 <P>
 The referenced_datum specifies the Datum to which the Datum_reference applies.  See <A HREF="stepnc_aim.htm#17130" CLASS="XRef">See Datum_reference to Datum</A> for the application assertion.</P>
 
@@ -2543,7 +2543,7 @@ The data associated with a Datum_target are the following:</P>
 </UL>
 
 
-<H3><A NAME="clause-4-2-105-1"></A>4.2.105.1 identifier</H3>
+<H4><A NAME="clause-4-2-105-1"></A>4.2.105.1 identifier</H4>
 <P>
 The identifier specifies a unique identification for the Datum_target within a Datum_defined_by_targets.</P>
 
@@ -2574,12 +2574,12 @@ The data associated with a Derived_geometry are the following:</P>
 </UL>
 
 
-<H3><A NAME="clause-4-2-107-1"></A>4.2.107.1 derived_from</H3>
+<H4><A NAME="clause-4-2-107-1"></A>4.2.107.1 derived_from</H4>
 <P>
 The derived_from specifies the set of one or more shape elements from which the geometric element is derived.</P>
 
 
-<H3><A NAME="clause-4-2-107-2"></A>4.2.107.2 role</H3>
+<H4><A NAME="clause-4-2-107-2"></A>4.2.107.2 role</H4>
 <P>
 The role specifies the function of the Derived_geometry.  Where applicable the following values shall be used:</P>
 <UL>
@@ -2794,17 +2794,17 @@ END_ENTITY;
 </PRE>
 
 
-<H3><A NAME="clause-4-2-120-1"></A>4.2.120.1 edge_round_face</H3>
+<H4><A NAME="clause-4-2-120-1"></A>4.2.120.1 edge_round_face</H4>
 <P>
 The edge_round_face specifies the circular transition surface located between the first_face_shape and the second_face_shape surfaces. This is a set of one or more faces on the boundary representation of the workpiece. The edge_round_face need not be specified for a particular Edge_round.</P>
 
 
-<H3><A NAME="clause-4-2-120-2"></A>4.2.120.2 first_face_shape</H3>
+<H4><A NAME="clause-4-2-120-2"></A>4.2.120.2 first_face_shape</H4>
 <P>
 The first_face_shape specifies one of two surfaces the Edge_round feature will transition between. This is a set of one or more faces on the boundary representation of the workpiece. The first_face_shape need not be specified for a particular Edge_round.</P>
 
 
-<H3><A NAME="clause-4-2-120-3"></A>4.2.120.3 second_face_shape</H3>
+<H4><A NAME="clause-4-2-120-3"></A>4.2.120.3 second_face_shape</H4>
 <P>
 The second_face_shape specifies the other surface the Edge_round feature will transition between. This is a set of one or more faces on the boundary representation of the workpiece. The second_face_shape need not be specified for a particular Edge_round.</P>
 
@@ -2882,7 +2882,7 @@ The data associated with an Extended_NC_function are the following:</P>
 </UL>
 
 
-<H3><A NAME="clause-4-2-126-1"></A>4.2.126.1 description</H3>
+<H4><A NAME="clause-4-2-126-1"></A>4.2.126.1 description</H4>
 <P>
 The description specifies a string value which identifies the function.</P>
 
@@ -2901,17 +2901,17 @@ The data associated with a Externally_defined_representation are the following:<
 </UL>
 
 
-<H3><A NAME="clause-4-2-127-1"></A>4.2.127.1 identified_by</H3>
+<H4><A NAME="clause-4-2-127-1"></A>4.2.127.1 identified_by</H4>
 <P>
 The identified_by specifies the Library_part_assignment object which describes the part being referenced, that is contained in an external library. See <A HREF="stepnc_aim.htm#78801" CLASS="XRef">See Externally_defined_representation to Library_part_assignment</A> for the application assertion.</P>
 
 
-<H3><A NAME="clause-4-2-127-2"></A>4.2.127.2 location</H3>
+<H4><A NAME="clause-4-2-127-2"></A>4.2.127.2 location</H4>
 <P>
 The location specifies the orientation of the external product data within the geometric domain of the product data of this part of ISO 10303. A location need not be specified for a particular Externally_defined_representation.</P>
 
 
-<H3><A NAME="clause-4-2-127-3"></A>4.2.127.3 placement</H3>
+<H4><A NAME="clause-4-2-127-3"></A>4.2.127.3 placement</H4>
 <P>
 The placement specifies the positioning of the external product data within the geometric domain of the product data of this part of ISO 10303. A placement need not be specified for a particular Externally_defined_representation.</P>
 
@@ -2930,17 +2930,17 @@ The data associated with an Externally_defined_size_dimension are the following:
 </UL>
 
 
-<H3><A NAME="clause-4-2-128-1"></A>4.2.128.1 defining_document</H3>
+<H4><A NAME="clause-4-2-128-1"></A>4.2.128.1 defining_document</H4>
 <P>
 The defining_document specifies a document that contains information about the type of dimension.</P>
 
 
-<H3><A NAME="clause-4-2-128-2"></A>4.2.128.2 name</H3>
+<H4><A NAME="clause-4-2-128-2"></A>4.2.128.2 name</H4>
 <P>
 The name specifies the label by which the Externally_defined_size_dimension is known.</P>
 
 
-<H3><A NAME="clause-4-2-128-3"></A>4.2.128.3 used_path</H3>
+<H4><A NAME="clause-4-2-128-3"></A>4.2.128.3 used_path</H4>
 <P>
 The used_path specifies a Measurement_path along which the Externally_defined_size_dimension is  measured.  The used_path need not be specified for a particular Externally_defined_size_dimension.   See <A HREF="stepnc_aim.htm#94800" CLASS="XRef">See Externally_defined_size_dimension to Measurement_path</A> for the application assertion.</P>
 
@@ -3157,7 +3157,7 @@ END_TYPE;
 </PRE>
 
 
-<H3><A NAME="clause-4-2-144-1"></A>4.2.144.1 closed_profile_shape</H3>
+<H4><A NAME="clause-4-2-144-1"></A>4.2.144.1 closed_profile_shape</H4>
 <P>
 The closed_profile_shape parameter is defined by ISO 14649-10 to be of type bounded_curve, but this part of ISO 10303 relaxes this requirement so that closed_profile_shape may also be of type edge_curve or path.</P>
 <P CLASS="example">
@@ -3196,7 +3196,7 @@ END_ENTITY;
 </PRE>
 
 
-<H3><A NAME="clause-4-2-146-1"></A>4.2.146.1 swept_path</H3>
+<H4><A NAME="clause-4-2-146-1"></A>4.2.146.1 swept_path</H4>
 <P>
 The swept_path parameter is defined by ISO 14649-10 to be of type bounded_curve, but this part of ISO 10303 relaxes this requirement so that swept_path may also be of type edge_curve or path.</P>
 <P CLASS="example">
@@ -3250,7 +3250,7 @@ END_ENTITY;
 </PRE>
 
 
-<H3><A NAME="clause-4-2-149-1"></A>4.2.149.1 its_profile</H3>
+<H4><A NAME="clause-4-2-149-1"></A>4.2.149.1 its_profile</H4>
 <P>
 The its_profile parameter is defined by ISO 14649-10 to be of type bounded_curve, but this part of ISO 10303 relaxes this requirement so that its_profile may also be of type edge_curve or path.</P>
 <P CLASS="example">
@@ -3285,22 +3285,22 @@ The data associated with a General_property are the following:</P>
 </UL>
 
 
-<H3><A NAME="clause-4-2-151-1"></A>4.2.151.1 description</H3>
+<H4><A NAME="clause-4-2-151-1"></A>4.2.151.1 description</H4>
 <P>
 The description specifies a word or group of words by which a property is commonly referred.</P>
 
 
-<H3><A NAME="clause-4-2-151-2"></A>4.2.151.2 owner</H3>
+<H4><A NAME="clause-4-2-151-2"></A>4.2.151.2 owner</H4>
 <P>
 The owner specifies the Workpiece object or shape element to which the General_property applies.  See <A HREF="stepnc_aim.htm#26827" CLASS="XRef">See General_property to Workpiece</A> for the application assertion.</P>
 
 
-<H3><A NAME="clause-4-2-151-3"></A>4.2.151.3 specifications</H3>
+<H4><A NAME="clause-4-2-151-3"></A>4.2.151.3 specifications</H4>
 <P>
 The specifications specifies the set of Specification objects that have additional information about the General_property.  The specifications need not be specified for a particular General_property.  See <A HREF="stepnc_aim.htm#58649" CLASS="XRef">See General_property to Specification</A> for the application assertion.</P>
 
 
-<H3><A NAME="clause-4-2-151-4"></A>4.2.151.4 related_properties</H3>
+<H4><A NAME="clause-4-2-151-4"></A>4.2.151.4 related_properties</H4>
 <P>
 The related_properties specifies the set of General_property objects that are associated with a General_property.  The related_properties need not be specified for a particular General_property.  See <A HREF="stepnc_aim.htm#48706" CLASS="XRef">See General_property to General_property</A> for the application assertion.</P>
 
@@ -3357,17 +3357,17 @@ The data associated with a Geometric_dimension are the following:</P>
 </UL>
 
 
-<H3><A NAME="clause-4-2-155-1"></A>4.2.155.1 dimension_value</H3>
+<H4><A NAME="clause-4-2-155-1"></A>4.2.155.1 dimension_value</H4>
 <P>
 The dimension_value specifies a Value_with_tolerance or Value_range which  describes the size of the element or of the distance between the two elements, as well as the total amount by which that value is permitted to vary.   See <A HREF="stepnc_aim.htm#73692" CLASS="XRef">See Geometric_dimension to Value_range</A> and <A HREF="stepnc_aim.htm#14668" CLASS="XRef">See Geometric_dimension to Value_with_tolerance</A> for the application assertion.</P>
 
 
-<H3><A NAME="clause-4-2-155-2"></A>4.2.155.2 id</H3>
+<H4><A NAME="clause-4-2-155-2"></A>4.2.155.2 id</H4>
 <P>
 The id specifies the string identifier of the Geometric_dimension.</P>
 
 
-<H3><A NAME="clause-4-2-155-3"></A>4.2.155.3 notes</H3>
+<H4><A NAME="clause-4-2-155-3"></A>4.2.155.3 notes</H4>
 <P>
 The notes specifies a set of one or more string values that provide additional information about the Geometric_dimension.  The notes field need not be specified for a particular Geometric_dimension.   Where applicable the following values shall be used:</P>
 <UL>
@@ -3396,39 +3396,39 @@ The data associated with a Geometric_tolerance are the following:</P>
 </UL>
 
 
-<H3><A NAME="clause-4-2-156-1"></A>4.2.156.1 applied_to</H3>
+<H4><A NAME="clause-4-2-156-1"></A>4.2.156.1 applied_to</H4>
 <P>
 The applied_to specifies the shape element to which the Geometric_tolerance applies.</P>
 
 
-<H3><A NAME="clause-4-2-156-2"></A>4.2.156.2 modification</H3>
+<H4><A NAME="clause-4-2-156-2"></A>4.2.156.2 modification</H4>
 <P>
 The modification specifies the Tolerance_condition that is associated with the Geometric_tolerance.  The modification need not be specified for a particular Geometric_tolerance.  See <A HREF="stepnc_aim.htm#79987" CLASS="XRef">See Geometric_tolerance to Tolerance_condition</A> for the application assertion.</P>
 
 
-<H3><A NAME="clause-4-2-156-3"></A>4.2.156.3 name</H3>
+<H4><A NAME="clause-4-2-156-3"></A>4.2.156.3 name</H4>
 <P>
 The name specifies the word or group of words by which the Geometric_tolerance is referred to. The name need not be specified for a particular Geometric_tolerance.</P>
 
 
-<H3><A NAME="clause-4-2-156-4"></A>4.2.156.4 qualifying_note</H3>
+<H4><A NAME="clause-4-2-156-4"></A>4.2.156.4 qualifying_note</H4>
 <P>
 The qualifying_note specifies text that provides additional information about the Geometric_tolerance. The qualifying_note need not be specified for a particular Geometric_tolerance.</P>
 <P CLASS="example">
 EXAMPLE    `not concave' and `boundary' are examples of a qualifying note.</P>
 
 
-<H3><A NAME="clause-4-2-156-5"></A>4.2.156.5 segment_size</H3>
+<H4><A NAME="clause-4-2-156-5"></A>4.2.156.5 segment_size</H4>
 <P>
 The segment_size specifies a length of a segment that constrains how the tolerance applies. All along any segment of this size, taken on the toleranced element, the toleranced element shall conform to the tolerance. The segment_size need not be specified for a particular Geometric_tolerance.</P>
 
 
-<H3><A NAME="clause-4-2-156-6"></A>4.2.156.6 significant_digits</H3>
+<H4><A NAME="clause-4-2-156-6"></A>4.2.156.6 significant_digits</H4>
 <P>
 The significant_digits specify the number of decimal digits indicating the accuracy of the tolerance value. The significant_digits need not be specified for a particular Geometric_tolerance.</P>
 
 
-<H3><A NAME="clause-4-2-156-7"></A>4.2.156.7 tolerance_value</H3>
+<H4><A NAME="clause-4-2-156-7"></A>4.2.156.7 tolerance_value</H4>
 <P>
 The tolerance_value specifies the value of the width of the tolerance zone. The meaning of this value will depend on the standard used for the interpretation of the geometric tolerance. </P>
 
@@ -3447,21 +3447,21 @@ The data associated with a Geometric_tolerance_relationship are the following:</
 </UL>
 
 
-<H3><A NAME="clause-4-2-157-1"></A>4.2.157.1 relating</H3>
+<H4><A NAME="clause-4-2-157-1"></A>4.2.157.1 relating</H4>
 <P>
 The relating specifies one of the instances of Geometric_tolerance that is a part of the relationship.  See <A HREF="stepnc_aim.htm#26230" CLASS="XRef">See Geometric_tolerance_relationship to Geometric_tolerance (as relating)</A> for the application assertion.</P>
 <P CLASS="example">
 NOTE    The semantics of this attribute are defined by the attribute relation_type.</P>
 
 
-<H3><A NAME="clause-4-2-157-2"></A>4.2.157.2  related</H3>
+<H4><A NAME="clause-4-2-157-2"></A>4.2.157.2  related</H4>
 <P>
 The related specifies one of the instances of Geometric_tolerance that is a part of the relationship.  See <A HREF="stepnc_aim.htm#32881" CLASS="XRef">See Geometric_tolerance_relationship to Geometric_tolerance (as related)</A> for the application assertion.</P>
 <P CLASS="example">
 NOTE    The semantics of this attribute are defined by the attribute relation_type.</P>
 
 
-<H3><A NAME="clause-4-2-157-3"></A>4.2.157.3 relation_type</H3>
+<H4><A NAME="clause-4-2-157-3"></A>4.2.157.3 relation_type</H4>
 <P>
 The relation_type specifies the meaning of the relationship. Where applicable, the following values shall be used: </P>
 <UL>
@@ -3571,22 +3571,22 @@ The data associated with a Hardness are the following:</P>
 </UL>
 
 
-<H3><A NAME="clause-4-2-164-1"></A>4.2.164.1 high_value</H3>
+<H4><A NAME="clause-4-2-164-1"></A>4.2.164.1 high_value</H4>
 <P>
 The high_value specifies the highest allowed value of hardness for a specific material type. The high_value need not be specified for a particular Hardness.</P>
 
 
-<H3><A NAME="clause-4-2-164-2"></A>4.2.164.2 low_value</H3>
+<H4><A NAME="clause-4-2-164-2"></A>4.2.164.2 low_value</H4>
 <P>
 The low_value specifies the lowest allowed value of hardness for a specific material type. The low_value need not be specified for a particular Hardness.</P>
 
 
-<H3><A NAME="clause-4-2-164-3"></A>4.2.164.3 nominal</H3>
+<H4><A NAME="clause-4-2-164-3"></A>4.2.164.3 nominal</H4>
 <P>
 The nominal specifies the nominal value of hardness for a specific material type.</P>
 
 
-<H3><A NAME="clause-4-2-164-4"></A>4.2.164.4 scale</H3>
+<H4><A NAME="clause-4-2-164-4"></A>4.2.164.4 scale</H4>
 <P>
 The scale specifies the method for measuring hardness values. Where applicable, the following values shall be used:</P>
 <UL>
@@ -3608,7 +3608,7 @@ The data associated with a Height_size_dimension are the following:</P>
 </UL>
 
 
-<H3><A NAME="clause-4-2-165-1"></A>4.2.165.1 used_path</H3>
+<H4><A NAME="clause-4-2-165-1"></A>4.2.165.1 used_path</H4>
 <P>
 The used_path specifies a Measurement_path along which the Height_size_dimension is measured.  The used_path need not be specified for a particular Height_size_dimension.   See <A HREF="stepnc_aim.htm#92608" CLASS="XRef">See Height_size_dimension to Measurement_path</A> for the application assertion.</P>
 
@@ -3663,17 +3663,17 @@ END_ENTITY;
 </PRE>
 
 
-<H3><A NAME="clause-4-2-168-1"></A>4.2.168.1 as_is</H3>
+<H4><A NAME="clause-4-2-168-1"></A>4.2.168.1 as_is</H4>
 <P>
 The as_is parameter is defined by ISO 14649-10 to be of type advanced_brep_shape_representation, but this part of ISO 10303 relaxes this requirement so that as_is shall be of the more general type shape_representation.</P>
 
 
-<H3><A NAME="clause-4-2-168-2"></A>4.2.168.2 removal</H3>
+<H4><A NAME="clause-4-2-168-2"></A>4.2.168.2 removal</H4>
 <P>
 The removal parameter is defined by ISO 14649-10 to be of type advanced_brep_shape_representation, but this part of ISO 10303 relaxes this requirement so that removal shall be of the more general type shape_representation.</P>
 
 
-<H3><A NAME="clause-4-2-168-3"></A>4.2.168.3 to_be</H3>
+<H4><A NAME="clause-4-2-168-3"></A>4.2.168.3 to_be</H4>
 <P>
 The to_be parameter is defined by ISO 14649-10 to be of type advanced_brep_shape_representation, but this part of ISO 10303 relaxes this requirement so that to_be shall be of the more general type shape_representation.</P>
 
@@ -3768,12 +3768,12 @@ The data associated with a Last_modified_timestamp are the following:</P>
 </UL>
 
 
-<H3><A NAME="clause-4-2-174-1"></A>4.2.174.1 date_and_time_value</H3>
+<H4><A NAME="clause-4-2-174-1"></A>4.2.174.1 date_and_time_value</H4>
 <P>
 The date_and_time_value specifies the point in time when the items were most recently modified or created.</P>
 
 
-<H3><A NAME="clause-4-2-174-2"></A>4.2.174.2 items</H3>
+<H4><A NAME="clause-4-2-174-2"></A>4.2.174.2 items</H4>
 <P>
 The items specifies the set of projects, workpieces, executables, operations, or toolpaths to which the date_and_time_value applies.  The items set shall contain at least one object.  See <A HREF="stepnc_aim.htm#16896" CLASS="XRef">See Last_modified_timestamp to Executable</A>, <A HREF="stepnc_aim.htm#12888" CLASS="XRef">See Last_modified_timestamp to Operation</A>, <A HREF="stepnc_aim.htm#33653" CLASS="XRef">See Last_modified_timestamp to Project</A>, <A HREF="stepnc_aim.htm#20887" CLASS="XRef">See Last_modified_timestamp to Toolpath</A>, and <A HREF="stepnc_aim.htm#34369" CLASS="XRef">See Last_modified_timestamp to Workpiece</A> for the application assertions.</P>
 
@@ -3810,7 +3810,7 @@ The data associated with a Length_size_dimension are the following:</P>
 </UL>
 
 
-<H3><A NAME="clause-4-2-177-1"></A>4.2.177.1 used_path</H3>
+<H4><A NAME="clause-4-2-177-1"></A>4.2.177.1 used_path</H4>
 <P>
 The used_path specifies a Measurement_path along which the Length_size_dimension is measured.  The used_path need not be specified for a particular Length_size_dimension.   See <A HREF="stepnc_aim.htm#20992" CLASS="XRef">See Length_size_dimension to Measurement_path</A> for the application assertion.</P>
 
@@ -3828,12 +3828,12 @@ The data associated with a Library_part_assignment are the following:</P>
 </UL>
 
 
-<H3><A NAME="clause-4-2-178-1"></A>4.2.178.1 definitional_class_bsu</H3>
+<H4><A NAME="clause-4-2-178-1"></A>4.2.178.1 definitional_class_bsu</H4>
 <P>
 The definitional_class_bsu specifies the Class_BSU object which identifies the component within a parts library as defined by ISO 13584.  See <A HREF="stepnc_aim.htm#15864" CLASS="XRef">See Library_part_assignment to Class_BSU</A> for the application assertion.</P>
 
 
-<H3><A NAME="clause-4-2-178-2"></A>4.2.178.2 definitional_property_value_pairs</H3>
+<H4><A NAME="clause-4-2-178-2"></A>4.2.178.2 definitional_property_value_pairs</H4>
 <P>
 The definitional_property_value_pairs specifies the set of Library_property_value objects which specify the property basic semantical units and values defining the properties of the class.  The definitional_property_value_pairs need not be specified for a particular Library_part_assignment.  See <A HREF="stepnc_aim.htm#71895" CLASS="XRef">See Library_part_assignment to Library_property_value</A> for the application assertion.</P>
 
@@ -3851,12 +3851,12 @@ The data associated with a Library_property_value are the following:</P>
 </UL>
 
 
-<H3><A NAME="clause-4-2-179-1"></A>4.2.179.1 value_property_bsu</H3>
+<H4><A NAME="clause-4-2-179-1"></A>4.2.179.1 value_property_bsu</H4>
 <P>
 The value_property_bsu specifies the Property_BSU object that defines the basic semantical unit.  See <A HREF="stepnc_aim.htm#36009" CLASS="XRef">See Library_property_value to Property_BSU</A> for the application assertion.</P>
 
 
-<H3><A NAME="clause-4-2-179-2"></A>4.2.179.2 value_amount</H3>
+<H4><A NAME="clause-4-2-179-2"></A>4.2.179.2 value_amount</H4>
 <P>
 The value_amount specifies the value that is defined as a boolean, integer, number, logical, string, or real.</P>
 
@@ -3868,7 +3868,7 @@ A Limit_qualifier specifies a limiting characteristic that is associated with a 
 NOTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; When used with a Value_with_tolerance, this is equivalent to the Value_limit application object in ISO 10303-1106 <A HREF="stepnc_aim.htm#85274" CLASS="XRef">See ISO 10303-1106, Industrial automation systems and integration -- Product data representation and exchange -- Part 1106: Application module: Extended measure representation</A> and ISO 10303-214, as well as the Tolerance_limit application object in ISO 10303-224.</P>
 
 
-<H3><A NAME="clause-4-2-180-1"></A>4.2.180.1 qualifier</H3>
+<H4><A NAME="clause-4-2-180-1"></A>4.2.180.1 qualifier</H4>
 <P>
 The qualifier identifies a limiting characteristic.  One of the following values shall be used:</P>
 <UL>
@@ -3891,21 +3891,21 @@ The data associated with a Limits_and_fits are the following:</P>
 </UL>
 
 
-<H3><A NAME="clause-4-2-181-1"></A>4.2.181.1 deviation</H3>
+<H4><A NAME="clause-4-2-181-1"></A>4.2.181.1 deviation</H4>
 <P>
 The deviation specifies the fundamental deviation or &quot;position letter&quot; of the ISO 286-1 limits-and-fits tolerance classification.</P>
 <P CLASS="example">
 NOTE   The characters `A' to `ZC' for holes or `a' to `zc' for shafts are used for deviation.</P>
 
 
-<H3><A NAME="clause-4-2-181-2"></A>4.2.181.2 grade</H3>
+<H4><A NAME="clause-4-2-181-2"></A>4.2.181.2 grade</H4>
 <P>
 The grade specifies the quality or the accuracy grade of a tolerance.</P>
 <P CLASS="example">
 NOTE    The grade is one of the 18 international standard tolerance grades defined in ISO 286-1, such as `IT07'.</P>
 
 
-<H3><A NAME="clause-4-2-181-3"></A>4.2.181.3 its_fitting_type</H3>
+<H4><A NAME="clause-4-2-181-3"></A>4.2.181.3 its_fitting_type</H4>
 <P>
 The its_fitting_type specifies the kind of fitting to which the tolerance applies. The its_fitting_type need not be specified for a particular Limits_and_fits. Normally the tolerance applies to an external or internal feature of the workpiece. Where applicable, the following values shall be used:</P>
 <UL>
@@ -3935,12 +3935,12 @@ The data associated with a Line_profile_tolerance are the following:</P>
 </UL>
 
 
-<H3><A NAME="clause-4-2-182-1"></A>4.2.182.1 affected_plane</H3>
+<H4><A NAME="clause-4-2-182-1"></A>4.2.182.1 affected_plane</H4>
 <P>
 The affected_plane specifies an axis placement, the X-Y plane of which establishes the plane in which the tolerance applies.  The affected_plane need not be specified for a particular Line_profile_tolerance.</P>
 
 
-<H3><A NAME="clause-4-2-182-2"></A>4.2.182.2 reference_datum</H3>
+<H4><A NAME="clause-4-2-182-2"></A>4.2.182.2 reference_datum</H4>
 <P>
 The reference_datum specifies the set of Datum_reference objects that define the reference frame for the geometric tolerance.  See <A HREF="stepnc_aim.htm#32575" CLASS="XRef">See Line_profile_tolerance to Datum_reference</A> for the application assertion.</P>
 
@@ -3963,7 +3963,7 @@ The data associated with a Linear_distance_dimension are the following:</P>
 </UL>
 
 
-<H3><A NAME="clause-4-2-183-1"></A>4.2.183.1 orientation</H3>
+<H4><A NAME="clause-4-2-183-1"></A>4.2.183.1 orientation</H4>
 <P>
 The orientation specifies an axis placement giving a point and a direction along which the Linear_distance_dimension is measured. The direction is given by  the X axis of the axis placement.   The orientation need not be specified for a particular Linear_distance_dimension.</P>
 
@@ -4023,22 +4023,22 @@ The data associated with a Location_dimension are the following:</P>
 </UL>
 
 
-<H3><A NAME="clause-4-2-187-1"></A>4.2.187.1 description</H3>
+<H4><A NAME="clause-4-2-187-1"></A>4.2.187.1 description</H4>
 <P>
 The description specifies text that provides further information about the Location_dimension. The description need not be specified for a particular Location_dimension.</P>
 
 
-<H3><A NAME="clause-4-2-187-2"></A>4.2.187.2 directed</H3>
+<H4><A NAME="clause-4-2-187-2"></A>4.2.187.2 directed</H4>
 <P>
 The directed specifies whether or not the direction is important for measuring a Location_dimension. If the value is 'true' the Location_dimension is measured from origin to target. A value of 'false' indicates that the direction for measuring the Location_dimension is inconsequential. The directed need not be specified for a particular Location_dimension.</P>
 
 
-<H3><A NAME="clause-4-2-187-3"></A>4.2.187.3 origin</H3>
+<H4><A NAME="clause-4-2-187-3"></A>4.2.187.3 origin</H4>
 <P>
 The origin specifies the shape element that defines the starting position for the Location_dimension.</P>
 
 
-<H3><A NAME="clause-4-2-187-4"></A>4.2.187.4 target</H3>
+<H4><A NAME="clause-4-2-187-4"></A>4.2.187.4 target</H4>
 <P>
 The target specifies the shape element that defines the ending position for the Location_dimension.</P>
 
@@ -4070,14 +4070,14 @@ The data associated with a Machine_axis_constraint are the following:</P>
 </UL>
 
 
-<H3><A NAME="clause-4-2-189-1"></A>4.2.189.1 axis_identifier</H3>
+<H4><A NAME="clause-4-2-189-1"></A>4.2.189.1 axis_identifier</H4>
 <P>
 The axis_identifier is a string value describing the name of the axis.</P>
 <P CLASS="example">
 EXAMPLE   The strings &quot;x&quot;, &quot;y&quot;, &quot;z&quot;, &quot;a&quot;, and &quot;b&quot; are common axis names.</P>
 
 
-<H3><A NAME="clause-4-2-189-2"></A>4.2.189.2 axis_range</H3>
+<H4><A NAME="clause-4-2-189-2"></A>4.2.189.2 axis_range</H4>
 <P>
 The axis_range specifies exactly one Value_range containing upper and lower measure values permitted for that axis.</P>
 
@@ -4093,14 +4093,14 @@ The data associated with a Machine_axis_travel are the following:</P>
 </UL>
 
 
-<H3><A NAME="clause-4-2-190-1"></A>4.2.190.1 axis_identifier</H3>
+<H4><A NAME="clause-4-2-190-1"></A>4.2.190.1 axis_identifier</H4>
 <P>
 The axis_identifier is a string value describing the name of the axis.</P>
 <P CLASS="example">
 EXAMPLE   The strings &quot;x&quot;, &quot;y&quot;, &quot;z&quot;, &quot;a&quot;, and &quot;b&quot; are common axis names.</P>
 
 
-<H3><A NAME="clause-4-2-190-2"></A>4.2.190.2 travel_distance</H3>
+<H4><A NAME="clause-4-2-190-2"></A>4.2.190.2 travel_distance</H4>
 <P>
 The travel_distance specifies a measure value that describes the distance that the identified axis can traverse.</P>
 <P CLASS="example">
@@ -4142,76 +4142,76 @@ The data associated with a Machine_parameters are the following:</P>
 </UL>
 
 
-<H3><A NAME="clause-4-2-192-1"></A>4.2.192.1 axis_travel</H3>
+<H4><A NAME="clause-4-2-192-1"></A>4.2.192.1 axis_travel</H4>
 <P>
 The axis_travel specifies zero or more Machine_axis_travel objects which describe the distance that the machine tool can move its cutting tool along specified axes. The axis_travel need not be specified for a particular Machine_parameters and the axis_travel shall not be specified if work_volume_length, work_volume_width, or work_volume_height is specified.  See <A HREF="stepnc_aim.htm#51119" CLASS="XRef">See Machine_parameters to Machine_axis_travel</A> for the application assertion.</P>
 
 
-<H3><A NAME="clause-4-2-192-2"></A>4.2.192.2 feedrate</H3>
+<H4><A NAME="clause-4-2-192-2"></A>4.2.192.2 feedrate</H4>
 <P>
 The feedrate specifies the linear velocity at which a machine tool can move its cutting tool.  The feedrate need not be specified for a particular Machine_parameters.</P>
 
 
-<H3><A NAME="clause-4-2-192-3"></A>4.2.192.3 number_of_control_axis</H3>
+<H4><A NAME="clause-4-2-192-3"></A>4.2.192.3 number_of_control_axis</H4>
 <P>
 The number_of_control_axis specifies number of machine tool axes that can be controlled by a numerical controller.  The number_of_control_axis need not be specified for a particular Machine_parameters.</P>
 
 
-<H3><A NAME="clause-4-2-192-4"></A>4.2.192.4 number_of_simultaneous_axis</H3>
+<H4><A NAME="clause-4-2-192-4"></A>4.2.192.4 number_of_simultaneous_axis</H4>
 <P>
 The number_of_simultaneous_axis specifies number of machine tool axes that can be controlled simultaneously by a numerical controller.  The number_of_simultaneous_axis need not be specified for a particular Machine_parameters.</P>
 
 
-<H3><A NAME="clause-4-2-192-5"></A>4.2.192.5 positioning_accuracy</H3>
+<H4><A NAME="clause-4-2-192-5"></A>4.2.192.5 positioning_accuracy</H4>
 <P>
 The positioning_accuracy specifies positioning accuracy of the machine tool axes considering displacement error and repeatability error. The positioning_accuracy need not be specified for a particular Machine_parameters.</P>
 
 
-<H3><A NAME="clause-4-2-192-6"></A>4.2.192.6 spindle_power</H3>
+<H4><A NAME="clause-4-2-192-6"></A>4.2.192.6 spindle_power</H4>
 <P>
 The spindle_power specifies the power which a machine tool can apply to turn its spindle.  The spindle_power need not be specified for a particular Machine_parameters.</P>
 <P CLASS="example">
 NOTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Spindle power is usually given in units of Kilowatts (for SI usage) or Horsepower (for English usage).</P>
 
 
-<H3><A NAME="clause-4-2-192-7"></A>4.2.192.7 spindle_torque</H3>
+<H4><A NAME="clause-4-2-192-7"></A>4.2.192.7 spindle_torque</H4>
 <P>
 The spindle_torque specifies the torque which a machine tool can apply to turn its spindle.  The spindle_torque need not be specified for a particular Machine_parameters.</P>
 <P CLASS="example">
 NOTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Spindle torque is usually given in units of Newton Meters (for SI usage) or Foot Pounds (for English usage).</P>
 
 
-<H3><A NAME="clause-4-2-192-8"></A>4.2.192.8 spindle_speed</H3>
+<H4><A NAME="clause-4-2-192-8"></A>4.2.192.8 spindle_speed</H4>
 <P>
 The spindle_speed specifies the rotational velocity at which a machine tool can move its spindle.  The spindle_speed need not be specified for a particular Machine_parameters.</P>
 
 
-<H3><A NAME="clause-4-2-192-9"></A>4.2.192.9 table_indexing</H3>
+<H4><A NAME="clause-4-2-192-9"></A>4.2.192.9 table_indexing</H4>
 <P>
 The table_indexing specifies whether the machine tool table shall be capable of indexing. The table_indexing need not be specified for a particular Machine_parameters.</P>
 
 
-<H3><A NAME="clause-4-2-192-10"></A>4.2.192.10 table_length</H3>
+<H4><A NAME="clause-4-2-192-10"></A>4.2.192.10 table_length</H4>
 <P>
 The table_length specifies length of the machine tool work table. The table_length need not be specified for a particular Machine_parameters.</P>
 
 
-<H3><A NAME="clause-4-2-192-11"></A>4.2.192.11 table_width</H3>
+<H4><A NAME="clause-4-2-192-11"></A>4.2.192.11 table_width</H4>
 <P>
 The table_width specifies length of the machine tool work table. The table_width need not be specified for a particular Machine_parameters.</P>
 
 
-<H3><A NAME="clause-4-2-192-12"></A>4.2.192.12 work_volume_height</H3>
+<H4><A NAME="clause-4-2-192-12"></A>4.2.192.12 work_volume_height</H4>
 <P>
 The work_volume_height specifies height of the volume in which the machine tool can move its cutting tool. The volume is aligned so that the height component lies along the Z axis of the machine. The work_volume_height need not be specified for a particular Machine_parameters and the work_volume_height shall not be specified if axis_travel is specified.</P>
 
 
-<H3><A NAME="clause-4-2-192-13"></A>4.2.192.13 work_volume_length</H3>
+<H4><A NAME="clause-4-2-192-13"></A>4.2.192.13 work_volume_length</H4>
 <P>
 The work_volume_length specifies length of the volume in which the machine tool can move its cutting tool. The volume is aligned so that the length component lies along the X axis of the machine. The work_volume_length need not be specified for a particular Machine_parameters and the work_volume_length shall not be specified if axis_travel is specified.</P>
 
 
-<H3><A NAME="clause-4-2-192-14"></A>4.2.192.14 work_volume_width</H3>
+<H4><A NAME="clause-4-2-192-14"></A>4.2.192.14 work_volume_width</H4>
 <P>
 The work_volume_width specifies width of the volume in which the machine tool can move its cutting tool. The volume is aligned so that the width component lies along the Y axis of the machine. The work_volume_width need not be specified for a particular Machine_parameters and the work_volume_width shall not be specified if axis_travel is specified.</P>
 
@@ -4252,7 +4252,7 @@ END_ENTITY;
 </PRE>
 
 
-<H3><A NAME="clause-4-2-194-1"></A>4.2.194.1 depth</H3>
+<H4><A NAME="clause-4-2-194-1"></A>4.2.194.1 depth</H4>
 <P>
 The depth elementary surface is required by ISO 14649-10, but this part of ISO 10303 relaxes this requirement so that the depth need not be specified for a particular Machining_feature.</P>
 <P CLASS="example">
@@ -4298,7 +4298,7 @@ END_ENTITY;
 </PRE>
 
 
-<H3><A NAME="clause-4-2-196-1"></A>4.2.196.1 its_usage</H3>
+<H4><A NAME="clause-4-2-196-1"></A>4.2.196.1 its_usage</H4>
 <P>
 The its_usage specifies a Tool_usage object that describes the tool selected to satisfy the tool requirements set forth by the Machining_tool.  The its_usage need not be specified for a particular Machining_tool.   See <A HREF="stepnc_aim.htm#51119" CLASS="XRef">See Machine_parameters to Machine_axis_travel</A> for the application assertion.</P>
 
@@ -4327,7 +4327,7 @@ END_ENTITY;
 </PRE>
 
 
-<H3><A NAME="clause-4-2-197-1"></A>4.2.197.1 final_features</H3>
+<H4><A NAME="clause-4-2-197-1"></A>4.2.197.1 final_features</H4>
 <P>
 The final_features specifies a set of zero or more Manufacturing_feature objects visible on the final form of the workpiece that the workingstep contributes to.  If the machining_workingstep its_feature is a process-specific feature consumed by further activities in a process, final_features may be used for traceability to features on the final form of the workpiece.  The final_features need not be specified for a particular Machining_workingstep.  See <A HREF="stepnc_aim.htm#20992" CLASS="XRef">See Machining_workingstep to Manufacturing_feature (as final_features)</A> for the application assertion.   See <A HREF="stepnc_aim.htm#13636" CLASS="XRef">See Features describing process or final form</A> for additional discussion on the use of this attribute.</P>
 <P CLASS="example">
@@ -4336,7 +4336,7 @@ NOTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Consider the flow of data through the design 
 EXAMPLE   A workingstep drills a hole which is later used as the entry point for a pocketing operation.  The hole is consumed by  pocketing operation and not visible on the final form of the workpiece.  The final_features of the drilling workingstep may reference the pocket to indicate participation in the creation of that feature.</P>
 
 
-<H3><A NAME="clause-4-2-197-2"></A>4.2.197.2 toolpath_orientation</H3>
+<H4><A NAME="clause-4-2-197-2"></A>4.2.197.2 toolpath_orientation</H4>
 <P>
 The toolpath_orientation specifies the placement of the set of toolpaths given by the its_operation its_toolpath parameter.  The toolpath_orientation need not be specified for a particular Machining_workingstep.  If the toolpath_orientation is not specified, the toolpaths shall assume an origin of (0,0,0) and axis directions X=(1,0,0) Y=(0,1,0) and Z=(0,0,1).</P>
 <P CLASS="example">
@@ -4368,7 +4368,7 @@ END_ENTITY;
 </PRE>
 
 
-<H3><A NAME="clause-4-2-198-1"></A>4.2.198.1 explicit_representation</H3>
+<H4><A NAME="clause-4-2-198-1"></A>4.2.198.1 explicit_representation</H4>
 <P>
 The explicit_representation specifies the shape of the feature using geometric face elements. This is a set of one or more faces on the boundary representation of the workpiece. The explicit_representation need not be specified for a particular Manufacturing_feature.   See <A HREF="stepnc_aim.htm#62883" CLASS="XRef">See Explicit shape by geometry</A> for additional discussion on the use of this attribute.</P>
 
@@ -4405,12 +4405,12 @@ The data associated with a Material_property are the following:</P>
 </UL>
 
 
-<H3><A NAME="clause-4-2-201-1"></A>4.2.201.1 material_characteristics</H3>
+<H4><A NAME="clause-4-2-201-1"></A>4.2.201.1 material_characteristics</H4>
 <P>
 The material_characteristics specifies the set of Property_parameter objects that describe the Material_property.  The material_characteristics need not be specified for a particular Material_property.  See <A HREF="stepnc_aim.htm#15797" CLASS="XRef">See Material_property to Property_parameter</A> for the application assertion.</P>
 
 
-<H3><A NAME="clause-4-2-201-2"></A>4.2.201.2 material_hardness</H3>
+<H4><A NAME="clause-4-2-201-2"></A>4.2.201.2 material_hardness</H4>
 <P>
 The material_hardness specifies the set of Hardness objects that describe hardness properties.  The material_hardness need not be specified for a particular Material_property.  See <A HREF="stepnc_aim.htm#42182" CLASS="XRef">See Material_property to Hardness</A> for the application assertion.</P>
 
@@ -4428,12 +4428,12 @@ The data associated with a Measurement_path are the following:</P>
 </UL>
 
 
-<H3><A NAME="clause-4-2-202-1"></A>4.2.202.1 defined_by</H3>
+<H4><A NAME="clause-4-2-202-1"></A>4.2.202.1 defined_by</H4>
 <P>
 The defined_by attribute specifies the curve along which the measurement takes place.</P>
 
 
-<H3><A NAME="clause-4-2-202-2"></A>4.2.202.2 defined_in</H3>
+<H4><A NAME="clause-4-2-202-2"></A>4.2.202.2 defined_in</H4>
 <P>
 The defined_in attribute specifies the geometric context in which the measurement path is evaluated.</P>
 
@@ -4506,7 +4506,7 @@ END_ENTITY;
 </PRE>
 
 
-<H3><A NAME="clause-4-2-205-1"></A>4.2.205.1 axis_constraints</H3>
+<H4><A NAME="clause-4-2-205-1"></A>4.2.205.1 axis_constraints</H4>
 <P>
 The axis_constraints specifies zero or more Machine_axis_constraint that shall be used by the NC control when computing axis motion.  See <A HREF="stepnc_aim.htm#69691" CLASS="XRef">See Milling_machine_functions to Machine_axis_constraint</A> for the application assertion.</P>
 <P CLASS="example">
@@ -4880,12 +4880,12 @@ The data associated with a Parallelism_tolerance are the following:</P>
 </UL>
 
 
-<H3><A NAME="clause-4-2-230-1"></A>4.2.230.1 affected_plane</H3>
+<H4><A NAME="clause-4-2-230-1"></A>4.2.230.1 affected_plane</H4>
 <P>
 The affected_plane specifies an axis placement, the X-Y plane of which establishes the plane in which the tolerance applies.  The affected_plane need not be specified for a particular Parallelism_tolerance.</P>
 
 
-<H3><A NAME="clause-4-2-230-2"></A>4.2.230.2 reference_datum</H3>
+<H4><A NAME="clause-4-2-230-2"></A>4.2.230.2 reference_datum</H4>
 <P>
 The reference_datum specifies the set of Datum_reference objects that define the reference frame for the geometric tolerance.  See <A HREF="stepnc_aim.htm#63616" CLASS="XRef">See Parallelism_tolerance to Datum_reference</A> for the application assertion.</P>
 
@@ -4915,7 +4915,7 @@ The data associated with a Part_property are the following:</P>
 </UL>
 
 
-<H3><A NAME="clause-4-2-232-1"></A>4.2.232.1 part_characteristics</H3>
+<H4><A NAME="clause-4-2-232-1"></A>4.2.232.1 part_characteristics</H4>
 <P>
 The part_characteristics specifies the set of Property_parameter objects that describe the Part_property.  The part_characteristics need not be specified for a particular Part_property.  See <A HREF="stepnc_aim.htm#84227" CLASS="XRef">See Part_property to Property_parameter</A> for the application assertion.</P>
 
@@ -4999,12 +4999,12 @@ The data associated with a Perpendicularity_tolerance are the following:</P>
 </UL>
 
 
-<H3><A NAME="clause-4-2-237-1"></A>4.2.237.1 affected_plane</H3>
+<H4><A NAME="clause-4-2-237-1"></A>4.2.237.1 affected_plane</H4>
 <P>
 The affected_plane specifies an axis placement, the X-Y plane of which establishes the plane in which the tolerance applies.  The affected_plane need not be specified for a particular Perpendicularity_tolerance.</P>
 
 
-<H3><A NAME="clause-4-2-237-2"></A>4.2.237.2 reference_datum</H3>
+<H4><A NAME="clause-4-2-237-2"></A>4.2.237.2 reference_datum</H4>
 <P>
 The reference_datum specifies the set of Datum_reference objects that define the reference frame for the geometric tolerance.  See <A HREF="stepnc_aim.htm#41121" CLASS="XRef">See Perpendicularity_tolerance to Datum_reference</A> for the application assertion.</P>
 
@@ -5033,14 +5033,14 @@ The data associated with a Placed_target are the following:</P>
 </UL>
 
 
-<H3><A NAME="clause-4-2-239-1"></A>4.2.239.1 defined_in</H3>
+<H4><A NAME="clause-4-2-239-1"></A>4.2.239.1 defined_in</H4>
 <P>
 The defined_in specifies the cartesian coordinate space in which the location and orientation that serves as parameter_reference are defined.</P>
 <P CLASS="example">
 NOTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A Placed_target is not defined in its own local and independent coordinate space but in the coordinate space of the shape that provides the datum.</P>
 
 
-<H3><A NAME="clause-4-2-239-2"></A>4.2.239.2 parameter_reference</H3>
+<H4><A NAME="clause-4-2-239-2"></A>4.2.239.2 parameter_reference</H4>
 <P>
 The placement specifies location and orientation that the parameters or the Placed_target refer to.</P>
 
@@ -5078,12 +5078,12 @@ END_ENTITY;
 </PRE>
 
 
-<H3><A NAME="clause-4-2-240-1"></A>4.2.240.1 removal_depth</H3>
+<H4><A NAME="clause-4-2-240-1"></A>4.2.240.1 removal_depth</H4>
 <P>
 The removal_depth specifies the distance, measured along the removal direction, of material removal from the Planar_face feature.</P>
 
 
-<H3><A NAME="clause-4-2-240-2"></A>4.2.240.2 removal_direction</H3>
+<H4><A NAME="clause-4-2-240-2"></A>4.2.240.2 removal_direction</H4>
 <P>
 The removal_direction specifies the direction of material removal from the Planar_face feature.</P>
 
@@ -5267,12 +5267,12 @@ The data associated with a Plus_minus_value are the following:</P>
 </UL>
 
 
-<H3><A NAME="clause-4-2-254-1"></A>4.2.254.1 lower_limit</H3>
+<H4><A NAME="clause-4-2-254-1"></A>4.2.254.1 lower_limit</H4>
 <P>
 The lower_limit specifies the lower offset measure, which when added to the value_component of a Value_with_tolerance gives the lowest allowable value for the physical quantity.</P>
 
 
-<H3><A NAME="clause-4-2-254-2"></A>4.2.254.2 upper_limit</H3>
+<H4><A NAME="clause-4-2-254-2"></A>4.2.254.2 upper_limit</H4>
 <P>
 The upper_limit specifies the upper offset measure, which when added to the value_component of a Value_with_tolerance gives the highest allowable value for the physical quantity.</P>
 
@@ -5319,21 +5319,21 @@ END_ENTITY;
 </PRE>
 
 
-<H3><A NAME="clause-4-2-255-1"></A>4.2.255.1 bottom_at_path_end</H3>
+<H4><A NAME="clause-4-2-255-1"></A>4.2.255.1 bottom_at_path_end</H4>
 <P>
 The bottom_at_path_end specifies the location of the bottom_condition. The bottom_at_path_end shall have a value of TRUE if the bottom_condition is positioned at the end of the the course_of_travel path, and a value of FALSE if it is at the origin of course_of_travel path.</P>
 <P CLASS="example">
 NOTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; In ISO 10303-224, this parameter is known as start_or_end and is located on the Pocket_bottom_condition application object.   In the integrated representation, this value is represented by the feature component relationship that ties a pocket bottom to a particular pocket.  This parameter has been moved to Pocket to allow different values for different pockets which can share the same pocket bottom instance.</P>
 
 
-<H3><A NAME="clause-4-2-255-2"></A>4.2.255.2 course_of_travel</H3>
+<H4><A NAME="clause-4-2-255-2"></A>4.2.255.2 course_of_travel</H4>
 <P>
 The course_of_travel specifies a Linear_path along which the profile defined by a pocket subtype (feature_boundary for Closed_pocket, open_boundary for Open_pocket) is swept to define the volume of the Pocket.  The placement and orientation of the course_of_travel shall be the same as the Pocket feature.  See <A HREF="stepnc_aim.htm#76593" CLASS="XRef">See Pocket to Linear_path</A> for the application assertion.</P>
 <P CLASS="example">
 NOTE   The length of the path is the depth of the pocket.</P>
 
 
-<H3><A NAME="clause-4-2-255-3"></A>4.2.255.3 top_fillet_radius</H3>
+<H4><A NAME="clause-4-2-255-3"></A>4.2.255.3 top_fillet_radius</H4>
 <P>
 The top_fillet_radius specifies the radius of a radius shape blend between the Pocket and the surrounding Workpiece surface at the top of the Pocket.   The top_fillet_radius need not be specified for a particular Pocket.</P>
 <P CLASS="example">
@@ -5373,12 +5373,12 @@ The data associated with a Position_tolerance are the following:</P>
 </UL>
 
 
-<H3><A NAME="clause-4-2-257-1"></A>4.2.257.1 affected_plane</H3>
+<H4><A NAME="clause-4-2-257-1"></A>4.2.257.1 affected_plane</H4>
 <P>
 The affected_plane specifies an axis placement, the X-Y plane of which establishes the plane in which the tolerance applies.  The affected_plane need not be specified for a particular Position_tolerance.</P>
 
 
-<H3><A NAME="clause-4-2-257-2"></A>4.2.257.2 reference_datum</H3>
+<H4><A NAME="clause-4-2-257-2"></A>4.2.257.2 reference_datum</H4>
 <P>
 The reference_datum specifies the set of Datum_reference objects that define the reference frame for the geometric tolerance.  See <A HREF="stepnc_aim.htm#46876" CLASS="XRef">See Position_tolerance to Datum_reference</A> for the application assertion.</P>
 <P CLASS="example">
@@ -5430,12 +5430,12 @@ The data associated with a Process_property are the following:</P>
 </UL>
 
 
-<H3><A NAME="clause-4-2-261-1"></A>4.2.261.1 process_characteristics</H3>
+<H4><A NAME="clause-4-2-261-1"></A>4.2.261.1 process_characteristics</H4>
 <P>
 The process_characteristics specifies the set of Property_parameter objects that describe the Process_property.  The process_characteristics need not be specified for a particular Process_property.  See <A HREF="stepnc_aim.htm#17087" CLASS="XRef">See Process_property to Property_parameter</A> for the application assertion.</P>
 
 
-<H3><A NAME="clause-4-2-261-2"></A>4.2.261.2 process_name</H3>
+<H4><A NAME="clause-4-2-261-2"></A>4.2.261.2 process_name</H4>
 <P>
 The process_name specifies a word or group of words by which a Process_property is commonly referred.</P>
 
@@ -5561,12 +5561,12 @@ The data associated with a Projection are the following:</P>
 </UL>
 
 
-<H3><A NAME="clause-4-2-270-1"></A>4.2.270.1 projection_end</H3>
+<H4><A NAME="clause-4-2-270-1"></A>4.2.270.1 projection_end</H4>
 <P>
 The projection_end specifies the shape element from which the tolerance zone is projected.</P>
 
 
-<H3><A NAME="clause-4-2-270-2"></A>4.2.270.2 projection_length</H3>
+<H4><A NAME="clause-4-2-270-2"></A>4.2.270.2 projection_length</H4>
 <P>
 The projection_length specifies the distance from the projection_end where the Geometric_tolerance shall be measured.</P>
 
@@ -5584,12 +5584,12 @@ The data associated with a Property_BSU are the following:</P>
 </UL>
 
 
-<H3><A NAME="clause-4-2-271-1"></A>4.2.271.1 name_scope</H3>
+<H4><A NAME="clause-4-2-271-1"></A>4.2.271.1 name_scope</H4>
 <P>
 The name_scope specifies Class_BSU object which describes the class the property belongs to. See <A HREF="stepnc_aim.htm#68742" CLASS="XRef">See Property_BSU to Class_BSU</A> for the application assertion.</P>
 
 
-<H3><A NAME="clause-4-2-271-2"></A>4.2.271.2 version</H3>
+<H4><A NAME="clause-4-2-271-2"></A>4.2.271.2 version</H4>
 <P>
 The version specifies the designation of the version of the information piece.</P>
 
@@ -5625,7 +5625,7 @@ The data associated with a Radial_size_dimension are the following:</P>
 </UL>
 
 
-<H3><A NAME="clause-4-2-273-1"></A>4.2.273.1 radius_type</H3>
+<H4><A NAME="clause-4-2-273-1"></A>4.2.273.1 radius_type</H4>
 <P>
 The radius_type specifies the form of the tolerance zone. One of the following values shall be used. The radius_type need not be specified for a particular Radial_size_dimension.  If omitted, a value of `adjoining' shall be assumed.</P>
 <UL>
@@ -5973,14 +5973,14 @@ END_TYPE;
 </PRE>
 
 
-<H3><A NAME="clause-4-2-295-1"></A>4.2.295.1 bottom_at_path_end</H3>
+<H4><A NAME="clause-4-2-295-1"></A>4.2.295.1 bottom_at_path_end</H4>
 <P>
 The bottom_at_path_end specifies the location of the bottom_condition. The bottom_at_path_end shall have a value of TRUE if the bottom_condition is positioned at the end of the the course_of_travel path, and a value of FALSE if it is at the origin of course_of_travel path.  This attribute shall only be specified if the hole bottom is of type Blind_bottom_condition.</P>
 <P CLASS="example">
 NOTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; In ISO 10303-224, this parameter is known as start_or_end and is located on the Blind_bottom_condition application object.   However, in the integrated representation, this value is represented by the feature component relationship that ties a hole bottom to a particular hole.  This parameter has been moved to Round_hole to allow different values for different holes which can share the same hole bottom instance.</P>
 
 
-<H3><A NAME="clause-4-2-295-2"></A>4.2.295.2 course_of_travel</H3>
+<H4><A NAME="clause-4-2-295-2"></A>4.2.295.2 course_of_travel</H4>
 <P>
 The course_of_travel specifies a Linear_path along which the removal_boundary profile is swept to define the volume of the Round_hole.  The placement and orientation of the course_of_travel shall be the same as the Round_hole feature.  See <A HREF="stepnc_aim.htm#32694" CLASS="XRef">See Round_hole to Linear_path</A> for the application assertion.</P>
 <P CLASS="example">
@@ -6033,7 +6033,7 @@ END_ENTITY;
 </PRE>
 
 
-<H3><A NAME="clause-4-2-298-1"></A>4.2.298.1 depth</H3>
+<H4><A NAME="clause-4-2-298-1"></A>4.2.298.1 depth</H4>
 <P>
 The depth specifies the distance from the midpoint of the arc, along the radius of the arc, to the top of the profile.  The depth need not be specified for a particular Rounded_u_profile.</P>
 <P CLASS="example">
@@ -6070,14 +6070,14 @@ The data associated with a Security_classification are the following:</P>
 </UL>
 
 
-<H3><A NAME="clause-4-2-300-1"></A>4.2.300.1 classification_level</H3>
+<H4><A NAME="clause-4-2-300-1"></A>4.2.300.1 classification_level</H4>
 <P>
 The classification_level is text that specifies the required degree of security.</P>
 <P CLASS="example">
 EXAMPLE    'confidential' is an example of classification_level that can be applied. </P>
 
 
-<H3><A NAME="clause-4-2-300-2"></A>4.2.300.2 description</H3>
+<H4><A NAME="clause-4-2-300-2"></A>4.2.300.2 description</H4>
 <P>
 The description is text that provides further information about the Security_classification. The description need not be specified for a particular Security_classification.</P>
 
@@ -6095,12 +6095,12 @@ The data associated with a Security_classification_assignment are the following:
 </UL>
 
 
-<H3><A NAME="clause-4-2-301-1"></A>4.2.301.1 classification</H3>
+<H4><A NAME="clause-4-2-301-1"></A>4.2.301.1 classification</H4>
 <P>
 The classification specifies the Security_classification assigned to activity or product data.  See <A HREF="stepnc_aim.htm#28521" CLASS="XRef">See Security_classification_assignment to Security_classification</A> for the application assertion.</P>
 
 
-<H3><A NAME="clause-4-2-301-2"></A>4.2.301.2 items</H3>
+<H4><A NAME="clause-4-2-301-2"></A>4.2.301.2 items</H4>
 <P>
 The items specifies the set of projects, workpieces, executables, operations, or toolpaths to which the Security_classification applies.  The items set shall contain at least one object.  See <A HREF="stepnc_aim.htm#20284" CLASS="XRef">See Security_classification_assignment to Executable</A>, <A HREF="stepnc_aim.htm#20872" CLASS="XRef">See Security_classification_assignment to Operation</A>, <A HREF="stepnc_aim.htm#23240" CLASS="XRef">See Security_classification_assignment to Project</A>, <A HREF="stepnc_aim.htm#34029" CLASS="XRef">See Security_classification_assignment to Toolpath</A>, and <A HREF="stepnc_aim.htm#20269" CLASS="XRef">See Security_classification_assignment to Workpiece</A> for the application assertions.</P>
 
@@ -6258,14 +6258,14 @@ The data associated with a Single_datum are the following:</P>
 </UL>
 
 
-<H3><A NAME="clause-4-2-312-1"></A>4.2.312.1 datum_name</H3>
+<H4><A NAME="clause-4-2-312-1"></A>4.2.312.1 datum_name</H4>
 <P>
 The datum_name specifies the word or group of words by which the Single_datum is referred to.</P>
 <P CLASS="example">
 EXAMPLE     Typical names of Single_datum objects are `A', `B', or `C'.</P>
 
 
-<H3><A NAME="clause-4-2-312-2"></A>4.2.312.2 modification</H3>
+<H4><A NAME="clause-4-2-312-2"></A>4.2.312.2 modification</H4>
 <P>
 The modification specifies a Tolerance_condition that is associated with the application of the Single_datum.  The modification need not be specified for a particular Single_datum.  See <A HREF="stepnc_aim.htm#52822" CLASS="XRef">See Single_datum to Tolerance_condition</A> for the application assertion.</P>
 <P CLASS="example">
@@ -6287,12 +6287,12 @@ The data associated with a Size_dimension are the following:</P>
 </UL>
 
 
-<H3><A NAME="clause-4-2-313-1"></A>4.2.313.1 applied_to</H3>
+<H4><A NAME="clause-4-2-313-1"></A>4.2.313.1 applied_to</H4>
 <P>
 The applied_to specifies the shape element to which the Size_dimension applies.</P>
 
 
-<H3><A NAME="clause-4-2-313-2"></A>4.2.313.2 envelope_principle</H3>
+<H4><A NAME="clause-4-2-313-2"></A>4.2.313.2 envelope_principle</H4>
 <P>
 The envelope_principle specifies whether or not the envelope principle applies to this size dimension. A value of 'true' indicates that the envelope principle applies. The envelope_principle need not be specified for a particular Size_dimension.</P>
 <P>
@@ -6444,7 +6444,7 @@ END_ENTITY;
 </PRE>
 
 
-<H3><A NAME="clause-4-2-323-1"></A>4.2.323.1 depth</H3>
+<H4><A NAME="clause-4-2-323-1"></A>4.2.323.1 depth</H4>
 <P>
 The depth specifies the distance from the centre of the base line, measured perpendicular to the base line, to the top of the profile.  The depth need not be specified for a particular Square_u_profile.</P>
 <P CLASS="example">
@@ -6515,7 +6515,7 @@ The data associated with a Straightness_tolerance are the following:</P>
 </UL>
 
 
-<H3><A NAME="clause-4-2-327-1"></A>4.2.327.1 affected_plane</H3>
+<H4><A NAME="clause-4-2-327-1"></A>4.2.327.1 affected_plane</H4>
 <P>
 The affected_plane specifies an axis placement, the X-Y plane of which establishes the plane in which the tolerance applies.  The affected_plane need not be specified for a particular Straightness_tolerance.</P>
 
@@ -6547,7 +6547,7 @@ The data associated with a Surface_profile_tolerance  are the following:</P>
 </UL>
 
 
-<H3><A NAME="clause-4-2-329-1"></A>4.2.329.1 reference_datum</H3>
+<H4><A NAME="clause-4-2-329-1"></A>4.2.329.1 reference_datum</H4>
 <P>
 The reference_datum specifies the set of Datum_reference objects that define the reference frame for the geometric tolerance.  See <A HREF="stepnc_aim.htm#52459" CLASS="XRef">See Surface_profile_tolerance to Datum_reference</A> for the application assertion.</P>
 
@@ -6565,12 +6565,12 @@ The data associated with a Surface_property are the following:</P>
 </UL>
 
 
-<H3><A NAME="clause-4-2-330-1"></A>4.2.330.1 is_surface_finish</H3>
+<H4><A NAME="clause-4-2-330-1"></A>4.2.330.1 is_surface_finish</H4>
 <P>
 The is_surface_finish indicates whether or not the Surface_property is a surface finish.</P>
 
 
-<H3><A NAME="clause-4-2-330-2"></A>4.2.330.2 surface_characteristics</H3>
+<H4><A NAME="clause-4-2-330-2"></A>4.2.330.2 surface_characteristics</H4>
 <P>
 The surface_characteristics specifies the set of Property_parameter objects that describe the Surface_property.  The surface_characteristics need not be specified for a particular Surface_property.  See <A HREF="stepnc_aim.htm#40712" CLASS="XRef">See Surface_property to Property_parameter</A> for the application assertion.</P>
 
@@ -6610,12 +6610,12 @@ The data associated with a Symmetry_tolerance are the following:</P>
 </UL>
 
 
-<H3><A NAME="clause-4-2-332-1"></A>4.2.332.1 affected_plane</H3>
+<H4><A NAME="clause-4-2-332-1"></A>4.2.332.1 affected_plane</H4>
 <P>
 The affected_plane specifies an axis placement, the X-Y plane of which establishes the plane in which the tolerance applies.  The affected_plane need not be specified for a particular Symmetry_tolerance.</P>
 
 
-<H3><A NAME="clause-4-2-332-2"></A>4.2.332.2 reference_datum</H3>
+<H4><A NAME="clause-4-2-332-2"></A>4.2.332.2 reference_datum</H4>
 <P>
 The reference_datum specifies the set of Datum_reference objects that define the reference frame for the geometric tolerance.  See <A HREF="stepnc_aim.htm#91996" CLASS="XRef">See Symmetry_tolerance to Datum_reference</A> for the application assertion.</P>
 
@@ -6706,7 +6706,7 @@ The data associated with a Target_circle are the following:</P>
 </UL>
 
 
-<H3><A NAME="clause-4-2-339-1"></A>4.2.339.1 diameter</H3>
+<H4><A NAME="clause-4-2-339-1"></A>4.2.339.1 diameter</H4>
 <P>The diameter specifies the diameter of the Target_circle.</P>
 
 
@@ -6730,12 +6730,12 @@ The data associated with a Target_rectangle are the following:</P>
 </UL>
 
 
-<H3><A NAME="clause-4-2-341-1"></A>4.2.341.1 target_length</H3>
+<H4><A NAME="clause-4-2-341-1"></A>4.2.341.1 target_length</H4>
 <P>
 The target_length specifies the length of the Target_rectangle.</P>
 
 
-<H3><A NAME="clause-4-2-341-2"></A>4.2.341.2 target_width</H3>
+<H4><A NAME="clause-4-2-341-2"></A>4.2.341.2 target_width</H4>
 <P>
 The target_width specifies the width of the Target_rectangle.</P>
 
@@ -6752,7 +6752,7 @@ The data associated with a Target_straight_line are the following:</P>
 </UL>
 
 
-<H3><A NAME="clause-4-2-342-1"></A>4.2.342.1 target_length</H3>
+<H4><A NAME="clause-4-2-342-1"></A>4.2.342.1 target_length</H4>
 <P>
 The target_length specifies the length of the Target_straight_line.</P>
 
@@ -6814,7 +6814,7 @@ The data associated with a Thickness_size_dimension are the following:</P>
 </UL>
 
 
-<H3><A NAME="clause-4-2-345-1"></A>4.2.345.1 used_path</H3>
+<H4><A NAME="clause-4-2-345-1"></A>4.2.345.1 used_path</H4>
 <P>
 The used_path specifies a Measurement_path along which the Thickness_size_dimension is  measured.  The used_path need not be specified for a particular Thickness_size_dimension.   See <A HREF="stepnc_aim.htm#97800" CLASS="XRef">See Thickness_size_dimension to Measurement_path</A> for the application assertion.</P>
 
@@ -7011,7 +7011,7 @@ A Tolerance_condition specifies the material condition of a feature of size, whi
 NOTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The use of material conditions is defined in ISO 2692 <A HREF="stepnc_aim.htm#69790" CLASS="XRef">See ISO 2692:2006, Geometrical product specifications (GPS) -- Geometrical tolerancing -- Maximum material requirement (MMR), least material requirement (LMR) and reciprocity requirement (RPR)</A>. </P>
 
 
-<H3><A NAME="clause-4-2-359-1"></A>4.2.359.1 condition</H3>
+<H4><A NAME="clause-4-2-359-1"></A>4.2.359.1 condition</H4>
 <P>
 The condition specifies the kind of Tolerance_condition.</P>
 <P CLASS="example">
@@ -7037,7 +7037,7 @@ The data associated with a Tolerance_zone are the following:</P>
 </UL>
 
 
-<H3><A NAME="clause-4-2-360-1"></A>4.2.360.1 form_type</H3>
+<H4><A NAME="clause-4-2-360-1"></A>4.2.360.1 form_type</H4>
 <P>
 The form_type specifies the shape of the Tolerance_zone.</P>
 <P CLASS="example">
@@ -7046,7 +7046,7 @@ EXAMPLE 1			`cylindrical', `parallelepiped', or `spherical' are examples of form
 EXAMPLE 2			A Surface_profile_tolerance  has a tolerance zone that is based on the profile of the feature. The form_type is `profile'.</P>
 
 
-<H3><A NAME="clause-4-2-360-2"></A>4.2.360.2 zone_for</H3>
+<H4><A NAME="clause-4-2-360-2"></A>4.2.360.2 zone_for</H4>
 <P>
 The zone_for specifies the set of Geometric_tolerance objects for which the Tolerance_zone defines the zone.  See <A HREF="stepnc_aim.htm#74840" CLASS="XRef">See Tolerance_zone to Geometric_tolerance</A> for the application assertion.</P>
 
@@ -7063,17 +7063,17 @@ The data associated with a Tolerance_zone_definition are the following:</P>
 </UL>
 
 
-<H3><A NAME="clause-4-2-361-1"></A>4.2.361.1 defining</H3>
+<H4><A NAME="clause-4-2-361-1"></A>4.2.361.1 defining</H4>
 <P>
 The defining specifies the Tolerance_zone that is specified by the Tolerance_zone_definition.  See <A HREF="stepnc_aim.htm#71135" CLASS="XRef">See Tolerance_zone_definition to Tolerance_zone</A> for the application assertion.</P>
 
 
-<H3><A NAME="clause-4-2-361-2"></A>4.2.361.2 first_element</H3>
+<H4><A NAME="clause-4-2-361-2"></A>4.2.361.2 first_element</H4>
 <P>
 The first_element specifies the shape element that represents the first or, in the case of a cylindrical tolerance zone, the only boundary of the Tolerance_zone_definition.</P>
 
 
-<H3><A NAME="clause-4-2-361-3"></A>4.2.361.3 second_element</H3>
+<H4><A NAME="clause-4-2-361-3"></A>4.2.361.3 second_element</H4>
 <P>
 The second_element specifies the shape element that represents the second bounding element. The second_element need not be specified for a particular Tolerance_zone_definition.</P>
 
@@ -7192,29 +7192,29 @@ The data associated with a Tool_usage are the following:</P>
 </UL>
 
 
-<H3><A NAME="clause-4-2-370-1"></A>4.2.370.1 its_carousel</H3>
+<H4><A NAME="clause-4-2-370-1"></A>4.2.370.1 its_carousel</H4>
 <P>
 The its_carousel specifies a machine tool turret, magazine, or carousel.  The its_carousel need not be specified for a particular Tool_usage. </P>
 
 
-<H3><A NAME="clause-4-2-370-2"></A>4.2.370.2 its_id</H3>
+<H4><A NAME="clause-4-2-370-2"></A>4.2.370.2 its_id</H4>
 <P>
 The its_id specifies a word or group of words which identify the Tool_usage.</P>
 
 
-<H3><A NAME="clause-4-2-370-3"></A>4.2.370.3 its_library_reference</H3>
+<H4><A NAME="clause-4-2-370-3"></A>4.2.370.3 its_library_reference</H4>
 <P>
 The its_library_reference specifies an Externally_defined_representation object that identifies the tool whose associated product information is provided within an external specification or document. The its_library_reference need not be specified for a particular Tool_usage.   See <A HREF="stepnc_aim.htm#42938" CLASS="XRef">See Tool_usage to Externally_defined_representation</A> for the application assertion.</P>
 <P CLASS="example">
 EXAMPLE			ISO 13399 <A HREF="stepnc_aim.htm#85806" CLASS="XRef">See ISO 13399-1:2006, Cutting tool data representation and exchange -- Part 1: Overview, fundamental principles and general information model</A> is one such external specification which describes various data about cutting tools and cutting tool assemblies, including reference dictionaries that describe tool properties.</P>
 
 
-<H3><A NAME="clause-4-2-370-4"></A>4.2.370.4 its_position</H3>
+<H4><A NAME="clause-4-2-370-4"></A>4.2.370.4 its_position</H4>
 <P>
 The its_position specifies a location within a machine tool turret, magazine, or carousel. The its_position need not be specified for a particular Tool_usage. </P>
 
 
-<H3><A NAME="clause-4-2-370-5"></A>4.2.370.5 its_product</H3>
+<H4><A NAME="clause-4-2-370-5"></A>4.2.370.5 its_product</H4>
 <P>
 The its_product specifies a Workpiece object that describes the physical shape and associated product information of the tool.  The its_product need not be specified for a particular Tool_usage.   See <A HREF="stepnc_aim.htm#75587" CLASS="XRef">See Tool_usage to Workpiece</A> for the application assertion.</P>
 
@@ -7254,7 +7254,7 @@ END_TYPE;
 </PRE>
 
 
-<H3><A NAME="clause-4-2-371-1"></A>4.2.371.1 its_id</H3>
+<H4><A NAME="clause-4-2-371-1"></A>4.2.371.1 its_id</H4>
 <P>
 The its_id specifies the string identifier of the Toolpath.  The its_id need not be specified for a particular Toolpath. </P>
 
@@ -7302,7 +7302,7 @@ END_ENTITY;
 </PRE>
 
 
-<H3><A NAME="clause-4-2-374-1"></A>4.2.374.1 speed</H3>
+<H4><A NAME="clause-4-2-374-1"></A>4.2.374.1 speed</H4>
 <P>
 The speed parameter is defined by ISO 14649-10 to be of type b_spline_curve, but this part of ISO 10303 relaxes this requirement so that the speed shall be of the more general type bounded_curve. All constraints on the parameterisation of the curve defined by ISO 14649-10 shall remain in effect.  See <A HREF="stepnc_aim.htm#85843" CLASS="XRef">See Matching curve parameterization</A> for additional discussion on the curve parameterization requirements.</P>
 <P CLASS="example">
@@ -7346,12 +7346,12 @@ The data associated with a Total_runout_tolerance are the following:</P>
 </UL>
 
 
-<H3><A NAME="clause-4-2-376-1"></A>4.2.376.1 angle</H3>
+<H4><A NAME="clause-4-2-376-1"></A>4.2.376.1 angle</H4>
 <P>
 The angle specifies the direction in which the runout tolerance is controlled. The angle need not be specified for a particular Total_runout_tolerance. If the angle is specified the runout tolerance applies for this angle. If  not specified the runout tolerance applies normal to the shape element surface.</P>
 
 
-<H3><A NAME="clause-4-2-376-2"></A>4.2.376.2 reference_datum</H3>
+<H4><A NAME="clause-4-2-376-2"></A>4.2.376.2 reference_datum</H4>
 <P>
 The reference_datum specifies the set of Datum_reference objects that define the reference frame for the geometric tolerance.  See <A HREF="stepnc_aim.htm#58283" CLASS="XRef">See Total_runout_tolerance to Datum_reference</A> for the application assertion.</P>
 
@@ -7416,19 +7416,19 @@ END_TYPE;
 </PRE>
 
 
-<H3><A NAME="clause-4-2-379-1"></A>4.2.379.1 its_material_removal_depth</H3>
+<H4><A NAME="clause-4-2-379-1"></A>4.2.379.1 its_material_removal_depth</H4>
 <P>
 The its_material_removal_depth specifies the length of material removed at each point of the Trajectory as measured along the axis of the cutting tool.  This may be specified as a either a constant depth or as a one-dimensional curve specifying the depth at each point along the toolpath.  The curve shall obey the same parameterization constraints as the &quot;its_speed&quot; data associated with a <A HREF="stepnc_aim.htm#68508" CLASS="XRef">See Toolpath</A>. The its_material_removal_depth need not be specified for a particular Trajectory.</P>
 <P CLASS="example">
 NOTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Machining strategies have cutting depth fields used as input to the toolpath generation process.  The its_material_removal_depth and its_material_removal_overcut fields can describe how much material will be actually removed by each of the generated toolpaths so that adaptive controls can adjust feed and speed.</P>
 
 
-<H3><A NAME="clause-4-2-379-2"></A>4.2.379.2 its_material_removal_overcut</H3>
+<H4><A NAME="clause-4-2-379-2"></A>4.2.379.2 its_material_removal_overcut</H4>
 <P>
 The its_material_removal_overcut specifies the length of material removed at each point of the Trajectory as measured perpendicular to the axis of the cutting tool.  This may be specified as a either a constant overcut or as a one-dimensional curve specifying the overcut at each point along the toolpath.  The curve shall obey the same parameterization constraints as the &quot;its_speed&quot; data associated with a <A HREF="stepnc_aim.htm#68508" CLASS="XRef">See Toolpath</A>.  The its_material_removal_overcut need not be specified for a particular Trajectory.</P>
 
 
-<H3><A NAME="clause-4-2-379-3"></A>4.2.379.3 its_material_removal_total_volume</H3>
+<H4><A NAME="clause-4-2-379-3"></A>4.2.379.3 its_material_removal_total_volume</H4>
 <P>
 The its_material_removal_total_volume specifies the total volume of material removed by the Trajectory.  The its_material_removal_total_volume need not be specified for a particular Trajectory.</P>
 
@@ -7455,12 +7455,12 @@ END_ENTITY;
 </PRE>
 
 
-<H3><A NAME="clause-4-2-380-1"></A>4.2.380.1 first_feature</H3>
+<H4><A NAME="clause-4-2-380-1"></A>4.2.380.1 first_feature</H4>
 <P>
 The first_feature machining_feature is required by ISO 14649-10, but this part of ISO 10303 relaxes this requirement so that the first_feature need not be specified for a particular Transition_feature.</P>
 
 
-<H3><A NAME="clause-4-2-380-2"></A>4.2.380.2 second_feature</H3>
+<H4><A NAME="clause-4-2-380-2"></A>4.2.380.2 second_feature</H4>
 <P>
 The second_feature machining_feature is required by ISO 14649-10, but this part of ISO 10303 relaxes this requirement so that the second_feature need not be specified for a particular Transition_feature.</P>
 
@@ -7790,34 +7790,34 @@ The data associated with a User_defined_milling_tool are the following:</P>
 </UL>
 
 
-<H3><A NAME="clause-4-2-399-1"></A>4.2.399.1 corner_radius</H3>
+<H4><A NAME="clause-4-2-399-1"></A>4.2.399.1 corner_radius</H4>
 <P>
 The corner_radius specifies the radius of the corner circle which describes the transition between the upper and lower line segments of the tool profile as shown in <A HREF="stepnc_aim_body.htm#91222" CLASS="XRef">See User_defined_milling_tool parameters</A>.</P>
 
 
-<H3><A NAME="clause-4-2-399-2"></A>4.2.399.2 corner_radius_center_horizontal</H3>
+<H4><A NAME="clause-4-2-399-2"></A>4.2.399.2 corner_radius_center_horizontal</H4>
 <P>
 The corner_radius_center_horizontal specifies the radial distance from the tool axis to the centre of the corner circle.  If positive, the corner circle and its centre are on the same side of the tool axis.  If negative, the corner circle and its centre are on opposite sides of the tool axis.</P>
 
 
-<H3><A NAME="clause-4-2-399-3"></A>4.2.399.3 corner_radius_center_vertical</H3>
+<H4><A NAME="clause-4-2-399-3"></A>4.2.399.3 corner_radius_center_vertical</H4>
 <P>
 The corner_radius_center_vertical specifies the distance from the tool endpoint to the centre of the corner circle measured parallel with the tool axis.</P>
 
 
-<H3><A NAME="clause-4-2-399-4"></A>4.2.399.4 description</H3>
+<H4><A NAME="clause-4-2-399-4"></A>4.2.399.4 description</H4>
 <P>
 The description specifies a word or group of words which characterize the tool.</P>
 
 
-<H3><A NAME="clause-4-2-399-5"></A>4.2.399.5 taper_angle</H3>
+<H4><A NAME="clause-4-2-399-5"></A>4.2.399.5 taper_angle</H4>
 <P>
 The taper_angle specifies the angle between the upper line segment of the tool and the tool axis as shown in <A HREF="stepnc_aim_body.htm#91222" CLASS="XRef">See User_defined_milling_tool parameters</A>.</P>
 <P CLASS="example">
 NOTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This angle will be positive when the the tool diameter increases when moving from tip to spindle.  The angle will be negative when the tool diameter decreases when moving from tip to spindle.</P>
 
 
-<H3><A NAME="clause-4-2-399-6"></A>4.2.399.6 tip_outer_angle</H3>
+<H4><A NAME="clause-4-2-399-6"></A>4.2.399.6 tip_outer_angle</H4>
 <P>
 The tip_outer_angle specifies the angle between a radial line through the tool endpoint and the lower line segment of the tool as shown in <A HREF="stepnc_aim_body.htm#91222" CLASS="XRef">See User_defined_milling_tool parameters</A>.</P>
 <P CLASS="example">
@@ -7863,17 +7863,17 @@ The data associated with a Value_range are the following:</P>
 </UL>
 
 
-<H3><A NAME="clause-4-2-402-1"></A>4.2.402.1 lower_range</H3>
+<H4><A NAME="clause-4-2-402-1"></A>4.2.402.1 lower_range</H4>
 <P>
 The lower_range specifies the lowest allowable value for a physical quantity.</P>
 
 
-<H3><A NAME="clause-4-2-402-2"></A>4.2.402.2 significant_digits</H3>
+<H4><A NAME="clause-4-2-402-2"></A>4.2.402.2 significant_digits</H4>
 <P>
 The significant_digits specify the number of decimal digits indicating the accuracy of the lower limit and upper limit values. The significant_digits need not be specified for a particular Value_range.</P>
 
 
-<H3><A NAME="clause-4-2-402-3"></A>4.2.402.3 upper_range</H3>
+<H4><A NAME="clause-4-2-402-3"></A>4.2.402.3 upper_range</H4>
 <P>
 The upper_range specifies the highest allowable value for a physical quantity.</P>
 
@@ -7891,12 +7891,12 @@ The data associated with a Value_with_tolerance are the following:</P>
 </UL>
 
 
-<H3><A NAME="clause-4-2-403-1"></A>4.2.403.1 limitation</H3>
+<H4><A NAME="clause-4-2-403-1"></A>4.2.403.1 limitation</H4>
 <P>
 The limitation specifies the tolerance range, by either Limit_qualifier, Limits_and_fits, or Plus_minus_value for the physical quantity.  The limitation need not be specified for a particular Value_with_tolerance.  See <A HREF="stepnc_aim.htm#71623" CLASS="XRef">See Value_with_tolerance to Limit_qualifier</A>, <A HREF="stepnc_aim.htm#42243" CLASS="XRef">See Value_with_tolerance to Limits_and_fits</A>, and <A HREF="stepnc_aim.htm#60790" CLASS="XRef">See Value_with_tolerance to Plus_minus_value</A> for the application assertions.</P>
 
 
-<H3><A NAME="clause-4-2-403-2"></A>4.2.403.2 significant_digits</H3>
+<H4><A NAME="clause-4-2-403-2"></A>4.2.403.2 significant_digits</H4>
 <P>
 The significant_digits specifies the number of decimal digits indicating the accuracy of the physical quantity. The significant_digits need not be specified for a particular Value_with_tolerance.</P>
 
@@ -7914,12 +7914,12 @@ The data associated with a Value_with_unit are the following:</P>
 </UL>
 
 
-<H3><A NAME="clause-4-2-404-1"></A>4.2.404.1 unit</H3>
+<H4><A NAME="clause-4-2-404-1"></A>4.2.404.1 unit</H4>
 <P>
 The unit specifies the unit with which the physical quantity is expressed.</P>
 
 
-<H3><A NAME="clause-4-2-404-2"></A>4.2.404.2 value_component</H3>
+<H4><A NAME="clause-4-2-404-2"></A>4.2.404.2 value_component</H4>
 <P>
 The value_component specifies the numeric value of the quantity.</P>
 
@@ -7948,12 +7948,12 @@ END_ENTITY;
 </PRE>
 
 
-<H3><A NAME="clause-4-2-405-1"></A>4.2.405.1 first_side_length</H3>
+<H4><A NAME="clause-4-2-405-1"></A>4.2.405.1 first_side_length</H4>
 <P>
 The first_side_length indicates the distance, as measured from the profile origin, along the side of the vee located by the tilt_angle parameter.  The first_side_length need not be specified for a particular Vee_profile.</P>
 
 
-<H3><A NAME="clause-4-2-405-2"></A>4.2.405.2 second_side_length</H3>
+<H4><A NAME="clause-4-2-405-2"></A>4.2.405.2 second_side_length</H4>
 <P>
 The second_side_length indicates the distance, as measured from the profile origin, along the side of the vee located by the sum of the tilt_angle and profile_angle.  The second_side_length need not be specified for a particular Vee_profile.</P>
 <P CLASS="example">
@@ -8009,7 +8009,7 @@ The data associated with a Width_size_dimension are the following:</P>
 </UL>
 
 
-<H3><A NAME="clause-4-2-409-1"></A>4.2.409.1 used_path</H3>
+<H4><A NAME="clause-4-2-409-1"></A>4.2.409.1 used_path</H4>
 <P>
 The used_path specifies a Measurement_path along which the Width_size_dimension is measured.  The used_path need not be specified for a particular Width_size_dimension.   See <A HREF="stepnc_aim.htm#74489" CLASS="XRef">See Width_size_dimension to Measurement_path</A> for the application assertion.</P>
 
@@ -8119,26 +8119,26 @@ END_TYPE;
 </PRE>
 
 
-<H3><A NAME="clause-4-2-412-1"></A>4.2.412.1 its_geometry</H3>
+<H4><A NAME="clause-4-2-412-1"></A>4.2.412.1 its_geometry</H4>
 <P>
 The its_geometry parameter is defined by ISO 14649-10 to be of type advanced_brep_shape_representation, but this part of ISO 10303 relaxes this requirement so that its_geometry shall be of the more general type shape_representation.</P>
 <P CLASS="example">
 NOTE    This relaxation allows the use of shape representation types supported by other APs.   In particular, the integrated representation allows the use of shapes described by AIC 501 (edge-based wireframe), AIC 502 (shell-based wireframe), AIC 507 (geometrically-bounded surfaces), AIC 508 (non-manifold surfaces), AIC 509 (manifold surfaces), AIC 510 (geometrically-bounded wireframe), and AIC 512 (faceted brep), as well as the original AIC 514 (advanced brep) descriptions.</P>
 
 
-<H3><A NAME="clause-4-2-412-2"></A>4.2.412.2 its_bounding_geometry</H3>
+<H4><A NAME="clause-4-2-412-2"></A>4.2.412.2 its_bounding_geometry</H4>
 <P>
 The its_bounding_geometry parameter is defined by ISO 14649-10 to be of type block, right_circular_cylinder, or advanced_brep_shape_representation, but this part of ISO 10303 relaxes this requirement so that its_bounding_geometry may also be of type edge_based_wireframe_shape_representation, faceted_brep_shape_representation, geometrically_bounded_surface_shape_representation, geometrically_bounded_wireframe_shape_representation, manifold_surface_shape_repre-sentation, non_manifold_surface_shape_representation, or shell_based_wireframe_shape_representation</P>
 <P CLASS="example">
 .NOTE    This relaxation allows the use of shape representation types supported by other APs.   In particular, the integrated representation allows the use of shapes described by AIC 501 (edge-based wireframe), AIC 502 (shell-based wireframe), AIC 507 (geometrically-bounded surfaces), AIC 508 (non-manifold surfaces), AIC 509 (manifold surfaces), AIC 510 (geometrically-bounded wireframe), and AIC 512 (faceted brep), as well as the original AIC 514 (advanced brep) descriptions.</P>
 
 
-<H3><A NAME="clause-4-2-412-3"></A>4.2.412.3 its_approvals</H3>
+<H4><A NAME="clause-4-2-412-3"></A>4.2.412.3 its_approvals</H4>
 <P>
 The its_approvals specifies the set of Approval objects that define the approval status of the manufacturing description of the revision given by the revision_id of the Workpiece. The its_approvals need not be specified for a particular Workpiece.   See <A HREF="stepnc_aim.htm#41065" CLASS="XRef">See Workpiece to Approval (as its_approvals)</A> for the application assertion.</P>
 
 
-<H3><A NAME="clause-4-2-412-4"></A>4.2.412.4 its_categories</H3>
+<H4><A NAME="clause-4-2-412-4"></A>4.2.412.4 its_categories</H4>
 <P>
 The its_categories specifies the set of names that identify categories that apply to the Workpiece.  The its_categories need not be specified for a particular Workpiece. Where applicable, the following values shall be used:</P>
 <UL>
@@ -8154,89 +8154,89 @@ NOTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; A Workpiece object categorized as a tool can 
 </UL>
 
 
-<H3><A NAME="clause-4-2-412-5"></A>4.2.412.5 its_components</H3>
+<H4><A NAME="clause-4-2-412-5"></A>4.2.412.5 its_components</H4>
 <P>
 The its_components specifies the set of Workpiece_assembly_component objects that define the components of a Workpiece.  The its_components need not be specified for a particular Workpiece.  See <A HREF="stepnc_aim.htm#66479" CLASS="XRef">See Workpiece to Workpiece_assembly_component</A> for the application assertion.</P>
 
 
-<H3><A NAME="clause-4-2-412-6"></A>4.2.412.6 its_datestamps</H3>
+<H4><A NAME="clause-4-2-412-6"></A>4.2.412.6 its_datestamps</H4>
 <P>
 The its_datestamps specifies the set of Assigned_date objects that define dates and associated roles  that apply to the manufacturing description of the revision given by the revision_id of the Workpiece.  The its_datestamps need not be specified for a particular Workpiece.  See <A HREF="stepnc_aim.htm#37577" CLASS="XRef">See Workpiece to Assigned_date (as its_datestamps)</A> for the application assertion.</P>
 
 
-<H3><A NAME="clause-4-2-412-7"></A>4.2.412.7 its_orgs</H3>
+<H4><A NAME="clause-4-2-412-7"></A>4.2.412.7 its_orgs</H4>
 <P>
 The its_orgs specifies the set of Assigned_organization objects that define organizations and associated roles that apply to the manufacturing description of the revision given by the revision_id of the Workpiece.  The its_orgs need not be specified for a particular Workpiece.  See <A HREF="stepnc_aim.htm#83758" CLASS="XRef">See Workpiece to Assigned_organization (as its_orgs)</A> for the application assertion.</P>
 
 
-<H3><A NAME="clause-4-2-412-8"></A>4.2.412.8 its_people</H3>
+<H4><A NAME="clause-4-2-412-8"></A>4.2.412.8 its_people</H4>
 <P>
 The its_people specifies the set of Assigned_person objects that define people and associated roles  that apply to the manufacturing description of the revision given by the revision_id of the Workpiece.  The its_people need not be specified for a particular Workpiece.  See <A HREF="stepnc_aim.htm#42290" CLASS="XRef">See Workpiece to Assigned_person (as its_people)</A> for the application assertion.</P>
 
 
-<H3><A NAME="clause-4-2-412-9"></A>4.2.412.9 its_related_geometry</H3>
+<H4><A NAME="clause-4-2-412-9"></A>4.2.412.9 its_related_geometry</H4>
 <P>
 The its_related_geometry specifies the set of zero or more shape representations associated with the its_geometry shape representation to form the entire shape of the workpiece.</P>
 <P CLASS="example">
 NOTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This parameter has been added for harmonization with ISO 10303-203 and ISO 10303-214 shape description of a part composed of shape constructs of multiple types of shape_representation.  The most common usage is to specify the advanced brep shape of a workpiece as its_related_geometry while the its_geometry simply contains an axis2_placement_3d.</P>
 
 
-<H3><A NAME="clause-4-2-412-10"></A>4.2.412.10 its_timestamps</H3>
+<H4><A NAME="clause-4-2-412-10"></A>4.2.412.10 its_timestamps</H4>
 <P>
 The its_timestamps specifies the set of Assigned_time objects that define dates with times and associated roles that apply to the manufacturing description of the revision given by the revision_id of the Workpiece.  The its_timestamps need not be specified for a particular Workpiece.  See <A HREF="stepnc_aim.htm#40868" CLASS="XRef">See Workpiece to Assigned_time (as its_timestamps)</A> for the application assertion.</P>
 
 
-<H3><A NAME="clause-4-2-412-11"></A>4.2.412.11 product_approvals</H3>
+<H4><A NAME="clause-4-2-412-11"></A>4.2.412.11 product_approvals</H4>
 <P>
 The product_approvals specifies the set of Approval objects that define approval status across all revisions of the Workpiece. The product_approvals need not be specified for a particular Workpiece.   See <A HREF="stepnc_aim.htm#33278" CLASS="XRef">See Workpiece to Approval (as product_approvals)</A> for the application assertion.</P>
 
 
-<H3><A NAME="clause-4-2-412-12"></A>4.2.412.12 product_datestamps</H3>
+<H4><A NAME="clause-4-2-412-12"></A>4.2.412.12 product_datestamps</H4>
 <P>
 The product_datestamps specifies the set of Assigned_date objects that define dates and associated roles that apply across all revisions of the Workpiece.  The product_datestamps need not be specified for a particular Workpiece.  See <A HREF="stepnc_aim.htm#10277" CLASS="XRef">See Workpiece to Assigned_date (as product_datestamps)</A> for the application assertion.</P>
 
 
-<H3><A NAME="clause-4-2-412-13"></A>4.2.412.13 product_orgs</H3>
+<H4><A NAME="clause-4-2-412-13"></A>4.2.412.13 product_orgs</H4>
 <P>
 The product_orgs specifies the set of Assigned_organization objects that define organizations and associated roles that apply across all revisions of the Workpiece.  The product_orgs need not be specified for a particular Workpiece.  See <A HREF="stepnc_aim.htm#40608" CLASS="XRef">See Workpiece to Assigned_organization (as product_orgs)</A> for the application assertion.</P>
 
 
-<H3><A NAME="clause-4-2-412-14"></A>4.2.412.14 product_people</H3>
+<H4><A NAME="clause-4-2-412-14"></A>4.2.412.14 product_people</H4>
 <P>
 The product_people specifies the set of Assigned_person objects that define people and associated roles that apply across all revisions of the Workpiece.  The product_people need not be specified for a particular Workpiece.  See <A HREF="stepnc_aim.htm#87684" CLASS="XRef">See Workpiece to Assigned_person (as product_people)</A> for the application assertion.</P>
 
 
-<H3><A NAME="clause-4-2-412-15"></A>4.2.412.15 product_timestamps</H3>
+<H4><A NAME="clause-4-2-412-15"></A>4.2.412.15 product_timestamps</H4>
 <P>
 The product_timestamps specifies the set of Assigned_time objects that define dates with times and associated roles that apply across all revisions of the Workpiece.  The product_timestamps need not be specified for a particular Workpiece.  See <A HREF="stepnc_aim.htm#47738" CLASS="XRef">See Workpiece to Assigned_time (as product_timestamps)</A> for the application assertion.</P>
 
 
-<H3><A NAME="clause-4-2-412-16"></A>4.2.412.16 revision_approvals</H3>
+<H4><A NAME="clause-4-2-412-16"></A>4.2.412.16 revision_approvals</H4>
 <P>
 The revision_approvals specifies the set of Approval objects that define the approval status of the revision given by the revision_id of the Workpiece. The revision_approvals need not be specified for a particular Workpiece.   See <A HREF="stepnc_aim.htm#39832" CLASS="XRef">See Workpiece to Approval (as revision_approvals)</A> for the application assertion.</P>
 
 
-<H3><A NAME="clause-4-2-412-17"></A>4.2.412.17 revision_datestamps</H3>
+<H4><A NAME="clause-4-2-412-17"></A>4.2.412.17 revision_datestamps</H4>
 <P>
 The revision_datestamps specifies the set of Assigned_date objects that define dates and associated roles that apply to the revision given by the revision_id of the Workpiece.  The revision_datestamps need not be specified for a particular Workpiece.  See <A HREF="stepnc_aim.htm#32590" CLASS="XRef">See Workpiece to Assigned_date (as revision_datestamps)</A> for the application assertion.</P>
 
 
-<H3><A NAME="clause-4-2-412-18"></A>4.2.412.18 revision_id</H3>
+<H4><A NAME="clause-4-2-412-18"></A>4.2.412.18 revision_id</H4>
 <P>
 The revision_id identifies the revision of the Workpiece.  The revision_id need not be specified for a particular Workpiece.</P>
 
 
-<H3><A NAME="clause-4-2-412-19"></A>4.2.412.19 revision_orgs</H3>
+<H4><A NAME="clause-4-2-412-19"></A>4.2.412.19 revision_orgs</H4>
 <P>
 The revision_orgs specifies the set of Assigned_organization objects that define organizations and associated roles that apply to the revision given by the revision_id of the Workpiece.  The revision_orgs need not be specified for a particular Workpiece.  See <A HREF="stepnc_aim.htm#76349" CLASS="XRef">See Workpiece to Assigned_organization (as revision_orgs)</A> for the application assertion.</P>
 
 
-<H3><A NAME="clause-4-2-412-20"></A>4.2.412.20 revision_people</H3>
+<H4><A NAME="clause-4-2-412-20"></A>4.2.412.20 revision_people</H4>
 <P>
 The revision_people specifies the set of Assigned_person objects that define people and associated roles that apply to the revision given by the revision_id of the Workpiece.  The revision_people need not be specified for a particular Workpiece.  See <A HREF="stepnc_aim.htm#95389" CLASS="XRef">See Workpiece to Assigned_person (as revision_people)</A> for the application assertion.</P>
 
 
-<H3><A NAME="clause-4-2-412-21"></A>4.2.412.21 revision_timestamps</H3>
+<H4><A NAME="clause-4-2-412-21"></A>4.2.412.21 revision_timestamps</H4>
 <P>
 The revision_timestamps specifies the set of Assigned_time objects that define dates with times and associated roles that apply to the revision given by the revision_id of the Workpiece.  The revision_timestamps need not be specified for a particular Workpiece.  See <A HREF="stepnc_aim.htm#22692" CLASS="XRef">See Workpiece to Assigned_time (as revision_timestamps)</A> for the application assertion.</P>
 
@@ -8254,22 +8254,22 @@ The data associated with a Workpiece_assembly_component are the following:</P>
 </UL>
 
 
-<H3><A NAME="clause-4-2-413-1"></A>4.2.413.1 component</H3>
+<H4><A NAME="clause-4-2-413-1"></A>4.2.413.1 component</H4>
 <P>
 The component specifies the release date of the Workpiece_assembly_component. See <A HREF="stepnc_aim.htm#24928" CLASS="XRef">See Workpiece_assembly_component to Workpiece</A> for the application assertion.</P>
 
 
-<H3><A NAME="clause-4-2-413-2"></A>4.2.413.2 originating_orientation</H3>
+<H4><A NAME="clause-4-2-413-2"></A>4.2.413.2 originating_orientation</H4>
 <P>
 The originating_orientation specifies the placement of the component prior to being positioned in an assembly.</P>
 
 
-<H3><A NAME="clause-4-2-413-3"></A>4.2.413.3 resulting_orientation</H3>
+<H4><A NAME="clause-4-2-413-3"></A>4.2.413.3 resulting_orientation</H4>
 <P>
 The resulting_orientation specifies the placement of the component within an assembly.</P>
 
 
-<H3><A NAME="clause-4-2-413-4"></A>4.2.413.4 reference_designator</H3>
+<H4><A NAME="clause-4-2-413-4"></A>4.2.413.4 reference_designator</H4>
 <P>
 The reference_designator specifies a distinctive code that identifies the usage of the component in an assembly. The reference_designator need not be specified for a particular Workpiece_assembly_component.</P>
 
@@ -8351,7 +8351,7 @@ END_ENTITY;
 </PRE>
 
 
-<H3><A NAME="clause-4-2-417-1"></A>4.2.417.1 its_minimum_machine_params</H3>
+<H4><A NAME="clause-4-2-417-1"></A>4.2.417.1 its_minimum_machine_params</H4>
 <P>
 The its_minimum_machine_params specifies a Machine_parameters object which describe the minimum machine tool characteristics required to execute the workplan. The its_minimum_machine_params need not be specified for a particular Workplan.  See <A HREF="stepnc_aim.htm#12898" CLASS="XRef">See Workplan to Machine_parameters</A> for the application assertion.</P>
 
@@ -8368,7 +8368,7 @@ END_ENTITY;
 </PRE>
 
 
-<H3><A NAME="clause-4-3"></A>4.3 Application assertions</H3>
+<H2><A NAME="clause-4-3"></A>4.3 Application assertions</H2>
 <P>
 This subclause specifies the application assertions for the computerized numerical controllers application protocol. Application assertions specify the relationships between application objects, the cardinality of the relationships, and the rules required for the integrity and validity of the application objects and UoFs. The application assertions and their definitions are given below.</P>
 <P CLASS="example">

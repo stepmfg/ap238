@@ -26,17 +26,18 @@ P.pagefoot { margin-top: 3em; }
 P.pagehead { font-weight: bold; text-align: right; margin-bottom: 2em; }
 
 
-
+/* if headings deeper than h6 needed, add classes to h6 */
 H1, H2, H3, H4, H5, H6 {
     margin: 2em 0em 1em 0em;
     font-size: 125%;
 }
 
-H2.unum   { }
-H2.clause { margin-top: 2em; }
-H2.annex-clause { margin-top: 2em; text-align: center; }
+H1.unum   { }
+H1.clause { margin-top: 2em; }
+H1.annex { margin-top: 2em; text-align: center; }
+
 H6.table-title {  margin-top: 3em; text-align: center; }
-H4.section-underlined {
+H6.section-underlined {
     margin: 1em 0em;
     font-size: 100%;
     font-weight: medium;
