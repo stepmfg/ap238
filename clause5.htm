@@ -8573,7 +8573,7 @@ depth</P>
 <P CLASS="MapAttribute">
 &nbsp;</P>
 <P CLASS="MapAttribute">
-NOTE  This is an optional attribute.   See  <A HREF="stepnc_aim.htm#52885" CLASS="XRef">See Feature placement and depth</A> and <A HREF="stepnc_aim.htm#33363" CLASS="XRef">See Machining_feature</A> for the procedure to determine the depth of features.</P>
+NOTE  This is an optional attribute.   See  <A HREF="#funcon-feature-depth">Feature placement and depth</A> and <a href="clause4.htm#ao-machining_feature">Machining_feature</a> for the procedure to determine the depth of features.</P>
 </TD>
 <TD><P CLASS="MapAIM">
 elementary_surface</P>
@@ -48378,7 +48378,7 @@ AP 214 has both name and description for features while AP 224 only cares about 
 <P CLASS="numbered-notes">
 The its_operation attribute is redundant  It combines the relationships established between manufacturing_feature and machining/turning_workingstep and the relationship between these workingstep types and machining_operation.   The mapping path listed for this attribute simply concatenates the paths established for the other relationships.</P>
 <P CLASS="numbered-notes">
-AP 224 does not define a mapping for explicit_representation, but the usage observed in existing implementations corresponds to the alternate case given in this part of ISO 10303.   This alternate is provided to allow the use of instance data that may have originated from an AP 224 process, but the preferred reference path should be used for any new instance data.  See <A HREF="stepnc_aim.htm#62883" CLASS="XRef">See Explicit shape by geometry</A> for additional discussion on explicit feature geometry.</P>
+AP 224 does not define a mapping for explicit_representation, but the usage observed in existing implementations corresponds to the alternate case given in this part of ISO 10303.   This alternate is provided to allow the use of instance data that may have originated from an AP 224 process, but the preferred reference path should be used for any new instance data.  See <A HREF="#funcon-feature-explicit">Explicit shape by geometry</A> for additional discussion on explicit feature geometry.</P>
 <P CLASS="numbered-notes">
 For bounding geometry that is either a block or cylinder, ISO 14649-10 references block and right_circular_cylinder.   For harmonization with AP 224 and AP 214 these two cases have been mapped to the shape_representation subtypes block_shape_representation and cylindrical_shape_representation instead.  Aside from these two cases, the mapping for its_bounding_geometry is simply the the its_geometry parameter of the its_rawpiece.</P>
 <P CLASS="numbered-notes">
@@ -48394,7 +48394,7 @@ The pocket bottom condition has been mapped to a face surface representation rat
 <P CLASS="numbered-notes">
 The preferred mapping table entry for Pocket and Round_hole bottom_at_path_end matches the reference path given in the AP 224 specification and should be used for any new instance data.   The alternate mapping table entry matches a non-conforming usage observed in existing AP 224 implementations and is provided to allow the use of instance data that may have originated from such a process.</P>
 <P CLASS="numbered-notes">
-The name of this attribute is confusing.   This is the path along which the profile is swept, not a profile itself.   The various ARM subtypes of Profile_feature specify the profiles that is swept.   The usage of these attributes are described in <A HREF="stepnc_aim.htm#42821" CLASS="XRef">See General outside and shape profile features</A>.</P>
+The name of this attribute is confusing.   This is the path along which the profile is swept, not a profile itself.   The various ARM subtypes of Profile_feature specify the profiles that is swept.   The usage of these attributes are described in <A HREF="#funcon-shape_profile">General outside and shape profile features</A>.</P>
 <P CLASS="numbered-notes">
 The ARM attribute parameter_index maps to the same attribute of representation_item as the ARM attribute parameter_name. If the parameter_index is present, it shall be appended to the representation_item.name representing the parameter_name.</P>
 <P CLASS="numbered-notes">
@@ -48832,9 +48832,9 @@ Finally, there are information requirements which were not considered by ISO 146
 <DIV>
 <H5><A NAME="clause-5-2-1-2-1"></A>5.2.1.2.1 Implicit shape by profile and travel path</H5>
 <P>
-In the ISO 10303 integrated representation, the shape of many manufacturing feature types can be described as a profile swept along a travel path.  This implicit description of feature shape is controlled by characteristic parameters of the <A HREF="stepnc_aim.htm#16379" CLASS="XRef">See Profile</A> and <A HREF="stepnc_aim.htm#50190" CLASS="XRef">See Travel_path</A> subtypes.</P>
+In the ISO 10303 integrated representation, the shape of many manufacturing feature types can be described as a profile swept along a travel path.  This implicit description of feature shape is controlled by characteristic parameters of the <a href="clause4.htm#ao-profile">Profile</a> and <a href="clause4.htm#ao-travel_path subtypes">Travel_path subtypes</a>.</P>
 <P CLASS="example">
-EXAMPLE 1  The profile and path representation of several feature types is shown in <A HREF="stepnc_aim_express.htm#30972" CLASS="XRef">See Profile and path definition of features</A>.   The shape of the features are controlled by such characteristic parameters as the length of the sweep path, the diameter of the swept circular profile, the length and width of the swept rectangular profile, etc.</P>
+EXAMPLE 1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The profile and path representation of several feature types is shown in <a href="#figure-36">Figure 36</a>.   The shape of the features are controlled by such characteristic parameters as the length of the sweep path, the diameter of the swept circular profile, the length and width of the swept rectangular profile, etc.</P>
 
 
 <FIGURE>
@@ -48848,10 +48848,10 @@ Most of the machining_feature types defined by ISO 14649-10 use the same profile
 <P>
 Several common cases are discussed below.  See <A HREF="stepnc_aim.htm#41017" CLASS="XRef">See Manufacturing feature details by type</A> for a systematic review of the profile and path conventions for feature types in the integrated representation, and an explanation of how to convert to the conventions used by ISO 14649.</P>
 <P CLASS="example">
-EXAMPLE 2  The ISO 14649-10 definition of a round hole has a diameter measure.  In the AIM mappings, we tie this to the diameter measure of a circular profile.  The profile and path representation is still used at the AIM level for harmonization, even when the concepts are only tangentially represented in the ARM.</P>
+EXAMPLE 2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The ISO 14649-10 definition of a round hole has a diameter measure.  In the AIM mappings, we tie this to the diameter measure of a circular profile.  The profile and path representation is still used at the AIM level for harmonization, even when the concepts are only tangentially represented in the ARM.</P>
 </DIV>
 <DIV>
-<H6><A NAME="clause-5-2-1-2-1-1"></A>5.2.1.2.1.1 Feature placement and depth</H6>
+<H6><A NAME="funcon-feature-depth"></A>5.2.1.2.1.1 Feature placement and depth</H6>
 <P>
 Each feature has a placement parameter that describes the location and orientation of the feature in space.  The origin of the feature is the reference point for the placement. In the integrated representation, placement is conveyed as an instance of axis2_placement3d.  A Cartesian point gives the location in space of the feature origin, and a pair of direction vectors gives the orientation of the Z and X axes of the feature.</P>
 <P>
@@ -48861,7 +48861,7 @@ The authors of ISO 14649 chose a different method and instead encode depth as a 
 <P>
 Consequently, a feature may have different values for placement location, and possibly orientation, in the ISO 10303 integrated representation and the ISO 14649 representation.</P>
 <P CLASS="example">
-EXAMPLE  Consider <A HREF="stepnc_aim_express.htm#52656" CLASS="XRef">See Feature placement differences</A> and assume a round hole 2 units deep, with the bottom centre of the hole located at (0, 0, 0).  In the ISO 10303 representation, the placement location of the hole is (0, 0, 0) and the length of the sweep path is 2 units. In the ISO 14649 representation, the placement location of the hole would be (0, 0, +2) and the feature would point to an instance of elementary_surface defining a plane at z=0;</P>
+EXAMPLE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Consider <a href="#figure-37">Figure 37</a> and assume a round hole 2 units deep, with the bottom centre of the hole located at (0, 0, 0).  In the ISO 10303 representation, the placement location of the hole is (0, 0, 0) and the length of the sweep path is 2 units. In the ISO 14649 representation, the placement location of the hole would be (0, 0, +2) and the feature would point to an instance of elementary_surface defining a plane at z=0;</P>
 
 
 <FIGURE>
@@ -48873,7 +48873,7 @@ EXAMPLE  Consider <A HREF="stepnc_aim_express.htm#52656" CLASS="XRef">See Featur
 <P>
 ISO 14649 requires a depth surface for all machining_feature types, even where profile and path information is available.  Within this part of ISO 10303, this constraint is relaxed since depth is already available from the profile and path parameters. The depth surface is represented by a parameter called &quot;maximum feature depth,&quot; which is also an optional parameter in the AP 224 and AP 214 models.</P>
 <P CLASS="example">
-NOTE    Why were the reference points for features done this way?  Before it is machined, the top of a feature often corresponds to a tangible location on the stock where a machinist could measure or make a mark.  The bottom of the feature is usually buried within the stock.</P>
+NOTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Why were the reference points for features done this way?  Before it is machined, the top of a feature often corresponds to a tangible location on the stock where a machinist could measure or make a mark.  The bottom of the feature is usually buried within the stock.</P>
 <P CLASS="example">
 The ISO 10303 standards originally defined features on the final form of the part as input to process planning.  However, the features on the final part may not exactly match the features as machined.  Consider a flat surface with a hole drilled in it.  If the hole is drilled before the face is machined, the top of the hole will be higher than if it is drilled after the face is machined.   The location in space of the bottom of the hole remains the same regardless of the sequence of operations.</P>
 <P CLASS="example">
@@ -48890,7 +48890,7 @@ In the ISO 10303 integrated representation, profiles are defined to exist in the
 <P>
 In ISO 14649, profiles are also defined in the XY plane, but sometimes interpreted as lying in the XZ plane because of the way feature orientation is defined.  In the ISO 14649 representation, the origin of the profile, path, and feature may lie at different points. See <A HREF="stepnc_aim.htm#41017" CLASS="XRef">See Manufacturing feature details by type</A> for a listing of specific differences for each feature type.</P>
 <P CLASS="example">
-EXAMPLE    <A HREF="stepnc_aim_express.htm#10369" CLASS="XRef">See Feature placement differences</A> shows a slot made up of a rounded u profile.  In the ISO 10303 representation, the feature placement gives the origin of both the sweep path and the profile, with the profile in the XY plane and the sweep along the Z axis.</P>
+EXAMPLE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="#figure-38">Figure 38</a> shows a slot made up of a rounded u profile.  In the ISO 10303 representation, the feature placement gives the origin of both the sweep path and the profile, with the profile in the XY plane and the sweep along the Z axis.</P>
 
 
 <FIGURE>
@@ -48903,11 +48903,11 @@ EXAMPLE    <A HREF="stepnc_aim_express.htm#10369" CLASS="XRef">See Feature place
 In the ISO 14649 representation, the feature placement location defines the top centre of the slot, with the profile assumed to lie in the XZ plane, and swept along the Y axis. To find the origin of the profile, offset by the depth of the profile.  Because of the change in axes, the direction of sweep is reversed, which means that the placement is also at the other end of the slot from the ISO 10303 representation.</P>
 </DIV>
 <DIV>
-<H5><A NAME="clause-5-2-1-2-2"></A>5.2.1.2.2 Explicit shape by geometry</H5>
+<H5><A NAME="funcon-feature-explicit"></A>5.2.1.2.2 Explicit shape by geometry</H5>
 <P>
 In the ISO 10303 integrated representation, feature shape can be described implicitly using a collection of characteristic parameters like depth, width, etc.  This is done using the profile and path representation discussed in previous sections.  It is also possible to describe feature shape using an explicit representation based on faces from a boundary representation.</P>
 <P>
-ISO 14649 only supports implicit representation of feature shape. For harmonization, an explicit_representation parameter has been added to <A HREF="stepnc_aim.htm#55903" CLASS="XRef">See Manufacturing_feature</A> support the explicit representation approach.</P>
+ISO 14649 only supports implicit representation of feature shape. For harmonization, an explicit_representation parameter has been added to <a href="clause4.htm#ao-manufacturing_feature">Manufacturing_feature</a> to support the explicit representation approach.</P>
 <P>
 Within the AIM instance data, an explicit shape description appears as face instances in the items set of a shape_representation. The characteristic parameters for the implicit shape description appear as measure_representation_item instances in the items set of a shape_representation_with_parameters.  The characteristic parameters for profile and path instances are handled in the same way.</P>
 <P>
@@ -48920,11 +48920,11 @@ Both of these representations are associated with the feature through shape_defi
 
 
 <P CLASS="example">
-EXAMPLE 1   <A HREF="stepnc_aim_express.htm#98276" CLASS="XRef">See AIM Instances for implicit and explicit feature shape</A> shows an instance diagram for a feature containing implicit and explicit representations. The instances describing the profile and path are not shown, but each is a shape_aspect subtype similar to the feature instance.  The parameters describing each is held by a shape_representation_with_parameters instance and related to the profile or path using the same pattern of shape_definition_representation and product_definition_shape instances as shown below.</P>
+EXAMPLE 1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="#figure-39">Figure 39</a> shows an instance diagram for a feature containing implicit and explicit representations. The instances describing the profile and path are not shown, but each is a shape_aspect subtype similar to the feature instance.  The parameters describing each is held by a shape_representation_with_parameters instance and related to the profile or path using the same pattern of shape_definition_representation and product_definition_shape instances as shown below.</P>
 <P>
 An alternate mapping path is given for the explicit_representation parameter that does not use the shape_representation or shape_definition_representation subtypes.  This alternate should only be used for reading instance data that may have originated from an AP 224 process.  The preferred mapping should be used for any new instance data.  Examples 2 and 3 illustrate both mappings.</P>
 <P CLASS="example">
-EXAMPLE 2   The preferred explicit_representation encoding.  In the exchange file fragment below, #10 describes a round hole feature on a workpiece (#100, not shown).   The explicit shape description is given by the advanced_face instances (#50, #60, #70) in a shape_representation (#40) with a name of &quot;explicit feature shape&quot;, and is related to the feature through a shape_definition_representation (#30) and product_definition_shape (#20).</P>
+EXAMPLE 2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The preferred explicit_representation encoding.  In the exchange file fragment below, #10 describes a round hole feature on a workpiece (#100, not shown).   The explicit shape description is given by the advanced_face instances (#50, #60, #70) in a shape_representation (#40) with a name of &quot;explicit feature shape&quot;, and is related to the feature through a shape_definition_representation (#30) and product_definition_shape (#20).</P>
 <PRE CLASS="example">
 #10=(
   CHARACTERIZED_OBJECT('',$)
@@ -48946,7 +48946,7 @@ EXAMPLE 2   The preferred explicit_representation encoding.  In the exchange fil
 
 </PRE>
 <P CLASS="example">
-EXAMPLE 3   The alternate explicit_representation encoding.   The exchange file fragment below describes the same feature as the previous example, but the advanced_face instances are in an instance of the representation base type (#40) with no name, and is related to the feature through a property_definition_representation (#30) and property_definition (#20) with no name.   Since other feature properties may have representations containing faces, there may be some ambiguity.</P>
+EXAMPLE 3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The alternate explicit_representation encoding.   The exchange file fragment below describes the same feature as the previous example, but the advanced_face instances are in an instance of the representation base type (#40) with no name, and is related to the feature through a property_definition_representation (#30) and property_definition (#20) with no name.   Since other feature properties may have representations containing faces, there may be some ambiguity.</P>
 <PRE CLASS="example">
 #10=(
   CHARACTERIZED_OBJECT('',$)
@@ -48969,15 +48969,15 @@ EXAMPLE 3   The alternate explicit_representation encoding.   The exchange file 
 </PRE>
 </DIV>
 <DIV>
-<H5><A NAME="clause-5-2-1-2-3"></A>5.2.1.2.3 Features describing process or final form</H5>
+<H5><A NAME="funcon-feature-inprocess"></A>5.2.1.2.3 Features describing process or final form</H5>
 <P>
 A machining workplan is composed of machining workingsteps, each of which refers to a feature that defines a volume of space acted upon by that workingstep.  This volume of space is empty of material when the operation is finished, subject to any finishing allowance or overcut modifiers in the associated operation parameters.   Furthermore, the workingstep shall not remove any material outside of the feature volume.</P>
 <P CLASS="example">
-NOTE    The volume defined by the feature may not be the exact removal volume since some of the material may have already been removed by previous workingsteps.   Consider roughing and finishing of a pocket.  Both workingsteps would refer to the pocket.  The roughing step removes the entire volume except for a finishing allowance, while the finishing step removes only a thin shell.</P>
+NOTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The volume defined by the feature may not be the exact removal volume since some of the material may have already been removed by previous workingsteps.   Consider roughing and finishing of a pocket.  Both workingsteps would refer to the pocket.  The roughing step removes the entire volume except for a finishing allowance, while the finishing step removes only a thin shell.</P>
 <P>
 These features are tightly tied to the machining process defined by the workplan.  If a manufacturing engineer creates an alternate workplan to make the same workpiece, the new workplan may use a completely different set of features.  </P>
 <P CLASS="example">
-EXAMPLE 1   <A HREF="stepnc_aim_express.htm#73434" CLASS="XRef">See Alternate machining processes and features</A> shows a stairway-shaped workpiece and two different machining processes to produce that workpiece.  The example on the right shows a depth-first machining workplan while the example on the left shows a breadth-first machining workplan.  Both workplans produce the same result, but each calls out very different features.</P>
+EXAMPLE 1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="#figure-40">Figure 40</a> shows a stairway-shaped workpiece and two different machining processes to produce that workpiece.  The example on the right shows a depth-first machining workplan while the example on the left shows a breadth-first machining workplan.  Both workplans produce the same result, but each calls out very different features.</P>
 
 
 <FIGURE>
@@ -48989,7 +48989,7 @@ EXAMPLE 1   <A HREF="stepnc_aim_express.htm#73434" CLASS="XRef">See Alternate ma
 <P>
 AP 224 and other parts of ISO 10303 identify features on the final form of the workpiece that are not necessarily tied to a specific sequence of machining processes.  These features are used as input to the process planning activity.  The output of macro process-planning may be described as an AP 240 data set that will include these features but may identify additional intermediate features related to a particular process.   This part of ISO 10303 describes the micro process-plan and is concerned with the features associated with a particular process, but it is desirable to link the features on the final form with  the set of workingsteps that contribute to their manufacture.   This associativity through the entire design to manufacturing path is useful for related downstream tasks, such as inspection, which could use the tracability to pinpoint critical areas of interest in the micro and macro process-plans.</P>
 <P CLASS="example">
-EXAMPLE 2   <A HREF="stepnc_aim_express.htm#78132" CLASS="XRef">See Example of process and final form features</A> shows a workpiece whose final form contains a step and an open slot.  The input to the process planner was an open slot and step, and for whatever reason, he decided to machine the slot first and the step second.    The workplan contains two workingsteps, the first of which refers to a closed slot and the second of which refers to the step.</P>
+EXAMPLE 2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="#figure-41">Figure 41</a> shows a workpiece whose final form contains a step and an open slot.  The input to the process planner was an open slot and step, and for whatever reason, he decided to machine the slot first and the step second.    The workplan contains two workingsteps, the first of which refers to a closed slot and the second of which refers to the step.</P>
 <P CLASS="example">
 With the first workingstep, ISO 14649 is only concerned with the closed slot, and there is no way to trace back to the open slot feature on the final part.  In the second workingstep, of course, the process and final form feature are the same thing.</P>
 <P CLASS="example">
@@ -49012,9 +49012,9 @@ If used, this attribute contains a set of one or more features visible on the fi
 <H4><A NAME="clause-5-2-1-3"></A>5.2.1.3 Manufacturing feature details by type</H4>
 </DIV>
 <DIV>
-<H5><A NAME="clause-5-2-1-3-1"></A>5.2.1.3.1 Planar face</H5>
+<H5><A NAME="funcon-planar_face"></A>5.2.1.3.1 Planar face</H5>
 <P>
-In the ISO 10303 integrated representation, a planar face is represented by a linear profile swept along a linear path to form the plane that results after material has been removed.  The origin of the feature lies on the plane.  The depth of material removed is given by the removal_depth length parameter associated with the feature.  <A HREF="stepnc_aim_express.htm#35804" CLASS="XRef">See Planar face origin and parameters</A> illustrates the planar face parameters.</P>
+In the ISO 10303 integrated representation, a planar face is represented by a linear profile swept along a linear path to form the plane that results after material has been removed.  The origin of the feature lies on the plane.  The depth of material removed is given by the removal_depth length parameter associated with the feature.  <a href="#figure-42">Figure 42</a> illustrates the planar face parameters.</P>
 
 
 <FIGURE>
@@ -49033,9 +49033,9 @@ This part of ISO 10303 adds the removal_depth and removal_direction attributes t
 To convert to the ISO 14649 representation, move the placement along the direction given by the removal_direction by the distance given by the removal_depth attribute.</P>
 </DIV>
 <DIV>
-<H5><A NAME="clause-5-2-1-3-2"></A>5.2.1.3.2 Round hole</H5>
+<H5><A NAME="funcon-round_hole"></A>5.2.1.3.2 Round hole</H5>
 <P>
-In the ISO 10303 integrated representation, a round hole is represented by a circular closed profile swept along a linear path.  The diameter of the profile is the diameter of the circle and the length of the travel path is the depth of the hole.  The <A HREF="stepnc_aim.htm#89665" CLASS="XRef">See Round_hole</A> bottom_at_path_end parameter determines whether the placement is at the bottom of the hole with the Z axis pointing up out of the material or at the top of the hole with the Z axis pointing down into the material.  <A HREF="stepnc_aim_express.htm#81846" CLASS="XRef">See Round hole origin</A> illustrates the handling of round hole placement. </P>
+In the ISO 10303 integrated representation, a round hole is represented by a circular closed profile swept along a linear path.  The diameter of the profile is the diameter of the circle and the length of the travel path is the depth of the hole.  The <a href="clause4.htm#ao-round_hole">Round_hole</a> bottom_at_path_end parameter determines whether the placement is at the bottom of the hole with the Z axis pointing up out of the material or at the top of the hole with the Z axis pointing down into the material.  <a href="#figure-43">Figure 43</a> illustrates the handling of round hole placement. </P>
 
 
 <FIGURE>
@@ -49054,9 +49054,9 @@ This part of ISO 10303 adds the course_of_travel attribute to the Round_hole app
 To convert to the ISO 14649 representation, construct the depth surface if it is not present and adjust the feature placement.  For a placement is at the top of the hole (bottom_at_path_end is TRUE), rotate the feature placement about the X axis so that Z =&gt; Y and Y =&gt; -Z.   For a placement is at the bottom of the hole (bottom_at_path_end is FALSE), move the placement in the Z direction by the length of the course_of_travel path.</P>
 </DIV>
 <DIV>
-<H5><A NAME="clause-5-2-1-3-3"></A>5.2.1.3.3 Pocket</H5>
+<H5><A NAME="funcon-pocket"></A>5.2.1.3.3 Pocket</H5>
 <P>
-In the ISO 10303 integrated representation, a pocket is represented by a profile swept along a linear path.  Material is removed on the inside of the profile, and the length of the travel path is the depth of the pocket. The <A HREF="stepnc_aim.htm#33260" CLASS="XRef">See Pocket</A> bottom_at_path_end parameter determines whether the placement is at the bottom of the pocket with the Z axis pointing up out of the material or at the top of the pocket with the Z axis pointing down into the material.  <A HREF="stepnc_aim_express.htm#55082" CLASS="XRef">See Pocket origin</A> illustrates the handling of pocket placement.</P>
+In the ISO 10303 integrated representation, a pocket is represented by a profile swept along a linear path.  Material is removed on the inside of the profile, and the length of the travel path is the depth of the pocket. The <a href="clause4.htm#ao-pocket">Pocket</a> bottom_at_path_end parameter determines whether the placement is at the bottom of the pocket with the Z axis pointing up out of the material or at the top of the pocket with the Z axis pointing down into the material.  <a href="#figure-44">Figure 44</a> illustrates the handling of pocket placement.</P>
 
 
 <FIGURE>
@@ -49075,11 +49075,11 @@ This part of ISO 10303 adds the course_of_travel attribute to the Pocket applica
 To convert to the ISO 14649 representation, construct the depth surface if it is not present and adjust the feature placement.  For a placement is at the top of the pocket (bottom_at_path_end is TRUE), rotate the feature placement about the X axis so that Z =&gt; Y and Y =&gt; -Z.   For a placement is at the bottom of the pocket (bottom_at_path_end is FALSE), move the placement in the Z direction by the length of the course_of_travel path.</P>
 </DIV>
 <DIV>
-<H5><A NAME="clause-5-2-1-3-4"></A>5.2.1.3.4 General outside and shape profile features</H5>
+<H5><A NAME="funcon-shape_profile"></A>5.2.1.3.4 General outside and shape profile features</H5>
 <P>
-In the ISO 10303 integrated representation, a Profile_feature (<A HREF="stepnc_aim.htm#60131" CLASS="XRef">See General_outside_profile</A> or <A HREF="stepnc_aim.htm#91533" CLASS="XRef">See Shape_profile</A>) is represented by a profile swept along a linear path.  Material is removed on the outside of the swept profile.  The length of the travel path is the depth of the profile_feature. </P>
+In the ISO 10303 integrated representation, a Profile_feature (see <a href="clause4.htm#ao-general_outside_profile">General_outside_profile</a> or <a href="clause4.htm#ao-shape_profile">Shape_profile</a>) is represented by a profile swept along a linear path.  Material is removed on the outside of the swept profile.  The length of the travel path is the depth of the profile_feature. </P>
 <P>
-For a general outside profile, the feature placement is at the bottom with the Z axis pointing up out of the material.  <A HREF="stepnc_aim_express.htm#72227" CLASS="XRef">See General Outside profile origin</A> illustrates the parameters associated with all Profile_features as well as the placement of a general outside profile. </P>
+For a general outside profile, the feature placement is at the bottom with the Z axis pointing up out of the material.  <a href="#figure-45">Figure 45</a> illustrates the parameters associated with all Profile_features as well as the placement of a general outside profile. </P>
 
 
 <FIGURE>
@@ -49089,7 +49089,7 @@ For a general outside profile, the feature placement is at the bottom with the Z
 
 
 <P>
-Shape profiles have an additional floor condition that determines the feature placement. For shape profiles, the <A HREF="stepnc_aim.htm#24878" CLASS="XRef">See Profile_floor</A> start_or_end parameter determines whether the feature placement is at the bottom of the profile with the Z axis pointing up out of the material (start_or_end is FALSE), or at the top of the profile with the Z axis pointing down into the material (start_or_end is TRUE).  <A HREF="stepnc_aim_express.htm#72927" CLASS="XRef">See Shape profile origin</A> illustrates the placement of a shape profile.</P>
+Shape profiles have an additional floor condition that determines the feature placement. For shape profiles, the <a href="clause4.htm#ao-profile_floor">Profile_floor</a> start_or_end parameter determines whether the feature placement is at the bottom of the profile with the Z axis pointing up out of the material (start_or_end is FALSE), or at the top of the profile with the Z axis pointing down into the material (start_or_end is TRUE).  <a href="#figure-46">Figure 46</a> illustrates the placement of a shape profile.</P>
 <P>
 A direction vector is part of the linear path and defines the direction that the profile is swept.  This shall be aligned along the Z axis of the feature placement.  The swept profile lies in the XY plane of the feature placement with the origin of the swept profile aligned with feature placement.</P>
 <P>
@@ -49108,9 +49108,9 @@ To convert a General_outside_profile to the ISO 14649 representation, construct 
 To convert a Shape_profile to the ISO 14649 representation, construct the depth surface if it is not present and adjust the feature placement.  For a placement is at the top of the Shape_profile (start_or_end is TRUE), rotate the feature placement about the X axis so that Z =&gt; Y and Y =&gt; -Z.   For a placement is at the bottom of the Shape_profile (start_or_end is FALSE), move the placement in the Z direction by the length of the profile_swept_shape path.</P>
 </DIV>
 <DIV>
-<H5><A NAME="clause-5-2-1-3-5"></A>5.2.1.3.5 Slot</H5>
+<H5><A NAME="funcon-slot"></A>5.2.1.3.5 Slot</H5>
 <P>
-In the ISO 10303 integrated representation, a slot feature is represented by an open profile swept along a travel path.  Material is removed on the inside of the swept profile.  The depth of the open profile gives the depth of the slot feature.  The feature placement is at the bottom of the feature with the Z axis pointing along the travel path.  <A HREF="stepnc_aim_express.htm#85023" CLASS="XRef">See Slot origin and orientation</A> illustrates the slot parameters.  </P>
+In the ISO 10303 integrated representation, a slot feature is represented by an open profile swept along a travel path.  Material is removed on the inside of the swept profile.  The depth of the open profile gives the depth of the slot feature.  The feature placement is at the bottom of the feature with the Z axis pointing along the travel path.  <a href="#figure-47">Figure 47</a> illustrates the slot parameters.  </P>
 
 
 <FIGURE>
@@ -49133,7 +49133,7 @@ Change the direction on the course_of_travel path so that it points along the ne
 <DIV>
 <H5><A NAME="clause-5-2-1-3-6"></A>5.2.1.3.6 Step</H5>
 <P>
-In the ISO 10303 integrated representation, a step feature is represented by a vee profile swept along a linear path.  Material is removed on the inside of the vee profile.  The length of one arm of the vee profile gives the depth of the step feature.  The length of the other arm gives the width of the step feature.  The feature placement is at the point of the vee profile with the Z axis pointing along the travel path.  <A HREF="stepnc_aim_express.htm#95189" CLASS="XRef">See Step origin and orientation</A> illustrates the step parameters.  </P>
+In the ISO 10303 integrated representation, a step feature is represented by a vee profile swept along a linear path.  Material is removed on the inside of the vee profile.  The length of one arm of the vee profile gives the depth of the step feature.  The length of the other arm gives the width of the step feature.  The feature placement is at the point of the vee profile with the Z axis pointing along the travel path.  <a href="#figure-48">Figure 48</a> illustrates the step parameters.  </P>
 
 
 <FIGURE>
@@ -49154,7 +49154,7 @@ To convert to the ISO 14649 representation, rotate the feature placement about t
 Change the direction on the course_of_travel path so that it points along the new Y axis rather than the Z axis. The origin of the vee_profile is defined as the point of the vee, so it can no longer share the placement of the feature. Assign it a separate placement offset by the second_side_length.  Finally, construct the depth surface if it is not present.</P>
 </DIV>
 <DIV>
-<H5><A NAME="clause-5-2-1-3-7"></A>5.2.1.3.7 Transition Features</H5>
+<H5><A NAME="funcon-transition_features"></A>5.2.1.3.7 Transition Features</H5>
 <P>
 In the ISO 10303 application protocols, chamfers and edge rounds are defined as a relationship between two sets of geometric elements on the boundary representation of the workpiece.  Each transition feature has a first_face_shape and a second_face_shape parameter.  Each contains a set of face_surface or oriented_face instances taken from the brep description of the workpiece shape.  In addition, several characteristic parameters are associated with each feature type.  Chamfers have an offset and face angle, while edge rounds have two offsets and a radius to describe the transition surface.</P>
 <P>
@@ -49162,7 +49162,7 @@ ISO 14649 calls out the same characteristic parameters, but defines chamfers and
 <P CLASS="example">
 NOTE 1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  Why were two approaches used?  Historically, the ISO 10303 approach was defined first, but this requires that brep geometry be present in order to describe transition features.  From the ISO 14649 perspective, geometry is optional and may be omitted, so it made sense to define transition features as a relationship between two features instead. </P>
 <P>
-This part of ISO 10303 extends the Chamfer and Edge_round application objects to support the use of both approaches.  This was done by adding chamfer_face, first_face_shape and second_face_shape attributes to Chamfer and adding edge_round_face, first_face_shape and second_face_shape attributes to Edge_round.  These attributes are optional and represent the faces associated with the transition features for harmonization with the other ISO 10303 parts.  <A HREF="stepnc_aim_express.htm#59297" CLASS="XRef">See Transition features relating faces or features</A> shows both approaches for transition features.  </P>
+This part of ISO 10303 extends the Chamfer and Edge_round application objects to support the use of both approaches.  This was done by adding chamfer_face, first_face_shape and second_face_shape attributes to Chamfer and adding edge_round_face, first_face_shape and second_face_shape attributes to Edge_round.  These attributes are optional and represent the faces associated with the transition features for harmonization with the other ISO 10303 parts.  <a href="#figure-49">Figure 49</a> shows both approaches for transition features.  </P>
 
 
 
@@ -49191,14 +49191,14 @@ Within each instance, the value_component attribute holds the numeric value of a
 <P>
 Measurements most often appear in the items set of the representation of an action_property, resource_property, or property_definition.   The items set must refer to representation_item instances, so measurements are encoded as a measure_representation_item, which is a subtype of measure_with_unit and representation_item.  The measure_with_unit subtypes for specific types of values are still used by creating a complex entity instance with measure_representation_item.</P>
 <P CLASS="example">
-EXAMPLE 1			No value-specific subtype of measure_with_unit exists for count measurements, so a count value is simply encoded as an instance of measure_representation_item.   In the exchange file fragment below, #10 is an instance of this type describing a count of 5.   The unit for the value is encoded by #20, which is a context_dependent_unit with a name of &quot;count&quot;.</P>
+EXAMPLE 1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; No value-specific subtype of measure_with_unit exists for count measurements, so a count value is simply encoded as an instance of measure_representation_item.   In the exchange file fragment below, #10 is an instance of this type describing a count of 5.   The unit for the value is encoded by #20, which is a context_dependent_unit with a name of &quot;count&quot;.</P>
 <PRE CLASS="example">
 #10=MEASURE_REPRESENTATION_ITEM('', COUNT_MEASURE(5.),#20);
 #20=CONTEXT_DEPENDENT_UNIT(#30,'count');
 #30=DIMENSIONAL_EXPONENTS(0.,0.,0.,0.,0.,0.,0.);
 </PRE>
 <P CLASS="example">
-EXAMPLE 2			A length measurement would be encoded as a complex instance of length_measure_with_unit and measure_representation_item.   In the exchange file fragment below, #10 is a complex instance of these types describing a value of 22.5mm.   The millimetre unit is encoded by #20, which is also a complex instance of length_unit and si_unit.   In general, each value-specific subtype of measure_with_unit has a corresponding subtypes of named_unit that is used in a complex instance with either si_unit or conversion_based_unit for units describing those types of values.</P>
+EXAMPLE 2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; A length measurement would be encoded as a complex instance of length_measure_with_unit and measure_representation_item.   In the exchange file fragment below, #10 is a complex instance of these types describing a value of 22.5mm.   The millimetre unit is encoded by #20, which is also a complex instance of length_unit and si_unit.   In general, each value-specific subtype of measure_with_unit has a corresponding subtypes of named_unit that is used in a complex instance with either si_unit or conversion_based_unit for units describing those types of values.</P>
 <PRE CLASS="example">
 #40=(
   LENGTH_MEASURE_WITH_UNIT()
@@ -49223,7 +49223,7 @@ To convert to the ISO 14649 representation, convert the numeric value of each me
 <P>
 In the ISO 10303 integrated representation, qualifications such as plus/minus bounds, significant digits, limits and fits, or maximum/minimum may be applied to measurement values.  This is encoded by creating a complex entity instance of qualified_representation_item, measure_representation_item,  and, if one exists, a value-specific measure_with_unit subtype. The qualified_representation_item adds a set of value qualifiers to the instance that describe the conditions placed on the value.</P>
 <P CLASS="example">
-EXAMPLE 1			A length measurement with a plus/minus tolerance is encoded as a complex instance of length_measure_with_unit, measure_representation_item, and qualified_representation_item.   In the exchange file fragment below, #10  describes a value of 80mm plus or minus 0.1, with 5 significant digits of precision.  The upper and lower bounds (#20 and #30) are encoded using standard_uncertainty instances, while the digits of precision (#40) are encoded using a a precision_qualifier.</P>
+EXAMPLE 1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; A length measurement with a plus/minus tolerance is encoded as a complex instance of length_measure_with_unit, measure_representation_item, and qualified_representation_item.   In the exchange file fragment below, #10  describes a value of 80mm plus or minus 0.1, with 5 significant digits of precision.  The upper and lower bounds (#20 and #30) are encoded using standard_uncertainty instances, while the digits of precision (#40) are encoded using a a precision_qualifier.</P>
 <PRE CLASS="example">
 #10=(
   LENGTH_MEASURE_WITH_UNIT()
@@ -49243,7 +49243,7 @@ EXAMPLE 1			A length measurement with a plus/minus tolerance is encoded as a com
 );
 </PRE>
 <P CLASS="example">
-EXAMPLE 2			A length measurement with a value limitation is encoded in the same way, but a type_qualifier is used to indicate the type of limitation.   In the exchange file fragment below, #10 describes a maximum value of 80mm.  </P>
+EXAMPLE 2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; A length measurement with a value limitation is encoded in the same way, but a type_qualifier is used to indicate the type of limitation.   In the exchange file fragment below, #10 describes a maximum value of 80mm.  </P>
 <PRE CLASS="example">
 #10=(
   LENGTH_MEASURE_WITH_UNIT()
@@ -49261,14 +49261,14 @@ EXAMPLE 2			A length measurement with a value limitation is encoded in the same 
 );
 </PRE>
 <P CLASS="example">
-NOTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The qualified_representation_item encoding is used for all measure types, including lengths and plane angles, with one exception.   When a length or plane angle measure is appears as the dimension_value of a <A HREF="stepnc_aim.htm#78680" CLASS="XRef">See Geometric_dimension</A>, a plus/minus or limits and fits qualification is encoded differently for harmonization reasons.    See the mapping specifications for Plus_minus_value and Limits_and_fits for details.</P>
+NOTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The qualified_representation_item encoding is used for all measure types, including lengths and plane angles, with one exception.   When a length or plane angle measure is appears as the dimension_value of a <a href="clause4.htm#ao-geometric_dimension">Geometric_dimension</a>, a plus/minus or limits and fits qualification is encoded differently for harmonization reasons.    See the mapping specifications for Plus_minus_value and Limits_and_fits for details.</P>
 </DIV>
 <DIV>
 <H5><A NAME="clause-5-2-1-4-3"></A>5.2.1.4.3 Angle (plane) measure</H5>
 <P>
 A plane angle measure is encoded using an instance of plane_angle_measure_with_unit. Local rules on this type require that the unit used to describe the measure be a plane_angle_unit, so a complex entity instance with si_unit or a conversion_based_unit is used.</P>
 <P CLASS="example">
-EXAMPLE			A plane angle measurement used in a representation would be encoded as a complex instance of plane_angle_measure_with_unit and measure_representation_item.   In the exchange file fragment below, #10 describes a value of 90 degrees.</P>
+EXAMPLE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; A plane angle measurement used in a representation would be encoded as a complex instance of plane_angle_measure_with_unit and measure_representation_item.   In the exchange file fragment below, #10 describes a value of 90 degrees.</P>
 <PRE CLASS="example">
 #10=(
   MEASURE_REPRESENTATION_ITEM()
@@ -49300,7 +49300,7 @@ The degree unit is encoded by #30, which is a complex instance of plane_angle_un
 <P>
 A solid angle measure is encoded using an instance of solid_angle_measure_with_unit. Local rules on this type require that the unit used to describe the measure be a solid_angle_unit, so a complex entity instance with si_unit or a conversion_based_unit is used.</P>
 <P CLASS="example">
-EXAMPLE			A solid angle measurement used in a representation would be encoded as a complex instance of solid_angle_measure_with_unit and measure_representation_item.   In the exchange file fragment below, #10 describes a value of 0.5 steradian.   </P>
+EXAMPLE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; A solid angle measurement used in a representation would be encoded as a complex instance of solid_angle_measure_with_unit and measure_representation_item.   In the exchange file fragment below, #10 describes a value of 0.5 steradian.   </P>
 <PRE CLASS="example">
 #10=(
   MEASURE_REPRESENTATION_ITEM()
@@ -49326,7 +49326,7 @@ An area measure is encoded using an instance of measure_with_unit (or measure_re
 <P CLASS="example">
 NOTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ISO 10303-41 defines value-specific subtypes area_measure_with_unit and area_unit, but the use of these are deprecated because they are not usable as defined.   The unit for an area measure is described as a derived_unit, but a complex instance of area_unit and derived_unit is not permitted by the EXPRESS definition.</P>
 <P CLASS="example">
-EXAMPLE			An area measurement used in a representation would be encoded as a measure_representation_item.  In the exchange file fragment below, #10 describes a value of 10 square millimetres.</P>
+EXAMPLE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; An area measurement used in a representation would be encoded as a measure_representation_item.  In the exchange file fragment below, #10 describes a value of 10 square millimetres.</P>
 <PRE CLASS="example">
 #10=MEASURE_REPRESENTATION_ITEM('',AREA_MEASURE(10.),#20);
 </PRE>
@@ -49348,7 +49348,7 @@ The square millimetre unit is encoded by #20, which is a derived_unit based on o
 <P>
 A count measure is encoded using an instance of measure_with_unit (or measure_representation_item when used in a representation).  A context_dependent_unit with a name of &quot;count&quot; is used to describe the measure.</P>
 <P CLASS="example">
-EXAMPLE			A count measurement used in a representation would be encoded as a measure_representation_item.  In the exchange file fragment below, #10 describes a count of 5.  The count unit is encoded by #20.</P>
+EXAMPLE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; A count measurement used in a representation would be encoded as a measure_representation_item.  In the exchange file fragment below, #10 describes a count of 5.  The count unit is encoded by #20.</P>
 <PRE CLASS="example">
 #10=MEASURE_WITH_UNIT(COUNT_MEASURE(5.),#20);
 #20=CONTEXT_DEPENDENT_UNIT(#30,'count');
@@ -49360,7 +49360,7 @@ EXAMPLE			A count measurement used in a representation would be encoded as a mea
 <P>
 A force measure is encoded using an instance of measure_with_unit (or measure_representation_item when used in a representation).  The value_component of the instance is a numeric_measure.  A si_unit or a conversion_based_unit is used to describe the measure.</P>
 <P CLASS="example">
-EXAMPLE			A force measurement used in a representation would be encoded as a measure_representation_item.  In the exchange file fragment below, #10 describes a value of 20 Newtons (N) and #20 describes a value of 14 pounds force (lbf).</P>
+EXAMPLE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; A force measurement used in a representation would be encoded as a measure_representation_item.  In the exchange file fragment below, #10 describes a value of 20 Newtons (N) and #20 describes a value of 14 pounds force (lbf).</P>
 <PRE CLASS="example">
 #10=MEASURE_REPRESENTATION_ITEM('',NUMERIC_MEASURE(20.),#30);
 #20=MEASURE_REPRESENTATION_ITEM('',NUMERIC_MEASURE(14.),#40);
@@ -49379,7 +49379,7 @@ The Newton unit is encoded by #30, which is a simple entity instance of si_unit.
 <P>
 A length measure is encoded using an instance of length_measure_with_unit. Local rules on this type require that the unit used to describe the measure be a length_unit, so a complex entity instance with si_unit or a conversion_based_unit is used.</P>
 <P CLASS="example">
-EXAMPLE			A length measurement used in a representation would be encoded as a complex instance of length_measure_with_unit and measure_representation_item.   In the exchange file fragment below, #10 describes a value of 12 inches.</P>
+EXAMPLE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; A length measurement used in a representation would be encoded as a complex instance of length_measure_with_unit and measure_representation_item.   In the exchange file fragment below, #10 describes a value of 12 inches.</P>
 <PRE CLASS="example">
 #10=(
   LENGTH_MEASURE_WITH_UNIT()
@@ -49411,7 +49411,7 @@ The inch unit is encoded by #30, which is a complex instance of length_unit and 
 <P>
 A mass measure is encoded using an instance of mass_measure_with_unit. Local rules on this type require that the unit used to describe the measure be a mass_unit, so a complex entity instance with si_unit or a conversion_based_unit is used.</P>
 <P CLASS="example">
-EXAMPLE			A mass measurement used in a representation would be encoded as a complex instance of mass_measure_with_unit and measure_representation_item.   In the exchange file fragment below, #10 describes a mass of 2 kilograms.  The kilogram unit is encoded by #20, which is a complex instance of mass_unit and si_unit.</P>
+EXAMPLE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; A mass measurement used in a representation would be encoded as a complex instance of mass_measure_with_unit and measure_representation_item.   In the exchange file fragment below, #10 describes a mass of 2 kilograms.  The kilogram unit is encoded by #20, which is a complex instance of mass_unit and si_unit.</P>
 <PRE CLASS="example">
 #10=(
   MASS_MEASURE_WITH_UNIT()
@@ -49432,7 +49432,7 @@ EXAMPLE			A mass measurement used in a representation would be encoded as a comp
 <P>
 A power measure is encoded using an instance of measure_with_unit (or measure_representation_item when used in a representation).  The value_component of the instance is a numeric_measure.  A si_unit or a conversion_based_unit is used to describe the measure.</P>
 <P CLASS="example">
-EXAMPLE			A power measurement used in a representation would be encoded as a measure_representation_item.  In the exchange file fragment below, #10 describes a value of 15 kilowatts (kW) and #20 describes a value of 14 horsepower (hp)</P>
+EXAMPLE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; A power measurement used in a representation would be encoded as a measure_representation_item.  In the exchange file fragment below, #10 describes a value of 15 kilowatts (kW) and #20 describes a value of 14 horsepower (hp)</P>
 <PRE CLASS="example">
 #10=MEASURE_REPRESENTATION_ITEM('',NUMERIC_MEASURE(15.),#30);
 #20=MEASURE_REPRESENTATION_ITEM('',NUMERIC_MEASURE(14.),#40);
@@ -49451,7 +49451,7 @@ The kW unit is encoded by #30, which is a simple entity instance of si_unit.  Th
 <P>
 A pressure measure is encoded using an instance of measure_with_unit (or measure_representation_item when used in a representation).  The value_component of the instance is a numeric_measure.  A si_unit or a conversion_based_unit is used to describe the measure.</P>
 <P CLASS="example">
-EXAMPLE			A pressure measurement used in a representation would be encoded as a measure_representation_item.  In the exchange file fragment below, #10 describes a value of 25 kilopascals (kPa) and #20 describes a value of 14 pounds per square inch (psi)</P>
+EXAMPLE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; A pressure measurement used in a representation would be encoded as a measure_representation_item.  In the exchange file fragment below, #10 describes a value of 25 kilopascals (kPa) and #20 describes a value of 14 pounds per square inch (psi)</P>
 <PRE CLASS="example">
 #10=MEASURE_REPRESENTATION_ITEM('',NUMERIC_MEASURE(25.),#30);
 #20=MEASURE_REPRESENTATION_ITEM('',NUMERIC_MEASURE(14.),#40);
@@ -49470,7 +49470,7 @@ The kPa unit is encoded by #30, which is a simple entity instance of si_unit.  T
 <P>
 A ratio measure is encoded using an instance of ratio_measure_with_unit. Local rules on this type require that the unit used to describe the measure be a ratio_unit.   Percentage measures are represented as an instance of ratio_measure_with_unit with a numeric value of 0 representing 0/100 or 0% and a numeric value of 1 representing 100/100 or 100%.</P>
 <P CLASS="example">
-EXAMPLE			A ratio measurement used in a representation would be encoded as a complex instance of ratio_measure_with_unit and measure_representation_item.   In the exchange file fragment below, #10 describes a value of 25% (0.25).  The ratio unit is encoded by #20.</P>
+EXAMPLE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; A ratio measurement used in a representation would be encoded as a complex instance of ratio_measure_with_unit and measure_representation_item.   In the exchange file fragment below, #10 describes a value of 25% (0.25).  The ratio unit is encoded by #20.</P>
 <PRE CLASS="example">
 #10=(
   MEASURE_REPRESENTATION_ITEM()
@@ -49488,7 +49488,7 @@ EXAMPLE			A ratio measurement used in a representation would be encoded as a com
 <P>
 A linear speed measure is encoded using an instance of measure_with_unit (or measure_representation_item when used in a representation).  The value_component of the instance is a numeric_measure.  A derived_unit consisting of a length unit per time unit is used to describe the measure.</P>
 <P CLASS="example">
-EXAMPLE			A linear speed measurement used in a representation would be encoded as a measure_representation_item.  In the exchange file fragment below, #10 describes a value of 10 millimetres per second.</P>
+EXAMPLE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; A linear speed measurement used in a representation would be encoded as a measure_representation_item.  In the exchange file fragment below, #10 describes a value of 10 millimetres per second.</P>
 <PRE CLASS="example">
 #10=MEASURE_REPRESENTATION_ITEM('',NUMERIC_MEASURE(10.),#20);
 </PRE>
@@ -49520,7 +49520,7 @@ To describe other velocity units, like meter per second or inch per minute, repl
 <P>
 A linear speed that is described as a length per tool tooth, revolution, or other non-time quantity is encoded using an instance of measure_with_unit (or measure_representation_item when used in a representation).  The value_component of the instance is a numeric_measure.  A derived_unit consisting of a length unit per tooth, revolution, or other context-dependent unit is used to describe the measure.</P>
 <P CLASS="example">
-EXAMPLE			A length per tooth speed measure used in a representation would be encoded as a measure_representation_item.  In the exchange file fragment below, #10 describes a value of 1 millimetre per tooth.</P>
+EXAMPLE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; A length per tooth speed measure used in a representation would be encoded as a measure_representation_item.  In the exchange file fragment below, #10 describes a value of 1 millimetre per tooth.</P>
 <PRE CLASS="example">
 #10=MEASURE_REPRESENTATION_ITEM('',NUMERIC_MEASURE(1.),#20);
 </PRE>
@@ -49549,7 +49549,7 @@ To describe length per revolution units, like millimetre per revolution, replace
 <P>
 A rotational speed measure is encoded using an instance of measure_with_unit (or measure_representation_item when used in a representation).  The value_component of the instance is a numeric_measure.  A derived_unit consisting of a revolution context-dependent unit over a time unit is used to describe the measure.</P>
 <P CLASS="example">
-EXAMPLE			A rotational speed measurement used in a representation would be encoded as a measure_representation_item.  In the exchange file fragment below, #10 describes a value of 5 revolutions per second.</P>
+EXAMPLE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; A rotational speed measurement used in a representation would be encoded as a measure_representation_item.  In the exchange file fragment below, #10 describes a value of 5 revolutions per second.</P>
 <PRE CLASS="example">
 #10=MEASURE_REPRESENTATION_ITEM('',NUMERIC_MEASURE(5.),#20);
 </PRE>
@@ -49578,7 +49578,7 @@ To describe other rotational speed units, like revolutions per minute, replace t
 <P>
 A time measure is encoded using an instance of time_measure_with_unit. Local rules on this type require that the unit used to describe the measure be a time_unit, so a complex entity instance with si_unit or a conversion_based_unit is used.</P>
 <P CLASS="example">
-EXAMPLE			A time measurement used in a representation would be encoded as a complex instance of time_measure_with_unit and measure_representation_item.   In the exchange file fragment below, #10 describes a value of 5 minutes.</P>
+EXAMPLE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; A time measurement used in a representation would be encoded as a complex instance of time_measure_with_unit and measure_representation_item.   In the exchange file fragment below, #10 describes a value of 5 minutes.</P>
 <PRE CLASS="example">
 #10=(
   MEASURE_REPRESENTATION_ITEM()
@@ -49610,7 +49610,7 @@ The minute unit is encoded by #30, which is a complex instance of time_unit and 
 <P>
 A torque measure is encoded using an instance of measure_with_unit (or measure_representation_item when used in a representation).  The value_component of the instance is a numeric_measure.  A derived_unit consisting of a length times a force unit is used to describe the measure.</P>
 <P CLASS="example">
-EXAMPLE 1			A torque measurement used in a representation would be encoded as a measure_representation_item.  In the exchange file fragment below, #10 describes a value of 10 Newton meters.</P>
+EXAMPLE 1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; A torque measurement used in a representation would be encoded as a measure_representation_item.  In the exchange file fragment below, #10 describes a value of 10 Newton meters.</P>
 <PRE CLASS="example">
 #10=MEASURE_REPRESENTATION_ITEM('',NUMERIC_MEASURE(10.),#20);
 </PRE>
@@ -49630,7 +49630,7 @@ The N-m unit is encoded by #20, which is a derived_unit based on a derived_unit_
 );
 </PRE>
 <P CLASS="example">
-EXAMPLE 2			In the exchange file fragment below, #10 describes a value of 20 pound feet.  To describe the pound foot torque unit, a derived_unit is used as in the previous example.  The force unit (#70) is given as a pound force unit description as in <A HREF="stepnc_aim.htm#89904" CLASS="XRef">See Force measure</A>.   The length unit (#110) is given as a foot unit.</P>
+EXAMPLE 2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; In the exchange file fragment below, #10 describes a value of 20 pound feet.  To describe the pound foot torque unit, a derived_unit is used as in the previous example.  The force unit (#70) is given as a pound force unit description as in <A HREF="stepnc_aim.htm#89904" CLASS="XRef">See Force measure</A>.   The length unit (#110) is given as a foot unit.</P>
 <PRE CLASS="example">
 #10=MEASURE_REPRESENTATION_ITEM('',NUMERIC_MEASURE(20.),#20);
 #20=DERIVED_UNIT((#30,#40));
@@ -49664,7 +49664,7 @@ A volume measure is encoded using an instance of measure_with_unit (or measure_r
 <P CLASS="example">
 NOTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ISO 10303-41 defines value-specific subtypes volume_measure_with_unit and volume_unit, but the use of these are deprecated because they are not usable as defined.   The unit for an volume measure is described as a derived_unit, but a complex instance of volume_unit and derived_unit is not permitted by the EXPRESS definition.</P>
 <P CLASS="example">
-EXAMPLE			A volume measurement used in a representation would be encoded as a measure_representation_item.  In the exchange file fragment below, #10 describes a value of 20 cubic millimetres.</P>
+EXAMPLE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; A volume measurement used in a representation would be encoded as a measure_representation_item.  In the exchange file fragment below, #10 describes a value of 20 cubic millimetres.</P>
 <PRE CLASS="example">
 #10=MEASURE_REPRESENTATION_ITEM('',VOLUME_MEASURE(20.),#20);
 </PRE>
@@ -49686,11 +49686,11 @@ The cubic millimetre unit is encoded by #20, which is a derived_unit based on a 
 <P>
 A number of properties on the technology and machining strategy application objects describe feedrate, spindle speed, or dwell time values. Several alternative types of measure value can be used to describe each of these values.</P>
 <P CLASS="example">
-EXAMPLE 1    A feedrate could be described either as a linear speed (length per unit of time), or as a length per tooth of the tool being used.</P>
+EXAMPLE 1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; A feedrate could be described either as a linear speed (length per unit of time), or as a length per tooth of the tool being used.</P>
 <P>
 The ISO 14649 documents use different modeling styles to describe these alternatives. The ISO 14649-11 milling model frequently uses different attributes for each alternative with a local rule forbidding the use of more than one at a time.  The ISO 14649-12 turning model frequently uses a SELECT type to model the alternatives.</P>
 <P CLASS="example">
-EXAMPLE 2    In ISO 14649-11, Milling_technology &quot;spindle&quot; and &quot;cutspeed&quot; are separate attributes that use different techniques (constant angular speed versus constant linear speed at the cutting point) to describe the machine tool spindle rotation.   A local rule on Milling_technology prevents the use of both.  ISO 14649-12 uses one attribute called &quot;spindle_speed&quot; defined as a Speed_select SELECT type that models the same two different ways to describe spindle rotation.</P>
+EXAMPLE 2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; In ISO 14649-11, Milling_technology &quot;spindle&quot; and &quot;cutspeed&quot; are separate attributes that use different techniques (constant angular speed versus constant linear speed at the cutting point) to describe the machine tool spindle rotation.   A local rule on Milling_technology prevents the use of both.  ISO 14649-12 uses one attribute called &quot;spindle_speed&quot; defined as a Speed_select SELECT type that models the same two different ways to describe spindle rotation.</P>
 <P>
 In the integrated representation, all alternative description techniques for a particular kind of value  (feed speed, spindle speed, or dwell time) are encoded using a single representation subtype.</P>
 <P>
@@ -49739,7 +49739,7 @@ A number of application object properties describe boolean or enumeration symbol
 <P>
 Since the range of symbolic values is fixed, it is recommended to instantiate this entity exactly once for each unique symbolic value that appears in the data set.  Properties that have the same symbolic value can share either the descriptive_representation_item or the enclosing representation.</P>
 <P CLASS="example">
-EXAMPLE			In the exchange file fragment below, #10 and #20 describe two Milling_machine_functions application objects, each with chip removal on and coolant on.   Within the ARM, chip removal and coolant are both described as boolean parameters.   In the integrated representation, thse are represented as symbolic values `chip removal on', `chip removal off', `coolant on', and `coolant off'. </P>
+EXAMPLE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; In the exchange file fragment below, #10 and #20 describe two Milling_machine_functions application objects, each with chip removal on and coolant on.   Within the ARM, chip removal and coolant are both described as boolean parameters.   In the integrated representation, thse are represented as symbolic values `chip removal on', `chip removal off', `coolant on', and `coolant off'. </P>
 <P CLASS="example">
 Only one descriptive_representation_item instance is needed to describe the `chip removal on' value (#30), and it can be shared by all properties, along with its enclosing representation (#31).    The instance describing `coolant on' (#40) and its enclosing representation (#41) is shared as well.</P>
 <PRE CLASS="example">
@@ -49775,7 +49775,7 @@ Local rules on the ISO 10303 geometry definitions require that any enclosing rep
 <P>
 A representation can only refer to a single representation_context instance, so a complex entity instance of the types is normally used.</P>
 <P CLASS="example">
-EXAMPLE 1			In the exchange file fragment below, #10 is a representation containing an axis placement (#20, and #21) describing an origin location at (1.1, 2.2, 3.3).  The representation context is given by #30 which indicates that the geometry described is three dimensional, lengths are measured in millimetres, angles in radians, solid angles in steradians, and points within 0.000006mm of each other are to be considered the same.</P>
+EXAMPLE 1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; In the exchange file fragment below, #10 is a representation containing an axis placement (#20, and #21) describing an origin location at (1.1, 2.2, 3.3).  The representation context is given by #30 which indicates that the geometry described is three dimensional, lengths are measured in millimetres, angles in radians, solid angles in steradians, and points within 0.000006mm of each other are to be considered the same.</P>
 <PRE CLASS="example">
 #10=SHAPE_REPRESENTATION('',(#20),#30);
 #20=AXIS2_PLACEMENT_3D('orientation',#21,$,$);
@@ -49801,7 +49801,7 @@ A context is still required for a representation containing non-geometric repres
 <P>
 In general, only one instance of each type of context is needed, as it may be shared by many representation instances.</P>
 <P CLASS="example">
-EXAMPLE 2			In the exchange file fragment below, #10 is a representation containing a description (#20) and a length measure (#21).   The length measure is already completely described by its unit (#40) and neither it nor the description require additional context information.   The representation context (#30) satisfies the EXPRESS definition requirement that the representation context_of_items has a value.</P>
+EXAMPLE 2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; In the exchange file fragment below, #10 is a representation containing a description (#20) and a length measure (#21).   The length measure is already completely described by its unit (#40) and neither it nor the description require additional context information.   The representation context (#30) satisfies the EXPRESS definition requirement that the representation context_of_items has a value.</P>
 <PRE CLASS="example">
 #10=REPRESENTATION('',(#20,#21),#30);
 #20=DESCRIPTIVE_REPRESENTATION_ITEM('','coolant on');
@@ -49819,7 +49819,7 @@ EXAMPLE 2			In the exchange file fragment below, #10 is a representation contain
 <DIV>
 <H5><A NAME="clause-5-2-1-5-2"></A>5.2.1.5.2 Product and product_definition contexts</H5>
 <P>
-Within this part of ISO 10303, <A HREF="stepnc_aim.htm#11752" CLASS="XRef">See Project</A>, <A HREF="stepnc_aim.htm#80027" CLASS="XRef">See Setup</A>, and <A HREF="stepnc_aim.htm#66176" CLASS="XRef">See Workpiece</A> are encoded in the integrated representation as products.  Like representations, additional context information is also required for these products.</P>
+Within this part of ISO 10303, <a href="clause4.htm#ao-project">Project</a>, <a href="clause4.htm#ao-setup">Setup</a>, and <a href="clause4.htm#ao-workpiece">Workpiece</a> are encoded in the integrated representation as products.  Like representations, additional context information is also required for these products.</P>
 <P>
 A product is required to have a product_context which identifies engineering discipline's point of view the data is being presented by the application protocol. This in turn refers to an application_context and application_protocol_definition which describes the application protocol used to describe the product, the schema name, and status of the application protocol within the ISO standardization process.  It is recommended to instantiate the product_context, application_context, and application_protocol_definition entities exactly once in the data set.</P>
 <P>
@@ -49827,7 +49827,7 @@ A product_definition is required to have a product_definition_context which iden
 <P CLASS="example">
 NOTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; A value of &quot;manufacturing&quot; is recommended for both product_context discipline_type and  product_definition_context life_cycle_stage.</P>
 <P CLASS="example">
-EXAMPLE			In the exchange file fragment below, #10, #20, and #30 are the product structure instances encoding a workpiece with its_id = &quot;1234-K789&quot; and a revision_id = &quot;1.0&quot;.   The product_context (#40) identified a design discipline, the product_definition_context (#70) identifies a life cycle stage, and instances #50 and #60 identify this part of ISO 10303. </P>
+EXAMPLE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; In the exchange file fragment below, #10, #20, and #30 are the product structure instances encoding a workpiece with its_id = &quot;1234-K789&quot; and a revision_id = &quot;1.0&quot;.   The product_context (#40) identified a design discipline, the product_definition_context (#70) identifies a life cycle stage, and instances #50 and #60 identify this part of ISO 10303. </P>
 <PRE CLASS="example">
 #10=PRODUCT('1234-K789','widget','a fictional product',(#40));
 #20=PRODUCT_DEFINITION_FORMATION('1.0','first version of our widget',#10);
@@ -49845,9 +49845,9 @@ EXAMPLE			In the exchange file fragment below, #10, #20, and #30 are the product
 <H4><A NAME="clause-5-2-1-6"></A>5.2.1.6 Toolpath description concepts</H4>
 </DIV>
 <DIV>
-<H5><A NAME="clause-5-2-1-6-1"></A>5.2.1.6.1 Matching curve parameterization</H5>
+<H5><A NAME="funcon-path-param"></A>5.2.1.6.1 Matching curve parameterization</H5>
 <P>
-The definitions of <A HREF="stepnc_aim.htm#49228" CLASS="XRef">See Cutter_contact_trajectory</A>, <A HREF="stepnc_aim.htm#81251" CLASS="XRef">See Cutter_location_trajectory</A>,   <A HREF="stepnc_aim.htm#27400" CLASS="XRef">See Axis_trajectory</A>, and <A HREF="stepnc_aim.htm#30686" CLASS="XRef">See Toolpath_speed</A>, require that the curves that describe location (basiccurve), tool axis, surface normal, and feed speed must have the same parameterization.</P>
+The definitions of <a href="clause4.htm#ao-cutter_contact_trajectory">Cutter_contact_trajectory</a>, <a href="clause4.htm#ao-cutter_location_trajectory">Cutter_location_trajectory</a>, <a href="clause4.htm#ao-axis_trajectory">Axis_trajectory</a>, and <a href="clause4.htm#ao-toolpath_speed">Toolpath_speed</a>, require that the curves that describe location (basiccurve), tool axis, surface normal, and feed speed must have the same parameterization.</P>
 <P>
 When the curves are b-splines, the intent of this requirement is that all curves are evaluated at the same U and V values to get the appropriate XYZ or IJK values.  When the location curve is described using other types of bounded_curve, such as a polyline, ISO 14649 does not describe how the corresponding tool axis, surface normal, and feed speed values are to be determined for specific location values.</P>
 <P CLASS="example">
@@ -49861,7 +49861,7 @@ Except for the cases described below, all supporting curves (tool axis, surface 
 <LI>given a location curve of type trimmed_curve, bounded_pcurve, or bounded_surface_curve, each supporting curve shall be of type as indicated herein for the underlying location curve.</LI>
 </UL>
 <P CLASS="example">
-EXAMPLE			The exchange file fragment below shows a sample Cutter_location_trajectory basiccurve (#10) and its_toolaxis curve (#60).  Both curves are polylines with the same number of points.  At the locations described by #20 #30, and #40, the tool axis is as described by #70.  At the location described by #50, the tool axis is as described by #80.   The sharing of instance #70 is not required, but leads to a more space-efficient description than replicating the cartesian point values across three instances would.</P>
+EXAMPLE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The exchange file fragment below shows a sample Cutter_location_trajectory basiccurve (#10) and its_toolaxis curve (#60).  Both curves are polylines with the same number of points.  At the locations described by #20 #30, and #40, the tool axis is as described by #70.  At the location described by #50, the tool axis is as described by #80.   The sharing of instance #70 is not required, but leads to a more space-efficient description than replicating the cartesian point values across three instances would.</P>
 <PRE CLASS="example">
 #10=POLYLINE('basic curve for WS 12 TP 124',(#20,#30,#40,#50));
 #20=CARTESIAN_POINT('',(2.9164976,0.4320305,-2.2));
@@ -49877,7 +49877,7 @@ EXAMPLE			The exchange file fragment below shows a sample Cutter_location_trajec
 <DIV>
 <H5><A NAME="clause-5-2-1-6-2"></A>5.2.1.6.2 Toolpath direction vectors</H5>
 <P>
-The definitions of <A HREF="stepnc_aim.htm#49228" CLASS="XRef">See Cutter_contact_trajectory</A> and <A HREF="stepnc_aim.htm#81251" CLASS="XRef">See Cutter_location_trajectory</A> specify curves that describe the components of direction vectors for tool axis and surface normal. ISO 14649 does not indicate whether the direction vectors given by these curves shall be normalized (length equal to one).</P>
+The definitions of <a href="clause4.htm#ao-cutter_contact_trajectory">Cutter_contact_trajectory</a> and <a href="clause4.htm#ao-cutter_location_trajectory">Cutter_location_trajectory</a> specify curves that describe the components of direction vectors for tool axis and surface normal. ISO 14649 does not indicate whether the direction vectors given by these curves shall be normalized (length equal to one).</P>
 <P>
 It is recommended that these direction vectors be normalized.</P>
 </DIV>
@@ -49888,7 +49888,7 @@ When describing a toolpath consisting of a circular arc, the trimmed_curve subty
 <P CLASS="example">
 NOTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Given a circle in the XY plane with an axis placement along the positive Z axis, a sense_agreement of true indicates counterclockwise motion (from 0,+X to +Y,0 to 0,-X to -Y,0), while a sense_agreement of false indicates clockwise motion.</P>
 <P CLASS="example">
-EXAMPLE			The exchange file fragment below shows a trimmed curve (#10), based on a circle located at (0,0,0) with a radius of 3.5.   The arc starts (3.5,0,0)  (#50) and traverses a 90 degree arc to (0,3.5,0) (#60).</P>
+EXAMPLE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The exchange file fragment below shows a trimmed curve (#10), based on a circle located at (0,0,0) with a radius of 3.5.   The arc starts (3.5,0,0)  (#50) and traverses a 90 degree arc to (0,3.5,0) (#60).</P>
 <PRE CLASS="example">
 #10=TRIMMED_CURVE('',#20,(#50),(#60),.T.,.CARTESIAN.);
 #20=CIRCLE('',#30,3.5);
@@ -49905,7 +49905,7 @@ When describing a toolpath consisting of a complete circle, the trimmed_curve ap
 <P CLASS="example">
 NOTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Use of the same cartesian_point instance is preferred as this avoids numeric comparisons between coordinate values.</P>
 <P CLASS="example">
-EXAMPLE			Arcs and complete circles can occur when roughing out a circular pocket.  An entry arc, full circle and then exit arc are illustrated in <A HREF="stepnc_aim_express.htm#18361" CLASS="XRef">See Toolpath with complete circle</A>.  </P>
+EXAMPLE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Arcs and complete circles can occur when roughing out a circular pocket.  An entry arc, full circle and then exit arc are illustrated in <a href="#figure-50">Figure 50</a>.  </P>
 
 
 <FIGURE>
@@ -51580,7 +51580,7 @@ END_ENTITY;
 <DIV>
 <H5><A NAME="clause-5-2-3-1-41"></A>5.2.3.1.41 machining_execution_resource</H5>
 <P>
-A <B>machining_execution_resource</B> is a type of <B>action_resource</B> that represents machine tool capability requirements for machining.  See the ARM definition for Machine_parameters in <A HREF="stepnc_aim.htm#18126" CLASS="XRef">See Machine_parameters</A> for more information.</P>
+A <B>machining_execution_resource</B> is a type of <B>action_resource</B> that represents machine tool capability requirements for machining.  See the ARM definition for <a href="clause4.htm#ao-machine_parameters">Machine_parameters</a> for more information.</P>
 <DIV>
 <H6 CLASS="section-underlined">EXPRESS specification:</H6>
 <PRE CLASS="code">
@@ -53463,7 +53463,7 @@ END_ENTITY;
 <DIV>
 <H5><A NAME="clause-5-2-3-1-75"></A>5.2.3.1.75 machining_tool_usage</H5>
 <P>
-A <B>machining_tool_usage</B> is a type of <B>action_method</B> that represents tool usage to satisfy requirements for machining.  See the ARM definition for Tool_usage in <A HREF="stepnc_aim.htm#73304" CLASS="XRef">See Tool_usage</A> for more information.</P>
+A <B>machining_tool_usage</B> is a type of <B>action_method</B> that represents tool usage to satisfy requirements for machining.  See the ARM definition for <a href="clause4.htm#ao-tool_usage">Tool_usage</a> for more information.</P>
 <DIV>
 <H6 CLASS="section-underlined">EXPRESS specification:</H6>
 <PRE CLASS="code">

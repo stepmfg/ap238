@@ -23,7 +23,7 @@
 use strict;
 
 my $do_scanonly=0;
-my $maxdepth=2;
+my $maxdepth=3;
 my %html;
 my @figs;
 my @tables;
@@ -73,29 +73,15 @@ sub scan_toc_entries {
     open (SRC, $file) or die "could not open $file";
 
     while (<SRC>) {
-	/^<H2 CLASS=\"clause\"><A NAME=\"clause-(\d+)\"><\/A>(.*)/ && do {
-	    my $tag = $1;
-	    my $body = $2;
-	    $body =~ s/<\/H2>\s*$//;
-
-	    print "CLAUSE $tag -- $body\n";
-	    while ($depth > 0) {
-		$depth--;
-		print DST "</UL>\n";
-		print DSTFRM "</UL>\n";
-	    }
-	    print DST "\n<LI CLASS=clause><a href=\"$file\">$body</A></LI>\n";
-	    print DSTFRM "\n<LI CLASS=clause><a href=\"$file\" target=\"body\">$body</A></LI>\n";	    
-	};
-
-	/^<H2 CLASS=\"annex-clause\"><A NAME=\"clause-([A-Z])\"><\/A>(.*)/ && do {
-	    my $tag = $1;
-	    my $body = $2;
-	    $body =~ s/<\/H2>\s*$//;
+	/^<H1 CLASS=\"(clause|unum|annex)\"><A NAME=\"([^\"]+)\"><\/A>(.*)/ && do {
+	    my $cls = $1;
+	    my $tag = $2;
+	    my $body = $3;
+	    $body =~ s/<\/H1>\s*$//;
 	    $body =~ s/<BR>/ /g;
 
 	    print "CLAUSE $tag -- $body\n";
-	    while ($depth > 0) {
+	    while ($depth > 1) {
 		$depth--;
 		print DST "</UL>\n";
 		print DSTFRM "</UL>\n";
@@ -105,50 +91,28 @@ sub scan_toc_entries {
 	};
 
 
-	
-	/^<H2 CLASS=\"unum\"><A NAME=\"([^\"]+)\"><\/A>(.*)/ && do {
-	    my $tag = $1;
-	    my $body = $2;
-	    $body =~ s/<\/H2>\s*$//;
-
-	    print "CLAUSE $tag -- $body\n";
-	    while ($depth > 0) {
-		$depth--;
-		print DST "</UL>\n";
-		print DSTFRM "</UL>\n";
-	    }
-	    print DST "<LI CLASS=clause><a href=\"$file\">$body</A></LI>\n";
-	    print DSTFRM "<LI CLASS=clause><a href=\"$file\" target=\"body\">$body</A></LI>\n";	    
-	};
-
-
-
-
-	    
-	/^<H3><A NAME=\"clause-(([A-Z]|\d+)-[\d-]+)\"><\/A>(.*)/ && do {
-	    my $tag = $1;
+	/^<H([2-6])><A NAME=\"([^\"]+)\"><\/A>(.*)/ && do {
+	    my $lev = $1;
+	    my $tag = $2;
 	    my $body = $3;
-	    $body =~ s/<\/H3>\s*$//;
+	    $body =~ s/<\/H$lev>\s*$//;
 
-	    my $tagdepth = () = $tag =~ /-/g;
-
-	    next if $tagdepth > $maxdepth;
+	    next if $lev > $maxdepth;
 	    
-	    while ($depth < $tagdepth) {
+	    while ($depth < $lev) {
 		$depth++;
 		print DST "<UL>\n";
 		print DSTFRM "<UL>\n";
 	    }
-	    
-	    while ($depth > $tagdepth) {
+	    while ($depth > $lev) {
 		$depth--;
 		print DST "</UL>\n";
 		print DSTFRM "</UL>\n";
 	    }
-
+	    
 	    print "CLAUSE $tag -- $body\n";
-	    print DST "<LI><a href=\"$file#clause-$tag\">$body</A></LI>\n";
-	    print DSTFRM "<LI><a href=\"$file#clause-$tag\" target=\"body\">$body</A></LI>\n";	    
+	    print DST "<LI><a href=\"$file#$tag\">$body</A></LI>\n";
+	    print DSTFRM "<LI><a href=\"$file#$tag\" target=\"body\">$body</A></LI>\n";	    
 	};
 
 	/^<FIGCAPTION><A NAME=\"([^\"]+)\"><\/A>(.*)/ && do {
@@ -212,8 +176,7 @@ sub main {
 
     close (DST);
     close (DSTFRM);
-
-
+    
     print "Installing new index files\n";
     rename 'contents.htm', 'oldtoc.htm' or die ("old toc: $!");
     rename 'newtoc.htm', 'contents.htm'	or die ("new toc: $!");
@@ -237,7 +200,7 @@ $html{tochead} = <<'PERL_EOF';
 
 <div class=contents>
 
-<H2 CLASS="unum">Contents</H2>
+<H1 CLASS="unum">Contents</H1>
 <UL>
 PERL_EOF
     ;
@@ -264,7 +227,7 @@ PERL_EOF
 $html{endtoc} = <<'PERL_EOF';
 </UL>
 
-<H2 CLASS="unum">Figures</H2>
+<H1 CLASS="unum">Figures</H1>
 <UL>
 PERL_EOF
     ;
@@ -273,7 +236,7 @@ PERL_EOF
 $html{tail} = <<'PERL_EOF';
 </UL>
 
-<H2 CLASS="unum">Tables</H2>
+<H1 CLASS="unum">Tables</H1>
 <UL>
 </UL>
 
