@@ -762,14 +762,14 @@ An Angular_location_dimension is a type of <a href="#ao-location_dimension">Loca
 <P CLASS="example">
 NOTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This definition has been harmonized with the Angular_location_dimension definitions in ISO 10303-1050 and ISO 10303-214, as well as the Angular_dimension_tolerance definition in ISO 10303-224.   <A HREF="figure-1">Figure 1</A> illustrates an Angular_location_dimension.     <A HREF="figure-2">Figure 2</A> illustrates the difference between an Angular_location_dimension and an <a href="#ao-angular_size_dimension">Angular_size_dimension</a>.    </P>
 
-<FIGURE>
+<FIGURE><A NAME="figure-1"></A>
 <IMG SRC="images/dim_ang_loc.svg">
-<FIGCAPTION><A NAME="figure-1"></A>Figure 1 &mdash; Angular_location_dimension</FIGCAPTION>
+<FIGCAPTION>Figure 1 &mdash; Angular_location_dimension</FIGCAPTION>
 </FIGURE>
 
-<FIGURE>
+<FIGURE><A NAME="figure-2"></A>
 <IMG SRC="images/dim_ang_size_vs_loc.svg">
-<FIGCAPTION><A NAME="figure-2"></A>Figure 2 &mdash; Angular_location_dimension versus Angular_size_dimension</FIGCAPTION>
+<FIGCAPTION>Figure 2 &mdash; Angular_location_dimension versus Angular_size_dimension</FIGCAPTION>
 </FIGURE>
 
 <P>
@@ -791,9 +791,9 @@ An Angular_size_dimension is a type of <a href="#ao-size_dimension">Size_dimensi
 <P CLASS="example">
 NOTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This definition has been harmonized with the Angular_size_dimension definitions in ISO 10303-1050 and ISO 10303-214, as well as the Angular_size_dimension_tolerance definition in ISO 10303-224.  <A HREF="figure-3">Figure 3</A> illustrates the parameter combinations of an Angular_size_dimension.  </P>
 
-<FIGURE>
+<FIGURE><A NAME="figure-3"></A>
 <IMG SRC="images/dim_ang_size.svg">
-<FIGCAPTION><A NAME="figure-3"></A>Figure 3 &mdash; Angular_size_dimension</FIGCAPTION>
+<FIGCAPTION>Figure 3 &mdash; Angular_size_dimension</FIGCAPTION>
 </FIGURE>
 
 <P>
@@ -821,9 +821,9 @@ An Angularity_tolerance is a type of <a href="#ao-geometric_tolerance">Geometric
 <P CLASS="example">
 NOTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This definition has been harmonized with the Angularity_tolerance definitions in ISO 10303-1051, ISO 10303-214, and ISO 10303-224.  This definition is derived from clause 14.9 of ISO 1101:2004.   <A HREF="figure-4">Figure 4</A> illustrates an Angularity_tolerance for a plane surface.</P>
 
-<FIGURE>
+<FIGURE><A NAME="figure-4"></A>
 <IMG SRC="images/tol_angularity.svg">
-<FIGCAPTION><A NAME="figure-4"></A>Figure 4 &mdash; Angularity_tolerance</FIGCAPTION>
+<FIGCAPTION>Figure 4 &mdash; Angularity_tolerance</FIGCAPTION>
 </FIGURE>
 
 <LI>a tolerance zone defined by two parallel planes at the specified basic angle from a datum plane or axis within which the considered element shall lie;</LI>
@@ -838,7 +838,7 @@ The data associated with an Angularity_tolerance are the following:</P>
 
 <H4><A NAME="clause-4-2-8-1"></A>4.2.8.1 reference_datum</H4>
 <P>
-The reference_datum specifies the set of Datum_reference objects that define the reference frame for the geometric tolerance.  See <A HREF="stepnc_aim.htm#62571" CLASS="XRef">See Angularity_tolerance to Datum_reference</A> for the application assertion.</P>
+The reference_datum specifies the set of Datum_reference objects that define the reference frame for the geometric tolerance.  See <a href="#aa-angularity_tolerance-to-datum_reference">Angularity_tolerance to Datum_reference</a> for the application assertion.</P>
 
 
 <!-- ============================== -->
@@ -964,7 +964,7 @@ EXAMPLE    'released for production' or 'preliminary design completed' are appro
 
 <H4><A NAME="clause-4-2-15-4"></A>4.2.15.4 status</H4>
 <P>
-The status specifies the Approval_status that provides a user interpretable designation of the level of approval.  See <A HREF="stepnc_aim.htm#21158" CLASS="XRef">See Approval to Approval_status</A> for the application assertion.</P>
+The status specifies the Approval_status that provides a user interpretable designation of the level of approval.  See <a href="#aa-approval-to-approval_status">Approval to Approval_status</a> for the application assertion.</P>
 
 
 <!-- ============================== -->
@@ -990,12 +990,12 @@ The description specifies the text that provides further information about the A
 
 <H4><A NAME="clause-4-2-16-2"></A>4.2.16.2 related_approval</H4>
 <P>
-The related_approval specifies one of the Approval objects that is a part of the relationship. If one element of the relationship is dependent of the other, this attribute shall be the dependent one. See <A HREF="stepnc_aim.htm#41437" CLASS="XRef">See Approval_relationship to Approval (as related_approval)</A> for the application assertion.</P>
+The related_approval specifies one of the Approval objects that is a part of the relationship. If one element of the relationship is dependent of the other, this attribute shall be the dependent one. See <a href="#aa-approval_relationship-to-approval-as-related_approval">Approval_relationship to Approval (as related_approval)</a> for the application assertion.</P>
 
 
 <H4><A NAME="clause-4-2-16-3"></A>4.2.16.3 relating_approval</H4>
 <P>
-The relating_approval specifies one of the Approval objects that is a part of the relationship. See <A HREF="stepnc_aim.htm#17904" CLASS="XRef">See Approval_relationship to Approval (as relating_approval)</A> for the application assertion.</P>
+The relating_approval specifies one of the Approval objects that is a part of the relationship. See <a href="#aa-approval_relationship-to-approval-as-relating_approval">Approval_relationship to Approval (as relating_approval)</a> for the application assertion.</P>
 
 
 <H4><A NAME="clause-4-2-16-4"></A>4.2.16.4 relation_type</H4>
@@ -1058,7 +1058,7 @@ The approval_date specifies the point in time when the Approval has been given. 
 
 <H4><A NAME="clause-4-2-18-2"></A>4.2.18.2 authorized_approval</H4>
 <P>
-The authorized_approval specifies the Approval that has been given by the considered person or the organization. See <A HREF="stepnc_aim.htm#21303" CLASS="XRef">See Approving_person_organization to Approval</A> for the application assertion.</P>
+The authorized_approval specifies the Approval that has been given by the considered person or the organization. See <a href="#aa-approving_person_organization-to-approval">Approving_person_organization to Approval</a> for the application assertion.</P>
 
 
 <H4><A NAME="clause-4-2-18-3"></A>4.2.18.3 person_organization</H4>
@@ -1420,7 +1420,7 @@ END_ENTITY;
 
 <H4><A NAME="clause-4-2-36-1"></A>4.2.36.1 boss_height</H4>
 <P>
-The boss_height specifies a Linear_path along which the its_boundary profile is swept to define the volume of the Boss.  The placement and orientation of the course_of_travel shall be the same as the Boss feature.  See <A HREF="stepnc_aim.htm#70168" CLASS="XRef">See Boss to Linear_path</A> for the application assertion.</P>
+The boss_height specifies a Linear_path along which the its_boundary profile is swept to define the volume of the Boss.  The placement and orientation of the course_of_travel shall be the same as the Boss feature.  See <a href="#aa-boss-to-linear_path">Boss to Linear_path</a> for the application assertion.</P>
 <P CLASS="example">
 NOTE   The length of the path is the height of the boss.</P>
 
@@ -1720,9 +1720,9 @@ NOTE 1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This definition has been harmonized with th
 <P CLASS="example">
 NOTE 2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Where applied to surfaces constructed around a datum axis, a Circular_runout_tolerance controls the cumulative variations of circularity and coaxiality. Where applied to surfaces constructed at right angles to the datum axis, Circular_runout_tolerance controls circular elements of a plane surface.   <a href="figure-5">Figure 5</a> illustrates a Circular_runout_tolerance.  </P>
 
-<FIGURE>
+<FIGURE><A NAME="figure-5"></A>
 <IMG SRC="images/tol_circular_runout.svg">
-<FIGCAPTION><A NAME="figure-5"></A>Figure 5 &mdash; Circular_runout_tolerance</FIGCAPTION>
+<FIGCAPTION>Figure 5 &mdash; Circular_runout_tolerance</FIGCAPTION>
 </FIGURE>
 
 <P>
@@ -1740,7 +1740,7 @@ The angle specifies the direction in which the runout tolerance is controlled. T
 
 <H4><A NAME="clause-4-2-54-2"></A>4.2.54.2 reference_datum</H4>
 <P>
-The reference_datum specifies the set of Datum_reference objects that define the reference frame for the geometric tolerance.  See <A HREF="stepnc_aim.htm#21456" CLASS="XRef">See Circular_runout_tolerance to Datum_reference</A> for the application assertion.</P>
+The reference_datum specifies the set of Datum_reference objects that define the reference frame for the geometric tolerance.  See <a href="#aa-circular_runout_tolerance-to-datum_reference">Circular_runout_tolerance to Datum_reference</a> for the application assertion.</P>
 
 
 <!-- ============================== -->
@@ -1761,7 +1761,7 @@ The data associated with a Class_BSU are the following:</P>
 
 <H4><A NAME="clause-4-2-55-1"></A>4.2.55.1 defined_by</H4>
 <P>
-The defined_by specifies Supplier_BSU object which describes the library supplier who defines the library class. See <A HREF="stepnc_aim.htm#12490" CLASS="XRef">See Class_BSU to Supplier_BSU</A> for the application assertion.</P>
+The defined_by specifies Supplier_BSU object which describes the library supplier who defines the library class. See <a href="#aa-class_bsu-to-supplier_bsu">Class_BSU to Supplier_BSU</a> for the application assertion.</P>
 
 
 <H4><A NAME="clause-4-2-55-2"></A>4.2.55.2 version</H4>
@@ -1806,9 +1806,9 @@ A Coaxiality_tolerance is a type of <a href="#ao-geometric_tolerance">Geometric_
 <P CLASS="example">
 NOTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This definition has been harmonized with the Coaxiality_tolerance definitions in ISO 10303-1051, ISO 10303-214, and ISO 10303-224.   <A HREF="#figure-6">Figure 6</A> illustrates a Coaxiality_tolerance.  </P>
 
-<FIGURE>
+<FIGURE><A NAME="figure-6"></A>
 <IMG SRC="images/tol_coaxiality.svg">
-<FIGCAPTION><A NAME="figure-6"></A>Figure 6 &mdash; Coaxiality_tolerance</FIGCAPTION>
+<FIGCAPTION>Figure 6 &mdash; Coaxiality_tolerance</FIGCAPTION>
 </FIGURE>
 
 <P>
@@ -1820,7 +1820,7 @@ The data associated with a Coaxiality_tolerance are the following:</P>
 
 <H4><A NAME="clause-4-2-58-1"></A>4.2.58.1 reference_datum</H4>
 <P>
-The reference_datum specifies the set of Datum_reference objects that define the reference frame for the geometric tolerance.  See <A HREF="stepnc_aim.htm#26978" CLASS="XRef">See Coaxiality_tolerance to Datum_reference</A> for the application assertion.</P>
+The reference_datum specifies the set of Datum_reference objects that define the reference frame for the geometric tolerance.  See <a href="#aa-coaxiality_tolerance-to-datum_reference">Coaxiality_tolerance to Datum_reference</a> for the application assertion.</P>
 
 
 <!-- ============================== -->
@@ -1866,7 +1866,7 @@ The data associated with a Common_datum are the following:</P>
 
 <H4><A NAME="clause-4-2-61-1"></A>4.2.61.1 made_up_by</H4>
 <P>
-The made_up_by specifies the set of Single_datum objects that form the Common_datum.   See <A HREF="stepnc_aim.htm#64919" CLASS="XRef">See Common_datum to Single_datum</A> for the application assertion.</P>
+The made_up_by specifies the set of Single_datum objects that form the Common_datum.   See <a href="#aa-common_datum-to-single_datum">Common_datum to Single_datum</a> for the application assertion.</P>
 
 
 <!-- ============================== -->
@@ -2033,9 +2033,9 @@ A Concentricity_tolerance is a type of <a href="#ao-geometric_tolerance">Geometr
 <P CLASS="example">
 NOTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This definition has been harmonized with the Concentricity_tolerance definitions in ISO 10303-1051, ISO 10303-214, and ISO 10303-224.   This definition is derived from clause 14.11 of ISO 1101:2004.  <A HREF="#figure-7">Figure 7</A> illustrates a Concentricity_tolerance.  </P>
 
-<FIGURE>
+<FIGURE><A NAME="figure-7"></A>
 <IMG SRC="images/tol_concentricity.svg">
-<FIGCAPTION><A NAME="figure-7"></A>Figure 7 &mdash; Concentricity_tolerance</FIGCAPTION>
+<FIGCAPTION>Figure 7 &mdash; Concentricity_tolerance</FIGCAPTION>
 </FIGURE>
 
 <P>
@@ -2047,7 +2047,7 @@ The data associated with a Concentricity_tolerance are the following:</P>
 
 <H4><A NAME="clause-4-2-71-1"></A>4.2.71.1 reference_datum</H4>
 <P>
-The reference_datum specifies the set of Datum_reference objects that define the reference frame for the geometric tolerance.  See <A HREF="stepnc_aim.htm#49600" CLASS="XRef">See Concentricity_tolerance to Datum_reference</A> for the application assertion.</P>
+The reference_datum specifies the set of Datum_reference objects that define the reference frame for the geometric tolerance.  See <a href="#aa-concentricity_tolerance-to-datum_reference">Concentricity_tolerance to Datum_reference</a> for the application assertion.</P>
 
 
 <!-- ============================== -->
@@ -2365,9 +2365,9 @@ A Curved_distance_dimension is a type of <a href="#ao-location_dimension">Locati
 <P CLASS="example">
 NOTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This definition has been harmonized with the Curved_distance_dimension definitions in ISO 10303-1050 and ISO 10303-214, as well as the Distance_along_curve_tolerance definition in ISO 10303-224.  <A HREF="#figure-8">Figure 8</A> illustrates a Curved_distance_dimension.  </P>
 
-<FIGURE>
+<FIGURE><A NAME="figure-8"></A>
 <IMG SRC="images/dim_curved_dist.svg">
-<FIGCAPTION><A NAME="figure-8"></A>Figure 8 &mdash; Curved_distance_dimension</FIGCAPTION>
+<FIGCAPTION>Figure 8 &mdash; Curved_distance_dimension</FIGCAPTION>
 </FIGURE>
 
 <P>
@@ -2379,7 +2379,7 @@ The data associated with a Curved_distance_dimension are the following:</P>
 
 <H4><A NAME="clause-4-2-92-1"></A>4.2.92.1 used_path</H4>
 <P>
-The used_path specifies a Measurement_path along which the Curved_distance_dimension is measured.    See <A HREF="stepnc_aim.htm#90966" CLASS="XRef">See Curved_distance_dimension to Measurement_path</A> for the application assertion.</P>
+The used_path specifies a Measurement_path along which the Curved_distance_dimension is measured.    See <a href="#aa-curved_distance_dimension-to-measurement_path">Curved_distance_dimension to Measurement_path</a> for the application assertion.</P>
 
 
 <!-- ============================== -->
@@ -2389,9 +2389,9 @@ A Curved_size_dimension is a type of <a href="#ao-size_dimension">Size_dimension
 <P CLASS="example">
 NOTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This definition has been harmonized with the Curved_size_dimension definitions in ISO 10303-1050 and ISO 10303-214, as well as the Curved_dimension_tolerance definition in ISO 10303-224.  <A HREF="#figure-9">Figure 9</A> illustrates a Curved_size_dimension. </P>
 
-<FIGURE>
+<FIGURE><A NAME="figure-9"></A>
 <IMG SRC="images/dim_curved_size.svg">
-<FIGCAPTION><A NAME="figure-9"></A>Figure 9 &mdash; Curved_size_dimension</FIGCAPTION>
+<FIGCAPTION>Figure 9 &mdash; Curved_size_dimension</FIGCAPTION>
 </FIGURE>
 
 
@@ -2444,9 +2444,9 @@ The tool_axis_maximum_deviation specifies a plane angle.  If this angle is speci
 <P CLASS="example">
 NOTE   <A HREF="#figure-10">Figure 10</A> illustrates the range of deviations described by the tool_direction_maximum_deviation and path_maximim_deviation parameters.  It is expected than an NC controller will adjust linearization tolerances (for 5-axis operation, as with the APT-CL LINTOL concept) as well as feed and acceleration rates to remain within the allowed deviations.  </P>
 
-<FIGURE>
+<FIGURE><A NAME="figure-10"></A>
 <IMG SRC="images/toolpath_tolerance.svg">
-<FIGCAPTION><A NAME="figure-10"></A>Figure 10 &mdash; Toolpath deviation parameters</FIGCAPTION>
+<FIGCAPTION>Figure 10 &mdash; Toolpath deviation parameters</FIGCAPTION>
 </FIGURE>
 
 
@@ -2554,9 +2554,9 @@ A Cylindricity_tolerance is a type of <a href="#ao-geometric_tolerance">Geometri
 <P CLASS="example">
 NOTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This definition has been harmonized with the Cylindricity_tolerance definitions in ISO 10303-1051, ISO 10303-214, and ISO 10303-224.  The definition is derived from clause 14.4 of ISO 1101:2004.  <A HREF="#figure-11">Figure 11</A> illustrates a Cylindricity_tolerance.  </P>
 
-<FIGURE>
+<FIGURE><A NAME="figure-11"></A>
 <IMG SRC="images/tol_cylindricity.svg">
-<FIGCAPTION><A NAME="figure-11"></A>Figure 11 &mdash; Cylindricity_tolerance</FIGCAPTION>
+<FIGCAPTION>Figure 11 &mdash; Cylindricity_tolerance</FIGCAPTION>
 </FIGURE>
 
 
@@ -2608,7 +2608,7 @@ The data associated with a Datum_defined_by_targets are the following:</P>
 
 <H4><A NAME="clause-4-2-103-1"></A>4.2.103.1 defined_by</H4>
 <P>
-The defined_by specifies the set of Datum_target objects that form the Datum_defined_by_targets.  See <A HREF="stepnc_aim.htm#66170" CLASS="XRef">See Datum_defined_by_targets to Datum_target</A> for the application assertion.</P>
+The defined_by specifies the set of Datum_target objects that form the Datum_defined_by_targets.  See <a href="#aa-datum_defined_by_targets-to-datum_target">Datum_defined_by_targets to Datum_target</a> for the application assertion.</P>
 
 
 <H4><A NAME="clause-4-2-103-2"></A>4.2.103.2 rule_description</H4>
@@ -2637,7 +2637,7 @@ The precedence specifies the position of the referenced_datum in a sequence of D
 
 <H4><A NAME="clause-4-2-104-2"></A>4.2.104.2 referenced_datum</H4>
 <P>
-The referenced_datum specifies the Datum to which the Datum_reference applies.  See <A HREF="stepnc_aim.htm#17130" CLASS="XRef">See Datum_reference to Datum</A> for the application assertion.</P>
+The referenced_datum specifies the Datum to which the Datum_reference applies.  See <a href="#aa-datum_reference-to-datum">Datum_reference to Datum</a> for the application assertion.</P>
 
 
 <!-- ============================== -->
@@ -2741,9 +2741,9 @@ A Diameter_size_dimension is a type of <a href="#ao-size_dimension">Size_dimensi
 <P CLASS="example">
 NOTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This definition has been harmonized with the Diameter_size_dimension definitions in ISO 10303-1050 and ISO 10303-214, as well as the Diameter_dimension_tolerance definition in ISO 10303-224.  <A HREF="#figure-12">Figure 12</A> illustrates a Diameter_size_dimension.  </P>
 
-<FIGURE>
+<FIGURE><A NAME="figure-12"></A>
 <IMG SRC="images/dim_diameter_size.svg">
-<FIGCAPTION><A NAME="figure-12"></A>Figure 12 &mdash; Diameter_size_dimension</FIGCAPTION>
+<FIGCAPTION>Figure 12 &mdash; Diameter_size_dimension</FIGCAPTION>
 </FIGURE>
 
 
@@ -3035,7 +3035,7 @@ The data associated with a Externally_defined_representation are the following:<
 
 <H4><A NAME="clause-4-2-127-1"></A>4.2.127.1 identified_by</H4>
 <P>
-The identified_by specifies the Library_part_assignment object which describes the part being referenced, that is contained in an external library. See <A HREF="stepnc_aim.htm#78801" CLASS="XRef">See Externally_defined_representation to Library_part_assignment</A> for the application assertion.</P>
+The identified_by specifies the Library_part_assignment object which describes the part being referenced, that is contained in an external library. See <a href="#aa-externally_defined_representation-to-library_part_assignment">Externally_defined_representation to Library_part_assignment</a> for the application assertion.</P>
 
 
 <H4><A NAME="clause-4-2-127-2"></A>4.2.127.2 location</H4>
@@ -3075,7 +3075,7 @@ The name specifies the label by which the Externally_defined_size_dimension is k
 
 <H4><A NAME="clause-4-2-128-3"></A>4.2.128.3 used_path</H4>
 <P>
-The used_path specifies a Measurement_path along which the Externally_defined_size_dimension is  measured.  The used_path need not be specified for a particular Externally_defined_size_dimension.   See <A HREF="stepnc_aim.htm#94800" CLASS="XRef">See Externally_defined_size_dimension to Measurement_path</A> for the application assertion.</P>
+The used_path specifies a Measurement_path along which the Externally_defined_size_dimension is  measured.  The used_path need not be specified for a particular Externally_defined_size_dimension.   See <a href="#aa-externally_defined_size_dimension-to-measurement_path">Externally_defined_size_dimension to Measurement_path</a> for the application assertion.</P>
 
 
 <!-- ============================== -->
@@ -3226,9 +3226,9 @@ A Flatness_tolerance is a type of <a href="#ao-geometric_tolerance">Geometric_to
 <P CLASS="example">
 NOTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This definition has been harmonized with the Flatness_tolerance definitions in ISO 10303-1051, ISO 10303-214, and ISO 10303-224.  The definition is derived from clause 14.2 of ISO 1101:2004.  <A HREF="#figure-13">Figure 13</A> illustrates a Flatness_tolerance.  </P>
 
-<FIGURE>
+<FIGURE><A NAME="figure-13"></A>
 <IMG SRC="images/tol_flatness.svg">
-<FIGCAPTION><A NAME="figure-13"></A>Figure 13 &mdash; Flatness_tolerance</FIGCAPTION>
+<FIGCAPTION>Figure 13 &mdash; Flatness_tolerance</FIGCAPTION>
 </FIGURE>
 
 
@@ -3449,17 +3449,17 @@ The description specifies a word or group of words by which a property is common
 
 <H4><A NAME="clause-4-2-151-2"></A>4.2.151.2 owner</H4>
 <P>
-The owner specifies the Workpiece object or shape element to which the General_property applies.  See <A HREF="stepnc_aim.htm#26827" CLASS="XRef">See General_property to Workpiece</A> for the application assertion.</P>
+The owner specifies the Workpiece object or shape element to which the General_property applies.  See <a href="#aa-general_property-to-workpiece">General_property to Workpiece</a> for the application assertion.</P>
 
 
 <H4><A NAME="clause-4-2-151-3"></A>4.2.151.3 specifications</H4>
 <P>
-The specifications specifies the set of Specification objects that have additional information about the General_property.  The specifications need not be specified for a particular General_property.  See <A HREF="stepnc_aim.htm#58649" CLASS="XRef">See General_property to Specification</A> for the application assertion.</P>
+The specifications specifies the set of Specification objects that have additional information about the General_property.  The specifications need not be specified for a particular General_property.  See <a href="#aa-general_property-to-specification">General_property to Specification</a> for the application assertion.</P>
 
 
 <H4><A NAME="clause-4-2-151-4"></A>4.2.151.4 related_properties</H4>
 <P>
-The related_properties specifies the set of General_property objects that are associated with a General_property.  The related_properties need not be specified for a particular General_property.  See <A HREF="stepnc_aim.htm#48706" CLASS="XRef">See General_property to General_property</A> for the application assertion.</P>
+The related_properties specifies the set of General_property objects that are associated with a General_property.  The related_properties need not be specified for a particular General_property.  See <a href="#aa-general_property-to-general_property">General_property to General_property</a> for the application assertion.</P>
 
 
 <!-- ============================== -->
@@ -3520,7 +3520,7 @@ The data associated with a Geometric_dimension are the following:</P>
 
 <H4><A NAME="clause-4-2-155-1"></A>4.2.155.1 dimension_value</H4>
 <P>
-The dimension_value specifies a Value_with_tolerance or Value_range which  describes the size of the element or of the distance between the two elements, as well as the total amount by which that value is permitted to vary.   See <A HREF="stepnc_aim.htm#73692" CLASS="XRef">See Geometric_dimension to Value_range</A> and <A HREF="stepnc_aim.htm#14668" CLASS="XRef">See Geometric_dimension to Value_with_tolerance</A> for the application assertion.</P>
+The dimension_value specifies a Value_with_tolerance or Value_range which  describes the size of the element or of the distance between the two elements, as well as the total amount by which that value is permitted to vary.   See <a href="#aa-geometric_dimension-to-value_range">Geometric_dimension to Value_range</a> and <a href="#aa-geometric_dimension-to-value_with_tolerance">Value_with_tolerance</a> for the application assertions.</P>
 
 
 <H4><A NAME="clause-4-2-155-2"></A>4.2.155.2 id</H4>
@@ -3565,7 +3565,7 @@ The applied_to specifies the shape element to which the Geometric_tolerance appl
 
 <H4><A NAME="clause-4-2-156-2"></A>4.2.156.2 modification</H4>
 <P>
-The modification specifies the Tolerance_condition that is associated with the Geometric_tolerance.  The modification need not be specified for a particular Geometric_tolerance.  See <A HREF="stepnc_aim.htm#79987" CLASS="XRef">See Geometric_tolerance to Tolerance_condition</A> for the application assertion.</P>
+The modification specifies the Tolerance_condition that is associated with the Geometric_tolerance.  The modification need not be specified for a particular Geometric_tolerance.  See <a href="#aa-geometric_tolerance-to-tolerance_condition">Geometric_tolerance to Tolerance_condition</a> for the application assertion.</P>
 
 
 <H4><A NAME="clause-4-2-156-3"></A>4.2.156.3 name</H4>
@@ -3612,14 +3612,14 @@ The data associated with a Geometric_tolerance_relationship are the following:</
 
 <H4><A NAME="clause-4-2-157-1"></A>4.2.157.1 relating</H4>
 <P>
-The relating specifies one of the instances of Geometric_tolerance that is a part of the relationship.  See <A HREF="stepnc_aim.htm#26230" CLASS="XRef">See Geometric_tolerance_relationship to Geometric_tolerance (as relating)</A> for the application assertion.</P>
+The relating specifies one of the instances of Geometric_tolerance that is a part of the relationship.  See <a href="#aa-geometric_tolerance_relationship-to-geometric_tolerance-as-relating">Geometric_tolerance_relationship to Geometric_tolerance (as relating)</a> for the application assertion.</P>
 <P CLASS="example">
 NOTE    The semantics of this attribute are defined by the attribute relation_type.</P>
 
 
 <H4><A NAME="clause-4-2-157-2"></A>4.2.157.2  related</H4>
 <P>
-The related specifies one of the instances of Geometric_tolerance that is a part of the relationship.  See <A HREF="stepnc_aim.htm#32881" CLASS="XRef">See Geometric_tolerance_relationship to Geometric_tolerance (as related)</A> for the application assertion.</P>
+The related specifies one of the instances of Geometric_tolerance that is a part of the relationship.  See <a href="#aa-geometric_tolerance_relationship-to-geometric_tolerance-as-related">Geometric_tolerance_relationship to Geometric_tolerance (as related)</a> for the application assertion.</P>
 <P CLASS="example">
 NOTE    The semantics of this attribute are defined by the attribute relation_type.</P>
 
@@ -3781,7 +3781,7 @@ The data associated with a Height_size_dimension are the following:</P>
 
 <H4><A NAME="clause-4-2-165-1"></A>4.2.165.1 used_path</H4>
 <P>
-The used_path specifies a Measurement_path along which the Height_size_dimension is measured.  The used_path need not be specified for a particular Height_size_dimension.   See <A HREF="stepnc_aim.htm#92608" CLASS="XRef">See Height_size_dimension to Measurement_path</A> for the application assertion.</P>
+The used_path specifies a Measurement_path along which the Height_size_dimension is measured.  The used_path need not be specified for a particular Height_size_dimension.   See <a href="#aa-height_size_dimension-to-measurement_path">Height_size_dimension to Measurement_path</a> for the application assertion.</P>
 
 
 <!-- ============================== -->
@@ -3955,7 +3955,7 @@ The date_and_time_value specifies the point in time when the items were most rec
 
 <H4><A NAME="clause-4-2-174-2"></A>4.2.174.2 items</H4>
 <P>
-The items specifies the set of projects, workpieces, executables, operations, or toolpaths to which the date_and_time_value applies.  The items set shall contain at least one object.  See <A HREF="stepnc_aim.htm#16896" CLASS="XRef">See Last_modified_timestamp to Executable</A>, <A HREF="stepnc_aim.htm#12888" CLASS="XRef">See Last_modified_timestamp to Operation</A>, <A HREF="stepnc_aim.htm#33653" CLASS="XRef">See Last_modified_timestamp to Project</A>, <A HREF="stepnc_aim.htm#20887" CLASS="XRef">See Last_modified_timestamp to Toolpath</A>, and <A HREF="stepnc_aim.htm#34369" CLASS="XRef">See Last_modified_timestamp to Workpiece</A> for the application assertions.</P>
+The items specifies the set of projects, workpieces, executables, operations, or toolpaths to which the date_and_time_value applies.  The items set shall contain at least one object.  See <a href="#aa-last_modified_timestamp-to-executable">Last_modified_timestamp to Executable</a>, <a href="#aa-last_modified_timestamp-to-operation">Operation</a>, <a href="#aa-last_modified_timestamp-to-project">Project</a>, <a href="#aa-last_modified_timestamp-to-toolpath">Toolpath</a>, and <a href="#aa-last_modified_timestamp-to-workpiece">Workpiece</a> for the application assertions.</P>
 
 
 <!-- ============================== -->
@@ -3995,7 +3995,7 @@ The data associated with a Length_size_dimension are the following:</P>
 
 <H4><A NAME="clause-4-2-177-1"></A>4.2.177.1 used_path</H4>
 <P>
-The used_path specifies a Measurement_path along which the Length_size_dimension is measured.  The used_path need not be specified for a particular Length_size_dimension.   See <A HREF="stepnc_aim.htm#20992" CLASS="XRef">See Length_size_dimension to Measurement_path</A> for the application assertion.</P>
+The used_path specifies a Measurement_path along which the Length_size_dimension is measured.  The used_path need not be specified for a particular Length_size_dimension.   See <a href="#aa-length_size_dimension-to-measurement_path">Length_size_dimension to Measurement_path</a> for the application assertion.</P>
 
 
 <!-- ============================== -->
@@ -4014,12 +4014,12 @@ The data associated with a Library_part_assignment are the following:</P>
 
 <H4><A NAME="clause-4-2-178-1"></A>4.2.178.1 definitional_class_bsu</H4>
 <P>
-The definitional_class_bsu specifies the Class_BSU object which identifies the component within a parts library as defined by ISO 13584.  See <A HREF="stepnc_aim.htm#15864" CLASS="XRef">See Library_part_assignment to Class_BSU</A> for the application assertion.</P>
+The definitional_class_bsu specifies the Class_BSU object which identifies the component within a parts library as defined by ISO 13584.  See <a href="#aa-library_part_assignment-to-class_bsu">Library_part_assignment to Class_BSU</a> for the application assertion.</P>
 
 
 <H4><A NAME="clause-4-2-178-2"></A>4.2.178.2 definitional_property_value_pairs</H4>
 <P>
-The definitional_property_value_pairs specifies the set of Library_property_value objects which specify the property basic semantical units and values defining the properties of the class.  The definitional_property_value_pairs need not be specified for a particular Library_part_assignment.  See <A HREF="stepnc_aim.htm#71895" CLASS="XRef">See Library_part_assignment to Library_property_value</A> for the application assertion.</P>
+The definitional_property_value_pairs specifies the set of Library_property_value objects which specify the property basic semantical units and values defining the properties of the class.  The definitional_property_value_pairs need not be specified for a particular Library_part_assignment.  See <a href="#aa-library_part_assignment-to-library_property_value">Library_part_assignment to Library_property_value</a> for the application assertion.</P>
 
 
 <!-- ============================== -->
@@ -4038,7 +4038,7 @@ The data associated with a Library_property_value are the following:</P>
 
 <H4><A NAME="clause-4-2-179-1"></A>4.2.179.1 value_property_bsu</H4>
 <P>
-The value_property_bsu specifies the Property_BSU object that defines the basic semantical unit.  See <A HREF="stepnc_aim.htm#36009" CLASS="XRef">See Library_property_value to Property_BSU</A> for the application assertion.</P>
+The value_property_bsu specifies the Property_BSU object that defines the basic semantical unit.  See <a href="#aa-library_property_value-to-property_bsu">Library_property_value to Property_BSU</a> for the application assertion.</P>
 
 
 <H4><A NAME="clause-4-2-179-2"></A>4.2.179.2 value_amount</H4>
@@ -4110,9 +4110,9 @@ A Line_profile_tolerance is a type of <a href="#ao-geometric_tolerance">Geometri
 <P CLASS="example">
 NOTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This definition has been harmonized with the Line_profile_tolerance definitions in ISO 10303-1051 and ISO 10303-214, and the Linear_profile_tolerance definition in ISO 10303-224.   This definition is derived from clause 14.5 of ISO 1101:2004.  <a href="#figure14">Figure 14</a> illustrates a Line_profile_tolerance.  </P>
 
-<FIGURE>
+<FIGURE><A NAME="figure-14"></A>
 <IMG SRC="images/tol_line_profile.svg">
-<FIGCAPTION><A NAME="figure-14"></A>Figure 14 &mdash; Line_profile_tolerance</FIGCAPTION>
+<FIGCAPTION>Figure 14 &mdash; Line_profile_tolerance</FIGCAPTION>
 </FIGURE>
 
 <P>
@@ -4130,7 +4130,7 @@ The affected_plane specifies an axis placement, the X-Y plane of which establish
 
 <H4><A NAME="clause-4-2-182-2"></A>4.2.182.2 reference_datum</H4>
 <P>
-The reference_datum specifies the set of Datum_reference objects that define the reference frame for the geometric tolerance.  See <A HREF="stepnc_aim.htm#32575" CLASS="XRef">See Line_profile_tolerance to Datum_reference</A> for the application assertion.</P>
+The reference_datum specifies the set of Datum_reference objects that define the reference frame for the geometric tolerance.  See <a href="#aa-line_profile_tolerance-to-datum_reference">Line_profile_tolerance to Datum_reference</a> for the application assertion.</P>
 
 
 <!-- ============================== -->
@@ -4140,9 +4140,9 @@ A Linear_distance_dimension is a type of <a href="#ao-location_dimension">Locati
 <P CLASS="example">
 NOTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This definition has been harmonized with the Linear_distance_dimension definitions in ISO 10303-1050 and ISO 10303-214, as well as the Location_dimension_tolerance definition in ISO 10303-224.   <a href="#figure15">Figure 15</a> illustrates a Linear_distance_dimension.  </P>
 
-<FIGURE>
+<FIGURE><A NAME="figure-15"></A>
 <IMG SRC="images/dim_linear_dist.svg">
-<FIGCAPTION><A NAME="figure-15"></A>Figure 15 &mdash; Linear_distance_dimension</FIGCAPTION>
+<FIGCAPTION>Figure 15 &mdash; Linear_distance_dimension</FIGCAPTION>
 </FIGURE>
 
 <P>
@@ -4342,7 +4342,7 @@ The data associated with a Machine_parameters are the following:</P>
 
 <H4><A NAME="clause-4-2-192-1"></A>4.2.192.1 axis_travel</H4>
 <P>
-The axis_travel specifies zero or more Machine_axis_travel objects which describe the distance that the machine tool can move its cutting tool along specified axes. The axis_travel need not be specified for a particular Machine_parameters and the axis_travel shall not be specified if work_volume_length, work_volume_width, or work_volume_height is specified.  See <A HREF="stepnc_aim.htm#51119" CLASS="XRef">See Machine_parameters to Machine_axis_travel</A> for the application assertion.</P>
+The axis_travel specifies zero or more Machine_axis_travel objects which describe the distance that the machine tool can move its cutting tool along specified axes. The axis_travel need not be specified for a particular Machine_parameters and the axis_travel shall not be specified if work_volume_length, work_volume_width, or work_volume_height is specified.  See <a href="#aa-machine_parameters-to-machine_axis_travel">Machine_parameters to Machine_axis_travel</a> for the application assertion.</P>
 
 
 <H4><A NAME="clause-4-2-192-2"></A>4.2.192.2 feedrate</H4>
@@ -4502,7 +4502,7 @@ END_ENTITY;
 
 <H4><A NAME="clause-4-2-196-1"></A>4.2.196.1 its_usage</H4>
 <P>
-The its_usage specifies a Tool_usage object that describes the tool selected to satisfy the tool requirements set forth by the Machining_tool.  The its_usage need not be specified for a particular Machining_tool.   See <A HREF="stepnc_aim.htm#51119" CLASS="XRef">See Machine_parameters to Machine_axis_travel</A> for the application assertion.</P>
+The its_usage specifies a Tool_usage object that describes the tool selected to satisfy the tool requirements set forth by the Machining_tool.  The its_usage need not be specified for a particular Machining_tool.   See <a href="#aa-machine_parameters-to-machine_axis_travel">Machine_parameters to Machine_axis_travel</a> for the application assertion.</P>
 
 
 <!-- ============================== -->
@@ -4532,7 +4532,7 @@ END_ENTITY;
 
 <H4><A NAME="clause-4-2-197-1"></A>4.2.197.1 final_features</H4>
 <P>
-The final_features specifies a set of zero or more Manufacturing_feature objects visible on the final form of the workpiece that the workingstep contributes to.  If the machining_workingstep its_feature is a process-specific feature consumed by further activities in a process, final_features may be used for traceability to features on the final form of the workpiece.  The final_features need not be specified for a particular Machining_workingstep.  See <A HREF="stepnc_aim.htm#20992" CLASS="XRef">See Machining_workingstep to Manufacturing_feature (as final_features)</A> for the application assertion.   See <A HREF="clause5.htm#funcon-feature-inprocess">Features describing process or final form</A> for additional discussion on the use of this attribute.</P>
+The final_features specifies a set of zero or more Manufacturing_feature objects visible on the final form of the workpiece that the workingstep contributes to.  If the machining_workingstep its_feature is a process-specific feature consumed by further activities in a process, final_features may be used for traceability to features on the final form of the workpiece.  The final_features need not be specified for a particular Machining_workingstep.  See <a href="#aa-machining_workingstep-to-manufacturing_feature-as-final_features">Machining_workingstep to Manufacturing_feature (as final_features)</a> for the application assertion.   See <A HREF="clause5.htm#funcon-feature-inprocess">Features describing process or final form</A> for additional discussion on the use of this attribute.</P>
 <P CLASS="example">
 NOTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Consider the flow of data through the design and manufacture of a part.   The features on the final part are usually the input to process planning, possibly described as an ISO 10303-224 data set.  The output of macro process-planning, possibly described as an ISO 10303-240 data set, will include these features as well as intermediate features related to a particular process.   This part of ISO 10303 describes the micro process-plan and is concerned with the features associated with a particular process, but having the ability to associate a process step with the ultimate feature on the final part allows us to preserve information flowing down from the larger process-plan.  This will be of benefit to related downstream tasks, such as inspection, which could use the tracability to pinpoint critical areas of interest in the micro and macro process-plans.</P>
 <P CLASS="example">
@@ -4614,12 +4614,12 @@ The data associated with a Material_property are the following:</P>
 
 <H4><A NAME="clause-4-2-201-1"></A>4.2.201.1 material_characteristics</H4>
 <P>
-The material_characteristics specifies the set of Property_parameter objects that describe the Material_property.  The material_characteristics need not be specified for a particular Material_property.  See <A HREF="stepnc_aim.htm#15797" CLASS="XRef">See Material_property to Property_parameter</A> for the application assertion.</P>
+The material_characteristics specifies the set of Property_parameter objects that describe the Material_property.  The material_characteristics need not be specified for a particular Material_property.  See <a href="#aa-material_property-to-property_parameter">Material_property to Property_parameter</a> for the application assertion.</P>
 
 
 <H4><A NAME="clause-4-2-201-2"></A>4.2.201.2 material_hardness</H4>
 <P>
-The material_hardness specifies the set of Hardness objects that describe hardness properties.  The material_hardness need not be specified for a particular Material_property.  See <A HREF="stepnc_aim.htm#42182" CLASS="XRef">See Material_property to Hardness</A> for the application assertion.</P>
+The material_hardness specifies the set of Hardness objects that describe hardness properties.  The material_hardness need not be specified for a particular Material_property.  See <a href="#aa-material_property-to-hardness">Material_property to Hardness</a> for the application assertion.</P>
 
 
 <!-- ============================== -->
@@ -4719,7 +4719,7 @@ END_ENTITY;
 
 <H4><A NAME="clause-4-2-205-1"></A>4.2.205.1 axis_constraints</H4>
 <P>
-The axis_constraints specifies zero or more Machine_axis_constraint that shall be used by the NC control when computing axis motion.  See <A HREF="stepnc_aim.htm#69691" CLASS="XRef">See Milling_machine_functions to Machine_axis_constraint</A> for the application assertion.</P>
+The axis_constraints specifies zero or more Machine_axis_constraint that shall be used by the NC control when computing axis motion.  See <a href="#aa-milling_machine_functions-to-machine_axis_constraint">Milling_machine_functions to Machine_axis_constraint</a> for the application assertion.</P>
 <P CLASS="example">
 NOTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; It is advisable to avoid use of this information since it is machine dependent.</P>
 
@@ -5103,9 +5103,9 @@ A Parallelism_tolerance  is a type of <a href="#ao-geometric_tolerance">Geometri
 <P CLASS="example">
 NOTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This definition has been harmonized with the Parallelism_tolerance definitions in ISO 10303-1051, ISO 10303-214, and ISO 10303-224.   This definition is derived from clause 14.7 of ISO 1101:2004.   <a href="#figure-16">Figure 16</a> illustrates a Parallelism_tolerance.  </P>
 
-<FIGURE>
+<FIGURE><A NAME="figure-16"></A>
 <IMG SRC="images/tol_parallelism.svg">
-<FIGCAPTION><A NAME="figure-16"></A>Figure 16 &mdash; Parallelism_tolerance</FIGCAPTION>
+<FIGCAPTION>Figure 16 &mdash; Parallelism_tolerance</FIGCAPTION>
 </FIGURE>
 
 <P>
@@ -5123,7 +5123,7 @@ The affected_plane specifies an axis placement, the X-Y plane of which establish
 
 <H4><A NAME="clause-4-2-230-2"></A>4.2.230.2 reference_datum</H4>
 <P>
-The reference_datum specifies the set of Datum_reference objects that define the reference frame for the geometric tolerance.  See <A HREF="stepnc_aim.htm#63616" CLASS="XRef">See Parallelism_tolerance to Datum_reference</A> for the application assertion.</P>
+The reference_datum specifies the set of Datum_reference objects that define the reference frame for the geometric tolerance.  See <a href="#aa-parallelism_tolerance-to-datum_reference">Parallelism_tolerance to Datum_reference</a> for the application assertion.</P>
 
 
 <!-- ============================== -->
@@ -5155,7 +5155,7 @@ The data associated with a Part_property are the following:</P>
 
 <H4><A NAME="clause-4-2-232-1"></A>4.2.232.1 part_characteristics</H4>
 <P>
-The part_characteristics specifies the set of Property_parameter objects that describe the Part_property.  The part_characteristics need not be specified for a particular Part_property.  See <A HREF="stepnc_aim.htm#84227" CLASS="XRef">See Part_property to Property_parameter</A> for the application assertion.</P>
+The part_characteristics specifies the set of Property_parameter objects that describe the Part_property.  The part_characteristics need not be specified for a particular Part_property.  See <a href="#aa-part_property-to-property_parameter">Part_property to Property_parameter</a> for the application assertion.</P>
 
 
 <!-- ============================== -->
@@ -5229,9 +5229,9 @@ A Perpendicularity_tolerance is a type of <a href="#ao-geometric_tolerance">Geom
 <P CLASS="example">
 NOTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This definition has been harmonized with the Perpendicularity_tolerance definitions in ISO 10303-1051, ISO 10303-214, and ISO 10303-224.   This definition is derived from clause 14.8 of ISO 1101:2004.  <a href="#figure-17">Figure 17</a> illustrates a Perpendicularity_tolerance.  </P>
 
-<FIGURE>
+<FIGURE><A NAME="figure-17"></A>
 <IMG SRC="images/tol_perpendicularity.svg">
-<FIGCAPTION><A NAME="figure-17"></A>Figure 17 &mdash; Perpendicularity_tolerance</FIGCAPTION>
+<FIGCAPTION>Figure 17 &mdash; Perpendicularity_tolerance</FIGCAPTION>
 </FIGURE>
 
 <P>
@@ -5249,7 +5249,7 @@ The affected_plane specifies an axis placement, the X-Y plane of which establish
 
 <H4><A NAME="clause-4-2-237-2"></A>4.2.237.2 reference_datum</H4>
 <P>
-The reference_datum specifies the set of Datum_reference objects that define the reference frame for the geometric tolerance.  See <A HREF="stepnc_aim.htm#41121" CLASS="XRef">See Perpendicularity_tolerance to Datum_reference</A> for the application assertion.</P>
+The reference_datum specifies the set of Datum_reference objects that define the reference frame for the geometric tolerance.  See <a href="#aa-perpendicularity_tolerance-to-datum_reference">Perpendicularity_tolerance to Datum_reference</a> for the application assertion.</P>
 
 
 <!-- ============================== -->
@@ -5297,9 +5297,9 @@ The Planar_face application object is defined by clause 4.5 of ISO 14649-10:2004
 <P CLASS="example">
 NOTE 1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The following properties have been added for harmonization with ISO 10303-224 and other ISO 10303 parts.  <a href="#figure-18">Figure 18</a> illustrates the parameters associated with a Planar_face.  Refer to <a href="clause5.htm#funcon-planar_face">Planar face</a> for additional discussion on the location of the feature origin and other aspects of the Planar_face application object.   </P>
 
-<FIGURE>
+<FIGURE><A NAME="figure-18"></A>
 <IMG SRC="images/planar_face.svg">
-<FIGCAPTION><A NAME="figure-18"></A>Figure 18 &mdash; Planar_face parameters</FIGCAPTION>
+<FIGCAPTION>Figure 18 &mdash; Planar_face parameters</FIGCAPTION>
 </FIGURE>
 
 <P>
@@ -5544,9 +5544,9 @@ The Pocket application object is defined by clause 4.5 of ISO 14649-10:2004.  Th
 <P CLASS="example">
 NOTE 1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The following properties have been added for harmonization with ISO 10303-224 and other ISO 10303 parts.  <a href="#figure-19">Figure 19</a> illustrates the parameters of a Pocket with the bottom condition located at the common origin of the feature, profile, and path (indicated by a value of FALSE for bottom_at_path_end ). <a href="#figure-20">Figure 20</a> illustrates a Pocket with the bottom condition located at the end of the course_of_travel path (indicated by a value of TRUE for bottom_at_path_end).     Refer to <a href="#ao-pocket">Pocket</a> for additional discussion on the location of the feature origin and other aspects of the Pocket application object.</P>
 
-<FIGURE>
+<FIGURE><A NAME="figure-19"></A>
 <IMG SRC="images/pocket_start.svg">
-<FIGCAPTION><A NAME="figure-19"></A>Figure 19 &mdash; Pocket (bottom at path origin)</FIGCAPTION>
+<FIGCAPTION>Figure 19 &mdash; Pocket (bottom at path origin)</FIGCAPTION>
 </FIGURE>
 
 <P>
@@ -5558,9 +5558,9 @@ The data associated with a Pocket are the following:</P>
 <LI>top_fillet_radius.  </LI>
 </UL>
 
-<FIGURE>
+<FIGURE><A NAME="figure-20"></A>
 <IMG SRC="images/pocket_end.svg">
-<FIGCAPTION><A NAME="figure-20"></A>Figure 20 &mdash; Pocket (bottom at path end)</FIGCAPTION>
+<FIGCAPTION>Figure 20 &mdash; Pocket (bottom at path end)</FIGCAPTION>
 </FIGURE>
 
 <P CLASS="example">
@@ -5590,7 +5590,7 @@ NOTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; In ISO 10303-224, this parameter is known as 
 
 <H4><A NAME="clause-4-2-255-2"></A>4.2.255.2 course_of_travel</H4>
 <P>
-The course_of_travel specifies a Linear_path along which the profile defined by a pocket subtype (feature_boundary for Closed_pocket, open_boundary for Open_pocket) is swept to define the volume of the Pocket.  The placement and orientation of the course_of_travel shall be the same as the Pocket feature.  See <A HREF="stepnc_aim.htm#76593" CLASS="XRef">See Pocket to Linear_path</A> for the application assertion.</P>
+The course_of_travel specifies a Linear_path along which the profile defined by a pocket subtype (feature_boundary for Closed_pocket, open_boundary for Open_pocket) is swept to define the volume of the Pocket.  The placement and orientation of the course_of_travel shall be the same as the Pocket feature.  See <a href="#aa-pocket-to-linear_path">Pocket to Linear_path</a> for the application assertion.</P>
 <P CLASS="example">
 NOTE   The length of the path is the depth of the pocket.</P>
 
@@ -5624,9 +5624,9 @@ A Position_tolerance is a type of <a href="#ao-geometric_tolerance">Geometric_to
 <P CLASS="example">
 NOTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This definition has been harmonized with the Position_tolerance definitions in ISO 10303-1051, ISO 10303-214, and ISO 10303-224.   This definition is derived from clause 14.10 of ISO 1101:2004.  The concept of position tolerances is defined in <a href="bibliography.htm#iso5458">ISO 5458</a>.  <a href="#figure-21">Figure 21</a> illustrates a Position_tolerance.  </P>
 
-<FIGURE>
+<FIGURE><A NAME="figure-21"></A>
 <IMG SRC="images/tol_position.svg">
-<FIGCAPTION><A NAME="figure-21"></A>Figure 21 &mdash; Position_tolerance</FIGCAPTION>
+<FIGCAPTION>Figure 21 &mdash; Position_tolerance</FIGCAPTION>
 </FIGURE>
 
 <P>
@@ -5644,7 +5644,7 @@ The affected_plane specifies an axis placement, the X-Y plane of which establish
 
 <H4><A NAME="clause-4-2-257-2"></A>4.2.257.2 reference_datum</H4>
 <P>
-The reference_datum specifies the set of Datum_reference objects that define the reference frame for the geometric tolerance.  See <A HREF="stepnc_aim.htm#46876" CLASS="XRef">See Position_tolerance to Datum_reference</A> for the application assertion.</P>
+The reference_datum specifies the set of Datum_reference objects that define the reference frame for the geometric tolerance.  See <a href="#aa-position_tolerance-to-datum_reference">Position_tolerance to Datum_reference</a> for the application assertion.</P>
 <P CLASS="example">
 NOTE    When a Position_tolerance is the feature relating Position_tolerance of a composite tolerance, it need not have a datum reference frame.</P>
 
@@ -5700,7 +5700,7 @@ The data associated with a Process_property are the following:</P>
 
 <H4><A NAME="clause-4-2-261-1"></A>4.2.261.1 process_characteristics</H4>
 <P>
-The process_characteristics specifies the set of Property_parameter objects that describe the Process_property.  The process_characteristics need not be specified for a particular Process_property.  See <A HREF="stepnc_aim.htm#17087" CLASS="XRef">See Process_property to Property_parameter</A> for the application assertion.</P>
+The process_characteristics specifies the set of Property_parameter objects that describe the Process_property.  The process_characteristics need not be specified for a particular Process_property.  See <a href="#aa-process_property-to-property_parameter">Process_property to Property_parameter</a> for the application assertion.</P>
 
 
 <H4><A NAME="clause-4-2-261-2"></A>4.2.261.2 process_name</H4>
@@ -5864,7 +5864,7 @@ The data associated with a Property_BSU are the following:</P>
 
 <H4><A NAME="clause-4-2-271-1"></A>4.2.271.1 name_scope</H4>
 <P>
-The name_scope specifies Class_BSU object which describes the class the property belongs to. See <A HREF="stepnc_aim.htm#68742" CLASS="XRef">See Property_BSU to Class_BSU</A> for the application assertion.</P>
+The name_scope specifies Class_BSU object which describes the class the property belongs to. See <a href="#aa-property_bsu-to-class_bsu">Property_BSU to Class_BSU</a> for the application assertion.</P>
 
 
 <H4><A NAME="clause-4-2-271-2"></A>4.2.271.2 version</H4>
@@ -5893,9 +5893,9 @@ An Radial_size_dimension is a type of <a href="#ao-size_dimension">Size_dimensio
 <P CLASS="example">
 NOTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This definition has been harmonized with the Radial_size_dimension definitions in ISO 10303-1050 and ISO 10303-214, as well as the Radial_dimension_tolerance definition in ISO 10303-224.  <a href="#figure-22">Figure 22</a> illustrates a Radial_size_dimension.  </P>
 
-<FIGURE>
+<FIGURE><A NAME="figure-22"></A>
 <IMG SRC="images/dim_radial_size.svg">
-<FIGCAPTION><A NAME="figure-22"></A>Figure 22 &mdash; Radial_size_dimension</FIGCAPTION>
+<FIGCAPTION>Figure 22 &mdash; Radial_size_dimension</FIGCAPTION>
 </FIGURE>
 
 <P>
@@ -6234,17 +6234,17 @@ END_ENTITY;
 <P>
 The Round_hole application object is defined by clause 4.5 of ISO 14649-10:2004.  This part of ISO 10303 adds the following information requirements.   </P>
 
-<FIGURE>
+<FIGURE><A NAME="figure-23"></A>
 <IMG SRC="images/round_hole_start.svg">
-<FIGCAPTION><A NAME="figure-23"></A>Figure 23 &mdash; Round_hole (bottom at path origin)</FIGCAPTION>
+<FIGCAPTION>Figure 23 &mdash; Round_hole (bottom at path origin)</FIGCAPTION>
 </FIGURE>
 
 <P CLASS="example">
 NOTE 1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The following properties have been added for harmonization with ISO 10303-224 and other ISO 10303 parts.  <a href="#figure-23">Figure 23</a> illustrates the parameters of a Round_hole with the bottom condition located at the common origin of the feature, profile, and path (indicated by a value of FALSE for bottom_at_path_end ). <a href="#figure-24">Figure 24</a> illustrates a Round_hole with the bottom condition located at the end of the course_of_travel path (indicated by a value of TRUE for bottom_at_path_end).   Refer to <A HREF="clause5.htm#funcon-round_hole">Round hole</A> for additional discussion on the location of the feature origin and other aspects of the Round_hole application object.</P>
 
-<FIGURE>
+<FIGURE><A NAME="figure-24"></A>
 <IMG SRC="images/round_hole_end.svg">
-<FIGCAPTION><A NAME="figure-24"></A>Figure 24 &mdash; Round_hole (bottom at path end)</FIGCAPTION>
+<FIGCAPTION>Figure 24 &mdash; Round_hole (bottom at path end)</FIGCAPTION>
 </FIGURE>
 
 <P>
@@ -6284,7 +6284,7 @@ NOTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; In ISO 10303-224, this parameter is known as 
 
 <H4><A NAME="clause-4-2-295-2"></A>4.2.295.2 course_of_travel</H4>
 <P>
-The course_of_travel specifies a Linear_path along which the removal_boundary profile is swept to define the volume of the Round_hole.  The placement and orientation of the course_of_travel shall be the same as the Round_hole feature.  See <A HREF="stepnc_aim.htm#32694" CLASS="XRef">See Round_hole to Linear_path</A> for the application assertion.</P>
+The course_of_travel specifies a Linear_path along which the removal_boundary profile is swept to define the volume of the Round_hole.  The placement and orientation of the course_of_travel shall be the same as the Round_hole feature.  See <a href="#aa-round_hole-to-linear_path">Round_hole to Linear_path</a> for the application assertion.</P>
 <P CLASS="example">
 NOTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The length of the path is the depth of the hole.</P>
 
@@ -6344,9 +6344,9 @@ The depth specifies the distance from the midpoint of the arc, along the radius 
 <P CLASS="example">
 NOTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="#figure-25">Figure 25</a> illustrates the parameters associated with a Rounded_u_profile.  </P>
 
-<FIGURE>
+<FIGURE><A NAME="figure-25"></A>
 <IMG SRC="images/rounded_u_profile.svg">
-<FIGCAPTION><A NAME="figure-25"></A>Figure 25 &mdash; Rounded_u_profile parameters</FIGCAPTION>
+<FIGCAPTION>Figure 25 &mdash; Rounded_u_profile parameters</FIGCAPTION>
 </FIGURE>
 
 
@@ -6357,9 +6357,9 @@ A Roundness_tolerance is a type of <a href="#ao-geometric_tolerance">Geometric_t
 <P CLASS="example">
 NOTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This definition has been harmonized with the Roundness_tolerance definitions in ISO 10303-1051, ISO 10303-214, and ISO 10303-224.   <a href="#figure-26">Figure 26</a> illustrates a Roundness_tolerance.    </P>
 
-<FIGURE>
+<FIGURE><A NAME="figure-26"></A>
 <IMG SRC="images/tol_roundness.svg">
-<FIGCAPTION><A NAME="figure-26"></A>Figure 26 &mdash; Roundness_tolerance</FIGCAPTION>
+<FIGCAPTION>Figure 26 &mdash; Roundness_tolerance</FIGCAPTION>
 </FIGURE>
 
 
@@ -6405,12 +6405,12 @@ The data associated with a Security_classification_assignment are the following:
 
 <H4><A NAME="clause-4-2-301-1"></A>4.2.301.1 classification</H4>
 <P>
-The classification specifies the Security_classification assigned to activity or product data.  See <A HREF="stepnc_aim.htm#28521" CLASS="XRef">See Security_classification_assignment to Security_classification</A> for the application assertion.</P>
+The classification specifies the Security_classification assigned to activity or product data.  See <a href="#aa-security_classification_assignment-to-security_classification">Security_classification_assignment to Security_classification</a> for the application assertion.</P>
 
 
 <H4><A NAME="clause-4-2-301-2"></A>4.2.301.2 items</H4>
 <P>
-The items specifies the set of projects, workpieces, executables, operations, or toolpaths to which the Security_classification applies.  The items set shall contain at least one object.  See <A HREF="stepnc_aim.htm#20284" CLASS="XRef">See Security_classification_assignment to Executable</A>, <A HREF="stepnc_aim.htm#20872" CLASS="XRef">See Security_classification_assignment to Operation</A>, <A HREF="stepnc_aim.htm#23240" CLASS="XRef">See Security_classification_assignment to Project</A>, <A HREF="stepnc_aim.htm#34029" CLASS="XRef">See Security_classification_assignment to Toolpath</A>, and <A HREF="stepnc_aim.htm#20269" CLASS="XRef">See Security_classification_assignment to Workpiece</A> for the application assertions.</P>
+The items specifies the set of projects, workpieces, executables, operations, or toolpaths to which the Security_classification applies.  The items set shall contain at least one object.  See <a href="#aa-security_classification_assignment-to-executable">Security_classification_assignment to Executable</a>, <a href="#aa-security_classification_assignment-to-operation">Operation</a>, <a href="#aa-security_classification_assignment-to-project">Project</a>, <a href="#aa-security_classification_assignment-to-toolpath">Toolpath</a>, and <a href="#aa-security_classification_assignment-to-workpiece">Workpiece</a> for the application assertions.</P>
 
 
 <!-- ============================== -->
@@ -6586,7 +6586,7 @@ EXAMPLE     Typical names of Single_datum objects are `A', `B', or `C'.</P>
 
 <H4><A NAME="clause-4-2-312-2"></A>4.2.312.2 modification</H4>
 <P>
-The modification specifies a Tolerance_condition that is associated with the application of the Single_datum.  The modification need not be specified for a particular Single_datum.  See <A HREF="stepnc_aim.htm#52822" CLASS="XRef">See Single_datum to Tolerance_condition</A> for the application assertion.</P>
+The modification specifies a Tolerance_condition that is associated with the application of the Single_datum.  The modification need not be specified for a particular Single_datum.  See <a href="#aa-single_datum-to-tolerance_condition">Single_datum to Tolerance_condition</a> for the application assertion.</P>
 <P CLASS="example">
 EXAMPLE     Material conditions such as LMC or MMC are typical conditions.</P>
 
@@ -6780,9 +6780,9 @@ The depth specifies the distance from the centre of the base line, measured perp
 <P CLASS="example">
 NOTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="#figure-27">Figure 27</a> illustrates the parameters associated with a Square_u_profile.   </P>
 
-<FIGURE>
+<FIGURE><A NAME="figure-27"></A>
 <IMG SRC="images/square_u_profile.svg">
-<FIGCAPTION><A NAME="figure-27"></A>Figure 27 &mdash; Square_u_profile parameters</FIGCAPTION>
+<FIGCAPTION>Figure 27 &mdash; Square_u_profile parameters</FIGCAPTION>
 </FIGURE>
 
 
@@ -6837,9 +6837,9 @@ A Straightness_tolerance is a type of <a href="#ao-geometric_tolerance">Geometri
 <P CLASS="example">
 NOTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 	This definition has been harmonized with the Straightness_tolerance definitions in ISO 10303-1051, ISO 10303-214, and ISO 10303-224.   This definition is derived from clause 14.1 of ISO 1101:2004.  <a href="#figure-28">Figure 28 </a> illustrates a Straightness_tolerance.  </P>
 
-<FIGURE>
+<FIGURE><A NAME="figure-28"></A>
 <IMG SRC="images/tol_straightness.svg">
-<FIGCAPTION><A NAME="figure-28"></A>Figure 28 &mdash; Straightness_tolerance</FIGCAPTION>
+<FIGCAPTION>Figure 28 &mdash; Straightness_tolerance</FIGCAPTION>
 </FIGURE>
 
 <P>
@@ -6871,9 +6871,9 @@ The tolerance zone established by a Surface_profile_tolerance is three dimension
 <P CLASS="example">
 NOTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This definition has been harmonized with the Surface_profile_tolerance definitions in ISO 10303-1051, ISO 10303-214, and ISO 10303-224.   This definition is derived from clause 14.6 of ISO 1101:2004.   <a href="#figure-29">Figure 29</a> illustrates a Surface_profile_tolerance.  </P>
 
-<FIGURE>
+<FIGURE><A NAME="figure-29"></A>
 <IMG SRC="images/tol_surface_profile.svg">
-<FIGCAPTION><A NAME="figure-29"></A>Figure 29 &mdash; Surface_profile_tolerance</FIGCAPTION>
+<FIGCAPTION>Figure 29 &mdash; Surface_profile_tolerance</FIGCAPTION>
 </FIGURE>
 
 <P>
@@ -6885,7 +6885,7 @@ The data associated with a Surface_profile_tolerance  are the following:</P>
 
 <H4><A NAME="clause-4-2-329-1"></A>4.2.329.1 reference_datum</H4>
 <P>
-The reference_datum specifies the set of Datum_reference objects that define the reference frame for the geometric tolerance.  See <A HREF="stepnc_aim.htm#52459" CLASS="XRef">See Surface_profile_tolerance to Datum_reference</A> for the application assertion.</P>
+The reference_datum specifies the set of Datum_reference objects that define the reference frame for the geometric tolerance.  See <a href="#aa-surface_profile_tolerance-to-datum_reference">Surface_profile_tolerance to Datum_reference</a> for the application assertion.</P>
 
 
 <!-- ============================== -->
@@ -6909,7 +6909,7 @@ The is_surface_finish indicates whether or not the Surface_property is a surface
 
 <H4><A NAME="clause-4-2-330-2"></A>4.2.330.2 surface_characteristics</H4>
 <P>
-The surface_characteristics specifies the set of Property_parameter objects that describe the Surface_property.  The surface_characteristics need not be specified for a particular Surface_property.  See <A HREF="stepnc_aim.htm#40712" CLASS="XRef">See Surface_property to Property_parameter</A> for the application assertion.</P>
+The surface_characteristics specifies the set of Property_parameter objects that describe the Surface_property.  The surface_characteristics need not be specified for a particular Surface_property.  See <a href="#aa-surface_property-to-property_parameter">Surface_property to Property_parameter</a> for the application assertion.</P>
 
 
 <!-- ============================== -->
@@ -6936,9 +6936,9 @@ A Symmetry_tolerance is a type of <a href="#ao-geometric_tolerance">Geometric_to
 <P CLASS="example">
 NOTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This definition has been harmonized with the Symmetry_tolerance definitions in ISO 10303-1051, ISO 10303-214, and ISO 10303-224.   This definition is derived from clause 14.12 of ISO 1101:2004.   <a href="#figure-30">Figure 30</a> illustrates a Symmetry_tolerance.  </P>
 
-<FIGURE>
+<FIGURE><A NAME="figure-30"></A>
 <IMG SRC="images/tol_symmetry.svg">
-<FIGCAPTION><A NAME="figure-30"></A>Figure 30 &mdash; Symmetry_tolerance</FIGCAPTION>
+<FIGCAPTION>Figure 30 &mdash; Symmetry_tolerance</FIGCAPTION>
 </FIGURE>
 
 <P>
@@ -6956,7 +6956,7 @@ The affected_plane specifies an axis placement, the X-Y plane of which establish
 
 <H4><A NAME="clause-4-2-332-2"></A>4.2.332.2 reference_datum</H4>
 <P>
-The reference_datum specifies the set of Datum_reference objects that define the reference frame for the geometric tolerance.  See <A HREF="stepnc_aim.htm#91996" CLASS="XRef">See Symmetry_tolerance to Datum_reference</A> for the application assertion.</P>
+The reference_datum specifies the set of Datum_reference objects that define the reference frame for the geometric tolerance.  See <a href="#aa-symmetry_tolerance-to-datum_reference">Symmetry_tolerance to Datum_reference</a> for the application assertion.</P>
 
 
 <!-- ============================== -->
@@ -7152,9 +7152,9 @@ A Thickness_size_dimension is a type of <a href="#ao-size_dimension">Size_dimens
 <P CLASS="example">
 NOTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This definition has been harmonized with the Thickness_size_dimension definitions in ISO 10303-1050 and ISO 10303-214, as well as the Thickness_tolerance definition in ISO 10303-224.  <a href="#figure-31">Figure 31</a> illustrates a Thickness_size_dimension.  </P>
 
-<FIGURE>
+<FIGURE><A NAME="figure-31"></A>
 <IMG SRC="images/dim_thickness.svg">
-<FIGCAPTION><A NAME="figure-31"></A>Figure 31 &mdash; Thickness_size_dimension</FIGCAPTION>
+<FIGCAPTION>Figure 31 &mdash; Thickness_size_dimension</FIGCAPTION>
 </FIGURE>
 
 <P CLASS="example">
@@ -7168,7 +7168,7 @@ The data associated with a Thickness_size_dimension are the following:</P>
 
 <H4><A NAME="clause-4-2-345-1"></A>4.2.345.1 used_path</H4>
 <P>
-The used_path specifies a Measurement_path along which the Thickness_size_dimension is  measured.  The used_path need not be specified for a particular Thickness_size_dimension.   See <A HREF="stepnc_aim.htm#97800" CLASS="XRef">See Thickness_size_dimension to Measurement_path</A> for the application assertion.</P>
+The used_path specifies a Measurement_path along which the Thickness_size_dimension is  measured.  The used_path need not be specified for a particular Thickness_size_dimension.   See <a href="#aa-thickness_size_dimension-to-measurement_path">Thickness_size_dimension to Measurement_path</a> for the application assertion.</P>
 
 
 <!-- ============================== -->
@@ -7391,9 +7391,9 @@ A Tolerance_zone is the zone wherein all points of the toleranced element shall 
 <P CLASS="example">
 EXAMPLE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="#figure-32">Figure 32</a> illustrates a Tolerance_zone of a Straightness_tolerance with tolerance_value `0.1' specified for a line.  </P>
 
-<FIGURE>
+<FIGURE><A NAME="figure-32"></A>
 <IMG SRC="images/tol_zone.svg">
-<FIGCAPTION><A NAME="figure-32"></A>Figure 32 &mdash; Tolerance_zone</FIGCAPTION>
+<FIGCAPTION>Figure 32 &mdash; Tolerance_zone</FIGCAPTION>
 </FIGURE>
 
 <P CLASS="example">
@@ -7415,7 +7415,7 @@ EXAMPLE 2			A Surface_profile_tolerance  has a tolerance zone that is based on t
 
 <H4><A NAME="clause-4-2-360-2"></A>4.2.360.2 zone_for</H4>
 <P>
-The zone_for specifies the set of Geometric_tolerance objects for which the Tolerance_zone defines the zone.  See <A HREF="stepnc_aim.htm#74840" CLASS="XRef">See Tolerance_zone to Geometric_tolerance</A> for the application assertion.</P>
+The zone_for specifies the set of Geometric_tolerance objects for which the Tolerance_zone defines the zone.  See <a href="#aa-tolerance_zone-to-geometric_tolerance">Tolerance_zone to Geometric_tolerance</a> for the application assertion.</P>
 
 
 <!-- ============================== -->
@@ -7433,7 +7433,7 @@ The data associated with a Tolerance_zone_definition are the following:</P>
 
 <H4><A NAME="clause-4-2-361-1"></A>4.2.361.1 defining</H4>
 <P>
-The defining specifies the Tolerance_zone that is specified by the Tolerance_zone_definition.  See <A HREF="stepnc_aim.htm#71135" CLASS="XRef">See Tolerance_zone_definition to Tolerance_zone</A> for the application assertion.</P>
+The defining specifies the Tolerance_zone that is specified by the Tolerance_zone_definition.  See <a href="#aa-tolerance_zone_definition-to-tolerance_zone">Tolerance_zone_definition to Tolerance_zone</a> for the application assertion.</P>
 
 
 <H4><A NAME="clause-4-2-361-2"></A>4.2.361.2 first_element</H4>
@@ -7581,7 +7581,7 @@ The its_id specifies a word or group of words which identify the Tool_usage.</P>
 
 <H4><A NAME="clause-4-2-370-3"></A>4.2.370.3 its_library_reference</H4>
 <P>
-The its_library_reference specifies an Externally_defined_representation object that identifies the tool whose associated product information is provided within an external specification or document. The its_library_reference need not be specified for a particular Tool_usage.   See <A HREF="stepnc_aim.htm#42938" CLASS="XRef">See Tool_usage to Externally_defined_representation</A> for the application assertion.</P>
+The its_library_reference specifies an Externally_defined_representation object that identifies the tool whose associated product information is provided within an external specification or document. The its_library_reference need not be specified for a particular Tool_usage.   See <a href="#aa-tool_usage-to-externally_defined_representation">Tool_usage to Externally_defined_representation</a> for the application assertion.</P>
 <P CLASS="example">
 EXAMPLE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="bibliography.htm#iso13399-1">ISO 13399</a> is one such external specification which describes various data about cutting tools and cutting tool assemblies, including reference dictionaries that describe tool properties.</P>
 
@@ -7593,7 +7593,7 @@ The its_position specifies a location within a machine tool turret, magazine, or
 
 <H4><A NAME="clause-4-2-370-5"></A>4.2.370.5 its_product</H4>
 <P>
-The its_product specifies a Workpiece object that describes the physical shape and associated product information of the tool.  The its_product need not be specified for a particular Tool_usage.   See <A HREF="stepnc_aim.htm#75587" CLASS="XRef">See Tool_usage to Workpiece</A> for the application assertion.</P>
+The its_product specifies a Workpiece object that describes the physical shape and associated product information of the tool.  The its_product need not be specified for a particular Tool_usage.   See <a href="#aa-tool_usage-to-workpiece">Tool_usage to Workpiece</a> for the application assertion.</P>
 
 
 <!-- ============================== -->
@@ -7716,9 +7716,9 @@ NOTE 2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Where applied to surfaces constructed at ri
 <P CLASS="example">
 NOTE 3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This definition has been harmonized with the Total_runout_tolerance definitions in ISO 10303-1051, ISO 10303-214, and ISO 10303-224.   This definition is derived from clause 14.13 of ISO 1101:2004.  <a href="#figure-33">Figure 33</a> illustrates a Total_runout_tolerance.  </P>
 
-<FIGURE>
+<FIGURE><A NAME="figure-33"></A>
 <IMG SRC="images/tol_total_runout.svg">
-<FIGCAPTION><A NAME="figure-33"></A>Figure 33 &mdash; Total_runout_tolerance</FIGCAPTION>
+<FIGCAPTION>Figure 33 &mdash; Total_runout_tolerance</FIGCAPTION>
 </FIGURE>
 
 <P>
@@ -7736,7 +7736,7 @@ The angle specifies the direction in which the runout tolerance is controlled. T
 
 <H4><A NAME="clause-4-2-376-2"></A>4.2.376.2 reference_datum</H4>
 <P>
-The reference_datum specifies the set of Datum_reference objects that define the reference frame for the geometric tolerance.  See <A HREF="stepnc_aim.htm#58283" CLASS="XRef">See Total_runout_tolerance to Datum_reference</A> for the application assertion.</P>
+The reference_datum specifies the set of Datum_reference objects that define the reference frame for the geometric tolerance.  See <a href="#aa-total_runout_tolerance-to-datum_reference">Total_runout_tolerance to Datum_reference</a> for the application assertion.</P>
 
 
 <!-- ============================== -->
@@ -7824,7 +7824,7 @@ The its_material_removal_total_volume specifies the total volume of material rem
 <P>
 The Transition_feature application object is defined by clause 4.5 of ISO 14649-10:2004.  This part of ISO 10303 adds the following information requirements.</P>
 <P CLASS="example">
-NOTE 1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; As described in <A HREF="clause5.htm#funcon-transition_features">Transition Features</A>, edge round and chamfer transition features can relate either two features or two sets of faces on the workpiece shape.  At least one method is used, and both can be used if desired.  In ISO 14649-10, first_feature and second_feature are defined as required attributes, so this clause relaxes the original definition to allow them to be omitted if the other method is used. The <a href="#ao-chamfer">Chamfer</a> and <a href="#ao-edge_round">Edge_round</a> application objects describe the information requirements for the faces.  In the AIM, the <A HREF="stepnc_aim.htm#21398" CLASS="XRef">See chamfer_requires_faces_or_features</A> and <A HREF="stepnc_aim.htm#26165" CLASS="XRef">See edge_round_requires_faces_or_features</A> global rules enforce the use of at least one of the methods.</P>
+NOTE 1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; As described in <A HREF="clause5.htm#funcon-transition_features">Transition Features</A>, edge round and chamfer transition features can relate either two features or two sets of faces on the workpiece shape.  At least one method is used, and both can be used if desired.  In ISO 14649-10, first_feature and second_feature are defined as required attributes, so this clause relaxes the original definition to allow them to be omitted if the other method is used. The <a href="#ao-chamfer">Chamfer</a> and <a href="#ao-edge_round">Edge_round</a> application objects describe the information requirements for the faces.  In the AIM, the <a href="clause5.htm#aim-chamfer_requires_faces_or_features">chamfer_requires_faces_or_features</a> and <a href="clause5.htm#aim-edge_round_requires_faces_or_features">edge_round_requires_faces_or_features</a> global rules enforce the use of at least one of the methods.</P>
 <P>
 The data associated with a Transition_feature are the following:</P>
 <UL>
@@ -8177,9 +8177,9 @@ END_ENTITY;
 <P>
 A User_defined_milling_tool is a type of Milling_machine_cutting_tool whose characteristics are either not known or lie outside of the set of milling tools described by ISO 14649-111.  </P>
 
-<FIGURE>
+<FIGURE><A NAME="figure-34"></A>
 <IMG SRC="images/user_defined_tool.svg">
-<FIGCAPTION><A NAME="figure-34"></A>Figure 34 &mdash; User_defined_milling_tool parameters</FIGCAPTION>
+<FIGCAPTION>Figure 34 &mdash; User_defined_milling_tool parameters</FIGCAPTION>
 </FIGURE>
 
 <P CLASS="example">
@@ -8303,7 +8303,7 @@ The data associated with a Value_with_tolerance are the following:</P>
 
 <H4><A NAME="clause-4-2-403-1"></A>4.2.403.1 limitation</H4>
 <P>
-The limitation specifies the tolerance range, by either Limit_qualifier, Limits_and_fits, or Plus_minus_value for the physical quantity.  The limitation need not be specified for a particular Value_with_tolerance.  See <A HREF="stepnc_aim.htm#71623" CLASS="XRef">See Value_with_tolerance to Limit_qualifier</A>, <A HREF="stepnc_aim.htm#42243" CLASS="XRef">See Value_with_tolerance to Limits_and_fits</A>, and <A HREF="stepnc_aim.htm#60790" CLASS="XRef">See Value_with_tolerance to Plus_minus_value</A> for the application assertions.</P>
+The limitation specifies the tolerance range, by either Limit_qualifier, Limits_and_fits, or Plus_minus_value for the physical quantity.  The limitation need not be specified for a particular Value_with_tolerance.  See <a href="#aa-value_with_tolerance-to-limit_qualifier">Value_with_tolerance to Limit_qualifier</a>, <a href="#aa-value_with_tolerance-to-limits_and_fits">Limits_and_fits</a>, and <a href="#aa-value_with_tolerance-to-plus_minus_value">Plus_minus_value</a> for the application assertions.</P>
 
 
 <H4><A NAME="clause-4-2-403-2"></A>4.2.403.2 significant_digits</H4>
@@ -8371,9 +8371,9 @@ The second_side_length indicates the distance, as measured from the profile orig
 <P CLASS="example">
 NOTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="#figure-35">Figure 35</a> illustrates the parameters associated with a Vee_profile.   The tilt_angle is shown as the angle between the first side and the X axis as originally defined by ISO 10303-224.   The ISO 14649-10 definition does not clearly specify which side this angle is measured from.    </P>
 
-<FIGURE>
+<FIGURE><A NAME="figure-35"></A>
 <IMG SRC="images/vee_profile.svg">
-<FIGCAPTION><A NAME="figure-35"></A>Figure 35 &mdash; Vee_profile parameters</FIGCAPTION>
+<FIGCAPTION>Figure 35 &mdash; Vee_profile parameters</FIGCAPTION>
 </FIGURE>
 
 
@@ -8427,7 +8427,7 @@ The data associated with a Width_size_dimension are the following:</P>
 
 <H4><A NAME="clause-4-2-409-1"></A>4.2.409.1 used_path</H4>
 <P>
-The used_path specifies a Measurement_path along which the Width_size_dimension is measured.  The used_path need not be specified for a particular Width_size_dimension.   See <A HREF="stepnc_aim.htm#74489" CLASS="XRef">See Width_size_dimension to Measurement_path</A> for the application assertion.</P>
+The used_path specifies a Measurement_path along which the Width_size_dimension is measured.  The used_path need not be specified for a particular Width_size_dimension.   See <a href="#aa-width_size_dimension-to-measurement_path">Width_size_dimension to Measurement_path</a> for the application assertion.</P>
 
 
 <!-- ============================== -->
@@ -8554,7 +8554,7 @@ The its_bounding_geometry parameter is defined by ISO 14649-10 to be of type blo
 
 <H4><A NAME="clause-4-2-412-3"></A>4.2.412.3 its_approvals</H4>
 <P>
-The its_approvals specifies the set of Approval objects that define the approval status of the manufacturing description of the revision given by the revision_id of the Workpiece. The its_approvals need not be specified for a particular Workpiece.   See <A HREF="stepnc_aim.htm#41065" CLASS="XRef">See Workpiece to Approval (as its_approvals)</A> for the application assertion.</P>
+The its_approvals specifies the set of Approval objects that define the approval status of the manufacturing description of the revision given by the revision_id of the Workpiece. The its_approvals need not be specified for a particular Workpiece.   See <a href="#aa-workpiece-to-approval-as-its_approvals">Workpiece to Approval (as its_approvals)</a> for the application assertion.</P>
 
 
 <H4><A NAME="clause-4-2-412-4"></A>4.2.412.4 its_categories</H4>
@@ -8575,22 +8575,22 @@ NOTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; A Workpiece object categorized as a tool can 
 
 <H4><A NAME="clause-4-2-412-5"></A>4.2.412.5 its_components</H4>
 <P>
-The its_components specifies the set of Workpiece_assembly_component objects that define the components of a Workpiece.  The its_components need not be specified for a particular Workpiece.  See <A HREF="stepnc_aim.htm#66479" CLASS="XRef">See Workpiece to Workpiece_assembly_component</A> for the application assertion.</P>
+The its_components specifies the set of Workpiece_assembly_component objects that define the components of a Workpiece.  The its_components need not be specified for a particular Workpiece.  See <a href="#aa-workpiece-to-workpiece_assembly_component">Workpiece to Workpiece_assembly_component</a> for the application assertion.</P>
 
 
 <H4><A NAME="clause-4-2-412-6"></A>4.2.412.6 its_datestamps</H4>
 <P>
-The its_datestamps specifies the set of Assigned_date objects that define dates and associated roles  that apply to the manufacturing description of the revision given by the revision_id of the Workpiece.  The its_datestamps need not be specified for a particular Workpiece.  See <A HREF="stepnc_aim.htm#37577" CLASS="XRef">See Workpiece to Assigned_date (as its_datestamps)</A> for the application assertion.</P>
+The its_datestamps specifies the set of Assigned_date objects that define dates and associated roles  that apply to the manufacturing description of the revision given by the revision_id of the Workpiece.  The its_datestamps need not be specified for a particular Workpiece.  See <a href="#aa-workpiece-to-assigned_date-as-its_datestamps">Workpiece to Assigned_date (as its_datestamps)</a> for the application assertion.</P>
 
 
 <H4><A NAME="clause-4-2-412-7"></A>4.2.412.7 its_orgs</H4>
 <P>
-The its_orgs specifies the set of Assigned_organization objects that define organizations and associated roles that apply to the manufacturing description of the revision given by the revision_id of the Workpiece.  The its_orgs need not be specified for a particular Workpiece.  See <A HREF="stepnc_aim.htm#83758" CLASS="XRef">See Workpiece to Assigned_organization (as its_orgs)</A> for the application assertion.</P>
+The its_orgs specifies the set of Assigned_organization objects that define organizations and associated roles that apply to the manufacturing description of the revision given by the revision_id of the Workpiece.  The its_orgs need not be specified for a particular Workpiece.  See <a href="#aa-workpiece-to-assigned_organization-as-its_orgs">Workpiece to Assigned_organization (as its_orgs)</a> for the application assertion.</P>
 
 
 <H4><A NAME="clause-4-2-412-8"></A>4.2.412.8 its_people</H4>
 <P>
-The its_people specifies the set of Assigned_person objects that define people and associated roles  that apply to the manufacturing description of the revision given by the revision_id of the Workpiece.  The its_people need not be specified for a particular Workpiece.  See <A HREF="stepnc_aim.htm#42290" CLASS="XRef">See Workpiece to Assigned_person (as its_people)</A> for the application assertion.</P>
+The its_people specifies the set of Assigned_person objects that define people and associated roles  that apply to the manufacturing description of the revision given by the revision_id of the Workpiece.  The its_people need not be specified for a particular Workpiece.  See <a href="#aa-workpiece-to-assigned_person-as-its_people">Workpiece to Assigned_person (as its_people)</a> for the application assertion.</P>
 
 
 <H4><A NAME="clause-4-2-412-9"></A>4.2.412.9 its_related_geometry</H4>
@@ -8602,42 +8602,42 @@ NOTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This parameter has been added for harmonizati
 
 <H4><A NAME="clause-4-2-412-10"></A>4.2.412.10 its_timestamps</H4>
 <P>
-The its_timestamps specifies the set of Assigned_time objects that define dates with times and associated roles that apply to the manufacturing description of the revision given by the revision_id of the Workpiece.  The its_timestamps need not be specified for a particular Workpiece.  See <A HREF="stepnc_aim.htm#40868" CLASS="XRef">See Workpiece to Assigned_time (as its_timestamps)</A> for the application assertion.</P>
+The its_timestamps specifies the set of Assigned_time objects that define dates with times and associated roles that apply to the manufacturing description of the revision given by the revision_id of the Workpiece.  The its_timestamps need not be specified for a particular Workpiece.  See <a href="#aa-workpiece-to-assigned_time-as-its_timestamps">Workpiece to Assigned_time (as its_timestamps)</a> for the application assertion.</P>
 
 
 <H4><A NAME="clause-4-2-412-11"></A>4.2.412.11 product_approvals</H4>
 <P>
-The product_approvals specifies the set of Approval objects that define approval status across all revisions of the Workpiece. The product_approvals need not be specified for a particular Workpiece.   See <A HREF="stepnc_aim.htm#33278" CLASS="XRef">See Workpiece to Approval (as product_approvals)</A> for the application assertion.</P>
+The product_approvals specifies the set of Approval objects that define approval status across all revisions of the Workpiece. The product_approvals need not be specified for a particular Workpiece.   See <a href="#aa-workpiece-to-approval-as-product_approvals">Workpiece to Approval (as product_approvals)</a> for the application assertion.</P>
 
 
 <H4><A NAME="clause-4-2-412-12"></A>4.2.412.12 product_datestamps</H4>
 <P>
-The product_datestamps specifies the set of Assigned_date objects that define dates and associated roles that apply across all revisions of the Workpiece.  The product_datestamps need not be specified for a particular Workpiece.  See <A HREF="stepnc_aim.htm#10277" CLASS="XRef">See Workpiece to Assigned_date (as product_datestamps)</A> for the application assertion.</P>
+The product_datestamps specifies the set of Assigned_date objects that define dates and associated roles that apply across all revisions of the Workpiece.  The product_datestamps need not be specified for a particular Workpiece.  See <a href="#aa-workpiece-to-assigned_date-as-product_datestamps">Workpiece to Assigned_date (as product_datestamps)</a> for the application assertion.</P>
 
 
 <H4><A NAME="clause-4-2-412-13"></A>4.2.412.13 product_orgs</H4>
 <P>
-The product_orgs specifies the set of Assigned_organization objects that define organizations and associated roles that apply across all revisions of the Workpiece.  The product_orgs need not be specified for a particular Workpiece.  See <A HREF="stepnc_aim.htm#40608" CLASS="XRef">See Workpiece to Assigned_organization (as product_orgs)</A> for the application assertion.</P>
+The product_orgs specifies the set of Assigned_organization objects that define organizations and associated roles that apply across all revisions of the Workpiece.  The product_orgs need not be specified for a particular Workpiece.  See <a href="#aa-workpiece-to-assigned_organization-as-product_orgs">Workpiece to Assigned_organization (as product_orgs)</a> for the application assertion.</P>
 
 
 <H4><A NAME="clause-4-2-412-14"></A>4.2.412.14 product_people</H4>
 <P>
-The product_people specifies the set of Assigned_person objects that define people and associated roles that apply across all revisions of the Workpiece.  The product_people need not be specified for a particular Workpiece.  See <A HREF="stepnc_aim.htm#87684" CLASS="XRef">See Workpiece to Assigned_person (as product_people)</A> for the application assertion.</P>
+The product_people specifies the set of Assigned_person objects that define people and associated roles that apply across all revisions of the Workpiece.  The product_people need not be specified for a particular Workpiece.  See <a href="#aa-workpiece-to-assigned_person-as-product_people">Workpiece to Assigned_person (as product_people)</a> for the application assertion.</P>
 
 
 <H4><A NAME="clause-4-2-412-15"></A>4.2.412.15 product_timestamps</H4>
 <P>
-The product_timestamps specifies the set of Assigned_time objects that define dates with times and associated roles that apply across all revisions of the Workpiece.  The product_timestamps need not be specified for a particular Workpiece.  See <A HREF="stepnc_aim.htm#47738" CLASS="XRef">See Workpiece to Assigned_time (as product_timestamps)</A> for the application assertion.</P>
+The product_timestamps specifies the set of Assigned_time objects that define dates with times and associated roles that apply across all revisions of the Workpiece.  The product_timestamps need not be specified for a particular Workpiece.  See <a href="#aa-workpiece-to-assigned_time-as-product_timestamps">Workpiece to Assigned_time (as product_timestamps)</a> for the application assertion.</P>
 
 
 <H4><A NAME="clause-4-2-412-16"></A>4.2.412.16 revision_approvals</H4>
 <P>
-The revision_approvals specifies the set of Approval objects that define the approval status of the revision given by the revision_id of the Workpiece. The revision_approvals need not be specified for a particular Workpiece.   See <A HREF="stepnc_aim.htm#39832" CLASS="XRef">See Workpiece to Approval (as revision_approvals)</A> for the application assertion.</P>
+The revision_approvals specifies the set of Approval objects that define the approval status of the revision given by the revision_id of the Workpiece. The revision_approvals need not be specified for a particular Workpiece.   See <a href="#aa-workpiece-to-approval-as-revision_approvals">Workpiece to Approval (as revision_approvals)</a> for the application assertion.</P>
 
 
 <H4><A NAME="clause-4-2-412-17"></A>4.2.412.17 revision_datestamps</H4>
 <P>
-The revision_datestamps specifies the set of Assigned_date objects that define dates and associated roles that apply to the revision given by the revision_id of the Workpiece.  The revision_datestamps need not be specified for a particular Workpiece.  See <A HREF="stepnc_aim.htm#32590" CLASS="XRef">See Workpiece to Assigned_date (as revision_datestamps)</A> for the application assertion.</P>
+The revision_datestamps specifies the set of Assigned_date objects that define dates and associated roles that apply to the revision given by the revision_id of the Workpiece.  The revision_datestamps need not be specified for a particular Workpiece.  See <a href="#aa-workpiece-to-assigned_date-as-revision_datestamps">Workpiece to Assigned_date (as revision_datestamps)</a> for the application assertion.</P>
 
 
 <H4><A NAME="clause-4-2-412-18"></A>4.2.412.18 revision_id</H4>
@@ -8647,17 +8647,17 @@ The revision_id identifies the revision of the Workpiece.  The revision_id need 
 
 <H4><A NAME="clause-4-2-412-19"></A>4.2.412.19 revision_orgs</H4>
 <P>
-The revision_orgs specifies the set of Assigned_organization objects that define organizations and associated roles that apply to the revision given by the revision_id of the Workpiece.  The revision_orgs need not be specified for a particular Workpiece.  See <A HREF="stepnc_aim.htm#76349" CLASS="XRef">See Workpiece to Assigned_organization (as revision_orgs)</A> for the application assertion.</P>
+The revision_orgs specifies the set of Assigned_organization objects that define organizations and associated roles that apply to the revision given by the revision_id of the Workpiece.  The revision_orgs need not be specified for a particular Workpiece.  See <a href="#aa-workpiece-to-assigned_organization-as-revision_orgs">Workpiece to Assigned_organization (as revision_orgs)</a> for the application assertion.</P>
 
 
 <H4><A NAME="clause-4-2-412-20"></A>4.2.412.20 revision_people</H4>
 <P>
-The revision_people specifies the set of Assigned_person objects that define people and associated roles that apply to the revision given by the revision_id of the Workpiece.  The revision_people need not be specified for a particular Workpiece.  See <A HREF="stepnc_aim.htm#95389" CLASS="XRef">See Workpiece to Assigned_person (as revision_people)</A> for the application assertion.</P>
+The revision_people specifies the set of Assigned_person objects that define people and associated roles that apply to the revision given by the revision_id of the Workpiece.  The revision_people need not be specified for a particular Workpiece.  See <a href="#aa-workpiece-to-assigned_person-as-revision_people">Workpiece to Assigned_person (as revision_people)</a> for the application assertion.</P>
 
 
 <H4><A NAME="clause-4-2-412-21"></A>4.2.412.21 revision_timestamps</H4>
 <P>
-The revision_timestamps specifies the set of Assigned_time objects that define dates with times and associated roles that apply to the revision given by the revision_id of the Workpiece.  The revision_timestamps need not be specified for a particular Workpiece.  See <A HREF="stepnc_aim.htm#22692" CLASS="XRef">See Workpiece to Assigned_time (as revision_timestamps)</A> for the application assertion.</P>
+The revision_timestamps specifies the set of Assigned_time objects that define dates with times and associated roles that apply to the revision given by the revision_id of the Workpiece.  The revision_timestamps need not be specified for a particular Workpiece.  See <a href="#aa-workpiece-to-assigned_time-as-revision_timestamps">Workpiece to Assigned_time (as revision_timestamps)</a> for the application assertion.</P>
 
 
 <!-- ============================== -->
@@ -8676,7 +8676,7 @@ The data associated with a Workpiece_assembly_component are the following:</P>
 
 <H4><A NAME="clause-4-2-413-1"></A>4.2.413.1 component</H4>
 <P>
-The component specifies the release date of the Workpiece_assembly_component. See <A HREF="stepnc_aim.htm#24928" CLASS="XRef">See Workpiece_assembly_component to Workpiece</A> for the application assertion.</P>
+The component specifies the release date of the Workpiece_assembly_component. See <a href="#aa-workpiece_assembly_component-to-workpiece">Workpiece_assembly_component to Workpiece</a> for the application assertion.</P>
 
 
 <H4><A NAME="clause-4-2-413-2"></A>4.2.413.2 originating_orientation</H4>
@@ -8777,7 +8777,7 @@ END_ENTITY;
 
 <H4><A NAME="clause-4-2-417-1"></A>4.2.417.1 its_minimum_machine_params</H4>
 <P>
-The its_minimum_machine_params specifies a Machine_parameters object which describe the minimum machine tool characteristics required to execute the workplan. The its_minimum_machine_params need not be specified for a particular Workplan.  See <A HREF="stepnc_aim.htm#12898" CLASS="XRef">See Workplan to Machine_parameters</A> for the application assertion.</P>
+The its_minimum_machine_params specifies a Machine_parameters object which describe the minimum machine tool characteristics required to execute the workplan. The its_minimum_machine_params need not be specified for a particular Workplan.  See <a href="#aa-workplan-to-machine_parameters">Workplan to Machine_parameters</a> for the application assertion.</P>
 
 
 <!-- ============================== -->
@@ -8800,437 +8800,437 @@ This subclause specifies the application assertions for the computerized numeric
 NOTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The application assertions specified below pertain only to the application objects defined by this part of ISO 10303.   All assertions governing the relationships between application objects defined in ISO 14649 are specified in ISO 14649.</P>
 
 
-<H3><A NAME="clause-4-3-1"></A>4.3.1 Angularity_tolerance to Datum_reference</H3>
+<H3><A NAME="aa-angularity_tolerance-to-datum_reference"></A>4.3.1 Angularity_tolerance to Datum_reference</H3>
 <P>
 Each Angularity_tolerance refers to one or two Datum_reference objects as reference_datum. Each Datum_reference acts as reference_datum for zero or more Angularity_tolerance objects.</P>
 
 
-<H3><A NAME="clause-4-3-2"></A>4.3.2 Approval to Approval_status</H3>
+<H3><A NAME="aa-approval-to-approval_status"></A>4.3.2 Approval to Approval_status</H3>
 <P>
 Each Approval has exactly one Approval_status as status. Each Approval_status is the status of one or more Approval.</P>
 
 
-<H3><A NAME="clause-4-3-3"></A>4.3.3 Approval_relationship to Approval (as related_approval) </H3>
+<H3><A NAME="aa-approval_relationship-to-approval-as-related_approval"></A>4.3.3 Approval_relationship to Approval (as related_approval) </H3>
 <P>
 Each Approval_relationship has exactly one Approval as related_approval. Each Approval is the related_approval of zero or more Approval_relationship.</P>
 
 
-<H3><A NAME="clause-4-3-4"></A>4.3.4 Approval_relationship to Approval (as relating_approval) </H3>
+<H3><A NAME="aa-approval_relationship-to-approval-as-relating_approval"></A>4.3.4 Approval_relationship to Approval (as relating_approval) </H3>
 <P>
 Each Approval_relationship has exactly one Approval as relating_approval. Each Approval is the relating_approval of zero or more Approval_relationship.</P>
 
 
-<H3><A NAME="clause-4-3-5"></A>4.3.5 Approving_person_organization to Approval</H3>
+<H3><A NAME="aa-approving_person_organization-to-approval"></A>4.3.5 Approving_person_organization to Approval</H3>
 <P>
 Each Approving_person_organization has exactly one Approval as authorized_approval. Each Approval is the authorized_approval of one or more Approving_person_organization.</P>
 
 
-<H3><A NAME="clause-4-3-6"></A>4.3.6 Boss to Linear_path</H3>
+<H3><A NAME="aa-boss-to-linear_path"></A>4.3.6 Boss to Linear_path</H3>
 <P>
 Each Boss has exactly one Linear_path as boss_height. Each Linear_path is the boss_height of zero or more Boss.</P>
 
 
-<H3><A NAME="clause-4-3-7"></A>4.3.7 Circular_runout_tolerance to Datum_reference</H3>
+<H3><A NAME="aa-circular_runout_tolerance-to-datum_reference"></A>4.3.7 Circular_runout_tolerance to Datum_reference</H3>
 <P>
 Each Circular_runout_tolerance refers to one or two Datum_reference objects as reference_datum. Each Datum_reference acts as reference_datum for zero or more Circular_runout_tolerance objects.</P>
 
 
-<H3><A NAME="clause-4-3-8"></A>4.3.8 Class_BSU to Supplier_BSU</H3>
+<H3><A NAME="aa-class_bsu-to-supplier_bsu"></A>4.3.8 Class_BSU to Supplier_BSU</H3>
 <P>
 Each Class_BSU refers to exactly one Supplier_BSU object as defined_by. Each Supplier_BSU acts as defined_by for zero or more Class_BSU objects.</P>
 
 
-<H3><A NAME="clause-4-3-9"></A>4.3.9 Coaxiality_tolerance to Datum_reference</H3>
+<H3><A NAME="aa-coaxiality_tolerance-to-datum_reference"></A>4.3.9 Coaxiality_tolerance to Datum_reference</H3>
 <P>
 Each Coaxiality_tolerance refers to one or two Datum_reference objects as reference_datum. Each Datum_reference acts as reference_datum for zero or more Coaxiality_tolerance objects.</P>
 
 
-<H3><A NAME="clause-4-3-10"></A>4.3.10 Common_datum to Single_datum</H3>
+<H3><A NAME="aa-common_datum-to-single_datum"></A>4.3.10 Common_datum to Single_datum</H3>
 <P>
 Each Common_datum refers to two or more Single_datum objects as made_up_by. Each Single_datum is related to zero or more Common_datum objects. </P>
 
 
-<H3><A NAME="clause-4-3-11"></A>4.3.11 Concentricity_tolerance to Datum_reference</H3>
+<H3><A NAME="aa-concentricity_tolerance-to-datum_reference"></A>4.3.11 Concentricity_tolerance to Datum_reference</H3>
 <P>
 Each Concentricity_tolerance refers to one or two Datum_reference objects as reference_datum. Each Datum_reference acts as reference_datum for zero or more Concentricity_tolerance objects.</P>
 
 
-<H3><A NAME="clause-4-3-12"></A>4.3.12 Curved_distance_dimension to Measurement_path</H3>
+<H3><A NAME="aa-curved_distance_dimension-to-measurement_path"></A>4.3.12 Curved_distance_dimension to Measurement_path</H3>
 <P>
 Each Curved_distance_dimension has exactly one Measurement_path as used_path. Each Measurement_path is the used_path of zero or more Curved_distance_dimension.</P>
 
 
-<H3><A NAME="clause-4-3-13"></A>4.3.13 Datum_defined_by_targets to Datum_target</H3>
+<H3><A NAME="aa-datum_defined_by_targets-to-datum_target"></A>4.3.13 Datum_defined_by_targets to Datum_target</H3>
 <P>
 Each Datum_defined_by_targets refers to one or more Datum_target objects as defined_by. Each Datum_target acts as target for zero or more Datum_defined_by_targets objects.</P>
 
 
-<H3><A NAME="clause-4-3-14"></A>4.3.14 Datum_reference to Datum</H3>
+<H3><A NAME="aa-datum_reference-to-datum"></A>4.3.14 Datum_reference to Datum</H3>
 <P>
 Each Datum_reference refers to exactly one Datum object as referenced_datum. Each Datum acts as referenced_datum for zero or more Datum_reference objects.</P>
 
 
-<H3><A NAME="clause-4-3-15"></A>4.3.15 Externally_defined_representation to Library_part_assignment</H3>
+<H3><A NAME="aa-externally_defined_representation-to-library_part_assignment"></A>4.3.15 Externally_defined_representation to Library_part_assignment</H3>
 <P>
 Each Externally_defined_representation refers to exactly one Library_part_assignment object as identified_by. Each Library_part_assignment acts as identified_by for zero or more Externally_defined_representation objects.</P>
 
 
-<H3><A NAME="clause-4-3-16"></A>4.3.16 Externally_defined_size_dimension to Measurement_path</H3>
+<H3><A NAME="aa-externally_defined_size_dimension-to-measurement_path"></A>4.3.16 Externally_defined_size_dimension to Measurement_path</H3>
 <P>
 Each Externally_defined_size_dimension has at most one Measurement_path as used_path. Each Measurement_path is the used_path of zero or more Externally_defined_size_dimension.</P>
 
 
-<H3><A NAME="clause-4-3-17"></A>4.3.17 General_property to General_property</H3>
+<H3><A NAME="aa-general_property-to-general_property"></A>4.3.17 General_property to General_property</H3>
 <P>
 Each General_property refers to zero or more General_property objects as related_properties. Each General_property is the related_properties of one or more General_property objects.</P>
 
 
-<H3><A NAME="clause-4-3-18"></A>4.3.18 General_property to Specification</H3>
+<H3><A NAME="aa-general_property-to-specification"></A>4.3.18 General_property to Specification</H3>
 <P>
 Each General_property refers to zero or more Specification objects as specifications. Each Specification is the specifications of zero or more General_property objects.</P>
 
 
-<H3><A NAME="clause-4-3-19"></A>4.3.19 General_property to Workpiece</H3>
+<H3><A NAME="aa-general_property-to-workpiece"></A>4.3.19 General_property to Workpiece</H3>
 <P>
 Each General_property has zero or one Workpiece as owner. Each Workpiece is the owner of zero or more General_property objects.</P>
 
 
-<H3><A NAME="clause-4-3-20"></A>4.3.20 Geometric_dimension to Value_range</H3>
+<H3><A NAME="aa-geometric_dimension-to-value_range"></A>4.3.20 Geometric_dimension to Value_range</H3>
 <P>
 Each Geometric_dimension has at most one Value_range as dimension_value. Each Value_range is the dimension_value of zero or more Geometric_dimension.</P>
 
 
-<H3><A NAME="clause-4-3-21"></A>4.3.21 Geometric_dimension to Value_with_tolerance</H3>
+<H3><A NAME="aa-geometric_dimension-to-value_with_tolerance"></A>4.3.21 Geometric_dimension to Value_with_tolerance</H3>
 <P>
 Each Geometric_dimension has at most one Value_with_tolerance as dimension_value. Each Value_with_tolerance is the dimension_value of zero or more Geometric_dimension.</P>
 
 
-<H3><A NAME="clause-4-3-22"></A>4.3.22 Geometric_tolerance to Tolerance_condition</H3>
+<H3><A NAME="aa-geometric_tolerance-to-tolerance_condition"></A>4.3.22 Geometric_tolerance to Tolerance_condition</H3>
 <P>
 Each Geometric_tolerance has at most one Tolerance_condition as modification. Each Tolerance_condition is the dimension_value of zero or more Geometric_tolerance.</P>
 
 
-<H3><A NAME="clause-4-3-23"></A>4.3.23 Geometric_tolerance_relationship to Geometric_tolerance (as relating)</H3>
+<H3><A NAME="aa-geometric_tolerance_relationship-to-geometric_tolerance-as-relating"></A>4.3.23 Geometric_tolerance_relationship to Geometric_tolerance (as relating)</H3>
 <P>
 Each Geometric_tolerance_relationship has exactly one Geometric_tolerance as relating. Each Geometric_tolerance is the relating of zero or more Geometric_tolerance_relationship.</P>
 
 
-<H3><A NAME="clause-4-3-24"></A>4.3.24 Geometric_tolerance_relationship to Geometric_tolerance (as related)</H3>
+<H3><A NAME="aa-geometric_tolerance_relationship-to-geometric_tolerance-as-related"></A>4.3.24 Geometric_tolerance_relationship to Geometric_tolerance (as related)</H3>
 <P>
 Each Geometric_tolerance_relationship has exactly one Geometric_tolerance as related. Each Geometric_tolerance is the related of zero or more Geometric_tolerance_relationship.</P>
 
 
-<H3><A NAME="clause-4-3-25"></A>4.3.25 Height_size_dimension to Measurement_path</H3>
+<H3><A NAME="aa-height_size_dimension-to-measurement_path"></A>4.3.25 Height_size_dimension to Measurement_path</H3>
 <P>
 Each Height_size_dimension has at most one Measurement_path as used_path. Each Measurement_path is the used_path of zero or more Height_size_dimension.</P>
 
 
-<H3><A NAME="clause-4-3-26"></A>4.3.26 Last_modified_timestamp to Executable</H3>
+<H3><A NAME="aa-last_modified_timestamp-to-executable"></A>4.3.26 Last_modified_timestamp to Executable</H3>
 <P>
 Each Last_modified_timestamp has zero or more Executable as items. Each Executable is the items of at most one Last_modified_timestamp.</P>
 
 
-<H3><A NAME="clause-4-3-27"></A>4.3.27 Last_modified_timestamp to Operation</H3>
+<H3><A NAME="aa-last_modified_timestamp-to-operation"></A>4.3.27 Last_modified_timestamp to Operation</H3>
 <P>
 Each Last_modified_timestamp has zero or more Operation as items. Each Operation is the items of at most one Last_modified_timestamp.</P>
 
 
-<H3><A NAME="clause-4-3-28"></A>4.3.28 Last_modified_timestamp to Project</H3>
+<H3><A NAME="aa-last_modified_timestamp-to-project"></A>4.3.28 Last_modified_timestamp to Project</H3>
 <P>
 Each Last_modified_timestamp has zero or more Project as items. Each Project is the items of at most one Last_modified_timestamp.</P>
 
 
-<H3><A NAME="clause-4-3-29"></A>4.3.29 Last_modified_timestamp to Toolpath</H3>
+<H3><A NAME="aa-last_modified_timestamp-to-toolpath"></A>4.3.29 Last_modified_timestamp to Toolpath</H3>
 <P>
 Each Last_modified_timestamp has zero or more Toolpath as items. Each Toolpath is the items of at most one Last_modified_timestamp.</P>
 
 
-<H3><A NAME="clause-4-3-30"></A>4.3.30 Last_modified_timestamp to Workpiece</H3>
+<H3><A NAME="aa-last_modified_timestamp-to-workpiece"></A>4.3.30 Last_modified_timestamp to Workpiece</H3>
 <P>
 Each Last_modified_timestamp has zero or more Workpiece as items. Each Workpiece is the items of at most one Last_modified_timestamp.</P>
 
 
-<H3><A NAME="clause-4-3-31"></A>4.3.31 Length_size_dimension to Measurement_path</H3>
+<H3><A NAME="aa-length_size_dimension-to-measurement_path"></A>4.3.31 Length_size_dimension to Measurement_path</H3>
 <P>
 Each Length_size_dimension has at most one Measurement_path as used_path. Each Measurement_path is the used_path of zero or more Length_size_dimension.</P>
 
 
-<H3><A NAME="clause-4-3-32"></A>4.3.32 Library_part_assignment to Class_BSU</H3>
+<H3><A NAME="aa-library_part_assignment-to-class_bsu"></A>4.3.32 Library_part_assignment to Class_BSU</H3>
 <P>
 Each Library_part_assignment refers to exactly one Class_BSU object as definitional_class_bsu. Each Class_BSU acts as value_property_bsu for zero or more Library_part_assignment objects.</P>
 
 
-<H3><A NAME="clause-4-3-33"></A>4.3.33 Library_part_assignment to Library_property_value</H3>
+<H3><A NAME="aa-library_part_assignment-to-library_property_value"></A>4.3.33 Library_part_assignment to Library_property_value</H3>
 <P>
 Each Library_part_assignment refers to zero or more Library_property_value object as definitional_property_value_pairs. Each Library_property_value acts as definitional_property_value_pairs for zero or more Library_part_assignment objects.</P>
 
 
-<H3><A NAME="clause-4-3-34"></A>4.3.34 Library_property_value to Property_BSU</H3>
+<H3><A NAME="aa-library_property_value-to-property_bsu"></A>4.3.34 Library_property_value to Property_BSU</H3>
 <P>
 Each Library_property_value refers to exactly one Property_BSU object as value_property_bsu. Each Property_BSU acts as value_property_bsu for zero or more Library_property_value objects.</P>
 
 
-<H3><A NAME="clause-4-3-35"></A>4.3.35 Line_profile_tolerance to Datum_reference</H3>
+<H3><A NAME="aa-line_profile_tolerance-to-datum_reference"></A>4.3.35 Line_profile_tolerance to Datum_reference</H3>
 <P>
 Each Line_profile_tolerance refers to zero, one, two, or three Datum_reference objects as reference_datum. Each Datum_reference acts as reference_datum for zero or more Line_profile_tolerance objects.</P>
 
 
-<H3><A NAME="clause-4-3-36"></A>4.3.36 Machine_parameters to Machine_axis_travel</H3>
+<H3><A NAME="aa-machine_parameters-to-machine_axis_travel"></A>4.3.36 Machine_parameters to Machine_axis_travel</H3>
 <P>
 Each Machine_parameters refers to zero or more Machine_axis_travel objects as axis_travel. Each Machine_axis_travel acts as axis_travel for one or more Machine_parameters objects.</P>
 
 
-<H3><A NAME="clause-4-3-37"></A>4.3.37 Machining_tool to Tool_usage</H3>
+<H3><A NAME="aa-machining_tool-to-tool_usage"></A>4.3.37 Machining_tool to Tool_usage</H3>
 <P>
 Each Machining_tool refers to zero or one Tool_usage objects as its_usage. Each Tool_usage acts as its_usage for zero or more Machining_tool objects.</P>
 
 
-<H3><A NAME="clause-4-3-38"></A>4.3.38 Machining_workingstep to Manufacturing_feature (as final_features)</H3>
+<H3><A NAME="aa-machining_workingstep-to-manufacturing_feature-as-final_features"></A>4.3.38 Machining_workingstep to Manufacturing_feature (as final_features)</H3>
 <P>
 Each Machining_workingstep has zero or more Manufacturing_feature as final_features. Each Manufacturing_feature is the final_features of zero or more Machining_workingstep.</P>
 
 
-<H3><A NAME="clause-4-3-39"></A>4.3.39 Material_property to Hardness</H3>
+<H3><A NAME="aa-material_property-to-hardness"></A>4.3.39 Material_property to Hardness</H3>
 <P>
 Each Material_property refers to zero or more Hardness objects as material_hardness. Each Hardness is the material_hardness of one or more Material_property objects.</P>
 
 
-<H3><A NAME="clause-4-3-40"></A>4.3.40 Material_property to Property_parameter</H3>
+<H3><A NAME="aa-material_property-to-property_parameter"></A>4.3.40 Material_property to Property_parameter</H3>
 <P>
 Each Material_property refers to zero or more Property_parameter objects as material_characteristics. Each Property_parameter is the material_characteristics of zero or more Material_property objects.</P>
 
 
-<H3><A NAME="clause-4-3-41"></A>4.3.41 Milling_machine_functions to Machine_axis_constraint</H3>
+<H3><A NAME="aa-milling_machine_functions-to-machine_axis_constraint"></A>4.3.41 Milling_machine_functions to Machine_axis_constraint</H3>
 <P>
 Each Milling_machine_functions has zero or more Machine_axis_constraint as axis_constraints. Each Machine_axis_constraint is the axis_constraints of at least one Milling_machine_functions.</P>
 
 
-<H3><A NAME="clause-4-3-42"></A>4.3.42 Parallelism_tolerance to Datum_reference</H3>
+<H3><A NAME="aa-parallelism_tolerance-to-datum_reference"></A>4.3.42 Parallelism_tolerance to Datum_reference</H3>
 <P>
 Each Parallelism_tolerance refers to one or two Datum_reference objects as reference_datum. Each Datum_reference acts as reference_datum for zero or more Parallelism_tolerance objects.</P>
 
 
-<H3><A NAME="clause-4-3-43"></A>4.3.43 Part_property to Property_parameter</H3>
+<H3><A NAME="aa-part_property-to-property_parameter"></A>4.3.43 Part_property to Property_parameter</H3>
 <P>
 Each Part_property refers to zero or more Property_parameter objects as part_characteristics. Each Property_parameter is the part_characteristics of zero or more Part_property objects.</P>
 
 
-<H3><A NAME="clause-4-3-44"></A>4.3.44 Perpendicularity_tolerance to Datum_reference</H3>
+<H3><A NAME="aa-perpendicularity_tolerance-to-datum_reference"></A>4.3.44 Perpendicularity_tolerance to Datum_reference</H3>
 <P>
 Each Perpendicularity_tolerance refers to one, two, or three Datum_reference objects as reference_datum. Each Datum_reference acts as reference_datum for zero or more Perpendicularity_tolerance objects.</P>
 
 
-<H3><A NAME="clause-4-3-45"></A>4.3.45 Pocket to Linear_path</H3>
+<H3><A NAME="aa-pocket-to-linear_path"></A>4.3.45 Pocket to Linear_path</H3>
 <P>
 Each Pocket has exactly one Linear_path as course_of_travel. Each Linear_path is the course_of_-travel of zero or more Pocket.</P>
 
 
-<H3><A NAME="clause-4-3-46"></A>4.3.46 Position_tolerance to Datum_reference</H3>
+<H3><A NAME="aa-position_tolerance-to-datum_reference"></A>4.3.46 Position_tolerance to Datum_reference</H3>
 <P>
 Each Position_tolerance refers to zero, one, two, or three Datum_reference objects as reference_datum. Each Datum_reference acts as reference_datum for zero or more Position_tolerance objects. </P>
 
 
-<H3><A NAME="clause-4-3-47"></A>4.3.47 Process_property to Property_parameter</H3>
+<H3><A NAME="aa-process_property-to-property_parameter"></A>4.3.47 Process_property to Property_parameter</H3>
 <P>
 Each Process_property refers to zero or more Property_parameter objects as process_characteristics. Each Property_parameter is the process_characteristics of zero or more Process_property objects.</P>
 
 
-<H3><A NAME="clause-4-3-48"></A>4.3.48 Property_BSU to Class_BSU</H3>
+<H3><A NAME="aa-property_bsu-to-class_bsu"></A>4.3.48 Property_BSU to Class_BSU</H3>
 <P>
 Each Property_BSU refers to exactly one Class_BSU object as name_scope. Each Class_BSU acts as name_scope for zero or more Property_BSU objects.</P>
 
 
-<H3><A NAME="clause-4-3-49"></A>4.3.49 Round_hole to Linear_path</H3>
+<H3><A NAME="aa-round_hole-to-linear_path"></A>4.3.49 Round_hole to Linear_path</H3>
 <P>
 Each Round_hole has exactly one Linear_path as course_of_travel. Each Linear_path is the course_-of_travel of zero or more Round_hole.</P>
 
 
-<H3><A NAME="clause-4-3-50"></A>4.3.50 Security_classification_assignment to Executable</H3>
+<H3><A NAME="aa-security_classification_assignment-to-executable"></A>4.3.50 Security_classification_assignment to Executable</H3>
 <P>
 Each Security_classification_assignment has zero or more Executable as items. Each Executable is the items of at most one Security_classification_assignment.</P>
 
 
-<H3><A NAME="clause-4-3-51"></A>4.3.51 Security_classification_assignment to Operation</H3>
+<H3><A NAME="aa-security_classification_assignment-to-operation"></A>4.3.51 Security_classification_assignment to Operation</H3>
 <P>
 Each Security_classification_assignment has zero or more Operation as items. Each Operation is the items of at most one Security_classification_assignment.</P>
 
 
-<H3><A NAME="clause-4-3-52"></A>4.3.52 Security_classification_assignment to Project</H3>
+<H3><A NAME="aa-security_classification_assignment-to-project"></A>4.3.52 Security_classification_assignment to Project</H3>
 <P>
 Each Security_classification_assignment has zero or more Project as items. Each Project is the items of at most one Security_classification_assignment.</P>
 
 
-<H3><A NAME="clause-4-3-53"></A>4.3.53 Security_classification_assignment to Security_classification</H3>
+<H3><A NAME="aa-security_classification_assignment-to-security_classification"></A>4.3.53 Security_classification_assignment to Security_classification</H3>
 <P>
 Each Security_classification_assignment has exactly one Security_classification as classification. Each Security_classification is the classification of one or more Security_classification_assignment.</P>
 
 
-<H3><A NAME="clause-4-3-54"></A>4.3.54 Security_classification_assignment to Toolpath</H3>
+<H3><A NAME="aa-security_classification_assignment-to-toolpath"></A>4.3.54 Security_classification_assignment to Toolpath</H3>
 <P>
 Each Security_classification_assignment has zero or more Toolpath as items. Each Toolpath is the items of at most one Security_classification_assignment.</P>
 
 
-<H3><A NAME="clause-4-3-55"></A>4.3.55 Security_classification_assignment to Workpiece</H3>
+<H3><A NAME="aa-security_classification_assignment-to-workpiece"></A>4.3.55 Security_classification_assignment to Workpiece</H3>
 <P>
 Each Security_classification_assignment has zero or more Workpiece as items. Each Workpiece is the items of at most one Security_classification_assignment.</P>
 
 
-<H3><A NAME="clause-4-3-56"></A>4.3.56 Single_datum to Tolerance_condition</H3>
+<H3><A NAME="aa-single_datum-to-tolerance_condition"></A>4.3.56 Single_datum to Tolerance_condition</H3>
 <P>
 Each Single_datum refers to zero or one Tolerance_condition as modification. Each Tolerance_condition acts as modification for zero or more Single_datum objects. </P>
 
 
-<H3><A NAME="clause-4-3-57"></A>4.3.57 Surface_profile_tolerance to Datum_reference</H3>
+<H3><A NAME="aa-surface_profile_tolerance-to-datum_reference"></A>4.3.57 Surface_profile_tolerance to Datum_reference</H3>
 <P>
 Each Surface_profile_tolerance refers to zero, one, two, or three Datum_reference objects as reference_datum. Each Datum_reference acts as reference_datum for zero or more Surface_profile_tolerance objects. </P>
 
 
-<H3><A NAME="clause-4-3-58"></A>4.3.58 Surface_property to Property_parameter</H3>
+<H3><A NAME="aa-surface_property-to-property_parameter"></A>4.3.58 Surface_property to Property_parameter</H3>
 <P>
 Each Surface_property refers to zero or more Property_parameter objects as surface_characteristics. Each Property_parameter is the surface_characteristics of zero or more Surface_property objects.</P>
 
 
-<H3><A NAME="clause-4-3-59"></A>4.3.59 Symmetry_tolerance to Datum_reference</H3>
+<H3><A NAME="aa-symmetry_tolerance-to-datum_reference"></A>4.3.59 Symmetry_tolerance to Datum_reference</H3>
 <P>
 Each Symmetry_tolerance refers to one, two, or three Datum_reference objects as reference_datum. Each Datum_reference acts as reference_datum for zero or more Symmetry_tolerance objects. </P>
 
 
-<H3><A NAME="clause-4-3-60"></A>4.3.60 Thickness_size_dimension to Measurement_path</H3>
+<H3><A NAME="aa-thickness_size_dimension-to-measurement_path"></A>4.3.60 Thickness_size_dimension to Measurement_path</H3>
 <P>
 Each Thickness_size_dimension has at most one Measurement_path as used_path. Each Measurement_path is the used_path of zero or more Thickness_size_dimension.</P>
 
 
-<H3><A NAME="clause-4-3-61"></A>4.3.61 Tolerance_zone to Geometric_tolerance</H3>
+<H3><A NAME="aa-tolerance_zone-to-geometric_tolerance"></A>4.3.61 Tolerance_zone to Geometric_tolerance</H3>
 <P>
 Each Tolerance_zone has one or more Geometric_tolerance objects as zone_for. Each Geometric_tolerance is related to zero or more Tolerance_zone objects.</P>
 
 
-<H3><A NAME="clause-4-3-62"></A>4.3.62 Tolerance_zone_definition to Tolerance_zone</H3>
+<H3><A NAME="aa-tolerance_zone_definition-to-tolerance_zone"></A>4.3.62 Tolerance_zone_definition to Tolerance_zone</H3>
 <P>
 Each Tolerance_zone_definition has exactly one Tolerance_zone as defining. Each Tolerance_zone is related to zero or more Tolerance_zone_definition objects. </P>
 
 
-<H3><A NAME="clause-4-3-63"></A>4.3.63 Tool_usage to Workpiece</H3>
+<H3><A NAME="aa-tool_usage-to-workpiece"></A>4.3.63 Tool_usage to Workpiece</H3>
 <P>
 Each Tool_usage refers to zero or one Workpiece objects as its_product. Each Workpiece acts as its_product for zero or more Tool_usage objects.</P>
 
 
-<H3><A NAME="clause-4-3-64"></A>4.3.64 Tool_usage to Externally_defined_representation</H3>
+<H3><A NAME="aa-tool_usage-to-externally_defined_representation"></A>4.3.64 Tool_usage to Externally_defined_representation</H3>
 <P>
 Each Tool_usage refers to zero or one Externally_defined_representation objects as its_library_reference. Each Externally_defined_representation acts as its_library_reference for zero or more Tool_usage objects.</P>
 
 
-<H3><A NAME="clause-4-3-65"></A>4.3.65 Total_runout_tolerance to Datum_reference</H3>
+<H3><A NAME="aa-total_runout_tolerance-to-datum_reference"></A>4.3.65 Total_runout_tolerance to Datum_reference</H3>
 <P>
 Each Total_runout_tolerance refers to one or two Datum_reference objects as reference_datum. Each Datum_reference acts as reference_datum for zero or more Total_runout_tolerance objects.</P>
 
 
-<H3><A NAME="clause-4-3-66"></A>4.3.66 Value_with_tolerance to Limit_qualifier</H3>
+<H3><A NAME="aa-value_with_tolerance-to-limit_qualifier"></A>4.3.66 Value_with_tolerance to Limit_qualifier</H3>
 <P>
 Each Value_with_tolerance has at most one Limit_qualifier as limitation. Each Limit_qualifier is the limitation of zero or more Value_with_tolerance.</P>
 
 
-<H3><A NAME="clause-4-3-67"></A>4.3.67 Value_with_tolerance to Limits_and_fits</H3>
+<H3><A NAME="aa-value_with_tolerance-to-limits_and_fits"></A>4.3.67 Value_with_tolerance to Limits_and_fits</H3>
 <P>
 Each Value_with_tolerance has at most one Limits_and_fits as limitation. Each Limits_and_fits is the limitation of zero or more Value_with_tolerance.</P>
 
 
-<H3><A NAME="clause-4-3-68"></A>4.3.68 Value_with_tolerance to Plus_minus_value</H3>
+<H3><A NAME="aa-value_with_tolerance-to-plus_minus_value"></A>4.3.68 Value_with_tolerance to Plus_minus_value</H3>
 <P>
 Each Value_with_tolerance has at most one Plus_minus_value as limitation. Each Plus_minus_value is the limitation of zero or more Value_with_tolerance.</P>
 
 
-<H3><A NAME="clause-4-3-69"></A>4.3.69 Width_size_dimension to Measurement_path</H3>
+<H3><A NAME="aa-width_size_dimension-to-measurement_path"></A>4.3.69 Width_size_dimension to Measurement_path</H3>
 <P>
 Each Width_size_dimension has at most one Measurement_path as used_path. Each Measurement_path is the used_path of zero or more Width_size_dimension.</P>
 
 
-<H3><A NAME="clause-4-3-70"></A>4.3.70 Workpiece to Approval (as its_approvals)</H3>
+<H3><A NAME="aa-workpiece-to-approval-as-its_approvals"></A>4.3.70 Workpiece to Approval (as its_approvals)</H3>
 <P>
 Each Workpiece has zero or more Approval objects as its_approvals. Each Approval is the its_approvals of zero or more Workpiece.</P>
 
 
-<H3><A NAME="clause-4-3-71"></A>4.3.71 Workpiece to Approval (as product_approvals)</H3>
+<H3><A NAME="aa-workpiece-to-approval-as-product_approvals"></A>4.3.71 Workpiece to Approval (as product_approvals)</H3>
 <P>
 Each Workpiece has zero or more Approval objects as product_approvals. Each Approval is the product_approvals of zero or more Workpiece.</P>
 
 
-<H3><A NAME="clause-4-3-72"></A>4.3.72 Workpiece to Approval (as revision_approvals)</H3>
+<H3><A NAME="aa-workpiece-to-approval-as-revision_approvals"></A>4.3.72 Workpiece to Approval (as revision_approvals)</H3>
 <P>
 Each Workpiece has zero or more Approval objects as revision_approvals. Each Approval is the revision_approvals of zero or more Workpiece.</P>
 
 
-<H3><A NAME="clause-4-3-73"></A>4.3.73 Workpiece to Assigned_date (as its_datestamps)</H3>
+<H3><A NAME="aa-workpiece-to-assigned_date-as-its_datestamps"></A>4.3.73 Workpiece to Assigned_date (as its_datestamps)</H3>
 <P>
 Each Workpiece has zero or more Assigned_date objects as its_datestamps. Each Assigned_date is the its_datestamps of zero or more Workpiece.</P>
 
 
-<H3><A NAME="clause-4-3-74"></A>4.3.74 Workpiece to Assigned_date (as product_datestamps)</H3>
+<H3><A NAME="aa-workpiece-to-assigned_date-as-product_datestamps"></A>4.3.74 Workpiece to Assigned_date (as product_datestamps)</H3>
 <P>
 Each Workpiece has zero or more Assigned_date objects as product_datestamps. Each Assigned_date is the product_datestamps of zero or more Workpiece.</P>
 
 
-<H3><A NAME="clause-4-3-75"></A>4.3.75 Workpiece to Assigned_date (as revision_datestamps)</H3>
+<H3><A NAME="aa-workpiece-to-assigned_date-as-revision_datestamps"></A>4.3.75 Workpiece to Assigned_date (as revision_datestamps)</H3>
 <P>
 Each Workpiece has zero or more Assigned_date objects as revision_datestamps. Each Assigned_date is the revision_datestamps of zero or more Workpiece.</P>
 
 
-<H3><A NAME="clause-4-3-76"></A>4.3.76 Workpiece to Assigned_organization (as its_orgs)</H3>
+<H3><A NAME="aa-workpiece-to-assigned_organization-as-its_orgs"></A>4.3.76 Workpiece to Assigned_organization (as its_orgs)</H3>
 <P>
 Each Workpiece has zero or more Assigned_organization objects as its_orgs. Each Assigned_organization is the its_orgs of zero or more Workpiece.</P>
 
 
-<H3><A NAME="clause-4-3-77"></A>4.3.77 Workpiece to Assigned_organization (as product_orgs)</H3>
+<H3><A NAME="aa-workpiece-to-assigned_organization-as-product_orgs"></A>4.3.77 Workpiece to Assigned_organization (as product_orgs)</H3>
 <P>
 Each Workpiece has zero or more Assigned_organization objects as product_orgs. Each Assigned_organization is the product_orgs of zero or more Workpiece.</P>
 
 
-<H3><A NAME="clause-4-3-78"></A>4.3.78 Workpiece to Assigned_organization (as revision_orgs)</H3>
+<H3><A NAME="aa-workpiece-to-assigned_organization-as-revision_orgs"></A>4.3.78 Workpiece to Assigned_organization (as revision_orgs)</H3>
 <P>
 Each Workpiece has zero or more Assigned_organization objects as revision_orgs. Each Assigned_organization is the revision_orgs of zero or more Workpiece.</P>
 
 
-<H3><A NAME="clause-4-3-79"></A>4.3.79 Workpiece to Assigned_person (as its_people)</H3>
+<H3><A NAME="aa-workpiece-to-assigned_person-as-its_people"></A>4.3.79 Workpiece to Assigned_person (as its_people)</H3>
 <P>
 Each Workpiece has zero or more Assigned_person objects as its_people. Each Assigned_person is the its_people of zero or more Workpiece.</P>
 
 
-<H3><A NAME="clause-4-3-80"></A>4.3.80 Workpiece to Assigned_person (as product_people)</H3>
+<H3><A NAME="aa-workpiece-to-assigned_person-as-product_people"></A>4.3.80 Workpiece to Assigned_person (as product_people)</H3>
 <P>
 Each Workpiece has zero or more Assigned_person objects as product_people. Each Assigned_person is the product_people of zero or more Workpiece.</P>
 
 
-<H3><A NAME="clause-4-3-81"></A>4.3.81 Workpiece to Assigned_person (as revision_people)</H3>
+<H3><A NAME="aa-workpiece-to-assigned_person-as-revision_people"></A>4.3.81 Workpiece to Assigned_person (as revision_people)</H3>
 <P>
 Each Workpiece has zero or more Assigned_person objects as revision_people. Each Assigned_person is the revision_people of zero or more Workpiece.</P>
 
 
-<H3><A NAME="clause-4-3-82"></A>4.3.82 Workpiece to Assigned_time (as its_timestamps)</H3>
+<H3><A NAME="aa-workpiece-to-assigned_time-as-its_timestamps"></A>4.3.82 Workpiece to Assigned_time (as its_timestamps)</H3>
 <P>
 Each Workpiece has zero or more Assigned_time objects as its_timestamps. Each Assigned_time is the its_timestamps of zero or more Workpiece.</P>
 
 
-<H3><A NAME="clause-4-3-83"></A>4.3.83 Workpiece to Assigned_time (as product_timestamps)</H3>
+<H3><A NAME="aa-workpiece-to-assigned_time-as-product_timestamps"></A>4.3.83 Workpiece to Assigned_time (as product_timestamps)</H3>
 <P>
 Each Workpiece has zero or more Assigned_time objects as product_timestamps. Each Assigned_time is the product_timestamps of zero or more Workpiece.</P>
 
 
-<H3><A NAME="clause-4-3-84"></A>4.3.84 Workpiece to Assigned_time (as revision_timestamps)</H3>
+<H3><A NAME="aa-workpiece-to-assigned_time-as-revision_timestamps"></A>4.3.84 Workpiece to Assigned_time (as revision_timestamps)</H3>
 <P>
 Each Workpiece has zero or more Assigned_time objects as revision_timestamps. Each Assigned_time is the revision_timestamps of zero or more Workpiece.</P>
 
 
-<H3><A NAME="clause-4-3-85"></A>4.3.85 Workpiece to Workpiece_assembly_component</H3>
+<H3><A NAME="aa-workpiece-to-workpiece_assembly_component"></A>4.3.85 Workpiece to Workpiece_assembly_component</H3>
 <P>
 Each Workpiece has zero or more Workpiece_assembly_component objects as its_components. Each Workpiece_assembly_component is the its_components of exactly one Workpiece.</P>
 
 
-<H3><A NAME="clause-4-3-86"></A>4.3.86 Workpiece_assembly_component to Workpiece</H3>
+<H3><A NAME="aa-workpiece_assembly_component-to-workpiece"></A>4.3.86 Workpiece_assembly_component to Workpiece</H3>
 <P>
 Each Workpiece_assembly_component has exactly one Workpiece as component. Each Workpiece is the component of zero or more Workpiece_assembly_component.</P>
 
 
-<H3><A NAME="clause-4-3-87"></A>4.3.87 Workplan to Machine_parameters</H3>
+<H3><A NAME="aa-workplan-to-machine_parameters"></A>4.3.87 Workplan to Machine_parameters</H3>
 <P>
 Each Workplan refers to zero or one Machine_parameters object as its_minimum_machine_params. Each Machine_parameters acts as its_minimum_machine_params for zero or more Workplan objects.</P>
 
