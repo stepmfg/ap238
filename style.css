@@ -97,3 +97,26 @@ PRE.example {
     margin: 0pt 0pt 0pt 29pt; 
     font-size: 8pt;
 }
+
+
+/* Mapping specifications, clause 5 */
+TABLE.map { }
+TABLE.map TH {
+    vertical-align: top;
+    font-weight: normal;
+    text-align: left;
+    padding-right: 1.5em;
+}
+TABLE.map TD {
+    vertical-align: top;
+    white-space: pre;
+}
+
+DIV.mapnote {
+    padding-left: 1.5em;
+    margin: 0 0 1em 0;
+}
+DIV.mapnote P {
+    text-indent: -2em;
+    margin: 0.5em 0 0.5em 2em;
+}

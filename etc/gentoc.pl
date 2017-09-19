@@ -26,7 +26,7 @@ my $do_scanonly=0;
 my $maxdepth=3;
 my %html;
 my @figs;
-my @tables;
+my @tabs;
 
 my @files = (
     "foreword.htm",
@@ -115,14 +115,27 @@ sub scan_toc_entries {
 	    print DSTFRM "<LI><a href=\"$file#$tag\" target=\"body\">$body</A></LI>\n";	    
 	};
 
-	/^<FIGCAPTION><A NAME=\"([^\"]+)\"><\/A>(.*)/ && do {
+	/^<FIGURE><A NAME=\"([^\"]+)\"><\/A>/ && do {
 	    my $tag = $1;
-	    my $body = $2;
-	    $body =~ s/<\/FIGCAPTION>\s*$//;
+	    my $body;
+
+	    while (not /<\/FIGURE>/) {
+		$_ = <SRC>;
+		$body = $1 if /<FIGCAPTION>(.*)<\/FIGCAPTION>/;
+	    }
 
 	    print "FIGURE $tag -- $body\n";
-
 	    push @figs, "<LI><a href=\"$file#$tag\"%%TARGET%%>$body</A></LI>\n";
+	};
+
+	/^<CAPTION><A NAME=\"([^\"]+)\"><\/A>(.*)/ && do {
+	    my $tag = $1;
+	    my $body = $2;
+	    $body =~ s/<\/CAPTION>\s*$//;
+
+	    print "TABLE $tag -- $body\n";
+
+	    push @tabs, "<LI><a href=\"$file#$tag\"%%TARGET%%>$body</A></LI>\n";
 	};
     }
 
@@ -164,6 +177,17 @@ sub main {
     print DSTFRM $html{endtoc};
 
     foreach (@figs) {
+	my ($f1, $f2) = ($_, $_);
+	$f1 =~ s/%%TARGET%%//;
+	$f2 =~ s/%%TARGET%%/ target="body"/;
+	print DST $f1;
+	print DSTFRM $f2;
+    }
+
+    print DST $html{endfig};
+    print DSTFRM $html{endfig};
+
+    foreach (@tabs) {
 	my ($f1, $f2) = ($_, $_);
 	$f1 =~ s/%%TARGET%%//;
 	$f2 =~ s/%%TARGET%%/ target="body"/;
@@ -233,11 +257,15 @@ PERL_EOF
     ;
 
 
-$html{tail} = <<'PERL_EOF';
+$html{endfig} = <<'PERL_EOF';
 </UL>
 
 <H1 CLASS="unum">Tables</H1>
 <UL>
+PERL_EOF
+    ;
+
+$html{tail} = <<'PERL_EOF';
 </UL>
 
 

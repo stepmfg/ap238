@@ -40,42 +40,40 @@ sub renum_toc_entries {
     open (SRC, $file) or die "could not open $file";
 
     while (<SRC>) {
-	/^<H2 CLASS=\"clause\"><A NAME=\"clause-(\d+)\"><\/A>(.*)/ && do {
+	/^<H1 CLASS=\"clause\"><A NAME=\"[^\"]+\"><\/A>\s*(\d+)\s+/ && do {
 	    @num = ($1);
-	    my $body = $2;
-	    my $tag = (join '-', @num);
-	    my $sec = (join '.', @num);
-
-	    $body =~ s/\s*[\d\.]+\s+//;
-	    $_ = "<H2 CLASS=\"clause\"><A NAME=\"clause-" . $tag . "\"></A>" .  
-		$sec . " " . $body . "\n";
+	    # just harvest the number
 	};
 
-	/^<H3><A NAME=\"clause-([\d-]+)\"><\/A>(.*)/ && do {
-	    my $body = $2;
-	    my @newnum = split /-/, $1;
-	    my $oldtag = $1;
+	/^<H1 CLASS=\"annex\"><A NAME=\"[^\"]+\"><\/A>\s*Annex\s+([A-Z])/ && do {
+	    @num = ($1);
+	    # just harvest the number
+	};
+	
+	/^<H([2-6])><A NAME=\"([^\"]+)\"><\/A>(.*)/ && do {
+	    my $lev = $1;
+	    my $tag = $2;
+	    my $body = $3;
 
-	    if ((scalar @num) > (scalar @newnum)) {
-		splice @num, (scalar @newnum);  # shrink
+	    $body =~ s/<\/H$lev>\s*$//;  # strip close
+	    $body =~ s/^\s*((\d+|[A-Z])\.[\d\.]+)*\s+//;  # strip old clause number
+	    my $oldsec = $1;
+	    
+	    if ((scalar @num) > $lev) {
+		splice @num, $lev;  # shrink
 	    }
-
-	    while ((scalar @num) < (scalar @newnum)) {
+	    while ((scalar @num) < $lev) {
 		push @num, 0;  # grow
 	    }
 
 	    my $cnt = pop @num;
 	    push @num, $cnt+1;
 
-	    my $tag = (join '-', @num);
 	    my $sec = (join '.', @num);
 	    
-	    $body =~ s/\s*[\d\.]+\s+//;
-	    $_ = "<H3><A NAME=\"clause-" . $tag . "\"></A>" . 
-		$sec . " " . $body . "\n";
-
-	    if ($tag ne $oldtag) {
-		print "Changed: $oldtag  --> $tag\n";
+	    $_ = "<H$lev><A NAME=\"$tag\"></A>$sec $body</H$lev>\n";
+	    if ($sec ne $oldsec) {
+		print "Changed: $oldsec  --> $sec\n";
 		$changed = 1;
 	    }
 	};
@@ -93,7 +91,7 @@ sub renum_toc_entries {
 	open (DST, "> $file")	or die ("$file: $!");
 	print DST @contents	or die ("$file: $!");
 	close DST		or die ("$file: $!");
-	unlink $bakfile		or die ("$bakfile: $!");
+	#unlink $bakfile		or die ("$bakfile: $!");
     }
 
 }

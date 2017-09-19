@@ -22,7 +22,7 @@
 <P>Each data set is described as an ISO 10303-21 exchange structure.   The AIM instances are grouped by ARM application object with a comment at the beginning of each block show how the instances are arranged to describe the application object and associated parameters.</P>
 
 <P CLASS="example">
-EXAMPLE			The instances below represent a Milling_machine_functions application object.</P>
+EXAMPLE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The instances below represent a Milling_machine_functions application object.</P>
 
 <PRE CLASS="example">
 /************************************************
@@ -51,52 +51,39 @@ EXAMPLE			The instances below represent a Milling_machine_functions application 
 
 <P>In the example above, the first line of the comment indicates that the instances describe a Milling_machine_functions application object.  In parenthesis, instance #50 is identified as the AIM element for the application object and the starting instance for the reference paths given in the mapping tables.</P>
 
-<P>In <A HREF="stepnc_aim.htm#92226" CLASS="XRef">See Mapping table for process data for milling UoF</A>, the mapping table entry for Milling_machine_functions calls for an AIM element of type machining_functions and the reference path shown below: </P>
+<P>The mapping specification for <a href="clause5.htm#map-milling_machine_functions">Milling_machine_functions</a> calls for an AIM element of type machining_functions and the reference path shown below: </P>
 
-<P CLASS="MapPath">
-machining_functions &lt;=</P>
-<P CLASS="MapPath">
-action_method</P>
-<P CLASS="MapPath">
-{ action_method.description = `milling' }</P>
+<PRE CLASS="example">
+machining_functions &lt;=
+action_method
+{ action_method.description = `milling' }
+</PRE>
+
 <P>
 Instance #50 is the machining_functions instance at the start of the reference path.  The second line simply states that machining_functions is a subtype of action_method.    The final line of the path states that the description attribute has the value &quot;milling.&quot;  In instance #50, the second attribute (which the description attribute in ISO 10303-21 syntax) is is indeed &quot;milling.&quot;</P>
 <P>
-The rest of the comment indicates application object parameters and AIM instances that form the reference path given in the mapping tables. Consider the Milling_machine_functions coolant parameter and the corresponding reference path from <A HREF="stepnc_aim.htm#92226" CLASS="XRef">See Mapping table for process data for milling UoF</A>:</P>
-<P CLASS="MapPath">
-machining_functions &lt;=</P>
-<P CLASS="MapPath">
-action_method</P>
-<P CLASS="MapPath">
-characterized_action_definition = action_method</P>
-<P CLASS="MapPath">
-characterized_action_definition &lt;-</P>
-<P CLASS="MapPath">
-action_property.definition </P>
-<P CLASS="MapPath">
-{ action_property.name = `coolant' }</P>
-<P CLASS="MapPath">
-action_property &lt;-</P>
-<P CLASS="MapPath">
-action_property_representation.property </P>
-<P CLASS="MapPath">
-action_property_representation</P>
-<P CLASS="MapPath">
-action_property_representation.representation -&gt;</P>
-<P CLASS="MapPath">
-representation</P>
-<P CLASS="MapPath">
-representation.items[i] -&gt; </P>
-<P CLASS="MapPath">
-representation_item =&gt;</P>
-<P CLASS="MapPath">
-descriptive_representation_item</P>
-<P CLASS="MapPath">
-descriptive_representation_item.description</P>
-<P CLASS="MapPath">
-{ (descriptive_representation_item.description = `coolant on' )</P>
-<P CLASS="MapPath">
- (descriptive_representation_item.description = `coolant off' ) }</P>
+The rest of the comment indicates application object parameters and AIM instances that form the reference path given in the mapping tables. Consider the Milling_machine_functions coolant parameter and the <a href="clause5.htm#map-milling_machine_functions-coolant">corresponding reference path</a>:</P>
+
+
+<PRE CLASS="example">
+machining_functions &lt;=
+action_method
+characterized_action_definition = action_method
+characterized_action_definition &lt;-
+action_property.definition 
+{ action_property.name = `coolant' }
+action_property &lt;-
+action_property_representation.property 
+action_property_representation
+action_property_representation.representation -&gt;
+representation
+representation.items[i] -&gt; 
+representation_item =&gt;
+descriptive_representation_item
+descriptive_representation_item.description
+{ (descriptive_representation_item.description = `coolant on' )
+ (descriptive_representation_item.description = `coolant off' ) }
+</PRE>
 
 <P>The comment indicates that #50, #59, #60, #61, and #62 describe the coolant parameter. Instance #50 is the machining_functions instance at the start of the reference path.  This is referred to by #59, an action property with a name of &quot;coolant.&quot;   This action_property is referred to by #60, which is an action_property_representation.  This refers to #61, which is a representation that contains descriptive_representation_item #62 in its items set.  The last lines of the reference path constrain the value of the description attribute to either &quot;coolant on&quot; or &quot;coolant off.&quot;   In instance #62, the value is &quot;coolant on,&quot; which is also documented at the end of the comment.  This can seem verbose, but implementation tests have shown that in normal use, almost all data in a file will be geometry instances that describe either workpiece shape or toolpath curves.</P>
 
