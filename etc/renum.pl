@@ -19,6 +19,10 @@
 # 
 # Renumber clauses in document.
 
+# Can renumber the anchors in one pass, we need to renumber the
+# references in a second pass.
+
+
 use strict;
 
 my $do_scanonly=0;

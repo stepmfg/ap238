@@ -261,7 +261,6 @@ The following application objects are used by the executable UoF, and are define
 <LI><A HREF="#ao-display_message">Display_message</A>;</LI>
 <LI><A HREF="#ao-executable">Executable</A>;</LI>
 <LI><A HREF="#ao-if_statement">If_statement</A>;</LI>
-<LI><A HREF="#ao-in_process_geometry">In_process_geometry</A>;</LI>
 <LI><A HREF="#ao-machining_tool">Machining_tool</A>;</LI>
 <LI><A HREF="#ao-machining_workingstep">Machining_workingstep</A>;</LI>
 <LI><A HREF="#ao-multiple_arity_boolean_expression">Multiple_arity_boolean_expression</A>;</LI>
@@ -300,7 +299,6 @@ The following application objects are used by the executable UoF, and are define
 <P>
 This part of ISO 10303 extends the following application objects with additional information requirements beyond those specified by clause 4.6 of ISO 14649-10:2004.</P>
 <UL>
-<LI><A HREF="#ao-in_process_geometry">In_process_geometry</A>;</LI>
 <LI><A HREF="#ao-machining_workingstep">Machining_workingstep</A>;</LI>
 <LI><A HREF="#ao-workplan">Workplan</A>.</LI>
 </UL>
@@ -760,14 +758,14 @@ END_ENTITY;
 <P>
 An Angular_location_dimension is a type of <a href="#ao-location_dimension">Location_dimension</a> that defines the allowable variation in the angle between two elements of the shape of a part.</P>
 <P CLASS="example">
-NOTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This definition has been harmonized with the Angular_location_dimension definitions in ISO 10303-1050 and ISO 10303-214, as well as the Angular_dimension_tolerance definition in ISO 10303-224.   <A HREF="figure-1">Figure 1</A> illustrates an Angular_location_dimension.     <A HREF="figure-2">Figure 2</A> illustrates the difference between an Angular_location_dimension and an <a href="#ao-angular_size_dimension">Angular_size_dimension</a>.    </P>
+NOTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This definition has been harmonized with the Angular_location_dimension definitions in ISO 10303-1050 and ISO 10303-214, as well as the Angular_dimension_tolerance definition in ISO 10303-224.   <A HREF="#fig-dim_ang_loc">Figure 1</A> illustrates an Angular_location_dimension.     <A HREF="#fig-dim_ang_size_vs_loc">Figure 2</A> illustrates the difference between an Angular_location_dimension and an <a href="#ao-angular_size_dimension">Angular_size_dimension</a>.    </P>
 
-<FIGURE><A NAME="figure-1"></A>
+<FIGURE><A NAME="fig-dim_ang_loc"></A>
 <IMG SRC="images/dim_ang_loc.svg">
 <FIGCAPTION>Figure 1 &mdash; Angular_location_dimension</FIGCAPTION>
 </FIGURE>
 
-<FIGURE><A NAME="figure-2"></A>
+<FIGURE><A NAME="fig-dim_ang_size_vs_loc"></A>
 <IMG SRC="images/dim_ang_size_vs_loc.svg">
 <FIGCAPTION>Figure 2 &mdash; Angular_location_dimension versus Angular_size_dimension</FIGCAPTION>
 </FIGURE>
@@ -789,9 +787,9 @@ The orientation specifies an axis placement establishing the direction of positi
 <P>
 An Angular_size_dimension is a type of <a href="#ao-size_dimension">Size_dimension</a> that defines the allowable variation in the angular size of an element of the shape of a part.</P>
 <P CLASS="example">
-NOTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This definition has been harmonized with the Angular_size_dimension definitions in ISO 10303-1050 and ISO 10303-214, as well as the Angular_size_dimension_tolerance definition in ISO 10303-224.  <A HREF="figure-3">Figure 3</A> illustrates the parameter combinations of an Angular_size_dimension.  </P>
+NOTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This definition has been harmonized with the Angular_size_dimension definitions in ISO 10303-1050 and ISO 10303-214, as well as the Angular_size_dimension_tolerance definition in ISO 10303-224.  <A HREF="#fig-dim_ang_size">Figure 3</A> illustrates the parameter combinations of an Angular_size_dimension.  </P>
 
-<FIGURE><A NAME="figure-3"></A>
+<FIGURE><A NAME="fig-dim_ang_size"></A>
 <IMG SRC="images/dim_ang_size.svg">
 <FIGCAPTION>Figure 3 &mdash; Angular_size_dimension</FIGCAPTION>
 </FIGURE>
@@ -819,7 +817,7 @@ The major_angle specifies which of the two possible angles shall be considered. 
 <P>
 An Angularity_tolerance is a type of <a href="#ao-geometric_tolerance">Geometric_tolerance</a> that specifies a constraint on the location of a surface, of a centre plane, of an edge, or of an axis that lies theoretically at a specified angle (other than 90 degrees) from a datum plane or from a datum axis. An Angularity_tolerance specifies one of the following:</P>
 <P CLASS="example">
-NOTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This definition has been harmonized with the Angularity_tolerance definitions in ISO 10303-1051, ISO 10303-214, and ISO 10303-224.  This definition is derived from clause 14.9 of ISO 1101:2004.   <A HREF="figure-4">Figure 4</A> illustrates an Angularity_tolerance for a plane surface.</P>
+NOTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This definition has been harmonized with the Angularity_tolerance definitions in ISO 10303-1051, ISO 10303-214, and ISO 10303-224.  This definition is derived from clause 14.9 of ISO 1101:2004.   <A HREF="#figure-4">Figure 4</A> illustrates an Angularity_tolerance for a plane surface.</P>
 
 <FIGURE><A NAME="figure-4"></A>
 <IMG SRC="images/tol_angularity.svg">
@@ -959,7 +957,7 @@ The planned_date specifies the point in time when the Approval is or was suppose
 <P>
 The purpose specifies the text that completes the information provided within the status attribute, specifying the reason or goal of the Approval.</P>
 <P CLASS="example">
-EXAMPLE    'released for production' or 'preliminary design completed' are approval purposes.</P>
+EXAMPLE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'released for production' or 'preliminary design completed' are approval purposes.</P>
 
 
 <H4><A NAME="clause-4-2-15-4"></A>4.2.15.4 status</H4>
@@ -1008,11 +1006,11 @@ The relation_type specifies the text that specifies the meaning of the relations
 <LI>sequence: The Approval_relationship defines a relationship where the relating Approval shall be completed before the related Approval is given. </LI>
 </UL>
 <P CLASS="example">
-NOTE    The value `dependency' does not imply the semantics of the values `decomposition' or `sequence'.</P>
+NOTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The value `dependency' does not imply the semantics of the values `decomposition' or `sequence'.</P>
 <P CLASS="example">
-EXAMPLE 1   The Approval of an assembly may be dependent on the Approval of all of the constituents of the assembly.</P>
+EXAMPLE 1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The Approval of an assembly may be dependent on the Approval of all of the constituents of the assembly.</P>
 <P CLASS="example">
-EXAMPLE 2   In parallel approval processes of two assemblies, assignment of an Approval on one of the assemblies may depend on an Approval assigned to the second assembly.</P>
+EXAMPLE 2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; In parallel approval processes of two assemblies, assignment of an Approval on one of the assemblies may depend on an Approval assigned to the second assembly.</P>
 
 
 <!-- ============================== -->
@@ -1032,7 +1030,7 @@ The data associated with an Approval_status are the following:</P>
 <P>
 The status_name specifies the text by which the Approval_status is designated. </P>
 <P CLASS="example">
-EXAMPLE    'approved' and 'disapproved' are examples of Approval_status.</P>
+EXAMPLE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'approved' and 'disapproved' are examples of Approval_status.</P>
 
 
 <!-- ============================== -->
@@ -1070,7 +1068,7 @@ The person_organization specifies the organization or person and organization th
 <P>
 The role specifies the text that indicates the role of the considered person or organization with respect to the approval. The role need not be specified for a particular Approving_person_organization.  By default, the person or organization shall only be considered as an approver without any specific role. </P>
 <P CLASS="example">
-EXAMPLE    'quality insurance auditor', 'production cost examiner' are examples of values of role of persons or organizations with respect to approvals assigned to product data.</P>
+EXAMPLE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'quality insurance auditor', 'production cost examiner' are examples of values of role of persons or organizations with respect to approvals assigned to product data.</P>
 
 
 <!-- ============================== -->
@@ -1154,7 +1152,7 @@ The person_and_organization_value specifies the person and organization that is 
 <P>
 The role specifies the text that indicates the role of the considered person and organization.</P>
 <P CLASS="example">
-EXAMPLE    'design owner', 'creator', and  'part supplier' are example role values of persons assigned to product data.</P>
+EXAMPLE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'design owner', 'creator', and  'part supplier' are example role values of persons assigned to product data.</P>
 
 
 <!-- ============================== -->
@@ -1718,7 +1716,7 @@ A Circular_runout_tolerance is a type of <a href="#ao-geometric_tolerance">Geome
 <P CLASS="example">
 NOTE 1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This definition has been harmonized with the Circular_runout_tolerance definitions in ISO 10303-1051, ISO 10303-214, and ISO 10303-224.   This definition is derived from clause 14.13 of ISO 1101:2004.   </P>
 <P CLASS="example">
-NOTE 2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Where applied to surfaces constructed around a datum axis, a Circular_runout_tolerance controls the cumulative variations of circularity and coaxiality. Where applied to surfaces constructed at right angles to the datum axis, Circular_runout_tolerance controls circular elements of a plane surface.   <a href="figure-5">Figure 5</a> illustrates a Circular_runout_tolerance.  </P>
+NOTE 2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Where applied to surfaces constructed around a datum axis, a Circular_runout_tolerance controls the cumulative variations of circularity and coaxiality. Where applied to surfaces constructed at right angles to the datum axis, Circular_runout_tolerance controls circular elements of a plane surface.   <a href="#figure-5">Figure 5</a> illustrates a Circular_runout_tolerance.  </P>
 
 <FIGURE><A NAME="figure-5"></A>
 <IMG SRC="images/tol_circular_runout.svg">
@@ -2403,11 +2401,12 @@ The Cutter_contact_trajectory application object is defined by clause 4.8 of ISO
 The data associated with a Cutter_contact_trajectory are the following:</P>
 <UL>
 <LI>all of the data defined by ISO 14649-10, as modified below for the its_toolaxis attributes;</LI>
+<LI>its_toolref_direction;</LI>
 <LI>path_maximum_deviation;</LI>
 <LI>tool_axis_maximum_deviation.</LI>
 </UL>
 <P>
-See <A HREF="clause5.htm#funcon-path-param">Matching curve parameterization</A> for additional discussion on the curve parameterization requirements defined by ISO 14649 on the basiccurve and its_toolaxis data associated with a Cutter_contact_trajectory.</P>
+See <A HREF="clause5.htm#funcon-path-param">Matching curve parameterization</A> for additional discussion on the curve parameterization requirements defined by ISO 14649 on the basiccurve, its_toolaxis, and its_toolref_direction data associated with a Cutter_contact_trajectory.</P>
 <P CLASS="example">
 NOTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The ISO 14649 EXPRESS description for Cutter_contact_trajectory, as adapted by this part of ISO 10303, is shown below.  Refer to ISO 14649-10 for the original definition and explanation of usage.</P>
 <PRE CLASS="example">
@@ -2415,6 +2414,7 @@ ENTITY cutter_contact_trajectory
   SUBTYPE OF (trajectory);
   basiccurve:                  curve_with_surface_normal;
   its_toolaxis:                OPTIONAL bounded_curve;
+  its_toolref_direction:       OPTIONAL bounded_curve;      -- ADDED BY 10303-238
   its_contact_type:            OPTIONAL contact_type;
   path_maximum_deviation:      OPTIONAL length_measure;     -- ADDED BY 10303-238
   tool_axis_maximum_deviation: OPTIONAL plane_angle_measure;-- ADDED BY 10303-238
@@ -2433,6 +2433,12 @@ END_TYPE;
 The its_toolaxis parameter is defined by ISO 14649-10 to contain tilt and yaw angles, but this part of ISO 10303 modifies this requirement so that its_toolaxis shall contain the IJK components of the tool axis vector, as is defined by the Cutter_location_trajectory its_toolaxis parameter.</P>
 
 
+<H4><A NAME="ao-cutter_contact_trajectory-its_toolref_direction"></A>4.2.94.2 its_toolref_direction</H4>
+
+<P>
+The its_toolref_direction specifies the orientation of an asymmetric tool measured in the plane defined by the its_toolaxis data. This is specified as a three-dimensional curve specifying IJK direction components at each point along the Cutter_contact_trajectory. The curve shall obey the same parameterization constraints as the &quot;its_toolaxis&quot; data. The its_toolref_direction need not be specified for a particular Cutter_contact_trajectory.</P>
+
+
 <H4><A NAME="clause-4-2-94-2"></A>4.2.94.2 path_maximum_deviation</H4>
 <P>
 The path_maximum_deviation specifies a linear distance.  If this distance is specified, the NC control shall not allow the physical motion of the cutter contact point during execution of the toolpath to exceed this distance from the basiccurve specified by the toolpath.  The path_maximum_deviation need not be specified for a particular Cutter_contact_trajectory. </P>
@@ -2442,9 +2448,9 @@ The path_maximum_deviation specifies a linear distance.  If this distance is spe
 <P>
 The tool_axis_maximum_deviation specifies a plane angle.  If this angle is specified, the NC control shall not allow the physical orientation of the tool axis during execution of the toolpath to exceed this angular distance from the its_toolaxis direction.  The tool_axis_maximum_deviation need not be specified for a particular Cutter_contact_trajectory. </P>
 <P CLASS="example">
-NOTE   <A HREF="#figure-10">Figure 10</A> illustrates the range of deviations described by the tool_direction_maximum_deviation and path_maximim_deviation parameters.  It is expected than an NC controller will adjust linearization tolerances (for 5-axis operation, as with the APT-CL LINTOL concept) as well as feed and acceleration rates to remain within the allowed deviations.  </P>
+NOTE   <A HREF="#fig-toolpath_tolerance">Figure 10</A> illustrates the range of deviations described by the tool_direction_maximum_deviation and path_maximim_deviation parameters.  It is expected than an NC controller will adjust linearization tolerances (for 5-axis operation, as with the APT-CL LINTOL concept) as well as feed and acceleration rates to remain within the allowed deviations.  </P>
 
-<FIGURE><A NAME="figure-10"></A>
+<FIGURE><A NAME="fig-toolpath_tolerance"></A>
 <IMG SRC="images/toolpath_tolerance.svg">
 <FIGCAPTION>Figure 10 &mdash; Toolpath deviation parameters</FIGCAPTION>
 </FIGURE>
@@ -2458,11 +2464,12 @@ The Cutter_location_trajectory application object is defined by clause 4.8 of IS
 The data associated with a Cutter_location_trajectory are the following:</P>
 <UL>
 <LI>all of the data defined by ISO 14649-10, as modified below for the surface_normal attribute;</LI>
+<LI>its_toolref_direction;</LI>
 <LI>path_maximum_deviation;</LI>
 <LI>tool_axis_maximum_deviation.</LI>
 </UL>
 <P>
-See <A HREF="clause5.htm#funcon-path-param">Matching curve parameterization</A> for additional discussion on the curve parameterization requirements defined by ISO 14649 on the basiccurve, its_toolaxis, and surface_normal data associated with a Cutter_location_trajectory.</P>
+See <A HREF="clause5.htm#funcon-path-param">Matching curve parameterization</A> for additional discussion on the curve parameterization requirements defined by ISO 14649 on the basiccurve, its_toolaxis, its_toolref_direction, and surface_normal data associated with a Cutter_location_trajectory.</P>
 <P CLASS="example">
 NOTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The ISO 14649 EXPRESS description for Cutter_location_trajectory, as adapted by this part of ISO 10303, is shown below.  Refer to ISO 14649-10 for the original definition and explanation of usage.</P>
 <PRE CLASS="example">
@@ -2470,12 +2477,17 @@ ENTITY cutter_location_trajectory
   SUBTYPE OF (trajectory);
   basiccurve:                  bounded_curve; 
   its_toolaxis:                OPTIONAL bounded_curve;
+  its_toolref_direction:       OPTIONAL bounded_curve;      -- ADDED BY 10303-238
   surface_normal:              OPTIONAL bounded_curve;
   path_maximum_deviation:      OPTIONAL length_measure;     -- ADDED BY 10303-238
   tool_axis_maximum_deviation: OPTIONAL plane_angle_measure;-- ADDED BY 10303-238
 END_ENTITY;
 </PRE>
 
+<H4><A NAME="ao-cutter_location_trajectory-its_toolref_direction"></A>4.2.95.1 its_toolref_direction</H4>
+
+<P>
+The its_toolref_direction specifies the orientation of an asymmetric tool measured in the plane defined by the its_toolaxis data. This is specified as a three-dimensional curve specifying IJK direction components at each point along the Cutter_location_trajectory. The curve shall obey the same parameterization constraints as the &quot;its_toolaxis&quot; data. The its_toolref_direction need not be specified for a particular Cutter_location_trajectory.</P>
 
 <H4><A NAME="clause-4-2-95-1"></A>4.2.95.1 surface_normal</H4>
 <P>
@@ -2491,13 +2503,13 @@ The path_maximum_deviation specifies a linear distance.  If this distance is spe
 <P>
 The tool_axis_maximum_deviation specifies a plane angle.  If this angle is specified, the NC control shall not allow the physical orientation of the tool axis during execution of the toolpath to exceed this angular distance from the its_toolaxis direction.  The tool_axis_maximum_deviation need not be specified for a particular Cutter_location_trajectory. </P>
 <P CLASS="example">
-NOTE   <A HREF="#figure-10">Figure 10</A> illustrates the range of deviations described by the tool_direction_maximum_deviation and path_maximim_deviation parameters.</P>
+NOTE   <A HREF="#fig-toolpath_tolerance">Figure 10</A> illustrates the range of deviations described by the tool_direction_maximum_deviation and path_maximim_deviation parameters.</P>
 
 
 <!-- ============================== -->
 <H3><A NAME="ao-cutting_component"></A>4.2.96 Cutting_component</H3>
 <P>
-The Cutting_component application object is defined by clause 4 of ISO 14649-111:--.</P>
+The Cutting_component application object is defined by clause 4 of ISO 14649-111:&mdash;.</P>
 <P CLASS="example">
 NOTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The ISO 14649 EXPRESS description for Cutting_component is shown below.  Refer to ISO 14649-111 for the complete definition and explanation of usage.</P>
 <PRE CLASS="example">
@@ -2552,9 +2564,9 @@ END_ENTITY;
 <P>
 A Cylindricity_tolerance is a type of <a href="#ao-geometric_tolerance">Geometric_tolerance</a> that specifies a constraint on the amount a surface may deviate from being nominally cylindrical. The tolerance zone is limited by two coaxial cylinders, with a difference in radii of the tolerance value.</P>
 <P CLASS="example">
-NOTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This definition has been harmonized with the Cylindricity_tolerance definitions in ISO 10303-1051, ISO 10303-214, and ISO 10303-224.  The definition is derived from clause 14.4 of ISO 1101:2004.  <A HREF="#figure-11">Figure 11</A> illustrates a Cylindricity_tolerance.  </P>
+NOTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This definition has been harmonized with the Cylindricity_tolerance definitions in ISO 10303-1051, ISO 10303-214, and ISO 10303-224.  The definition is derived from clause 14.4 of ISO 1101:2004.  <A HREF="#fig-tol_cylindricity">Figure 11</A> illustrates a Cylindricity_tolerance.  </P>
 
-<FIGURE><A NAME="figure-11"></A>
+<FIGURE><A NAME="fig-tol_cylindricity"></A>
 <IMG SRC="images/tol_cylindricity.svg">
 <FIGCAPTION>Figure 11 &mdash; Cylindricity_tolerance</FIGCAPTION>
 </FIGURE>
@@ -2565,7 +2577,17 @@ NOTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This definition has been harmonized with the 
 <P>
 A Datum is a theoretically exact point, straight line, or plane used as a reference for locating and orienting tolerance zones.</P>
 <P CLASS="example">
-NOTE    The concept of datum for tolerancing is defined in ISO 5459.</P>
+NOTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The concept of datum for tolerancing is defined in ISO 5459.</P>
+<P>
+The data associated with a Datum are the following:</P>
+<UL>
+<LI>its_workpiece.</LI>
+</UL>
+
+<H4><A NAME="ao-datum-its_workpiece"></A>4.2.100.1 its_workpiece</H4>
+<P>
+The its_workpiece specifies the Workpiece on which the Datum is defined.</P>
+
 
 
 <!-- ============================== -->
@@ -2573,7 +2595,7 @@ NOTE    The concept of datum for tolerancing is defined in ISO 5459.</P>
 <P>
 A Datum_defined_by_derived_shape is type of both <a href="#ao-single_datum">Single_datum</a> and <a href="#ao-derived_geometry">Derived_geometry</a> that is established by a shape element that is derived from an existing aspect of the shape of a part.</P>
 <P CLASS="example">
-NOTE    The different types of derived shape elements are described by the Derived_geometry type.  The mapping specification in 5.1, represents this type as a complex instance of datum and derived_shape_aspect or a subtype.</P>
+NOTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The different types of derived shape elements are described by the Derived_geometry type.  The mapping specification in 5.1, represents this type as a complex instance of datum and derived_shape_aspect or a subtype.</P>
 
 
 <!-- ============================== -->
@@ -2597,7 +2619,7 @@ The defined_by specifies the shape element that represents the Datum_defined_by_
 <P>
 A Datum_defined_by_targets is type of <a href="#ao-single_datum">Single_datum</a> that is established by a set of Datum_target objects used to define a datum reference frame for a part.</P>
 <P CLASS="example">
-NOTE    Datums are established from a set of datum targets when the use of an entire feature would introduce excessive variations or lack of repeatability in measurements.</P>
+NOTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Datums are established from a set of datum targets when the use of an entire feature would introduce excessive variations or lack of repeatability in measurements.</P>
 <P>
 The data associated with a Datum_defined_by_targets are the following:</P>
 <UL>
@@ -2615,7 +2637,7 @@ The defined_by specifies the set of Datum_target objects that form the Datum_def
 <P>
 The rule_description specifies the type of datum that is formed by the Datum_defined_by_targets.  The rule_description need not be specified for a particular Datum_defined_by_targets.</P>
 <P CLASS="example">
-EXAMPLE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 		The rule_description `V-block' indicates that two Datum_target objects on a cylindrical element are supposed to form the areas of contact in a V-shaped fixture.</P>
+EXAMPLE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The rule_description `V-block' indicates that two Datum_target objects on a cylindrical element are supposed to form the areas of contact in a V-shaped fixture.</P>
 
 
 <!-- ============================== -->
@@ -2645,17 +2667,23 @@ The referenced_datum specifies the Datum to which the Datum_reference applies.  
 <P>
 A Datum_target is the identification of a portion of a feature, that is used in the construction of a Datum when it is not desired to use an entire feature nor a substantial region. A Datum_target is a component of a Datum_defined_by_targets.</P>
 <P CLASS="example">
-EXAMPLE    A cylindrical part is stabilized for measurement by resting it in a V block, thereby establishing a Datum consisting of two instances of Datum_target, which are straight lines.</P>
+EXAMPLE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; A cylindrical part is stabilized for measurement by resting it in a V block, thereby establishing a Datum consisting of two instances of Datum_target, which are straight lines.</P>
 <P>
 The data associated with a Datum_target are the following:</P>
 <UL>
-<LI>identifier.</LI>
+<LI>identifier;</LI>
+<LI>its_workpiece.</LI>
 </UL>
 
 
 <H4><A NAME="clause-4-2-105-1"></A>4.2.105.1 identifier</H4>
 <P>
 The identifier specifies a unique identification for the Datum_target within a Datum_defined_by_targets.</P>
+
+
+<H4><A NAME="ao-datum_target-its_workpiece"></A>4.2.105.1 its_workpiece</H4>
+<P>
+The its_workpiece specifies the Workpiece on which the Datum_target is defined.</P>
 
 
 <!-- ============================== -->
@@ -2965,15 +2993,59 @@ END_ENTITY;
 <!-- ============================== -->
 <H3><A NAME="ao-executable"></A>4.2.123 Executable</H3>
 <P>
-The Executable application object is defined by clause 4.6 of ISO 14649-10:2004.</P>
+The Executable application object is defined by clause 4.6 of ISO 14649-10:2004. This part of ISO 10303 adds the following information requirements.</P>
+
 <P CLASS="example">
-NOTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The ISO 14649 EXPRESS description for Executable is shown below.  Refer to ISO 14649-10 for the complete definition and explanation of usage.</P>
+NOTE 1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The modifications below extend the ISO 14649 In_process_geometry concept to allow the specification of in-process shape, features, and other product properties for any Executable. The shape_representation is specified using the workpiece.its_geometry. In particular, the integrated representation allows the use of shapes described by AIC 501 (edge-based wireframe), AIC 502 (shell-based wireframe), AIC 507 (geometrically-bounded surfaces), AIC 508 (non-manifold surfaces), AIC 509 (manifold surfaces), AIC 510 (geometrically-bounded wireframe), and AIC 512 (faceted brep), as well as the AIC 514 (advanced brep) descriptions originally supported by ISO 14649.</P>
+
+<P>
+The data associated with an Executable are the following:</P>
+
+<UL>
+<LI>all of the data defined by ISO 14649-10;</LI>
+<LI>as_is;</LI>
+<LI>enabled;</LI>
+<LI>fixture;</LI>
+<LI>removal;</LI>
+<LI>to_be.</LI>
+</UL>
+
+<P CLASS="example">
+NOTE 2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The ISO 14649 EXPRESS description for Executable, as adapted by this part of ISO 10303, is
+shown below. Refer to ISO 14649-10 for the complete definition and explanation of usage.</P>
 <PRE CLASS="example">
 ENTITY executable
   ABSTRACT SUPERTYPE OF (ONEOF( workingstep, nc_function, program_structure));
   its_id: identifier;
+  its_id: identifier;
+  as_is: OPTIONAL workpiece; -- ADDED BY 10303-238
+  enabled: OPTIONAL BOOLEAN; -- ADDED BY 10303-238
+  fixture: OPTIONAL workpiece; -- ADDED BY 10303-238
+  removal: OPTIONAL workpiece; -- ADDED BY 10303-238
+  to_be: OPTIONAL workpiece; -- ADDED BY 10303-238
 END_ENTITY;
 </PRE>
+
+<H4><A NAME="ao-executable-as_is"></A>4.2.123.1 as_is</H4>
+<P>
+The as_is specifies a Workpiece which describes the shape and other properties of the manufactured product before the Executable is executed. The as_is need not be specified for a particular Executable. See <a href="#aa-executable-to-workpiece-as-as_is">Executable to Workpiece (as as_is)</a> for the application assertion.</P>
+
+<H4><A NAME="ao-executable-enabled"></A>4.2.123.1 enabled</H4>
+<P>
+The enabled specifies whether the Executable is executed or ignored when processing the elements of a machining project. The Executable is executed if enabled is true or not specified, and ignored if enabled is false. The enabled need not be specified for a particular Executable.</P>
+
+<H4><A NAME="ao-executable-fixture"></A>4.2.123.3 fixture</H4>
+<P>
+The fixture specifies a Workpiece which describes the shape and other properties of the fixture that assists in the holding or positioning of the manufactured product for the Executable. The fixture need not be specified for a particular Executable. See <a href="#aa-executable-to-workpiece-as-fixture">Executable to Workpiece (as fixture)</a> for the application assertion.
+
+<H4><A NAME="ao-executable-removal"></A>4.2.123.4 removal</H4>
+<P>
+The removal specifies a Workpiece which describes the shape and other properties of the material removed from the manufactured product by the Executable. The removal need not be specified for a particular Executable. See <a href="#aa-executable-to-workpiece-as-removal">Executable to Workpiece (as removal)</a> for the application assertion.</P>
+
+<H4><A NAME="ao-executable-to_be"></A>4.2.123.5 to_be</H4>
+<P>
+The to_be specifies a Workpiece which describes the predicted shape and other properties of the manufactured product after the Executable is executed. The to_be need not be specified for a particular Executable. See <a href="#aa-executable-to-workpiece-as-to_be">Executable to Workpiece (as to_be)</a> for the application assertion.</P>
+
 
 
 <!-- ============================== -->
@@ -3577,7 +3649,7 @@ The name specifies the word or group of words by which the Geometric_tolerance i
 <P>
 The qualifying_note specifies text that provides additional information about the Geometric_tolerance. The qualifying_note need not be specified for a particular Geometric_tolerance.</P>
 <P CLASS="example">
-EXAMPLE    `not concave' and `boundary' are examples of a qualifying note.</P>
+EXAMPLE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; `not concave' and `boundary' are examples of a qualifying note.</P>
 
 
 <H4><A NAME="clause-4-2-156-5"></A>4.2.156.5 segment_size</H4>
@@ -3614,14 +3686,14 @@ The data associated with a Geometric_tolerance_relationship are the following:</
 <P>
 The relating specifies one of the instances of Geometric_tolerance that is a part of the relationship.  See <a href="#aa-geometric_tolerance_relationship-to-geometric_tolerance-as-relating">Geometric_tolerance_relationship to Geometric_tolerance (as relating)</a> for the application assertion.</P>
 <P CLASS="example">
-NOTE    The semantics of this attribute are defined by the attribute relation_type.</P>
+NOTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The semantics of this attribute are defined by the attribute relation_type.</P>
 
 
 <H4><A NAME="clause-4-2-157-2"></A>4.2.157.2  related</H4>
 <P>
 The related specifies one of the instances of Geometric_tolerance that is a part of the relationship.  See <a href="#aa-geometric_tolerance_relationship-to-geometric_tolerance-as-related">Geometric_tolerance_relationship to Geometric_tolerance (as related)</a> for the application assertion.</P>
 <P CLASS="example">
-NOTE    The semantics of this attribute are defined by the attribute relation_type.</P>
+NOTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The semantics of this attribute are defined by the attribute relation_type.</P>
 
 
 <H4><A NAME="clause-4-2-157-3"></A>4.2.157.3 relation_type</H4>
@@ -3811,45 +3883,6 @@ ENTITY if_statement
   false_branch:               OPTIONAL executable;
 END_ENTITY;
 </PRE>
-
-
-<!-- ============================== -->
-<H3><A NAME="ao-in_process_geometry"></A>4.2.168 In_process_geometry</H3>
-<P>
-The In_process_geometry application object is defined by clause 4.4 of ISO 14649-10:2004.  This part of ISO 10303 adds the following information requirements.</P>
-<P CLASS="example">
-NOTE 1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This modifications below allow the use of shape representation types supported by other APs.   In particular, the integrated representation allows the use of shapes described by AIC 501 (edge-based wireframe), AIC 502 (shell-based wireframe), AIC 507 (geometrically-bounded surfaces), AIC 508 (non-manifold surfaces), AIC 509 (manifold surfaces), AIC 510 (geometrically-bounded wireframe), and AIC 512 (faceted brep), as well as the original AIC 514 (advanced brep) descriptions.</P>
-<P>
-The data associated with a In_process_geometry are the following:</P>
-<UL>
-<LI>all of the data defined by ISO 14649-10, as modified below for the as_is, to_be and removal attributes;</LI>
-</UL>
-<P CLASS="example">
-NOTE 2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The ISO 14649 EXPRESS description for In_process_geometry, as adapted by this part of ISO 10303, is shown below.  Refer to ISO 14649-10 for the original definition and explanation of usage.</P>
-<PRE CLASS="example">
-ENTITY in_process_geometry; 
-  as_is:   OPTIONAL shape_representation;   -- RELAXED BY 10303-238
-  to_be:   OPTIONAL shape_representation;   -- RELAXED BY 10303-238
-  removal: OPTIONAL shape_representation;   -- RELAXED BY 10303-238
-WHERE
-  WR1: EXISTS (as_is) OR EXISTS (to_be) OR EXISTS (removal);
-END_ENTITY;
-</PRE>
-
-
-<H4><A NAME="clause-4-2-168-1"></A>4.2.168.1 as_is</H4>
-<P>
-The as_is parameter is defined by ISO 14649-10 to be of type advanced_brep_shape_representation, but this part of ISO 10303 relaxes this requirement so that as_is shall be of the more general type shape_representation.</P>
-
-
-<H4><A NAME="clause-4-2-168-2"></A>4.2.168.2 removal</H4>
-<P>
-The removal parameter is defined by ISO 14649-10 to be of type advanced_brep_shape_representation, but this part of ISO 10303 relaxes this requirement so that removal shall be of the more general type shape_representation.</P>
-
-
-<H4><A NAME="clause-4-2-168-3"></A>4.2.168.3 to_be</H4>
-<P>
-The to_be parameter is defined by ISO 14649-10 to be of type advanced_brep_shape_representation, but this part of ISO 10303 relaxes this requirement so that to_be shall be of the more general type shape_representation.</P>
 
 
 <!-- ============================== -->
@@ -4058,8 +4091,8 @@ NOTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; When used with a Value_with_tolerance, this i
 <P>
 The qualifier identifies a limiting characteristic.  One of the following values shall be used:</P>
 <UL>
-<LI>maximum: the physical quantity may assume any vaue less than or equal to the value specified by the value_component of the referencing Value_with_tolerance; </LI>
-<LI>minimum: the the physical quantity may assume any vaue greater than or equal to the value specified by the value_component of the referencing Value_with_tolerance;</LI>
+<LI>maximum: the physical quantity may assume any value less than or equal to the value specified by the value_component of the referencing Value_with_tolerance; </LI>
+<LI>minimum: the physical quantity may assume any value greater than or equal to the value specified by the value_component of the referencing Value_with_tolerance.</LI>
 </UL>
 
 
@@ -4089,7 +4122,7 @@ NOTE   The characters `A' to `ZC' for holes or `a' to `zc' for shafts are used f
 <P>
 The grade specifies the quality or the accuracy grade of a tolerance.</P>
 <P CLASS="example">
-NOTE    The grade is one of the 18 international standard tolerance grades defined in ISO 286-1, such as `IT07'.</P>
+NOTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The grade is one of the 18 international standard tolerance grades defined in ISO 286-1, such as `IT07'.</P>
 
 
 <H4><A NAME="clause-4-2-181-3"></A>4.2.181.3 its_fitting_type</H4>
@@ -4456,7 +4489,7 @@ END_ENTITY;
 <P>
 The depth elementary surface is required by ISO 14649-10, but this part of ISO 10303 relaxes this requirement so that the depth need not be specified for a particular Machining_feature.</P>
 <P CLASS="example">
-NOTE    As described in <A HREF="clause5.htm#funcon-feature-depth">Feature placement and depth</A>, the depth of a feature is defined by the the profile and path elements of the implicit feature definition.   Within the AIM, the elementary surface called out as depth by ISO 14649-10 is represented by a parameter called &quot;maximum feature depth,&quot; which is an optional parameter in the ISO 10303-224 and ISO 10303-214 models.</P>
+NOTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; As described in <A HREF="clause5.htm#funcon-feature-depth">Feature placement and depth</A>, the depth of a feature is defined by the profile and path elements of the implicit feature definition.   Within the AIM, the elementary surface called out as depth by ISO 14649-10 is represented by a parameter called &quot;maximum feature depth,&quot; which is an optional parameter in the ISO 10303-224 and ISO 10303-214 models.</P>
 
 
 <!-- ============================== -->
@@ -4509,6 +4542,10 @@ The its_usage specifies a Tool_usage object that describes the tool selected to 
 <H3><A NAME="ao-machining_workingstep"></A>4.2.197 Machining_workingstep</H3>
 <P>
 The Machining_workingstep application object is defined by clause 4.6 of ISO 14649-10:2004.  This part of ISO 10303 adds the following information requirements.</P>
+
+<P CLASS="example">
+NOTE 1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The In_process_geometry concept referenced by Machining_workingstep.its_effect in ISO 14649 is replaced by as-is, to-be, and removal properties associated with the Executable application object.</P>
+
 <P>
 The data associated with a Machining_workingstep are the following:</P>
 <UL>
@@ -4516,14 +4553,15 @@ The data associated with a Machining_workingstep are the following:</P>
 <LI>final_features;</LI>
 <LI>toolpath_placement.</LI>
 </UL>
+
 <P CLASS="example">
-NOTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The ISO 14649 EXPRESS description for Machining_workingstep, as adapted by this part of ISO 10303, is shown below.  Refer to ISO 14649-10 for the original definition and explanation of usage.</P>
+NOTE 2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The ISO 14649 EXPRESS description for Machining_workingstep, as adapted by this part of ISO 10303, is shown below.  Refer to ISO 14649-10 for the original definition and explanation of usage.</P>
 <PRE CLASS="example">
 ENTITY machining_workingstep
   SUBTYPE OF (workingstep);
   its_feature:        manufacturing_feature;
   its_operation:      machining_operation;
-  its_effect:         OPTIONAL in_process_geometry;
+  -- its_effect:      OPTIONAL in_process_geometry;             -- REPLACED BY 10303-238
   final_features:     OPTIONAL SET [0:?] OF Manufacturing_feature; -- ADDED BY 10303-238
   toolpath_orientation: OPTIONAL axis2_placement_3d;               -- ADDED BY 10303-238
 END_ENTITY;
@@ -5583,7 +5621,7 @@ END_ENTITY;
 
 <H4><A NAME="clause-4-2-255-1"></A>4.2.255.1 bottom_at_path_end</H4>
 <P>
-The bottom_at_path_end specifies the location of the bottom_condition. The bottom_at_path_end shall have a value of TRUE if the bottom_condition is positioned at the end of the the course_of_travel path, and a value of FALSE if it is at the origin of course_of_travel path.</P>
+The bottom_at_path_end specifies the location of the bottom_condition. The bottom_at_path_end shall have a value of TRUE if the bottom_condition is positioned at the end of the course_of_travel path, and a value of FALSE if it is at the origin of course_of_travel path.</P>
 <P CLASS="example">
 NOTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; In ISO 10303-224, this parameter is known as start_or_end and is located on the Pocket_bottom_condition application object.   In the integrated representation, this value is represented by the feature component relationship that ties a pocket bottom to a particular pocket.  This parameter has been moved to Pocket to allow different values for different pockets which can share the same pocket bottom instance.</P>
 
@@ -5646,7 +5684,7 @@ The affected_plane specifies an axis placement, the X-Y plane of which establish
 <P>
 The reference_datum specifies the set of Datum_reference objects that define the reference frame for the geometric tolerance.  See <a href="#aa-position_tolerance-to-datum_reference">Position_tolerance to Datum_reference</a> for the application assertion.</P>
 <P CLASS="example">
-NOTE    When a Position_tolerance is the feature relating Position_tolerance of a composite tolerance, it need not have a datum reference frame.</P>
+NOTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; When a Position_tolerance is the feature relating Position_tolerance of a composite tolerance, it need not have a datum reference frame.</P>
 
 
 <!-- ============================== -->
@@ -6277,7 +6315,7 @@ END_TYPE;
 
 <H4><A NAME="clause-4-2-295-1"></A>4.2.295.1 bottom_at_path_end</H4>
 <P>
-The bottom_at_path_end specifies the location of the bottom_condition. The bottom_at_path_end shall have a value of TRUE if the bottom_condition is positioned at the end of the the course_of_travel path, and a value of FALSE if it is at the origin of course_of_travel path.  This attribute shall only be specified if the hole bottom is of type Blind_bottom_condition.</P>
+The bottom_at_path_end specifies the location of the bottom_condition. The bottom_at_path_end shall have a value of TRUE if the bottom_condition is positioned at the end of the course_of_travel path, and a value of FALSE if it is at the origin of course_of_travel path.  This attribute shall only be specified if the hole bottom is of type Blind_bottom_condition.</P>
 <P CLASS="example">
 NOTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; In ISO 10303-224, this parameter is known as start_or_end and is located on the Blind_bottom_condition application object.   However, in the integrated representation, this value is represented by the feature component relationship that ties a hole bottom to a particular hole.  This parameter has been moved to Round_hole to allow different values for different holes which can share the same hole bottom instance.</P>
 
@@ -6381,7 +6419,7 @@ The data associated with a Security_classification are the following:</P>
 <P>
 The classification_level is text that specifies the required degree of security.</P>
 <P CLASS="example">
-EXAMPLE    'confidential' is an example of classification_level that can be applied. </P>
+EXAMPLE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'confidential' is an example of classification_level that can be applied. </P>
 
 
 <H4><A NAME="clause-4-2-300-2"></A>4.2.300.2 description</H4>
@@ -6581,14 +6619,14 @@ The data associated with a Single_datum are the following:</P>
 <P>
 The datum_name specifies the word or group of words by which the Single_datum is referred to.</P>
 <P CLASS="example">
-EXAMPLE     Typical names of Single_datum objects are `A', `B', or `C'.</P>
+EXAMPLE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  Typical names of Single_datum objects are `A', `B', or `C'.</P>
 
 
 <H4><A NAME="clause-4-2-312-2"></A>4.2.312.2 modification</H4>
 <P>
 The modification specifies a Tolerance_condition that is associated with the application of the Single_datum.  The modification need not be specified for a particular Single_datum.  See <a href="#aa-single_datum-to-tolerance_condition">Single_datum to Tolerance_condition</a> for the application assertion.</P>
 <P CLASS="example">
-EXAMPLE     Material conditions such as LMC or MMC are typical conditions.</P>
+EXAMPLE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  Material conditions such as LMC or MMC are typical conditions.</P>
 
 
 <!-- ============================== -->
@@ -6618,7 +6656,7 @@ The envelope_principle specifies whether or not the envelope principle applies t
 <P>
 When the envelope principle applies, the envelope of the perfect shape corresponding to the maximum material shall not be larger than the specified dimension and tolerance. The envelope principle specifies that size and form tolerances are not additive.</P>
 <P CLASS="example">
-NOTE    The Envelope principle is defined in ISO 1101. It is equivalent to ASME Y14.5 rule 1. </P>
+NOTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The Envelope principle is defined in ISO 1101. It is equivalent to ASME Y14.5 rule 1. </P>
 
 
 <!-- ============================== -->
@@ -6867,7 +6905,7 @@ NOTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This definition has been harmonized with the 
 <P>
 A Surface_profile_tolerance is a type of <a href="#ao-geometric_tolerance">Geometric_tolerance</a> that specifies a uniform boundary along an ideal profile within which the elements of a surface shall lie.</P>
 <P>
-The tolerance zone established by a Surface_profile_tolerance is three dimensional, extending along the length and the width of the considered feature as a whole respectively along each segment of a defined size if the segment_size attribute is specified. If the tolerance is to be unequally disposed about the theoretically exact feature, a Tolerance_zone having only one boundary element is associated to the instance of Surface_profile_tolerance. </P>
+The tolerance zone established by a Surface_profile_tolerance is three dimensional, extending along the length and the width of the considered feature as a whole respectively along each segment of a defined size if the segment_size attribute is specified. If the tolerance is to be unequally disposed about theoretically exact feature, a Tolerance_zone having only one boundary element is associated to the instance of Surface_profile_tolerance. </P>
 <P CLASS="example">
 NOTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This definition has been harmonized with the Surface_profile_tolerance definitions in ISO 10303-1051, ISO 10303-214, and ISO 10303-224.   This definition is derived from clause 14.6 of ISO 1101:2004.   <a href="#figure-29">Figure 29</a> illustrates a Surface_profile_tolerance.  </P>
 
@@ -7381,7 +7419,7 @@ NOTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The use of material conditions is defined in 
 <P>
 The condition specifies the kind of Tolerance_condition.</P>
 <P CLASS="example">
-EXAMPLE     Maximum material condition (MMC) and least material condition (LMC) are examples of conditions.</P>
+EXAMPLE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Maximum material condition (MMC) and least material condition (LMC) are examples of conditions.</P>
 
 
 <!-- ============================== -->
@@ -7565,7 +7603,9 @@ The data associated with a Tool_usage are the following:</P>
 <LI>its_id;</LI>
 <LI>its_library_reference;</LI>
 <LI>its_position;</LI>
-<LI>its_product.</LI>
+<LI>its_product;</LI>
+<LI>gage_placement;</LI>
+<LI>tool_end_placement.</LI>
 </UL>
 
 
@@ -7594,6 +7634,15 @@ The its_position specifies a location within a machine tool turret, magazine, or
 <H4><A NAME="clause-4-2-370-5"></A>4.2.370.5 its_product</H4>
 <P>
 The its_product specifies a Workpiece object that describes the physical shape and associated product information of the tool.  The its_product need not be specified for a particular Tool_usage.   See <a href="#aa-tool_usage-to-workpiece">Tool_usage to Workpiece</a> for the application assertion.</P>
+
+<H4><A NAME="ao-tool_usage-gage_placement"></A>4.2.370.6 gage_placement</H4>
+<P>
+The gage_placement specifies the location on the its_product tool model where the tool is mounted on a machine. The gage_placement need not be specified for a particular Tool_usage. If the gage_placement is not specified, the location shall be on the tool axis given by the tool_end_placement at the distance from the origin given by the overall assembly length of the referencing Machining_tool.</P>
+
+
+<H4><A NAME="ao-tool_usage-tool_end_placement"></A>4.2.370.6 tool_end_placement</H4>
+<P>
+The tool_end_placement specifies the location on the its_product tool model of the tool end point. The axis parameter of the tool_end_placement indicates the tool axis. The tool_end_placement need not be specified for a particular Tool_usage. If the tool_end_placement is not specified, the location shall be the origin of the its_product tool model.</P>
 
 
 <!-- ============================== -->
@@ -7742,12 +7791,15 @@ The reference_datum specifies the set of Datum_reference objects that define the
 <!-- ============================== -->
 <H3><A NAME="ao-touch_probe"></A>4.2.377 Touch_probe</H3>
 <P>
-The Touch_probe application object is defined by clause 4.6 of ISO 14649-10:2004.</P>
+A Touch_probe is a type of <a href="#ao-machining_tool">Machining_tool</a> which identifies a inspection tool used to measure a workpiece.</P>
+
 <P CLASS="example">
-NOTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The ISO 14649 EXPRESS description for Touch_probe is shown below.  Refer to ISO 14649-10 for the complete definition and explanation of usage.</P>
+NOTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This part of ISO 10303 modifies the definition of Touch_probe in clause 4.6 of ISO 14649-10 to be a type of Machining_tool so that Tool_usage information can be associated with it. The EXPRESS description for Touch_probe, as adapted by this part of ISO 10303, is shown below.</P>
+
 <PRE CLASS="example">
 ENTITY touch_probe;
-  its_id: identifier;
+  SUBTYPE OF (machining_tool); -- ADDED BY 10303-238
+  -- its_id: identifier; -- now inherited from machining_tool
 END_ENTITY;
 </PRE>
 
@@ -7778,10 +7830,13 @@ The data associated with a Trajectory are the following:</P>
 <LI>all of the data defined by ISO 14649-10;</LI>
 <LI>its_material_removal_depth;</LI>
 <LI>its_material_removal_overcut;</LI>
-<LI>its_material_removal_total_volume.</LI>
+<LI>its_material_removal_total_volume;</LI>
+<LI>cross_section_area_parameters.</LI>
 </UL>
+
 <P CLASS="example">
 NOTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The ISO 14649 EXPRESS description for Trajectory, as adapted by this part of ISO 10303, is shown below.  Refer to ISO 14649-10 for the complete definition and explanation of usage.</P>
+
 <PRE CLASS="example">
 ENTITY trajectory
   ABSTRACT SUPERTYPE OF (ONEOF(cutter_location_trajectory, cutter_contact_trajectory,
@@ -7791,6 +7846,7 @@ ENTITY trajectory
   its_material_removal_depth:   OPTIONAL material_removal_measure; -- ADDED BY 10303-238
   its_material_removal_overcut: OPTIONAL material_removal_measure; -- ADDED BY 10303-238
   its_material_removal_total_volume: OPTIONAL volume_measure;      -- ADDED BY 10303-238
+  cross_section_area_parameters: OPTIONAL bounded_curve;           -- ADDED BY 10303-238
 END_ENTITY;
 
 TYPE material_removal_curve = bounded_curve; END_TYPE;
@@ -7817,6 +7873,39 @@ The its_material_removal_overcut specifies the length of material removed at eac
 <H4><A NAME="clause-4-2-379-3"></A>4.2.379.3 its_material_removal_total_volume</H4>
 <P>
 The its_material_removal_total_volume specifies the total volume of material removed by the Trajectory.  The its_material_removal_total_volume need not be specified for a particular Trajectory.</P>
+
+<H4><A NAME="clause-4-2-379-4"></A>4.2.379.4 cross_section_area_parameters</H4>
+<P>
+The cross_section_area_parameters specifies the area of material removed at each point of the Trajectory as measured perpendicular to the axis of the cutting tool. This is specified as a seven-dimensional curve specifying the cross section at each point along the toolpath. The curve shall obey the same parameterization constraints as the &quot;its_speed&quot; data associated with a <a href="#ao-toolpath">Toolpath</a>.  The cross_section_area_parameters need not be specified for a particular Trajectory.</P>
+
+Each point in the seven-dimensional curve shall describe the cross-section area parameters illustrated in <a href="#fig-cross_section">Figure 34</a> and <a href="#fig-cross_section_turn">Figure 35</a>. These parameters are as follows:
+
+<FIGURE><A NAME="fig-cross_section"></A>
+<IMG SRC="images/cross_section.svg">
+<FIGCAPTION>Figure 34 &mdash; Cross-section parameters for milling</FIGCAPTION>
+</FIGURE>
+
+<FIGURE><A NAME="fig-cross_section_turn"></A>
+<IMG SRC="images/cross_section_turn.svg">
+<FIGCAPTION>Figure 35 &mdash; Cross-section parameters for turning</FIGCAPTION>
+</FIGURE>
+
+<UL>
+<LI>dimension 0 shall describe the maximum axial depth of the tool contact cross section, shown by ADmax in <a href="#fig-cross_section">Figure 34</a> and <a href="#fig-cross_section_turn">Figure 35</a>. The maximum axial depth for milling shall be measured parallel to the tool axis, regardless of whether the direction of feed is perpendicular to the tool axis. The maximum axial depth for turning shall be measured parallel to the spindle axis;</LI>
+
+<LI>dimension 1 shall describe the maximum radial depth of the tool contact cross section, shown by RDmax in <a href="#fig-cross_section">Figure 34</a> and <a href="#fig-cross_section_turn">Figure 35</a>. The maximum radial depth shall be measured perpendicular to both the tool axis and the feed direction;</LI>
+
+<LI>dimension 2 shall describe the location along the X axis where the maximum radial depth measure is located, shown by Xmaxofs in <a href="#fig-cross_section">Figure 34</a> and <a href="#fig-cross_section_turn">Figure 35</a>;</LI>
+
+<LI>dimension 3 shall describe the location along the Y axis where the maximum axial depth measure is located, shown by Ymaxofs in <a href="#fig-cross_section">Figure 34</a> and <a href="#fig-cross_section_turn">Figure 35</a>;</LI>
+
+<LI>dimension 4 shall describe the total area of the tool contact cross section in the X-Y plane, shown by CSA in <a href="#fig-cross_section">Figure 34</a> and <a href="#fig-cross_section_turn">Figure 35</a>;</LI>
+
+<LI>dimension 5 shall describe the location along the X axis of the centre of gravity of the tool contact cross section, shown by XCGofs in <a href="#fig-cross_section">Figure 34</a> and <a href="#fig-cross_section_turn">Figure 35</a>;</LI>
+
+<LI>dimension 6 shall describe the location along the Y axis of the centre of gravity of the tool contact cross section, shown by YCGofs in <a href="#fig-cross_section">Figure 34</a> and <a href="#fig-cross_section_turn">Figure 35</a>.</LI>
+</UL>
+
 
 
 <!-- ============================== -->
@@ -8021,15 +8110,28 @@ END_TYPE;
 <!-- ============================== -->
 <H3><A NAME="ao-turning_workingstep"></A>4.2.389 Turning_workingstep</H3>
 <P>
-The Turning_workingstep application object is defined by clause 4.3 of ISO 14649-12:2005.</P>
+The Turning_workingstep application object is defined by clause 4.3 of ISO 14649-12:2005. This part of ISO 10303 adds the following information requirements.</P>
+
 <P CLASS="example">
-NOTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The ISO 14649 EXPRESS description for Turning_workingstep is shown below.  Refer to ISO 14649-12 for the complete definition and explanation of usage.</P>
+NOTE 1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The In_process_geometry concept referenced by Turning_workingstep.its_effect in ISO 14649 is replaced by as-is, to-be, and removal properties associated with the Executable application object.</P>
+
+<P>
+The data associated with a Turning_workingstep are the following:</P>
+
+<UL>
+<LI>all of the data defined by ISO 14649-12, except for its_effect;</LI>
+</UL>
+
+<P CLASS="example">
+NOTE 2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The ISO 14649 EXPRESS description for Turning_workingstep, as adapted by this part of ISO 10303, is shown below. Refer to ISO 14649-12 for the original definition and explanation of usage.</P>
+
+
 <PRE CLASS="example">
 ENTITY turning_workingstep
   SUBTYPE OF (workingstep);
   its_features:         LIST [2:?] OF manufacturing_feature;
   its_operation:        turning_machining_operation;
-  its_effect:           OPTIONAL in_process_geometry;
+   -- its_effect:       OPTIONAL in_process_geometry; -- REPLACED BY 10303-238
 END_ENTITY;
 </PRE>
 
@@ -8220,7 +8322,7 @@ The description specifies a word or group of words which characterize the tool.<
 <P>
 The taper_angle specifies the angle between the upper line segment of the tool and the tool axis as shown in <a href="#figure-34">Figure 34</a>.</P>
 <P CLASS="example">
-NOTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This angle will be positive when the the tool diameter increases when moving from tip to spindle.  The angle will be negative when the tool diameter decreases when moving from tip to spindle.</P>
+NOTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This angle will be positive when the tool diameter increases when moving from tip to spindle.  The angle will be negative when the tool diameter decreases when moving from tip to spindle.</P>
 
 
 <H4><A NAME="clause-4-2-399-6"></A>4.2.399.6 tip_outer_angle</H4>
@@ -8542,14 +8644,14 @@ END_TYPE;
 <P>
 The its_geometry parameter is defined by ISO 14649-10 to be of type advanced_brep_shape_representation, but this part of ISO 10303 relaxes this requirement so that its_geometry shall be of the more general type shape_representation.</P>
 <P CLASS="example">
-NOTE    This relaxation allows the use of shape representation types supported by other APs.   In particular, the integrated representation allows the use of shapes described by AIC 501 (edge-based wireframe), AIC 502 (shell-based wireframe), AIC 507 (geometrically-bounded surfaces), AIC 508 (non-manifold surfaces), AIC 509 (manifold surfaces), AIC 510 (geometrically-bounded wireframe), and AIC 512 (faceted brep), as well as the original AIC 514 (advanced brep) descriptions.</P>
+NOTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This relaxation allows the use of shape representation types supported by other APs.   In particular, the integrated representation allows the use of shapes described by AIC 501 (edge-based wireframe), AIC 502 (shell-based wireframe), AIC 507 (geometrically-bounded surfaces), AIC 508 (non-manifold surfaces), AIC 509 (manifold surfaces), AIC 510 (geometrically-bounded wireframe), and AIC 512 (faceted brep), as well as the original AIC 514 (advanced brep) descriptions.</P>
 
 
 <H4><A NAME="clause-4-2-412-2"></A>4.2.412.2 its_bounding_geometry</H4>
 <P>
 The its_bounding_geometry parameter is defined by ISO 14649-10 to be of type block, right_circular_cylinder, or advanced_brep_shape_representation, but this part of ISO 10303 relaxes this requirement so that its_bounding_geometry may also be of type edge_based_wireframe_shape_representation, faceted_brep_shape_representation, geometrically_bounded_surface_shape_representation, geometrically_bounded_wireframe_shape_representation, manifold_surface_shape_repre-sentation, non_manifold_surface_shape_representation, or shell_based_wireframe_shape_representation</P>
 <P CLASS="example">
-.NOTE    This relaxation allows the use of shape representation types supported by other APs.   In particular, the integrated representation allows the use of shapes described by AIC 501 (edge-based wireframe), AIC 502 (shell-based wireframe), AIC 507 (geometrically-bounded surfaces), AIC 508 (non-manifold surfaces), AIC 509 (manifold surfaces), AIC 510 (geometrically-bounded wireframe), and AIC 512 (faceted brep), as well as the original AIC 514 (advanced brep) descriptions.</P>
+.NOTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This relaxation allows the use of shape representation types supported by other APs.   In particular, the integrated representation allows the use of shapes described by AIC 501 (edge-based wireframe), AIC 502 (shell-based wireframe), AIC 507 (geometrically-bounded surfaces), AIC 508 (non-manifold surfaces), AIC 509 (manifold surfaces), AIC 510 (geometrically-bounded wireframe), and AIC 512 (faceted brep), as well as the original AIC 514 (advanced brep) descriptions.</P>
 
 
 <H4><A NAME="clause-4-2-412-3"></A>4.2.412.3 its_approvals</H4>
@@ -8753,22 +8855,28 @@ END_TYPE;
 <H3><A NAME="ao-workplan"></A>4.2.417 Workplan</H3>
 <P>
 The Workplan application object is defined by clause 4.6 of ISO 14649-10:2004.  This part of ISO 10303 adds the following information requirements.</P>
+
+<P CLASS="example">
+NOTE 1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The In_process_geometry concept referenced by Workplan.its_effect in ISO 14649 is replaced by as-is, to-be, and removal properties associated with the Executable application object.</P>
+
 <P>
 The data associated with a Workplan are the following:</P>
 <UL>
 <LI>all of the data defined by ISO 14649-10;</LI>
-<LI>its_minimum_machine_params.</LI>
+<LI>its_minimum_machine_params;</LI>
+<LI>toolpath_orientation.</LI>
 </UL>
 <P CLASS="example">
-NOTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The ISO 14649 EXPRESS description for Workplan, as adapted by this part of ISO 10303, is shown below.  Refer to ISO 14649-10 for the original definition and explanation of usage.</P>
+NOTE 2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The ISO 14649 EXPRESS description for Workplan, as adapted by this part of ISO 10303, is shown below.  Refer to ISO 14649-10 for the original definition and explanation of usage.</P>
 <PRE CLASS="example">
 ENTITY workplan
   SUBTYPE OF (program_structure);
   its_elements:                 LIST[0:?] OF executable;
   its_channel:                  OPTIONAL channel;
   its_setup:                    OPTIONAL setup;
-  its_effect:                   OPTIONAL in_process_geometry;
+  -- its_effect:                OPTIONAL in_process_geometry; -- REPLACED BY 10303-238
   its_minimum_machine_params:   OPTIONAL machine_parameters; -- ADDED BY 10303-238
+  toolpath_orientation:         OPTIONAL axis2_placement_3d; -- ADDED BY 10303-238
 WHERE
    WR1: SIZEOF(QUERY(it &lt;* its_elements | it = SELF)) = 0;
 END_ENTITY;
@@ -8779,6 +8887,9 @@ END_ENTITY;
 <P>
 The its_minimum_machine_params specifies a Machine_parameters object which describe the minimum machine tool characteristics required to execute the workplan. The its_minimum_machine_params need not be specified for a particular Workplan.  See <a href="#aa-workplan-to-machine_parameters">Workplan to Machine_parameters</a> for the application assertion.</P>
 
+<H4><A NAME="clause-4-2-417-2"></A>4.2.417.2 toolpath_orientation</H4>
+<P>
+The toolpath_orientation specifies the placement of the set of toolpaths associated with the Executables given by the its_elements parameter. The toolpath_orientation need not be specified for a particular Workplan. The placement shall be applied cumulatively in addition to toolpath_orientations specified by nested Workplan or Machining_workinstep executables. If the toolpath_orientation is not specified, the toolpaths shall assume an origin of (0,0,0) and axis directions X=(1,0,0) Y=(0,1,0) and Z=(0,0,1).</P>
 
 <!-- ============================== -->
 <H3><A NAME="ao-xor_expression"></A>4.2.418 Xor_expression</H3>
@@ -8859,6 +8970,9 @@ Each Concentricity_tolerance refers to one or two Datum_reference objects as ref
 <P>
 Each Curved_distance_dimension has exactly one Measurement_path as used_path. Each Measurement_path is the used_path of zero or more Curved_distance_dimension.</P>
 
+<H3><A NAME="aa-datum-to-workpiece"></A>4.3.13 Datum to Workpiece</H3>
+<P>
+Each Datum references exactly one Workpiece object as its_workpiece. Each Workpiece acts as its_workpiece for zero or more Datum objects.</P>
 
 <H3><A NAME="aa-datum_defined_by_targets-to-datum_target"></A>4.3.13 Datum_defined_by_targets to Datum_target</H3>
 <P>
@@ -8868,6 +8982,28 @@ Each Datum_defined_by_targets refers to one or more Datum_target objects as defi
 <H3><A NAME="aa-datum_reference-to-datum"></A>4.3.14 Datum_reference to Datum</H3>
 <P>
 Each Datum_reference refers to exactly one Datum object as referenced_datum. Each Datum acts as referenced_datum for zero or more Datum_reference objects.</P>
+
+<H3><A NAME="aa-datum_target-to-workpiece"></A>4.3.15 Datum_target to Workpiece</H3>
+<P>
+Each Datum_target references exactly one Workpiece object as its_workpiece. Each Workpiece acts as its_workpiece for zero or more Datum_target objects.</P>
+
+<H3><A NAME="aa-executable-to-workpiece-as-as_is"></A>4.3.16 Executable to Workpiece (as as_is)</H3>
+<P>
+Each Executable references at most one Workpiece object as as_is. Each Workpiece acts as as_is for zero or more Executable objects.</P>
+
+<H3><A NAME="aa-executable-to-workpiece-as-fixture"></A>4.3.16 Executable to Workpiece (as fixture)</H3>
+<P>
+Each Executable references at most one Workpiece object as fixture. Each Workpiece acts as removal for zero or more Executable objects.</P>
+
+<H3><A NAME="aa-executable-to-workpiece-as-removal"></A>4.3.16 Executable to Workpiece (as removal)</H3>
+<P>
+Each Executable references at most one Workpiece object as removal. Each Workpiece acts as removal for zero or more Executable objects.</P>
+
+
+<H3><A NAME="aa-executable-to-workpiece-as-to_be"></A>4.3.16 Executable to Workpiece (as to_be)</H3>
+<P>
+Each Executable references at most one Workpiece object as to_be. Each Workpiece acts as to_be
+for zero or more Executable objects.</P>
 
 
 <H3><A NAME="aa-externally_defined_representation-to-library_part_assignment"></A>4.3.15 Externally_defined_representation to Library_part_assignment</H3>
