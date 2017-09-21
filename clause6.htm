@@ -36,8 +36,8 @@ EXAMPLE			CC2 contains everything in CC1, plus additional options. CC3 contains 
 Conformance to a particular class requires that all AIM elements defined as part of that class be sup-ported. Table 15 defines the classes to which each AIM element belongs.  The conformance classes are described in detail by the following sections.</P>
 <P>
 Annotated example data sets for several conformance classes are provided in Annex J.</P>
-</DIV>
-<DIV>
+
+
 <H2><A NAME="clause-6-1"></A>6.1 Conformance Class for tool path programming (CC1)</H2>
 <P>
 This conformance class supports the description of machining programs containing a single sequence of operations, each of which is described using the machine-independent path of the tool centre point, using a simplified set of curves types, as well as tool requirements, management information about the program, and all technology-specific process parameters.</P>
@@ -69,10 +69,12 @@ In addition, the following apply to use of the application objects in this confo
 <LI>the its_feature need not be specified for a particular Machining_workingstep object;</LI>
 <LI>the its_secplane need not be specified for a particular Machining_workingstep object;</LI>
 <LI>the dataset shall contain exactly one Workplan object;</LI>
-<LI>no geometric shape information shall be specified for Machining_workingstep its_effect, Manufacturing_feature explicit_representation, Workpiece its_geometry or its_bounding_geometry, Workpiece_setup its_restricted_area, or Workplan its_effect.</LI>
+<LI>no geometric shape information shall be specified for Manufacturing_feature explicit_representation, Workpiece its_geometry or its_bounding_geometry, or Workpiece_setup its_restricted_area.</LI>
 </UL>
-</DIV>
-<DIV>
+
+
+
+
 <H2><A NAME="clause-6-2"></A>6.2 Conformance Class for closed-loop programming (CC2)</H2>
 <P>
 This conformance class extends the previous conformance class to support the description of machining programs with the full range of toolpath specifications as well as full shape information for the workpiece, rawpiece and restricted areas on the setup.</P>
@@ -83,10 +85,10 @@ In addition, the following apply to use of the application objects in this confo
 <UL>
 <LI>the dataset may contain multiple, nested Workplan objects;</LI>
 <LI>the basiccurve, its_toolaxis, and surface_normal for each Cutter_location_trajectory object may be described by any bounded_curve type;</LI>
-<LI>geometric shape information may be specified for Machining_workingstep its_effect, Workpiece its_geometry or its_bounding_geometry, Workpiece_setup its_restricted_area, or Workplan its_effect.</LI>
+<LI>geometric shape information may be specified for Workpiece its_geometry or its_bounding_geometry, or Workpiece_setup its_restricted_area.</LI>
 </UL>
-</DIV>
-<DIV>
+
+
 <H2><A NAME="clause-6-3"></A>6.3 Conformance Class for feature-based programming (CC3)</H2>
 <P>
 This conformance class extends the previous conformance class to support the description of machining programs using the full range of executable constructs and manufacturing process features defined by implicit parameters.</P>
@@ -99,8 +101,9 @@ In addition, the following apply to use of the application objects in this confo
 <LI>the its_feature shall be specified for all Machining_workingstep objects;</LI>
 <LI>the its_secplane shall be specified for all Machining_workingstep objects.</LI>
 </UL>
-</DIV>
-<DIV>
+
+
+
 <H2><A NAME="clause-6-4"></A>6.4 Conformance Class for generative programming (CC4)</H2>
 <P>
 This conformance class extends the previous conformance class to support the description of geometric dimension and tolerance information sufficient to compute optimal speeds and feeds, manufacturing features appearing on the final product shape, and features with linkage to explicit geometry.</P>
@@ -3808,7 +3811,6 @@ In addition, the following apply to use of the application objects in this confo
 <TD>X</TD>
 </TR>
 </TABLE>
-</DIV>
 
 
 <p class=pagefoot>Document TC184/SC4/WG15 Nxxx

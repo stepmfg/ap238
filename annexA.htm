@@ -398,7 +398,8 @@ TYPE second_in_minute = REAL;
 END_TYPE; -- 10303-41: date_time_schema
 
 TYPE security_classification_item = SELECT 
-  (machining_operation,
+  (assembly_component_usage,
+   machining_operation,
    machining_process_executable,
    machining_toolpath,
    product_definition,
@@ -5759,11 +5760,27 @@ ENTITY machining_tool_usage
   SUBTYPE OF (action_method);
   WHERE
   WR1:  ((verify_optional_action_property    (SELF, 'tool position')) AND
-         (verify_descriptive_action_property (SELF, 'tool position')) AND
+         (verify_descriptive_action_property (SELF, 'tool position')));
 
-         (verify_optional_action_property    (SELF, 'tool carousel')) AND
-         (verify_descriptive_action_property (SELF, 'tool carousel'))
-        );
+  WR2:  ((verify_optional_action_property    (SELF, 'tool carousel')) AND
+         (verify_descriptive_action_property (SELF, 'tool carousel')));
+
+  WR3:  (1 &gt;= SIZEOF (QUERY (act &lt;*
+          USEDIN (SELF, 'INTEGRATED_CNC_SCHEMA.ACTION.CHOSEN_METHOD') |
+          (act.name = 'tool usage')))) AND
+        (0 = SIZEOF (QUERY (act &lt;*
+          USEDIN (SELF, 'INTEGRATED_CNC_SCHEMA.ACTION.CHOSEN_METHOD') |
+          (act.name = 'tool usage') AND NOT
+          ('INTEGRATED_CNC_SCHEMA.PRODUCT_DEFINITION_PROCESS' IN TYPEOF (act))
+        )));
+
+  WR4:  ((verify_optional_action_property (SELF, 'gage placement')) AND
+         (verify_rep_item_for_action_property (SELF, 'gage placement',
+          ['INTEGRATED_CNC_SCHEMA.AXIS2_PLACEMENT_3D'])));
+
+  WR5:  ((verify_optional_action_property (SELF, 'tool end placement')) AND
+         (verify_rep_item_for_action_property (SELF, 'tool end placement',
+          ['INTEGRATED_CNC_SCHEMA.AXIS2_PLACEMENT_3D'])));
 END_ENTITY; -- 10303-238: integrated_cnc_schema
 
 ENTITY machining_toolpath
@@ -5882,6 +5899,12 @@ ENTITY machining_toolpath
            ['INTEGRATED_CNC_SCHEMA.BOUNDED_CURVE'])) AND
 
          (verify_optional_action_property
+           (SELF, 'tool reference direction')) AND
+         (verify_rep_item_for_action_property
+           (SELF, 'tool reference direction',
+           ['INTEGRATED_CNC_SCHEMA.BOUNDED_CURVE'])) AND
+
+         (verify_optional_action_property
           (SELF, 'path maximum deviation')) AND
          (verify_length_measure_action_property
           (SELF, 'path maximum deviation')) AND
@@ -5910,6 +5933,12 @@ ENTITY machining_toolpath
 
          (verify_optional_action_property     (SELF, 'tool axis')) AND
          (verify_rep_item_for_action_property (SELF, 'tool axis',
+           ['INTEGRATED_CNC_SCHEMA.BOUNDED_CURVE'])) AND
+
+         (verify_optional_action_property
+           (SELF, 'tool reference direction')) AND
+         (verify_rep_item_for_action_property
+           (SELF, 'tool reference direction',
            ['INTEGRATED_CNC_SCHEMA.BOUNDED_CURVE'])) AND
 
          (verify_optional_action_property     (SELF, 'contact type')) AND
@@ -5950,9 +5979,14 @@ ENTITY machining_toolpath
             (SELF, 'material removal total volume')) AND
          (verify_rep_item_for_action_property 
             (SELF, 'material removal total volume',
-            ['INTEGRATED_CNC_SCHEMA.MEASURE_REPRESENTATION_ITEM']))
-        );
+            ['INTEGRATED_CNC_SCHEMA.MEASURE_REPRESENTATION_ITEM'])) AND
 
+         (verify_optional_action_property 
+            (SELF, 'cross section area parameters')) AND
+         (verify_rep_item_for_action_property 
+            (SELF, 'cross section area parameters', 
+            ['INTEGRATED_CNC_SCHEMA.BOUNDED_CURVE']))
+        );
 END_ENTITY; -- 10303-238: integrated_cnc_schema
 
 ENTITY machining_toolpath_sequence_relationship
@@ -6097,10 +6131,7 @@ ENTITY machining_workingstep
           ['INTEGRATED_CNC_SCHEMA.TURNING_TYPE_OPERATION']))
         );
 
-  WR4:  NOT (SELF.description IN ['machining', 'turning']) OR
-        (verify_optional_in_process_geometry (SELF));
-
-  WR5:  ((verify_optional_action_property (SELF, 'toolpath orientation')) AND
+  WR4:  ((verify_optional_action_property (SELF, 'toolpath orientation')) AND
          (verify_rep_item_for_action_property (SELF, 'toolpath orientation',
           ['INTEGRATED_CNC_SCHEMA.AXIS2_PLACEMENT_3D'])));
 
@@ -6126,7 +6157,9 @@ ENTITY machining_workplan
           ('INTEGRATED_CNC_SCHEMA.PRODUCT_DEFINITION_PROCESS' IN TYPEOF (act))
         )));
 
-  WR4:  (verify_optional_in_process_geometry (SELF));
+  WR4:  ((verify_optional_action_property (SELF, 'toolpath orientation')) AND
+         (verify_rep_item_for_action_property (SELF, 'toolpath orientation',
+          ['INTEGRATED_CNC_SCHEMA.AXIS2_PLACEMENT_3D'])));
 END_ENTITY; -- 10303-238: integrated_cnc_schema
 
 ENTITY make_from_usage_option
@@ -11705,6 +11738,26 @@ ENTITY vertex_shell
     vertex_shell_extent : vertex_loop;
 END_ENTITY; -- 10303-42: topology_schema
 
+ENTITY via_arc_point
+  SUBTYPE OF (cartesian_point);
+  WHERE
+  WR1: SIZEOF(USEDIN(SELF, 'INTEGRATED_CNC_SCHEMA.POLYLINE.POINTS')) &gt; 0;
+  WR2: (0 = SIZEOF (QUERY (pl &lt;* 
+        USEDIN(SELF, 'INTEGRATED_CNC_SCHEMA.POLYLINE.POINTS') |
+        ((pl.points[1] = SELF) OR (pl.points[HiIndex(pl.points)] = SELF))
+        )));
+END_ENTITY;  -- 10303-238: integrated_cnc_schema
+
+ENTITY via_helix_point
+  SUBTYPE OF (cartesian_point);
+  WHERE
+  WR1: SIZEOF(USEDIN(SELF, 'INTEGRATED_CNC_SCHEMA.POLYLINE.POINTS')) &gt; 0;
+  WR2: (0 = SIZEOF (QUERY (pl &lt;* 
+        USEDIN(SELF, 'INTEGRATED_CNC_SCHEMA.POLYLINE.POINTS') |
+        ((pl.points[1] = SELF) OR (pl.points[HiIndex(pl.points)] = SELF))
+        )));
+END_ENTITY;  -- 10303-238: integrated_cnc_schema
+
 ENTITY week_of_year_and_day_date
   SUBTYPE OF (date);
     week_component : week_in_year_number;
@@ -14371,27 +14424,6 @@ FUNCTION verify_optional_action_property (
     ): LOGICAL;
 
     RETURN (1 &gt;= SIZEOF (get_action_property (cad, prop_name)));
-END_FUNCTION; -- 10303-238: integrated_cnc_schema
-
-FUNCTION verify_optional_in_process_geometry (
-    mpe : machining_process_executable
-    ): LOGICAL;
-
-    RETURN
-      ((verify_optional_action_property (mpe, 'as-is shape')) AND
-       (verify_optional_action_property (mpe, 'to-be shape')) AND
-       (verify_optional_action_property (mpe, 'removal shape')) AND
-
-        -- All properties need advanced brep shape reps
-       (0 = SIZEOF (QUERY (prop &lt;*
-         USEDIN (mpe, 'INTEGRATED_CNC_SCHEMA.ACTION_PROPERTY.DEFINITION') |
-         ((prop.name IN ['as-is shape', 'to-be shape', 'removal shape']) AND
-          (0 = SIZEOF (QUERY (prep &lt;* USEDIN (prop, 'INTEGRATED_CNC_SCHEMA.' +
-             'ACTION_PROPERTY_REPRESENTATION.PROPERTY') |
-             ('INTEGRATED_CNC_SCHEMA.SHAPE_REPRESENTATION'
-               IN TYPEOF (prep.representation))))))
-          )))
-      );
 END_FUNCTION; -- 10303-238: integrated_cnc_schema
 
 FUNCTION verify_optional_relating_amr (

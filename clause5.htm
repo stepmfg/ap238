@@ -12461,6 +12461,148 @@ action_method.name
 </table>
 
 
+<H5><A NAME="map-executable-as_is"></A>5.1.5.14.1 executable to workpiece (as as_is)</H5>
+
+<table class="map">
+<tr><th>AIM element:</th>
+<td>PATH</td>
+</tr>
+
+<tr><th>Reference path:</th>
+<td class="path">machining_process_executable &lt;=
+action_method &lt;-
+action.chosen_method
+{ action.name = 'as-is shape' }
+action =&gt;
+product_definition_process &lt;-
+process_product_association.process
+process_product_association
+process_product_association.defined_product -&gt;
+characterized_product_definition
+characterized_product_definition = product_definition
+product_definition
+</td>
+</tr>
+</table>
+
+<H5><A NAME="map-executable-enabled"></A>5.1.5.14.1 enabled</H5>
+
+<div class="mapnote">
+<p>#1: if value is true (mapping may also be omitted if value is true)</p>
+<p>#2: if value is false</p>
+</div>
+
+<table class="map">
+<tr><th>AIM element:</th>
+<td>descriptive_representation_item</td>
+</tr>
+
+<tr><th>Source:</th>
+<td>10303-45</td>
+</tr>
+
+<tr><th>Reference path:</th>
+<td class="path">machining_process_executable &lt;=
+action_method
+characterized_action_definition = action_method
+characterized_action_definition &lt;-
+action_property.definition
+{ action_property.name = 'enabled' }
+action_property &lt;-
+action_property_representation.property
+action_property_representation
+action_property_representation.representation -&gt;
+representation
+representation.items[i] -&gt;
+representation_item =&gt;
+descriptive_representation_item
+descriptive_representation_item.description
+{#1: (descriptive_representation_item.description = 'enabled' )
+ #2: (descriptive_representation_item.description = 'disabled')}
+</td>
+</tr>
+</table>
+
+
+
+<H5><A NAME="map-executable-fixture"></A>5.1.5.14.1 executable to workpiece (as fixture)</H5>
+
+<table class="map">
+<tr><th>AIM element:</th>
+<td>PATH</td>
+</tr>
+
+<tr><th>Reference path:</th>
+<td class="path">machining_process_executable &lt;=
+action_method &lt;-
+action.chosen_method
+{ action.name = 'fixture shape' }
+action =&gt;
+product_definition_process &lt;-
+process_product_association.process
+process_product_association
+process_product_association.defined_product -&gt;
+characterized_product_definition
+characterized_product_definition = product_definition
+product_definition
+</td>
+</tr>
+</table>
+
+
+
+<H5><A NAME="map-executable-removal"></A>5.1.5.14.1 executable to workpiece (as removal)</H5>
+
+<table class="map">
+<tr><th>AIM element:</th>
+<td>PATH</td>
+</tr>
+
+<tr><th>Reference path:</th>
+<td class="path">machining_process_executable &lt;=
+action_method &lt;-
+action.chosen_method
+{ action.name = 'removal shape' }
+action =&gt;
+product_definition_process &lt;-
+process_product_association.process
+process_product_association
+process_product_association.defined_product -&gt;
+characterized_product_definition
+characterized_product_definition = product_definition
+product_definition
+</td>
+</tr>
+</table>
+
+
+
+<H5><A NAME="map-executable-to_be"></A>5.1.5.14.1 executable to workpiece (as to_be)</H5>
+
+<table class="map">
+<tr><th>AIM element:</th>
+<td>PATH</td>
+</tr>
+
+<tr><th>Reference path:</th>
+<td class="path">machining_process_executable &lt;=
+action_method &lt;-
+action.chosen_method
+{ action.name = 'to-be shape' }
+action =&gt;
+product_definition_process &lt;-
+process_product_association.process
+process_product_association
+process_product_association.defined_product -&gt;
+characterized_product_definition
+characterized_product_definition = product_definition
+product_definition
+</td>
+</tr>
+</table>
+
+
+
 <!-- ============================== -->
 <H4><A NAME="map-extended_nc_function"></A>5.1.5.15 EXTENDED_NC_FUNCTION</H4>
 
@@ -12615,134 +12757,6 @@ machining_process_executable
 </tr>
 </table>
 
-
-<!-- ============================== -->
-<H4><A NAME="map-in_process_geometry"></A>5.1.5.17 IN_PROCESS_GEOMETRY</H4>
-
-<table class="map">
-<tr><th>AIM element:</th>
-<td>&lt;action_property&gt;
-&lt;action_property&gt;
-&lt;action_property&gt;</td>
-</tr>
-
-<tr><th>Source:</th>
-<td>10303-49
-10303-49
-10303-49</td>
-</tr>
-
-<tr><th>Reference path:</th>
-<td class="path">&lt; action_property
-{ action_property.name = 'as-is shape' } &gt;
-
-&lt; action_property
-{ action_property.name = 'to-be shape' } &gt;
-
-&lt; action_property
-{ action_property.name = 'removal shape' } &gt;
-</td>
-</tr>
-</table>
-
-
-<H5><A NAME="map-in_process_geometry-as_is"></A>5.1.5.17.1 as_is</H5>
-
-<table class="map">
-<tr><th>AIM element:</th>
-<td>shape_representation</td>
-</tr>
-
-<tr><th>Source:</th>
-<td>10303-41</td>
-</tr>
-
-<tr><th>Reference path:</th>
-<td class="path">action_property &lt;-
-{ action_property.name = 'as-is shape' }
-action_property_representation.property 
-action_property_representation
-action_property_representation.representation -&gt;
-representation =&gt;
-shape_representation
-{ shape_representation =&gt;
-(advanced_brep_shape_representation)
-(edge_based_wireframe_shape_representation)
-(faceted_brep_shape_representation)
-(geometrically_bounded_surface_shape_representation)
-(geometrically_bounded_wireframe_shape_representation)
-(manifold_surface_shape_representation)
-(non_manifold_surface_shape_representation)
-(shell_based_wireframe_shape_representation) }
-</td>
-</tr>
-</table>
-
-
-<H5><A NAME="map-in_process_geometry-to_be"></A>5.1.5.17.2 to_be</H5>
-
-<table class="map">
-<tr><th>AIM element:</th>
-<td>shape_representation</td>
-</tr>
-
-<tr><th>Source:</th>
-<td>10303-41</td>
-</tr>
-
-<tr><th>Reference path:</th>
-<td class="path">action_property &lt;-
-{ action_property.name = 'to-be shape' }
-action_property_representation.property 
-action_property_representation
-action_property_representation.representation -&gt;
-representation =&gt;
-shape_representation
-{ shape_representation =&gt;
-(advanced_brep_shape_representation)
-(edge_based_wireframe_shape_representation)
-(faceted_brep_shape_representation)
-(geometrically_bounded_surface_shape_representation)
-(geometrically_bounded_wireframe_shape_representation)
-(manifold_surface_shape_representation)
-(non_manifold_surface_shape_representation)
-(shell_based_wireframe_shape_representation) }
-</td>
-</tr>
-</table>
-
-
-<H5><A NAME="map-in_process_geometry-removal"></A>5.1.5.17.3 removal</H5>
-
-<table class="map">
-<tr><th>AIM element:</th>
-<td>shape_representation</td>
-</tr>
-
-<tr><th>Source:</th>
-<td>10303-41</td>
-</tr>
-
-<tr><th>Reference path:</th>
-<td class="path">action_property &lt;-
-{ action_property.name = 'removal shape' }
-action_property_representation.property 
-action_property_representation
-action_property_representation.representation -&gt;
-representation =&gt;
-shape_representation
-{ shape_representation =&gt;
-(advanced_brep_shape_representation)
-(edge_based_wireframe_shape_representation)
-(faceted_brep_shape_representation)
-(geometrically_bounded_surface_shape_representation)
-(geometrically_bounded_wireframe_shape_representation)
-(manifold_surface_shape_representation)
-(non_manifold_surface_shape_representation)
-(shell_based_wireframe_shape_representation) }
-</td>
-</tr>
-</table>
 
 
 <!-- ============================== -->
@@ -13506,31 +13520,6 @@ machining_operation_relationship }
 action_method_relationship.related_method -&gt;
 action_method =&gt;
 machining_operation
-</td>
-</tr>
-</table>
-
-
-<H5><A NAME="map-machining_workingstep-its_effect"></A>5.1.5.21.4 machining_workingstep to in_process_geometry (as its_effect)</H5>
-
-<table class="map">
-<tr><th>AIM element:</th>
-<td>PATH</td>
-</tr>
-
-<tr><th>Reference path:</th>
-<td class="path">machining_workingstep &lt;=
-machining_process_executable &lt;=
-action_method
-characterized_action_definition = action_method
-characterized_action_definition &lt;-
-action_property.definition 
-&lt; action_property
-{ action_property.name = 'as-is shape' } &gt;
-&lt; action_property
-{ action_property.name = 'to-be shape' } &gt;
-&lt; action_property
-{ action_property.name = 'removal shape' } &gt;
 </td>
 </tr>
 </table>
@@ -14692,44 +14681,90 @@ product_definition
 </table>
 
 
-<!-- ============================== -->
-<H4><A NAME="map-touch_probe"></A>5.1.5.44 TOUCH_PROBE</H4>
+
+<H5><A NAME="map-tool_usage-gage_placement"></A>5.1.5.43.4 gage_placement</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
-<td>representation</td>
+<td>axis2_placement_3d</td>
 </tr>
 
 <tr><th>Source:</th>
-<td>10303-43</td>
+<td>10303-42</td>
 </tr>
 
 <tr><th>Reference path:</th>
-<td class="path">representation
-{ representation.name = 'touch probe' }
+<td class="path">machining_tool_usage &lt;=
+action_method
+characterized_action_definition = action_method
+characterized_action_definition &lt;-
+action_property.definition
+{ action_property.name = 'gage placement' }
+action_property &lt;-
+action_property_representation.property
+action_property_representation
+action_property_representation.representation -&gt;
+representation
+representation.items[i] -&gt;
+representation_item =&gt;
+geometric_representation_item =&gt;
+placement =&gt;
+axis2_placement_3d
 </td>
 </tr>
 </table>
 
 
-<H5><A NAME="map-touch_probe-its_id"></A>5.1.5.44.1 its_id</H5>
+<H5><A NAME="map-tool_usage-tool_end_placement"></A>5.1.5.43.4 tool_end_placement</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
-<td>descriptive_representation_item.-
-description</td>
+<td>axis2_placement_3d</td>
 </tr>
 
 <tr><th>Source:</th>
-<td>10303-45</td>
+<td>10303-42</td>
 </tr>
 
 <tr><th>Reference path:</th>
-<td class="path">representation
-representation.items[i] -&gt; 
+<td class="path">machining_tool_usage &lt;=
+action_method
+characterized_action_definition = action_method
+characterized_action_definition &lt;-
+action_property.definition
+{ action_property.name = 'tool end placement' }
+action_property &lt;-
+action_property_representation.property
+action_property_representation
+action_property_representation.representation -&gt;
+representation
+representation.items[i] -&gt;
 representation_item =&gt;
-descriptive_representation_item
-descriptive_representation_item.description
+geometric_representation_item =&gt;
+placement =&gt;
+axis2_placement_3d
+</td>
+</tr>
+</table>
+
+
+
+<!-- ============================== -->
+<H4><A NAME="map-touch_probe"></A>5.1.5.44 TOUCH_PROBE</H4>
+
+<table class="map">
+<tr><th>AIM element:</th>
+<td>machining_tool</td>
+</tr>
+
+<tr><th>Source:</th>
+<td>10303-238</td>
+</tr>
+
+<tr><th>Reference path:</th>
+<td class="path">machining_tool &lt;=
+action_resource
+{ action_resource.description = 'touch probe' }
 </td>
 </tr>
 </table>
@@ -15123,15 +15158,11 @@ length_measure_with_unit
 [ machining_operation &lt;= ]
 [ machining_process_executable &lt;= ]
 action_method
-characterized_action_definition = action_method
-characterized_action_definition &lt;-
-action_property.definition 
-{ action_property.name = 'probe' }
-action_property &lt;-
-action_property_representation.property 
-action_property_representation
-action_property_representation.representation -&gt;
-representation
+supported_item = action_method
+supported_item &lt;-
+action_resource.usage[i]
+action_resource =&gt;
+machining_tool
 </td>
 </tr>
 </table>
@@ -15646,25 +15677,6 @@ product_definition_formation
 </tr>
 </table>
 
-
-<H5><A NAME="map-workplan-its_effect"></A>5.1.5.53.4 workplan to in_process_geometry (as its_effect)</H5>
-
-<table class="map">
-<tr><th>AIM element:</th>
-<td>PATH</td>
-</tr>
-
-<tr><th>Reference path:</th>
-<td class="path">machining_workplan &lt;=
-machining_process_executable &lt;=
-action_method
-characterized_action_definition = action_method
-characterized_action_definition &lt;-
-action_property.definition 
-action_property
-</td>
-</tr>
-</table>
 
 
 <H5><A NAME="map-workplan-its_minimum_machine_params"></A>5.1.5.53.5 workplan to machine_parameters (as its_minimum_machine_params)</H5>
@@ -16813,6 +16825,43 @@ bounded_curve
 </table>
 
 
+
+
+
+
+<H5><A NAME="map-cutter_contact_trajectory-its_toolref_direction"></A>5.1.7.9.2 its_toolref_direction</H5>
+
+<table class="map">
+<tr><th>AIM element:</th>
+<td>bounded_curve</td>
+</tr>
+
+<tr><th>Source:</th>
+<td>10303-42</td>
+</tr>
+
+<tr><th>Reference path:</th>
+<td class="path">machining_toolpath &lt;=
+action_method
+characterized_action_definition = action_method
+characterized_action_definition &lt;-
+action_property.definition 
+{ action_property.name = 'tool reference direction' }
+action_property &lt;-
+action_property_representation.property 
+action_property_representation
+action_property_representation.representation -&gt;
+representation
+representation.items[i] -&gt; 
+representation_item =&gt;
+geometric_representation_item =&gt;
+curve =&gt;
+bounded_curve
+</td>
+</tr>
+</table>
+
+
 <H5><A NAME="map-cutter_contact_trajectory-its_contact_type"></A>5.1.7.9.3 its_contact_type</H5>
 
 <table class="map">
@@ -16998,6 +17047,40 @@ bounded_curve
 </td>
 </tr>
 </table>
+
+<H5><A NAME="map-cutter_location_trajectory-its_toolref_direction"></A>5.1.7.9.2 its_toolref_direction</H5>
+
+<table class="map">
+<tr><th>AIM element:</th>
+<td>bounded_curve</td>
+</tr>
+
+<tr><th>Source:</th>
+<td>10303-42</td>
+</tr>
+
+<tr><th>Reference path:</th>
+<td class="path">machining_toolpath &lt;=
+action_method
+characterized_action_definition = action_method
+characterized_action_definition &lt;-
+action_property.definition 
+{ action_property.name = 'tool reference direction' }
+action_property &lt;-
+action_property_representation.property 
+action_property_representation
+action_property_representation.representation -&gt;
+representation
+representation.items[i] -&gt; 
+representation_item =&gt;
+geometric_representation_item =&gt;
+curve =&gt;
+bounded_curve
+</td>
+</tr>
+</table>
+
+
 
 
 <H5><A NAME="map-cutter_location_trajectory-surface_normal"></A>5.1.7.10.3 surface_normal</H5>
@@ -17615,6 +17698,39 @@ volume_measure }
 </td>
 </tr>
 </table>
+
+<H5><A NAME="map-trajectory-cross_section_area_parameters"></A>5.1.7.9.2 cross_section_area_parameters</H5>
+
+<table class="map">
+<tr><th>AIM element:</th>
+<td>bounded_curve</td>
+</tr>
+
+<tr><th>Source:</th>
+<td>10303-42</td>
+</tr>
+
+<tr><th>Reference path:</th>
+<td class="path">machining_toolpath &lt;=
+action_method
+characterized_action_definition = action_method
+characterized_action_definition &lt;-
+action_property.definition 
+{ action_property.name = 'cross section area parameters' }
+action_property &lt;-
+action_property_representation.property 
+action_property_representation
+action_property_representation.representation -&gt;
+representation
+representation.items[i] -&gt; 
+representation_item =&gt;
+geometric_representation_item =&gt;
+curve =&gt;
+bounded_curve
+</td>
+</tr>
+</table>
+
 
 
 
@@ -28325,25 +28441,6 @@ turning_type_operation
 </table>
 
 
-<H5><A NAME="map-turning_workingstep-its_effect"></A>5.1.11.27.3 turning_workingstep to in_process_geometry (as its_effect)</H5>
-
-<table class="map">
-<tr><th>AIM element:</th>
-<td>PATH</td>
-</tr>
-
-<tr><th>Reference path:</th>
-<td class="path">machining_workingstep &lt;=
-machining_process_executable &lt;=
-action_method
-characterized_action_definition = action_method
-characterized_action_definition &lt;-
-action_property.definition 
-action_property
-</td>
-</tr>
-</table>
-
 
 <!-- ============================== -->
 <H4><A NAME="map-unidirectional_turning"></A>5.1.11.28 UNIDIRECTIONAL_TURNING</H4>
@@ -30540,6 +30637,30 @@ geometric_tolerance
 </table>
 
 
+<H5><A NAME="map-datum-its_workpiece"></A>5.1.13.14.1 datum to workpiece (as its_workpiece)</H5>
+
+<table class="map">
+<tr><th>AIM element:</th>
+<td>PATH</td>
+</tr>
+
+<tr><th>Reference path:</th>
+<td class="path">datum =&gt;
+shape_aspect
+shape_aspect.of_shape -&gt;
+product_definition_shape &lt;=
+property_definition
+property_definition.definition -&gt;
+characterized_definition
+characterized_definition = characterized_product_definition
+characterized_product_definition
+characterized_product_definition = product_definition
+product_definition
+</td>
+</tr>
+</table>
+
+
 <!-- ============================== -->
 <H4><A NAME="map-datum_defined_by_derived_shape"></A>5.1.13.12 DATUM_DEFINED_BY_DERIVED_SHAPE</H4>
 
@@ -30737,6 +30858,31 @@ datum_target.target_id
 </td>
 </tr>
 </table>
+
+
+<H5><A NAME="map-datum_target-its_workpiece"></A>5.1.13.14.1 datum_target to workpiece (as its_workpiece)</H5>
+
+<table class="map">
+<tr><th>AIM element:</th>
+<td>PATH</td>
+</tr>
+
+<tr><th>Reference path:</th>
+<td class="path">datum_target =&gt;
+shape_aspect
+shape_aspect.of_shape -&gt;
+product_definition_shape &lt;=
+property_definition
+property_definition.definition -&gt;
+characterized_definition
+characterized_definition = characterized_product_definition
+characterized_product_definition
+characterized_product_definition = product_definition
+product_definition
+</td>
+</tr>
+</table>
+
 
 
 <!-- ============================== -->
@@ -34392,7 +34538,7 @@ security_classification_item
 <A NAME="mapnote-5">5)</A> AP 224 does not define a mapping for explicit_representation, but the usage observed in existing implementations corresponds to the alternate case given in this part of ISO 10303.   This alternate is provided to allow the use of instance data that may have originated from an AP 224 process, but the preferred reference path should be used for any new instance data.  See <A HREF="#funcon-feature-explicit">Explicit shape by geometry</A> for additional discussion on explicit feature geometry.</P>
 
 <P CLASS="numbered-notes">
-<A NAME="mapnote-6">6)</A> For bounding geometry that is either a block or cylinder, ISO 14649-10 references block and right_circular_cylinder.   For harmonization with AP 224 and AP 214 these two cases have been mapped to the shape_representation subtypes block_shape_representation and cylindrical_shape_representation instead.  Aside from these two cases, the mapping for its_bounding_geometry is simply the the its_geometry parameter of the its_rawpiece.</P>
+<A NAME="mapnote-6">6)</A> For bounding geometry that is either a block or cylinder, ISO 14649-10 references block and right_circular_cylinder.   For harmonization with AP 224 and AP 214 these two cases have been mapped to the shape_representation subtypes block_shape_representation and cylindrical_shape_representation instead.  Aside from these two cases, the mapping for its_bounding_geometry is simply the its_geometry parameter of the its_rawpiece.</P>
 
 <P CLASS="numbered-notes">
 <A NAME="mapnote-7">7)</A> The product_definition_formation_with_specified_source subtype of product_definition_formation is present in the integrated representation to simplify the use of workpiece descriptions that may have originated from an AP 203 process.  This use of this subtype is not recommended in the general case.</P>
@@ -35055,7 +35201,7 @@ In the ISO 10303 integrated representation, a planar face is represented by a li
 
 
 <P>
-Two direction vectors are associated with the planar face.  One is part of the linear path and defines the direction that the profile is swept sweeps along the path direction.  This shall be aligned along the Y axis of the feature placement.  The other direction vector is the removal_direction, which defines the surface normal of the plane.  This shall be aligned with the Z axis of the feature placement.  The profile is defined to extend along the X axis of the feature placement.</P>
+Two direction vectors are associated with the planar face.  One is part of the linear path and defines the direction that the swept profile sweeps along the path direction.  This shall be aligned along the Y axis of the feature placement.  The other direction vector is the removal_direction, which defines the surface normal of the plane.  This shall be aligned with the Z axis of the feature placement.  The profile is defined to extend along the X axis of the feature placement.</P>
 <P>
 In ISO 14649, the placement of the feature is defined to lie at the top of the material to be removed.  One must then geometrically evaluate the distance between this placement and the depth surface to determine the depth of material.</P>
 <P>
@@ -35082,7 +35228,7 @@ In ISO 14649, a hole does not use profile or path definitions. Instead, the diam
 <P>
 This part of ISO 10303 adds the course_of_travel attribute to the Round_hole application object.  This attribute represents the travel path for harmonization with the other ISO 10303 parts and simplifies conversion between the two conventions.</P>
 <P>
-To convert to the ISO 14649 representation, construct the depth surface if it is not present and adjust the feature placement.  For a placement is at the top of the hole (bottom_at_path_end is TRUE), rotate the feature placement about the X axis so that Z =&gt; Y and Y =&gt; -Z.   For a placement is at the bottom of the hole (bottom_at_path_end is FALSE), move the placement in the Z direction by the length of the course_of_travel path.</P>
+To convert to the ISO 14649 representation, construct the depth surface if it is not present and adjust the feature placement.  For a placement at the top of the hole (bottom_at_path_end is TRUE), rotate the feature placement about the X axis so that Z =&gt; -Z and Y =&gt; -Y.   For a placement at the bottom of the hole (bottom_at_path_end is FALSE), move the placement in the Z direction by the length of the course_of_travel path.</P>
 
 
 <H5><A NAME="funcon-pocket"></A>5.2.1.3.3 Pocket</H5>
@@ -35103,7 +35249,7 @@ In ISO 14649, the pocket definitions have a profile but not a path attribute.  I
 <P>
 This part of ISO 10303 adds the course_of_travel attribute to the Pocket application object. This attribute represents the travel path for harmonization with the other ISO 10303 parts and simplifies conversion between the two conventions.</P>
 <P>
-To convert to the ISO 14649 representation, construct the depth surface if it is not present and adjust the feature placement.  For a placement is at the top of the pocket (bottom_at_path_end is TRUE), rotate the feature placement about the X axis so that Z =&gt; Y and Y =&gt; -Z.   For a placement is at the bottom of the pocket (bottom_at_path_end is FALSE), move the placement in the Z direction by the length of the course_of_travel path.</P>
+To convert to the ISO 14649 representation, construct the depth surface if it is not present and adjust the feature placement.  For a placement at the top of the pocket (bottom_at_path_end is TRUE), rotate the feature placement about the X axis so that Z =&gt; -Z and Y =&gt; -Y.   For a placement at the bottom of the pocket (bottom_at_path_end is FALSE), move the placement in the Z direction by the length of the course_of_travel path.</P>
 
 
 <H5><A NAME="funcon-shape_profile"></A>5.2.1.3.4 General outside and shape profile features</H5>
@@ -35136,7 +35282,7 @@ In ISO 14649, the feature definitions have a profile and path, but use a differe
 <P>
 To convert a General_outside_profile to the ISO 14649 representation, construct the depth surface if it is not present and move the placement in the Z direction by the length of the profile_swept_shape path.</P>
 <P>
-To convert a Shape_profile to the ISO 14649 representation, construct the depth surface if it is not present and adjust the feature placement.  For a placement is at the top of the Shape_profile (start_or_end is TRUE), rotate the feature placement about the X axis so that Z =&gt; Y and Y =&gt; -Z.   For a placement is at the bottom of the Shape_profile (start_or_end is FALSE), move the placement in the Z direction by the length of the profile_swept_shape path.</P>
+To convert a Shape_profile to the ISO 14649 representation, construct the depth surface if it is not present and adjust the feature placement.  For a placement at the top of the Shape_profile (start_or_end is TRUE), rotate the feature placement about the X axis so that Z =&gt; -Z and Y =&gt; -Y.   For a placement at the bottom of the Shape_profile (start_or_end is FALSE), move the placement in the Z direction by the length of the profile_swept_shape path.</P>
 
 
 <H5><A NAME="funcon-slot"></A>5.2.1.3.5 Slot</H5>
@@ -35222,15 +35368,19 @@ In the ISO 10303 integrated representation, measurements such as length, angle, 
 Within each instance, the value_component attribute holds the numeric value of a measure and the unit_component attribute holds a reference to an instance of named_unit or derived_unit defining the unit of measurement for the value.  In this way, each numeric value is accompanied by a unit to provide context.  In general, only one instance of each unit is needed, as a single unit instance may be shared by many measure_with_unit instances.</P>
 <P>
 Measurements most often appear in the items set of the representation of an action_property, resource_property, or property_definition.   The items set must refer to representation_item instances, so measurements are encoded as a measure_representation_item, which is a subtype of measure_with_unit and representation_item.  The measure_with_unit subtypes for specific types of values are still used by creating a complex entity instance with measure_representation_item.</P>
+
 <P CLASS="example">
 EXAMPLE 1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; No value-specific subtype of measure_with_unit exists for count measurements, so a count value is simply encoded as an instance of measure_representation_item.   In the exchange file fragment below, #10 is an instance of this type describing a count of 5.   The unit for the value is encoded by #20, which is a context_dependent_unit with a name of &quot;count&quot;.</P>
+
 <PRE CLASS="example">
 #10=MEASURE_REPRESENTATION_ITEM('', COUNT_MEASURE(5.),#20);
 #20=CONTEXT_DEPENDENT_UNIT(#30,'count');
 #30=DIMENSIONAL_EXPONENTS(0.,0.,0.,0.,0.,0.,0.);
 </PRE>
+
 <P CLASS="example">
-EXAMPLE 2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; A length measurement would be encoded as a complex instance of length_measure_with_unit and measure_representation_item.   In the exchange file fragment below, #10 is a complex instance of these types describing a value of 22.5mm.   The millimetre unit is encoded by #20, which is also a complex instance of length_unit and si_unit.   In general, each value-specific subtype of measure_with_unit has a corresponding subtypes of named_unit that is used in a complex instance with either si_unit or conversion_based_unit for units describing those types of values.</P>
+EXAMPLE 2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; A length measurement would be encoded as a complex instance of length_measure_with_unit and measure_representation_item.   In the exchange file fragment below, #40 is a complex instance of these types describing a value of 22.5mm.   The millimetre unit is encoded by #50, which is also a complex instance of length_unit and si_unit.   In general, each value-specific subtype of measure_with_unit has a corresponding subtypes of named_unit that is used in a complex instance with either si_unit or conversion_based_unit for units describing those types of values.</P>
+
 <PRE CLASS="example">
 #40=(
   LENGTH_MEASURE_WITH_UNIT()
@@ -35245,6 +35395,7 @@ EXAMPLE 2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; A length measurement would be encoded as
   SI_UNIT(.MILLI.,.METRE.)
 );
 </PRE>
+
 <P>
 In ISO 14649 all basic measures are defined using specific, fixed units (all lengths are expressed in millimeters, all plane angles are expressed in degrees), so units do not appear explicitly in the data sets.  ISO 14649 is unable to transmit measurements defined by other units without first numerically converting the values to the specified units.</P>
 <P>
@@ -35254,8 +35405,10 @@ To convert to the ISO 14649 representation, convert the numeric value of each me
 <H5><A NAME="measure-quals"></A>5.2.1.4.2 Tolerance qualifications</H5>
 <P>
 In the ISO 10303 integrated representation, qualifications such as plus/minus bounds, significant digits, limits and fits, or maximum/minimum may be applied to measurement values.  This is encoded by creating a complex entity instance of qualified_representation_item, measure_representation_item,  and, if one exists, a value-specific measure_with_unit subtype. The qualified_representation_item adds a set of value qualifiers to the instance that describe the conditions placed on the value.</P>
+
 <P CLASS="example">
 EXAMPLE 1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; A length measurement with a plus/minus tolerance is encoded as a complex instance of length_measure_with_unit, measure_representation_item, and qualified_representation_item.   In the exchange file fragment below, #10  describes a value of 80mm plus or minus 0.1, with 5 significant digits of precision.  The upper and lower bounds (#20 and #30) are encoded using standard_uncertainty instances, while the digits of precision (#40) are encoded using a a precision_qualifier.</P>
+
 <PRE CLASS="example">
 #10=(
   LENGTH_MEASURE_WITH_UNIT()
@@ -35274,8 +35427,10 @@ EXAMPLE 1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; A length measurement with a plus/minus t
   SI_UNIT(.MILLI.,.METRE.)
 );
 </PRE>
+
 <P CLASS="example">
 EXAMPLE 2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; A length measurement with a value limitation is encoded in the same way, but a type_qualifier is used to indicate the type of limitation.   In the exchange file fragment below, #10 describes a maximum value of 80mm.  </P>
+
 <PRE CLASS="example">
 #10=(
   LENGTH_MEASURE_WITH_UNIT()
@@ -35292,8 +35447,9 @@ EXAMPLE 2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; A length measurement with a value limita
   SI_UNIT(.MILLI.,.METRE.)
 );
 </PRE>
+
 <P CLASS="example">
-NOTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The qualified_representation_item encoding is used for all measure types, including lengths and plane angles, with one exception.   When a length or plane angle measure is appears as the dimension_value of a <a href="clause4.htm#ao-geometric_dimension">Geometric_dimension</a>, a plus/minus or limits and fits qualification is encoded differently for harmonization reasons.    See the mapping specifications for Plus_minus_value and Limits_and_fits for details.</P>
+NOTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The qualified_representation_item encoding is used for all measure types, including lengths and plane angles, with one exception.   When a length or plane angle measure appears as the dimension_value of a <a href="clause4.htm#ao-geometric_dimension">Geometric_dimension</a>, a plus/minus or limits and fits qualification is encoded differently for harmonization reasons.    See the mapping specifications for Plus_minus_value and Limits_and_fits for details.</P>
 
 
 <H5><A NAME="measure-angle"></A>5.2.1.4.3 Angle (plane) measure</H5>
@@ -35355,13 +35511,17 @@ The steradian unit is encoded by #20, which is a complex instance of solid_angle
 <H5><A NAME="measure-area"></A>5.2.1.4.5 Area measure</H5>
 <P>
 An area measure is encoded using an instance of measure_with_unit (or measure_representation_item when used in a representation).  A derived_unit consisting of a length unit squared is used to describe the measure.</P>
+
 <P CLASS="example">
-NOTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ISO 10303-41 defines value-specific subtypes area_measure_with_unit and area_unit, but the use of these are deprecated because they are not usable as defined.   The unit for an area measure is described as a derived_unit, but a complex instance of area_unit and derived_unit is not permitted by the EXPRESS definition.</P>
+NOTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ISO 10303-41 defines value-specific subtypes area_measure_with_unit and area_unit, but the use of these is deprecated because they are not usable as defined.   The unit for an area measure is described as a derived_unit, but a complex instance of area_unit and derived_unit is not permitted by the EXPRESS definition.</P>
+
 <P CLASS="example">
 EXAMPLE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; An area measurement used in a representation would be encoded as a measure_representation_item.  In the exchange file fragment below, #10 describes a value of 10 square millimetres.</P>
+
 <PRE CLASS="example">
 #10=MEASURE_REPRESENTATION_ITEM('',AREA_MEASURE(10.),#20);
 </PRE>
+
 <P CLASS="example">
 The square millimetre unit is encoded by #20, which is a derived_unit based on one derived_unit_element which references a millimetre unit (#50) with an exponent of 2. The derived_unit has an associated name_attribute instance with a value of &quot;square millimetre&quot;, which is not required, but is good form.</P>
 <PRE CLASS="example">
@@ -35379,8 +35539,10 @@ The square millimetre unit is encoded by #20, which is a derived_unit based on o
 <H5><A NAME="measure-count"></A>5.2.1.4.6 Count measures</H5>
 <P>
 A count measure is encoded using an instance of measure_with_unit (or measure_representation_item when used in a representation).  A context_dependent_unit with a name of &quot;count&quot; is used to describe the measure.</P>
+
 <P CLASS="example">
-EXAMPLE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; A count measurement used in a representation would be encoded as a measure_representation_item.  In the exchange file fragment below, #10 describes a count of 5.  The count unit is encoded by #20.</P>
+EXAMPLE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; In the exchange file fragment below, #10 describes a count of 5 encoded as a measure_with_unit. The count unit is encoded by #20. Example 1 in <A HREF="#measure-values-and-units">Measurement values and units</A> describes a count meaurement encoded using measure_representation_item.</P>
+
 <PRE CLASS="example">
 #10=MEASURE_WITH_UNIT(COUNT_MEASURE(5.),#20);
 #20=CONTEXT_DEPENDENT_UNIT(#30,'count');
@@ -35416,7 +35578,7 @@ EXAMPLE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; A length measurement used in a representat
 #10=(
   LENGTH_MEASURE_WITH_UNIT()
   MEASURE_REPRESENTATION_ITEM()
-  MEASURE_WITH_UNIT(TIME_MEASURE(12.),#30)
+  MEASURE_WITH_UNIT(LENGTH_MEASURE(12.),#30)
   REPRESENTATION_ITEM('')
 );
 </PRE>
@@ -35448,7 +35610,7 @@ EXAMPLE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; A mass measurement used in a representatio
 #10=(
   MASS_MEASURE_WITH_UNIT()
   MEASURE_REPRESENTATION_ITEM()
-  MEASURE_WITH_UNIT(PLANE_ANGLE_MEASURE(2.),#20)
+  MEASURE_WITH_UNIT(MASS_MEASURE(2.),#20)
   REPRESENTATION_ITEM('')
 );
 
@@ -35694,7 +35856,7 @@ EXAMPLE 2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; In the exchange file fragment below, #10
 <P>
 A volume measure is encoded using an instance of measure_with_unit (or measure_representation_item when used in a representation).  A derived_unit consisting of a length unit cubed is used to describe the measure.</P>
 <P CLASS="example">
-NOTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ISO 10303-41 defines value-specific subtypes volume_measure_with_unit and volume_unit, but the use of these are deprecated because they are not usable as defined.   The unit for an volume measure is described as a derived_unit, but a complex instance of volume_unit and derived_unit is not permitted by the EXPRESS definition.</P>
+NOTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ISO 10303-41 defines value-specific subtypes volume_measure_with_unit and volume_unit, but the use of these is deprecated because they are not usable as defined.   The unit for a volume measure is described as a derived_unit, but a complex instance of volume_unit and derived_unit is not permitted by the EXPRESS definition.</P>
 <P CLASS="example">
 EXAMPLE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; A volume measurement used in a representation would be encoded as a measure_representation_item.  In the exchange file fragment below, #10 describes a value of 20 cubic millimetres.</P>
 <PRE CLASS="example">
@@ -35726,7 +35888,7 @@ EXAMPLE 2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; In ISO 14649-11, Milling_technology &quo
 <P>
 In the integrated representation, all alternative description techniques for a particular kind of value  (feed speed, spindle speed, or dwell time) are encoded using a single representation subtype.</P>
 <P>
-These representation subtypes identifies the technique being used by with a particular value of the representation &quot;description&quot; attribute.  Within the representation are representation items that give the numeric measure values.  The uses and allowable combinations are described by the mapping specifications and local rules on the EXPRESS definition.</P>
+These representation subtypes identify the technique being used by with a particular value of the representation &quot;description&quot; attribute.  Within the representation are representation items that give the numeric measure values.  The uses and allowable combinations are described by the mapping specifications and local rules on the EXPRESS definition.</P>
 
 
 <H6><A NAME="measure-feedrate"></A>5.2.1.4.19.1 Feed speeds</H6>
@@ -35853,13 +36015,16 @@ EXAMPLE 2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; In the exchange file fragment below, #10
 <P>
 Within this part of ISO 10303, <a href="clause4.htm#ao-project">Project</a>, <a href="clause4.htm#ao-setup">Setup</a>, and <a href="clause4.htm#ao-workpiece">Workpiece</a> are encoded in the integrated representation as products.  Like representations, additional context information is also required for these products.</P>
 <P>
-A product is required to have a product_context which identifies engineering discipline's point of view the data is being presented by the application protocol. This in turn refers to an application_context and application_protocol_definition which describes the application protocol used to describe the product, the schema name, and status of the application protocol within the ISO standardization process.  It is recommended to instantiate the product_context, application_context, and application_protocol_definition entities exactly once in the data set.</P>
+A product is required to have a product_context which identifies engineering discipline from whose point of view the data is being presented by the application protocol. This in turn refers to an application_context and application_protocol_definition which describes the application protocol used to describe the product, the schema name, and status of the application protocol within the ISO standardization process.  It is recommended to instantiate the product_context, application_context, and application_protocol_definition entities exactly once in the data set.</P>
 <P>
-A product_definition is required to have a product_definition_context which identifies the the life cycle stage or maturity of the data being presented and refers to an application context description. It is recommended to instantiate the product_definition_context entity exactly once in the data set.</P>
+A product_definition is required to have a product_definition_context which identifies the life cycle stage or maturity of the data being presented and refers to an application context description. It is recommended to instantiate the product_definition_context entity exactly once in the data set.</P>
+
 <P CLASS="example">
 NOTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; A value of &quot;manufacturing&quot; is recommended for both product_context discipline_type and  product_definition_context life_cycle_stage.</P>
+
 <P CLASS="example">
-EXAMPLE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; In the exchange file fragment below, #10, #20, and #30 are the product structure instances encoding a workpiece with its_id = &quot;1234-K789&quot; and a revision_id = &quot;1.0&quot;.   The product_context (#40) identified a design discipline, the product_definition_context (#70) identifies a life cycle stage, and instances #50 and #60 identify this part of ISO 10303. </P>
+EXAMPLE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; In the exchange file fragment below, #10, #20, and #30 are the product structure instances encoding a workpiece with its_id = &quot;1234-K789&quot; and a revision_id = &quot;1.0&quot;.   The product_context (#40) identifies a design discipline, the product_definition_context (#70) identifies a life cycle stage, and instances #50 and #60 identifies this part of ISO 10303.</P>
+
 <PRE CLASS="example">
 #10=PRODUCT('1234-K789','widget','a fictional product',(#40));
 #20=PRODUCT_DEFINITION_FORMATION('1.0','first version of our widget',#10);
@@ -35917,10 +36082,13 @@ It is recommended that these direction vectors be normalized.</P>
 <H5><A NAME="clause-5-2-1-6-3"></A>5.2.1.6.3 Toolpath arcs</H5>
 <P>
 When describing a toolpath consisting of a circular arc, the trimmed_curve subtype of bounded_curve is used.  The trimmed_curve.basis_curve attribute is an instance of circle, and the trim_1 and trim_2 attributes contain cartesian_points representing the start and end points respectively.  The direction of traversal is indicated by comparing the trimmed_curve sense_agreement attribute with the mathematical sense of the underlying circle.</P>
+
 <P CLASS="example">
-NOTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Given a circle in the XY plane with an axis placement along the positive Z axis, a sense_agreement of true indicates counterclockwise motion (from 0,+X to +Y,0 to 0,-X to -Y,0), while a sense_agreement of false indicates clockwise motion.</P>
+NOTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Given a circle in the XY plane with an axis placement along the positive Z axis, a sense_agreement of true indicates counterclockwise motion (from +X,0 to 0,+Y to -X,0 to 0,-Y), while a sense_agreement of false indicates clockwise motion.</P>
+
 <P CLASS="example">
 EXAMPLE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The exchange file fragment below shows a trimmed curve (#10), based on a circle located at (0,0,0) with a radius of 3.5.   The arc starts (3.5,0,0)  (#50) and traverses a 90 degree arc to (0,3.5,0) (#60).</P>
+
 <PRE CLASS="example">
 #10=TRIMMED_CURVE('',#20,(#50),(#60),.T.,.CARTESIAN.);
 #20=CIRCLE('',#30,3.5);
@@ -35929,6 +36097,9 @@ EXAMPLE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The exchange file fragment below shows a t
 #50=CARTESIAN_POINT('start point',(3.5,0.,0.));
 #60=CARTESIAN_POINT('end point',(0.,3.5,0.));
 </PRE>
+
+<P>
+A toolpath containing a circular arc may also be described using a polyline with an instance of the <a href="#aim-via_arc_point">via_arc_point</a> subtype of cartesian_point.</P>
 
 
 <H5><A NAME="clause-5-2-1-6-4"></A>5.2.1.6.4 Complete circles</H5>
@@ -35946,6 +36117,8 @@ EXAMPLE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Arcs and complete circles can occur when r
 </FIGURE>
 
 
+<P>
+A toolpath containing a complete circle may also be described using a polyline with two instances of the <a href="#aim-via_arc_point">via_arc_point</a> subtype of cartesian_point.</P>
 
 
 
@@ -36123,12 +36296,13 @@ END_TYPE;
 
 <H5><A NAME="aim-security_classification_item"></A>5.2.2.1.10 security_classification_item</H5>
 <P>
-A <B>security_classification_item</B> identifies a <B>machining_operation</B>, <B>machining_process_executable</B>, <B>machining_toolpath</B>, <B>product_definition</B>, or <B>product_definition_formation</B> to which a referenced <B>security_classification</B> may be assigned.</P>
+A <B>security_classification_item</B> identifies an <B>assembly_component_usage</B>, <B>machining_operation</B>, <B>machining_process_executable</B>, <B>machining_toolpath</B>, <B>product_definition</B>, or <B>product_definition_formation</B> to which a referenced <B>security_classification</B> may be assigned.</P>
 
 <H6 CLASS="section-underlined">EXPRESS specification:</H6>
 <PRE CLASS="code">
 *)
 TYPE security_classification_item = SELECT (
+        assembly_component_usage,
         machining_operation,
         machining_process_executable,
         machining_toolpath,
@@ -38434,6 +38608,46 @@ ENTITY machining_process_executable
           ['INTEGRATED_CNC_SCHEMA.MACHINING_OPERATOR_INSTRUCTION_RELATIONSHIP'],
           ['INTEGRATED_CNC_SCHEMA.MACHINING_OPERATOR_INSTRUCTION']))
         );
+
+  WR9:  (verify_optional_action_property        (SELF, 'enabled')) AND
+        (verify_enumeration_action_property     (SELF, 'enabled',
+         ['enabled', 'disabled'])) AND
+
+	(1 &gt;= SIZEOF (QUERY (act &lt;*
+          USEDIN (SELF, 'INTEGRATED_CNC_SCHEMA.ACTION.CHOSEN_METHOD') |
+          (act.name = 'as-is shape')))) AND
+        (0 = SIZEOF (QUERY (act &lt;*
+          USEDIN (SELF, 'INTEGRATED_CNC_SCHEMA.ACTION.CHOSEN_METHOD') |
+          (act.name = 'as-is shape') AND NOT
+          ('INTEGRATED_CNC_SCHEMA.PRODUCT_DEFINITION_PROCESS'
+            IN TYPEOF (act))))) AND
+
+        (1 &gt;= SIZEOF (QUERY (act &lt;*
+          USEDIN (SELF, 'INTEGRATED_CNC_SCHEMA.ACTION.CHOSEN_METHOD') |
+          (act.name = 'fixture shape')))) AND
+        (0 = SIZEOF (QUERY (act &lt;*
+          USEDIN (SELF, 'INTEGRATED_CNC_SCHEMA.ACTION.CHOSEN_METHOD') |
+          (act.name = 'fixture shape') AND NOT
+          ('INTEGRATED_CNC_SCHEMA.PRODUCT_DEFINITION_PROCESS'
+            IN TYPEOF (act))))) AND
+
+        (1 &gt;= SIZEOF (QUERY (act &lt;*
+          USEDIN (SELF, 'INTEGRATED_CNC_SCHEMA.ACTION.CHOSEN_METHOD') |
+          (act.name = 'removal shape')))) AND
+        (0 = SIZEOF (QUERY (act &lt;*
+          USEDIN (SELF, 'INTEGRATED_CNC_SCHEMA.ACTION.CHOSEN_METHOD') |
+          (act.name = 'removal shape') AND NOT
+          ('INTEGRATED_CNC_SCHEMA.PRODUCT_DEFINITION_PROCESS'
+            IN TYPEOF (act))))) AND
+
+        (1 &gt;= SIZEOF (QUERY (act &lt;*
+          USEDIN (SELF, 'INTEGRATED_CNC_SCHEMA.ACTION.CHOSEN_METHOD') |
+          (act.name = 'to-be shape')))) AND
+        (0 = SIZEOF (QUERY (act &lt;*
+          USEDIN (SELF, 'INTEGRATED_CNC_SCHEMA.ACTION.CHOSEN_METHOD') |
+          (act.name = 'to-be shape') AND NOT
+          ('INTEGRATED_CNC_SCHEMA.PRODUCT_DEFINITION_PROCESS'
+            IN TYPEOF (act)))));
 END_ENTITY;
 (*
 </PRE>
@@ -38469,7 +38683,15 @@ END_ENTITY;
 <B>WR7</B>: If the <B>description</B> of the <B>machining_process_executable</B> is 'selective', the <B>machining_process_executable</B> shall be the <B>relating_method</B> of at least two instances of <B>machining_process_branch_relationship</B>, in which the <B>related_method</B> is of type <B>machining_process_executable</B>.</P>
 <P>
 <B>WR8</B>: If the <B>description</B> of the <B>machining_process_executable</B> is 'setup instructions', the <B>machining_process_executable</B> shall be the <B>relating_method</B> of zero or more instances of <B>machining_operator_instruction_relationship</B>, in which the <B>related_method</B> is of type <B>machining_operator_instruction</B>.</P>
-
+<P>
+<B>WR9</B>: The <B>machining_process_executable</B> shall satisfy the following conditions:
+<UL>
+<LI>the <B>machining_process_executable</B> shall be the <b>definition</b> of at most one <b>action_property</b> with a name of 'enabled', and the <b>representation</b> used to describe the <b>action_property</b> shall contain a <b>representation_item</b> of type <b>descriptive_representation_item</b> with a <b>description</b> of 'enabled' or 'disabled';</LI>
+<LI>the <B>machining_process_executable</B> shall be the <b>chosen_method</b> of at most one <b>product_definition_process</b> with a <b>name</b> of 'as-is shape';</LI>
+<LI>the <B>machining_process_executable</B> shall be the <b>chosen_method</b> of at most one <b>product_definition_process</b> with a <b>name</b> of 'fixture shape';</LI>
+<LI>the <B>machining_process_executable</B> shall be the <b>chosen_method</b> of at most one <b>product_definition_process</b> with a <b>name</b> of 'removal shape';</LI>
+<LI>the <B>machining_process_executable</B> shall be the <b>chosen_method</b> of at most one <b>product_definition_process</b> with a <b>name</b> of 'to-be shape'.</LI>
+</UL>
 
 <H6 CLASS="section-underlined">Informal propositions:</H6>
 <P>
@@ -39517,6 +39739,14 @@ ENTITY machining_tool_usage
           (act.name = 'tool usage') AND NOT
           ('INTEGRATED_CNC_SCHEMA.PRODUCT_DEFINITION_PROCESS' IN TYPEOF (act))
         )));
+
+  WR4:  ((verify_optional_action_property (SELF, 'gage placement')) AND
+         (verify_rep_item_for_action_property (SELF, 'gage placement',
+          ['INTEGRATED_CNC_SCHEMA.AXIS2_PLACEMENT_3D'])));
+
+  WR5:  ((verify_optional_action_property (SELF, 'tool end placement')) AND
+         (verify_rep_item_for_action_property (SELF, 'tool end placement',
+          ['INTEGRATED_CNC_SCHEMA.AXIS2_PLACEMENT_3D'])));
 END_ENTITY;
 (*
 </PRE>
@@ -39530,6 +39760,10 @@ END_ENTITY;
 <P>
 <B>WR3</B>: The <B>machining_tool_usage </B>shall be the <B>chosen_method</B> of at most one <B>product_definition_process</B> with a <B>name</B> of 'tool usage'.</P>
 
+<P>
+<B>WR4</B>: The <b>machining_tool_usage</b> shall shall be the <b>definition</b> of at most one <b>action_property</b> with a <b>name</b> of 'gage placement', and the <b>representation</b> used to describe the <b>action_property</b> shall contain a <b>representation_item</b> of type <b>axis2_placement_3d</b>.</P>
+<P>
+<B>WR5</B>: The <b>machining_tool_usage</b> shall shall be the <b>definition</b> of at most one <b>action_property</b> with a <b>name</b> of 'tool end placement', and the <b>representation</b> used to describe the <b>action_property</b> shall contain a <b>representation_item</b> of type <b>axis2_placement_3d</b>.</P>
 
 
 <H5><A NAME="aim-machining_toolpath"></A>5.2.3.1.76 machining_toolpath</H5>
@@ -39655,6 +39889,12 @@ ENTITY machining_toolpath
            ['INTEGRATED_CNC_SCHEMA.BOUNDED_CURVE'])) AND
 
          (verify_optional_action_property
+           (SELF, 'tool reference direction')) AND
+         (verify_rep_item_for_action_property
+           (SELF, 'tool reference direction',
+           ['INTEGRATED_CNC_SCHEMA.BOUNDED_CURVE'])) AND
+
+         (verify_optional_action_property
           (SELF, 'path maximum deviation')) AND
          (verify_length_measure_action_property
           (SELF, 'path maximum deviation')) AND
@@ -39683,6 +39923,12 @@ ENTITY machining_toolpath
 
          (verify_optional_action_property     (SELF, 'tool axis')) AND
          (verify_rep_item_for_action_property (SELF, 'tool axis',
+           ['INTEGRATED_CNC_SCHEMA.BOUNDED_CURVE'])) AND
+
+         (verify_optional_action_property
+           (SELF, 'tool reference direction')) AND
+         (verify_rep_item_for_action_property
+           (SELF, 'tool reference direction',
            ['INTEGRATED_CNC_SCHEMA.BOUNDED_CURVE'])) AND
 
          (verify_optional_action_property     (SELF, 'contact type')) AND
@@ -39723,9 +39969,14 @@ ENTITY machining_toolpath
             (SELF, 'material removal total volume')) AND
          (verify_rep_item_for_action_property 
             (SELF, 'material removal total volume',
-            ['INTEGRATED_CNC_SCHEMA.MEASURE_REPRESENTATION_ITEM']))
-        );
+            ['INTEGRATED_CNC_SCHEMA.MEASURE_REPRESENTATION_ITEM'])) AND
 
+         (verify_optional_action_property 
+            (SELF, 'cross section area parameters')) AND
+         (verify_rep_item_for_action_property 
+            (SELF, 'cross section area parameters', 
+            ['INTEGRATED_CNC_SCHEMA.BOUNDED_CURVE']))
+        );
 END_ENTITY;
 (*
 </PRE>
@@ -39776,6 +40027,7 @@ END_ENTITY;
 <LI>the <B>machining_toolpath</B> shall be the <B>definition</B> of exactly one <B>action_property</B> with a <B>name</B> of 'basic curve', and the <B>representation</B> used to describe the <B>action_property</B> shall contain a <B>representation_item </B>of type <B>bounded_curve</B>;</LI>
 <LI>the <B>machining_toolpath</B> shall be the <B>definition</B> of at most one <B>action_property</B> with a <B>name</B> of 'surface normal', and the <B>representation</B> used to describe the <B>action_property</B> shall contain a <B>representation_item </B>of type <B>bounded_curve</B>;</LI>
 <LI>the <B>machining_toolpath</B> shall be the <B>definition</B> of at most one <B>action_property</B> with a <B>name</B> of 'tool axis', and the <B>representation</B> used to describe the <B>action_property</B> shall contain a <B>representation_item </B>of type <B>bounded_curve</B>;</LI>
+<LI>the <B>machining_toolpath</B> shall be the <B>definition</B> of at most one <B>action_property</B> with a <B>name</B> of 'tool reference direction', and the <B>representation</B> used to describe the <B>action_property</B> shall contain a <B>representation_item </B>of type <B>bounded_curve</B>;</LI>
 <LI>the <B>machining_toolpath</B> shall be the <B>definition</B> of at most one <B>action_property</B> with a <B>name</B> of 'path maximum deviation', and the <B>representation</B> used to describe the <B>action_property</B> shall contain a <B>representation_item </B>of type <B>measure_representation_item</B> and <B>length_measure_with_unit</B>;</LI>
 <LI>the <B>machining_toolpath</B> shall be the <B>definition</B> of at most one <B>action_property</B> with a <B>name</B> of 'tool axis maximum deviation', and the <B>representation</B> used to describe the <B>action_property</B> shall contain a <B>representation_item </B>of type <B>measure_representation_item</B> and <B>plane_angle_measure_with_unit</B>.</LI>
 </UL>
@@ -39784,6 +40036,7 @@ END_ENTITY;
 <UL>
 <LI>the <B>machining_toolpath</B> shall either be the <B>definition</B> of exactly one <B>action_property</B> with a <B>name</B> of 'basic curve' with an associated <B>representation</B> that contains a <B>bounded_pcurve</B>, or the <B>machining_toolpath</B> shall be the <B>definition</B> of exactly one <B>action_property</B> with a <B>name</B> of 'basic curve' with an associated <B>representation</B> that contains a <B>bounded_curve</B> and exactly one <B>action_property</B> with a <B>name</B> of 'surface normal' with an associated <B>representation</B> that contains a <B>bounded_curve</B>;</LI>
 <LI>the <B>machining_toolpath</B> shall be the <B>definition</B> of at most one <B>action_property</B> with a <B>name</B> of 'tool axis', and the <B>representation</B> used to describe the <B>action_property</B> shall contain a <B>representation_item </B>of type <B>bounded_curve</B>;</LI>
+<LI>the <B>machining_toolpath</B> shall be the <B>definition</B> of at most one <B>action_property</B> with a <B>name</B> of 'tool reference direction', and the <B>representation</B> used to describe the <B>action_property</B> shall contain a <B>representation_item </B>of type <B>bounded_curve</B>;</LI>
 <LI>the <B>machining_toolpath</B> shall be the <B>definition</B> of at most one <B>action_property</B> with a <B>name</B> of 'contact type', and the <B>representation</B> used to describe the <B>action_property</B> shall contain a <B>representation_item </B>of type <B>descriptive_representation_item</B> with a <B>description</B> of 'side' or 'front';</LI>
 <LI>the <B>machining_toolpath</B> shall be the <B>definition</B> of at most one <B>action_property</B> with a <B>name</B> of 'path maximum deviation', and the <B>representation</B> used to describe the <B>action_property</B> shall contain a <B>representation_item </B>of type <B>measure_representation_item</B> and <B>length_measure_with_unit</B>;</LI>
 <LI>the <B>machining_toolpath</B> shall be the <B>definition</B> of at most one <B>action_property</B> with a <B>name</B> of 'tool axis maximum deviation', and the <B>representation</B> used to describe the <B>action_property</B> shall contain a <B>representation_item </B>of type <B>measure_representation_item</B> and <B>plane_angle_measure_with_unit</B>.</LI>
@@ -39793,7 +40046,8 @@ END_ENTITY;
 <UL>
 <LI>the <B>machining_toolpath</B> shall be the <B>definition</B> of at most one <B>action_property</B> with a <B>name</B> of 'material removal depth', and the <B>representation</B> used to describe the <B>action_property</B> shall contain a <B>representation_item </B>either of type <B>measure_representation_item</B> and <B>length_measure_with_unit</B>, or of type <B>bounded_curve</B>;</LI>
 <LI>the <B>machining_toolpath</B> shall be the <B>definition</B> of at most one <B>action_property</B> with a <B>name</B> of 'material removal overcut', and the <B>representation</B> used to describe the <B>action_property</B> shall contain a <B>representation_item </B>either of type <B>measure_representation_item</B> and <B>length_measure_with_unit</B>, or of type <B>bounded_curve</B>;</LI>
-<LI>the <B>machining_toolpath</B> shall be the <B>definition</B> of at most one <B>action_property</B> with a <B>name</B> of 'material removal total volume', and the <B>representation</B> used to describe the <B>action_property</B> shall contain a <B>representation_item </B>of type <B>measure_representation_item</B>.</LI>
+<LI>the <B>machining_toolpath</B> shall be the <B>definition</B> of at most one <B>action_property</B> with a <B>name</B> of 'material removal total volume', and the <B>representation</B> used to describe the <B>action_property</B> shall contain a <B>representation_item </B>of type <B>measure_representation_item</B>;</LI>
+<LI>the <B>machining_toolpath</B> shall be the <B>definition</B> of at most one <B>action_property</B> with a <B>name</B> of 'cross section area parameters', and the <B>representation</B> used to describe the <B>action_property</B> shall contain a <B>representation_item </B>of type <B>bounded_curve</B>.</LI>
 </UL>
 
 
@@ -39875,13 +40129,13 @@ ENTITY machining_touch_probing
          (verify_rep_item_for_action_property   (SELF, 'start position',
           ['INTEGRATED_CNC_SCHEMA.AXIS2_PLACEMENT_3D'])) AND
 
-        (1 = SIZEOF (QUERY (act &lt;* 
+        (1 = SIZEOF (QUERY (act &lt;*
           USEDIN (SELF, 'INTEGRATED_CNC_SCHEMA.ACTION.CHOSEN_METHOD') |
           (act.name = 'workpiece probing')))) AND
-        (0 = SIZEOF (QUERY (act &lt;* 
+        (0 = SIZEOF (QUERY (act &lt;*
           USEDIN (SELF, 'INTEGRATED_CNC_SCHEMA.ACTION.CHOSEN_METHOD') |
           (act.name = 'workpiece probing') AND NOT
-          ('INTEGRATED_CNC_SCHEMA.PRODUCT_DEFINITION_PROCESS' 
+          ('INTEGRATED_CNC_SCHEMA.PRODUCT_DEFINITION_PROCESS'
             IN TYPEOF (act))))) AND
 
          (verify_required_action_property       (SELF, 'direction')) AND
@@ -39894,17 +40148,19 @@ ENTITY machining_touch_probing
            'INTEGRATED_CNC_SCHEMA.MEASURE_REPRESENTATION_ITEM',
            'INTEGRATED_CNC_SCHEMA.QUALIFIED_REPRESENTATION_ITEM'])) AND
 
-         (verify_required_action_property       (SELF, 'probe'))
+         (1 = SIZEOF (QUERY (mt &lt;*
+          USEDIN (SELF, 'INTEGRATED_CNC_SCHEMA.ACTION_RESOURCE.USAGE') |
+          ('INTEGRATED_CNC_SCHEMA.MACHINING_TOOL' in TYPEOF(mt)))))
         );
 
   WR5:  NOT (SELF.description = 'workpiece complete probing') OR
-        ((1 = SIZEOF (QUERY (act &lt;* 
+        ((1 = SIZEOF (QUERY (act &lt;*
           USEDIN (SELF, 'INTEGRATED_CNC_SCHEMA.ACTION.CHOSEN_METHOD') |
           (act.name = 'workpiece complete probing')))) AND
-         (0 = SIZEOF (QUERY (act &lt;* 
+         (0 = SIZEOF (QUERY (act &lt;*
           USEDIN (SELF, 'INTEGRATED_CNC_SCHEMA.ACTION.CHOSEN_METHOD') |
           (act.name = 'workpiece complete probing') AND NOT
-          ('INTEGRATED_CNC_SCHEMA.PRODUCT_DEFINITION_PROCESS' 
+          ('INTEGRATED_CNC_SCHEMA.PRODUCT_DEFINITION_PROCESS'
             IN TYPEOF (act))))) AND
 
          (verify_required_action_property       (SELF, 'probing distance')) AND
@@ -39913,7 +40169,9 @@ ENTITY machining_touch_probing
            'INTEGRATED_CNC_SCHEMA.MEASURE_REPRESENTATION_ITEM',
            'INTEGRATED_CNC_SCHEMA.QUALIFIED_REPRESENTATION_ITEM'])) AND
 
-         (verify_required_action_property       (SELF, 'probe')) AND
+         (1 = SIZEOF (QUERY (mt &lt;*
+          USEDIN (SELF, 'INTEGRATED_CNC_SCHEMA.ACTION_RESOURCE.USAGE') |
+          ('INTEGRATED_CNC_SCHEMA.MACHINING_TOOL' in TYPEOF(mt))))) AND
 
          (verify_required_action_property       (SELF, 'computed offset')) AND
          (verify_rep_type_for_action_property   (SELF, 'computed offset',
@@ -39952,14 +40210,14 @@ END_ENTITY;
 <LI>the <B>machining_touch_probing</B> shall be the <B>chosen_method</B> of exactly one <B>product_definition_process</B> with a <B>name</B> of 'workpiece probing';</LI>
 <LI>the <B>machining_touch_probing</B> shall be the <B>definition</B> of exactly one <B>action_property</B> with a <B>name</B> of 'direction', and the <B>representation</B> used to describe the <B>action_property</B> shall contain a <B>representation_item </B>of type <B>direction</B>;</LI>
 <LI>the <B>machining_touch_probing</B> shall be the <B>definition</B> of exactly one <B>action_property</B> with a <B>name</B> of 'expected value', and the <B>representation</B> used to describe the <B>action_property</B> shall contain a <B>representation_item </B>of type <B>length_measure_with_unit</B>, <B>measure_representation_item</B>, and <B>qualified_representation_item</B>;</LI>
-<LI>the <B>machining_touch_probing</B> shall be the <B>definition</B> of exactly one <B>action_property</B> with a <B>name</B> of 'probe'.</LI>
+<LI>the <B>machining_touch_probing</B> shall appear in the usage set of exactly one <b>machining_tool</b>.</LI>
 </UL>
 <P>
 <B>WR5</B>: If the <B>description</B> of the <B>machining_touch_probing</B> is 'workpiece complete probing', the <B>machining_touch_probing</B> shall satisfy the following conditions:</P>
 <UL>
 <LI>the <B>machining_touch_probing</B> shall be the <B>chosen_method</B> of exactly one <B>product_definition_process</B> with a <B>name</B> of 'workpiece complete probing';</LI>
 <LI>the <B>machining_touch_probing</B> shall be the <B>definition</B> of exactly one <B>action_property</B> with a <B>name</B> of 'probing distance', and the <B>representation</B> used to describe the <B>action_property</B> shall contain a <B>representation_item </B>of type <B>length_measure_with_unit</B>, <B>measure_representation_item</B>, and <B>qualified_representation_item</B>;</LI>
-<LI>the <B>machining_touch_probing</B> shall be the <B>definition</B> of exactly one <B>action_property</B> with a <B>name</B> of 'probe';</LI>
+<LI>the <B>machining_touch_probing</B> shall appear in the usage set of exactly one <b>machining_tool</b>;</LI>
 <LI>the <B>machining_touch_probing</B> shall be the <B>definition</B> of exactly one <B>action_property</B> with a <B>name</B> of 'computed offset', and the <B>representation</B> used to describe the <B>action_property</B> shall be<B> </B>of type <B>machining_offset_vector_representation</B>.</LI>
 </UL>
 <P>
@@ -40018,10 +40276,7 @@ ENTITY machining_workingstep
           ['INTEGRATED_CNC_SCHEMA.TURNING_TYPE_OPERATION']))
         );
 
-  WR4:  NOT (SELF.description IN ['machining', 'turning']) OR
-        (verify_optional_in_process_geometry (SELF));
-
-  WR5:  ((verify_optional_action_property (SELF, 'toolpath orientation')) AND
+  WR4:  ((verify_optional_action_property (SELF, 'toolpath orientation')) AND
          (verify_rep_item_for_action_property (SELF, 'toolpath orientation',
           ['INTEGRATED_CNC_SCHEMA.AXIS2_PLACEMENT_3D'])));
 
@@ -40047,9 +40302,7 @@ END_ENTITY;
 <LI><B>machining_workingstep</B> shall be the <B>relating_method</B> of exactly one <B>machining_operation_relationship</B>, in which the <B>related_method</B> is of type <B>turning_type_operation</B>.</LI>
 </UL>
 <P>
-<B>WR4</B>: If the <B>description</B> of the <B>machining_workingstep</B> is either 'machining' or 'turning', the <B>machining_workingstep</B> shall satisfy the conditions tested by the function <B>verify_optional_in_process_geometry</B>.  Refer to the definition of the function <B>verify_optional_in_process_geometry</B> for more information.</P>
-<P>
-<B>WR5</B>: The <B>machining_workingstep</B> shall be the <B>definition</B> of at most one <B>action_property</B> with a <B>name</B> of 'toolpath orientation', and the <B>representation</B> used to describe the <B>action_property</B> shall contain a <B>representation_item </B>of type <B>axis2_placement_3d</B>.</P>
+<B>WR4</B>: The <B>machining_workingstep</B> shall be the <B>definition</B> of at most one <B>action_property</B> with a <B>name</B> of 'toolpath orientation', and the <B>representation</B> used to describe the <B>action_property</B> shall contain a <B>representation_item </B>of type <B>axis2_placement_3d</B>.</P>
 
 
 <H6 CLASS="section-underlined">Informal propositions:</H6>
@@ -40085,7 +40338,9 @@ ENTITY machining_workplan
           ('INTEGRATED_CNC_SCHEMA.PRODUCT_DEFINITION_PROCESS' IN TYPEOF (act))
         )));
 
-  WR4:  (verify_optional_in_process_geometry (SELF));
+  WR4:  ((verify_optional_action_property (SELF, 'toolpath orientation')) AND
+         (verify_rep_item_for_action_property (SELF, 'toolpath orientation',
+          ['INTEGRATED_CNC_SCHEMA.AXIS2_PLACEMENT_3D'])));
 END_ENTITY;
 (*
 </PRE>
@@ -40099,7 +40354,8 @@ END_ENTITY;
 <P>
 <B>WR3</B>: The <B>machining_workplan </B>shall be the <B>chosen_method</B> of at most one <B>product_definition_process</B> with a <B>name</B> of 'setup'.</P>
 <P>
-<B>WR4</B>: The <B>machining_workplan</B> shall satisfy the conditions tested by the function <B>verify_optional_in_process_geometry</B>.  Refer to the definition of the function <B>verify_optional_in_process_geometry</B> for more information.</P>
+<B>WR4</B>: The <B>machining_workplan</B> shall be the <b>definition</b> of at most one <b>action_property</b> with a <b>name</b> of 'toolpath orientation', and the <b>representation</b> used to describe the <b>action_property</b> shall contain a <b>representation_item</b> of type <b>axis2_placement_3d</b>.</P>
+
 
 
 <H6 CLASS="section-underlined">Informal propositions:</H6>
@@ -40954,6 +41210,107 @@ ENTITY value_range
 END_ENTITY;
 (*
 </PRE>
+
+
+<H5><A NAME="aim-via_arc_point"></A>5.2.3.1.94 via_arc_point</H5>
+<P>
+A <b>via_arc_point</b> is a <b>cartesian_point</b>. When appearing in the <b>points</b> list of a <b>polyline</b>, the <b>via_arc_point</b> defines an arc starting at the previous point in the <b>polyline</b>, passing through the <b>via_arc_point</b>, and ending at the next point in the <b>polyline</b>. The arc defined by the <b>via_arc_point</b> shall be less than 2&pi;.</P>
+
+<P>
+If two via points are considered coincident if any two consecutive points in the via re considered coincident, they shall be considered to decrine a straight line segment rather than an arc.   context of enclosing representation.   Extra via points between two non via points must define arcs of the same radius.</P>
+
+<P CLASS="example">
+NOTE 1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Since the arc defined by a via is less than  2&pi;, a full circle is described using more than one via point.   The use of a via point to describe an arc is also found in the circular_path entity in <a href="bibliography.htm#iso10303-105">ISO 10303-105</a>.</P>
+
+<p>
+If a via point and the preceeding or following point in a polyline are considered coincident, the via point shall be considered to define straight line segments rather than an arc.</p>
+
+<P CLASS="example">
+NOTE 2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Two points are considered coincident if they lie within the uncertainty distance given by the global_uncertainty_assigned_context of the enclosing representation.</P>
+
+<P CLASS="example">
+EXAMPLE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; In the exchange file fragment below, #10 describes a 270 degree arc on the XY plane, starting at point #20, passing through point #30 and ending at point #40.   Instance #50 describes a complete circle on the XY plane, starting and ending at point #60, passing through point #70 and point #80.</P>
+
+<PRE CLASS="example">
+/* 270 degree arc, centered at (0,0,0) */
+#10=POLYLINE('',(#20,#30,#40));
+#20=CARTESIAN_POINT('start',(0,1.,0));
+#30=VIA_ARC_POINT('via',(1.,0,0));
+#40=CARTESIAN_POINT('end',(-1.,0,0));
+
+/* complete circle, centered at (0,0,0) */
+#50=POLYLINE('',(#60,#30,#40,#60));
+#60=CARTESIAN_POINT('start and end',(0,1.,0));
+#40=VIA_ARC_POINT('via #1',(-1.,0,0));
+#30=VIA_ARC_POINT('via #2',(1.,0,0));
+</PRE>
+
+
+<P CLASS="example">
+<a href="#fig-via_arcs">Figure 53</a> illustrates the arc and a complete circle described by the exchange file fragment.</P>
+
+<FIGURE><A NAME="fig-via_arcs"></A>
+<IMG SRC="images/via_arcs.svg">
+<FIGCAPTION>Figure 53 &mdash; Arcs with via points</FIGCAPTION>
+</FIGURE>
+
+
+<H6 CLASS="section-underlined">EXPRESS specification:</H6>
+<PRE CLASS="code">
+*)
+ENTITY via_arc_point
+  SUBTYPE OF (cartesian_point);
+  WHERE
+  WR1: SIZEOF(USEDIN(SELF, 'INTEGRATED_CNC_SCHEMA.POLYLINE.POINTS')) &gt; 0;
+  WR2: (0 = SIZEOF (QUERY (pl &lt;* 
+	USEDIN(SELF, 'INTEGRATED_CNC_SCHEMA.POLYLINE.POINTS') |
+	((pl.points[1] = SELF) OR (pl.points[HiIndex(pl.points)] = SELF))
+	)));
+END_ENTITY;
+(*
+</PRE>
+
+
+<H6 CLASS="section-underlined">Formal propositions:</H6>
+<P>
+<B>WR1</B>: The <b>via_arc_point</b> shall appear in the <b>points</b> list of at least one <b>polyline</b>.</P>
+<p>
+<b>WR2</b>: The <b>via_arc_point</b> shall not appear as either the first or last element in the <b>points</b> list of any <b>polyline</b>.</p>
+
+
+<H5><A NAME="aim-via_helix_point"></A>5.2.3.1.95  via_helix_point</H5>
+<P>
+A <b>via_helix_point</b> is a <b>cartesian_point</b>.  When appearing in the <b>points</b> list of a <b>polyline</b>, the <b>via_helix_point</b> defines an helix starting at the previous point in the <b>polyline</b>, passing through the <b>via_helix_point</b>, and ending at the next point in the <b>polyline</b>.   As with <b>via_arc_point</b>, when projected to the plane, the arc defined by the <b>via_helix_point</b> shall be less than 2&pi;.</P>
+
+<p>
+If a via point and the preceeding or following point in a polyline are considered coincident, the via point shall be considered to define straight line segments rather than a helix.</p>
+
+<P CLASS="example">
+NOTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Two points are considered coincident if they lie within the uncertainty distance given by the global_uncertainty_assigned_context of the enclosing representation.</P>
+
+<H6 CLASS="section-underlined">EXPRESS specification:</H6>
+<PRE CLASS="code">
+*)
+ENTITY via_helix_point
+  SUBTYPE OF (cartesian_point);
+  WHERE
+  WR1: SIZEOF(USEDIN(SELF, 'INTEGRATED_CNC_SCHEMA.POLYLINE.POINTS')) &gt; 0;
+  WR2: (0 = SIZEOF (QUERY (pl &lt;* 
+        USEDIN(SELF, 'INTEGRATED_CNC_SCHEMA.POLYLINE.POINTS') |
+        ((pl.points[1] = SELF) OR (pl.points[HiIndex(pl.points)] = SELF))
+        )));
+END_ENTITY;
+(*
+</PRE>
+
+
+<H6 CLASS="section-underlined">Formal propositions:</H6>
+<P>
+<B>WR1</B>: The <b>via_helix_point</b> shall appear in the <b>points</b> list of at least one <b>polyline</b>.</P>
+<p>
+<b>WR2</b>: The <b>via_helix_point</b> shall not appear as either the first or last element in the <b>points</b> list of any <b>polyline</b>.</p>
+
+
 
 
 
@@ -42607,48 +42964,6 @@ END_FUNCTION;
 <B>cad:</B> the <B>characterized_action_definition</B> that appears as the <B>definition</B> of the <B>action_property</B> instances to examine.</P>
 <P>
 <B>prop_name:</B> the string that appears as the <B>name</B> of the <B>action_property</B> instances to examine.</P>
-
-
-
-<H4><A NAME="aim-verify_optional_in_process_geometry"></A>5.2.5.28 verify_optional_in_process_geometry</H4>
-<P>
-The <B>verify_optional_in_process_geometry</B> function returns true if and only if the input <B>machining_process_executable</B> satisfies the following conditions:</P>
-<UL>
-<LI>the <B>machining_process_executable</B> is <B>definition</B> of at most one <B>action_property</B> with a <B>name</B> of 'as-is shape', and the <B>representation</B> used to describe the <B>action_property</B> is of type <B>shape_representation</B>;</LI>
-<LI>the <B>machining_process_executable</B> is <B>definition</B> of at most one <B>action_property</B> with a <B>name</B> of 'to-be shape', and the <B>representation</B> used to describe the <B>action_property</B> is of type <B>shape_representation</B>;</LI>
-<LI>the <B>machining_process_executable</B> is <B>definition</B> of at most one <B>action_property</B> with a <B>name</B> of 'removal shape', and the <B>representation</B> used to describe the <B>action_property</B> is of type <B>shape_representation</B>.</LI>
-</UL>
-
-<H6 CLASS="section-underlined">EXPRESS specification:</H6>
-<PRE CLASS="code">
-*)
-FUNCTION verify_optional_in_process_geometry (
-        mpe:            machining_process_executable
-        ): LOGICAL;
-
-    RETURN 
-      ((verify_optional_action_property (mpe, 'as-is shape')) AND
-       (verify_optional_action_property (mpe, 'to-be shape')) AND
-       (verify_optional_action_property (mpe, 'removal shape')) AND
-
-        -- All properties need advanced brep shape reps
-       (0 = SIZEOF (QUERY (prop &lt;* 
-         USEDIN (mpe, 'INTEGRATED_CNC_SCHEMA.ACTION_PROPERTY.DEFINITION') |
-         ((prop.name IN ['as-is shape', 'to-be shape', 'removal shape']) AND 
-          (0 = SIZEOF (QUERY (prep &lt;* USEDIN (prop, 'INTEGRATED_CNC_SCHEMA.' +
-             'ACTION_PROPERTY_REPRESENTATION.PROPERTY') |
-             ('INTEGRATED_CNC_SCHEMA.SHAPE_REPRESENTATION' 
-               IN TYPEOF (prep.representation))))))
-          )))
-      );
-END_FUNCTION;
-(*
-</PRE>
-
-
-<H6 CLASS="section-underlined">Argument definitions:</H6>
-<P>
-<B>mpe:</B> the <B>machining_process_executable</B> to examine.</P>
 
 
 
