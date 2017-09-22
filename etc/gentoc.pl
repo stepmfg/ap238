@@ -47,6 +47,7 @@ my @files = (
     "annexH.htm",
     "annexI.htm",
     "annexJ.htm",
+    "annexK.htm",
     "bibliography.htm"
  );
 
@@ -202,11 +203,11 @@ sub main {
     close (DSTFRM);
     
     print "Installing new index files\n";
-    rename 'contents.htm', 'oldtoc.htm' or die ("old toc: $!");
+    rename 'contents.htm', 'contents.htm~' or die ("old toc: $!");
     rename 'newtoc.htm', 'contents.htm'	or die ("new toc: $!");
 
-    rename 'frameindex.htm', 'oldtocfrm.htm' or die ("old frm: $!");
-    rename 'newtocfrm.htm', 'frameindex.htm' or die ("old frm: $!");
+    rename 'frameindex.htm', 'frameindex.htm~' or die ("old frm: $!");
+    rename 'newtocfrm.htm', 'frameindex.htm' or die ("new frm: $!");
     
     return 1;
 }

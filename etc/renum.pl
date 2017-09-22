@@ -24,64 +24,174 @@
 
 
 use strict;
+my %anchor;
+my $fignum = 0;
+my $tabnum = 0;
+
+
+my @files = (
+    "foreword.htm",
+    "introduction.htm",
+    "clause1.htm",
+    "clause2.htm",
+    "clause3.htm",
+    "clause4.htm",
+    "clause5.htm",
+    "clause6.htm",
+    "annexA.htm",
+    "annexB.htm",
+    "annexC.htm",
+    "annexD.htm",
+    "annexE.htm",
+    "annexF.htm",
+    "annexG.htm",
+    "annexH.htm",
+    "annexI.htm",
+    "annexJ.htm",
+    "annexK.htm",
+    "bibliography.htm"
+ );
 
 my $do_scanonly=0;
 
-#----------------------------------------
-# finds the bug number and tags the file if it does not have one
-#
-sub renum_toc_entries {
+sub renum_anchors {
     my($file) = @_;
 
+    # scan anchors and update numbering if needed.  We also build a
+    # dictionary with the updated anchor text.
+    #
     my $bakfile = "$file~";
     my $changed = 0;
     my @contents;
-    my @num;
+    my @sec;
 
     local ($_);
     local(*SRC);
     
     open (SRC, $file) or die "could not open $file";
-
+    print "Scanning $file\n";
+    
     while (<SRC>) {
-	/^<H1 CLASS=\"clause\"><A NAME=\"[^\"]+\"><\/A>\s*(\d+)\s+/ && do {
-	    @num = ($1);
-	    # just harvest the number
+	/^<FIGURE><A NAME=\"([^\"]+)\"><\/A>/i && do {
+	    my $tag = $1;
+	    my $url = "$file#$tag";
+	    warn "Duplicate anchor $tag" if exists $anchor{$url};
+
+	    my $num = ++$fignum;  ## Prepend annex if in an annex file
+	    $num = "$sec[0].$num" if  $sec[0] =~ /[A-Z]/;
+
+	    
+	    while (not /<\/FIGURE>/i) {
+		push @contents, $_;
+		$_ = <SRC>;
+
+		if (/<FIGCAPTION>(.*)<\/FIGCAPTION>/i) {
+		    my $orig = $_;
+		    my $body = $1;
+		    $body =~ s/^\s*Figure\s+([A-Z]\.)?\d+\s*&mdash;\s*//;
+		    $anchor{$url} = {
+			num => "Figure $num",
+			txt => $body,
+			cap => "Figure $num &mdash; $body"
+		    };
+		    $_ = "<FIGCAPTION>$anchor{$url}->{cap}</FIGCAPTION>\n";
+
+		    if ($orig ne $_) {
+			$changed = 1;
+			print "RENUM $anchor{$url}->{cap}\n";
+		    }
+		}
+	    }
 	};
 
-	/^<H1 CLASS=\"annex\"><A NAME=\"[^\"]+\"><\/A>\s*Annex\s+([A-Z])/ && do {
-	    @num = ($1);
-	    # just harvest the number
+	/^<CAPTION><A NAME=\"([^\"]+)\"><\/A>(.*)<\/CAPTION>/i && do {
+	    my $tag = $1;
+	    my $body = $2;
+	    my $orig = $_;
+	    my $url = "$file#$tag";
+	    warn "Duplicate anchor $tag" if exists $anchor{$url};
+
+	    my $num = ++$tabnum;  ## Prepend annex if in an annex file
+	    $num = "$sec[0].$num" if  $sec[0] =~ /[A-Z]/;
+
+	    $body =~ s/^\s*Table\s+([A-Z]\.)?\d+\s*&mdash;\s*//;
+	    $body =~ s/\s*$//;
+	    $anchor{$url} = {
+		num => "Table $num",
+		txt => $body,
+		cap => "Table $num &mdash; $body"
+	    };
+	    $_ = "<CAPTION><A NAME=\"$tag\"></A>$anchor{$url}->{cap}</CAPTION>\n";
+
+	    if ($orig ne $_) {
+		$changed = 1;
+		print "RENUM $anchor{$url}->{cap}\n";
+	    }
 	};
-	
+
+	/^<H1 CLASS=\"(clause|unum|annex)\"><A NAME=\"([^\"]+)\"><\/A>(.*)<\/H1>/i && do {
+	    my $cls = $1;
+	    my $tag = $2;
+	    my $body = $3;
+	    my $url = "$file#$tag";
+	    warn "Duplicate anchor $tag" if exists $anchor{$url};
+
+	    $body =~ s/\s*$//;
+	    @sec = $body =~ /^\s*(\d+)\s+/ if $cls eq 'clause';
+	    @sec = $body =~ /^\s*Annex\s+([A-Z])/ if $cls eq 'annex';
+	    @sec = () if $cls eq 'unum';
+
+	    $fignum = 0 if $cls eq 'annex';
+	    $tabnum = 0 if $cls eq 'annex';
+
+	    
+	    my $num =  (join '.', @sec);
+	    $anchor{$url} = {
+		num => $num,
+		txt => $body,
+		cap => "$num $body"
+	    };
+
+	    # Top level renumber manually if needed.
+	};
+
 	/^<H([2-6])><A NAME=\"([^\"]+)\"><\/A>(.*)/ && do {
 	    my $lev = $1;
 	    my $tag = $2;
 	    my $body = $3;
+	    my $url = "$file#$tag";
+	    warn "Duplicate anchor $tag" if exists $anchor{$url};
 
+	    # strip close and old clause number
 	    $body =~ s/<\/H$lev>\s*$//;  # strip close
-	    $body =~ s/^\s*((\d+|[A-Z])\.[\d\.]+)*\s+//;  # strip old clause number
+	    $body =~ s/^\s*((\d+|[A-Z])\.[\d\.]+)*\s+//;  
 	    my $oldsec = $1;
 	    
-	    if ((scalar @num) > $lev) {
-		splice @num, $lev;  # shrink
+	    if ((scalar @sec) > $lev) {
+		splice @sec, $lev;  # shrink
 	    }
-	    while ((scalar @num) < $lev) {
-		push @num, 0;  # grow
+	    while ((scalar @sec) < $lev) {
+		push @sec, 0;  # grow
 	    }
 
-	    my $cnt = pop @num;
-	    push @num, $cnt+1;
+	    my $cnt = pop @sec;
+	    push @sec, $cnt+1;
 
-	    my $sec = (join '.', @num);
+	    my $num = (join '.', @sec);
+	    $anchor{$url} = {
+		num => $num,
+		txt => $body,
+		cap => "$num $body"
+	    };
 	    
-	    $_ = "<H$lev><A NAME=\"$tag\"></A>$sec $body</H$lev>\n";
-	    if ($sec ne $oldsec) {
-		print "Changed: $oldsec  --> $sec\n";
+	    $_ = "<H$lev><A NAME=\"$tag\"></A>$num $body</H$lev>\n";
+	    if ($num ne $oldsec) {
+		print "Changed: $oldsec  --> $num\n";
 		$changed = 1;
 	    }
 	};
-
+	
+	
 	push @contents, $_;
     }
     close (SRC);
@@ -95,28 +205,19 @@ sub renum_toc_entries {
 	open (DST, "> $file")	or die ("$file: $!");
 	print DST @contents	or die ("$file: $!");
 	close DST		or die ("$file: $!");
-	#unlink $bakfile		or die ("$bakfile: $!");
+#	unlink $bakfile		or die ("$bakfile: $!");
     }
 
 }
 
+
 sub main {
-    my @files;
-    
+
     while ($_[0]) {
 	$_ = $_[0];
-
-	/^-help$/ && &usage;
-
 	/^-n$|^-scan$/ && do {
 	    $do_scanonly=1;
 	    shift; next;
-	};
-
-	/^--$/ && do {
-	    shift; 
-	    push @files, @_;  # tack on all remaining
-	    last;
 	};
 
 	/^-/ && die "$0: unknown option: $_ (use -help for usage)\n";
@@ -125,9 +226,7 @@ sub main {
 	shift;
     }
 
-    foreach (@files) {
-	renum_toc_entries ($_);
-    }
+    foreach (@files) { renum_anchors ($_); }
     return 1;
 }
 

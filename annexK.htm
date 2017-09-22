@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>ISO 10303-238</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<p class=pagehead>Working Draft ISO 10303-238 Edition 2</p>
+
+<H1 CLASS="annex"><A NAME="clause-K"></A>Annex K<BR>(informative)<BR><BR>Change log</H1>
+
+
+<H2><A NAME="clause-J-1"></A>K.1 Changes in second edition</H2>
+
+<p>The second edition includes specific changes based on experience accumulated from deployment of the first edition in the period 2007-2016 and documented in TC184/SC4/WG15N2.   These changes include grammar fixes, wording fixes, and the following.</p>
+
+<UL>
+<LI>Expand <a href="clause4.htm#ao-cutter_contact_trajectory">Cutter_contact_trajectory</a> and <a href="clause4.htm#ao-cutter_location_trajectory">Cutter_location_trajectory</a> with a toolpath reference direction curve to describe the orientation of asymmetric tools.  This is analogous to the way in which ISO 10303 geometry placements are described using an axis direction as well as a reference direction.</LI>
+
+<LI>Expand <a href="clause4.htm#ao-tool_usage">Tool_usage</a> definition to include gage and tool-end placements, which clarify how the tool product model is oriented with respect to toolpaths and machine models for simulation and interference check¬ing.</LI>
+
+<LI>Expand <a href="clause4.htm#ao-workplan">Workplan</a> with toolpath placement (as is already available on workingsteps) to allow reuse of nested workplans or workingsteps in different locations.</LI>
+
+<LI>Expand <a href="clause4.htm#ao-executable">Executable</a> to permit any process element to be marked as enabled or disabled.</LI>
+
+<LI>Expand <a href="clause4.htm#ao-trajectory">Trajectory</a> (the supertype of all toolpaths) with cross section parameters for a more detailed representation of tool contact area than the depth and overcut parameters can provide to better support speed and feed optimization for machining operations.</LI>
+
+
+<LI>Change <a href="clause4.htm#ao-touch_probe">Touch_probe</a> to be a type of <a href="clause4.htm#ao-machining_tool">Machining_tool</a>, to support a description of the probe usage, associated geometric shape, and other product information available for tools.</LI>
+
+<LI>Change In-process geometry to a product reference so that features and tolerances also be given with the geometry and topology.   Deleted the In_process_geometry application object and references from <a href="clause4.htm#ao-machining_workingstep">Machining_workingstep</a>, <a href="clause4.htm#ao-turning_workingstep">Turning_workingstep</a>, and <a href="clause4.htm#ao-workplan">Workplan</a>.  Added references from <a href="clause4.htm#ao-executable">Executable</a> to as-is, to-be, and removal <a href="clause4.htm#ao-workpiece">Workpiece</a> objects.</LI>
+
+<LI>Add <a href="#aim-via_arc_point">via_arc_point</a> and <a href="#aim-via_helix_point">via_helix_point</a>  to support high-speed milling operations. </LI>
+
+<LI>Document <a href="clause4.htm#ao-datum">Datum</a> and <a href="clause4.htm#ao-datum_target">Datum_target</a> reference to <a href="clause4.htm#ao-workpiece">Workpiece</a>.   This clarifies the relationship between a Datum and the Workpiece on which the Datum appears, in a manner analogous to the its_workpiece data that relates a Manufacturing_feature to the Workpiece on which the Manufacturing_feature appears.</LI>
+
+</UL>
+
+<p class=pagefoot>Document TC184/SC4/WG15 Nxxx
+</body>
+</html>
+
