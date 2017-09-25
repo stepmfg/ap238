@@ -211,8 +211,77 @@ sub renum_anchors {
 }
 
 
-sub main {
+sub rewrite_anchor {
+    my($optag, $body, $endtag, $file) = @_;
+    my $asis = "$optag$body$endtag";
 
+    my ($href) =  $optag =~ /HREF=\"([^\"]+)/i;
+    return $asis if not defined $href;
+
+    
+    my $url = $href;
+    $url = $file . $url if $url =~ /^#/;
+    return $asis if not exists $anchor{$url};
+
+    my $td = $anchor{$url};
+
+    if ($url =~ /#fig/) {
+	print "Updating $body to $td->{num}\n";
+	return $optag. $td->{num} . $endtag;
+    }
+    
+    return $asis;
+}
+
+
+
+sub renum_refs {
+    my($file) = @_;
+
+    # scan anchors and update numbering if needed.  We also build a
+    # dictionary with the updated anchor text.
+    #
+    my $bakfile = "$file~";
+    my $changed = 0;
+    my @contents;
+    my @sec;
+
+    local ($_);
+    local(*SRC);
+    
+    open (SRC, $file) or die "could not open $file";
+    print "Updating refs $file\n";
+    
+    while (<SRC>) {
+	my $orig = $_;
+	# this uses code that fell to earth from space to do a minimal match
+	s/(<A\s[^>]*>)((?:(?!<A\s).)*)(<\/A>)/rewrite_anchor($1,$2,$3,$file)/egisx;
+
+	#print "$orig\n$_" if $orig ne $_;
+	$changed = 1 if $orig ne $_;
+	push @contents, $_;
+    }
+    close (SRC);
+
+
+    if ($changed && !$do_scanonly) {
+	# extract it if it is not present;
+	print "$file: writing updated file\n";
+
+	rename $file, $bakfile	or die ("$bakfile: $!");
+	open (DST, "> $file")	or die ("$file: $!");
+	print DST @contents	or die ("$file: $!");
+	close DST		or die ("$file: $!");
+#	unlink $bakfile		or die ("$bakfile: $!");
+    }
+
+}
+
+
+
+
+
+sub main {
     while ($_[0]) {
 	$_ = $_[0];
 	/^-n$|^-scan$/ && do {
@@ -227,6 +296,7 @@ sub main {
     }
 
     foreach (@files) { renum_anchors ($_); }
+    foreach (@files) { renum_refs ($_); }
     return 1;
 }
 

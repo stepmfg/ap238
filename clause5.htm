@@ -34862,7 +34862,7 @@ Finally, there are information requirements which were not considered by ISO 146
 <P>
 In the ISO 10303 integrated representation, the shape of many manufacturing feature types can be described as a profile swept along a travel path.  This implicit description of feature shape is controlled by characteristic parameters of the <a href="clause4.htm#ao-profile">Profile</a> and <a href="clause4.htm#ao-travel_path subtypes">Travel_path subtypes</a>.</P>
 <P CLASS="example">
-EXAMPLE 1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The profile and path representation of several feature types is shown in <a href="#fig-feature_profiles">Figure 36</a>.   The shape of the features are controlled by such characteristic parameters as the length of the sweep path, the diameter of the swept circular profile, the length and width of the swept rectangular profile, etc.</P>
+EXAMPLE 1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The profile and path representation of several feature types is shown in <a href="#fig-feature_profiles">Figure 38</a>.   The shape of the features are controlled by such characteristic parameters as the length of the sweep path, the diameter of the swept circular profile, the length and width of the swept rectangular profile, etc.</P>
 
 
 <FIGURE><A NAME="fig-feature_profiles"></A>
@@ -34889,7 +34889,7 @@ The authors of ISO 14649 chose a different method and instead encode depth as a 
 <P>
 Consequently, a feature may have different values for placement location, and possibly orientation, in the ISO 10303 integrated representation and the ISO 14649 representation.</P>
 <P CLASS="example">
-EXAMPLE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Consider <a href="#fig-depth_diffs">Figure 37</a> and assume a round hole 2 units deep, with the bottom centre of the hole located at (0, 0, 0).  In the ISO 10303 representation, the placement location of the hole is (0, 0, 0) and the length of the sweep path is 2 units. In the ISO 14649 representation, the placement location of the hole would be (0, 0, +2) and the feature would point to an instance of elementary_surface defining a plane at z=0;</P>
+EXAMPLE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Consider <a href="#fig-depth_diffs">Figure 39</a> and assume a round hole 2 units deep, with the bottom centre of the hole located at (0, 0, 0).  In the ISO 10303 representation, the placement location of the hole is (0, 0, 0) and the length of the sweep path is 2 units. In the ISO 14649 representation, the placement location of the hole would be (0, 0, +2) and the feature would point to an instance of elementary_surface defining a plane at z=0;</P>
 
 
 <FIGURE><A NAME="fig-depth_diffs"></A>
@@ -34918,7 +34918,7 @@ In the ISO 10303 integrated representation, profiles are defined to exist in the
 <P>
 In ISO 14649, profiles are also defined in the XY plane, but sometimes interpreted as lying in the XZ plane because of the way feature orientation is defined.  In the ISO 14649 representation, the origin of the profile, path, and feature may lie at different points. See <a href="#funcon-feature-bytype">Manufacturing feature details by type</a> for a listing of specific differences for each feature type.</P>
 <P CLASS="example">
-EXAMPLE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="#fig-placement_diffs">Figure 38</a> shows a slot made up of a rounded u profile.  In the ISO 10303 representation, the feature placement gives the origin of both the sweep path and the profile, with the profile in the XY plane and the sweep along the Z axis.</P>
+EXAMPLE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="#fig-placement_diffs">Figure 40</a> shows a slot made up of a rounded u profile.  In the ISO 10303 representation, the feature placement gives the origin of both the sweep path and the profile, with the profile in the XY plane and the sweep along the Z axis.</P>
 
 
 <FIGURE><A NAME="fig-placement_diffs"></A>
@@ -34948,7 +34948,7 @@ Both of these representations are associated with the feature through shape_defi
 
 
 <P CLASS="example">
-EXAMPLE 1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="#fig-aim_features">Figure 39</a> shows an instance diagram for a feature containing implicit and explicit representations. The instances describing the profile and path are not shown, but each is a shape_aspect subtype similar to the feature instance.  The parameters describing each is held by a shape_representation_with_parameters instance and related to the profile or path using the same pattern of shape_definition_representation and product_definition_shape instances as shown below.</P>
+EXAMPLE 1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="#fig-aim_features">Figure 41</a> shows an instance diagram for a feature containing implicit and explicit representations. The instances describing the profile and path are not shown, but each is a shape_aspect subtype similar to the feature instance.  The parameters describing each is held by a shape_representation_with_parameters instance and related to the profile or path using the same pattern of shape_definition_representation and product_definition_shape instances as shown below.</P>
 <P>
 An alternate mapping path is given for the explicit_representation parameter that does not use the shape_representation or shape_definition_representation subtypes.  This alternate should only be used for reading instance data that may have originated from an AP 224 process.  The preferred mapping should be used for any new instance data.  Examples 2 and 3 illustrate both mappings.</P>
 <P CLASS="example">
@@ -35005,7 +35005,7 @@ NOTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The volume defined by the feature may not be 
 <P>
 These features are tightly tied to the machining process defined by the workplan.  If a manufacturing engineer creates an alternate workplan to make the same workpiece, the new workplan may use a completely different set of features.  </P>
 <P CLASS="example">
-EXAMPLE 1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="#fig-inprocess_alternate">Figure 40</a> shows a stairway-shaped workpiece and two different machining processes to produce that workpiece.  The example on the right shows a depth-first machining workplan while the example on the left shows a breadth-first machining workplan.  Both workplans produce the same result, but each calls out very different features.</P>
+EXAMPLE 1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="#fig-inprocess_alternate">Figure 42</a> shows a stairway-shaped workpiece and two different machining processes to produce that workpiece.  The example on the right shows a depth-first machining workplan while the example on the left shows a breadth-first machining workplan.  Both workplans produce the same result, but each calls out very different features.</P>
 
 
 <FIGURE><A NAME="fig-inprocess_alternate"></A>
@@ -35017,7 +35017,7 @@ EXAMPLE 1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="#fig-inprocess_alternate">Figur
 <P>
 AP 224 and other parts of ISO 10303 identify features on the final form of the workpiece that are not necessarily tied to a specific sequence of machining processes.  These features are used as input to the process planning activity.  The output of macro process-planning may be described as an AP 240 data set that will include these features but may identify additional intermediate features related to a particular process.   This part of ISO 10303 describes the micro process-plan and is concerned with the features associated with a particular process, but it is desirable to link the features on the final form with  the set of workingsteps that contribute to their manufacture.   This associativity through the entire design to manufacturing path is useful for related downstream tasks, such as inspection, which could use the tracability to pinpoint critical areas of interest in the micro and macro process-plans.</P>
 <P CLASS="example">
-EXAMPLE 2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="#fig-inprocess_final">Figure 41</a> shows a workpiece whose final form contains a step and an open slot.  The input to the process planner was an open slot and step, and for whatever reason, he decided to machine the slot first and the step second.    The workplan contains two workingsteps, the first of which refers to a closed slot and the second of which refers to the step.</P>
+EXAMPLE 2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="#fig-inprocess_final">Figure 43</a> shows a workpiece whose final form contains a step and an open slot.  The input to the process planner was an open slot and step, and for whatever reason, he decided to machine the slot first and the step second.    The workplan contains two workingsteps, the first of which refers to a closed slot and the second of which refers to the step.</P>
 <P CLASS="example">
 With the first workingstep, ISO 14649 is only concerned with the closed slot, and there is no way to trace back to the open slot feature on the final part.  In the second workingstep, of course, the process and final form feature are the same thing.</P>
 <P CLASS="example">
@@ -35042,7 +35042,7 @@ If used, this attribute contains a set of one or more features visible on the fi
 
 <H5><A NAME="funcon-planar_face"></A>5.2.1.3.1 Planar face</H5>
 <P>
-In the ISO 10303 integrated representation, a planar face is represented by a linear profile swept along a linear path to form the plane that results after material has been removed.  The origin of the feature lies on the plane.  The depth of material removed is given by the removal_depth length parameter associated with the feature.  <a href="#fig-planar_face_origin">Figure 42</a> illustrates the planar face parameters.</P>
+In the ISO 10303 integrated representation, a planar face is represented by a linear profile swept along a linear path to form the plane that results after material has been removed.  The origin of the feature lies on the plane.  The depth of material removed is given by the removal_depth length parameter associated with the feature.  <a href="#fig-planar_face_origin">Figure 44</a> illustrates the planar face parameters.</P>
 
 
 <FIGURE><A NAME="fig-planar_face_origin"></A>
@@ -35063,7 +35063,7 @@ To convert to the ISO 14649 representation, move the placement along the directi
 
 <H5><A NAME="funcon-round_hole"></A>5.2.1.3.2 Round hole</H5>
 <P>
-In the ISO 10303 integrated representation, a round hole is represented by a circular closed profile swept along a linear path.  The diameter of the profile is the diameter of the circle and the length of the travel path is the depth of the hole.  The <a href="clause4.htm#ao-round_hole">Round_hole</a> bottom_at_path_end parameter determines whether the placement is at the bottom of the hole with the Z axis pointing up out of the material or at the top of the hole with the Z axis pointing down into the material.  <a href="#fig-round_hole_origin">Figure 43</a> illustrates the handling of round hole placement. </P>
+In the ISO 10303 integrated representation, a round hole is represented by a circular closed profile swept along a linear path.  The diameter of the profile is the diameter of the circle and the length of the travel path is the depth of the hole.  The <a href="clause4.htm#ao-round_hole">Round_hole</a> bottom_at_path_end parameter determines whether the placement is at the bottom of the hole with the Z axis pointing up out of the material or at the top of the hole with the Z axis pointing down into the material.  <a href="#fig-round_hole_origin">Figure 45</a> illustrates the handling of round hole placement. </P>
 
 
 <FIGURE><A NAME="fig-round_hole_origin"></A>
@@ -35084,7 +35084,7 @@ To convert to the ISO 14649 representation, construct the depth surface if it is
 
 <H5><A NAME="funcon-pocket"></A>5.2.1.3.3 Pocket</H5>
 <P>
-In the ISO 10303 integrated representation, a pocket is represented by a profile swept along a linear path.  Material is removed on the inside of the profile, and the length of the travel path is the depth of the pocket. The <a href="clause4.htm#ao-pocket">Pocket</a> bottom_at_path_end parameter determines whether the placement is at the bottom of the pocket with the Z axis pointing up out of the material or at the top of the pocket with the Z axis pointing down into the material.  <a href="#fig-pocket_origin">Figure 44</a> illustrates the handling of pocket placement.</P>
+In the ISO 10303 integrated representation, a pocket is represented by a profile swept along a linear path.  Material is removed on the inside of the profile, and the length of the travel path is the depth of the pocket. The <a href="clause4.htm#ao-pocket">Pocket</a> bottom_at_path_end parameter determines whether the placement is at the bottom of the pocket with the Z axis pointing up out of the material or at the top of the pocket with the Z axis pointing down into the material.  <a href="#fig-pocket_origin">Figure 46</a> illustrates the handling of pocket placement.</P>
 
 
 <FIGURE><A NAME="fig-pocket_origin"></A>
@@ -35107,7 +35107,7 @@ To convert to the ISO 14649 representation, construct the depth surface if it is
 <P>
 In the ISO 10303 integrated representation, a Profile_feature (see <a href="clause4.htm#ao-general_outside_profile">General_outside_profile</a> or <a href="clause4.htm#ao-shape_profile">Shape_profile</a>) is represented by a profile swept along a linear path.  Material is removed on the outside of the swept profile.  The length of the travel path is the depth of the profile_feature. </P>
 <P>
-For a general outside profile, the feature placement is at the bottom with the Z axis pointing up out of the material.  <a href="#fig-outside_profile_origin">Figure 45</a> illustrates the parameters associated with all Profile_features as well as the placement of a general outside profile. </P>
+For a general outside profile, the feature placement is at the bottom with the Z axis pointing up out of the material.  <a href="#fig-outside_profile_origin">Figure 47</a> illustrates the parameters associated with all Profile_features as well as the placement of a general outside profile. </P>
 
 
 <FIGURE><A NAME="fig-outside_profile_origin"></A>
@@ -35117,7 +35117,7 @@ For a general outside profile, the feature placement is at the bottom with the Z
 
 
 <P>
-Shape profiles have an additional floor condition that determines the feature placement. For shape profiles, the <a href="clause4.htm#ao-profile_floor">Profile_floor</a> start_or_end parameter determines whether the feature placement is at the bottom of the profile with the Z axis pointing up out of the material (start_or_end is FALSE), or at the top of the profile with the Z axis pointing down into the material (start_or_end is TRUE).  <a href="#fig-shape_profile_origin">Figure 46</a> illustrates the placement of a shape profile.</P>
+Shape profiles have an additional floor condition that determines the feature placement. For shape profiles, the <a href="clause4.htm#ao-profile_floor">Profile_floor</a> start_or_end parameter determines whether the feature placement is at the bottom of the profile with the Z axis pointing up out of the material (start_or_end is FALSE), or at the top of the profile with the Z axis pointing down into the material (start_or_end is TRUE).  <a href="#fig-shape_profile_origin">Figure 48</a> illustrates the placement of a shape profile.</P>
 <P>
 A direction vector is part of the linear path and defines the direction that the profile is swept.  This shall be aligned along the Z axis of the feature placement.  The swept profile lies in the XY plane of the feature placement with the origin of the swept profile aligned with feature placement.</P>
 <P>
@@ -35138,7 +35138,7 @@ To convert a Shape_profile to the ISO 14649 representation, construct the depth 
 
 <H5><A NAME="funcon-slot"></A>5.2.1.3.5 Slot</H5>
 <P>
-In the ISO 10303 integrated representation, a slot feature is represented by an open profile swept along a travel path.  Material is removed on the inside of the swept profile.  The depth of the open profile gives the depth of the slot feature.  The feature placement is at the bottom of the feature with the Z axis pointing along the travel path.  <a href="#fig-slot_origin">Figure 47</a> illustrates the slot parameters.  </P>
+In the ISO 10303 integrated representation, a slot feature is represented by an open profile swept along a travel path.  Material is removed on the inside of the swept profile.  The depth of the open profile gives the depth of the slot feature.  The feature placement is at the bottom of the feature with the Z axis pointing along the travel path.  <a href="#fig-slot_origin">Figure 49</a> illustrates the slot parameters.  </P>
 
 
 <FIGURE><A NAME="fig-slot_origin"></A>
@@ -35161,7 +35161,7 @@ Change the direction on the course_of_travel path so that it points along the ne
 
 <H5><A NAME="clause-5-2-1-3-6"></A>5.2.1.3.6 Step</H5>
 <P>
-In the ISO 10303 integrated representation, a step feature is represented by a vee profile swept along a linear path.  Material is removed on the inside of the vee profile.  The length of one arm of the vee profile gives the depth of the step feature.  The length of the other arm gives the width of the step feature.  The feature placement is at the point of the vee profile with the Z axis pointing along the travel path.  <a href="#fig-step_origin">Figure 48</a> illustrates the step parameters.  </P>
+In the ISO 10303 integrated representation, a step feature is represented by a vee profile swept along a linear path.  Material is removed on the inside of the vee profile.  The length of one arm of the vee profile gives the depth of the step feature.  The length of the other arm gives the width of the step feature.  The feature placement is at the point of the vee profile with the Z axis pointing along the travel path.  <a href="#fig-step_origin">Figure 50</a> illustrates the step parameters.  </P>
 
 
 <FIGURE><A NAME="fig-step_origin"></A>
@@ -35190,7 +35190,7 @@ ISO 14649 calls out the same characteristic parameters, but defines chamfers and
 <P CLASS="example">
 NOTE 1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  Why were two approaches used?  Historically, the ISO 10303 approach was defined first, but this requires that brep geometry be present in order to describe transition features.  From the ISO 14649 perspective, geometry is optional and may be omitted, so it made sense to define transition features as a relationship between two features instead. </P>
 <P>
-This part of ISO 10303 extends the Chamfer and Edge_round application objects to support the use of both approaches.  This was done by adding chamfer_face, first_face_shape and second_face_shape attributes to Chamfer and adding edge_round_face, first_face_shape and second_face_shape attributes to Edge_round.  These attributes are optional and represent the faces associated with the transition features for harmonization with the other ISO 10303 parts.  <a href="#fig-transition">Figure 49</a> shows both approaches for transition features.  </P>
+This part of ISO 10303 extends the Chamfer and Edge_round application objects to support the use of both approaches.  This was done by adding chamfer_face, first_face_shape and second_face_shape attributes to Chamfer and adding edge_round_face, first_face_shape and second_face_shape attributes to Edge_round.  These attributes are optional and represent the faces associated with the transition features for harmonization with the other ISO 10303 parts.  <a href="#fig-transition">Figure 51</a> shows both approaches for transition features.  </P>
 
 
 
@@ -35959,7 +35959,7 @@ When describing a toolpath consisting of a complete circle, the trimmed_curve ap
 <P CLASS="example">
 NOTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Use of the same cartesian_point instance is preferred as this avoids numeric comparisons between coordinate values.</P>
 <P CLASS="example">
-EXAMPLE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Arcs and complete circles can occur when roughing out a circular pocket.  An entry arc, full circle and then exit arc are illustrated in <a href="#fig-circular_toolpath">Figure 50</a>.  </P>
+EXAMPLE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Arcs and complete circles can occur when roughing out a circular pocket.  An entry arc, full circle and then exit arc are illustrated in <a href="#fig-circular_toolpath">Figure 52</a>.  </P>
 
 
 <FIGURE><A NAME="fig-circular_toolpath"></A>
