@@ -21,10 +21,10 @@
 
 <P>Each data set is described as an ISO 10303-21 exchange structure.   The AIM instances are grouped by ARM application object with a comment at the beginning of each block show how the instances are arranged to describe the application object and associated parameters.</P>
 
-<P CLASS="example">
-EXAMPLE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The instances below represent a Milling_machine_functions application object.</P>
+<P CLASS="note">
+<SPAN>EXAMPLE</SPAN> The instances below represent a Milling_machine_functions application object.</P>
 
-<PRE CLASS="example">
+<PRE CLASS="note">
 /************************************************
  * Application object: MILLING_MACHINE_FUNCTIONS (#50)
  * THROUGH_SPINDLE_COOLANT: #50, #51, #52, #53, #54: [through spindle coolant off]
@@ -53,7 +53,7 @@ EXAMPLE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The instances below represent a Milling_ma
 
 <P>The mapping specification for <a href="clause5.htm#map-milling_machine_functions">Milling_machine_functions</a> calls for an AIM element of type machining_functions and the reference path shown below: </P>
 
-<PRE CLASS="example">
+<PRE CLASS="note">
 machining_functions &lt;=
 action_method
 { action_method.description = `milling' }
@@ -65,7 +65,7 @@ Instance #50 is the machining_functions instance at the start of the reference p
 The rest of the comment indicates application object parameters and AIM instances that form the reference path given in the mapping tables. Consider the Milling_machine_functions coolant parameter and the <a href="clause5.htm#map-milling_machine_functions-coolant">corresponding reference path</a>:</P>
 
 
-<PRE CLASS="example">
+<PRE CLASS="note">
 machining_functions &lt;=
 action_method
 characterized_action_definition = action_method

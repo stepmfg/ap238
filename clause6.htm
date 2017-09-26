@@ -30,8 +30,8 @@ This part of ISO 10303 provides for a number of options that may be supported by
 </UL>
 <P>
 These conformance classes are defined so that each class includes all the options specified by the preceeding class.  Support for a particular conformance class requires support of all the options specified in that class.</P>
-<P CLASS="example">
-EXAMPLE			CC2 contains everything in CC1, plus additional options. CC3 contains everything in CC2, plus additional options.   CC4 contains everything in CC3, plus all remaining options.</P>
+<P CLASS="note">
+<SPAN>EXAMPLE</SPAN> CC2 contains everything in CC1, plus additional options. CC3 contains everything in CC2, plus additional options.   CC4 contains everything in CC3, plus all remaining options.</P>
 <P>
 Conformance to a particular class requires that all AIM elements defined as part of that class be sup-ported. Table 15 defines the classes to which each AIM element belongs.  The conformance classes are described in detail by the following sections.</P>
 <P>
@@ -43,8 +43,8 @@ Annotated example data sets for several conformance classes are provided in Anne
 This conformance class supports the description of machining programs containing a single sequence of operations, each of which is described using the machine-independent path of the tool centre point, using a simplified set of curves types, as well as tool requirements, management information about the program, and all technology-specific process parameters.</P>
 <P>
 This conformance class includes all application objects from the measure, operation, project, workpiece, process data for milling, cutting tools for milling, process data for turning, cutting tools for turning, library reference, and management UoFs.</P>
-<P CLASS="example">
-NOTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Since this conformance class requires a toolpath for every operation, any specified strategy is simply for additional information.   In the absence of any other useful information, it is recommended that the machining operation be specified as a Freeform_operation with no associated strategies.</P>
+<P CLASS="note">
+<SPAN>NOTE</SPAN> Since this conformance class requires a toolpath for every operation, any specified strategy is simply for additional information.   In the absence of any other useful information, it is recommended that the machining operation be specified as a Freeform_operation with no associated strategies.</P>
 <P>
 This conformance class includes the following application objects and their supertypes from the executable UoF:</P>
 <UL>
@@ -116,8 +116,9 @@ In addition, the following apply to use of the application objects in this confo
 <LI>the explicit_representation may be specified for any Manufacturing_feature object.</LI>
 </UL>
 
+
 <TABLE BORDER="1">
-<CAPTION><A NAME="table-1"></A>Table 1 &mdash; Conformance class elements</CAPTION>
+<CAPTION><A NAME="table-cclass"></A>Table 1 &mdash; Conformance class elements</CAPTION>
 <TR>
 <TH ROWSPAN="2" COLSPAN="1">AIM element</TH>
 <TH ROWSPAN="1" COLSPAN="4">Conformance class</TH>

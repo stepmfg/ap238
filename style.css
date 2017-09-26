@@ -64,36 +64,21 @@ CAPTION {
 
 
 
-P.example {
+P.note {
     font-size: 80%;
     margin-left: 2em;
 }
 
-TABLE.example {
-    font-size: 80%; margin-left: 2em;
-}
-TABLE.example TH {
-    text-align: left;
-    text-decoration: underline;
-    padding-bottom: 0.5em;
-    padding-right: 2em;
-}
-TABLE.example TR TD {
-    vertical-align: top;
+/* apply spacing after NOTE or EXAMPLE header */
+P.note SPAN:first-of-type {
     padding-right: 2em;
 }
 
-TABLE.example TR TD.mono {
-    vertical-align: top;
-    padding-right: 2em;
-    font-size: 8pt;
-    font-weight: medium;
-    font-style: Regular;
-    font-family: "monospace";
-}
+
+
 
 PRE.code { }
-PRE.example {
+PRE.note {
     margin: 0pt 0pt 0pt 29pt; 
     font-size: 8pt;
 }
@@ -120,3 +105,8 @@ DIV.mapnote P {
     text-indent: -2em;
     margin: 0.5em 0 0.5em 2em;
 }
+
+
+/* placeholder styles for managing reference updates */
+A.refnum {}
+A.reftxt {}

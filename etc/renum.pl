@@ -225,11 +225,31 @@ sub rewrite_anchor {
 
     my $td = $anchor{$url};
 
-    if ($url =~ /#fig/) {
-	print "Updating $body to $td->{num}\n";
+    if ($url =~ /#fig-/) {
+	print "Updating $body to $td->{num}\n" if $body ne $td->{num};
 	return $optag. $td->{num} . $endtag;
     }
-    
+
+    if ($url =~ /#table-/) {
+	print "Updating $body to $td->{num}\n" if $body ne $td->{num};
+	return $optag. $td->{num} . $endtag;
+    }
+
+    # use class on href to force content to clause or name
+    my ($cls) =  $optag =~ /CLASS=\"([^\"]+)/i;
+    ($cls) = $optag =~ /CLASS=([^\s>]+)/i if not defined $cls;
+    return $asis if not defined $cls;
+
+    if ($cls =~ /refnum/) {
+	print "Updating $body to $td->{num}\n" if $body ne $td->{num};
+	return $optag. $td->{num} . $endtag;
+    }
+
+    if ($cls =~ /reftxt/) {
+	print "Updating $body to $td->{txt}\n" if $body ne $td->{txt};
+	return $optag. $td->{txt} . $endtag;
+    }
+
     return $asis;
 }
 
@@ -302,4 +322,3 @@ sub main {
 
 main (@ARGV);
 
-#
