@@ -1,5 +1,8 @@
 
+/* indent toc lists, except for outermost */
+DIV.side { font-size: 80%; }
 DIV.contents UL { padding-left: 1.5em; }
+DIV.contents > UL { padding-left: 0em; }
 DIV.contents UL LI { margin-top: 0; margin-bottom: 0; list-style-type: none; }
 DIV.contents UL LI.clause { margin-top: 1em; }
 
@@ -31,7 +34,6 @@ H1, H2, H3, H4, H5, H6 {
     margin: 2em 0em 1em 0em;
     font-size: 125%;
 }
-
 H1.unum   { }
 H1.clause { margin-top: 2em; }
 H1.annex { margin-top: 2em; text-align: center; }
@@ -68,11 +70,8 @@ P.note {
     font-size: 80%;
     margin-left: 2em;
 }
-
 /* apply spacing after NOTE or EXAMPLE header */
-P.note SPAN:first-of-type {
-    padding-right: 2em;
-}
+P.note SPAN:first-of-type { padding-right: 2em; }
 
 
 
@@ -107,6 +106,32 @@ DIV.mapnote P {
 }
 
 
+/*  table with alternating row color  */
+TABLE.altrow { border-collapse:collapse; }
+TABLE.altrow td{ padding: 0.1em 0.3em 0.1em 0.3em; }
+TABLE.altrow tr:nth-child(even){ background: #e0e0e0; }
+/* TABLE.altrow tr:nth-child(odd){ background: #b8d1f3; } */
+
+
+/* table with thin border */
+TABLE.thin { border-collapse:collapse; }
+TABLE.thin td{ padding: 0.1em 0.3em 0.1em 0.3em; border:black 1px solid; }
+
+
+
+/* navigation links between application object, mapping and expg */
+DIV.quick {
+    padding-left: 2em;
+    float: right;
+    text-align: right; 
+}
+DIV.quick A { 
+    font-size: 80%; 
+    display: block;  /* separate lines */
+} 
+
+
 /* placeholder styles for managing reference updates */
 A.refnum {}
 A.reftxt {}
+DIV.expg {}

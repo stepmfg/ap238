@@ -66,7 +66,7 @@ sub scan_toc_entries {
 
     my $bakfile = "$file~";
     my $changed = 0;
-    my $depth;
+    my $depth = 1;
     
     local ($_);
     local(*SRC);
@@ -141,7 +141,7 @@ sub scan_toc_entries {
     }
 
     
-    while ($depth > 0) {
+    while ($depth > 1) {
 	$depth--;
 	print DST "</UL>\n";
 	print DSTFRM "</UL>\n";
@@ -223,10 +223,11 @@ $html{tochead} = <<'PERL_EOF';
 </head>
 <body>
 
-<div class=contents>
-
 <H1 CLASS="unum">Contents</H1>
+
+<div class=contents>
 <UL>
+<li class=clause><a href="idxarm.htm">Application Object Index</a>
 PERL_EOF
     ;
 
@@ -241,10 +242,10 @@ $html{framehead} = <<'PERL_EOF';
 </head>
 <body>
 
-<div class=contents>
-
+<div class="contents side">
 <UL>
 <li class=clause><a href="index.htm" target="_parent">Cover</a>
+<li class=clause><a href="idxarm.htm" target="body">Application Object Index</a>
 PERL_EOF
     ;
 
