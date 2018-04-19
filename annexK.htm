@@ -33,7 +33,206 @@
 
 <LI>Add <a href="#aim-via_arc_point">via_arc_point</a> and <a href="#aim-via_helix_point">via_helix_point</a>  to support high-speed milling operations. </LI>
 
-<LI>Document <a href="clause4.htm#ao-datum">Datum</a> and <a href="clause4.htm#ao-datum_target">Datum_target</a> reference to <a href="clause4.htm#ao-workpiece">Workpiece</a>.   This clarifies the relationship between a Datum and the Workpiece on which the Datum appears, in a manner analogous to the its_workpiece data that relates a Manufacturing_feature to the Workpiece on which the Manufacturing_feature appears.</LI>
+
+<LI>Move the Manufacturing_feature application object from
+the <a href="clause4.htm#uof-workpiece ">workpiece UoF</a> into the
+manufacturing feature UoF and reference the application object
+definitions and mappings from ISO 10303-1814 rather than define it in
+clause 4 and 5.</LI>
+
+<LI>Change the <a href="clause4.htm#uof-feature">manufacturing feature
+UoF</a> to reference the following feature application object
+definitions and mappings from ISO 10303-1814 rather than define them
+in clause 4 and 5.  Also remove definition in clause 5 for
+chamfer_requires_faces_or_features,
+edge_round_requires_faces_or_features,
+restrict_unneeded_feature_usage.
+</LI>
+<UL>
+<LI>Angle_taper;</LI>
+<LI>Blind_bottom_condition;</LI>
+<LI>Boss;</LI>
+<LI>Catalogue_thread;</LI>
+<LI>Chamfer;</LI>
+<LI>Circular_closed_profile;</LI>
+<LI>Circular_closed_shape_profile;</LI>
+<LI>Circular_offset;</LI>
+<LI>Circular_omit;</LI>
+<LI>Circular_path;</LI>
+<LI>Circular_pattern;</LI>
+<LI>Closed_pocket;</LI>
+<LI>Closed_profile;</LI>
+<LI>Complete_circular_path;</LI>
+<LI>Compound_feature;</LI>
+<LI>Conical_hole_bottom;</LI>
+<LI>Counterbore_hole;</LI>
+<LI>Countersunk_hole;</LI>
+<LI>Defined_thread;</LI>
+<LI>Diameter_taper;</LI>
+<LI>Edge_round;</LI>
+<LI>Flat_hole_bottom;</LI>
+<LI>Flat_slot_end_type;</LI>
+<LI>Flat_with_radius_hole_bottom;</LI>
+<LI>General_closed_profile;</LI>
+<LI>General_outside_profile;</LI>
+<LI>General_path;</LI>
+<LI>General_pattern;</LI>
+<LI>General_pocket_bottom_condition;</LI>
+<LI>General_profile;</LI>
+<LI>General_profile_floor;</LI>
+<LI>General_shape_profile;</LI>
+<LI>Hole_bottom_condition;</LI>
+<LI>Linear_path;</LI>
+<LI>Linear_profile;</LI>
+<LI>Loop_slot_end_type;</LI>
+<LI>Machined_surface;</LI>
+<LI>Machining_feature;</LI>
+<LI>Ngon_profile;</LI>
+<LI>Open_pocket;</LI>
+<LI>Open_profile;</LI>
+<LI>Open_slot_end_type;</LI>
+<LI>Partial_area_definition;</LI>
+<LI>Partial_circular_path;</LI>
+<LI>Partial_circular_profile;</LI>
+<LI>Partial_circular_shape_profile;</LI>
+<LI>Planar_face;</LI>
+<LI>Planar_pocket_bottom_condition;</LI>
+<LI>Planar_profile_floor;</LI>
+<LI>Pocket;</LI>
+<LI>Pocket_bottom_condition;</LI>
+<LI>Profile;</LI>
+<LI>Profile_feature;</LI>
+<LI>Profile_floor;</LI>
+<LI>Radiused_pocket_bottom_condition;</LI>
+<LI>Radiused_slot_end_type;</LI>
+<LI>Rectangular_closed_profile;</LI>
+<LI>Rectangular_closed_shape_profile;</LI>
+<LI>Rectangular_offset;</LI>
+<LI>Rectangular_omit;</LI>
+<LI>Rectangular_open_shape_profile;</LI>
+<LI>Rectangular_pattern;</LI>
+<LI>Region;</LI>
+<LI>Region_projection;</LI>
+<LI>Region_surface_list;</LI>
+<LI>Replicate_feature;</LI>
+<LI>Round_hole;</LI>
+<LI>Rounded_end;</LI>
+<LI>Rounded_u_profile;</LI>
+<LI>Shape_profile;</LI>
+<LI>Slot;</LI>
+<LI>Slot_end_type;</LI>
+<LI>Specification;</LI>
+<LI>Specification_usage_constraint;</LI>
+<LI>Spherical_cap;</LI>
+<LI>Spherical_hole_bottom;</LI>
+<LI>Square_u_profile;</LI>
+<LI>Step;</LI>
+<LI>Surface_texture_parameter;</LI>
+<LI>Tee_profile;</LI>
+<LI>Thread;</LI>
+<LI>Through_bottom_condition;</LI>
+<LI>Through_pocket_bottom_condition;</LI>
+<LI>Through_profile_floor;</LI>
+<LI>Toolpath_feature;</LI>
+<LI>Topological_region;</LI>
+<LI>Transition_feature;</LI>
+<LI>Travel_path;</LI>
+<LI>Two5d_manufacturing_feature;</LI>
+<LI>Vee_profile;</LI>
+<LI>Woodruff_slot_end_type.</LI>
+</UL>
+
+<LI>Delete the turning feature UoF, moving the following application
+objects to the <a href="clause4.htm#uof-feature">manufacturing feature
+UoF</a>. Reference the definitions and mappings from ISO 10303-1814
+rather than define them in clause 4 and 5.</LI>
+<UL>
+<LI>Diagonal_knurl;</LI>
+<LI>Diamond_knurl;</LI>
+<LI>General_revolution;</LI>
+<LI>Groove;</LI>
+<LI>Knurl;</LI>
+<LI>Outer_diameter;</LI>
+<LI>Outer_diameter_to_shoulder;</LI>
+<LI>Outer_round;</LI>
+<LI>Revolved_feature;</LI>
+<LI>Revolved_flat;</LI>
+<LI>Revolved_round;</LI>
+<LI>Straight_knurl;</LI>
+<LI>Tool_knurl;</LI>
+<LI>Turning_feature.</LI>
+</UL>
+
+<LI>Change the <a href="clause4.htm#uof-gdt">geometric dimensioning
+and tolerancing UoF</a> to reference the following feature application
+object definitions and mappings from ISO 10303-1050 and 1051 rather
+than define them in clause 4 and 5.  Remove definition in clause 5 for
+directed_dimensional_location,
+externally_defined_dimension_definition, and
+placed_datum_target_feature.
+
+</LI>
+
+<UL>
+<LI>Angular_location_dimension;</LI>
+<LI>Angular_size_dimension;</LI>
+<LI>Angularity_tolerance;</LI>
+<LI>Circular_runout_tolerance;</LI>
+<LI>Coaxiality_tolerance;</LI>
+<LI>Common_datum;</LI>
+<LI>Concentricity_tolerance;</LI>
+<LI>Curved_distance_dimension;</LI>
+<LI>Curved_size_dimension;</LI>
+<LI>Cylindricity_tolerance;</LI>
+<LI>Datum;</LI>
+<LI>Datum_defined_by_derived_shape;</LI>
+<LI>Datum_defined_by_feature;</LI>
+<LI>Datum_defined_by_targets;</LI>
+<LI>Datum_reference;</LI>
+<LI>Datum_target;</LI>
+<LI>Diameter_size_dimension;</LI>
+<LI>Externally_defined_size_dimension;</LI>
+<LI>Flatness_tolerance;</LI>
+<LI>Geometric_dimension;</LI>
+<LI>Geometric_tolerance;</LI>
+<LI>Geometric_tolerance_relationship;</LI>
+<LI>Height_size_dimension;</LI>
+<LI>Length_size_dimension;</LI>
+<LI>Line_profile_tolerance;</LI>
+<LI>Linear_distance_dimension;</LI>
+<LI>Location_dimension;</LI>
+<LI>Measurement_path;</LI>
+<LI>Parallelism_tolerance;</LI>
+<LI>Perpendicularity_tolerance;</LI>
+<LI>Placed_target;</LI>
+<LI>Position_tolerance;</LI>
+<LI>Projection;</LI>
+<LI>Radial_size_dimension;</LI>
+<LI>Roundness_tolerance;</LI>
+<LI>Single_datum;</LI>
+<LI>Size_dimension;</LI>
+<LI>Straightness_tolerance;</LI>
+<LI>Surface_profile_tolerance;</LI>
+<LI>Symmetry_tolerance;</LI>
+<LI>Target_area;</LI>
+<LI>Target_circle;</LI>
+<LI>Target_point;</LI>
+<LI>Target_rectangle;</LI>
+<LI>Target_straight_line;</LI>
+<LI>Thickness_size_dimension;</LI>
+<LI>Tolerance_condition;</LI>
+<LI>Tolerance_zone;</LI>
+<LI>Tolerance_zone_definition;</LI>
+<LI>Total_runout_tolerance     ;</LI>
+<LI>Width_size_dimension.</LI>
+</UL>
+
+
+<LI>Change the <a href="clause4.htm#uof-gdt">geometric dimensioning
+and tolerancing UoF</a> to reference default tolerance application
+object definitions and mappings from ISO 10303-1052.</LI>
+
+
 
 </UL>
 
