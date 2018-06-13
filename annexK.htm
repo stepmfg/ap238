@@ -18,7 +18,9 @@
 <UL>
 <LI>Expand <a href="clause4.htm#ao-cutter_contact_trajectory">Cutter_contact_trajectory</a> and <a href="clause4.htm#ao-cutter_location_trajectory">Cutter_location_trajectory</a> with a toolpath reference direction curve to describe the orientation of asymmetric tools.  This is analogous to the way in which ISO 10303 geometry placements are described using an axis direction as well as a reference direction.</LI>
 
-<LI>Expand <a href="clause4.htm#ao-tool_usage">Tool_usage</a> definition to include gage and tool-end placements, which clarify how the tool product model is oriented with respect to toolpaths and machine models for simulation and interference check¬ing.</LI>
+<LI>Expand <a href="clause4.htm#ao-tool_usage">Tool_usage</a> definition to include gage and tool-end placements, which clarify how the tool product model is oriented with respect to toolpaths and machine models for simulation and interference checking.</LI>
+
+<LI>Add <a href="clause4.htm#ao-fixture_usage">Fixture_usage</a> definition, which referenced by a Setup to identify a particular usage of a fixture and associate a product model for the fixture.   Also added <a href="clause5.htm#aim-machining_fixture_usage">machining_fixture_usage</a> AIM entity for use in the mapping.   This replaces the first edition extension to Executable that referenced a workpiece directly as the its_fixture.</LI>
 
 <LI>Expand <a href="clause4.htm#ao-workplan">Workplan</a> with toolpath placement (as is already available on workingsteps) to allow reuse of nested workplans or workingsteps in different locations.</LI>
 
@@ -232,7 +234,18 @@ placed_datum_target_feature.
 and tolerancing UoF</a> to reference default tolerance application
 object definitions and mappings from ISO 10303-1052.</LI>
 
-
+<LI>Update support for product geometry types by changing AIC references to modules</LI>
+<UL>
+<LI>ISO 10303-1501 replaces AIC 501 
+<LI>ISO 10303-1502 replaces AIC 502
+<LI>ISO 10303-1507 replaces AIC 507
+<LI>ISO 10303-1324 replaces AIC 508
+<LI>ISO 10303-1509 replaces AIC 509
+<LI>ISO 10303-1510 replaces AIC 510
+<LI>ISO 10303-1511 replaces AIC 511
+<LI>ISO 10303-1514 replaces AIC 514
+<LI>ISO 10303-1819 add tessellated geometry
+</UL>
 
 </UL>
 

@@ -96,6 +96,21 @@ TABLE.map TD {
     white-space: pre;
 }
 
+
+TABLE.maplegend {  }
+TABLE.maplegend TD {
+    vertical-align: top;
+}
+TABLE.maplegend TD:first-child {
+    text-align: center;
+    padding-left: 1em;
+    padding-right: 1em;
+    white-space: pre;
+}
+
+
+
+
 DIV.mapnote {
     padding-left: 1.5em;
     margin: 0 0 1em 0;
