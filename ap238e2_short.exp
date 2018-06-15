@@ -1,0 +1,3651 @@
+SCHEMA model_based_integrated_manufacturing_schema;
+(*
+    ISO TC184/SC4/WG15N36 (superceeds --)
+    ISO WORKING DRAFT 10303-238 Edition 2
+    AIM EXPRESS SHORT FORM
+
+    2018-05-30 -- Converted AIC references to module MIM refs for the
+      shape representations and features.  Changed P47 refs to modules
+      for tolerances, dimensions, and associative presentation PMI.
+      Added module refs for tesselated, point cloud, and construction
+      geometry shape reps, additive setup and kinematic description of
+      machine tool models.  Imported management modules 1012-1015
+      rather than defining the assignments locally.  Renamed the
+      schema to match new title of AP.
+
+    2018-04-23 -- Original E1
+*)
+
+(* ======================================== *)
+(* IMPORT LISTS *)
+
+USE FROM Additive_manufacturing_part_and_build_information_mim;  -- 10303-1835
+USE FROM Advanced_boundary_representation_mim;			 -- 10303-1514
+USE FROM Approval_mim; 						 -- 10303-1012
+USE FROM Construction_geometry_mim; 				 -- 10303-1131
+USE FROM Date_time_assignment_mim; 				 -- 10303-1014
+USE FROM Default_tolerance_mim;				 	 -- 10303-1052
+USE FROM Dimension_and_tolerance_callouts_mim;	 		 -- 10303-1362
+USE FROM Dimension_tolerance_mim;				 -- 10303-1050
+USE FROM Edge_based_wireframe_mim;				 -- 10303-1501
+USE FROM External_properties_mim; 				 -- 10303-1129
+USE FROM Faceted_boundary_representation_mim;			 -- 10303-1512
+USE FROM Geometric_tolerance_mim;				 -- 10303-1051
+USE FROM Geometrically_bounded_surface_mim;			 -- 10303-1507
+USE FROM Geometrically_bounded_wireframe_mim;			 -- 10303-1510
+USE FROM Kinematic_motion_representation_mim;			 -- 10303-1796
+USE FROM Kinematic_structure_mim; 				 -- 10303-1797
+USE FROM Machining_features_mim; 				 -- 10303-1814
+USE FROM Manifold_surface_mim;					 -- 10303-1509
+USE FROM Mechanical_design_features_and_requirements_mim;	 -- 10303-1846
+USE FROM Mechanical_design_presentation_representation_with_draughting_mim; -- 10303-1315
+USE FROM Non_manifold_surface_mim;				 -- 10303-1324
+USE FROM Person_organization_assignment_mim;			 -- 10303-1013
+USE FROM Plib_class_reference_mim; 				 -- 10303-1291
+USE FROM Product_and_manufacturing_annotation_presentation_mim;	 -- 10303-1812
+USE FROM Scan_data_3d_shape_mim; 				 -- 10303-1831
+USE FROM Security_classification_mim; 				 -- 10303-1015
+USE FROM Shell_based_wireframe_mim;				 -- 10303-1502
+USE FROM Tessellated_geometry_mim;				 -- 10303-1819
+USE FROM Topologically_bounded_surface_mim;			 -- 10303-1511
+
+
+
+USE FROM action_schema						 -- 10303-41
+    (action,
+     action_method,
+     action_method_relationship,
+     action_resource,
+     action_resource_relationship,
+     action_resource_type);
+
+USE FROM application_context_schema				 -- 10303-41
+    (application_context,
+     application_context_element,
+     application_protocol_definition,
+     product_context,
+     product_definition_context);
+
+USE FROM geometric_model_schema					 -- 10303-42
+    (block,
+     right_circular_cylinder);
+
+USE FROM geometry_schema					 -- 10303-42
+    (bounded_curve,
+     bounded_surface,
+     elementary_surface,
+     geometric_representation_context);
+
+USE FROM iso13584_expressions_schema				 -- 13584-20
+    (and_expression,
+     binary_boolean_expression,
+     boolean_expression,
+     comparison_equal,
+     comparison_expression,
+     comparison_greater,
+     comparison_greater_equal,
+     comparison_less,
+     comparison_less_equal,
+     comparison_not_equal,
+     expression,
+     int_literal,
+     int_numeric_variable,
+     literal_number,
+     multiple_arity_boolean_expression,
+     not_expression,
+     numeric_expression,
+     numeric_variable,
+     or_expression,
+     real_literal,
+     real_numeric_variable,
+     simple_numeric_expression,
+     unary_boolean_expression,
+     xor_expression);
+
+USE FROM iso13584_generic_expressions_schema			 -- 13584-20
+    (binary_generic_expression,
+     generic_expression);
+
+USE FROM material_property_definition_schema			 -- 10303-45
+    (material_designation,
+     material_designation_characterization,
+     material_property);
+
+USE FROM material_property_representation_schema		 -- 10303-45
+    (material_property_representation);
+
+USE FROM measure_schema						 -- 10303-41
+    (area_measure,
+     context_dependent_measure,
+     context_dependent_unit,
+     conversion_based_unit,
+     count_measure,
+     derived_unit,
+     descriptive_measure,
+     global_unit_assigned_context,
+     length_measure_with_unit,
+     length_unit,
+     mass_measure,
+     mass_measure_with_unit,
+     mass_unit,
+     measure_with_unit,
+     named_unit,
+     numeric_measure,
+     parameter_value,
+     plane_angle_measure_with_unit,
+     plane_angle_unit,
+     positive_plane_angle_measure,
+     ratio_measure,
+     ratio_measure_with_unit,
+     ratio_unit,
+     si_unit,
+     solid_angle_measure,
+     solid_angle_measure_with_unit,
+     solid_angle_unit,
+     time_measure,
+     time_measure_with_unit,
+     time_unit,
+     volume_measure);
+
+USE FROM method_definition_schema				 -- 10303-49
+    (action_method_with_associated_documents,
+     concurrent_action_method,
+     sequential_method,
+     serial_action_method);
+
+USE FROM process_property_representation_schema			 -- 10303-49
+    (action_property_representation,
+     resource_property_representation);
+
+USE FROM process_property_schema				 -- 10303-49
+    (action_property,
+     action_resource_requirement,
+     characterized_action_definition,
+     characterized_resource_definition,
+     process_product_association,
+     process_property_association,
+     property_process,
+     requirement_for_action_resource,
+     resource_property,
+     resource_requirement_type);
+
+USE FROM product_definition_schema				 -- 10303-41
+    (product,
+     product_category,
+     product_category_relationship,
+     product_definition,
+     product_definition_formation,
+     product_definition_formation_with_specified_source,
+     product_definition_relationship,
+     product_definition_with_associated_documents,
+     product_related_product_category);
+
+USE FROM product_property_definition_schema			 -- 10303-41
+    (characterized_object,
+     product_definition_shape,
+     property_definition,
+     shape_aspect,
+     shape_aspect_relationship,
+     shape_definition);
+
+USE FROM product_property_representation_schema			 -- 10303-41
+    (context_dependent_shape_representation,
+     property_definition_representation,
+     shape_definition_representation,
+     shape_representation,
+     shape_representation_relationship);
+
+USE FROM product_structure_schema				 -- 10303-44
+    (make_from_usage_option,
+     next_assembly_usage_occurrence);
+
+USE FROM qualified_measure_schema				 -- 10303-45
+    (descriptive_representation_item,
+     expanded_uncertainty,
+     measure_qualification,
+     measure_representation_item,
+     precision_qualifier,
+     qualified_representation_item,
+     qualitative_uncertainty,
+     standard_uncertainty,
+     uncertainty_qualifier,
+     value_qualifier);
+
+USE FROM representation_schema					 -- 10303-43
+    (compound_representation_item,
+     global_uncertainty_assigned_context,
+     item_defined_transformation,
+     list_representation_item,
+     mapped_item,
+     representation,
+     representation_item,
+     representation_item_relationship,
+     representation_relationship,
+     representation_relationship_with_transformation,
+     set_representation_item,
+     value_representation_item);
+
+
+
+
+(* ======================================== *)
+(* ASSIGNMENT SUBTYPES *)
+
+TYPE mbmfg_approval_item = SELECT BASED_ON approval_item WITH  (
+        product,			-- workpiece
+        product_definition,		-- workpiece
+        product_definition_formation	-- project, workpiece
+        );
+END_TYPE; 
+
+TYPE mbmfg_classification_item = SELECT BASED_ON classification_item WITH (
+        externally_defined_representation_with_parameters
+        );
+END_TYPE;
+
+TYPE mbmfg_date_and_time_item = SELECT BASED_ON date_and_time_item WITH (
+	machining_operation,		-- last modified timestamp
+	machining_process_executable,	-- last modified timestamp
+	machining_toolpath,		-- last modified timestamp
+        product,			-- workpiece
+	product_definition,		-- last modified timestamp
+	product_definition_formation	-- project, last modified timestamp
+        );
+END_TYPE;
+
+TYPE mbmfg_date_item = SELECT BASED_ON date_item WITH (
+        product,			-- workpiece
+	product_definition,		-- workpiece.its_dates
+	product_definition_formation	-- workpiece.revision_dates
+        );
+END_TYPE;
+
+TYPE mbmfg_organization_item = SELECT BASED_ON organization_item WITH (
+        product,			-- workpiece
+        product_definition,	 	-- workpiece
+        product_definition_formation 	-- workpiece
+        );
+END_TYPE; 
+
+TYPE mbmfg_person_and_organization_item = SELECT BASED_ON person_and_organization_item WITH (
+        product,			-- workpiece
+        product_definition,	 	-- workpiece
+        product_definition_formation 	-- project, workpiece
+        );
+END_TYPE; 
+
+TYPE mbmfg_presented_item_select = SELECT BASED_ON presented_item_select WITH (
+	action,
+	action_method,
+	action_relationship,
+	product_concept,
+	product_concept_feature,
+	product_concept_feature_category,
+	product_definition,
+	product_definition_formation,
+	product_definition_relationship
+	);
+END_TYPE;
+
+TYPE mbmfg_security_classification_item = SELECT BASED_ON security_classification_item WITH (
+	machining_operation,		-- security assignment
+	machining_process_executable,	-- security assignment
+	machining_toolpath,		-- security assignment
+	product_definition,		-- security assignment
+	product_definition_formation	-- security assignment
+        );
+END_TYPE;
+
+  
+(* ======================================== *)
+(* GENERAL CNC PROCESS SUBTYPES (From Part 10) *)
+
+-- The additive manufacturing module defines a stub for MPE.  Use this version
+-- in the final long form.
+
+ENTITY machining_process_executable
+  SUBTYPE OF (process_operation);
+--  SUBTYPE OF (action_method);
+  WHERE
+  WR1:  NOT (0 = SIZEOF (TYPEOF (SELF) *
+            ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_FEATURE_PROCESS',
+             'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_NC_FUNCTION',
+             'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_RAPID_MOVEMENT',
+             'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_TOUCH_PROBING',
+             'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_WORKINGSTEP',
+             'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_WORKPLAN']
+        )) OR
+        (SELF.description IN ['assignment', 'if statement',
+                'non-sequential', 'parallel', 'selective',
+                'while statement', 'setup instructions']);
+
+  WR2:  NOT (SELF.description = 'assignment') OR
+        ((verify_required_action_property       (SELF, 'lvalue')) AND
+         (verify_rep_item_for_action_property   (SELF, 'lvalue',
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.EXPRESSION_REPRESENTATION_ITEM',
+           'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.NUMERIC_VARIABLE'])) AND
+
+         (verify_required_action_property       (SELF, 'rvalue')) AND
+         (verify_rep_item_for_action_property   (SELF, 'rvalue',
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.EXPRESSION_REPRESENTATION_ITEM'])));
+
+  WR3:  NOT (SELF.description = 'if statement') OR
+        ((verify_required_action_property       (SELF, 'condition')) AND
+         (verify_rep_item_for_action_property   (SELF, 'condition',
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.EXPRESSION_REPRESENTATION_ITEM',
+           'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.BOOLEAN_EXPRESSION'])) AND
+
+         (verify_required_relating_amr_with_name  (SELF, 'true branch',
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_PROCESS_BRANCH_RELATIONSHIP'])) AND
+         (verify_related_type_for_amr_with_name   (SELF, 'true branch',
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_PROCESS_BRANCH_RELATIONSHIP'],
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_PROCESS_EXECUTABLE'])) AND
+
+         (verify_optional_relating_amr_with_name  (SELF, 'false branch',
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_PROCESS_BRANCH_RELATIONSHIP'])) AND
+         (verify_related_type_for_amr_with_name   (SELF, 'false branch',
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_PROCESS_BRANCH_RELATIONSHIP'],
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_PROCESS_EXECUTABLE']))
+        );
+
+  WR4:  NOT (SELF.description = 'while statement') OR
+        ((verify_required_action_property       (SELF, 'condition')) AND
+         (verify_rep_item_for_action_property   (SELF, 'condition',
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.EXPRESSION_REPRESENTATION_ITEM',
+           'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.BOOLEAN_EXPRESSION'])) AND
+
+         (verify_required_relating_amr  (SELF,
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_PROCESS_BODY_RELATIONSHIP'])) AND
+         (verify_related_type_for_amr   (SELF,
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_PROCESS_BODY_RELATIONSHIP'],
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_PROCESS_EXECUTABLE']))
+        );
+
+  WR5:  NOT (SELF.description = 'parallel') OR
+        ((2 <= get_count_of_relating_amr (SELF,
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_PROCESS_CONCURRENT_RELATIONSHIP']))
+        AND
+         (verify_related_type_for_amr   (SELF,
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_PROCESS_CONCURRENT_RELATIONSHIP'],
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_PROCESS_EXECUTABLE']))
+        );
+
+  WR6:  NOT (SELF.description = 'non-sequential') OR
+        ((2 <= get_count_of_relating_amr (SELF,
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_PROCESS_BODY_RELATIONSHIP'])) AND
+         (verify_related_type_for_amr   (SELF,
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_PROCESS_BODY_RELATIONSHIP'],
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_PROCESS_EXECUTABLE']))
+        );
+
+  WR7:  NOT (SELF.description = 'selective') OR
+        ((2 <= get_count_of_relating_amr (SELF,
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_PROCESS_BRANCH_RELATIONSHIP'])) AND
+         (verify_related_type_for_amr   (SELF,
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_PROCESS_BRANCH_RELATIONSHIP'],
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_PROCESS_EXECUTABLE']))
+        );
+
+  WR8:  NOT (SELF.description = 'setup instructions') OR
+        ((verify_related_type_for_amr   (SELF,
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_OPERATOR_INSTRUCTION_RELATIONSHIP'],
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_OPERATOR_INSTRUCTION']))
+        );
+END_ENTITY;
+
+
+ENTITY machining_workingstep
+  SUBTYPE OF (machining_process_executable);
+  WHERE
+  WR1:  ((verify_optional_action_property     (SELF, 'security plane')) AND
+         (verify_rep_item_for_action_property (SELF, 'security plane',
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.ELEMENTARY_SURFACE'])));
+
+  WR2:  NOT (SELF.description = 'machining') OR
+        ((verify_required_relating_amr (SELF,
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_FEATURE_RELATIONSHIP'])) AND
+         (verify_related_type_for_amr  (SELF,
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_FEATURE_RELATIONSHIP'],
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_FEATURE_PROCESS'])) AND
+
+         (verify_related_type_for_amr (SELF,
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_FINAL_FEATURE_RELATIONSHIP'],
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_FEATURE_PROCESS'])) AND
+
+         (verify_required_relating_amr  (SELF,
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_OPERATION_RELATIONSHIP'])) AND
+         (verify_related_type_for_amr   (SELF,
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_OPERATION_RELATIONSHIP'],
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_OPERATION']))
+        );
+
+  WR3:  NOT (SELF.description = 'turning') OR
+        ((2 <= get_count_of_relating_amr (SELF,
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_FEATURE_SEQUENCE_RELATIONSHIP'])) AND
+         (verify_related_type_for_amr    (SELF,
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_FEATURE_SEQUENCE_RELATIONSHIP'],
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_FEATURE_PROCESS'])) AND
+
+         (verify_required_relating_amr  (SELF,
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_OPERATION_RELATIONSHIP'])) AND
+         (verify_related_type_for_amr   (SELF,
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_OPERATION_RELATIONSHIP'],
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.TURNING_TYPE_OPERATION']))
+        );
+
+  WR4:  NOT (SELF.description IN ['machining', 'turning']) OR
+        (verify_optional_in_process_geometry (SELF));
+
+  WR5:  ((verify_optional_action_property (SELF, 'toolpath orientation')) AND
+         (verify_rep_item_for_action_property (SELF, 'toolpath orientation',
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.AXIS2_PLACEMENT_3D'])));
+
+END_ENTITY;
+
+ENTITY machining_workplan
+  SUBTYPE OF (machining_process_executable);
+  WHERE
+  WR1:  (1 <= get_count_of_relating_amr (SELF,
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_PROCESS_SEQUENCE_RELATIONSHIP'])) AND
+        (verify_related_type_for_amr   (SELF,
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_PROCESS_SEQUENCE_RELATIONSHIP'],
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_PROCESS_EXECUTABLE']));
+
+  WR2:  (verify_optional_action_property (SELF, 'channel'));
+
+  WR3:  (1 >= SIZEOF (QUERY (act <*
+          USEDIN (SELF, 'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.ACTION.CHOSEN_METHOD') |
+          (act.name = 'setup')))) AND
+        (0 = SIZEOF (QUERY (act <*
+          USEDIN (SELF, 'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.ACTION.CHOSEN_METHOD') |
+          (act.name = 'setup') AND NOT
+          ('MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.PRODUCT_DEFINITION_PROCESS' IN TYPEOF (act))
+        )));
+
+  WR4:  (verify_optional_in_process_geometry (SELF));
+END_ENTITY;
+
+
+
+ENTITY machining_feature_process
+  SUBTYPE OF (machining_process_executable);
+  WHERE
+  WR1:  (1 = SIZEOF (QUERY (act <*
+          USEDIN (SELF, 'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.ACTION.CHOSEN_METHOD') |
+          (act.name = 'machining')))) AND
+        (0 = SIZEOF (QUERY (act <*
+          USEDIN (SELF, 'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.ACTION.CHOSEN_METHOD') |
+          (act.name = 'machining') AND NOT
+          ('MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.PROPERTY_PROCESS' IN TYPEOF (act))
+        )));
+END_ENTITY;
+
+
+
+ENTITY machining_operator_instruction
+  SUBTYPE OF (action_method_with_associated_documents);
+  WHERE
+  WR1:  EXISTS (self.description) OR (0 < SIZEOF(self.documents));
+END_ENTITY;
+
+
+ENTITY machining_operation
+  SUBTYPE OF (action_method);
+  WHERE
+  WR1: ((verify_related_type_for_amr    (SELF,
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_TOOLPATH_SEQUENCE_RELATIONSHIP'],
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_TOOLPATH']))
+       );
+
+  WR2:  (verify_optional_action_property     (SELF, 'tool direction')) AND
+        (verify_rep_type_for_action_property (SELF, 'tool direction',
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_TOOL_DIRECTION_REPRESENTATION']));
+
+  WR3:  ('MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_RAPID_MOVEMENT' IN TYPEOF(SELF)) OR
+        ('MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_TOUCH_PROBING'  IN TYPEOF(SELF)) OR
+        ((verify_optional_action_property       (SELF, 'retract plane')) AND
+         (verify_length_measure_action_property (SELF, 'retract plane')) AND
+
+         (verify_optional_action_property       (SELF, 'cut start point')) AND
+         (verify_rep_item_for_action_property   (SELF, 'cut start point',
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.CARTESIAN_POINT'])) AND
+
+         (1 = SIZEOF (QUERY (mt <*
+          USEDIN (SELF, 'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.ACTION_RESOURCE.USAGE') |
+          ('MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_TOOL' in TYPEOF(mt))))) AND
+
+         (verify_required_relating_amr  (SELF,
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_TECHNOLOGY_RELATIONSHIP'])) AND
+         (verify_related_type_for_amr   (SELF,
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_TECHNOLOGY_RELATIONSHIP'],
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_TECHNOLOGY'])) AND
+
+         (verify_required_relating_amr  (SELF,
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_FUNCTIONS_RELATIONSHIP'])) AND
+         (verify_related_type_for_amr   (SELF,
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_FUNCTIONS_RELATIONSHIP'],
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_FUNCTIONS']))
+        );
+END_ENTITY;
+
+
+
+ENTITY machining_technology
+  SUBTYPE OF (action_method);
+  WHERE
+  WR1:  (verify_optional_action_property      (SELF, 'feedrate')) AND
+        (verify_rep_type_for_action_property  (SELF, 'feedrate',
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_FEED_SPEED_REPRESENTATION']));
+
+  WR2:  (verify_optional_action_property      (SELF, 'feedrate reference')) AND
+        (verify_enumeration_action_property   (SELF, 'feedrate reference',
+          ['tool center point', 'cutter contact point']));
+
+  WR3:  NOT (SELF.description = 'milling') OR
+        ((verify_optional_action_property     (SELF, 'spindle')) AND
+         (verify_rep_type_for_action_property (SELF, 'spindle',
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_SPINDLE_SPEED_REPRESENTATION'])) AND
+
+         (verify_optional_action_property
+           (SELF, 'synchronize spindle with feed')) AND
+         (verify_enumeration_action_property
+           (SELF, 'synchronize spindle with feed',
+           ['synchronized', 'not synchronized'])) AND
+
+         (verify_optional_action_property
+           (SELF, 'inhibit feedrate override')) AND
+         (verify_enumeration_action_property
+           (SELF, 'inhibit feedrate override',
+           ['override allowed', 'override not allowed'])) AND
+
+         (verify_optional_action_property
+           (SELF, 'inhibit spindle override')) AND
+         (verify_enumeration_action_property
+           (SELF, 'inhibit spindle override',
+           ['override allowed', 'override not allowed'])) AND
+
+         (verify_optional_relating_amr  (SELF,
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_ADAPTIVE_CONTROL_RELATIONSHIP'])) AND
+         (verify_related_type_for_amr   (SELF,
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_ADAPTIVE_CONTROL_RELATIONSHIP'],
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_TECHNOLOGY']))
+        );
+
+  WR4:  NOT (SELF.description = 'milling') OR
+        ((verify_required_relating_amr (SELF,
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_ADAPTIVE_CONTROL_RELATIONSHIP'])) OR
+
+         (verify_required_action_property     (SELF, 'spindle') AND
+          verify_rep_name_for_action_property (SELF, 'spindle',
+           ['spindle speed', 'cutting speed']))
+        );
+
+  WR5:  NOT (SELF.description = 'milling') OR
+        ((verify_required_relating_amr (SELF,
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_ADAPTIVE_CONTROL_RELATIONSHIP'])) OR
+
+         (verify_required_action_property     (SELF, 'feedrate') AND
+          verify_rep_name_for_action_property (SELF, 'feedrate',
+           ['feed speed', 'feed per tooth']))
+        );
+
+  WR6:  NOT (SELF.description = 'turning') OR
+        ((verify_optional_action_property     (SELF, 'spindle')) AND
+         (verify_rep_type_for_action_property (SELF, 'spindle',
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_SPINDLE_SPEED_REPRESENTATION'])) AND
+         (verify_rep_name_for_action_property (SELF, 'spindle',
+           ['spindle speed', 'cutting speed'])) AND
+
+         (verify_rep_name_for_action_property (SELF, 'feedrate',
+           ['feed speed', 'feed per revolution'])) AND
+
+         (verify_optional_action_property
+           (SELF, 'synchronize spindle with z feed')) AND
+         (verify_enumeration_action_property
+           (SELF, 'synchronize spindle with z feed',
+           ['synchronized', 'not synchronized'])) AND
+
+         (verify_optional_action_property
+           (SELF, 'inhibit feedrate override')) AND
+         (verify_enumeration_action_property
+           (SELF, 'inhibit feedrate override',
+           ['override allowed', 'override not allowed'])) AND
+
+         (verify_optional_action_property
+           (SELF, 'inhibit spindle override')) AND
+         (verify_enumeration_action_property
+           (SELF, 'inhibit spindle override',
+           ['override allowed', 'override not allowed'])) AND
+
+         (verify_optional_relating_amr  (SELF,
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_ADAPTIVE_CONTROL_RELATIONSHIP'])) AND
+         (verify_related_type_for_amr   (SELF,
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_ADAPTIVE_CONTROL_RELATIONSHIP'],
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_TECHNOLOGY']))
+        );
+END_ENTITY;
+
+
+ENTITY machining_functions
+  SUBTYPE OF (action_method);
+  WHERE
+  WR1:  NOT (SELF.description = 'milling') OR
+        ((verify_required_action_property       (SELF, 'coolant')) AND
+         (verify_enumeration_action_property    (SELF, 'coolant',
+           ['coolant on', 'coolant off'])) AND
+
+         (verify_optional_action_property
+           (SELF, 'coolant pressure')) AND
+         (verify_pressure_measure_action_property
+           (SELF, 'coolant pressure')) AND
+
+         (verify_optional_action_property       (SELF, 'mist')) AND
+         (verify_enumeration_action_property    (SELF, 'mist',
+           ['mist on', 'mist off'])) AND
+
+         (verify_optional_action_property
+           (SELF, 'through spindle coolant')) AND
+         (verify_enumeration_action_property
+           (SELF, 'through spindle coolant',
+           ['through spindle coolant on', 'through spindle coolant off'])) AND
+
+         (verify_optional_action_property
+           (SELF, 'through spindle pressure')) AND
+         (verify_pressure_measure_action_property
+           (SELF, 'through spindle pressure')) AND
+
+         -- axis constraints property must contain zero or more ranges
+         (0 = SIZEOF (QUERY (prop <* get_action_property
+                (SELF, 'axis constraints') | NOT
+                 ((0 < SIZEOF (QUERY (prep <* USEDIN (prop,
+            'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.ACTION_PROPERTY_REPRESENTATION.PROPERTY') |
+              (0 <= SIZEOF (QUERY (it <* prep.representation.items |
+                 ('MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.VALUE_RANGE' in TYPEOF(it)))))
+                )))))))
+        );
+
+  WR2:  NOT (SELF.description = 'turning') OR
+        ((verify_required_action_property       (SELF, 'coolant')) AND
+         (verify_enumeration_action_property    (SELF, 'coolant',
+           ['coolant on', 'coolant off'])) AND
+
+         (verify_optional_action_property       (SELF, 'coolant type')) AND
+         (verify_enumeration_action_property    (SELF, 'coolant type',
+           ['flood', 'mist', 'through tool'])) AND
+
+         (verify_optional_action_property
+           (SELF, 'coolant pressure')) AND
+         (verify_pressure_measure_action_property
+           (SELF, 'coolant pressure')) AND
+
+         (verify_optional_action_property       (SELF, 'tail stock')) AND
+         (verify_enumeration_action_property    (SELF, 'tail stock',
+           ['tail stock used', 'tail stock not used'])) AND
+
+         (verify_optional_action_property       (SELF, 'steady rest')) AND
+         (verify_enumeration_action_property    (SELF, 'steady rest',
+           ['steady rest used', 'steady rest not used'])) AND
+
+         (verify_optional_action_property       (SELF, 'follow rest')) AND
+         (verify_enumeration_action_property    (SELF, 'follow rest',
+           ['follow rest used', 'follow rest not used']))
+        );
+
+  WR3:  NOT (SELF.description IN ['milling', 'turning']) OR
+        ((verify_optional_action_property       (SELF, 'axis clamping')) AND
+         (0 = SIZEOF (QUERY (prop <*
+           get_action_property (SELF, 'axis clamping') | NOT
+           (0 < SIZEOF (QUERY (prep <* USEDIN (prop, 'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.' +
+              'ACTION_PROPERTY_REPRESENTATION.PROPERTY') |
+             (1 = SIZEOF (QUERY (it <* prep.representation.items |
+                (('MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.COMPOUND_REPRESENTATION_ITEM'
+                   IN TYPEOF(it)) AND
+                 ('MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.LIST_REPRESENTATION_ITEM'
+                   IN TYPEOF(it.item_element)) AND
+                 (0 = SIZEOF (QUERY (ie <* it.item_element | NOT
+                   ('MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.DESCRIPTIVE_REPRESENTATION_ITEM'
+                    IN TYPEOF(ie)) )))
+             ))))
+           )))
+         ))) AND
+
+         (verify_optional_action_property     (SELF, 'chip removal')) AND
+         (verify_enumeration_action_property  (SELF, 'chip removal',
+           ['chip removal on', 'chip removal off'])) AND
+
+         (verify_optional_action_property     (SELF, 'oriented spindle stop')) AND
+         (verify_rep_item_for_action_property (SELF, 'oriented spindle stop',
+           ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.DIRECTION'])) AND
+
+         (verify_related_type_for_amr   (SELF,
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_PROCESS_MODEL_RELATIONSHIP'],
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_PROCESS_MODEL'])) AND
+
+         (verify_optional_action_property (SELF, 'other functions')) AND
+         (0 = SIZEOF (QUERY (prop <* get_action_property
+                             (SELF, 'other functions') | NOT
+           (0 < SIZEOF (QUERY (prep <* USEDIN (prop, 'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.' +
+              'ACTION_PROPERTY_REPRESENTATION.PROPERTY') |
+             (1 = SIZEOF (QUERY (it <* prep.representation.items |
+                (('MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.COMPOUND_REPRESENTATION_ITEM'
+                   IN TYPEOF(it)) AND
+                 ('MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.SET_REPRESENTATION_ITEM'
+                   IN TYPEOF(it.item_element)))
+             )))
+           )))
+         )))
+        );
+END_ENTITY;
+
+ENTITY machining_toolpath
+  SUBTYPE OF (action_method);
+  WHERE
+  WR1:  (SELF.description IN ['feedstop', 'axis trajectory',
+        'cutter location trajectory', 'cutter contact trajectory',
+        'approach lift path angle', 'approach lift path tangent',
+        'connect security plane', 'connect direct']);
+
+  WR2:  (verify_optional_action_property        (SELF, 'priority')) AND
+        (verify_enumeration_action_property     (SELF, 'priority',
+         ['required', 'suggested']));
+
+  WR3:  (verify_optional_action_property        (SELF, 'trajectory type')) AND
+        (verify_enumeration_action_property     (SELF, 'trajectory type',
+         ['approach', 'lift', 'connect', 'non-contact',
+          'contact', 'trajectory path']));
+
+  WR4:  ((verify_optional_action_property        (SELF, 'speed profile')) AND
+         (0 = SIZEOF (QUERY (prop <*
+           get_action_property (SELF, 'speed profile') | NOT
+           (0 < SIZEOF (QUERY (prep <* USEDIN (prop,
+                'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.' +
+                'ACTION_PROPERTY_REPRESENTATION.PROPERTY') |
+                ('MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.' +
+                 'MACHINING_TOOLPATH_SPEED_PROFILE_REPRESENTATION'
+                 IN TYPEOF(prep.representation)) )))
+         )))
+        );
+
+  WR5:  (verify_optional_relating_amr   (SELF,
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_TECHNOLOGY_RELATIONSHIP'])) AND
+        (verify_related_type_for_amr    (SELF,
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_TECHNOLOGY_RELATIONSHIP'],
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_TECHNOLOGY']));
+
+  WR6:  (verify_optional_relating_amr   (SELF,
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_FUNCTIONS_RELATIONSHIP'])) AND
+        (verify_related_type_for_amr    (SELF,
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_FUNCTIONS_RELATIONSHIP'],
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_FUNCTIONS']));
+
+
+  WR7:  NOT (SELF.description IN ['axis trajectory',
+                'cutter location trajectory',
+                'cutter contact trajectory']) OR
+        ((verify_optional_action_property    (SELF, 'direction')) AND
+         (verify_enumeration_action_property (SELF, 'direction',
+          ['beginning to end', 'end to beginning']))
+        );
+
+
+  WR8:  NOT (SELF.description = 'connect security plane') OR
+        ((verify_optional_action_property     (SELF, 'up direction')) AND
+         (verify_rep_item_for_action_property (SELF, 'up direction',
+           ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.DIRECTION'])) AND
+
+         (verify_optional_action_property     (SELF, 'down direction')) AND
+         (verify_rep_item_for_action_property (SELF, 'down direction',
+           ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.DIRECTION']))
+        );
+
+  WR9:  NOT (SELF.description = 'feedstop') OR
+        ((verify_required_action_property     (SELF, 'dwell')) AND
+         (verify_time_measure_action_property (SELF, 'dwell'))
+        );
+
+  WR10: NOT (SELF.description = 'axis trajectory') OR
+        ((verify_required_action_property     (SELF, 'axis commands')) AND
+
+         -- axis commands property must contain one or more bounded curves
+         (0 = SIZEOF (QUERY (prop <* get_action_property (SELF, 'axis commands') |
+          NOT ((0 < SIZEOF (QUERY (prep <* USEDIN (prop,
+               'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.ACTION_PROPERTY_REPRESENTATION.PROPERTY') |
+              (1 <= SIZEOF (QUERY (it <* prep.representation.items |
+                 ('MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.BOUNDED_CURVE' in TYPEOF(it)))))
+                )))))))
+        );
+
+  WR11: NOT (SELF.description IN ['approach lift path angle',
+           'approach lift path tangent']) OR
+        ((verify_required_action_property     (SELF, 'fix point')) AND
+         (verify_rep_item_for_action_property (SELF, 'fix point',
+           ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.CARTESIAN_POINT'])) AND
+
+         (verify_optional_action_property     (SELF, 'fix point direction')) AND
+         (verify_rep_item_for_action_property (SELF, 'fix point direction',
+           ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.DIRECTION']))
+        );
+
+  WR12: NOT (SELF.description = 'approach lift path angle') OR
+        ((verify_required_action_property      (SELF, 'angle')) AND
+         (verify_angle_measure_action_property (SELF, 'angle')) AND
+
+         (verify_required_action_property       (SELF, 'bend distance')) AND
+         (verify_length_measure_action_property (SELF, 'bend distance'))
+        );
+
+  WR13: NOT (SELF.description = 'approach lift path tangent') OR
+        ((verify_required_action_property       (SELF, 'radius')) AND
+         (verify_length_measure_action_property (SELF, 'radius'))
+        );
+
+  WR14: NOT (SELF.description = 'cutter location trajectory') OR
+        ((verify_required_action_property     (SELF, 'basic curve')) AND
+         (verify_rep_item_for_action_property (SELF, 'basic curve',
+           ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.BOUNDED_CURVE'])) AND
+
+         (verify_optional_action_property     (SELF, 'surface normal')) AND
+         (verify_rep_item_for_action_property (SELF, 'surface normal',
+           ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.BOUNDED_CURVE'])) AND
+
+         (verify_optional_action_property     (SELF, 'tool axis')) AND
+         (verify_rep_item_for_action_property (SELF, 'tool axis',
+           ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.BOUNDED_CURVE'])) AND
+
+         (verify_optional_action_property
+          (SELF, 'path maximum deviation')) AND
+         (verify_length_measure_action_property
+          (SELF, 'path maximum deviation')) AND
+
+         (verify_optional_action_property
+          (SELF, 'tool axis maximum deviation')) AND
+         (verify_angle_measure_action_property
+          (SELF, 'tool axis maximum deviation'))
+        );
+
+  WR15: NOT (SELF.description = 'cutter contact trajectory') OR
+        ((((verify_required_action_property     (SELF, 'basic curve')) AND
+           (verify_rep_item_for_action_property (SELF, 'basic curve',
+            ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.BOUNDED_PCURVE'])) )
+
+           OR
+
+          ((verify_required_action_property     (SELF, 'basic curve')) AND
+           (verify_rep_item_for_action_property (SELF, 'basic curve',
+            ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.BOUNDED_CURVE'])) AND
+
+           (verify_required_action_property     (SELF, 'surface normal')) AND
+           (verify_rep_item_for_action_property (SELF, 'surface normal',
+            ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.BOUNDED_CURVE'])) )
+          ) AND
+
+         (verify_optional_action_property     (SELF, 'tool axis')) AND
+         (verify_rep_item_for_action_property (SELF, 'tool axis',
+           ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.BOUNDED_CURVE'])) AND
+
+         (verify_optional_action_property     (SELF, 'contact type')) AND
+         (verify_enumeration_action_property  (SELF, 'contact type',
+           ['side', 'front'])) AND
+
+         (verify_optional_action_property
+          (SELF, 'path maximum deviation')) AND
+         (verify_length_measure_action_property
+          (SELF, 'path maximum deviation')) AND
+
+         (verify_optional_action_property
+          (SELF, 'tool axis maximum deviation')) AND
+         (verify_angle_measure_action_property
+          (SELF, 'tool axis maximum deviation'))
+        );
+
+  WR16: NOT (SELF.description IN ['axis trajectory',
+                'cutter location trajectory',
+                'cutter contact trajectory']) OR
+        ((verify_optional_action_property 
+	    (SELF, 'material removal depth')) AND
+         ((verify_length_measure_action_property
+            (SELF, 'material removal depth')) OR
+          (verify_rep_item_for_action_property 
+            (SELF, 'material removal depth', 
+            ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.BOUNDED_CURVE']))) AND
+
+         (verify_optional_action_property 
+	    (SELF, 'material removal overcut')) AND
+         ((verify_length_measure_action_property
+            (SELF, 'material removal overcut')) OR
+          (verify_rep_item_for_action_property 
+            (SELF, 'material removal overcut', 
+            ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.BOUNDED_CURVE']))) AND
+
+         (verify_optional_action_property 
+	    (SELF, 'material removal total volume')) AND
+         (verify_rep_item_for_action_property 
+            (SELF, 'material removal total volume',
+            ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MEASURE_REPRESENTATION_ITEM']))
+        );
+
+END_ENTITY;
+
+
+ENTITY machining_process_model
+  SUBTYPE OF (action_method);
+  WHERE
+  WR1:  (verify_required_action_property    (SELF, 'initialization data')) AND
+        (verify_descriptive_action_property (SELF, 'initialization data'));
+END_ENTITY;
+
+
+
+(* ======================================== *)
+(* MIXED EXECUTABLE / OPERATION SUBTYPES *)
+
+
+
+ENTITY machining_rapid_movement
+  SUBTYPE OF (machining_process_executable, machining_operation);
+  WHERE
+  WR1:  ((verify_required_action_property       (SELF, 'security plane')) AND
+         (verify_rep_item_for_action_property   (SELF, 'security plane',
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.ELEMENTARY_SURFACE'])));
+END_ENTITY;
+
+
+
+ENTITY machining_touch_probing
+  SUBTYPE OF (machining_process_executable, machining_operation);
+  WHERE
+  WR1:  (SELF.description IN ['tool length probing', 'tool radius probing',
+          'workpiece probing', 'workpiece complete probing']);
+
+  WR2:  ((verify_required_action_property       (SELF, 'security plane')) AND
+         (verify_rep_item_for_action_property   (SELF, 'security plane',
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.ELEMENTARY_SURFACE'])));
+
+  WR3:  ((verify_required_action_property       (SELF, 'measured offset')) AND
+         (verify_rep_item_for_action_property   (SELF, 'measured offset',
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.EXPRESSION_REPRESENTATION_ITEM',
+           'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.NUMERIC_VARIABLE'])));
+
+  WR4:  NOT (SELF.description = 'workpiece probing') OR
+        ((verify_required_action_property       (SELF, 'start position')) AND
+         (verify_rep_item_for_action_property   (SELF, 'start position',
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.AXIS2_PLACEMENT_3D'])) AND
+
+        (1 = SIZEOF (QUERY (act <*
+          USEDIN (SELF, 'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.ACTION.CHOSEN_METHOD') |
+          (act.name = 'workpiece probing')))) AND
+        (0 = SIZEOF (QUERY (act <*
+          USEDIN (SELF, 'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.ACTION.CHOSEN_METHOD') |
+          (act.name = 'workpiece probing') AND NOT
+          ('MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.PRODUCT_DEFINITION_PROCESS'
+            IN TYPEOF (act))))) AND
+
+         (verify_required_action_property       (SELF, 'direction')) AND
+         (verify_rep_item_for_action_property   (SELF, 'direction',
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.DIRECTION'])) AND
+
+         (verify_required_action_property       (SELF, 'expected value')) AND
+         (verify_rep_item_for_action_property   (SELF, 'expected value',
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.LENGTH_MEASURE_WITH_UNIT',
+           'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MEASURE_REPRESENTATION_ITEM',
+           'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.QUALIFIED_REPRESENTATION_ITEM'])) AND
+
+         (verify_required_action_property       (SELF, 'probe'))
+        );
+
+  WR5:  NOT (SELF.description = 'workpiece complete probing') OR
+        ((1 = SIZEOF (QUERY (act <*
+          USEDIN (SELF, 'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.ACTION.CHOSEN_METHOD') |
+          (act.name = 'workpiece complete probing')))) AND
+         (0 = SIZEOF (QUERY (act <*
+          USEDIN (SELF, 'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.ACTION.CHOSEN_METHOD') |
+          (act.name = 'workpiece complete probing') AND NOT
+          ('MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.PRODUCT_DEFINITION_PROCESS'
+            IN TYPEOF (act))))) AND
+
+         (verify_required_action_property       (SELF, 'probing distance')) AND
+         (verify_rep_item_for_action_property   (SELF, 'probing distance',
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.LENGTH_MEASURE_WITH_UNIT',
+           'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MEASURE_REPRESENTATION_ITEM',
+           'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.QUALIFIED_REPRESENTATION_ITEM'])) AND
+
+         (verify_required_action_property       (SELF, 'probe')) AND
+
+         (verify_required_action_property       (SELF, 'computed offset')) AND
+         (verify_rep_type_for_action_property   (SELF, 'computed offset',
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_OFFSET_VECTOR_REPRESENTATION']))
+        );
+
+  WR6:  NOT (SELF.description IN ['tool length probing',
+          'tool radius probing']) OR
+        ((verify_required_action_property       (SELF, 'offset')) AND
+         (verify_rep_item_for_action_property   (SELF, 'offset',
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.CARTESIAN_POINT'])) AND
+
+         (verify_required_action_property       (SELF, 'maximum wear')) AND
+         (verify_length_measure_action_property (SELF, 'maximum wear')) AND
+
+         (1 = SIZEOF (QUERY (mt <*
+          USEDIN (SELF, 'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.ACTION_RESOURCE.USAGE') |
+          ('MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_TOOL' in TYPEOF(mt)))))
+        );
+END_ENTITY;
+
+
+
+ENTITY machining_nc_function
+  SUBTYPE OF (machining_process_executable);
+  WHERE
+  WR1:  (SELF.description IN ['display message',
+        'optional stop', 'program stop', 'set mark', 'wait for mark',
+        'exchange pallet', 'index pallet', 'index table', 'load tool', 
+	'unload tool', 'legacy function']);
+
+  WR2:  NOT (SELF.description = 'display message') OR
+        ((verify_required_action_property       (SELF, 'message text')) AND
+         (verify_descriptive_action_property    (SELF, 'message text')));
+
+  WR3:  NOT (SELF.description = 'wait for mark') OR
+        ((verify_required_action_property       (SELF, 'channel')));
+
+  WR4:  NOT (SELF.description = 'index pallet') OR
+        ((verify_required_action_property       (SELF, 'pallet index')) AND
+         (verify_count_measure_action_property  (SELF, 'pallet index')));
+
+  WR5:  NOT (SELF.description = 'index table') OR
+        ((verify_required_action_property       (SELF, 'table index')) AND
+         (verify_count_measure_action_property  (SELF, 'table index')));
+
+  WR6:  NOT (SELF.description = 'load tool') OR
+        (1 = SIZEOF (QUERY (mt <*
+         USEDIN (SELF, 'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.ACTION_RESOURCE.USAGE') |
+         ('MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_TOOL' in TYPEOF(mt)))));
+
+  WR7:  NOT (SELF.description = 'unload tool') OR
+        (1 >= SIZEOF (QUERY (mt <*
+         USEDIN (SELF, 'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.ACTION_RESOURCE.USAGE') |
+         ('MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_TOOL' in TYPEOF(mt)))));
+
+  WR8:  NOT (SELF.description = 'legacy function') OR
+        ((verify_required_action_property       (SELF, 'function text')) AND
+         (verify_descriptive_action_property    (SELF, 'function text')));
+END_ENTITY;
+
+
+
+(* ======================================== *)
+(* MILLING OPERATION SUBTYPES (From Part 11) *)
+
+
+ENTITY milling_type_operation
+  SUBTYPE OF (machining_operation);
+  WHERE
+  WR1:  (verify_optional_action_property        (SELF, 'overcut length')) AND
+        (verify_length_measure_action_property  (SELF, 'overcut length'));
+
+  WR2:  ((verify_optional_relating_amr_with_name  (SELF, 'approach',
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_STRATEGY_RELATIONSHIP'])) AND
+         (verify_related_type_for_amr_with_name   (SELF, 'approach',
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_STRATEGY_RELATIONSHIP'],
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_APPROACH_RETRACT_STRATEGY']))
+        );
+
+  WR3:  ((verify_optional_relating_amr_with_name  (SELF, 'retract',
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_STRATEGY_RELATIONSHIP'])) AND
+         (verify_related_type_for_amr_with_name   (SELF, 'retract',
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_STRATEGY_RELATIONSHIP'],
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_APPROACH_RETRACT_STRATEGY']))
+        );
+
+  WR4:  ((verify_optional_relating_amr_with_name  (SELF, 'machining',
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_STRATEGY_RELATIONSHIP'])) AND
+         (verify_related_type_for_amr_with_name   (SELF, 'machining',
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_STRATEGY_RELATIONSHIP'],
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MILLING_TYPE_STRATEGY']))
+        );
+END_ENTITY;
+
+
+ENTITY freeform_milling_operation
+  SUBTYPE OF (milling_type_operation);
+  WHERE
+  WR1:  ((verify_optional_relating_amr_with_name  (SELF, 'machining',
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_STRATEGY_RELATIONSHIP'])) AND
+         (verify_related_type_for_amr_with_name   (SELF, 'machining',
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_STRATEGY_RELATIONSHIP'],
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.FREEFORM_MILLING_STRATEGY']))
+        );
+END_ENTITY;
+
+
+
+ENTITY bottom_and_side_milling_operation
+  SUBTYPE OF (milling_type_operation);
+  WHERE
+  WR1:  (SELF.description IN ['roughing','finishing']);
+
+  WR2:  (verify_optional_action_property        (SELF, 'axial cutting depth')) AND
+        (verify_length_measure_action_property  (SELF, 'axial cutting depth'));
+
+  WR3:  (verify_optional_action_property        (SELF, 'radial cutting depth')) AND
+        (verify_length_measure_action_property  (SELF, 'radial cutting depth'));
+
+  WR4:  (verify_optional_action_property        (SELF, 'allowance side')) AND
+        (verify_length_measure_action_property  (SELF, 'allowance side'));
+
+  WR5:  (verify_optional_action_property        (SELF, 'allowance bottom')) AND
+        (verify_length_measure_action_property  (SELF, 'allowance bottom'));
+
+  WR6:  NOT (SELF.description = 'roughing') OR
+        ((verify_required_action_property (SELF, 'allowance side')) AND
+         (verify_required_action_property (SELF, 'allowance bottom')));
+END_ENTITY;
+
+
+ENTITY side_milling_operation
+  SUBTYPE OF (milling_type_operation);
+  WHERE
+  WR1:  (SELF.description IN ['roughing','finishing']);
+
+  WR2:  (verify_optional_action_property        (SELF, 'axial cutting depth')) AND
+        (verify_length_measure_action_property  (SELF, 'axial cutting depth'));
+
+  WR3:  (verify_optional_action_property        (SELF, 'radial cutting depth')) AND
+        (verify_length_measure_action_property  (SELF, 'radial cutting depth'));
+
+  WR4:  (verify_optional_action_property        (SELF, 'allowance side')) AND
+        (verify_length_measure_action_property  (SELF, 'allowance side'));
+
+  WR5:  NOT (SELF.description = 'roughing') OR
+        (verify_required_action_property (SELF, 'allowance side'));
+END_ENTITY;
+
+
+ENTITY plane_milling_operation
+  SUBTYPE OF (milling_type_operation);
+  WHERE
+  WR1:  (SELF.description IN ['roughing','finishing']);
+
+  WR2:  (verify_optional_action_property        (SELF, 'axial cutting depth')) AND
+        (verify_length_measure_action_property  (SELF, 'axial cutting depth'));
+
+  WR3:  (verify_optional_action_property        (SELF, 'allowance bottom')) AND
+        (verify_length_measure_action_property  (SELF, 'allowance bottom'));
+
+  WR4:  NOT (SELF.description = 'roughing') OR
+        (verify_required_action_property (SELF, 'allowance bottom'));
+END_ENTITY;
+
+
+
+ENTITY drilling_type_operation
+  SUBTYPE OF (machining_operation);
+  WHERE
+  WR1:  (verify_optional_action_property        (SELF, 'overcut length')) AND
+        (verify_length_measure_action_property  (SELF, 'overcut length'));
+
+  WR2:  (verify_optional_action_property        (SELF, 'cutting depth')) AND
+        (verify_length_measure_action_property  (SELF, 'cutting depth'));
+
+  WR3:  (verify_optional_action_property        (SELF, 'previous diameter')) AND
+        (verify_length_measure_action_property  (SELF, 'previous diameter'));
+
+  WR4:  (verify_optional_action_property        (SELF, 'dwell time bottom')) AND
+        (verify_rep_type_for_action_property    (SELF, 'dwell time bottom',
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_DWELL_TIME_REPRESENTATION'])) AND
+        (verify_rep_name_for_action_property    (SELF, 'dwell time bottom',
+           ['dwell time']));
+
+  WR5:  (verify_optional_action_property        (SELF, 'feedrate on retract')) AND
+        (verify_rep_type_for_action_property    (SELF, 'feedrate on retract',
+           ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_FEED_SPEED_REPRESENTATION'])) AND
+        (verify_rep_name_for_action_property    (SELF, 'feedrate on retract',
+           ['relative speed']));
+
+  WR6:  ((verify_optional_relating_amr_with_name  (SELF, 'machining',
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_STRATEGY_RELATIONSHIP'])) AND
+         (verify_related_type_for_amr_with_name   (SELF, 'machining',
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_STRATEGY_RELATIONSHIP'],
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.DRILLING_TYPE_STRATEGY']))
+        );
+END_ENTITY;
+
+
+ENTITY drilling_operation
+  SUBTYPE OF (drilling_type_operation);
+  WHERE
+  WR1:  (SELF.description IN ['drilling','counter sinking',
+         'center drilling', 'multistep drilling']);
+
+  WR2:  NOT (SELF.description = 'multistep drilling') OR
+        ((verify_required_action_property       (SELF, 'retract distance')) AND
+         (verify_length_measure_action_property (SELF, 'retract distance')) AND
+
+         (verify_required_action_property       (SELF, 'first depth')) AND
+         (verify_length_measure_action_property (SELF, 'first depth')) AND
+
+         (verify_required_action_property       (SELF, 'depth of step')) AND
+         (verify_length_measure_action_property (SELF, 'depth of step')) AND
+
+         (verify_optional_action_property       (SELF, 'dwell time step')) AND
+         (verify_rep_type_for_action_property   (SELF, 'dwell time step',
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_DWELL_TIME_REPRESENTATION'])) AND
+         (verify_rep_name_for_action_property   (SELF, 'dwell time step',
+           ['dwell time']))
+        );
+END_ENTITY;
+
+
+ENTITY boring_operation
+  SUBTYPE OF (drilling_type_operation);
+  WHERE
+  WR1:  (SELF.description IN ['boring','reaming']);
+
+  WR2:  (verify_optional_action_property        (SELF, 'spindle stop')) AND
+        (verify_enumeration_action_property     (SELF, 'spindle stop',
+         ['spindle stop at bottom', 'spindle nonstop']));
+
+  WR3:  (verify_optional_action_property        (SELF, 'testcut depth')) AND
+        (verify_length_measure_action_property  (SELF, 'testcut depth'));
+
+  WR4:  (verify_optional_action_property        (SELF, 'waiting position')) AND
+        (verify_rep_item_for_action_property    (SELF, 'waiting position',
+         ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.CARTESIAN_POINT']));
+END_ENTITY;
+
+
+
+ENTITY back_boring_operation
+  SUBTYPE OF (drilling_type_operation);
+  WHERE
+  WR1:  (0 = SIZEOF (QUERY (amr <* get_relating_amr (SELF) |
+           ('MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_FUNCTIONS_RELATIONSHIP'
+              IN TYPEOF (amr)) AND NOT
+           (verify_required_action_property
+                (amr.related_method, 'oriented spindle stop')))));
+END_ENTITY;
+
+
+ENTITY tapping_operation
+  SUBTYPE OF (drilling_type_operation);
+  WHERE
+  WR1:  (SELF.description IN ['tapping','thread drilling']);
+
+  WR2:  NOT (SELF.description = 'tapping') OR
+        ((verify_optional_action_property    (SELF, 'compensation chuck')) AND
+         (verify_enumeration_action_property (SELF, 'compensation chuck',
+          ['compensation chuck used', 'compensation chuck not used'])));
+
+  WR3:  NOT (SELF.description = 'thread drilling') OR
+        ((verify_optional_action_property    (SELF, 'helical movement on forward')) AND
+         (verify_enumeration_action_property (SELF, 'helical movement on forward',
+          ['helical movement on forward', 'no helical movement on forward'])));
+END_ENTITY;
+
+
+
+(* ======================================== *)
+(* MILLING STRATEGY SUBTYPES (From Part 11) *)
+
+
+ENTITY machining_strategy
+  SUBTYPE OF (action_method);
+END_ENTITY;
+
+
+ENTITY machining_approach_retract_strategy
+  SUBTYPE OF (machining_strategy);
+  WHERE
+  WR1:  (SELF.description IN ['along path',
+         'approach retract angle', 'approach retract tangent',
+         'plunge helix', 'plunge ramp', 'plunge toolaxis',
+         'plunge zigzag']);
+
+  WR2:  (verify_optional_action_property       (SELF, 'tool orientation')) AND
+        (verify_rep_item_for_action_property   (SELF, 'tool orientation',
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.DIRECTION']));
+
+  WR3:  NOT (SELF.description = 'along path') OR
+        ((1 <= get_count_of_relating_amr (SELF,
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_TOOLPATH_SEQUENCE_RELATIONSHIP'])) AND
+         (verify_related_type_for_amr   (SELF,
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_TOOLPATH_SEQUENCE_RELATIONSHIP'],
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_TOOLPATH']))
+        );
+
+  WR4:  NOT (SELF.description = 'approach retract angle') OR
+        ((verify_required_action_property       (SELF, 'travel angle')) AND
+         (verify_angle_measure_action_property  (SELF, 'travel angle')) AND
+
+         (verify_required_action_property       (SELF, 'travel length')) AND
+         (verify_length_measure_action_property (SELF, 'travel length')));
+
+  WR5:  NOT (SELF.description = 'approach retract tangent') OR
+        ((verify_required_action_property       (SELF, 'travel radius')) AND
+         (verify_length_measure_action_property (SELF, 'travel radius')));
+
+  WR6:  NOT (SELF.description IN ['plunge helix', 'plunge ramp', 'plunge zigzag']) OR
+        ((verify_required_action_property       (SELF, 'plunge angle')) AND
+         (verify_angle_measure_action_property  (SELF, 'plunge angle')));
+
+  WR7:  NOT (SELF.description = 'plunge helix') OR
+        ((verify_required_action_property       (SELF, 'plunge radius')) AND
+         (verify_length_measure_action_property (SELF, 'plunge radius')));
+
+  WR8:  NOT (SELF.description = 'plunge zigzag') OR
+        ((verify_required_action_property       (SELF, 'plunge width')) AND
+         (verify_length_measure_action_property (SELF, 'plunge width')));
+END_ENTITY;
+
+
+ENTITY drilling_type_strategy
+  SUBTYPE OF (machining_strategy);
+  WHERE
+  WR1:  (verify_optional_action_property        (SELF, 'reduced cut at start')) AND
+        (verify_rep_type_for_action_property    (SELF, 'reduced cut at start',
+           ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_SPINDLE_SPEED_REPRESENTATION'])) AND
+        (verify_rep_name_for_action_property    (SELF, 'reduced cut at start',
+           ['relative speed']));
+
+  WR2:  (verify_optional_action_property        (SELF, 'reduced feedrate at start')) AND
+        (verify_rep_type_for_action_property    (SELF, 'reduced feedrate at start',
+           ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_FEED_SPEED_REPRESENTATION'])) AND
+        (verify_rep_name_for_action_property    (SELF, 'reduced feedrate at start',
+           ['relative speed']));
+
+  WR3:  (verify_optional_action_property        (SELF, 'depth of start')) AND
+        (verify_length_measure_action_property  (SELF, 'depth of start'));
+
+  WR4:  (verify_optional_action_property        (SELF, 'reduced cut at end')) AND
+        (verify_rep_type_for_action_property    (SELF, 'reduced cut at end',
+           ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_SPINDLE_SPEED_REPRESENTATION'])) AND
+        (verify_rep_name_for_action_property    (SELF, 'reduced cut at end',
+           ['relative speed']));
+
+  WR5:  (verify_optional_action_property        (SELF, 'reduced feedrate at end')) AND
+        (verify_rep_type_for_action_property    (SELF, 'reduced feedrate at end',
+           ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_FEED_SPEED_REPRESENTATION'])) AND
+        (verify_rep_name_for_action_property    (SELF, 'reduced feedrate at end',
+           ['relative speed']));
+
+  WR6:  (verify_optional_action_property        (SELF, 'depth of end')) AND
+        (verify_length_measure_action_property  (SELF, 'depth of end'));
+
+  WR7:  (verify_required_action_property (SELF, 'depth of start')) OR
+        ((0 = SIZEOF (get_action_property (SELF, 'reduced cut at start'))) AND
+         (0 = SIZEOF (get_action_property (SELF, 'reduced feedrate at start'))));
+
+  WR8:  (verify_required_action_property (SELF, 'depth of end')) OR
+        ((0 = SIZEOF (get_action_property (SELF, 'reduced cut at end'))) AND
+         (0 = SIZEOF (get_action_property (SELF, 'reduced feedrate at end'))));
+END_ENTITY;
+
+
+
+ENTITY milling_type_strategy
+  SUBTYPE OF (machining_strategy);
+  WHERE
+  WR1:  NOT (SELF.description IN ['bidirectional', 'bidirectional contour',
+          'center milling', 'contour bidirectional', 'contour parallel',
+          'contour spiral', 'explicit', 'unidirectional']) OR
+        ((verify_optional_action_property       (SELF, 'overlap ratio')) AND
+         (verify_ratio_measure_action_property  (SELF, 'overlap ratio')) AND
+
+         (verify_optional_action_property       (SELF, 'multiple passes')) AND
+         (verify_enumeration_action_property    (SELF, 'multiple passes',
+          ['multiple passes allowed', 'multiple passes not allowed'])) );
+
+  WR2:  NOT (SELF.description = 'bidirectional') OR
+        ((verify_optional_action_property       (SELF, 'feed direction')) AND
+         (verify_rep_item_for_action_property   (SELF, 'feed direction',
+           ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.DIRECTION'])) AND
+
+         (verify_optional_action_property       (SELF, 'stepover direction')) AND
+         (verify_enumeration_action_property    (SELF, 'stepover direction',
+           ['left', 'right'])) AND
+
+         (verify_optional_action_property       (SELF, 'connection strategy')) AND
+         (verify_enumeration_action_property    (SELF, 'connection strategy',
+           ['straight line', 'lift shift plunge', 'degouge', 'loop back'])) );
+
+  WR3:  NOT (SELF.description IN ['bidirectional contour',
+                'contour bidirectional']) OR
+        ((verify_optional_action_property       (SELF, 'feed direction')) AND
+         (verify_rep_item_for_action_property   (SELF, 'feed direction',
+           ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.DIRECTION'])) AND
+
+         (verify_optional_action_property       (SELF, 'stepover direction')) AND
+         (verify_enumeration_action_property    (SELF, 'stepover direction',
+           ['left', 'right'])) AND
+
+         (verify_optional_action_property       (SELF, 'rotation direction')) AND
+         (verify_enumeration_action_property    (SELF, 'rotation direction',
+           ['clockwise', 'counterclockwise'])) AND
+
+         (verify_optional_action_property       (SELF, 'spiral cutmode')) AND
+         (verify_enumeration_action_property    (SELF, 'spiral cutmode',
+           ['climb', 'conventional'])) );
+
+  WR4:  NOT (SELF.description IN ['contour parallel', 'contour spiral']) OR
+        ((verify_optional_action_property       (SELF, 'rotation direction')) AND
+         (verify_enumeration_action_property    (SELF, 'rotation direction',
+           ['clockwise', 'counterclockwise'])) AND
+
+         (verify_optional_action_property       (SELF, 'cutmode')) AND
+         (verify_enumeration_action_property    (SELF, 'cutmode',
+           ['climb', 'conventional'])) );
+
+  WR5:  NOT (SELF.description = 'unidirectional') OR
+        ((verify_optional_action_property       (SELF, 'feed direction')) AND
+         (verify_rep_item_for_action_property   (SELF, 'feed direction',
+           ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.DIRECTION'])) AND
+
+         (verify_optional_action_property       (SELF, 'cutmode')) AND
+         (verify_enumeration_action_property    (SELF, 'cutmode',
+           ['climb', 'conventional'])) );
+END_ENTITY;
+
+ENTITY freeform_milling_strategy
+  SUBTYPE OF (milling_type_strategy);
+  WHERE
+  WR1:  NOT (SELF.description IN ['leading line', 'plane cutter contact',
+          'plane cutter location', 'uv']) OR
+        ((verify_required_action_property       (SELF, 'pathmode')) AND
+         (verify_enumeration_action_property    (SELF, 'pathmode',
+           ['forward', 'zigzag'])) AND
+
+         (verify_required_action_property       (SELF, 'cutmode')) AND
+         (verify_enumeration_action_property    (SELF, 'cutmode',
+           ['climb', 'conventional'])) AND
+
+         (verify_required_action_property       (SELF, 'milling tolerances')) AND
+         (verify_rep_type_for_action_property   (SELF, 'milling tolerances',
+           ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.FREEFORM_MILLING_TOLERANCE_REPRESENTATION'])) AND
+
+         (verify_optional_action_property       (SELF, 'stepover length')) AND
+         (verify_length_measure_action_property (SELF, 'stepover length')) );
+
+  WR2:  NOT (SELF.description = 'leading line') OR
+        ((verify_required_action_property       (SELF, 'leading line')) AND
+         (verify_rep_item_for_action_property   (SELF, 'leading line',
+           ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.BOUNDED_CURVE'])) );
+
+  WR3:  NOT (SELF.description IN ['plane cutter contact', 'plane cutter location']) OR
+        ((verify_required_action_property       (SELF, 'plane normal')) AND
+         (verify_rep_item_for_action_property   (SELF, 'plane normal',
+           ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.DIRECTION'])) );
+
+  WR4:  NOT (SELF.description = 'uv') OR
+        ((verify_required_action_property       (SELF, 'forward direction')) AND
+         (verify_rep_item_for_action_property   (SELF, 'forward direction',
+           ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.DIRECTION'])) AND
+
+         (verify_required_action_property       (SELF, 'sideward direction')) AND
+         (verify_rep_item_for_action_property   (SELF, 'sideward direction',
+           ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.DIRECTION'])) );
+END_ENTITY;
+
+
+
+(* ======================================== *)
+(* TURNING OPERATION SUBTYPES (From Part 12) *)
+
+ENTITY turning_type_operation
+  SUBTYPE OF (machining_operation);
+  WHERE
+  WR1:  ((verify_optional_relating_amr_with_name  (SELF, 'approach',
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_STRATEGY_RELATIONSHIP'])) AND
+         (verify_related_type_for_amr_with_name   (SELF, 'approach',
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_STRATEGY_RELATIONSHIP'],
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_APPROACH_RETRACT_STRATEGY']))
+        );
+
+  WR2:  ((verify_optional_relating_amr_with_name  (SELF, 'retract',
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_STRATEGY_RELATIONSHIP'])) AND
+         (verify_related_type_for_amr_with_name   (SELF, 'retract',
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_STRATEGY_RELATIONSHIP'],
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_APPROACH_RETRACT_STRATEGY']))
+        );
+
+  WR3:  ((verify_optional_relating_amr_with_name  (SELF, 'machining',
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_STRATEGY_RELATIONSHIP'])) AND
+         (verify_related_type_for_amr_with_name   (SELF, 'machining',
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_STRATEGY_RELATIONSHIP'],
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.TURNING_TYPE_STRATEGY']))
+        );
+
+END_ENTITY;
+
+ENTITY facing_turning_operation
+  SUBTYPE OF (turning_type_operation);
+  WHERE
+  WR1:  (SELF.description IN ['roughing','finishing']);
+
+  WR2:  (verify_optional_action_property        (SELF, 'allowance')) AND
+        (verify_length_measure_action_property  (SELF, 'allowance'));
+
+  WR3:  NOT (SELF.description = 'roughing') OR
+        (verify_required_action_property (SELF, 'allowance'));
+END_ENTITY;
+
+ENTITY grooving_turning_operation
+  SUBTYPE OF (turning_type_operation);
+  WHERE
+  WR1:  (SELF.description IN ['roughing', 'finishing', 'cutting in']);
+
+  WR2:  (verify_optional_action_property     (SELF, 'dwell')) AND
+        (verify_rep_type_for_action_property (SELF, 'dwell',
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_DWELL_TIME_REPRESENTATION']));
+
+  WR3:  (verify_optional_action_property        (SELF, 'allowance')) AND
+        (verify_length_measure_action_property  (SELF, 'allowance'));
+
+  -- allowance propery required for roughing
+  WR4:  NOT (SELF.description = 'roughing') OR
+        (verify_required_action_property (SELF, 'allowance'));
+
+  -- allowance propery forbidden for cutting in
+  WR5:  NOT (SELF.description = 'cutting in') OR
+        (0 = SIZEOF (get_action_property (SELF, 'allowance')));
+END_ENTITY;
+
+ENTITY contouring_turning_operation
+  SUBTYPE OF (turning_type_operation);
+  WHERE
+  WR1:  (SELF.description IN ['roughing','finishing']);
+
+  WR2:  (verify_optional_action_property        (SELF, 'allowance')) AND
+        (verify_length_measure_action_property  (SELF, 'allowance'));
+
+  WR3:  NOT (SELF.description = 'roughing') OR
+        (verify_required_action_property (SELF, 'allowance'));
+END_ENTITY;
+
+ENTITY threading_turning_operation
+  SUBTYPE OF (turning_type_operation);
+  WHERE
+  WR1:  (SELF.description IN ['roughing','finishing']);
+
+  WR2:  (verify_optional_action_property        (SELF, 'allowance')) AND
+        (verify_length_measure_action_property  (SELF, 'allowance'));
+
+  WR3:  NOT (SELF.description = 'roughing') OR
+        (verify_required_action_property (SELF, 'allowance'));
+END_ENTITY;
+
+ENTITY knurling_turning_operation
+  SUBTYPE OF (turning_type_operation);
+END_ENTITY;
+
+
+(* ======================================== *)
+(* TURNING STRATEGY SUBTYPES (From Part 12) *)
+
+ENTITY turning_type_strategy
+  SUBTYPE OF (machining_strategy);
+  WHERE
+  WR1:  (SELF.description IN ['unidirectional', 'bidirectional',
+          'contour', 'thread', 'grooving', 'multistep grooving',
+          'explicit']);
+
+  WR2:  ((verify_optional_action_property       (SELF, 'overcut length')) AND
+         (verify_length_measure_action_property (SELF, 'overcut length'))
+        );
+
+  WR3:  ((verify_optional_action_property       (SELF, 'multiple passes')) AND
+         (verify_enumeration_action_property    (SELF, 'multiple passes',
+          ['multiple passes allowed', 'multiple passes not allowed']))
+        );
+
+  WR4:  ((verify_optional_action_property (SELF, 'cutting depth')) AND
+         (0 = SIZEOF (QUERY (prop <*
+           get_action_property (SELF, 'cutting depth') | NOT
+           (0 < SIZEOF (QUERY (prep <* USEDIN (prop, 'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.' +
+              'ACTION_PROPERTY_REPRESENTATION.PROPERTY') |
+             (1 = SIZEOF (QUERY (it <* prep.representation.items |
+                (('MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.COMPOUND_REPRESENTATION_ITEM'
+                   IN TYPEOF(it)) AND
+                 ('MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.LIST_REPRESENTATION_ITEM'
+                   IN TYPEOF(it.item_element)) AND
+                 (0 = SIZEOF (QUERY (ie <* it.item_element | NOT (SIZEOF([
+                    'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MEASURE_REPRESENTATION_ITEM',
+                    'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.LENGTH_MEASURE_WITH_UNIT'] *
+                    TYPEOF(ie)) = 2))))
+             ))))
+           )))
+         )))
+        );
+
+  WR5:  ((verify_optional_action_property     (SELF, 'variable feedrate')) AND
+         (verify_rep_type_for_action_property (SELF, 'variable feedrate',
+           ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_FEED_SPEED_REPRESENTATION'])) AND
+         (verify_rep_name_for_action_property (SELF, 'variable feedrate',
+           ['relative speed']))
+        );
+
+  WR6:  NOT (SELF.description = 'unidirectional') OR
+        ((verify_optional_action_property     (SELF, 'feed direction')) AND
+         (verify_rep_item_for_action_property (SELF, 'feed direction',
+           ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.DIRECTION'])) AND
+
+         (verify_optional_action_property     (SELF, 'back path direction')) AND
+         (verify_rep_item_for_action_property (SELF, 'back path direction',
+           ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.DIRECTION'])) AND
+
+         (verify_optional_action_property     (SELF, 'lift direction')) AND
+         (verify_rep_item_for_action_property (SELF, 'lift direction',
+           ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.DIRECTION'])) AND
+
+         (verify_optional_action_property     (SELF, 'stepover direction')) AND
+         (verify_rep_item_for_action_property (SELF, 'stepover direction',
+           ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.DIRECTION'])) AND
+
+         (verify_optional_action_property       (SELF, 'lift height')) AND
+         (verify_length_measure_action_property (SELF, 'lift height')) AND
+
+         (verify_optional_action_property     (SELF, 'lift feedrate')) AND
+         (verify_rep_type_for_action_property (SELF, 'lift feedrate',
+           ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_FEED_SPEED_REPRESENTATION'])) AND
+         (verify_rep_name_for_action_property (SELF, 'lift feedrate',
+           ['feed speed', 'feed per revolution'])) AND
+
+         (verify_optional_action_property     (SELF, 'stepover feedrate')) AND
+         (verify_rep_type_for_action_property (SELF, 'stepover feedrate',
+           ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_FEED_SPEED_REPRESENTATION'])) AND
+         (verify_rep_name_for_action_property (SELF, 'stepover feedrate',
+           ['feed speed', 'feed per revolution']))
+        );
+
+  WR7:  NOT (SELF.description = 'bidirectional') OR
+        ((verify_optional_action_property     (SELF, 'feed direction')) AND
+         (verify_rep_item_for_action_property (SELF, 'feed direction',
+           ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.DIRECTION'])) AND
+
+         (verify_optional_action_property     (SELF, 'stepover direction')) AND
+         (verify_rep_item_for_action_property (SELF, 'stepover direction',
+           ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.DIRECTION'])) AND
+
+         (verify_optional_action_property     (SELF, 'stepover feedrate')) AND
+         (verify_rep_type_for_action_property (SELF, 'stepover feedrate',
+           ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_FEED_SPEED_REPRESENTATION'])) AND
+         (verify_rep_name_for_action_property (SELF, 'stepover feedrate',
+           ['feed speed', 'feed per revolution']))
+        );
+
+  WR8:  NOT (SELF.description = 'contour') OR
+        ((verify_optional_action_property     (SELF, 'feed direction')) AND
+         (verify_rep_item_for_action_property (SELF, 'feed direction',
+           ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.DIRECTION'])) AND
+
+         (verify_optional_action_property     (SELF, 'back path direction')) AND
+         (verify_rep_item_for_action_property (SELF, 'back path direction',
+           ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.DIRECTION'])) AND
+
+         (verify_optional_action_property     (SELF, 'lift direction')) AND
+         (verify_rep_item_for_action_property (SELF, 'lift direction',
+           ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.DIRECTION'])) AND
+
+         (verify_optional_action_property     (SELF, 'stepover direction')) AND
+         (verify_rep_item_for_action_property (SELF, 'stepover direction',
+           ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.DIRECTION'])) AND
+
+         (verify_optional_action_property       (SELF, 'lift height')) AND
+         (verify_length_measure_action_property (SELF, 'lift height')) AND
+
+         (verify_optional_action_property     (SELF, 'lift feedrate')) AND
+         (verify_rep_type_for_action_property (SELF, 'lift feedrate',
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_FEED_SPEED_REPRESENTATION'])) AND
+         (verify_rep_name_for_action_property (SELF, 'lift feedrate',
+           ['feed speed', 'feed per revolution'])) AND
+
+         (verify_optional_action_property     (SELF, 'stepover feedrate')) AND
+         (verify_rep_type_for_action_property (SELF, 'stepover feedrate',
+           ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_FEED_SPEED_REPRESENTATION'])) AND
+         (verify_rep_name_for_action_property (SELF, 'stepover feedrate',
+           ['feed speed', 'feed per revolution'])) AND
+
+         (verify_optional_action_property
+           (SELF, 'variable stepover feedrate')) AND
+         (verify_rep_type_for_action_property
+           (SELF, 'variable stepover feedrate',
+           ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_FEED_SPEED_REPRESENTATION'])) AND
+         (verify_rep_name_for_action_property
+           (SELF, 'variable stepover feedrate', ['relative speed']))
+        );
+
+  WR9:  NOT (SELF.description = 'thread') OR
+        ((verify_required_action_property     (SELF, 'cut in amount')) AND
+         (verify_enumeration_action_property  (SELF, 'cut in amount',
+           ['constant depth', 'variable depth', 'constant removal amount'])) AND
+
+         (verify_required_action_property     (SELF, 'threading direction')) AND
+         (verify_enumeration_action_property  (SELF, 'threading direction',
+           ['left', 'right', 'center', 'left zigzag', 'right zigzag'])) AND
+
+         (verify_optional_action_property       (SELF, 'path return angle')) AND
+         (verify_angle_measure_action_property  (SELF, 'path return angle')) AND
+
+         (verify_optional_action_property       (SELF, 'lift height')) AND
+         (verify_length_measure_action_property (SELF, 'lift height'))
+        );
+
+  WR10: NOT (SELF.description IN ['grooving', 'multistep grooving']) OR
+        ((verify_optional_action_property     (SELF, 'grooving direction')) AND
+         (verify_rep_item_for_action_property (SELF, 'grooving direction',
+           ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.DIRECTION'])) AND
+
+         (verify_optional_action_property       (SELF, 'travel distance')) AND
+         (verify_length_measure_action_property (SELF, 'travel distance'))
+        );
+
+  WR11: NOT (SELF.description = 'multistep grooving') OR
+        ((verify_optional_action_property       (SELF, 'retract distance')) AND
+         (verify_length_measure_action_property (SELF, 'retract distance'))
+        );
+END_ENTITY;
+
+
+
+(* ======================================== *)
+(* ACTION RESOURCE SUBTYPES *)
+
+ENTITY machining_tool
+  SUBTYPE OF (action_resource);
+  WHERE
+  WR1:  NOT (SELF.kind.name = 'milling cutting tool') OR
+        ((0 <= SIZEOF (QUERY (arr <* USEDIN (SELF,
+          'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.ACTION_RESOURCE_RELATIONSHIP.RELATING_RESOURCE') |
+          (('MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_CUTTING_COMPONENT'
+             IN TYPEOF (arr.related_resource)) AND
+           (arr.related_resource.kind.name = 'milling cutting edge') )))) AND
+
+         (verify_optional_tool_body_item
+           (SELF, 'overall assembly length')) AND
+         (verify_length_measure_tool_body_item
+           (SELF, 'overall assembly length')) AND
+
+         (verify_optional_tool_body_item
+           (SELF, 'effective cutting diameter')) AND
+         (verify_length_measure_tool_body_item
+           (SELF, 'effective cutting diameter')) AND
+
+         (verify_optional_tool_body_item
+           (SELF, 'maximum depth of cut')) AND
+         (verify_length_measure_tool_body_item
+           (SELF, 'maximum depth of cut')) AND
+
+         (verify_optional_tool_body_item (SELF, 'hand of cut')) AND
+         (verify_enumeration_tool_body_item (SELF, 'hand of cut',
+           ['left', 'right', 'neutral'])) AND
+
+         (verify_optional_tool_body_item (SELF, 'coolant through tool')) AND
+         (verify_enumeration_tool_body_item (SELF, 'coolant through tool',
+           ['supported', 'not supported'])) 
+        );
+
+  WR2:  NOT ((SELF.kind.name = 'milling cutting tool') AND
+        (SELF.description IN [ 'counterbore', 'countersink', 
+         'spade drill', 'spot drill', 'step drill', 'tapered drill', 
+         'twist drill', 'drill']))
+        OR
+        ((verify_optional_tool_body_item      (SELF, 'point angle')) AND
+         (verify_angle_measure_tool_body_item (SELF, 'point angle'))
+        );
+
+  WR3:  NOT ((SELF.kind.name = 'milling cutting tool') AND
+        (SELF.description = 'countersink'))
+        OR
+        ((verify_optional_tool_body_item 
+           (SELF, 'minimum cutting diameter')) AND
+         (verify_length_measure_tool_body_item 
+           (SELF, 'minimum cutting diameter')) AND
+
+         (verify_required_tool_body_item 
+           (SELF, 'maximum usable length')) AND
+         (verify_length_measure_tool_body_item 
+           (SELF, 'maximum usable length'))
+        );
+
+  WR4:  NOT ((SELF.kind.name = 'milling cutting tool') AND
+        (SELF.description = 'tapered drill'))
+        OR
+        ((verify_required_tool_body_item      (SELF, 'taper angle')) AND
+         (verify_angle_measure_tool_body_item (SELF, 'taper angle'))
+        );
+
+
+  -- Could make this stronger if we want
+  WR5:  NOT ((SELF.kind.name = 'milling cutting tool') AND
+        (SELF.description = 'step drill'))
+        OR
+        ((verify_required_tool_body_item      (SELF, 'step diameters')) AND
+         (verify_rep_item_for_tool_body
+           (SELF, 'step diameters',
+           ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.COMPOUND_REPRESENTATION_ITEM'])) AND
+
+         (verify_required_tool_body_item      (SELF, 'step lengths')) AND
+         (verify_rep_item_for_tool_body
+           (SELF, 'step lengths',
+           ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.COMPOUND_REPRESENTATION_ITEM'])) 
+        );
+
+  WR6:  NOT ((SELF.kind.name = 'milling cutting tool') AND
+        (SELF.description IN [ 'ballnose endmill', 'bullnose endmill',
+         'dovetail mill', 'endmill', 'facemill', 'profiled endmill',
+         'shoulder mill', 'tee slot mill', 'thread mill', 'side mill']))
+        OR
+        ((verify_optional_tool_body_item 
+           (SELF, 'number of effective teeth')) AND
+         (verify_count_measure_tool_body_item 
+           (SELF, 'number of effective teeth')) AND
+
+         (verify_optional_tool_body_item       (SELF, 'edge radius')) AND
+         (verify_length_measure_tool_body_item (SELF, 'edge radius'))
+        );
+
+  WR7:  NOT ((SELF.kind.name = 'milling cutting tool') AND
+        (SELF.description IN [ 'ballnose endmill', 'bullnose endmill',
+         'endmill', 'facemill', 'profiled endmill']))
+        OR
+        ((verify_optional_tool_body_item 
+           (SELF, 'tool cutting edge angle')) AND
+         (verify_angle_measure_tool_body_item
+           (SELF, 'tool cutting edge angle'))
+        );
+
+  WR8:  NOT ((SELF.kind.name = 'milling cutting tool') AND
+        (SELF.description = 'ballnose endmill'))
+        OR verify_ballnose_endmill_dimensions (SELF);
+
+  WR9:  NOT ((SELF.kind.name = 'milling cutting tool') AND
+        (SELF.description = 'bullnose endmill'))
+        OR verify_bullnose_endmill_dimensions (SELF);
+
+  WR10: NOT ((SELF.kind.name = 'milling cutting tool') AND
+        (SELF.description = 'tee slot mill'))
+        OR
+        ((verify_optional_tool_body_item       (SELF, 'cutting width')) AND
+         (verify_length_measure_tool_body_item (SELF, 'cutting width'))
+        );
+
+  WR11: NOT ((SELF.kind.name = 'milling cutting tool') AND
+        (SELF.description = 'dovetail mill'))
+        OR
+        ((verify_optional_tool_body_item       (SELF, 'included angle')) AND
+         (verify_angle_measure_tool_body_item  (SELF, 'included angle'))
+        );
+
+  WR12: NOT ((SELF.kind.name = 'milling cutting tool') AND
+        (SELF.description = 'side mill'))
+        OR
+        ((verify_optional_tool_body_item       (SELF, 'cutter width')) AND
+         (verify_length_measure_tool_body_item (SELF, 'cutter width'))
+        );
+
+
+  WR13: NOT ((SELF.kind.name = 'milling cutting tool') AND
+        (SELF.description IN [ 'thread mill', 'tapping tool',
+         'combined drill and tap']))
+        OR
+        ((verify_required_tool_body_item  (SELF, 'thread form type')) AND
+         (verify_rep_item_for_tool_body   (SELF, 'thread form type',
+           ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.DESCRIPTIVE_REPRESENTATION_ITEM'])) AND
+
+         (verify_required_tool_body_item       (SELF, 'thread size')) AND
+         (verify_length_measure_tool_body_item (SELF, 'thread size')) AND
+
+         (verify_required_tool_body_item       (SELF, 'thread pitch')) AND
+         (verify_length_measure_tool_body_item (SELF, 'thread pitch')) 
+        );
+
+
+  WR14: NOT ((SELF.kind.name = 'milling cutting tool') AND
+        (SELF.description IN [ 'tapping tool', 'combined drill and tap']))
+        OR
+        ((verify_required_tool_body_item 
+           (SELF, 'taper thread count')) AND
+         (verify_count_measure_tool_body_item 
+           (SELF, 'taper thread count')) 
+        );
+
+
+  WR15: NOT ((SELF.kind.name = 'milling cutting tool') AND
+        (SELF.description IN [ 'reamer', 'combined drill and reamer', 
+         'tapered reamer']))
+        OR
+        ((verify_required_tool_body_item       (SELF, 'taper length')) AND
+         (verify_length_measure_tool_body_item (SELF, 'taper length')) 
+        );
+
+  WR16: NOT ((SELF.kind.name = 'milling cutting tool') AND
+        (SELF.description = 'tapered reamer'))
+        OR
+        ((verify_required_tool_body_item       (SELF, 'taper angle')) AND
+         (verify_angle_measure_tool_body_item  (SELF, 'taper angle')) 
+        );
+
+  WR17: NOT ((SELF.kind.name = 'milling cutting tool') AND
+        (SELF.description IN [ 'combined drill and reamer',
+         'combined drill and tap']))
+        OR
+        ((verify_required_tool_body_item       (SELF, 'drill length')) AND
+         (verify_length_measure_tool_body_item (SELF, 'drill length')) 
+        );
+
+
+  WR18: NOT ((SELF.kind.name = 'milling cutting tool') AND
+        (SELF.description = 'boring tool'))
+        OR
+        ((verify_required_tool_body_item    (SELF, 'retract movement')) AND
+         (verify_enumeration_tool_body_item (SELF, 'retract movement',
+           ['permitted', 'forbidden']))
+        );
+
+  WR19: NOT ((SELF.kind.name = 'milling cutting tool') AND
+        (SELF.description = 'user defined milling tool'))
+        OR
+        ((verify_optional_tool_body_item  (SELF, 'tool description')) AND
+         (verify_rep_item_for_tool_body   (SELF, 'tool description',
+           ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.DESCRIPTIVE_REPRESENTATION_ITEM'])) AND
+
+         (verify_optional_tool_body_item 
+           (SELF, 'corner radius')) AND
+         (verify_length_measure_tool_body_item 
+           (SELF, 'corner radius')) AND
+
+         (verify_optional_tool_body_item 
+           (SELF, 'corner radius center horizontal')) AND
+         (verify_length_measure_tool_body_item 
+           (SELF, 'corner radius center horizontal')) AND
+
+         (verify_optional_tool_body_item 
+           (SELF, 'corner radius center vertical')) AND
+         (verify_length_measure_tool_body_item 
+           (SELF, 'corner radius center vertical')) AND
+
+         (verify_optional_tool_body_item       (SELF, 'taper angle')) AND
+         (verify_angle_measure_tool_body_item  (SELF, 'taper angle')) AND
+
+         (verify_optional_tool_body_item       (SELF, 'tip outer angle')) AND
+         (verify_angle_measure_tool_body_item  (SELF, 'tip outer angle'))
+        );
+
+  WR20: NOT (SELF.kind.name = 'turning cutting tool') OR
+        ((verify_required_tool_body_item       (SELF, 'functional length')) AND
+         (verify_length_measure_tool_body_item (SELF, 'functional length')) AND
+
+         (verify_required_tool_body_item       (SELF, 'f dimension')) AND
+         (verify_length_measure_tool_body_item (SELF, 'f dimension')) AND
+
+         (verify_optional_tool_body_item 
+           (SELF, 'minimum cutting diameter')) AND
+         (verify_length_measure_tool_body_item 
+           (SELF, 'minimum cutting diameter')) AND
+
+         (verify_optional_tool_body_item 
+           (SELF, 'a dimension on f')) AND
+         (verify_length_measure_tool_body_item 
+           (SELF, 'a dimension on f')) AND
+
+         (verify_optional_tool_body_item 
+           (SELF, 'a dimension on lf')) AND
+         (verify_length_measure_tool_body_item 
+           (SELF, 'a dimension on lf')) AND
+
+         (verify_optional_tool_body_item    (SELF, 'hand of cut')) AND
+         (verify_enumeration_tool_body_item (SELF, 'hand of cut',
+           ['left', 'right', 'neutral'])) AND
+
+         (0 <= SIZEOF (QUERY (arr <* USEDIN (SELF,
+          'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.ACTION_RESOURCE_RELATIONSHIP.RELATING_RESOURCE') |
+          (('MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_CUTTING_COMPONENT'
+             IN TYPEOF (arr.related_resource)) AND
+           (arr.related_resource.kind.name = 'turning cutting edge') ))))
+        );
+
+  WR21: NOT ((SELF.kind.name = 'turning cutting tool') AND
+        (SELF.description = 'turning threading tool'))
+        OR
+        ((verify_required_tool_body_item       (SELF, 'thread pitch')) AND
+         (verify_length_measure_tool_body_item (SELF, 'thread pitch')) AND
+
+         (verify_required_tool_body_item       (SELF, 'thread hand')) AND
+         (verify_enumeration_tool_body_item    (SELF, 'thread hand',
+           ['left', 'right'])) AND
+
+         (verify_required_tool_body_item       (SELF, 'thread type')) AND
+         (verify_enumeration_tool_body_item    (SELF, 'thread type',
+           ['internal', 'external'])) AND
+
+         (verify_required_tool_body_item       (SELF, 'thread profile')) AND
+         (verify_enumeration_tool_body_item    (SELF, 'thread profile',
+           ['full', 'partial'])) AND
+
+         (verify_required_tool_body_item  (SELF, 'thread form type')) AND
+         (verify_rep_item_for_tool_body   (SELF, 'thread form type',
+           ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.DESCRIPTIVE_REPRESENTATION_ITEM'])) 
+        );
+
+  WR22: NOT ((SELF.kind.name = 'turning cutting tool') AND
+        (SELF.description = 'grooving tool'))
+        OR
+        ((verify_required_tool_body_item 
+           (SELF, 'cutting width')) AND
+         (verify_length_measure_tool_body_item 
+           (SELF, 'cutting width')) AND
+
+         (verify_required_tool_body_item 
+           (SELF, 'maximum grooving depth')) AND
+         (verify_length_measure_tool_body_item
+           (SELF, 'maximum grooving depth')) AND
+
+         (verify_optional_tool_body_item 
+           (SELF, 'corner radius')) AND
+         (verify_length_measure_tool_body_item
+           (SELF, 'corner radius')) AND
+
+         (verify_optional_tool_body_item
+           (SELF, 'maximum axial grooving diameter')) AND
+         (verify_length_measure_tool_body_item
+           (SELF, 'maximum axial grooving diameter')) AND
+
+         (verify_optional_tool_body_item
+           (SELF, 'minimum axial grooving diameter')) AND
+         (verify_length_measure_tool_body_item
+           (SELF, 'minimum axial grooving diameter'))
+        );
+
+  WR23: NOT ((SELF.kind.name = 'turning cutting tool') AND
+        (SELF.description = 'knurling tool'))
+        OR
+        ((verify_required_tool_body_item    (SELF, 'knurl pattern')) AND
+         (verify_enumeration_tool_body_item (SELF, 'knurl pattern',
+           ['straight', 'diagonal', 'diamond'])) AND
+
+         (verify_optional_tool_body_item       (SELF, 'cutting length')) AND
+         (verify_length_measure_tool_body_item (SELF, 'cutting length')) AND
+
+         (verify_optional_tool_body_item       (SELF, 'cutting angle')) AND
+         (verify_angle_measure_tool_body_item  (SELF, 'cutting angle')) AND
+
+         (verify_optional_tool_body_item       (SELF, 'cutting pitch')) AND
+         (verify_length_measure_tool_body_item (SELF, 'cutting pitch'))
+        );
+
+  WR24: NOT ((SELF.kind.name = 'turning cutting tool') AND
+        (SELF.description = 'user defined turning tool'))
+        OR
+        ((verify_required_tool_body_item  (SELF, 'tool identifier')) AND
+         (verify_rep_item_for_tool_body   (SELF, 'tool identifier',
+           ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.DESCRIPTIVE_REPRESENTATION_ITEM']))
+        );
+
+
+  WR25: (1 >= SIZEOF (QUERY (rar <* USEDIN (SELF,
+          'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.REQUIREMENT_FOR_ACTION_RESOURCE.RESOURCES') |
+         ((1 = SIZEOF(rar.operations)) AND
+          ('MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_TOOL_USAGE' 
+           IN TYPEOF (rar\action_resource_requirement.operations[1])))
+        )));
+END_ENTITY;
+
+
+ENTITY machining_cutting_component
+  SUBTYPE OF (action_resource,characterized_object);
+  WHERE
+  WR1:  (1 >= SIZEOF (USEDIN (SELF, 'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.' +
+           'MATERIAL_DESIGNATION.DEFINITIONS')));
+
+  WR2:  (1 >= SIZEOF (QUERY (arr <* USEDIN (SELF,
+          'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.REQUIREMENT_FOR_ACTION_RESOURCE.RESOURCES') |
+          (arr.kind.name = 'cutting component') AND
+          (0 < SIZEOF (QUERY (mt <* arr.operations |
+           'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_TECHNOLOGY' IN TYPEOF (mt))))
+        )));
+
+  WR3:  (verify_optional_resource_property     (SELF, 'expected life')) AND
+        (verify_time_measure_resource_property (SELF, 'expected life'));
+
+
+  WR4:  NOT (SELF.kind.name = 'milling cutting edge') OR
+        ((verify_required_resource_property 
+           (SELF, 'functional length')) AND
+         (verify_length_measure_resource_property 
+           (SELF, 'functional length'))
+        );
+
+  WR5:  NOT (SELF.kind.name = 'turning cutting edge') OR
+        ((verify_optional_resource_property 
+           (SELF, 'cutting edge length')) AND
+         (verify_length_measure_resource_property 
+           (SELF, 'cutting edge length')) AND
+
+         (verify_optional_resource_property 
+           (SELF, 'cutting edge angle')) AND
+         (verify_angle_measure_resource_property 
+           (SELF, 'cutting edge angle')) AND
+
+         (verify_optional_resource_property 
+           (SELF, 'cutting edge angle type')) AND
+         (verify_rep_item_for_resource_property
+           (SELF, 'cutting edge angle type',
+           ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.DESCRIPTIVE_REPRESENTATION_ITEM'])) AND
+
+         (verify_optional_resource_property 
+           (SELF, 'tool included angle')) AND
+         (verify_angle_measure_resource_property 
+           (SELF, 'tool included angle')) AND
+
+         (verify_rep_type_for_resource_property
+           (SELF, 'corner transitions',
+           ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.'+
+            'MACHINING_CUTTING_CORNER_REPRESENTATION'])) AND
+
+         (verify_optional_resource_property 
+           (SELF, 'maximum side cutting depth')) AND
+         (verify_length_measure_resource_property 
+           (SELF, 'maximum side cutting depth')) AND
+
+         (verify_optional_resource_property 
+           (SELF, 'maximum end cutting depth')) AND
+         (verify_length_measure_resource_property 
+           (SELF, 'maximum end cutting depth')) 
+        );
+END_ENTITY;
+
+
+ENTITY machining_tool_usage
+  SUBTYPE OF (action_method);
+  WHERE
+  WR1:  ((verify_optional_action_property    (SELF, 'tool position')) AND
+         (verify_descriptive_action_property (SELF, 'tool position')));
+
+  WR2:  ((verify_optional_action_property    (SELF, 'tool carousel')) AND
+         (verify_descriptive_action_property (SELF, 'tool carousel')));
+
+  WR3:  (1 >= SIZEOF (QUERY (act <*
+          USEDIN (SELF, 'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.ACTION.CHOSEN_METHOD') |
+          (act.name = 'tool usage')))) AND
+        (0 = SIZEOF (QUERY (act <*
+          USEDIN (SELF, 'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.ACTION.CHOSEN_METHOD') |
+          (act.name = 'tool usage') AND NOT
+          ('MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.PRODUCT_DEFINITION_PROCESS' IN TYPEOF (act))
+        )));
+
+  WR4:  ((verify_optional_action_property (SELF, 'gage placement')) AND
+         (verify_rep_item_for_action_property (SELF, 'gage placement',
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.AXIS2_PLACEMENT_3D'])));
+
+  WR5:  ((verify_optional_action_property (SELF, 'tool end placement')) AND
+         (verify_rep_item_for_action_property (SELF, 'tool end placement',
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.AXIS2_PLACEMENT_3D'])));
+END_ENTITY;
+
+
+ENTITY machining_execution_resource
+  SUBTYPE OF (action_resource);
+  WHERE
+  WR1:  ((verify_optional_resource_property      (SELF, 'feedrate')) AND
+         (verify_rep_type_for_resource_property  (SELF, 'feedrate',
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_FEED_SPEED_REPRESENTATION'])));
+
+  WR2:  ((verify_optional_resource_property     (SELF, 'spindle')) AND
+         (verify_rep_type_for_resource_property (SELF, 'spindle',
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_SPINDLE_SPEED_REPRESENTATION'])));
+
+  WR3:  ((verify_optional_resource_property     (SELF, 'spindle power')) AND
+         (verify_rep_item_for_resource_property (SELF, 'spindle power',
+           ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MEASURE_REPRESENTATION_ITEM'])));
+
+  WR4:  ((verify_optional_resource_property     (SELF, 'spindle torque')) AND
+         (verify_rep_item_for_resource_property (SELF, 'spindle torque',
+           ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MEASURE_REPRESENTATION_ITEM'])));
+
+  WR5:  ((verify_optional_resource_property
+           (SELF, 'number of control axis')) AND
+         (verify_count_measure_resource_property
+           (SELF, 'number of control axis')));
+
+  WR6:  ((verify_optional_resource_property
+           (SELF, 'number of simultaneous axis')) AND
+         (verify_count_measure_resource_property
+           (SELF, 'number of simultaneous axis')));
+
+  WR7:  ((verify_optional_resource_property 
+           (SELF, 'positioning accuracy')) AND
+         (verify_length_measure_resource_property
+           (SELF, 'positioning accuracy')));
+
+  WR8:  ((verify_optional_resource_property    (SELF, 'table indexing')) AND
+         (verify_enumeration_resource_property (SELF, 'table indexing',
+          ['required', 'not required'])));
+
+  WR9:  ((verify_optional_resource_property       
+           (SELF, 'table length')) AND
+         (verify_length_measure_resource_property 
+           (SELF, 'table length')) AND
+
+         (verify_optional_resource_property 
+           (SELF, 'table width')) AND
+         (verify_length_measure_resource_property 
+           (SELF, 'table width')));
+
+  WR10:  ((verify_optional_resource_property      (SELF, 'axis travel')) AND
+         (0 = SIZEOF (QUERY (prop <* get_resource_property 
+                (SELF, 'axis travel') | NOT
+          ((0 < SIZEOF (QUERY (prep <* USEDIN (prop,
+            'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.RESOURCE_PROPERTY_REPRESENTATION.PROPERTY') |
+            (1 <= SIZEOF (QUERY ( it <* prep.representation.items |
+                  (SIZEOF([
+                   'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MEASURE_REPRESENTATION_ITEM',
+                   'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.LENGTH_MEASURE_WITH_UNIT'] *
+                    TYPEOF(it)) = 2))))
+
+                ))))
+         ))));
+
+  WR11: ((verify_optional_resource_property       
+           (SELF, 'work volume length')) AND
+         (verify_length_measure_resource_property 
+           (SELF, 'work volume length')) AND
+
+         (verify_optional_resource_property 
+           (SELF, 'work volume width')) AND
+         (verify_length_measure_resource_property 
+           (SELF, 'work volume width')) AND
+
+         (verify_optional_resource_property 
+           (SELF, 'work volume height')) AND
+         (verify_length_measure_resource_property 
+           (SELF, 'work volume height'))
+        );
+
+  WR12:  (0 = SIZEOF (get_resource_property (SELF, 'axis travel'))) OR
+         ((0 = SIZEOF (get_resource_property (SELF, 'work volume length'))) AND
+          (0 = SIZEOF (get_resource_property (SELF, 'work volume width'))) AND
+          (0 = SIZEOF (get_resource_property (SELF, 'work volume height'))));
+
+END_ENTITY;
+
+
+(* ======================================== *)
+(* REPRESENTATION SUBTYPES *)
+
+ENTITY machining_cutting_corner_representation
+  SUBTYPE OF (representation);
+  WHERE
+  WR1:  ((verify_required_rep_item       (SELF, 'corner identity')) AND
+         (verify_count_measure_rep_item  (SELF, 'corner identity'))
+        );
+
+  WR2:  NOT (SELF.name = 'chamfered corner') OR
+        ((verify_required_rep_item       (SELF, 'chamfer angle')) AND
+         (verify_angle_measure_rep_item  (SELF, 'chamfer angle')) AND
+
+         (verify_optional_rep_item       (SELF, 'chamfer length')) AND
+         (verify_length_measure_rep_item (SELF, 'chamfer length')) AND
+
+         (verify_optional_rep_item       (SELF, 'chamfer width')) AND
+         (verify_length_measure_rep_item (SELF, 'chamfer width'))
+        );
+
+  WR3:  NOT (SELF.name = 'rounded corner') OR
+        ((verify_required_rep_item       (SELF, 'radius')) AND
+         (verify_length_measure_rep_item (SELF, 'radius'))
+        );
+
+  WR4:  NOT (SELF.name = 'profiled corner') OR
+        (1 = SIZEOF (QUERY (prep <* USEDIN (SELF, 'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.' +
+           'PROPERTY_DEFINITION_REPRESENTATION.USED_REPRESENTATION') |
+           (('MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.LINEAR_PROFILE'
+                IN TYPEOF(prep.definition)) OR
+            ('MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.OPEN_PATH_PROFILE'
+                IN TYPEOF(prep.definition)) OR
+            ('MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.PARTIAL_CIRCULAR_PROFILE'
+                IN TYPEOF(prep.definition)) OR
+            ('MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.ROUNDED_U_PROFILE'
+                IN TYPEOF(prep.definition)) OR
+            ('MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.SQUARE_U_PROFILE'
+                IN TYPEOF(prep.definition)) OR
+            ('MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.TEE_PROFILE'
+                IN TYPEOF(prep.definition)) OR
+            ('MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.VEE_PROFILE'
+                IN TYPEOF(prep.definition)))
+        )));
+END_ENTITY;
+
+ENTITY machining_dwell_time_representation
+  SUBTYPE OF (representation);
+  WHERE
+  WR1:  (SELF.name IN ['dwell time', 'dwell revolution']);
+
+  WR2:  NOT (SELF.name = 'dwell time') OR
+        ((verify_required_rep_item       (SELF, 'dwell time')) AND
+         (verify_time_measure_rep_item   (SELF, 'dwell time'))
+        );
+
+  WR3:  NOT (SELF.name = 'dwell revolution') OR
+        ((verify_required_rep_item       (SELF, 'dwell revolution')) AND
+         (verify_count_measure_rep_item  (SELF, 'dwell revolution'))
+        );
+END_ENTITY;
+
+ENTITY machining_feed_speed_representation
+  SUBTYPE OF (representation);
+  WHERE
+  WR1:  (SELF.name IN ['feed speed', 'feed per revolution',
+         'feed per tooth', 'relative speed']);
+
+  WR2:  NOT (SELF.name = 'feed speed') OR
+        ((verify_required_rep_item             (SELF, 'feed speed')) AND
+         (verify_linear_speed_measure_rep_item (SELF, 'feed speed'))
+        );
+
+  WR3:  NOT (SELF.name = 'feed per revolution') OR
+        ((verify_required_rep_item       (SELF, 'feed per revolution')) AND
+	 (0 = SIZEOF (QUERY ( it <* SELF.items |
+          (it.name = 'feed per revolution') AND NOT (
+	   'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MEASURE_REPRESENTATION_ITEM' IN
+            TYPEOF(it)))))
+        );
+
+  WR4:  NOT (SELF.name = 'feed per tooth') OR
+        ((verify_required_rep_item       (SELF, 'feed per tooth')) AND
+	 (0 = SIZEOF (QUERY ( it <* SELF.items |
+          (it.name = 'feed per tooth') AND NOT (
+	   'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MEASURE_REPRESENTATION_ITEM' IN
+            TYPEOF(it)))))
+        );
+
+  WR5:  NOT (SELF.name = 'relative speed') OR
+        ((verify_required_rep_item       (SELF, 'relative speed')) AND
+         (verify_ratio_measure_rep_item  (SELF, 'relative speed'))
+        );
+END_ENTITY;
+
+ENTITY machining_offset_vector_representation
+  SUBTYPE OF (representation);
+  WHERE
+  WR1: (1 = SIZEOF (QUERY ( it <* SELF.items | (it.name = 'translate')))) AND
+       (0 = SIZEOF (QUERY ( it <* SELF.items | (it.name = 'translate') AND NOT
+         (('MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.COMPOUND_REPRESENTATION_ITEM'
+            IN TYPEOF(it)) AND
+          ('MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.LIST_REPRESENTATION_ITEM'
+            IN TYPEOF(it.item_element)) AND
+          (SIZEOF(it.item_element) = 3) AND
+          (0 = SIZEOF (QUERY (ie <* it.item_element | NOT
+           (('MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.EXPRESSION_REPRESENTATION_ITEM'
+              IN TYPEOF(ie)) AND
+            ('MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.NUMERIC_VARIABLE'
+              IN TYPEOF(ie))))))
+         )
+        )));
+
+  WR2: (1 >= SIZEOF (QUERY ( it <* SELF.items | (it.name = 'rotate')))) AND
+       (0  = SIZEOF (QUERY ( it <* SELF.items | (it.name = 'rotate') AND NOT
+         (('MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.COMPOUND_REPRESENTATION_ITEM'
+            IN TYPEOF(it)) AND
+          ('MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.LIST_REPRESENTATION_ITEM'
+            IN TYPEOF(it.item_element)) AND
+          (SIZEOF(it.item_element) = 3) AND
+          (0 = SIZEOF (QUERY (ie <* it.item_element | NOT
+           (('MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.EXPRESSION_REPRESENTATION_ITEM'
+              IN TYPEOF(ie)) AND
+            ('MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.NUMERIC_VARIABLE'
+              IN TYPEOF(ie))))))
+         )
+        )));
+END_ENTITY;
+
+ENTITY machining_spindle_speed_representation
+  SUBTYPE OF (representation);
+  WHERE
+  WR1:  (SELF.name IN ['spindle speed', 'cutting speed', 'relative speed']);
+
+  WR2:  NOT (SELF.name = 'spindle speed') OR
+        ((verify_required_rep_item             (SELF, 'rotational speed')) AND
+         (verify_rotary_speed_measure_rep_item (SELF, 'rotational speed'))
+        );
+
+  WR3:  NOT (SELF.name = 'cutting speed') OR
+        ((verify_required_rep_item             (SELF, 'surface speed')) AND
+         (verify_linear_speed_measure_rep_item (SELF, 'surface speed')) AND
+
+         (verify_optional_rep_item
+           (SELF, 'maximum rotational speed')) AND
+         (verify_rotary_speed_measure_rep_item
+           (SELF, 'maximum rotational speed'))
+        );
+
+  WR4:  NOT (SELF.name = 'relative speed') OR
+        ((verify_required_rep_item             (SELF, 'relative speed')) AND
+         (verify_ratio_measure_rep_item        (SELF, 'relative speed'))
+        );
+END_ENTITY;
+
+
+ENTITY machining_tool_body_representation
+  SUBTYPE OF (representation);
+END_ENTITY;
+
+
+ENTITY machining_tool_direction_representation
+  SUBTYPE OF (representation);
+  WHERE
+  WR1:  (SELF.name IN ['two axes', 'three axes', 'three axes tilted tool',
+        'five axes const tilt yaw', 'five axes var tilt yaw']);
+
+  WR2:  NOT (SELF.name = 'three axes tilted tool') OR
+        ((verify_required_rep_item       (SELF, 'tool direction orientation')) AND
+         (0 = SIZEOF (QUERY ( it <* SELF.items |
+          (it.name = 'tool direction orientation') AND NOT
+          ('MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.DIRECTION' IN TYPEOF(it)))))
+        );
+
+  WR3:  NOT (SELF.name = 'five axes const tilt yaw') OR
+        ((verify_required_rep_item       (SELF, 'tool direction tilt angle')) AND
+         (verify_angle_measure_rep_item  (SELF, 'tool direction tilt angle')) AND
+
+         (verify_required_rep_item       (SELF, 'tool direction yaw angle')) AND
+         (verify_angle_measure_rep_item  (SELF, 'tool direction yaw angle'))
+        );
+END_ENTITY;
+
+ENTITY machining_toolpath_speed_profile_representation
+  SUBTYPE OF (representation);
+  WHERE
+  WR1:  (1 = SIZEOF (QUERY ( it <* SELF.items |
+          ( (('MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.BOUNDED_CURVE'
+              IN TYPEOF(it))) OR
+
+            (('MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.DESCRIPTIVE_REPRESENTATION_ITEM'
+              IN TYPEOF(it)) AND
+             (it.description IN ['rapid']))  OR
+
+            ((SIZEOF([
+              'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MEASURE_REPRESENTATION_ITEM',
+              'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.RATIO_MEASURE_WITH_UNIT'] *
+              TYPEOF(it)) = 2))
+           )
+        )));
+END_ENTITY;
+
+ENTITY freeform_milling_tolerance_representation
+  SUBTYPE OF (representation);
+  WHERE
+  WR1:   (verify_required_rep_item       (SELF, 'chordal tolerance')) AND
+         (verify_length_measure_rep_item (SELF, 'chordal tolerance'));
+
+  WR2:   (verify_required_rep_item       (SELF, 'scallop height')) AND
+         (verify_length_measure_rep_item (SELF, 'scallop height'));
+END_ENTITY;
+
+
+
+
+(* ========================================  *)
+(* PRODUCT SUBTYPES *)
+
+ENTITY machining_setup
+  SUBTYPE OF (product);
+  WHERE
+  WR1: (0 = SIZEOF (QUERY (pdf <* USEDIN (SELF,
+          'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.' +
+          'PRODUCT_DEFINITION_FORMATION.OF_PRODUCT') | NOT
+
+          (0 = SIZEOF (QUERY (pd <* USEDIN (pdf,
+           'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.PRODUCT_DEFINITION.FORMATION') | NOT
+
+          -- it has one associated security plane.
+          (1 = SIZEOF (QUERY (prop <* USEDIN (pd,
+             'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.PROPERTY_DEFINITION.DEFINITION') |
+             (prop.name = 'security plane'))))
+          )))
+        )));
+END_ENTITY;
+
+
+ENTITY machining_project
+          SUBTYPE OF (product);
+  WHERE
+  WR1: (0 = SIZEOF (QUERY (pdf <* USEDIN (SELF,
+          'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.' +
+          'PRODUCT_DEFINITION_FORMATION.OF_PRODUCT') | NOT
+
+          -- it has at most one associated owner.
+          (1 >= SIZEOF (QUERY (poa <* USEDIN (pdf,
+             'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.' +
+             'APPLIED_PERSON_AND_ORGANIZATION_ASSIGNMENT.ITEMS') |
+               (poa.role.name = 'owner'))))
+        )));
+
+
+  WR2: (0 = SIZEOF (QUERY (pdf <* USEDIN (SELF,
+          'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.' +
+          'PRODUCT_DEFINITION_FORMATION.OF_PRODUCT') | NOT
+
+          -- it has at most one associated release date.
+          (1 >= SIZEOF (QUERY (dta <* USEDIN (pdf,
+             'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.' +
+             'APPLIED_DATE_AND_TIME_ASSIGNMENT.ITEMS') |
+               (dta.role.name = 'release date'))))
+        )));
+
+
+  WR3: (0 = SIZEOF (QUERY (pdf <* USEDIN (SELF,
+          'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.' +
+          'PRODUCT_DEFINITION_FORMATION.OF_PRODUCT') | NOT
+
+          (0 = SIZEOF (QUERY (pd <* USEDIN (pdf,
+           'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.PRODUCT_DEFINITION.FORMATION') | NOT
+
+          -- it has one associated workplan.
+          (1 = SIZEOF (QUERY (ppa <* USEDIN (pd,
+             'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.' +
+             'PROCESS_PRODUCT_ASSOCIATION.DEFINED_PRODUCT') |
+             (ppa.process.name = 'machining') AND
+             ('MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_WORKPLAN'
+               IN TYPEOF (ppa.process.chosen_method)))))
+          )))
+        )));
+END_ENTITY;
+
+
+(* ========================================  *)
+(* RELATIONSHIP SUBTYPES *)
+
+
+ENTITY machining_setup_workpiece_relationship
+  SUBTYPE OF (product_definition_relationship);
+END_ENTITY;
+
+ENTITY machining_project_workpiece_relationship
+  SUBTYPE OF (product_definition_relationship);
+END_ENTITY;
+
+
+
+
+ENTITY machining_adaptive_control_relationship
+  SUBTYPE OF (action_method_relationship);
+END_ENTITY;
+
+ENTITY machining_functions_relationship
+  SUBTYPE OF (action_method_relationship);
+END_ENTITY;
+
+ENTITY machining_operation_relationship
+  SUBTYPE OF (action_method_relationship);
+END_ENTITY;
+
+ENTITY machining_operator_instruction_relationship
+  SUBTYPE OF (sequential_method);
+END_ENTITY;
+
+ENTITY machining_process_model_relationship
+  SUBTYPE OF (sequential_method);
+END_ENTITY;
+
+ENTITY machining_strategy_relationship
+  SUBTYPE OF (action_method_relationship);
+END_ENTITY;
+
+ENTITY machining_technology_relationship
+  SUBTYPE OF (action_method_relationship);
+END_ENTITY;
+
+ENTITY machining_toolpath_sequence_relationship
+  SUBTYPE OF (sequential_method);
+END_ENTITY;
+
+
+
+ENTITY machining_feature_relationship
+  SUBTYPE OF (action_method_relationship);
+END_ENTITY;
+
+ENTITY machining_feature_sequence_relationship
+  SUBTYPE OF (machining_feature_relationship, sequential_method);
+END_ENTITY;
+
+ENTITY machining_final_feature_relationship
+  SUBTYPE OF (action_method_relationship);
+END_ENTITY;
+
+
+ENTITY machining_process_body_relationship
+  SUBTYPE OF (action_method_relationship);
+END_ENTITY;
+
+ENTITY machining_process_sequence_relationship
+  SUBTYPE OF (machining_process_body_relationship, sequential_method);
+END_ENTITY;
+
+ENTITY machining_process_concurrent_relationship
+  SUBTYPE OF (machining_process_body_relationship, concurrent_action_method);
+END_ENTITY;
+
+ENTITY machining_process_branch_relationship
+  SUBTYPE OF (machining_process_body_relationship);
+END_ENTITY;
+
+
+
+(* ============================================================ *)
+(* DEFINITIONS ADDED BY AP238 TC1 *)
+
+ENTITY via_arc_point
+  SUBTYPE OF (cartesian_point);
+  WHERE
+  WR1: SIZEOF(USEDIN(SELF, 'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.POLYLINE.POINTS')) > 0;
+  WR2: (0 = SIZEOF (QUERY (pl <* 
+	USEDIN(SELF, 'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.POLYLINE.POINTS') |
+	((pl.points[1] = SELF) OR (pl.points[HiIndex(pl.points)] = SELF))
+	)));
+END_ENTITY;
+
+ENTITY via_helix_point
+  SUBTYPE OF (cartesian_point);
+  WHERE
+  WR1: SIZEOF(USEDIN(SELF, 'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.POLYLINE.POINTS')) > 0;
+  WR2: (0 = SIZEOF (QUERY (pl <* 
+	USEDIN(SELF, 'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.POLYLINE.POINTS') |
+	((pl.points[1] = SELF) OR (pl.points[HiIndex(pl.points)] = SELF))
+	)));
+END_ENTITY;
+
+
+ENTITY machining_fixture_usage
+  SUBTYPE OF (action_method);
+  WHERE  	  
+  WR1:  (1 >= SIZEOF (QUERY (act <*
+          USEDIN (SELF, 'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.ACTION.CHOSEN_METHOD') |
+          (act.name = 'fixture workpiece')))) AND
+        (0 = SIZEOF (QUERY (act <*
+          USEDIN (SELF, 'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.ACTION.CHOSEN_METHOD') |
+          (act.name = 'fixture workpiece') AND NOT
+          ('MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.PRODUCT_DEFINITION_PROCESS' IN TYPEOF (act))
+        )));
+
+  WR2:  ((verify_optional_action_property (SELF, 'mount reference')) AND
+         (verify_rep_item_for_action_property (SELF, 'mount reference',
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.AXIS2_PLACEMENT_3D'])));
+
+  WR3:  ((verify_optional_action_property (SELF, 'workpiece reference')) AND
+         (verify_rep_item_for_action_property (SELF, 'workpiece reference',
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.AXIS2_PLACEMENT_3D'])));
+END_ENTITY;
+
+
+
+(* ========================================  *)
+(* OTHER *)
+
+(* Brings in the PLIB Part 20 expressions for use in properties *)
+ENTITY expression_representation_item
+  SUBTYPE OF (representation_item, generic_expression);
+END_ENTITY;
+
+
+(* ========================================  *)
+(* Overlapping AP Definitions brought in for harmonization *)
+
+
+-- Definitions from other APs that do not appear in any AICs, but 
+-- are needed for harmonization 
+
+-- Extra AP-224 definitions for workpiece base shape and catalog
+-- threads
+
+ENTITY block_shape_representation
+  SUBTYPE OF (shape_representation_with_parameters);
+  WHERE
+    WR1: (SIZEOF(SELF.items) = 4);
+    WR2: (SIZEOF(QUERY ( it <* SELF.items | 
+	 (('MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.PLACEMENT' 
+	 IN TYPEOF(it)) AND (it.name = 'orientation')) )) = 1);
+    WR3: (SIZEOF(QUERY ( it <* SELF.items | 
+	 ((SIZEOF(
+	 ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MEASURE_REPRESENTATION_ITEM',
+	 'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.LENGTH_MEASURE_WITH_UNIT'] *
+	  TYPEOF(it)) = 2) AND (it.name = 'length')) )) = 1);
+    WR4: (SIZEOF(QUERY ( it <* SELF.items | 
+	 ((SIZEOF([
+	 'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MEASURE_REPRESENTATION_ITEM',
+	 'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.LENGTH_MEASURE_WITH_UNIT'] *
+	 TYPEOF(it)) = 2) AND (it.name = 'width')) )) = 1);
+    WR5: (SIZEOF(QUERY ( it <* SELF.items | 
+	 ((SIZEOF([
+	 'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MEASURE_REPRESENTATION_ITEM',
+	 'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.LENGTH_MEASURE_WITH_UNIT'] *
+	 TYPEOF(it)) = 2) AND (it.name = 'height')) )) = 1);
+END_ENTITY; -- block_shape_representation
+
+
+ENTITY cylindrical_shape_representation
+  SUBTYPE OF (shape_representation_with_parameters);
+  WHERE
+    WR1: (SIZEOF(SELF.items) = 3);
+    WR2: (SIZEOF(QUERY ( it <* SELF.items | ((
+	 'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.PLACEMENT' 
+	 IN TYPEOF(it)) AND (it.name = 'orientation')) )) = 1);
+    WR3: (SIZEOF(QUERY ( it <* SELF.items | ((SIZEOF([
+	 'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MEASURE_REPRESENTATION_ITEM',
+	 'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.LENGTH_MEASURE_WITH_UNIT'] *
+	  TYPEOF(it)) = 2) AND (it.name = 'length')) )) = 1);
+    WR4: (SIZEOF(QUERY ( it <* SELF.items | ((SIZEOF([
+	 'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MEASURE_REPRESENTATION_ITEM',
+	 'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.LENGTH_MEASURE_WITH_UNIT'] *
+	  TYPEOF(it)) = 2) AND (it.name = 'diameter')) )) = 1);
+END_ENTITY; -- cylindrical_shape_representation
+
+ENTITY ngon_shape_representation
+  SUBTYPE OF (shape_representation_with_parameters);
+  WHERE
+    WR1: (SIZEOF(SELF.items) = 5);
+    WR2: (SIZEOF(QUERY ( it <* SELF.items | 
+	 (('MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.PLACEMENT' 
+	 IN TYPEOF(it)) AND (it.name = 'orientation')) )) = 1);
+    WR3: (SIZEOF(QUERY ( it <* SELF.items | 
+	 ((SIZEOF([
+	 'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MEASURE_REPRESENTATION_ITEM',
+	 'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.LENGTH_MEASURE_WITH_UNIT'] *
+	 TYPEOF(it)) = 2) AND (it.name = 'length')) )) = 1);
+    WR4: (SIZEOF(QUERY ( it <* SELF.items | 
+	 ((SIZEOF([
+	 'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MEASURE_REPRESENTATION_ITEM',
+	 'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.LENGTH_MEASURE_WITH_UNIT'] *
+	 TYPEOF(it)) = 2) AND (it.name = 'corner radius')) )) = 1);
+    WR5: SIZEOF (QUERY (it <* SELF.items |
+	 (SIZEOF 
+	 (['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MEASURE_REPRESENTATION_ITEM',
+	 'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.LENGTH_MEASURE_WITH_UNIT'] *	
+	 TYPEOF (it)) = 2) AND
+       (it.name IN ['circumscribed diameter','diameter across flats']) ))= 1;
+
+    WR6: (SIZEOF(QUERY ( it <* SELF.items |
+	 (('MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MEASURE_REPRESENTATION_ITEM' 
+	 IN TYPEOF(it)) AND 
+	 ('MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.COUNT_MEASURE' 
+	 IN TYPEOF(it\measure_with_unit.value_component)) AND 
+	 (it.name = 'number of sides')) )) = 1);
+END_ENTITY; -- ngon_shape_representation
+
+
+
+(* ========================================  *)
+(* PLIB Reference Objects from 214/224/240 *)
+
+ENTITY externally_defined_representation_with_parameters
+  SUBTYPE OF (representation);
+  WHERE 
+  WR1: (SIZEOF(USEDIN(SELF, 'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.'+
+        'APPLIED_CLASSIFICATION_ASSIGNMENT.ITEMS')) = 1);
+ 
+  WR2: (SIZEOF (QUERY(adr <* SELF.items|
+        'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.PLACEMENT' IN TYPEOF(adr))) <=1);
+END_ENTITY;
+
+
+
+(* ========================================  *)
+(* FUNCTIONS *)
+
+
+FUNCTION get_action_property (
+    cad :       characterized_action_definition;
+    prop_name : STRING
+    ): SET OF action_property;
+
+    RETURN (bag_to_set (QUERY (ap <*
+        USEDIN (cad, 'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.ACTION_PROPERTY.DEFINITION') |
+        (ap.name = prop_name))));
+END_FUNCTION;
+
+
+FUNCTION get_resource_property (
+    crd :       characterized_resource_definition;
+    prop_name : STRING
+    ): SET OF resource_property;
+
+    RETURN (bag_to_set (QUERY (rp <*
+        USEDIN (crd, 'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.RESOURCE_PROPERTY.RESOURCE') |
+        (rp.name = prop_name))));
+END_FUNCTION;
+
+FUNCTION get_relating_amr (
+    am : action_method
+    ) : SET OF action_method_relationship;
+
+    RETURN (bag_to_set (USEDIN (am,
+       'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.ACTION_METHOD_RELATIONSHIP.RELATING_METHOD')));
+END_FUNCTION;
+
+FUNCTION get_count_of_relating_amr (
+    am :        action_method;
+    amr_types : SET OF STRING
+    ): INTEGER;
+
+    RETURN (SIZEOF (QUERY (amr <* get_relating_amr (am) | 
+               (SIZEOF(amr_types * TYPEOF(amr)) = 
+                SIZEOF(amr_types)) )));
+END_FUNCTION;
+
+FUNCTION get_count_of_relating_amr_with_name (
+    am :        action_method;
+    amr_name :  STRING;
+    amr_types : SET OF STRING
+    ): INTEGER;
+
+    RETURN (SIZEOF (QUERY (amr <* get_relating_amr (am) | 
+              ((amr.name = amr_name) AND
+               (SIZEOF(amr_types * TYPEOF(amr)) = 
+                SIZEOF(amr_types))) )));
+END_FUNCTION;
+
+FUNCTION verify_optional_relating_amr (
+    am :        action_method;
+    amr_types : SET OF STRING
+    ): LOGICAL;
+
+    RETURN (1 >= get_count_of_relating_amr (am, amr_types));
+END_FUNCTION;
+
+FUNCTION verify_optional_relating_amr_with_name (
+    am :        action_method;
+    amr_name :  STRING;
+    amr_types : SET OF STRING
+    ): LOGICAL;
+
+    RETURN (1 >= get_count_of_relating_amr_with_name (
+                am, amr_name, amr_types));
+END_FUNCTION;
+
+FUNCTION verify_required_relating_amr (
+    am : 	action_method;
+    amr_types : SET OF STRING
+    ): LOGICAL;
+
+    RETURN (1 = get_count_of_relating_amr (am, amr_types));
+END_FUNCTION;
+
+FUNCTION verify_required_relating_amr_with_name (
+    am :        action_method;
+    amr_name :  STRING;
+    amr_types : SET OF STRING
+    ): LOGICAL;
+
+    RETURN (1 = get_count_of_relating_amr_with_name (
+                am, amr_name, amr_types));
+END_FUNCTION;
+
+FUNCTION verify_related_type_for_amr (
+    am :        action_method;
+    amr_types : SET OF STRING;
+    types :     SET OF STRING
+    ): LOGICAL;
+
+    RETURN  (0 = SIZEOF (QUERY (amr <* get_relating_amr (am) |
+               (SIZEOF(amr_types * TYPEOF(amr)) = 
+                SIZEOF(amr_types)) AND 
+                NOT
+               (SIZEOF(types * TYPEOF(amr.related_method)) = 
+                SIZEOF(types)) )));
+END_FUNCTION;
+
+FUNCTION verify_related_type_for_amr_with_name (
+    am :        action_method;
+    amr_name :  STRING;
+    amr_types : SET OF STRING;
+    types :     SET OF STRING
+    ): LOGICAL;
+
+    RETURN  (0 = SIZEOF (QUERY (amr <* get_relating_amr (am) |
+               (amr.name = amr_name) AND 
+               (SIZEOF(amr_types * TYPEOF(amr)) = 
+                SIZEOF(amr_types)) AND 
+                NOT
+               (SIZEOF(types * TYPEOF(amr.related_method)) = 
+                SIZEOF(types)) )));
+END_FUNCTION;
+
+FUNCTION verify_optional_action_property (
+    cad :   	characterized_action_definition;
+    prop_name : STRING
+    ): LOGICAL;
+
+    RETURN (1 >= SIZEOF (get_action_property (cad, prop_name)));
+END_FUNCTION;
+
+FUNCTION verify_optional_rep_item (
+    rep : 	representation;
+    prop_name : STRING
+    ): LOGICAL;
+
+    RETURN (1 >= SIZEOF (QUERY ( it <* rep.items | 
+            (it.name = prop_name))));
+END_FUNCTION;
+
+FUNCTION verify_optional_resource_property (
+    crd : 	characterized_resource_definition;
+    prop_name : STRING
+    ): LOGICAL;
+
+    RETURN (1 >= SIZEOF (get_resource_property (crd, prop_name)));
+END_FUNCTION;
+
+FUNCTION verify_required_action_property (
+    cad :	characterized_action_definition;
+    prop_name : STRING
+    ): LOGICAL;
+
+    RETURN (1 = SIZEOF (get_action_property (cad, prop_name)));
+END_FUNCTION;
+
+FUNCTION verify_required_rep_item (
+    rep :	representation;
+    prop_name : STRING
+    ): LOGICAL;
+
+    RETURN (1 = SIZEOF (QUERY ( it <* rep.items | 
+            (it.name = prop_name))));
+END_FUNCTION;
+
+FUNCTION verify_required_resource_property (
+    crd : 	characterized_resource_definition;
+    prop_name : STRING
+    ): LOGICAL;
+
+    RETURN (1 = SIZEOF (get_resource_property (crd, prop_name)));
+END_FUNCTION;
+
+FUNCTION verify_rep_name_for_action_property (
+    cad : 	 characterized_action_definition;
+    prop_name :  STRING;
+    desc_names : SET OF STRING
+    ): LOGICAL;
+
+    RETURN (0 = SIZEOF (QUERY (prop <* 
+            get_action_property (cad, prop_name) | NOT 
+            (0 < SIZEOF (QUERY (prep <* USEDIN (prop, 'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.'+
+               'ACTION_PROPERTY_REPRESENTATION.PROPERTY') |
+               (prep.representation.name IN desc_names)
+                )))
+        )));
+END_FUNCTION;
+
+FUNCTION verify_rep_item_for_action_property (
+    cad : 	     characterized_action_definition;
+    prop_name :      STRING;
+    rep_item_types : SET OF STRING
+    ): LOGICAL;
+
+    -- All properties have matching representations.  The reason we test
+    -- for "nothing matching the negation" rather than "something matching
+    -- the positive" is so that we return true if there are no properties.
+    --
+    RETURN (0 = SIZEOF (QUERY (prop <* get_action_property (cad, prop_name) |
+
+        -- property has no matching representations
+        NOT (
+
+        -- there is at least one rep with matching rep items
+        (0 < SIZEOF (QUERY (prep <* USEDIN (prop, 'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.' +
+                'ACTION_PROPERTY_REPRESENTATION.PROPERTY') |
+
+           -- property representation has at least one matching rep item
+           (0 < SIZEOF (QUERY (it <* prep.representation.items |
+               (SIZEOF (rep_item_types * TYPEOF(it)) = 
+                SIZEOF (rep_item_types))))
+           )))
+        ))
+    )));
+END_FUNCTION;
+
+FUNCTION verify_rep_item_for_resource_property (
+    crd :            characterized_resource_definition;
+    prop_name :      STRING;
+    rep_item_types : SET OF STRING
+    ): LOGICAL;
+
+    RETURN (0 = SIZEOF (QUERY (prop <* get_resource_property (crd, prop_name) |
+        NOT (0 < SIZEOF (QUERY (prep <* USEDIN (prop, 'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.' +
+                'RESOURCE_PROPERTY_REPRESENTATION.PROPERTY') |
+
+           (0 < SIZEOF (QUERY (it <* prep.representation.items |
+               (SIZEOF (rep_item_types * TYPEOF(it)) = 
+                SIZEOF (rep_item_types)))))
+           )))
+        )));
+END_FUNCTION;
+
+
+FUNCTION verify_rep_type_for_action_property (
+    cad : 	characterized_action_definition;
+    prop_name : STRING;
+    rep_types : SET OF STRING
+    ): LOGICAL;
+
+    RETURN (0 = SIZEOF (QUERY (prop <* 
+            get_action_property (cad, prop_name) | NOT 
+            (0 < SIZEOF (QUERY (prep <* USEDIN (prop, 'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.'+
+               'ACTION_PROPERTY_REPRESENTATION.PROPERTY') |
+
+               (SIZEOF(rep_types * TYPEOF(prep.representation)) = 
+                SIZEOF(rep_types))
+                )))
+        )));
+END_FUNCTION;
+
+
+FUNCTION verify_rep_type_for_resource_property (
+    crd : 	characterized_resource_definition;
+    prop_name : STRING;
+    rep_types : SET OF STRING
+    ): LOGICAL;
+
+    RETURN (0 = SIZEOF (QUERY (prop <* 
+            get_resource_property (crd, prop_name) | NOT 
+            (0 < SIZEOF (QUERY (prep <* USEDIN (prop, 'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.'+
+               'RESOURCE_PROPERTY_REPRESENTATION.PROPERTY') |
+
+               (SIZEOF(rep_types * TYPEOF(prep.representation)) = 
+                SIZEOF(rep_types))
+                )))
+        )));
+END_FUNCTION;
+
+
+
+(* ======================================== *)
+(* VERIFY REPRESENTATION ITEM TYPES AND VALUES *)
+
+FUNCTION verify_angle_measure_action_property (
+    cad : 	characterized_action_definition;
+    prop_name : STRING
+    ): LOGICAL;
+
+    RETURN (verify_rep_item_for_action_property(cad, prop_name,
+        ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MEASURE_REPRESENTATION_ITEM',
+         'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.PLANE_ANGLE_MEASURE_WITH_UNIT']));
+END_FUNCTION;
+
+FUNCTION verify_angle_measure_rep_item (
+    rep : 	representation;
+    prop_name : STRING
+    ): LOGICAL;
+
+    RETURN (0 = SIZEOF (QUERY ( it <* rep.items |
+          (it.name = prop_name) AND NOT (SIZEOF([
+           'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MEASURE_REPRESENTATION_ITEM',
+           'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.PLANE_ANGLE_MEASURE_WITH_UNIT'] *
+            TYPEOF(it)) = 2))));
+END_FUNCTION;
+
+FUNCTION verify_angle_measure_resource_property (
+    crd :       characterized_resource_definition;
+    prop_name : STRING
+    ): LOGICAL;
+
+    RETURN (verify_rep_item_for_resource_property (crd, prop_name,
+        ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MEASURE_REPRESENTATION_ITEM',
+         'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.PLANE_ANGLE_MEASURE_WITH_UNIT']));
+END_FUNCTION;
+
+
+FUNCTION verify_count_measure_action_property (
+    cad : 	characterized_action_definition;
+    prop_name : STRING
+    ): LOGICAL;
+
+    -- All properties have matching representations.  The reason we test
+    -- for "nothing matching the negation" rather than "something matching
+    -- the positive" is so that we return true if there are no properties.
+    --
+    RETURN (0 = SIZEOF (QUERY (prop <* get_action_property (cad, prop_name) |
+
+        -- property has no matching representations
+        NOT (
+
+        -- there is at least one rep with matching rep items
+        (0 < SIZEOF (QUERY (prep <* USEDIN (prop, 'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.' +
+                'ACTION_PROPERTY_REPRESENTATION.PROPERTY') |
+
+           -- property representation has at least one matching rep item
+           (0 < SIZEOF (QUERY (it <* prep.representation.items |
+               (('MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MEASURE_REPRESENTATION_ITEM' 
+                  IN TYPEOF(it)) AND
+                ('MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.COUNT_MEASURE' 
+                  IN TYPEOF(it.value_component)))
+           )))
+        )))
+    ))));
+END_FUNCTION;
+
+FUNCTION verify_count_measure_rep_item (
+    rep : 	representation;
+    prop_name : STRING
+    ): LOGICAL;
+
+    RETURN (0 = SIZEOF (QUERY ( it <* rep.items |
+          (it.name = prop_name) AND NOT
+          (('MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MEASURE_REPRESENTATION_ITEM' 
+            IN TYPEOF(it)) AND
+           ('MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.COUNT_MEASURE' 
+            IN TYPEOF(it.value_component))))));
+END_FUNCTION;
+
+FUNCTION verify_count_measure_resource_property (
+    crd : 	characterized_resource_definition;
+    prop_name : STRING
+    ): LOGICAL;
+
+    -- All properties have matching representations.  The reason we test
+    -- for "nothing matching the negation" rather than "something matching
+    -- the positive" is so that we return true if there are no properties.
+    --
+    RETURN (0 = SIZEOF (QUERY (prop <* get_resource_property (crd, prop_name) |
+
+        -- property has no matching representations
+        NOT (
+
+        -- there is at least one rep with matching rep items
+        (0 < SIZEOF (QUERY (prep <* USEDIN (prop, 'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.' +
+                'RESOURCE_PROPERTY_REPRESENTATION.PROPERTY') |
+
+           -- property representation has at least one matching rep item
+           (0 < SIZEOF (QUERY (it <* prep.representation.items |
+               (('MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MEASURE_REPRESENTATION_ITEM' 
+                  IN TYPEOF(it)) AND
+                ('MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.COUNT_MEASURE' 
+                  IN TYPEOF(it.value_component)))
+           )))
+        )))
+    ))));
+END_FUNCTION;
+
+
+FUNCTION verify_descriptive_action_property (
+    cad : 	characterized_action_definition;
+    prop_name : STRING
+    ): LOGICAL;
+
+    RETURN (verify_rep_item_for_action_property(cad, prop_name,
+        ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.DESCRIPTIVE_REPRESENTATION_ITEM']));
+END_FUNCTION;
+
+
+
+FUNCTION verify_enumeration_action_property (
+    cad : 	  characterized_action_definition;
+    prop_name :   STRING;
+    prop_values : SET OF STRING
+    ): LOGICAL;
+
+    -- Each action property has at least one representation that contains
+    -- a descriptive rep item, and that descriptive rep item has a value
+    -- drawn from the prop_values set.
+
+    -- there are no properties that do not have matching representations
+    RETURN (0 = SIZEOF (QUERY (prop <* get_action_property (cad, prop_name) |
+
+        NOT (
+        -- there is at least one rep with matching rep items
+        (0 < SIZEOF (QUERY (prep <* USEDIN (prop, 'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.' +
+                'ACTION_PROPERTY_REPRESENTATION.PROPERTY') |
+
+           -- property representation has at least one matching rep item
+           (0 < SIZEOF (QUERY (it <* prep.representation.items |
+               (('MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.DESCRIPTIVE_REPRESENTATION_ITEM' 
+                  IN TYPEOF(it)) AND
+                (it.description IN prop_values))
+           )))
+        )))
+    ))));
+END_FUNCTION;
+
+
+FUNCTION verify_enumeration_resource_property (
+    crd : 	  characterized_resource_definition;
+    prop_name :   STRING;
+    prop_values : SET OF STRING
+    ): LOGICAL;
+
+    RETURN (0 = SIZEOF (QUERY (prop <* get_resource_property (crd, prop_name) |
+
+        NOT (
+        -- there is at least one rep with matching rep items
+        (0 < SIZEOF (QUERY (prep <* USEDIN (prop, 'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.' +
+                'RESOURCE_PROPERTY_REPRESENTATION.PROPERTY') |
+
+           -- property representation has at least one matching rep item
+           (0 < SIZEOF (QUERY (it <* prep.representation.items |
+               (('MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.DESCRIPTIVE_REPRESENTATION_ITEM' 
+                  IN TYPEOF(it)) AND
+                (it.description IN prop_values))
+           )))
+        )))
+    ))));
+END_FUNCTION;
+
+FUNCTION verify_length_measure_action_property (
+    cad : 	characterized_action_definition;
+    prop_name : STRING
+    ): LOGICAL;
+
+    RETURN (verify_rep_item_for_action_property (cad, prop_name,
+        ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MEASURE_REPRESENTATION_ITEM',
+         'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.LENGTH_MEASURE_WITH_UNIT']));
+END_FUNCTION;
+
+FUNCTION verify_length_measure_rep_item (
+    rep : 	representation;
+    prop_name : STRING
+    ): LOGICAL;
+
+    RETURN (0 = SIZEOF (QUERY ( it <* rep.items |
+          (it.name = prop_name) AND NOT (SIZEOF([
+           'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MEASURE_REPRESENTATION_ITEM',
+           'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.LENGTH_MEASURE_WITH_UNIT'] *
+            TYPEOF(it)) = 2))));
+END_FUNCTION;
+
+FUNCTION verify_length_measure_resource_property (
+    crd : 	characterized_resource_definition;
+    prop_name : STRING
+    ): LOGICAL;
+
+    RETURN (verify_rep_item_for_resource_property (crd, prop_name,
+        ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MEASURE_REPRESENTATION_ITEM',
+         'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.LENGTH_MEASURE_WITH_UNIT']));
+END_FUNCTION;
+
+FUNCTION verify_linear_speed_measure_rep_item (
+    rep : 	representation;
+    prop_name : STRING
+    ): LOGICAL;
+
+    RETURN (0 = SIZEOF (QUERY ( it <* rep.items |
+          (it.name = prop_name) AND NOT
+          (('MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MEASURE_REPRESENTATION_ITEM' 
+            IN TYPEOF(it)) AND
+           ('MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.NUMERIC_MEASURE' 
+            IN TYPEOF(it.value_component))))));
+END_FUNCTION;
+
+FUNCTION verify_numeric_measure_action_property (
+    cad : 	characterized_action_definition;
+    prop_name : STRING
+    ): LOGICAL;
+
+    -- All properties have matching representations.  The reason we test
+    -- for "nothing matching the negation" rather than "something matching
+    -- the positive" is so that we return true if there are no properties.
+    --
+    RETURN (0 = SIZEOF (QUERY (prop <* get_action_property (cad, prop_name) |
+
+        -- property has no matching representations
+        NOT (
+
+        -- there is at least one rep with matching rep items
+        (0 < SIZEOF (QUERY (prep <* USEDIN (prop, 'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.' +
+                'ACTION_PROPERTY_REPRESENTATION.PROPERTY') |
+
+           -- property representation has at least one matching rep item
+           (0 < SIZEOF (QUERY (it <* prep.representation.items |
+               (('MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MEASURE_REPRESENTATION_ITEM' 
+                  IN TYPEOF(it)) AND
+                ('MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.NUMERIC_MEASURE' 
+                  IN TYPEOF(it.value_component)))
+           )))
+        )))
+    ))));
+END_FUNCTION;
+
+FUNCTION verify_pressure_measure_action_property (
+    cad : 	characterized_action_definition;
+    prop_name : STRING
+    ): LOGICAL;
+
+    RETURN (verify_numeric_measure_action_property (cad, prop_name));
+END_FUNCTION;
+
+FUNCTION verify_ratio_measure_action_property (
+    cad : 	characterized_action_definition;
+    prop_name : STRING
+    ): LOGICAL;
+
+    RETURN (verify_rep_item_for_action_property (cad, prop_name,
+        ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MEASURE_REPRESENTATION_ITEM',
+         'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.RATIO_MEASURE_WITH_UNIT']));
+END_FUNCTION;
+
+FUNCTION verify_ratio_measure_rep_item (
+    rep : 	representation;
+    prop_name : STRING
+    ): LOGICAL;
+
+    RETURN (0 = SIZEOF (QUERY ( it <* rep.items |
+          (it.name = prop_name) AND NOT (SIZEOF([
+           'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MEASURE_REPRESENTATION_ITEM',
+           'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.RATIO_MEASURE_WITH_UNIT'] *
+            TYPEOF(it)) = 2))));
+END_FUNCTION;
+
+FUNCTION verify_rotary_speed_measure_rep_item (
+    rep : 	representation;
+    prop_name : STRING
+    ): LOGICAL;
+
+    RETURN (0 = SIZEOF (QUERY ( it <* rep.items |
+          (it.name = prop_name) AND NOT
+          (('MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MEASURE_REPRESENTATION_ITEM' 
+            IN TYPEOF(it)) AND
+           ('MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.NUMERIC_MEASURE' 
+            IN TYPEOF(it.value_component))))));
+END_FUNCTION;
+
+FUNCTION verify_time_measure_action_property (
+    cad : 	characterized_action_definition;
+    prop_name : STRING
+    ): LOGICAL;
+
+    RETURN (verify_rep_item_for_action_property(cad, prop_name,
+        ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MEASURE_REPRESENTATION_ITEM',
+         'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.TIME_MEASURE_WITH_UNIT']));
+END_FUNCTION;
+
+FUNCTION verify_time_measure_rep_item (
+    rep : 	representation;
+    prop_name : STRING
+    ): LOGICAL;
+
+    RETURN (0 = SIZEOF (QUERY ( it <* rep.items |
+          (it.name = prop_name) AND NOT (SIZEOF([
+           'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MEASURE_REPRESENTATION_ITEM',
+           'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.TIME_MEASURE_WITH_UNIT'] *
+            TYPEOF(it)) = 2))));
+END_FUNCTION;
+
+FUNCTION verify_time_measure_resource_property (
+    crd : 	characterized_resource_definition;
+    prop_name : STRING
+    ): LOGICAL;
+
+    RETURN (verify_rep_item_for_resource_property (crd, prop_name,
+        ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MEASURE_REPRESENTATION_ITEM',
+         'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.TIME_MEASURE_WITH_UNIT']));
+END_FUNCTION;
+
+
+--- MORE COMPLEX CONSTRAINTS
+--- MORE COMPLEX CONSTRAINTS
+--- MORE COMPLEX CONSTRAINTS
+--- MORE COMPLEX CONSTRAINTS
+
+FUNCTION verify_optional_in_process_geometry (
+    mpe : machining_process_executable
+    ): LOGICAL;
+
+    RETURN 
+      ((verify_optional_action_property (mpe, 'as-is shape')) AND
+       (verify_optional_action_property (mpe, 'to-be shape')) AND
+       (verify_optional_action_property (mpe, 'removal shape')) AND
+
+        -- All properties need advanced brep shape reps
+       (0 = SIZEOF (QUERY (prop <* 
+         USEDIN (mpe, 'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.ACTION_PROPERTY.DEFINITION') |
+         ((prop.name IN ['as-is shape', 'to-be shape', 'removal shape']) AND 
+          (0 = SIZEOF (QUERY (prep <* USEDIN (prop, 'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.' +
+             'ACTION_PROPERTY_REPRESENTATION.PROPERTY') |
+             ('MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.SHAPE_REPRESENTATION' 
+               IN TYPEOF (prep.representation))))))
+          )))
+      );
+END_FUNCTION;
+
+
+--- TOOL BODY CONSTRAINTS
+--- TOOL BODY CONSTRAINTS
+--- TOOL BODY CONSTRAINTS
+--- TOOL BODY CONSTRAINTS
+
+FUNCTION get_tool_body_item (
+    mt :             machining_tool;
+    prop_name :      STRING
+    ): SET OF representation_item;
+
+    LOCAL
+      props : SET OF resource_property;
+      preps : SET OF resource_property_representation;
+      items : SET OF representation_item;
+    END_LOCAL;
+
+    props := get_resource_property (mt, 'tool body');
+    REPEAT i := 1 TO HIINDEX(props);
+        preps := preps + USEDIN (props[i], 'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.'+
+                'RESOURCE_PROPERTY_REPRESENTATION.PROPERTY');
+    END_REPEAT;
+
+    REPEAT i := 1 TO HIINDEX(preps);
+        IF ('MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_TOOL_BODY_REPRESENTATION' 
+                IN TYPEOF (preps[i].representation))
+        THEN
+            items := items + preps[i].representation.items;
+        END_IF;
+    END_REPEAT;
+
+    RETURN (bag_to_set (QUERY (it <* items | (it.name = prop_name))));
+END_FUNCTION;
+
+
+
+FUNCTION verify_required_tool_body_item (
+    mt :        machining_tool;
+    prop_name : STRING
+    ): LOGICAL;
+
+    RETURN (1 = SIZEOF (get_tool_body_item (mt, prop_name)));
+END_FUNCTION;
+
+
+FUNCTION verify_optional_tool_body_item (
+    mt :        machining_tool;
+    prop_name : STRING
+    ): LOGICAL;
+
+    RETURN (1 >= SIZEOF (get_tool_body_item (mt, prop_name)));
+END_FUNCTION;
+
+
+
+FUNCTION verify_rep_item_for_tool_body (
+    mt :             machining_tool;
+    prop_name :      STRING;
+    rep_item_types : SET OF STRING
+    ): LOGICAL;
+
+    RETURN (0 = SIZEOF (QUERY (it <* get_tool_body_item (mt, prop_name) | NOT
+              ((SIZEOF (rep_item_types * TYPEOF(it)) = 
+                SIZEOF (rep_item_types)))
+        )));
+END_FUNCTION;
+
+
+FUNCTION verify_angle_measure_tool_body_item (
+    mt :        machining_tool;
+    prop_name : STRING
+    ): LOGICAL;
+
+    RETURN (verify_rep_item_for_tool_body(mt, prop_name,
+        ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MEASURE_REPRESENTATION_ITEM',
+         'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.PLANE_ANGLE_MEASURE_WITH_UNIT']));
+END_FUNCTION;
+
+FUNCTION verify_length_measure_tool_body_item (
+    mt :        machining_tool;
+    prop_name : STRING
+    ): LOGICAL;
+
+    RETURN (verify_rep_item_for_tool_body(mt, prop_name,
+        ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MEASURE_REPRESENTATION_ITEM',
+         'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.LENGTH_MEASURE_WITH_UNIT']));
+END_FUNCTION;
+
+
+FUNCTION verify_enumeration_tool_body_item (
+    mt :          machining_tool;
+    prop_name :   STRING;
+    prop_values : SET OF STRING
+    ): LOGICAL;
+
+    RETURN (0 = SIZEOF (QUERY (it <* get_tool_body_item (mt, prop_name) | NOT
+              (('MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.DESCRIPTIVE_REPRESENTATION_ITEM' 
+                  IN TYPEOF(it)) AND
+               (it.description IN prop_values))
+        )));
+END_FUNCTION;
+
+
+FUNCTION verify_count_measure_tool_body_item (
+    mt :          machining_tool;
+    prop_name :   STRING
+    ): LOGICAL;
+
+    RETURN (0 = SIZEOF (QUERY (it <* get_tool_body_item (mt, prop_name) | NOT
+              (('MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MEASURE_REPRESENTATION_ITEM' 
+                  IN TYPEOF(it)) AND
+               ('MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.COUNT_MEASURE' 
+                  IN TYPEOF(it.value_component)))
+        )));
+END_FUNCTION;
+
+
+FUNCTION verify_ballnose_endmill_dimensions (
+    mt :          machining_tool
+    ): LOGICAL;
+
+    LOCAL
+      rads : SET OF REPRESENTATION_ITEM := 
+        get_tool_body_item (mt, 'edge radius');
+      dias : SET OF REPRESENTATION_ITEM := 
+        get_tool_body_item (mt, 'effective cutting diameter');
+    END_LOCAL;
+
+    RETURN ((0 = SIZEOF(rads)) OR
+            ((1 = SIZEOF(rads)) AND
+             (1 = SIZEOF(dias)) AND
+             (rads[1].value_component = dias[1].value_component/2))
+        );
+END_FUNCTION;
+
+
+
+FUNCTION verify_bullnose_endmill_dimensions (
+    mt :          machining_tool
+    ): LOGICAL;
+
+    LOCAL
+      rads : SET OF REPRESENTATION_ITEM := 
+        get_tool_body_item (mt, 'edge radius');
+      dias : SET OF REPRESENTATION_ITEM := 
+        get_tool_body_item (mt, 'effective cutting diameter');
+    END_LOCAL;
+
+    RETURN  ((1 = SIZEOF(rads)) AND
+             (1 = SIZEOF(dias)) AND
+             (rads[1].value_component < dias[1].value_component/2)
+        );
+END_FUNCTION;
+
+
+(* ========================================  *)
+(* GLOBAL RULES *)
+
+
+RULE application_context_requires_ap_definition FOR 
+  (application_context,
+   application_protocol_definition);
+WHERE
+  WR1:  (0 = SIZEOF (QUERY (ac <* application_context | NOT
+           (1 = SIZEOF (QUERY (apd <* application_protocol_definition | 
+                (apd.application :=: ac) AND
+                (apd.application_interpreted_model_schema_name =   
+                 'model_based_integrated_manufacturing_schema'))))
+        )));
+END_RULE;
+
+RULE dependent_instantiable_derived_unit FOR
+  (derived_unit);
+WHERE
+  WR1:  (0 = SIZEOF (QUERY (du <* derived_unit | NOT
+           (1 <= SIZEOF (USEDIN (du, '')))
+        )));
+END_RULE;
+
+RULE dependent_instantiable_named_unit FOR
+  (named_unit);
+WHERE
+  WR1:  (0 = SIZEOF (QUERY (nu <* named_unit | NOT
+           (1 <= SIZEOF (USEDIN (nu, '')))
+        )));
+END_RULE;
+
+RULE feature_optional_machining_property_process FOR
+  (shape_aspect, 
+   process_property_association);
+WHERE
+  WR1:  (0 = SIZEOF (QUERY (sa <* shape_aspect | 
+        (('MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.FEATURE_DEFINITION' IN TYPEOF (sa)) OR
+         ('MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.TRANSITION_FEATURE' IN TYPEOF (sa)))
+         AND NOT
+         (1 >= SIZEOF (QUERY (ppa <* process_property_association |
+            ((ppa.property_or_shape :=: sa) AND
+             (ppa.process.name = 'machining')))))
+        )));
+END_RULE;
+
+
+RULE nc_variable_compatible_initial_value FOR
+  (expression_representation_item,
+   representation_item_relationship);
+WHERE
+  -- each nc_variable has at most one one initial value
+  WR1: (0 = SIZEOF (QUERY (nv <* expression_representation_item | 
+            ('MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.NUMERIC_VARIABLE'
+	      IN TYPEOF (nv)) AND NOT
+            (1 >= SIZEOF (QUERY (rir <* representation_item_relationship |
+                   (rir.description = 'initial value')  AND
+                   (rir.relating_representation_item :=: nv)
+	))))));
+
+  -- the types on either side of the initial value relationship must match
+  -- each nc_variable has at most one one initial value
+  WR2: (0 = SIZEOF (QUERY (rir <* representation_item_relationship |
+            (rir.description = 'initial value')  AND 
+            ('MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.NUMERIC_VARIABLE'
+              IN TYPEOF (rir.relating_representation_item)) 
+	    AND NOT
+            ((('MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.INT_NUMERIC_VARIABLE' 
+                IN TYPEOF (rir.relating_representation_item)) AND
+              ('MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.INT_LITERAL' 
+                IN TYPEOF (rir.related_representation_item)))
+             OR
+            ((('MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.REAL_NUMERIC_VARIABLE' 
+                IN TYPEOF (rir.relating_representation_item)) AND
+              ('MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.REAL_LITERAL' 
+                IN TYPEOF (rir.related_representation_item)
+	)))))));
+END_RULE;
+
+RULE product_requires_version FOR 
+  (product,
+   product_definition_formation);
+WHERE
+  WR1:  (0 = SIZEOF (QUERY (prod <* product  | NOT
+           (1 <= SIZEOF (QUERY (pdf <* product_definition_formation |
+               (prod :=: pdf.of_product))))
+        )));
+END_RULE;
+
+END_SCHEMA;  -- model_based_integrated_manufacturing_schema
