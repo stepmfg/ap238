@@ -24693,11 +24693,14 @@ END_ENTITY;
 
 <P>A <B>machining_process_executable</B> is a type of <B>action_method</B> that represents an executable step in a machining process.  See the ARM definitions for Executable and subtypes in ISO 14649-10 for more information</P>
 
+<P CLASS="note">
+<SPAN>NOTE</SPAN> In the second edition, the supertype of this entity has been changed to process_operation, which is also an action_method subtype, to further interoperation with AP242.</P>
+
 <H6 CLASS="section-underlined">EXPRESS specification:</H6>
 <PRE CLASS="code">
 *)
 ENTITY machining_process_executable
-  SUBTYPE OF (action_method);
+  SUBTYPE OF (process_operation);
   WHERE
   WR1:  NOT (0 = SIZEOF (TYPEOF (SELF) *
             ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_FEATURE_PROCESS',

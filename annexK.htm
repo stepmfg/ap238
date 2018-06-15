@@ -33,7 +33,11 @@
 
 <LI>Change In-process geometry to a product reference so that features and tolerances also be given with the geometry and topology.   Deleted the In_process_geometry application object and references from <a href="clause4.htm#ao-machining_workingstep">Machining_workingstep</a>, <a href="clause4.htm#ao-turning_workingstep">Turning_workingstep</a>, and <a href="clause4.htm#ao-workplan">Workplan</a>.  Added references from <a href="clause4.htm#ao-executable">Executable</a> to as-is, to-be, and removal <a href="clause4.htm#ao-workpiece">Workpiece</a> objects.</LI>
 
-<LI>Add <a href="#aim-via_arc_point">via_arc_point</a> and <a href="#aim-via_helix_point">via_helix_point</a>  to support high-speed milling operations. </LI>
+<LI>Add <a href="clause5.htm#aim-via_arc_point">via_arc_point</a> and <a href="clause5.htm#aim-via_helix_point">via_helix_point</a>  to support high-speed milling operations. </LI>
+
+
+<LI>Change the supertype of <a href="clause5.htm#aim-machining_process_executable">machining_process_executable</a> to process_operation, which is also an action_method subtype, to further interoperation with AP242.  Local rules WR1 and WR2 on process_operation are currently incompatible with AP238 usage, but this has been noted and is being investigated.</LI>
+
 
 
 <LI>Move the Manufacturing_feature application object from
