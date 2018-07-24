@@ -14,7 +14,7 @@
 
 <H2><A NAME="clause-C-1"></A>C.1 Requirements specific to ISO 10303-21</H2>
 
-<P>If the implementation method is ISO 10303-21, the file format shall be encoded according to the syntax and EXPRESS language mapping defined in ISO 10303-21 and in the AIM defined in Annex A of this part of ISO 10303. The header of the exchange structure shall identify use of this part of ISO 10303 by the schema name `integrated_cnc_schema'.</P>
+<P>If the implementation method is ISO 10303-21, the file format shall be encoded according to the syntax and EXPRESS language mapping defined in ISO 10303-21 and in the AIM defined in Annex A of this part of ISO 10303. The header of the exchange structure shall identify use of this part of ISO 10303 by the schema name 'model_based_integrated_manufacturing_schema'.</P>
 
 <H2><A NAME="clause-C-2"></A>C.2 Requirements specific to ISO 10303-28</H2>
 
@@ -34,7 +34,7 @@
 &lt;/configuration&gt;
 </PRE>
 
-<P>The iso_10303_28_terse element shall identify the use of this part of ISO 10303 by the namespace  `urn:oid:1.0.10303.238.2.0.1' and the `schema' attribute value of `integrated_cnc_schema'.</P>
+<P>The iso_10303_28_terse element shall identify the use of this part of ISO 10303 by the namespace  `urn:oid:1.0.10303.238.2.0.1' and the `schema' attribute value of 'model_based_integrated_manufacturing_schema'.</P>
 
 <P CLASS="note">
 <SPAN>EXAMPLE</SPAN> The ISO 10303-28 configuration results in instance data written using the &quot;attribute-content&quot; encoding enclosed in the iso_10303_28_terse UOS element, as shown in the fragment below.</P>
@@ -45,7 +45,7 @@
     xmlns=&quot;urn:oid:1.0.10303.238.2.0.1&quot;
     xmlns:exp=&quot;urn:oid:1.0.10303.28.2.1.1&quot;
     xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
-    schema=&quot;integrated_cnc_schema&quot;&gt;
+    schema=&quot;model_based_integrated_manufacturing_schema&quot;&gt;
 
    &lt;exp:header&gt;
      &lt;exp:name&gt;dataset&lt;/exp:name&gt;

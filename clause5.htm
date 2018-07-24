@@ -22672,7 +22672,7 @@ Only one descriptive_representation_item instance is needed to describe the 'chi
 #40=PRODUCT_CONTEXT('CNC Machining',#50,'manufacturing');
 #50=APPLICATION_CONTEXT('Application protocol for the exchange of CNC data');
 #60=APPLICATION_PROTOCOL_DEFINITION('international standard',
-'integrated_cnc_schema',2006,#50);
+'model_based_integrated_manufacturing_schema',2018,#50);
 
 #70=PRODUCT_DEFINITION_CONTEXT('CNC Machining',#50,'manufacturing');
 </PRE>
@@ -27453,7 +27453,7 @@ WHERE
            (1 = SIZEOF (QUERY (apd &lt;* application_protocol_definition |
                 (apd.application :=: ac) AND
                 (apd.application_interpreted_model_schema_name =
-                 'integrated_cnc_schema'))))
+                 'model_based_integrated_manufacturing_schema'))))
         )));
 END_RULE;
 (*
@@ -27469,7 +27469,7 @@ END_RULE;
 
 <H6 CLASS="section-underlined">Formal propositions:</H6>
 
-<P><B>WR1</B>: For each instance of <B>application_context</B>, there shall be exactly one instance of <B>application_protocol_definition</B> that references the instance of <B>application_context</B> as its <B>application</B> with a value of 'integrated_cnc_schema' as its <B>application_interpreted_model_schema_name</B>.</P>
+<P><B>WR1</B>: For each instance of <B>application_context</B>, there shall be exactly one instance of <B>application_protocol_definition</B> that references the instance of <B>application_context</B> as its <B>application</B> with a value of 'model_based_integrated_manufacturing_schema' as its <B>application_interpreted_model_schema_name</B>.</P>
 
 
 
