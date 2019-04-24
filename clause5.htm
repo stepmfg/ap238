@@ -130,855 +130,9 @@
 <H3><A NAME="mapuof-measure"></A>5.1.1 Mapping specification for measure UoF</H3>
 
 
-
-<!-- ============================== -->
-<DIV><DIV class=quick>
-<A HREF="clause4.htm#ao-area_measure">AO</a>
-<A HREF="annexG.htm#arm-area_measure">ARM</a>
-</DIV>
-<H4><A NAME="map-area_measure"></A>5.1.1.1 AREA_MEASURE</H4>
-</DIV>
-
-<table class="map">
-<tr><th>AIM element:</th>
-<td>measure_representation_item</td>
-</tr>
-
-<tr><th>Source:</th>
-<td>10303-45</td>
-</tr>
-
-<tr><th>Reference path:</th>
-<td class="path">measure_representation_item &lt;=
-measure_with_unit
-{ measure_with_unit.value_component -&gt;
-measure_value
-measure_value = area_measure
-area_measure }
-</td>
-</tr>
-</table>
-
-
-<!-- ============================== -->
-<DIV><DIV class=quick>
-<A HREF="clause4.htm#ao-length_measure">AO</a>
-<A HREF="annexG.htm#arm-length_measure">ARM</a>
-</DIV>
-<H4><A NAME="map-length_measure"></A>5.1.1.2 LENGTH_MEASURE</H4>
-</DIV>
-
-<table class="map">
-<tr><th>AIM element:</th>
-<td>[length_measure_with_unit]
-[measure_representation_item]</td>
-</tr>
-
-<tr><th>Source:</th>
-<td>10303-41
-10303-45</td>
-</tr>
-
-<tr><th>Reference path:</th>
-<td class="path">length_measure_with_unit &lt;=
-measure_with_unit =&gt;
-{ measure_with_unit.value_component -&gt;
-measure_value
-measure_value = length_measure
-length_measure }
-measure_representation_item &lt;=
-representation_item
-</td>
-</tr>
-</table>
-
-
-<!-- ============================== -->
-<DIV><DIV class=quick>
-<A HREF="clause4.htm#ao-limits_and_fits">AO</a>
-<A HREF="annexG.htm#arm-limits_and_fits">ARM</a>
-</DIV>
-<H4><A NAME="map-limits_and_fits"></A>5.1.1.3 LIMITS_AND_FITS</H4>
-</DIV>
-<div class="mapnote">
-<p>#1: if used as the limitation of a value_with_tolerance that is the dimension_value of a geometric_dimension</p>
-<p>#2: if otherwise</p>
-<p><A href="#mapnote-1">See NOTE 1</A></p>
-</div>
-
-<table class="map">
-<tr><th>AIM element:</th>
-<td>#1: (limits_and_fits)
-#2: (qualified_representation_item)</td>
-</tr>
-
-<tr><th>Source:</th>
-<td>10303-47
-10303-45</td>
-</tr>
-</table>
-
-
-<H5><A NAME="map-limits_and_fits-deviation"></A>5.1.1.3.1 deviation</H5>
-
-<table class="map">
-<tr><th>AIM element:</th>
-<td>#1: (limits_and_fits.form_variance)</td>
-</tr>
-
-<tr><th>Source:</th>
-<td>10303-47
-10303-45</td>
-</tr>
-
-<tr><th>Reference path:</th>
-<td class="path">#1: (limits_and_fits
-limits_and_fits.form_variance)
-
-#2: (qualified_representation_item
-qualified_representation_item.qualifiers[i] -&gt;
-value_qualifier
-value_qualifier = uncertainty_qualifier
-{ uncertainty_qualifier.measure_name = 'form variance' }
-uncertainty_qualifier =&gt;
-qualitative_uncertainty
-qualitative_uncertainty.uncertainty_value)
-</td>
-</tr>
-</table>
-
-
-<H5><A NAME="map-limits_and_fits-grade"></A>5.1.1.3.2 grade</H5>
-
-<table class="map">
-<tr><th>AIM element:</th>
-<td>#1: (limits_and_fits.grade)</td>
-</tr>
-
-<tr><th>Source:</th>
-<td>10303-47
-10303-45</td>
-</tr>
-
-<tr><th>Reference path:</th>
-<td class="path">#1: (limits_and_fits
-limits_and_fits.grade)
-
-#2: (qualified_representation_item
-qualified_representation_item.qualifiers[i] -&gt;
-value_qualifier
-value_qualifier = uncertainty_qualifier
-{ uncertainty_qualifier.measure_name = 'grade' }
-uncertainty_qualifier =&gt;
-qualitative_uncertainty
-qualitative_uncertainty.uncertainty_value)
-</td>
-</tr>
-</table>
-
-
-<H5><A NAME="map-limits_and_fits-its_fitting_type"></A>5.1.1.3.3 its_fitting_type</H5>
-
-<table class="map">
-<tr><th>AIM element:</th>
-<td>#1: (limits_and_fits.zone_variance)</td>
-</tr>
-
-<tr><th>Source:</th>
-<td>10303-47
-10303-45</td>
-</tr>
-
-<tr><th>Reference path:</th>
-<td class="path">#1: (limits_and_fits
-limits_and_fits.grade)
-
-#2: (qualified_representation_item
-qualified_representation_item.qualifiers[i] -&gt;
-value_qualifier
-value_qualifier = uncertainty_qualifier
-{ uncertainty_qualifier.measure_name = 'zone variance' }
-uncertainty_qualifier =&gt;
-qualitative_uncertainty
-qualitative_uncertainty.uncertainty_value)
-</td>
-</tr>
-</table>
-
-
-<!-- ============================== -->
-<DIV><DIV class=quick>
-<A HREF="clause4.htm#ao-limit_qualifier">AO</a>
-<A HREF="annexG.htm#arm-limit_qualifier">ARM</a>
-</DIV>
-<H4><A NAME="map-limit_qualifier"></A>5.1.1.4 LIMIT_QUALIFIER</H4>
-</DIV>
-
-<table class="map">
-<tr><th>AIM element:</th>
-<td>qualified_representation_item</td>
-</tr>
-
-<tr><th>Source:</th>
-<td>10303-45</td>
-</tr>
-</table>
-
-
-<H5><A NAME="map-limit_qualifier-qualifier"></A>5.1.1.4.1 qualifier</H5>
-
-<table class="map">
-<tr><th>AIM element:</th>
-<td>type_qualifier.name</td>
-</tr>
-
-<tr><th>Source:</th>
-<td>10303-45</td>
-</tr>
-
-<tr><th>Reference path:</th>
-<td class="path">qualified_representation_item
-qualified_representation_item.qualifiers[i] -&gt;
-value_qualifier = type_qualifier
-type_qualifier
-{ (type_qualifier.name = 'maximum')
-    (type_qualifier.name = 'minimum') }
-</td>
-</tr>
-</table>
-
-
-<!-- ============================== -->
-<DIV><DIV class=quick>
-<A HREF="clause4.htm#ao-mass_measure">AO</a>
-<A HREF="annexG.htm#arm-mass_measure">ARM</a>
-</DIV>
-<H4><A NAME="map-mass_measure"></A>5.1.1.5 MASS_MEASURE</H4>
-</DIV>
-
-<table class="map">
-<tr><th>AIM element:</th>
-<td>[mass_measure_with_unit]
-[measure_representation_item]</td>
-</tr>
-
-<tr><th>Source:</th>
-<td>10303-41
-10303-45</td>
-</tr>
-
-<tr><th>Reference path:</th>
-<td class="path">mass_measure_with_unit &lt;=
-measure_with_unit =&gt;
-{ measure_with_unit.value_component -&gt;
-measure_value
-measure_value = mass_measure
-mass_measure }
-measure_representation_item &lt;=
-representation_item
-</td>
-</tr>
-</table>
-
-
-<!-- ============================== -->
-<DIV><DIV class=quick>
-<A HREF="clause4.htm#ao-plane_angle_measure">AO</a>
-<A HREF="annexG.htm#arm-plane_angle_measure">ARM</a>
-</DIV>
-<H4><A NAME="map-plane_angle_measure"></A>5.1.1.6 PLANE_ANGLE_MEASURE</H4>
-</DIV>
-
-<table class="map">
-<tr><th>AIM element:</th>
-<td>[plane_angle_measure_with_unit]
-[measure_representation_item]</td>
-</tr>
-
-<tr><th>Source:</th>
-<td>10303-41
-10303-45</td>
-</tr>
-
-<tr><th>Reference path:</th>
-<td class="path">plane_angle_measure_with_unit &lt;=
-measure_with_unit =&gt;
-{ measure_with_unit.value_component -&gt;
-measure_value
-measure_value = plane_angle_measure
-plane_angle_measure }
-measure_representation_item &lt;=
-representation_item
-</td>
-</tr>
-</table>
-
-
-<!-- ============================== -->
-<DIV><DIV class=quick>
-<A HREF="clause4.htm#ao-plus_minus_value">AO</a>
-<A HREF="annexG.htm#arm-plus_minus_value">ARM</a>
-</DIV>
-<H4><A NAME="map-plus_minus_value"></A>5.1.1.7 PLUS_MINUS_VALUE</H4>
-</DIV>
-<div class="mapnote">
-<p>#1: if used as the limitation of a value_with_tolerance that is the dimension_value of a geometric_dimension</p>
-<p>#2: if otherwise</p>
-<p><A href="#mapnote-1">See NOTE 1</A></p>
-</div>
-
-<table class="map">
-<tr><th>AIM element:</th>
-<td>#1: (tolerance_value)
-#2: (qualified_representation_item)</td>
-</tr>
-
-<tr><th>Source:</th>
-<td>10303-47
-10303-45</td>
-</tr>
-</table>
-
-
-<H5><A NAME="map-plus_minus_value-lower_limit"></A>5.1.1.7.1 lower_limit</H5>
-
-<table class="map">
-<tr><th>AIM element:</th>
-<td>#1: (measure_with_unit)</td>
-</tr>
-
-<tr><th>Source:</th>
-<td>10303-41
-10303-45</td>
-</tr>
-
-<tr><th>Reference path:</th>
-<td class="path">#1: (tolerance_value
-tolerance_value.lower_bound -&gt;
-measure_with_unit)
-
-#2: (qualified_representation_item
-qualified_representation_item.qualifiers[i] -&gt;
-value_qualifier
-value_qualifier = uncertainty_qualifier
-{ uncertainty_qualifier.measure_name = 'lower limit' }
-uncertainty_qualifier =&gt;
-standard_uncertainty
-standard_uncertainty.uncertainty_value)
-</td>
-</tr>
-</table>
-
-
-<H5><A NAME="map-plus_minus_value-upper_limit"></A>5.1.1.7.2 upper_limit</H5>
-
-<table class="map">
-<tr><th>AIM element:</th>
-<td>#1: (measure_with_unit)
-&nbsp;</td>
-</tr>
-
-<tr><th>Source:</th>
-<td>10303-41
-10303-45</td>
-</tr>
-
-<tr><th>Reference path:</th>
-<td class="path">#1: (tolerance_value
-tolerance_value.upper_bound -&gt;
-measure_with_unit)
-
-#2: (qualified_representation_item
-qualified_representation_item.qualifiers[i] -&gt;
-value_qualifier
-value_qualifier = uncertainty_qualifier
-{ uncertainty_qualifier.measure_name = 'upper limit' }
-uncertainty_qualifier =&gt;
-standard_uncertainty
-standard_uncertainty.uncertainty_value)
-</td>
-</tr>
-</table>
-
-
-<!-- ============================== -->
-<DIV><DIV class=quick>
-<A HREF="clause4.htm#ao-pressure_measure">AO</a>
-<A HREF="annexG.htm#arm-pressure_measure">ARM</a>
-</DIV>
-<H4><A NAME="map-pressure_measure"></A>5.1.1.8 PRESSURE_MEASURE</H4>
-</DIV>
-
-<table class="map">
-<tr><th>AIM element:</th>
-<td>measure_representation_item</td>
-</tr>
-
-<tr><th>Source:</th>
-<td>10303-45</td>
-</tr>
-
-<tr><th>Reference path:</th>
-<td class="path">measure_representation_item &lt;=
-measure_with_unit
-{ measure_with_unit.value_component -&gt;
-measure_value
-measure_value = numeric_measure
-numeric_measure }
-</td>
-</tr>
-</table>
-
-
-<!-- ============================== -->
-<DIV><DIV class=quick>
-<A HREF="clause4.htm#ao-rot_speed_measure">AO</a>
-<A HREF="annexG.htm#arm-rot_speed_measure">ARM</a>
-</DIV>
-<H4><A NAME="map-rot_speed_measure"></A>5.1.1.9 ROT_SPEED_MEASURE</H4>
-</DIV>
-
-<table class="map">
-<tr><th>AIM element:</th>
-<td>measure_representation_item</td>
-</tr>
-
-<tr><th>Source:</th>
-<td>10303-45</td>
-</tr>
-
-<tr><th>Reference path:</th>
-<td class="path">measure_representation_item &lt;=
-measure_with_unit
-{ measure_with_unit.value_component -&gt;
-measure_value
-measure_value = numeric_measure
-numeric_measure }
-</td>
-</tr>
-</table>
-
-
-<!-- ============================== -->
-<DIV><DIV class=quick>
-<A HREF="clause4.htm#ao-speed_measure">AO</a>
-<A HREF="annexG.htm#arm-speed_measure">ARM</a>
-</DIV>
-<H4><A NAME="map-speed_measure"></A>5.1.1.10 SPEED_MEASURE</H4>
-</DIV>
-
-<table class="map">
-<tr><th>AIM element:</th>
-<td>measure_representation_item</td>
-</tr>
-
-<tr><th>Source:</th>
-<td>10303-45</td>
-</tr>
-
-<tr><th>Reference path:</th>
-<td class="path">measure_representation_item &lt;=
-measure_with_unit
-{ measure_with_unit.value_component -&gt;
-measure_value
-measure_value = numeric_measure
-numeric_measure }
-</td>
-</tr>
-</table>
-
-
-<!-- ============================== -->
-<DIV><DIV class=quick>
-<A HREF="clause4.htm#ao-time_measure">AO</a>
-<A HREF="annexG.htm#arm-time_measure">ARM</a>
-</DIV>
-<H4><A NAME="map-time_measure"></A>5.1.1.11 TIME_MEASURE</H4>
-</DIV>
-
-<table class="map">
-<tr><th>AIM element:</th>
-<td>[time_measure_with_unit]
-[measure_representation_item]</td>
-</tr>
-
-<tr><th>Source:</th>
-<td>10303-41
-10303-45</td>
-</tr>
-
-<tr><th>Reference path:</th>
-<td class="path">time_measure_with_unit &lt;=
-measure_with_unit =&gt;
-{ measure_with_unit.value_component -&gt;
-measure_value
-measure_value = time_measure
-time_measure }
-measure_representation_item &lt;=
-representation_item
-</td>
-</tr>
-</table>
-
-
-<!-- ============================== -->
-<DIV><DIV class=quick>
-<A HREF="clause4.htm#ao-toleranced_length_measure">AO</a>
-<A HREF="annexG.htm#arm-toleranced_length_measure">ARM</a>
-</DIV>
-<H4><A NAME="map-toleranced_length_measure"></A>5.1.1.12 TOLERANCED_LENGTH_MEASURE</H4>
-</DIV>
-
-<table class="map">
-<tr><th>AIM element:</th>
-<td>[length_measure_with_unit]
-[measure_representation_item]</td>
-</tr>
-
-<tr><th>Source:</th>
-<td>10303-41
-10303-45</td>
-</tr>
-
-<tr><th>Reference path:</th>
-<td class="path">length_measure_with_unit &lt;=
-measure_with_unit =&gt;
-{ measure_with_unit.value_component -&gt;
-measure_value
-measure_value = length_measure
-length_measure }
-measure_representation_item &lt;=
-representation_item
-</td>
-</tr>
-</table>
-
-
-<!-- ============================== -->
-<DIV><DIV class=quick>
-<A HREF="clause4.htm#ao-value_range">AO</a>
-<A HREF="annexG.htm#arm-value_range">ARM</a>
-</DIV>
-<H4><A NAME="map-value_range"></A>5.1.1.13 VALUE_RANGE</H4>
-</DIV>
-<div class="mapnote">
-<p>#1: if used as the dimension_value of a geometric_dimension</p>
-<p>#2: if otherwise</p>
-<p><A href="#mapnote-2">See NOTE 2</A></p>
-</div>
-
-<table class="map">
-<tr><th>AIM element:</th>
-<td>#1:(shape_dimension_representation)
-#2:(value_range)</td>
-</tr>
-
-<tr><th>Source:</th>
-<td>10303-47
-10303-238</td>
-</tr>
-</table>
-
-
-<H5><A NAME="map-value_range-lower_range"></A>5.1.1.13.1 value_range to value_with_unit (as lower_range)</H5>
-
-<table class="map">
-<tr><th>AIM element:</th>
-<td>PATH</td>
-</tr>
-
-<tr><th>Reference path:</th>
-<td class="path">#1: (shape_dimension_representation &lt;=
-shape_representation&lt;=
-representation
-representation.items[i] -&gt;
-{ representation_item.name = 'lower range'}
-representation_item =&gt;
-measure_representation_item)
-
-#2: (value_range &lt;=
-compound_representation_item
-compound_representation_item.item_element -&gt;
-set_representation_item
-set_representation_item[i] -&gt;
-{ representation_item.name = 'lower limit' }
-representation_item =&gt;
-measure_representation_item)
-</td>
-</tr>
-</table>
-
-
-<H5><A NAME="map-value_range-significant_digits"></A>5.1.1.13.2 significant_digits</H5>
-
-<table class="map">
-<tr><th>AIM element:</th>
-<td>precision_qualifier.precision_value</td>
-</tr>
-
-<tr><th>Source:</th>
-<td>10303-45</td>
-</tr>
-
-<tr><th>Reference path:</th>
-<td class="path">#1: (shape_dimension_representation &lt;=
-shape_representation &lt;=
-representation
-representation.items[i] -&gt;
-representation_item =&gt;
-measure_representation_item &lt;=
-measure_with_unit &lt;-
-measure_qualification.qualified_measure
-measure_qualification
-measure_qualification.qualifiers[i] -&gt;
-value_qualifier = precision_qualifier
-precision_qualifier
-precision_qualifier.precision_value)
-
-#2: (value_range &lt;=
-compound_representation_item &lt;=
-representation_item =&gt;
-qualified_representation_item
-qualified_representation_item.qualifiers[i] -&gt;
-value_qualifier
-value_qualifier = precision_qualifier
-precision_qualifier
-precision_qualifier.precision_value)
-</td>
-</tr>
-</table>
-
-
-<H5><A NAME="map-value_range-upper_range"></A>5.1.1.13.3 value_range to value_with_unit (as upper_range)</H5>
-
-<table class="map">
-<tr><th>AIM element:</th>
-<td>PATH</td>
-</tr>
-
-<tr><th>Reference path:</th>
-<td class="path">#1: (shape_dimension_representation &lt;=
-shape_representation&lt;=
-representation
-representation.items[i] -&gt;
-{ representation_item.name = 'upper range'}
-representation_item =&gt;
-measure_representation_item)
-
-#2: (value_range &lt;=
-compound_representation_item
-compound_representation_item.item_element -&gt;
-set_representation_item
-set_representation_item[i] -&gt;
-{ representation_item.name = 'upper limit' }
-representation_item =&gt;
-measure_representation_item)
-</td>
-</tr>
-</table>
-
-
-<!-- ============================== -->
-<DIV><DIV class=quick>
-<A HREF="clause4.htm#ao-value_with_tolerance">AO</a>
-<A HREF="annexG.htm#arm-value_with_tolerance">ARM</a>
-</DIV>
-<H4><A NAME="map-value_with_tolerance"></A>5.1.1.14 VALUE_WITH_TOLERANCE</H4>
-</DIV>
-<div class="mapnote">
-<p>#1: if significant_digits is specified, or if limitation is specified and either the limitation is limit_qualifier or the value_with_tolerance is not the dimension_value of a geometric_dimension</p>
-<p>#2: if otherwise</p>
-<p><A href="#mapnote-1">See NOTE 1</A></p>
-</div>
-
-<table class="map">
-<tr><th>AIM element:</th>
-<td>#1: [measure_representation_item]
-      [qualified_representation_item]
-
-#2: measure_representation_item</td>
-</tr>
-
-<tr><th>Reference path:</th>
-<td class="path">#1: (measure_representation_item &lt;=
-representation_item =&gt;
-qualified_representation_item)
-
-#2: (measure_representation_item &lt;=
-representation_item)
-</td>
-</tr>
-</table>
-
-
-<H5><A NAME="map-value_with_tolerance-limitation"></A>5.1.1.14.1 value_with_tolerance to plus_minus_value, limits_and_fits, or limit_qualifier (as limitation)</H5>
-<div class="mapnote">
-<p>#1: if value_with_tolerance is the dimension_value of a geometric_dimension and limitation is plus_minus_value or limits_and_fits</p>
-<p>#2: if otherwise</p>
-<p><A href="#mapnote-1">See NOTE 1</A></p>
-</div>
-
-<table class="map">
-<tr><th>AIM element:</th>
-<td>PATH</td>
-</tr>
-
-<tr><th>Reference path:</th>
-<td class="path">#1 (measure_representation_item &lt;=
-representation_item &lt;-
-representation.items[i]
-representation =&gt;
-shape_representation =&gt;
-shape_dimension_representation &lt;-
-dimensional_characteristic_representation.representation
-dimensional_characteristic_representation
-dimensional_characteristic_representation.dimension -&gt;
-dimensional_characteristic
-(dimensional_characteristic = dimensional_size
-dimensional_size &lt;-)
-(dimensional_characteristic = dimensional_location
-dimensional_location &lt;-)
-plus_minus_tolerance.toleranced_dimension
-plus_minus_tolerance
-plus_minus_tolerance.range -&gt;
-tolerance_method_definition
-(tolerance_method_definition = tolerance_value
-tolerance_value)
-(tolerance_method_definition = limits_and_fits
-limits_and_fits) )
-
-#2: (measure_representation_item &lt;=
-representation_item =&gt;
-qualified_representation_item)
-</td>
-</tr>
-</table>
-
-
-<H5><A NAME="map-value_with_tolerance-significant_digits"></A>5.1.1.14.2 significant_digits</H5>
-
-<table class="map">
-<tr><th>AIM element:</th>
-<td>precision_qualifier.precision_value</td>
-</tr>
-
-<tr><th>Source:</th>
-<td>10303-45</td>
-</tr>
-
-<tr><th>Reference path:</th>
-<td class="path">measure_representation_item &lt;=
-representation_item =&gt;
-qualified_representation_item
-qualified_representation_item.qualifiers[i] -&gt;
-value_qualifier
-value_qualifier = precision_qualifier
-precision_qualifier
-precision_qualifier.precision_value
-</td>
-</tr>
-</table>
-
-
-<!-- ============================== -->
-<DIV><DIV class=quick>
-<A HREF="clause4.htm#ao-value_with_unit">AO</a>
-<A HREF="annexG.htm#arm-value_with_unit">ARM</a>
-</DIV>
-<H4><A NAME="map-value_with_unit"></A>5.1.1.15 VALUE_WITH_UNIT</H4>
-</DIV>
-
-<table class="map">
-<tr><th>AIM element:</th>
-<td>measure_representation_item</td>
-</tr>
-
-<tr><th>Source:</th>
-<td>10303-45</td>
-</tr>
-
-<tr><th>Reference path:</th>
-<td class="path">measure_representation_item &lt;=
-measure_with_unit
-</td>
-</tr>
-</table>
-
-
-<H5><A NAME="map-value_with_unit-unit"></A>5.1.1.15.1 unit</H5>
-
-<table class="map">
-<tr><th>AIM element:</th>
-<td>unit</td>
-</tr>
-
-<tr><th>Source:</th>
-<td>10303-41</td>
-</tr>
-
-<tr><th>Rules:</th>
-<td><a href="#aim-dependent_instantiable_derived_unit">dependent_instantiable_derived_unit</a>, <a href="#aim-dependent_instantiable_named_unit">dependent_instantiable_named_unit</a></td>
-</tr>
-
-<tr><th>Reference path:</th>
-<td class="path">measure_representation_item &lt;=
-measure_with_unit
-measure_with_unit.unit_component -&gt;
-unit
-</td>
-</tr>
-</table>
-
-
-<H5><A NAME="map-value_with_unit-value_component"></A>5.1.1.15.2 value_component</H5>
-
-<table class="map">
-<tr><th>AIM element:</th>
-<td>measure_value</td>
-</tr>
-
-<tr><th>Source:</th>
-<td>10303-41</td>
-</tr>
-
-<tr><th>Reference path:</th>
-<td class="path">measure_with_unit
-measure_with_unit.value_component -&gt;
-measure_value
-</td>
-</tr>
-</table>
-
-
-<!-- ============================== -->
-<DIV><DIV class=quick>
-<A HREF="clause4.htm#ao-volume_measure">AO</a>
-<A HREF="annexG.htm#arm-volume_measure">ARM</a>
-</DIV>
-<H4><A NAME="map-volume_measure"></A>5.1.1.16 VOLUME_MEASURE</H4>
-</DIV>
-
-<table class="map">
-<tr><th>AIM element:</th>
-<td>measure_representation_item</td>
-</tr>
-
-<tr><th>Source:</th>
-<td>10303-45</td>
-</tr>
-
-<tr><th>Reference path:</th>
-<td class="path">measure_representation_item &lt;=
-measure_with_unit
-{ measure_with_unit.value_component -&gt;
-measure_value
-measure_value = volume_measure
-volume_measure }
-</td>
-</tr>
-</table>
-
-
+<P>The mapping specification for the application objects in this UoF
+is defined by ISO 10303-1054, ISO 10303-1106, ISO 10303-1753, and ISO
+10303-1782.
 
 
 
@@ -987,7 +141,7 @@ volume_measure }
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-person_and_address">AO</a>
-<A HREF="annexG.htm#arm-person_and_address">ARM</a>
+<A HREF="annexG.htm#person_and_address">ARM</a>
 </DIV>
 <H4><A NAME="map-person_and_address"></A>5.1.2.1 PERSON_AND_ADDRESS</H4>
 </DIV>
@@ -1039,7 +193,7 @@ personal_address
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-project">AO</a>
-<A HREF="annexG.htm#arm-project">ARM</a>
+<A HREF="annexG.htm#project">ARM</a>
 </DIV>
 <H4><A NAME="map-project"></A>5.1.2.2 PROJECT</H4>
 </DIV>
@@ -1217,7 +371,7 @@ approval
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-descriptive_parameter">AO</a>
-<A HREF="annexG.htm#arm-descriptive_parameter">ARM</a>
+<A HREF="annexG.htm#descriptive_parameter">ARM</a>
 </DIV>
 <H4><A NAME="map-descriptive_parameter"></A>5.1.3.1 DESCRIPTIVE_PARAMETER</H4>
 </DIV>
@@ -1249,7 +403,7 @@ approval
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-general_property">AO</a>
-<A HREF="annexG.htm#arm-general_property">ARM</a>
+<A HREF="annexG.htm#general_property">ARM</a>
 </DIV>
 <H4><A NAME="map-general_property"></A>5.1.3.2 GENERAL_PROPERTY</H4>
 </DIV>
@@ -1349,7 +503,7 @@ document
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-hardness">AO</a>
-<A HREF="annexG.htm#arm-hardness">ARM</a>
+<A HREF="annexG.htm#hardness">ARM</a>
 </DIV>
 <H4><A NAME="map-hardness"></A>5.1.3.3 HARDNESS</H4>
 </DIV>
@@ -1497,7 +651,7 @@ data_environment.description
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-material">AO</a>
-<A HREF="annexG.htm#arm-material">ARM</a>
+<A HREF="annexG.htm#material">ARM</a>
 </DIV>
 <H4><A NAME="map-material"></A>5.1.3.4 MATERIAL</H4>
 </DIV>
@@ -1580,7 +734,7 @@ representation_item
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-material_property">AO</a>
-<A HREF="annexG.htm#arm-material_property">ARM</a>
+<A HREF="annexG.htm#material_property">ARM</a>
 </DIV>
 <H4><A NAME="map-material_property"></A>5.1.3.5 MATERIAL_PROPERTY</H4>
 </DIV>
@@ -1649,7 +803,7 @@ material_property_representation
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-numeric_parameter">AO</a>
-<A HREF="annexG.htm#arm-numeric_parameter">ARM</a>
+<A HREF="annexG.htm#numeric_parameter">ARM</a>
 </DIV>
 <H4><A NAME="map-numeric_parameter"></A>5.1.3.6 NUMERIC_PARAMETER</H4>
 </DIV>
@@ -1714,7 +868,7 @@ unit
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-part_property">AO</a>
-<A HREF="annexG.htm#arm-part_property">ARM</a>
+<A HREF="annexG.htm#part_property">ARM</a>
 </DIV>
 <H4><A NAME="map-part_property"></A>5.1.3.7 PART_PROPERTY</H4>
 </DIV>
@@ -1761,7 +915,7 @@ representation_item
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-property_parameter">AO</a>
-<A HREF="annexG.htm#arm-property_parameter">ARM</a>
+<A HREF="annexG.htm#property_parameter">ARM</a>
 </DIV>
 <H4><A NAME="map-property_parameter"></A>5.1.3.8 PROPERTY_PARAMETER</H4>
 </DIV>
@@ -1793,7 +947,7 @@ representation_item
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-process_property">AO</a>
-<A HREF="annexG.htm#arm-process_property">ARM</a>
+<A HREF="annexG.htm#process_property">ARM</a>
 </DIV>
 <H4><A NAME="map-process_property"></A>5.1.3.9 PROCESS_PROPERTY</H4>
 </DIV>
@@ -1865,7 +1019,7 @@ representation.name
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-surface_property">AO</a>
-<A HREF="annexG.htm#arm-surface_property">ARM</a>
+<A HREF="annexG.htm#surface_property">ARM</a>
 </DIV>
 <H4><A NAME="map-surface_property"></A>5.1.3.10 SURFACE_PROPERTY</H4>
 </DIV>
@@ -1933,7 +1087,7 @@ representation_item
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-workpiece">AO</a>
-<A HREF="annexG.htm#arm-workpiece">ARM</a>
+<A HREF="annexG.htm#workpiece">ARM</a>
 </DIV>
 <H4><A NAME="map-workpiece"></A>5.1.3.11 WORKPIECE</H4>
 </DIV>
@@ -2647,7 +1801,7 @@ applied_date_and_time_assignment
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-workpiece_assembly_component">AO</a>
-<A HREF="annexG.htm#arm-workpiece_assembly_component">ARM</a>
+<A HREF="annexG.htm#workpiece_assembly_component">ARM</a>
 </DIV>
 <H4><A NAME="map-workpiece_assembly_component"></A>5.1.3.12 WORKPIECE_ASSEMBLY_COMPONENT</H4>
 </DIV>
@@ -2826,7 +1980,7 @@ is defined by ISO 10303-1816 and ISO 10303-1846.
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-and_expression">AO</a>
-<A HREF="annexG.htm#arm-and_expression">ARM</a>
+<A HREF="annexG.htm#and_expression">ARM</a>
 </DIV>
 <H4><A NAME="map-and_expression"></A>5.1.5.1 AND_EXPRESSION</H4>
 </DIV>
@@ -2855,7 +2009,7 @@ generic_expression
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-assignment">AO</a>
-<A HREF="annexG.htm#arm-assignment">ARM</a>
+<A HREF="annexG.htm#assignment">ARM</a>
 </DIV>
 <H4><A NAME="map-assignment"></A>5.1.5.2 ASSIGNMENT</H4>
 </DIV>
@@ -2935,7 +2089,7 @@ expression_representation_item
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-binary_boolean_expression">AO</a>
-<A HREF="annexG.htm#arm-binary_boolean_expression">ARM</a>
+<A HREF="annexG.htm#binary_boolean_expression">ARM</a>
 </DIV>
 <H4><A NAME="map-binary_boolean_expression"></A>5.1.5.3 BINARY_BOOLEAN_EXPRESSION</H4>
 </DIV>
@@ -3001,7 +2155,7 @@ boolean_expression
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-boolean_expression">AO</a>
-<A HREF="annexG.htm#arm-boolean_expression">ARM</a>
+<A HREF="annexG.htm#boolean_expression">ARM</a>
 </DIV>
 <H4><A NAME="map-boolean_expression"></A>5.1.5.4 BOOLEAN_EXPRESSION</H4>
 </DIV>
@@ -3027,7 +2181,7 @@ generic_expression
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-channel">AO</a>
-<A HREF="annexG.htm#arm-channel">ARM</a>
+<A HREF="annexG.htm#channel">ARM</a>
 </DIV>
 <H4><A NAME="map-channel"></A>5.1.5.5 CHANNEL</H4>
 </DIV>
@@ -3074,7 +2228,7 @@ descriptive_representation_item.description
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-comparison_equal">AO</a>
-<A HREF="annexG.htm#arm-comparison_equal">ARM</a>
+<A HREF="annexG.htm#comparison_equal">ARM</a>
 </DIV>
 <H4><A NAME="map-comparison_equal"></A>5.1.5.6 COMPARISON_EQUAL</H4>
 </DIV>
@@ -3103,7 +2257,7 @@ generic_expression
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-comparison_expression">AO</a>
-<A HREF="annexG.htm#arm-comparison_expression">ARM</a>
+<A HREF="annexG.htm#comparison_expression">ARM</a>
 </DIV>
 <H4><A NAME="map-comparison_expression"></A>5.1.5.7 COMPARISON_EXPRESSION</H4>
 </DIV>
@@ -3174,7 +2328,7 @@ simple_numeric_expression =&gt;
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-comparison_greater">AO</a>
-<A HREF="annexG.htm#arm-comparison_greater">ARM</a>
+<A HREF="annexG.htm#comparison_greater">ARM</a>
 </DIV>
 <H4><A NAME="map-comparison_greater"></A>5.1.5.8 COMPARISON_GREATER</H4>
 </DIV>
@@ -3203,7 +2357,7 @@ generic_expression
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-comparison_greater_equal">AO</a>
-<A HREF="annexG.htm#arm-comparison_greater_equal">ARM</a>
+<A HREF="annexG.htm#comparison_greater_equal">ARM</a>
 </DIV>
 <H4><A NAME="map-comparison_greater_equal"></A>5.1.5.9 COMPARISON_GREATER_EQUAL</H4>
 </DIV>
@@ -3232,7 +2386,7 @@ generic_expression
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-comparison_less">AO</a>
-<A HREF="annexG.htm#arm-comparison_less">ARM</a>
+<A HREF="annexG.htm#comparison_less">ARM</a>
 </DIV>
 <H4><A NAME="map-comparison_less"></A>5.1.5.10 COMPARISON_LESS</H4>
 </DIV>
@@ -3261,7 +2415,7 @@ generic_expression
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-comparison_less_equal">AO</a>
-<A HREF="annexG.htm#arm-comparison_less_equal">ARM</a>
+<A HREF="annexG.htm#comparison_less_equal">ARM</a>
 </DIV>
 <H4><A NAME="map-comparison_less_equal"></A>5.1.5.11 COMPARISON_LESS_EQUAL</H4>
 </DIV>
@@ -3290,7 +2444,7 @@ generic_expression
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-comparison_not_equal">AO</a>
-<A HREF="annexG.htm#arm-comparison_not_equal">ARM</a>
+<A HREF="annexG.htm#comparison_not_equal">ARM</a>
 </DIV>
 <H4><A NAME="map-comparison_not_equal"></A>5.1.5.12 COMPARISON_NOT_EQUAL</H4>
 </DIV>
@@ -3319,7 +2473,7 @@ generic_expression
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-display_message">AO</a>
-<A HREF="annexG.htm#arm-display_message">ARM</a>
+<A HREF="annexG.htm#display_message">ARM</a>
 </DIV>
 <H4><A NAME="map-display_message"></A>5.1.5.13 DISPLAY_MESSAGE</H4>
 </DIV>
@@ -3379,7 +2533,7 @@ descriptive_representation_item.description
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-executable">AO</a>
-<A HREF="annexG.htm#arm-executable">ARM</a>
+<A HREF="annexG.htm#executable">ARM</a>
 </DIV>
 <H4><A NAME="map-executable"></A>5.1.5.14 EXECUTABLE</H4>
 </DIV>
@@ -3540,7 +2694,7 @@ product_definition
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-extended_nc_function">AO</a>
-<A HREF="annexG.htm#arm-extended_nc_function">ARM</a>
+<A HREF="annexG.htm#extended_nc_function">ARM</a>
 </DIV>
 <H4><A NAME="map-extended_nc_function"></A>5.1.5.15 EXTENDED_NC_FUNCTION</H4>
 </DIV>
@@ -3603,7 +2757,7 @@ descriptive_representation_item.description
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-fixture_usage">AO</a>
-<A HREF="annexG.htm#arm-fixture_usage">ARM</a>
+<A HREF="annexG.htm#fixture_usage">ARM</a>
 </DIV>
 <H4><A NAME="map-fixture_usage"></A>5.1.5.16 FIXTURE_USAGE</H4>
 </DIV>
@@ -3742,7 +2896,7 @@ axis2_placement_3d
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-if_statement">AO</a>
-<A HREF="annexG.htm#arm-if_statement">ARM</a>
+<A HREF="annexG.htm#if_statement">ARM</a>
 </DIV>
 <H4><A NAME="map-if_statement"></A>5.1.5.17 IF_STATEMENT</H4>
 </DIV>
@@ -3847,7 +3001,7 @@ machining_process_executable
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-machine_axis_travel">AO</a>
-<A HREF="annexG.htm#arm-machine_axis_travel">ARM</a>
+<A HREF="annexG.htm#machine_axis_travel">ARM</a>
 </DIV>
 <H4><A NAME="map-machine_axis_travel"></A>5.1.5.18 MACHINE_AXIS_TRAVEL</H4>
 </DIV>
@@ -3920,7 +3074,7 @@ representation_item.name
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-machine_parameters">AO</a>
-<A HREF="annexG.htm#arm-machine_parameters">ARM</a>
+<A HREF="annexG.htm#machine_parameters">ARM</a>
 </DIV>
 <H4><A NAME="map-machine_parameters"></A>5.1.5.19 MACHINE_PARAMETERS</H4>
 </DIV>
@@ -4432,7 +3586,7 @@ length_measure_with_unit
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-machining_tool">AO</a>
-<A HREF="annexG.htm#arm-machining_tool">ARM</a>
+<A HREF="annexG.htm#machining_tool">ARM</a>
 </DIV>
 <H4><A NAME="map-machining_tool"></A>5.1.5.20 MACHINING_TOOL</H4>
 </DIV>
@@ -4500,7 +3654,7 @@ machining_tool_usage
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-machining_workingstep">AO</a>
-<A HREF="annexG.htm#arm-machining_workingstep">ARM</a>
+<A HREF="annexG.htm#machining_workingstep">ARM</a>
 </DIV>
 <H4><A NAME="map-machining_workingstep"></A>5.1.5.21 MACHINING_WORKINGSTEP</H4>
 </DIV>
@@ -4666,7 +3820,7 @@ axis2_placement_3d
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-multiple_arity_boolean_expression">AO</a>
-<A HREF="annexG.htm#arm-multiple_arity_boolean_expression">ARM</a>
+<A HREF="annexG.htm#multiple_arity_boolean_expression">ARM</a>
 </DIV>
 <H4><A NAME="map-multiple_arity_boolean_expression"></A>5.1.5.22 MULTIPLE_ARITY_BOOLEAN_EXPRESSION</H4>
 </DIV>
@@ -4713,7 +3867,7 @@ boolean_expression
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-nc_constant">AO</a>
-<A HREF="annexG.htm#arm-nc_constant">ARM</a>
+<A HREF="annexG.htm#nc_constant">ARM</a>
 </DIV>
 <H4><A NAME="map-nc_constant"></A>5.1.5.23 NC_CONSTANT</H4>
 </DIV>
@@ -4779,7 +3933,7 @@ representation_item.name
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-nc_function">AO</a>
-<A HREF="annexG.htm#arm-nc_function">ARM</a>
+<A HREF="annexG.htm#nc_function">ARM</a>
 </DIV>
 <H4><A NAME="map-nc_function"></A>5.1.5.24 NC_FUNCTION</H4>
 </DIV>
@@ -4805,7 +3959,7 @@ action_method
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-nc_variable">AO</a>
-<A HREF="annexG.htm#arm-nc_variable">ARM</a>
+<A HREF="annexG.htm#nc_variable">ARM</a>
 </DIV>
 <H4><A NAME="map-nc_variable"></A>5.1.5.25 NC_VARIABLE</H4>
 </DIV>
@@ -4900,7 +4054,7 @@ literal_number.the_value
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-non_sequential">AO</a>
-<A HREF="annexG.htm#arm-non_sequential">ARM</a>
+<A HREF="annexG.htm#non_sequential">ARM</a>
 </DIV>
 <H4><A NAME="map-non_sequential"></A>5.1.5.26 NON_SEQUENTIAL</H4>
 </DIV>
@@ -4948,7 +4102,7 @@ machining_process_executable
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-not_expression">AO</a>
-<A HREF="annexG.htm#arm-not_expression">ARM</a>
+<A HREF="annexG.htm#not_expression">ARM</a>
 </DIV>
 <H4><A NAME="map-not_expression"></A>5.1.5.27 NOT_EXPRESSION</H4>
 </DIV>
@@ -4977,7 +4131,7 @@ generic_expression
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-offset_vector">AO</a>
-<A HREF="annexG.htm#arm-offset_vector">ARM</a>
+<A HREF="annexG.htm#offset_vector">ARM</a>
 </DIV>
 <H4><A NAME="map-offset_vector"></A>5.1.5.28 OFFSET_VECTOR</H4>
 </DIV>
@@ -5052,7 +4206,7 @@ expression_representation_item
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-optional_stop">AO</a>
-<A HREF="annexG.htm#arm-optional_stop">ARM</a>
+<A HREF="annexG.htm#optional_stop">ARM</a>
 </DIV>
 <H4><A NAME="map-optional_stop"></A>5.1.5.29 OPTIONAL_STOP</H4>
 </DIV>
@@ -5079,7 +4233,7 @@ action_method
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-or_expression">AO</a>
-<A HREF="annexG.htm#arm-or_expression">ARM</a>
+<A HREF="annexG.htm#or_expression">ARM</a>
 </DIV>
 <H4><A NAME="map-or_expression"></A>5.1.5.30 OR_EXPRESSION</H4>
 </DIV>
@@ -5108,7 +4262,7 @@ generic_expression
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-parallel">AO</a>
-<A HREF="annexG.htm#arm-parallel">ARM</a>
+<A HREF="annexG.htm#parallel">ARM</a>
 </DIV>
 <H4><A NAME="map-parallel"></A>5.1.5.31 PARALLEL</H4>
 </DIV>
@@ -5158,7 +4312,7 @@ machining_process_executable
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-program_stop">AO</a>
-<A HREF="annexG.htm#arm-program_stop">ARM</a>
+<A HREF="annexG.htm#program_stop">ARM</a>
 </DIV>
 <H4><A NAME="map-program_stop"></A>5.1.5.32 PROGRAM_STOP</H4>
 </DIV>
@@ -5185,7 +4339,7 @@ action_method
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-program_structure">AO</a>
-<A HREF="annexG.htm#arm-program_structure">ARM</a>
+<A HREF="annexG.htm#program_structure">ARM</a>
 </DIV>
 <H4><A NAME="map-program_structure"></A>5.1.5.33 PROGRAM_STRUCTURE</H4>
 </DIV>
@@ -5210,7 +4364,7 @@ action_method
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-rapid_movement">AO</a>
-<A HREF="annexG.htm#arm-rapid_movement">ARM</a>
+<A HREF="annexG.htm#rapid_movement">ARM</a>
 </DIV>
 <H4><A NAME="map-rapid_movement"></A>5.1.5.34 RAPID_MOVEMENT</H4>
 </DIV>
@@ -5237,7 +4391,7 @@ action_method
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-return_home">AO</a>
-<A HREF="annexG.htm#arm-return_home">ARM</a>
+<A HREF="annexG.htm#return_home">ARM</a>
 </DIV>
 <H4><A NAME="map-return_home"></A>5.1.5.35 RETURN_HOME</H4>
 </DIV>
@@ -5265,7 +4419,7 @@ action_method
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-selective">AO</a>
-<A HREF="annexG.htm#arm-selective">ARM</a>
+<A HREF="annexG.htm#selective">ARM</a>
 </DIV>
 <H4><A NAME="map-selective"></A>5.1.5.36 SELECTIVE</H4>
 </DIV>
@@ -5314,7 +4468,7 @@ machining_process_executable
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-set_mark">AO</a>
-<A HREF="annexG.htm#arm-set_mark">ARM</a>
+<A HREF="annexG.htm#set_mark">ARM</a>
 </DIV>
 <H4><A NAME="map-set_mark"></A>5.1.5.37 SET_MARK</H4>
 </DIV>
@@ -5341,7 +4495,7 @@ action_method
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-setup">AO</a>
-<A HREF="annexG.htm#arm-setup">ARM</a>
+<A HREF="annexG.htm#setup">ARM</a>
 </DIV>
 <H4><A NAME="map-setup"></A>5.1.5.38 SETUP</H4>
 </DIV>
@@ -5516,7 +4670,7 @@ machining_fixture_usage
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-setup_instruction">AO</a>
-<A HREF="annexG.htm#arm-setup_instruction">ARM</a>
+<A HREF="annexG.htm#setup_instruction">ARM</a>
 </DIV>
 <H4><A NAME="map-setup_instruction"></A>5.1.5.39 SETUP_INSTRUCTION</H4>
 </DIV>
@@ -5585,7 +4739,7 @@ document.id
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-tool_length_probing">AO</a>
-<A HREF="annexG.htm#arm-tool_length_probing">ARM</a>
+<A HREF="annexG.htm#tool_length_probing">ARM</a>
 </DIV>
 <H4><A NAME="map-tool_length_probing"></A>5.1.5.40 TOOL_LENGTH_PROBING</H4>
 </DIV>
@@ -5613,7 +4767,7 @@ action_method
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-tool_probing">AO</a>
-<A HREF="annexG.htm#arm-tool_probing">ARM</a>
+<A HREF="annexG.htm#tool_probing">ARM</a>
 </DIV>
 <H4><A NAME="map-tool_probing"></A>5.1.5.41 TOOL_PROBING</H4>
 </DIV>
@@ -5737,7 +4891,7 @@ machining_tool
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-tool_radius_probing">AO</a>
-<A HREF="annexG.htm#arm-tool_radius_probing">ARM</a>
+<A HREF="annexG.htm#tool_radius_probing">ARM</a>
 </DIV>
 <H4><A NAME="map-tool_radius_probing"></A>5.1.5.42 TOOL_RADIUS_PROBING</H4>
 </DIV>
@@ -5765,7 +4919,7 @@ action_method
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-tool_usage">AO</a>
-<A HREF="annexG.htm#arm-tool_usage">ARM</a>
+<A HREF="annexG.htm#tool_usage">ARM</a>
 </DIV>
 <H4><A NAME="map-tool_usage"></A>5.1.5.43 TOOL_USAGE</H4>
 </DIV>
@@ -5992,7 +5146,7 @@ axis2_placement_3d
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-touch_probe">AO</a>
-<A HREF="annexG.htm#arm-touch_probe">ARM</a>
+<A HREF="annexG.htm#touch_probe">ARM</a>
 </DIV>
 <H4><A NAME="map-touch_probe"></A>5.1.5.44 TOUCH_PROBE</H4>
 </DIV>
@@ -6018,7 +5172,7 @@ action_resource
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-touch_probing">AO</a>
-<A HREF="annexG.htm#arm-touch_probing">ARM</a>
+<A HREF="annexG.htm#touch_probing">ARM</a>
 </DIV>
 <H4><A NAME="map-touch_probing"></A>5.1.5.45 TOUCH_PROBING</H4>
 </DIV>
@@ -6074,7 +5228,7 @@ expression_representation_item
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-unary_boolean_expression">AO</a>
-<A HREF="annexG.htm#arm-unary_boolean_expression">ARM</a>
+<A HREF="annexG.htm#unary_boolean_expression">ARM</a>
 </DIV>
 <H4><A NAME="map-unary_boolean_expression"></A>5.1.5.46 UNARY_BOOLEAN_EXPRESSION</H4>
 </DIV>
@@ -6121,7 +5275,7 @@ boolean_expression
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-wait_for_mark">AO</a>
-<A HREF="annexG.htm#arm-wait_for_mark">ARM</a>
+<A HREF="annexG.htm#wait_for_mark">ARM</a>
 </DIV>
 <H4><A NAME="map-wait_for_mark"></A>5.1.5.47 WAIT_FOR_MARK</H4>
 </DIV>
@@ -6173,7 +5327,7 @@ representation
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-while_statement">AO</a>
-<A HREF="annexG.htm#arm-while_statement">ARM</a>
+<A HREF="annexG.htm#while_statement">ARM</a>
 </DIV>
 <H4><A NAME="map-while_statement"></A>5.1.5.48 WHILE_STATEMENT</H4>
 </DIV>
@@ -6251,7 +5405,7 @@ machining_process_executable
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-workingstep">AO</a>
-<A HREF="annexG.htm#arm-workingstep">ARM</a>
+<A HREF="annexG.htm#workingstep">ARM</a>
 </DIV>
 <H4><A NAME="map-workingstep"></A>5.1.5.49 WORKINGSTEP</H4>
 </DIV>
@@ -6334,7 +5488,7 @@ elementary_surface
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-workpiece_complete_probing">AO</a>
-<A HREF="annexG.htm#arm-workpiece_complete_probing">ARM</a>
+<A HREF="annexG.htm#workpiece_complete_probing">ARM</a>
 </DIV>
 <H4><A NAME="map-workpiece_complete_probing"></A>5.1.5.50 WORKPIECE_COMPLETE_PROBING</H4>
 </DIV>
@@ -6473,7 +5627,7 @@ machining_offset_vector_representation
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-workpiece_probing">AO</a>
-<A HREF="annexG.htm#arm-workpiece_probing">ARM</a>
+<A HREF="annexG.htm#workpiece_probing">ARM</a>
 </DIV>
 <H4><A NAME="map-workpiece_probing"></A>5.1.5.51 WORKPIECE_PROBING</H4>
 </DIV>
@@ -6658,7 +5812,7 @@ representation
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-workpiece_setup">AO</a>
-<A HREF="annexG.htm#arm-workpiece_setup">ARM</a>
+<A HREF="annexG.htm#workpiece_setup">ARM</a>
 </DIV>
 <H4><A NAME="map-workpiece_setup"></A>5.1.5.52 WORKPIECE_SETUP</H4>
 </DIV>
@@ -6862,7 +6016,7 @@ machining_operator_instruction
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-workplan">AO</a>
-<A HREF="annexG.htm#arm-workplan">ARM</a>
+<A HREF="annexG.htm#workplan">ARM</a>
 </DIV>
 <H4><A NAME="map-workplan"></A>5.1.5.53 WORKPLAN</H4>
 </DIV>
@@ -6991,7 +6145,7 @@ machining_execution_resource
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-xor_expression">AO</a>
-<A HREF="annexG.htm#arm-xor_expression">ARM</a>
+<A HREF="annexG.htm#xor_expression">ARM</a>
 </DIV>
 <H4><A NAME="map-xor_expression"></A>5.1.5.54 XOR_EXPRESSION</H4>
 </DIV>
@@ -7024,7 +6178,7 @@ generic_expression
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-machine_functions">AO</a>
-<A HREF="annexG.htm#arm-machine_functions">ARM</a>
+<A HREF="annexG.htm#machine_functions">ARM</a>
 </DIV>
 <H4><A NAME="map-machine_functions"></A>5.1.6.1 MACHINE_FUNCTIONS</H4>
 </DIV>
@@ -7049,7 +6203,7 @@ action_method
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-machining_operation">AO</a>
-<A HREF="annexG.htm#arm-machining_operation">ARM</a>
+<A HREF="annexG.htm#machining_operation">ARM</a>
 </DIV>
 <H4><A NAME="map-machining_operation"></A>5.1.6.2 MACHINING_OPERATION</H4>
 </DIV>
@@ -7224,7 +6378,7 @@ machining_functions
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-operation">AO</a>
-<A HREF="annexG.htm#arm-operation">ARM</a>
+<A HREF="annexG.htm#operation">ARM</a>
 </DIV>
 <H4><A NAME="map-operation"></A>5.1.6.3 OPERATION</H4>
 </DIV>
@@ -7301,7 +6455,7 @@ machining_tool_direction_representation
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-technology">AO</a>
-<A HREF="annexG.htm#arm-technology">ARM</a>
+<A HREF="annexG.htm#technology">ARM</a>
 </DIV>
 <H4><A NAME="map-technology"></A>5.1.6.4 TECHNOLOGY</H4>
 </DIV>
@@ -7404,7 +6558,7 @@ descriptive_representation_item.description
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-three_axes">AO</a>
-<A HREF="annexG.htm#arm-three_axes">ARM</a>
+<A HREF="annexG.htm#three_axes">ARM</a>
 </DIV>
 <H4><A NAME="map-three_axes"></A>5.1.6.5 THREE_AXES</H4>
 </DIV>
@@ -7430,7 +6584,7 @@ representation
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-tool_direction">AO</a>
-<A HREF="annexG.htm#arm-tool_direction">ARM</a>
+<A HREF="annexG.htm#tool_direction">ARM</a>
 </DIV>
 <H4><A NAME="map-tool_direction"></A>5.1.6.6 TOOL_DIRECTION</H4>
 </DIV>
@@ -7455,7 +6609,7 @@ representation
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-toolpath_list">AO</a>
-<A HREF="annexG.htm#arm-toolpath_list">ARM</a>
+<A HREF="annexG.htm#toolpath_list">ARM</a>
 </DIV>
 <H4><A NAME="map-toolpath_list"></A>5.1.6.7 TOOLPATH_LIST</H4>
 </DIV>
@@ -7471,7 +6625,7 @@ representation
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-two_axes">AO</a>
-<A HREF="annexG.htm#arm-two_axes">ARM</a>
+<A HREF="annexG.htm#two_axes">ARM</a>
 </DIV>
 <H4><A NAME="map-two_axes"></A>5.1.6.8 TWO_AXES</H4>
 </DIV>
@@ -7501,7 +6655,7 @@ representation
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-ap_lift_path_angle">AO</a>
-<A HREF="annexG.htm#arm-ap_lift_path_angle">ARM</a>
+<A HREF="annexG.htm#ap_lift_path_angle">ARM</a>
 </DIV>
 <H4><A NAME="map-ap_lift_path_angle"></A>5.1.7.1 AP_LIFT_PATH_ANGLE</H4>
 </DIV>
@@ -7593,7 +6747,7 @@ length_measure_with_unit
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-ap_lift_path_tangent">AO</a>
-<A HREF="annexG.htm#arm-ap_lift_path_tangent">ARM</a>
+<A HREF="annexG.htm#ap_lift_path_tangent">ARM</a>
 </DIV>
 <H4><A NAME="map-ap_lift_path_tangent"></A>5.1.7.2 AP_LIFT_PATH_TANGENT</H4>
 </DIV>
@@ -7652,7 +6806,7 @@ length_measure_with_unit
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-approach_lift_path">AO</a>
-<A HREF="annexG.htm#arm-approach_lift_path">ARM</a>
+<A HREF="annexG.htm#approach_lift_path">ARM</a>
 </DIV>
 <H4><A NAME="map-approach_lift_path"></A>5.1.7.3 APPROACH_LIFT_PATH</H4>
 </DIV>
@@ -7744,7 +6898,7 @@ direction
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-axis_trajectory">AO</a>
-<A HREF="annexG.htm#arm-axis_trajectory">ARM</a>
+<A HREF="annexG.htm#axis_trajectory">ARM</a>
 </DIV>
 <H4><A NAME="map-axis_trajectory"></A>5.1.7.4 AXIS_TRAJECTORY</H4>
 </DIV>
@@ -7844,7 +6998,7 @@ bounded_curve
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-connect_direct">AO</a>
-<A HREF="annexG.htm#arm-connect_direct">ARM</a>
+<A HREF="annexG.htm#connect_direct">ARM</a>
 </DIV>
 <H4><A NAME="map-connect_direct"></A>5.1.7.5 CONNECT_DIRECT</H4>
 </DIV>
@@ -7870,7 +7024,7 @@ action_method
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-connect_secplane">AO</a>
-<A HREF="annexG.htm#arm-connect_secplane">ARM</a>
+<A HREF="annexG.htm#connect_secplane">ARM</a>
 </DIV>
 <H4><A NAME="map-connect_secplane"></A>5.1.7.6 CONNECT_SECPLANE</H4>
 </DIV>
@@ -7960,7 +7114,7 @@ direction
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-connector">AO</a>
-<A HREF="annexG.htm#arm-connector">ARM</a>
+<A HREF="annexG.htm#connector">ARM</a>
 </DIV>
 <H4><A NAME="map-connector"></A>5.1.7.7 CONNECTOR</H4>
 </DIV>
@@ -7987,7 +7141,7 @@ action_method
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-curve_with_normal_vector">AO</a>
-<A HREF="annexG.htm#arm-curve_with_normal_vector">ARM</a>
+<A HREF="annexG.htm#curve_with_normal_vector">ARM</a>
 </DIV>
 <H4><A NAME="map-curve_with_normal_vector"></A>5.1.7.8 CURVE_WITH_NORMAL_VECTOR</H4>
 </DIV>
@@ -8083,7 +7237,7 @@ action_property
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-cutter_contact_trajectory">AO</a>
-<A HREF="annexG.htm#arm-cutter_contact_trajectory">ARM</a>
+<A HREF="annexG.htm#cutter_contact_trajectory">ARM</a>
 </DIV>
 <H4><A NAME="map-cutter_contact_trajectory"></A>5.1.7.9 CUTTER_CONTACT_TRAJECTORY</H4>
 </DIV>
@@ -8341,7 +7495,7 @@ plane_angle_measure_with_unit
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-cutter_location_trajectory">AO</a>
-<A HREF="annexG.htm#arm-cutter_location_trajectory">ARM</a>
+<A HREF="annexG.htm#cutter_location_trajectory">ARM</a>
 </DIV>
 <H4><A NAME="map-cutter_location_trajectory"></A>5.1.7.10 CUTTER_LOCATION_TRAJECTORY</H4>
 </DIV>
@@ -8566,7 +7720,7 @@ plane_angle_measure_with_unit
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-feedstop">AO</a>
-<A HREF="annexG.htm#arm-feedstop">ARM</a>
+<A HREF="annexG.htm#feedstop">ARM</a>
 </DIV>
 <H4><A NAME="map-feedstop"></A>5.1.7.11 FEEDSTOP</H4>
 </DIV>
@@ -8629,7 +7783,7 @@ time_measure_with_unit
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-parameterised_path">AO</a>
-<A HREF="annexG.htm#arm-parameterised_path">ARM</a>
+<A HREF="annexG.htm#parameterised_path">ARM</a>
 </DIV>
 <H4><A NAME="map-parameterised_path"></A>5.1.7.12 PARAMETERISED_PATH</H4>
 </DIV>
@@ -8658,7 +7812,7 @@ action_method
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-toolpath">AO</a>
-<A HREF="annexG.htm#arm-toolpath">ARM</a>
+<A HREF="annexG.htm#toolpath">ARM</a>
 </DIV>
 <H4><A NAME="map-toolpath"></A>5.1.7.13 TOOLPATH</H4>
 </DIV>
@@ -8877,7 +8031,7 @@ action_method.name
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-toolpath_speed">AO</a>
-<A HREF="annexG.htm#arm-toolpath_speed">ARM</a>
+<A HREF="annexG.htm#toolpath_speed">ARM</a>
 </DIV>
 <H4><A NAME="map-toolpath_speed"></A>5.1.7.14 TOOLPATH_SPEED</H4>
 </DIV>
@@ -8914,7 +8068,7 @@ machining_toolpath_speed_profile_representation }
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-trajectory">AO</a>
-<A HREF="annexG.htm#arm-trajectory">ARM</a>
+<A HREF="annexG.htm#trajectory">ARM</a>
 </DIV>
 <H4><A NAME="map-trajectory"></A>5.1.7.15 TRAJECTORY</H4>
 </DIV>
@@ -9144,7 +8298,7 @@ bounded_curve
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-adaptive_control">AO</a>
-<A HREF="annexG.htm#arm-adaptive_control">ARM</a>
+<A HREF="annexG.htm#adaptive_control">ARM</a>
 </DIV>
 <H4><A NAME="map-adaptive_control"></A>5.1.8.1 ADAPTIVE_CONTROL</H4>
 </DIV>
@@ -9170,11 +8324,11 @@ action_method
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-air_strategy">AO</a>
-<A HREF="annexG.htm#arm-air_strategy">ARM</A>
+<A HREF="annexG.htm#air_strategy">ARM</A>
 </DIV>
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-air_strategy">AO</a>
-<A HREF="annexG.htm#arm-air_strategy">ARM</a>
+<A HREF="annexG.htm#air_strategy">ARM</a>
 </DIV>
 <H4><A NAME="map-air_strategy"></A>5.1.8.2 AIR_STRATEGY</H4>
 </DIV>
@@ -9203,7 +8357,7 @@ action_method
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-along_path">AO</a>
-<A HREF="annexG.htm#arm-along_path">ARM</a>
+<A HREF="annexG.htm#along_path">ARM</a>
 </DIV>
 <H4><A NAME="map-along_path"></A>5.1.8.3 ALONG_PATH</H4>
 </DIV>
@@ -9256,7 +8410,7 @@ machining_toolpath
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-ap_retract_angle">AO</a>
-<A HREF="annexG.htm#arm-ap_retract_angle">ARM</a>
+<A HREF="annexG.htm#ap_retract_angle">ARM</a>
 </DIV>
 <H4><A NAME="map-ap_retract_angle"></A>5.1.8.4 AP_RETRACT_ANGLE</H4>
 </DIV>
@@ -9351,7 +8505,7 @@ length_measure_with_unit
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-ap_retract_tangent">AO</a>
-<A HREF="annexG.htm#arm-ap_retract_tangent">ARM</a>
+<A HREF="annexG.htm#ap_retract_tangent">ARM</a>
 </DIV>
 <H4><A NAME="map-ap_retract_tangent"></A>5.1.8.5 AP_RETRACT_TANGENT</H4>
 </DIV>
@@ -9412,7 +8566,7 @@ length_measure_with_unit
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-approach_retract_strategy">AO</a>
-<A HREF="annexG.htm#arm-approach_retract_strategy">ARM</a>
+<A HREF="annexG.htm#approach_retract_strategy">ARM</a>
 </DIV>
 <H4><A NAME="map-approach_retract_strategy"></A>5.1.8.6 APPROACH_RETRACT_STRATEGY</H4>
 </DIV>
@@ -9471,7 +8625,7 @@ direction
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-back_boring">AO</a>
-<A HREF="annexG.htm#arm-back_boring">ARM</a>
+<A HREF="annexG.htm#back_boring">ARM</a>
 </DIV>
 <H4><A NAME="map-back_boring"></A>5.1.8.7 BACK_BORING</H4>
 </DIV>
@@ -9498,7 +8652,7 @@ action_method
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-bidirectional">AO</a>
-<A HREF="annexG.htm#arm-bidirectional">ARM</a>
+<A HREF="annexG.htm#bidirectional">ARM</a>
 </DIV>
 <H4><A NAME="map-bidirectional"></A>5.1.8.8 BIDIRECTIONAL</H4>
 </DIV>
@@ -9630,7 +8784,7 @@ descriptive_representation_item.description
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-bidirectional_contour">AO</a>
-<A HREF="annexG.htm#arm-bidirectional_contour">ARM</a>
+<A HREF="annexG.htm#bidirectional_contour">ARM</a>
 </DIV>
 <H4><A NAME="map-bidirectional_contour"></A>5.1.8.9 BIDIRECTIONAL_CONTOUR</H4>
 </DIV>
@@ -9795,7 +8949,7 @@ descriptive_representation_item.description
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-boring">AO</a>
-<A HREF="annexG.htm#arm-boring">ARM</a>
+<A HREF="annexG.htm#boring">ARM</a>
 </DIV>
 <H4><A NAME="map-boring"></A>5.1.8.10 BORING</H4>
 </DIV>
@@ -9823,7 +8977,7 @@ action_method
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-boring_operation">AO</a>
-<A HREF="annexG.htm#arm-boring_operation">ARM</a>
+<A HREF="annexG.htm#boring_operation">ARM</a>
 </DIV>
 <H4><A NAME="map-boring_operation"></A>5.1.8.11 BORING_OPERATION</H4>
 </DIV>
@@ -9962,7 +9116,7 @@ cartesian_point
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-bottom_and_side_finish_milling">AO</a>
-<A HREF="annexG.htm#arm-bottom_and_side_finish_milling">ARM</a>
+<A HREF="annexG.htm#bottom_and_side_finish_milling">ARM</a>
 </DIV>
 <H4><A NAME="map-bottom_and_side_finish_milling"></A>5.1.8.12 BOTTOM_AND_SIDE_FINISH_MILLING</H4>
 </DIV>
@@ -9990,7 +9144,7 @@ action_method
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-bottom_and_side_milling">AO</a>
-<A HREF="annexG.htm#arm-bottom_and_side_milling">ARM</a>
+<A HREF="annexG.htm#bottom_and_side_milling">ARM</a>
 </DIV>
 <H4><A NAME="map-bottom_and_side_milling"></A>5.1.8.13 BOTTOM_AND_SIDE_MILLING</H4>
 </DIV>
@@ -10157,7 +9311,7 @@ length_measure_with_unit
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-bottom_and_side_rough_milling">AO</a>
-<A HREF="annexG.htm#arm-bottom_and_side_rough_milling">ARM</a>
+<A HREF="annexG.htm#bottom_and_side_rough_milling">ARM</a>
 </DIV>
 <H4><A NAME="map-bottom_and_side_rough_milling"></A>5.1.8.14 BOTTOM_AND_SIDE_ROUGH_MILLING</H4>
 </DIV>
@@ -10185,7 +9339,7 @@ action_method
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-center_drilling">AO</a>
-<A HREF="annexG.htm#arm-center_drilling">ARM</a>
+<A HREF="annexG.htm#center_drilling">ARM</a>
 </DIV>
 <H4><A NAME="map-center_drilling"></A>5.1.8.15 CENTER_DRILLING</H4>
 </DIV>
@@ -10213,7 +9367,7 @@ action_method
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-center_milling">AO</a>
-<A HREF="annexG.htm#arm-center_milling">ARM</a>
+<A HREF="annexG.htm#center_milling">ARM</a>
 </DIV>
 <H4><A NAME="map-center_milling"></A>5.1.8.16 CENTER_MILLING</H4>
 </DIV>
@@ -10240,7 +9394,7 @@ action_method
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-contour_bidirectional">AO</a>
-<A HREF="annexG.htm#arm-contour_bidirectional">ARM</a>
+<A HREF="annexG.htm#contour_bidirectional">ARM</a>
 </DIV>
 <H4><A NAME="map-contour_bidirectional"></A>5.1.8.17 CONTOUR_BIDIRECTIONAL</H4>
 </DIV>
@@ -10405,7 +9559,7 @@ descriptive_representation_item.description
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-contour_parallel">AO</a>
-<A HREF="annexG.htm#arm-contour_parallel">ARM</a>
+<A HREF="annexG.htm#contour_parallel">ARM</a>
 </DIV>
 <H4><A NAME="map-contour_parallel"></A>5.1.8.18 CONTOUR_PARALLEL</H4>
 </DIV>
@@ -10502,7 +9656,7 @@ descriptive_representation_item.description
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-contour_spiral">AO</a>
-<A HREF="annexG.htm#arm-contour_spiral">ARM</a>
+<A HREF="annexG.htm#contour_spiral">ARM</a>
 </DIV>
 <H4><A NAME="map-contour_spiral"></A>5.1.8.19 CONTOUR_SPIRAL</H4>
 </DIV>
@@ -10599,7 +9753,7 @@ descriptive_representation_item.description
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-counter_sinking">AO</a>
-<A HREF="annexG.htm#arm-counter_sinking">ARM</a>
+<A HREF="annexG.htm#counter_sinking">ARM</a>
 </DIV>
 <H4><A NAME="map-counter_sinking"></A>5.1.8.20 COUNTER_SINKING</H4>
 </DIV>
@@ -10627,7 +9781,7 @@ action_method
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-drilling">AO</a>
-<A HREF="annexG.htm#arm-drilling">ARM</a>
+<A HREF="annexG.htm#drilling">ARM</a>
 </DIV>
 <H4><A NAME="map-drilling"></A>5.1.8.21 DRILLING</H4>
 </DIV>
@@ -10655,7 +9809,7 @@ action_method
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-drilling_operation">AO</a>
-<A HREF="annexG.htm#arm-drilling_operation">ARM</a>
+<A HREF="annexG.htm#drilling_operation">ARM</a>
 </DIV>
 <H4><A NAME="map-drilling_operation"></A>5.1.8.22 DRILLING_OPERATION</H4>
 </DIV>
@@ -10682,7 +9836,7 @@ action_method
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-drilling_type_operation">AO</a>
-<A HREF="annexG.htm#arm-drilling_type_operation">ARM</a>
+<A HREF="annexG.htm#drilling_type_operation">ARM</a>
 </DIV>
 <H4><A NAME="map-drilling_type_operation"></A>5.1.8.23 DRILLING_TYPE_OPERATION</H4>
 </DIV>
@@ -10877,7 +10031,7 @@ drilling_type_strategy
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-drilling_type_strategy">AO</a>
-<A HREF="annexG.htm#arm-drilling_type_strategy">ARM</a>
+<A HREF="annexG.htm#drilling_type_strategy">ARM</a>
 </DIV>
 <H4><A NAME="map-drilling_type_strategy"></A>5.1.8.24 DRILLING_TYPE_STRATEGY</H4>
 </DIV>
@@ -11123,7 +10277,7 @@ length_measure_with_unit
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-exchange_pallet">AO</a>
-<A HREF="annexG.htm#arm-exchange_pallet">ARM</a>
+<A HREF="annexG.htm#exchange_pallet">ARM</a>
 </DIV>
 <H4><A NAME="map-exchange_pallet"></A>5.1.8.25 EXCHANGE_PALLET</H4>
 </DIV>
@@ -11150,7 +10304,7 @@ action_method
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-explicit_strategy">AO</a>
-<A HREF="annexG.htm#arm-explicit_strategy">ARM</a>
+<A HREF="annexG.htm#explicit_strategy">ARM</a>
 </DIV>
 <H4><A NAME="map-explicit_strategy"></A>5.1.8.26 EXPLICIT_STRATEGY</H4>
 </DIV>
@@ -11177,7 +10331,7 @@ action_method
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-five_axes_const_tilt_yaw">AO</a>
-<A HREF="annexG.htm#arm-five_axes_const_tilt_yaw">ARM</a>
+<A HREF="annexG.htm#five_axes_const_tilt_yaw">ARM</a>
 </DIV>
 <H4><A NAME="map-five_axes_const_tilt_yaw"></A>5.1.8.27 FIVE_AXES_CONST_TILT_YAW</H4>
 </DIV>
@@ -11253,7 +10407,7 @@ plane_angle_measure_with_unit
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-five_axes_var_tilt_yaw">AO</a>
-<A HREF="annexG.htm#arm-five_axes_var_tilt_yaw">ARM</a>
+<A HREF="annexG.htm#five_axes_var_tilt_yaw">ARM</a>
 </DIV>
 <H4><A NAME="map-five_axes_var_tilt_yaw"></A>5.1.8.28 FIVE_AXES_VAR_TILT_YAW</H4>
 </DIV>
@@ -11279,7 +10433,7 @@ representation
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-freeform_finish_milling">AO</a>
-<A HREF="annexG.htm#arm-freeform_finish_milling">ARM</a>
+<A HREF="annexG.htm#freeform_finish_milling">ARM</a>
 </DIV>
 <H4><A NAME="map-freeform_finish_milling"></A>5.1.8.29 FREEFORM_FINISH_MILLING</H4>
 </DIV>
@@ -11307,7 +10461,7 @@ action_method
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-freeform_operation">AO</a>
-<A HREF="annexG.htm#arm-freeform_operation">ARM</a>
+<A HREF="annexG.htm#freeform_operation">ARM</a>
 </DIV>
 <H4><A NAME="map-freeform_operation"></A>5.1.8.30 FREEFORM_OPERATION</H4>
 </DIV>
@@ -11361,7 +10515,7 @@ freeform_milling_strategy
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-freeform_rough_milling">AO</a>
-<A HREF="annexG.htm#arm-freeform_rough_milling">ARM</a>
+<A HREF="annexG.htm#freeform_rough_milling">ARM</a>
 </DIV>
 <H4><A NAME="map-freeform_rough_milling"></A>5.1.8.31 FREEFORM_ROUGH_MILLING</H4>
 </DIV>
@@ -11389,7 +10543,7 @@ action_method
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-freeform_strategy">AO</a>
-<A HREF="annexG.htm#arm-freeform_strategy">ARM</a>
+<A HREF="annexG.htm#freeform_strategy">ARM</a>
 </DIV>
 <H4><A NAME="map-freeform_strategy"></A>5.1.8.32 FREEFORM_STRATEGY</H4>
 </DIV>
@@ -11550,7 +10704,7 @@ length_measure_with_unit
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-index_pallet">AO</a>
-<A HREF="annexG.htm#arm-index_pallet">ARM</a>
+<A HREF="annexG.htm#index_pallet">ARM</a>
 </DIV>
 <H4><A NAME="map-index_pallet"></A>5.1.8.33 INDEX_PALLET</H4>
 </DIV>
@@ -11614,7 +10768,7 @@ count_measure
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-index_table">AO</a>
-<A HREF="annexG.htm#arm-index_table">ARM</a>
+<A HREF="annexG.htm#index_table">ARM</a>
 </DIV>
 <H4><A NAME="map-index_table"></A>5.1.8.34 INDEX_TABLE</H4>
 </DIV>
@@ -11678,7 +10832,7 @@ count_measure
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-leading_line_strategy">AO</a>
-<A HREF="annexG.htm#arm-leading_line_strategy">ARM</a>
+<A HREF="annexG.htm#leading_line_strategy">ARM</a>
 </DIV>
 <H4><A NAME="map-leading_line_strategy"></A>5.1.8.35 LEADING_LINE_STRATEGY</H4>
 </DIV>
@@ -11741,7 +10895,7 @@ bounded_curve
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-load_tool">AO</a>
-<A HREF="annexG.htm#arm-load_tool">ARM</a>
+<A HREF="annexG.htm#load_tool">ARM</a>
 </DIV>
 <H4><A NAME="map-load_tool"></A>5.1.8.36 LOAD_TOOL</H4>
 </DIV>
@@ -11789,7 +10943,7 @@ machining_tool
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-machine_axis_constraint">AO</a>
-<A HREF="annexG.htm#arm-machine_axis_constraint">ARM</a>
+<A HREF="annexG.htm#machine_axis_constraint">ARM</a>
 </DIV>
 <H4><A NAME="map-machine_axis_constraint"></A>5.1.8.37 MACHINE_AXIS_CONSTRAINT</H4>
 </DIV>
@@ -11858,7 +11012,7 @@ representation_item.name
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-milling_machine_functions">AO</a>
-<A HREF="annexG.htm#arm-milling_machine_functions">ARM</a>
+<A HREF="annexG.htm#milling_machine_functions">ARM</a>
 </DIV>
 <H4><A NAME="map-milling_machine_functions"></A>5.1.8.38 MILLING_MACHINE_FUNCTIONS</H4>
 </DIV>
@@ -12281,7 +11435,7 @@ value_range
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-milling_machining_operation">AO</a>
-<A HREF="annexG.htm#arm-milling_machining_operation">ARM</a>
+<A HREF="annexG.htm#milling_machining_operation">ARM</a>
 </DIV>
 <H4><A NAME="map-milling_machining_operation"></A>5.1.8.39 MILLING_MACHINING_OPERATION</H4>
 </DIV>
@@ -12342,7 +11496,7 @@ length_measure_with_unit
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-milling_technology">AO</a>
-<A HREF="annexG.htm#arm-milling_technology">ARM</a>
+<A HREF="annexG.htm#milling_technology">ARM</a>
 </DIV>
 <H4><A NAME="map-milling_technology"></A>5.1.8.40 MILLING_TECHNOLOGY</H4>
 </DIV>
@@ -12627,7 +11781,7 @@ machining_technology
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-milling_type_operation">AO</a>
-<A HREF="annexG.htm#arm-milling_type_operation">ARM</a>
+<A HREF="annexG.htm#milling_type_operation">ARM</a>
 </DIV>
 <H4><A NAME="map-milling_type_operation"></A>5.1.8.41 MILLING_TYPE_OPERATION</H4>
 </DIV>
@@ -12705,7 +11859,7 @@ machining_approach_retract_strategy
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-multistep_drilling">AO</a>
-<A HREF="annexG.htm#arm-multistep_drilling">ARM</a>
+<A HREF="annexG.htm#multistep_drilling">ARM</a>
 </DIV>
 <H4><A NAME="map-multistep_drilling"></A>5.1.8.42 MULTISTEP_DRILLING</H4>
 </DIV>
@@ -12877,7 +12031,7 @@ time_measure_with_unit
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-plane_cc_strategy">AO</a>
-<A HREF="annexG.htm#arm-plane_cc_strategy">ARM</a>
+<A HREF="annexG.htm#plane_cc_strategy">ARM</a>
 </DIV>
 <H4><A NAME="map-plane_cc_strategy"></A>5.1.8.43 PLANE_CC_STRATEGY</H4>
 </DIV>
@@ -12939,7 +12093,7 @@ direction
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-plane_cl_strategy">AO</a>
-<A HREF="annexG.htm#arm-plane_cl_strategy">ARM</a>
+<A HREF="annexG.htm#plane_cl_strategy">ARM</a>
 </DIV>
 <H4><A NAME="map-plane_cl_strategy"></A>5.1.8.44 PLANE_CL_STRATEGY</H4>
 </DIV>
@@ -13001,7 +12155,7 @@ direction
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-plane_finish_milling">AO</a>
-<A HREF="annexG.htm#arm-plane_finish_milling">ARM</a>
+<A HREF="annexG.htm#plane_finish_milling">ARM</a>
 </DIV>
 <H4><A NAME="map-plane_finish_milling"></A>5.1.8.45 PLANE_FINISH_MILLING</H4>
 </DIV>
@@ -13029,7 +12183,7 @@ action_method
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-plane_milling">AO</a>
-<A HREF="annexG.htm#arm-plane_milling">ARM</a>
+<A HREF="annexG.htm#plane_milling">ARM</a>
 </DIV>
 <H4><A NAME="map-plane_milling"></A>5.1.8.46 PLANE_MILLING</H4>
 </DIV>
@@ -13126,7 +12280,7 @@ length_measure_with_unit
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-plane_rough_milling">AO</a>
-<A HREF="annexG.htm#arm-plane_rough_milling">ARM</a>
+<A HREF="annexG.htm#plane_rough_milling">ARM</a>
 </DIV>
 <H4><A NAME="map-plane_rough_milling"></A>5.1.8.47 PLANE_ROUGH_MILLING</H4>
 </DIV>
@@ -13154,7 +12308,7 @@ action_method
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-plunge_helix">AO</a>
-<A HREF="annexG.htm#arm-plunge_helix">ARM</a>
+<A HREF="annexG.htm#plunge_helix">ARM</a>
 </DIV>
 <H4><A NAME="map-plunge_helix"></A>5.1.8.48 PLUNGE_HELIX</H4>
 </DIV>
@@ -13249,7 +12403,7 @@ plane_angle_measure_with_unit
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-plunge_ramp">AO</a>
-<A HREF="annexG.htm#arm-plunge_ramp">ARM</a>
+<A HREF="annexG.htm#plunge_ramp">ARM</a>
 </DIV>
 <H4><A NAME="map-plunge_ramp"></A>5.1.8.49 PLUNGE_RAMP</H4>
 </DIV>
@@ -13310,7 +12464,7 @@ plane_angle_measure_with_unit
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-plunge_strategy">AO</a>
-<A HREF="annexG.htm#arm-plunge_strategy">ARM</a>
+<A HREF="annexG.htm#plunge_strategy">ARM</a>
 </DIV>
 <H4><A NAME="map-plunge_strategy"></A>5.1.8.50 PLUNGE_STRATEGY</H4>
 </DIV>
@@ -13340,7 +12494,7 @@ action_method
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-plunge_toolaxis">AO</a>
-<A HREF="annexG.htm#arm-plunge_toolaxis">ARM</a>
+<A HREF="annexG.htm#plunge_toolaxis">ARM</a>
 </DIV>
 <H4><A NAME="map-plunge_toolaxis"></A>5.1.8.51 PLUNGE_TOOLAXIS</H4>
 </DIV>
@@ -13367,7 +12521,7 @@ action_method
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-plunge_zigzag">AO</a>
-<A HREF="annexG.htm#arm-plunge_zigzag">ARM</a>
+<A HREF="annexG.htm#plunge_zigzag">ARM</a>
 </DIV>
 <H4><A NAME="map-plunge_zigzag"></A>5.1.8.52 PLUNGE_ZIGZAG</H4>
 </DIV>
@@ -13462,7 +12616,7 @@ length_measure_with_unit
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-process_model">AO</a>
-<A HREF="annexG.htm#arm-process_model">ARM</a>
+<A HREF="annexG.htm#process_model">ARM</a>
 </DIV>
 <H4><A NAME="map-process_model"></A>5.1.8.53 PROCESS_MODEL</H4>
 </DIV>
@@ -13539,7 +12693,7 @@ action_method.description
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-process_model_list">AO</a>
-<A HREF="annexG.htm#arm-process_model_list">ARM</a>
+<A HREF="annexG.htm#process_model_list">ARM</a>
 </DIV>
 <H4><A NAME="map-process_model_list"></A>5.1.8.54 PROCESS_MODEL_LIST</H4>
 </DIV>
@@ -13555,7 +12709,7 @@ action_method.description
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-reaming">AO</a>
-<A HREF="annexG.htm#arm-reaming">ARM</a>
+<A HREF="annexG.htm#reaming">ARM</a>
 </DIV>
 <H4><A NAME="map-reaming"></A>5.1.8.55 REAMING</H4>
 </DIV>
@@ -13583,7 +12737,7 @@ action_method
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-side_finish_milling">AO</a>
-<A HREF="annexG.htm#arm-side_finish_milling">ARM</a>
+<A HREF="annexG.htm#side_finish_milling">ARM</a>
 </DIV>
 <H4><A NAME="map-side_finish_milling"></A>5.1.8.56 SIDE_FINISH_MILLING</H4>
 </DIV>
@@ -13611,7 +12765,7 @@ action_method
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-side_milling">AO</a>
-<A HREF="annexG.htm#arm-side_milling">ARM</a>
+<A HREF="annexG.htm#side_milling">ARM</a>
 </DIV>
 <H4><A NAME="map-side_milling"></A>5.1.8.57 SIDE_MILLING</H4>
 </DIV>
@@ -13743,7 +12897,7 @@ length_measure_with_unit
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-side_rough_milling">AO</a>
-<A HREF="annexG.htm#arm-side_rough_milling">ARM</a>
+<A HREF="annexG.htm#side_rough_milling">ARM</a>
 </DIV>
 <H4><A NAME="map-side_rough_milling"></A>5.1.8.58 SIDE_ROUGH_MILLING</H4>
 </DIV>
@@ -13771,7 +12925,7 @@ action_method
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-tapping">AO</a>
-<A HREF="annexG.htm#arm-tapping">ARM</a>
+<A HREF="annexG.htm#tapping">ARM</a>
 </DIV>
 <H4><A NAME="map-tapping"></A>5.1.8.59 TAPPING</H4>
 </DIV>
@@ -13841,7 +12995,7 @@ descriptive_representation_item.description
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-thread_drilling">AO</a>
-<A HREF="annexG.htm#arm-thread_drilling">ARM</a>
+<A HREF="annexG.htm#thread_drilling">ARM</a>
 </DIV>
 <H4><A NAME="map-thread_drilling"></A>5.1.8.60 THREAD_DRILLING</H4>
 </DIV>
@@ -13911,7 +13065,7 @@ descriptive_representation_item.description
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-three_axes_tilted_tool">AO</a>
-<A HREF="annexG.htm#arm-three_axes_tilted_tool">ARM</a>
+<A HREF="annexG.htm#three_axes_tilted_tool">ARM</a>
 </DIV>
 <H4><A NAME="map-three_axes_tilted_tool"></A>5.1.8.61 THREE_AXES_TILTED_TOOL</H4>
 </DIV>
@@ -13961,7 +13115,7 @@ direction
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-tolerances">AO</a>
-<A HREF="annexG.htm#arm-tolerances">ARM</a>
+<A HREF="annexG.htm#tolerances">ARM</a>
 </DIV>
 <H4><A NAME="map-tolerances"></A>5.1.8.62 TOLERANCES</H4>
 </DIV>
@@ -14036,7 +13190,7 @@ length_measure_with_unit
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-tool_direction_for_milling">AO</a>
-<A HREF="annexG.htm#arm-tool_direction_for_milling">ARM</a>
+<A HREF="annexG.htm#tool_direction_for_milling">ARM</a>
 </DIV>
 <H4><A NAME="map-tool_direction_for_milling"></A>5.1.8.63 TOOL_DIRECTION_FOR_MILLING</H4>
 </DIV>
@@ -14061,7 +13215,7 @@ representation
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-two5d_milling_operation">AO</a>
-<A HREF="annexG.htm#arm-two5d_milling_operation">ARM</a>
+<A HREF="annexG.htm#two5d_milling_operation">ARM</a>
 </DIV>
 <H4><A NAME="map-two5d_milling_operation"></A>5.1.8.64 TWO5D_MILLING_OPERATION</H4>
 </DIV>
@@ -14112,7 +13266,7 @@ milling_type_strategy
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-two5d_milling_strategy">AO</a>
-<A HREF="annexG.htm#arm-two5d_milling_strategy">ARM</a>
+<A HREF="annexG.htm#two5d_milling_strategy">ARM</a>
 </DIV>
 <H4><A NAME="map-two5d_milling_strategy"></A>5.1.8.65 TWO5D_MILLING_STRATEGY</H4>
 </DIV>
@@ -14221,7 +13375,7 @@ descriptive_representation_item.description
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-unidirectional">AO</a>
-<A HREF="annexG.htm#arm-unidirectional">ARM</a>
+<A HREF="annexG.htm#unidirectional">ARM</a>
 </DIV>
 <H4><A NAME="map-unidirectional"></A>5.1.8.66 UNIDIRECTIONAL</H4>
 </DIV>
@@ -14316,7 +13470,7 @@ descriptive_representation_item.description
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-unload_tool">AO</a>
-<A HREF="annexG.htm#arm-unload_tool">ARM</a>
+<A HREF="annexG.htm#unload_tool">ARM</a>
 </DIV>
 <H4><A NAME="map-unload_tool"></A>5.1.8.67 UNLOAD_TOOL</H4>
 </DIV>
@@ -14364,7 +13518,7 @@ machining_tool
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-uv_strategy">AO</a>
-<A HREF="annexG.htm#arm-uv_strategy">ARM</a>
+<A HREF="annexG.htm#uv_strategy">ARM</a>
 </DIV>
 <H4><A NAME="map-uv_strategy"></A>5.1.8.68 UV_STRATEGY</H4>
 </DIV>
@@ -14463,7 +13617,7 @@ direction
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-ballnose_endmill">AO</a>
-<A HREF="annexG.htm#arm-ballnose_endmill">ARM</a>
+<A HREF="annexG.htm#ballnose_endmill">ARM</a>
 </DIV>
 <H4><A NAME="map-ballnose_endmill"></A>5.1.9.1 BALLNOSE_ENDMILL</H4>
 </DIV>
@@ -14489,7 +13643,7 @@ action_resource
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-bullnose_endmill">AO</a>
-<A HREF="annexG.htm#arm-bullnose_endmill">ARM</a>
+<A HREF="annexG.htm#bullnose_endmill">ARM</a>
 </DIV>
 <H4><A NAME="map-bullnose_endmill"></A>5.1.9.2 BULLNOSE_ENDMILL</H4>
 </DIV>
@@ -14515,7 +13669,7 @@ action_resource
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-combined_drill_and_reamer">AO</a>
-<A HREF="annexG.htm#arm-combined_drill_and_reamer">ARM</a>
+<A HREF="annexG.htm#combined_drill_and_reamer">ARM</a>
 </DIV>
 <H4><A NAME="map-combined_drill_and_reamer"></A>5.1.9.3 COMBINED_DRILL_AND_REAMER</H4>
 </DIV>
@@ -14577,7 +13731,7 @@ length_measure_with_unit
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-combined_drill_and_tap">AO</a>
-<A HREF="annexG.htm#arm-combined_drill_and_tap">ARM</a>
+<A HREF="annexG.htm#combined_drill_and_tap">ARM</a>
 </DIV>
 <H4><A NAME="map-combined_drill_and_tap"></A>5.1.9.4 COMBINED_DRILL_AND_TAP</H4>
 </DIV>
@@ -14639,7 +13793,7 @@ length_measure_with_unit
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-counterbore">AO</a>
-<A HREF="annexG.htm#arm-counterbore">ARM</a>
+<A HREF="annexG.htm#counterbore">ARM</a>
 </DIV>
 <H4><A NAME="map-counterbore"></A>5.1.9.5 COUNTERBORE</H4>
 </DIV>
@@ -14665,7 +13819,7 @@ action_resource
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-countersink">AO</a>
-<A HREF="annexG.htm#arm-countersink">ARM</a>
+<A HREF="annexG.htm#countersink">ARM</a>
 </DIV>
 <H4><A NAME="map-countersink"></A>5.1.9.6 COUNTERSINK</H4>
 </DIV>
@@ -14763,7 +13917,7 @@ length_measure_with_unit
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-cutting_component">AO</a>
-<A HREF="annexG.htm#arm-cutting_component">ARM</a>
+<A HREF="annexG.htm#cutting_component">ARM</a>
 </DIV>
 <H4><A NAME="map-cutting_component"></A>5.1.9.7 CUTTING_COMPONENT</H4>
 </DIV>
@@ -14903,7 +14057,7 @@ machining_technology
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-dovetail_mill">AO</a>
-<A HREF="annexG.htm#arm-dovetail_mill">ARM</a>
+<A HREF="annexG.htm#dovetail_mill">ARM</a>
 </DIV>
 <H4><A NAME="map-dovetail_mill"></A>5.1.9.8 DOVETAIL_MILL</H4>
 </DIV>
@@ -14965,7 +14119,7 @@ plane_angle_measure_with_unit
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-drilling_cutting_tool">AO</a>
-<A HREF="annexG.htm#arm-drilling_cutting_tool">ARM</a>
+<A HREF="annexG.htm#drilling_cutting_tool">ARM</a>
 </DIV>
 <H4><A NAME="map-drilling_cutting_tool"></A>5.1.9.9 DRILLING_CUTTING_TOOL</H4>
 </DIV>
@@ -15034,7 +14188,7 @@ plane_angle_measure_with_unit
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-endmill">AO</a>
-<A HREF="annexG.htm#arm-endmill">ARM</a>
+<A HREF="annexG.htm#endmill">ARM</a>
 </DIV>
 <H4><A NAME="map-endmill"></A>5.1.9.10 ENDMILL</H4>
 </DIV>
@@ -15099,7 +14253,7 @@ plane_angle_measure_with_unit
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-facemill">AO</a>
-<A HREF="annexG.htm#arm-facemill">ARM</a>
+<A HREF="annexG.htm#facemill">ARM</a>
 </DIV>
 <H4><A NAME="map-facemill"></A>5.1.9.11 FACEMILL</H4>
 </DIV>
@@ -15161,7 +14315,7 @@ plane_angle_measure_with_unit
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-milling_cutting_tool">AO</a>
-<A HREF="annexG.htm#arm-milling_cutting_tool">ARM</a>
+<A HREF="annexG.htm#milling_cutting_tool">ARM</a>
 </DIV>
 <H4><A NAME="map-milling_cutting_tool"></A>5.1.9.12 MILLING_CUTTING_TOOL</H4>
 </DIV>
@@ -15271,7 +14425,7 @@ length_measure_with_unit
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-milling_machine_cutting_tool">AO</a>
-<A HREF="annexG.htm#arm-milling_machine_cutting_tool">ARM</a>
+<A HREF="annexG.htm#milling_machine_cutting_tool">ARM</a>
 </DIV>
 <H4><A NAME="map-milling_machine_cutting_tool"></A>5.1.9.13 MILLING_MACHINE_CUTTING_TOOL</H4>
 </DIV>
@@ -15506,7 +14660,7 @@ descriptive_representation_item.description
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-profiled_end_mill">AO</a>
-<A HREF="annexG.htm#arm-profiled_end_mill">ARM</a>
+<A HREF="annexG.htm#profiled_end_mill">ARM</a>
 </DIV>
 <H4><A NAME="map-profiled_end_mill"></A>5.1.9.14 PROFILED_END_MILL</H4>
 </DIV>
@@ -15532,7 +14686,7 @@ action_resource
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-reaming_cutting_tool">AO</a>
-<A HREF="annexG.htm#arm-reaming_cutting_tool">ARM</a>
+<A HREF="annexG.htm#reaming_cutting_tool">ARM</a>
 </DIV>
 <H4><A NAME="map-reaming_cutting_tool"></A>5.1.9.15 REAMING_CUTTING_TOOL</H4>
 </DIV>
@@ -15596,7 +14750,7 @@ length_measure_with_unit
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-rotating_boring_cutting_tool">AO</a>
-<A HREF="annexG.htm#arm-rotating_boring_cutting_tool">ARM</a>
+<A HREF="annexG.htm#rotating_boring_cutting_tool">ARM</a>
 </DIV>
 <H4><A NAME="map-rotating_boring_cutting_tool"></A>5.1.9.16 ROTATING_BORING_CUTTING_TOOL</H4>
 </DIV>
@@ -15661,7 +14815,7 @@ descriptive_representation_item.description
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-shouldermill">AO</a>
-<A HREF="annexG.htm#arm-shouldermill">ARM</a>
+<A HREF="annexG.htm#shouldermill">ARM</a>
 </DIV>
 <H4><A NAME="map-shouldermill"></A>5.1.9.17 SHOULDERMILL</H4>
 </DIV>
@@ -15687,7 +14841,7 @@ action_resource
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-side_mill">AO</a>
-<A HREF="annexG.htm#arm-side_mill">ARM</a>
+<A HREF="annexG.htm#side_mill">ARM</a>
 </DIV>
 <H4><A NAME="map-side_mill"></A>5.1.9.18 SIDE_MILL</H4>
 </DIV>
@@ -15749,7 +14903,7 @@ length_measure_with_unit
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-spade_drill">AO</a>
-<A HREF="annexG.htm#arm-spade_drill">ARM</a>
+<A HREF="annexG.htm#spade_drill">ARM</a>
 </DIV>
 <H4><A NAME="map-spade_drill"></A>5.1.9.19 SPADE_DRILL</H4>
 </DIV>
@@ -15775,7 +14929,7 @@ action_resource
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-spotdrill">AO</a>
-<A HREF="annexG.htm#arm-spotdrill">ARM</a>
+<A HREF="annexG.htm#spotdrill">ARM</a>
 </DIV>
 <H4><A NAME="map-spotdrill"></A>5.1.9.20 SPOTDRILL</H4>
 </DIV>
@@ -15801,7 +14955,7 @@ action_resource
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-step_drill">AO</a>
-<A HREF="annexG.htm#arm-step_drill">ARM</a>
+<A HREF="annexG.htm#step_drill">ARM</a>
 </DIV>
 <H4><A NAME="map-step_drill"></A>5.1.9.21 STEP_DRILL</H4>
 </DIV>
@@ -15911,7 +15065,7 @@ length_measure_with_unit
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-t_slot_mill">AO</a>
-<A HREF="annexG.htm#arm-t_slot_mill">ARM</a>
+<A HREF="annexG.htm#t_slot_mill">ARM</a>
 </DIV>
 <H4><A NAME="map-t_slot_mill"></A>5.1.9.22 T_SLOT_MILL</H4>
 </DIV>
@@ -15973,7 +15127,7 @@ length_measure_with_unit
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-tapered_drill">AO</a>
-<A HREF="annexG.htm#arm-tapered_drill">ARM</a>
+<A HREF="annexG.htm#tapered_drill">ARM</a>
 </DIV>
 <H4><A NAME="map-tapered_drill"></A>5.1.9.23 TAPERED_DRILL</H4>
 </DIV>
@@ -16035,7 +15189,7 @@ plane_angle_measure_with_unit
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-tapered_reamer">AO</a>
-<A HREF="annexG.htm#arm-tapered_reamer">ARM</a>
+<A HREF="annexG.htm#tapered_reamer">ARM</a>
 </DIV>
 <H4><A NAME="map-tapered_reamer"></A>5.1.9.24 TAPERED_REAMER</H4>
 </DIV>
@@ -16097,7 +15251,7 @@ plane_angle_measure_with_unit
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-tapping_cutting_tool">AO</a>
-<A HREF="annexG.htm#arm-tapping_cutting_tool">ARM</a>
+<A HREF="annexG.htm#tapping_cutting_tool">ARM</a>
 </DIV>
 <H4><A NAME="map-tapping_cutting_tool"></A>5.1.9.25 TAPPING_CUTTING_TOOL</H4>
 </DIV>
@@ -16272,7 +15426,7 @@ count_measure
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-thread_mill">AO</a>
-<A HREF="annexG.htm#arm-thread_mill">ARM</a>
+<A HREF="annexG.htm#thread_mill">ARM</a>
 </DIV>
 <H4><A NAME="map-thread_mill"></A>5.1.9.26 THREAD_MILL</H4>
 </DIV>
@@ -16407,7 +15561,7 @@ length_measure_with_unit
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-twist_drill">AO</a>
-<A HREF="annexG.htm#arm-twist_drill">ARM</a>
+<A HREF="annexG.htm#twist_drill">ARM</a>
 </DIV>
 <H4><A NAME="map-twist_drill"></A>5.1.9.27 TWIST_DRILL</H4>
 </DIV>
@@ -16434,7 +15588,7 @@ action_resource
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-user_defined_milling_tool">AO</a>
-<A HREF="annexG.htm#arm-user_defined_milling_tool">ARM</a>
+<A HREF="annexG.htm#user_defined_milling_tool">ARM</a>
 </DIV>
 <H4><A NAME="map-user_defined_milling_tool"></A>5.1.9.28 USER_DEFINED_MILLING_TOOL</H4>
 </DIV>
@@ -16682,7 +15836,7 @@ plane_angle_measure_with_unit
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-bidirectional_turning">AO</a>
-<A HREF="annexG.htm#arm-bidirectional_turning">ARM</a>
+<A HREF="annexG.htm#bidirectional_turning">ARM</a>
 </DIV>
 <H4><A NAME="map-bidirectional_turning"></A>5.1.10.1 BIDIRECTIONAL_TURNING</H4>
 </DIV>
@@ -16809,7 +15963,7 @@ machining_feed_speed_representation
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-const_cutting_speed">AO</a>
-<A HREF="annexG.htm#arm-const_cutting_speed">ARM</a>
+<A HREF="annexG.htm#const_cutting_speed">ARM</a>
 </DIV>
 <H4><A NAME="map-const_cutting_speed"></A>5.1.10.2 CONST_CUTTING_SPEED</H4>
 </DIV>
@@ -16891,7 +16045,7 @@ numeric_measure }
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-const_spindle_speed">AO</a>
-<A HREF="annexG.htm#arm-const_spindle_speed">ARM</a>
+<A HREF="annexG.htm#const_spindle_speed">ARM</a>
 </DIV>
 <H4><A NAME="map-const_spindle_speed"></A>5.1.10.3 CONST_SPINDLE_SPEED</H4>
 </DIV>
@@ -16945,7 +16099,7 @@ numeric_measure }
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-contour_turning">AO</a>
-<A HREF="annexG.htm#arm-contour_turning">ARM</a>
+<A HREF="annexG.htm#contour_turning">ARM</a>
 </DIV>
 <H4><A NAME="map-contour_turning"></A>5.1.10.4 CONTOUR_TURNING</H4>
 </DIV>
@@ -17244,7 +16398,7 @@ ratio_measure_with_unit
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-contouring">AO</a>
-<A HREF="annexG.htm#arm-contouring">ARM</a>
+<A HREF="annexG.htm#contouring">ARM</a>
 </DIV>
 <H4><A NAME="map-contouring"></A>5.1.10.5 CONTOURING</H4>
 </DIV>
@@ -17306,7 +16460,7 @@ length_measure_with_unit
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-contouring_finish">AO</a>
-<A HREF="annexG.htm#arm-contouring_finish">ARM</a>
+<A HREF="annexG.htm#contouring_finish">ARM</a>
 </DIV>
 <H4><A NAME="map-contouring_finish"></A>5.1.10.6 CONTOURING_FINISH</H4>
 </DIV>
@@ -17334,7 +16488,7 @@ action_method
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-contouring_rough">AO</a>
-<A HREF="annexG.htm#arm-contouring_rough">ARM</a>
+<A HREF="annexG.htm#contouring_rough">ARM</a>
 </DIV>
 <H4><A NAME="map-contouring_rough"></A>5.1.10.7 CONTOURING_ROUGH</H4>
 </DIV>
@@ -17362,7 +16516,7 @@ action_method
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-cutting_in">AO</a>
-<A HREF="annexG.htm#arm-cutting_in">ARM</a>
+<A HREF="annexG.htm#cutting_in">ARM</a>
 </DIV>
 <H4><A NAME="map-cutting_in"></A>5.1.10.8 CUTTING_IN</H4>
 </DIV>
@@ -17390,7 +16544,7 @@ action_method
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-explicit_turning_strategy">AO</a>
-<A HREF="annexG.htm#arm-explicit_turning_strategy">ARM</a>
+<A HREF="annexG.htm#explicit_turning_strategy">ARM</a>
 </DIV>
 <H4><A NAME="map-explicit_turning_strategy"></A>5.1.10.9 EXPLICIT_TURNING_STRATEGY</H4>
 </DIV>
@@ -17417,7 +16571,7 @@ action_method
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-facing">AO</a>
-<A HREF="annexG.htm#arm-facing">ARM</a>
+<A HREF="annexG.htm#facing">ARM</a>
 </DIV>
 <H4><A NAME="map-facing"></A>5.1.10.10 FACING</H4>
 </DIV>
@@ -17479,7 +16633,7 @@ length_measure_with_unit
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-facing_finish">AO</a>
-<A HREF="annexG.htm#arm-facing_finish">ARM</a>
+<A HREF="annexG.htm#facing_finish">ARM</a>
 </DIV>
 <H4><A NAME="map-facing_finish"></A>5.1.10.11 FACING_FINISH</H4>
 </DIV>
@@ -17507,7 +16661,7 @@ action_method
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-facing_rough">AO</a>
-<A HREF="annexG.htm#arm-facing_rough">ARM</a>
+<A HREF="annexG.htm#facing_rough">ARM</a>
 </DIV>
 <H4><A NAME="map-facing_rough"></A>5.1.10.12 FACING_ROUGH</H4>
 </DIV>
@@ -17535,7 +16689,7 @@ action_method
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-grooving">AO</a>
-<A HREF="annexG.htm#arm-grooving">ARM</a>
+<A HREF="annexG.htm#grooving">ARM</a>
 </DIV>
 <H4><A NAME="map-grooving"></A>5.1.10.13 GROOVING</H4>
 </DIV>
@@ -17632,7 +16786,7 @@ length_measure_with_unit
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-grooving_finish">AO</a>
-<A HREF="annexG.htm#arm-grooving_finish">ARM</a>
+<A HREF="annexG.htm#grooving_finish">ARM</a>
 </DIV>
 <H4><A NAME="map-grooving_finish"></A>5.1.10.14 GROOVING_FINISH</H4>
 </DIV>
@@ -17660,7 +16814,7 @@ action_method
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-grooving_rough">AO</a>
-<A HREF="annexG.htm#arm-grooving_rough">ARM</a>
+<A HREF="annexG.htm#grooving_rough">ARM</a>
 </DIV>
 <H4><A NAME="map-grooving_rough"></A>5.1.10.15 GROOVING_ROUGH</H4>
 </DIV>
@@ -17688,7 +16842,7 @@ action_method
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-grooving_strategy">AO</a>
-<A HREF="annexG.htm#arm-grooving_strategy">ARM</a>
+<A HREF="annexG.htm#grooving_strategy">ARM</a>
 </DIV>
 <H4><A NAME="map-grooving_strategy"></A>5.1.10.16 GROOVING_STRATEGY</H4>
 </DIV>
@@ -17783,7 +16937,7 @@ length_measure_with_unit
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-knurling">AO</a>
-<A HREF="annexG.htm#arm-knurling">ARM</a>
+<A HREF="annexG.htm#knurling">ARM</a>
 </DIV>
 <H4><A NAME="map-knurling"></A>5.1.10.17 KNURLING</H4>
 </DIV>
@@ -17810,7 +16964,7 @@ action_method
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-multistep_grooving_strategy">AO</a>
-<A HREF="annexG.htm#arm-multistep_grooving_strategy">ARM</a>
+<A HREF="annexG.htm#multistep_grooving_strategy">ARM</a>
 </DIV>
 <H4><A NAME="map-multistep_grooving_strategy"></A>5.1.10.18 MULTISTEP_GROOVING_STRATEGY</H4>
 </DIV>
@@ -17871,7 +17025,7 @@ length_measure_with_unit
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-thread_strategy">AO</a>
-<A HREF="annexG.htm#arm-thread_strategy">ARM</a>
+<A HREF="annexG.htm#thread_strategy">ARM</a>
 </DIV>
 <H4><A NAME="map-thread_strategy"></A>5.1.10.19 THREAD_STRATEGY</H4>
 </DIV>
@@ -18044,7 +17198,7 @@ length_measure_with_unit
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-threading">AO</a>
-<A HREF="annexG.htm#arm-threading">ARM</a>
+<A HREF="annexG.htm#threading">ARM</a>
 </DIV>
 <H4><A NAME="map-threading"></A>5.1.10.20 THREADING</H4>
 </DIV>
@@ -18106,7 +17260,7 @@ length_measure_with_unit
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-threading_finish">AO</a>
-<A HREF="annexG.htm#arm-threading_finish">ARM</a>
+<A HREF="annexG.htm#threading_finish">ARM</a>
 </DIV>
 <H4><A NAME="map-threading_finish"></A>5.1.10.21 THREADING_FINISH</H4>
 </DIV>
@@ -18134,7 +17288,7 @@ action_method
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-threading_rough">AO</a>
-<A HREF="annexG.htm#arm-threading_rough">ARM</a>
+<A HREF="annexG.htm#threading_rough">ARM</a>
 </DIV>
 <H4><A NAME="map-threading_rough"></A>5.1.10.22 THREADING_ROUGH</H4>
 </DIV>
@@ -18162,7 +17316,7 @@ action_method
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-turning_machine_functions">AO</a>
-<A HREF="annexG.htm#arm-turning_machine_functions">ARM</a>
+<A HREF="annexG.htm#turning_machine_functions">ARM</a>
 </DIV>
 <H4><A NAME="map-turning_machine_functions"></A>5.1.10.23 TURNING_MACHINE_FUNCTIONS</H4>
 </DIV>
@@ -18588,7 +17742,7 @@ descriptive_representation_item.description
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-turning_machining_operation">AO</a>
-<A HREF="annexG.htm#arm-turning_machining_operation">ARM</a>
+<A HREF="annexG.htm#turning_machining_operation">ARM</a>
 </DIV>
 <H4><A NAME="map-turning_machining_operation"></A>5.1.10.24 TURNING_MACHINING_OPERATION</H4>
 </DIV>
@@ -18689,7 +17843,7 @@ turning_type_strategy
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-turning_machining_strategy">AO</a>
-<A HREF="annexG.htm#arm-turning_machining_strategy">ARM</a>
+<A HREF="annexG.htm#turning_machining_strategy">ARM</a>
 </DIV>
 <H4><A NAME="map-turning_machining_strategy"></A>5.1.10.25 TURNING_MACHINING_STRATEGY</H4>
 </DIV>
@@ -18866,7 +18020,7 @@ ratio_measure_with_unit
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-turning_technology">AO</a>
-<A HREF="annexG.htm#arm-turning_technology">ARM</a>
+<A HREF="annexG.htm#turning_technology">ARM</a>
 </DIV>
 <H4><A NAME="map-turning_technology"></A>5.1.10.26 TURNING_TECHNOLOGY</H4>
 </DIV>
@@ -19097,7 +18251,7 @@ machining_technology
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-turning_workingstep">AO</a>
-<A HREF="annexG.htm#arm-turning_workingstep">ARM</a>
+<A HREF="annexG.htm#turning_workingstep">ARM</a>
 </DIV>
 <H4><A NAME="map-turning_workingstep"></A>5.1.10.27 TURNING_WORKINGSTEP</H4>
 </DIV>
@@ -19189,7 +18343,7 @@ turning_type_operation
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-unidirectional_turning">AO</a>
-<A HREF="annexG.htm#arm-unidirectional_turning">ARM</a>
+<A HREF="annexG.htm#unidirectional_turning">ARM</a>
 </DIV>
 <H4><A NAME="map-unidirectional_turning"></A>5.1.10.28 UNIDIRECTIONAL_TURNING</H4>
 </DIV>
@@ -19453,7 +18607,7 @@ machining_feed_speed_representation
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-chamfered_corner">AO</a>
-<A HREF="annexG.htm#arm-chamfered_corner">ARM</a>
+<A HREF="annexG.htm#chamfered_corner">ARM</a>
 </DIV>
 <H4><A NAME="map-chamfered_corner"></A>5.1.11.1 CHAMFERED_CORNER</H4>
 </DIV>
@@ -19554,7 +18708,7 @@ length_measure_with_unit
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-corner_transition">AO</a>
-<A HREF="annexG.htm#arm-corner_transition">ARM</a>
+<A HREF="annexG.htm#corner_transition">ARM</a>
 </DIV>
 <H4><A NAME="map-corner_transition"></A>5.1.11.2 CORNER_TRANSITION</H4>
 </DIV>
@@ -19616,7 +18770,7 @@ count_measure
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-cutting_edge_properties">AO</a>
-<A HREF="annexG.htm#arm-cutting_edge_properties">ARM</a>
+<A HREF="annexG.htm#cutting_edge_properties">ARM</a>
 </DIV>
 <H4><A NAME="map-cutting_edge_properties"></A>5.1.11.3 CUTTING_EDGE_PROPERTIES</H4>
 </DIV>
@@ -19915,7 +19069,7 @@ length_measure_with_unit
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-general_turning_tool">AO</a>
-<A HREF="annexG.htm#arm-general_turning_tool">ARM</a>
+<A HREF="annexG.htm#general_turning_tool">ARM</a>
 </DIV>
 <H4><A NAME="map-general_turning_tool"></A>5.1.11.4 GENERAL_TURNING_TOOL</H4>
 </DIV>
@@ -19941,7 +19095,7 @@ action_resource
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-grooving_tool">AO</a>
-<A HREF="annexG.htm#arm-grooving_tool">ARM</a>
+<A HREF="annexG.htm#grooving_tool">ARM</a>
 </DIV>
 <H4><A NAME="map-grooving_tool"></A>5.1.11.5 GROOVING_TOOL</H4>
 </DIV>
@@ -20147,7 +19301,7 @@ length_measure_with_unit
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-knurling_tool">AO</a>
-<A HREF="annexG.htm#arm-knurling_tool">ARM</a>
+<A HREF="annexG.htm#knurling_tool">ARM</a>
 </DIV>
 <H4><A NAME="map-knurling_tool"></A>5.1.11.6 KNURLING_TOOL</H4>
 </DIV>
@@ -20321,7 +19475,7 @@ length_measure_with_unit
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-profiled_corner">AO</a>
-<A HREF="annexG.htm#arm-profiled_corner">ARM</a>
+<A HREF="annexG.htm#profiled_corner">ARM</a>
 </DIV>
 <H4><A NAME="map-profiled_corner"></A>5.1.11.7 PROFILED_CORNER</H4>
 </DIV>
@@ -20375,7 +19529,7 @@ shape_aspect
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-rounded_corner">AO</a>
-<A HREF="annexG.htm#arm-rounded_corner">ARM</a>
+<A HREF="annexG.htm#rounded_corner">ARM</a>
 </DIV>
 <H4><A NAME="map-rounded_corner"></A>5.1.11.8 ROUNDED_CORNER</H4>
 </DIV>
@@ -20426,7 +19580,7 @@ length_measure_with_unit
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-turning_machine_cutting_tool">AO</a>
-<A HREF="annexG.htm#arm-turning_machine_cutting_tool">ARM</a>
+<A HREF="annexG.htm#turning_machine_cutting_tool">ARM</a>
 </DIV>
 <H4><A NAME="map-turning_machine_cutting_tool"></A>5.1.11.9 TURNING_MACHINE_CUTTING_TOOL</H4>
 </DIV>
@@ -20694,7 +19848,7 @@ descriptive_representation_item.description
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-turning_threading_tool">AO</a>
-<A HREF="annexG.htm#arm-turning_threading_tool">ARM</a>
+<A HREF="annexG.htm#turning_threading_tool">ARM</a>
 </DIV>
 <H4><A NAME="map-turning_threading_tool"></A>5.1.11.10 TURNING_THREADING_TOOL</H4>
 </DIV>
@@ -20910,7 +20064,7 @@ descriptive_representation_item.description
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-user_defined_turning_tool">AO</a>
-<A HREF="annexG.htm#arm-user_defined_turning_tool">ARM</a>
+<A HREF="annexG.htm#user_defined_turning_tool">ARM</a>
 </DIV>
 <H4><A NAME="map-user_defined_turning_tool"></A>5.1.11.11 USER_DEFINED_TURNING_TOOL</H4>
 </DIV>
@@ -20987,7 +20141,7 @@ is defined by ISO 10303-1129, ISO 10303-1291, and the specification below.
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-externally_defined_representation">AO</a>
-<A HREF="annexG.htm#arm-externally_defined_representation">ARM</a>
+<A HREF="annexG.htm#externally_defined_representation">ARM</a>
 </DIV>
 <H4><A NAME="map-externally_defined_representation"></A>5.1.13.1 EXTERNALLY_DEFINED_REPRESENTATION</H4>
 </DIV>
@@ -21077,7 +20231,7 @@ placement
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-library_part_assignment">AO</a>
-<A HREF="annexG.htm#arm-library_part_assignment">ARM</a>
+<A HREF="annexG.htm#library_part_assignment">ARM</a>
 </DIV>
 <H4><A NAME="map-library_part_assignment"></A>5.1.13.2 LIBRARY_PART_ASSIGNMENT</H4>
 </DIV>
@@ -21168,7 +20322,7 @@ representation
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-library_property_value">AO</a>
-<A HREF="annexG.htm#arm-library_property_value">ARM</a>
+<A HREF="annexG.htm#library_property_value">ARM</a>
 </DIV>
 <H4><A NAME="map-library_property_value"></A>5.1.13.3 LIBRARY_PROPERTY_VALUE</H4>
 </DIV>
@@ -21283,7 +20437,7 @@ is defined by ISO 10303-1012, ISO 10303-1013, ISO 10303-1014, ISO
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-last_modified_timestamp">AO</a>
-<A HREF="annexG.htm#arm-last_modified_timestamp">ARM</a>
+<A HREF="annexG.htm#last_modified_timestamp">ARM</a>
 </DIV>
 <H4><A NAME="map-last_modified_timestamp"></A>5.1.14.1 LAST_MODIFIED_TIMESTAMP</H4>
 </DIV>

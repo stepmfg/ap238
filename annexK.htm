@@ -251,6 +251,28 @@ object definitions and mappings from ISO 10303-1052.</LI>
 <LI>ISO 10303-1819 add tessellated geometry
 </UL>
 
+<LI>Change the <a href="clause4.htm#uof-measure">measure UoF</a> to
+reference application object definitions and mappings from ISO
+10303-1054, 10303-1106, 10303-1753, and 10303-1782 rather than define
+them in clause 4 and 5.  The names of some of the application objects
+have changed.
+<UL>
+<LI>Area_measure is now Area_data_element;</LI>
+<LI>Length_measure is now Length_data_element;</LI>
+<LI>Mass_measure is now Mass_data_element;</LI>
+<LI>Plane_angle_measure is now Angle_data_element;</LI>
+<LI>Pressure_measure is now Pressure_data_element;</LI>
+<LI>Rot_speed_measure is now Frequency_data_element;</LI>
+<LI>Speed_measure is now Velocity_data_element;</LI>
+<LI>Time_measure us now Duration;</LI>
+<LI>Value_range remains Value_range;</LI>
+<LI>Value_with_unit remains Value_with_unit;</LI>
+<LI>Volume_measure is now Volume_data_element.</LI>
+<LI>Value_with_tolerance and Toleranced_length_measure are now one of three different application objects depending on their use.  Value_with_unit if no tolerance limits are applied, Value_with_tolerances for values with a plus/minus limit, and Qualified_numerical_item_with_unit for other limits.
+<LI>Limit_qualifier, Limits_and_fits, and Plus_minus_value are now value_qualifier of Qualified_numerical_item_with_unit or Dimension_value_with_limitation.
+</UL>
+
+
 </UL>
 
 <p class=pagefoot>Document TC184/SC4/WG15 N36

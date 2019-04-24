@@ -78,10 +78,11 @@ sub gen_armidx {
 	    $body =~ s/<\/H3>\s*$//;
 	    $body =~ s/^\s*((\d+|[A-Z])\.[\d\.]+)*\s+//;  
 
+	    my $armid = lc $tag;
 	    print DST "<TR><TD>$body</TD>\n";
 	    print DST "<TD><A HREF=\"clause4.htm#ao-$tag\">AO</a></TD>\n";
 	    print DST "<TD><A HREF=\"clause5.htm#map-$tag\">Map</a></TD>\n";
-	    print DST "<TD><A HREF=\"annexG.htm#arm-$tag\">ARM</a></TD>\n";
+	    print DST "<TD><A HREF=\"annexG.htm#$armid\">ARM</a></TD>\n";
 	    print DST "</TR>\n";
 	};
     }
