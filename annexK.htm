@@ -13,7 +13,12 @@
 
 <H2><A NAME="clause-K-1"></A>K.1 Changes in second edition</H2>
 
-<p>The second edition includes specific changes based on experience accumulated from deployment of the first edition in the period 2007-2016 and documented in TC184/SC4/WG15N2, as well as changes to harmonize with the latest edition of AP242 via shared references to the 1000-series parts of ISO 10303.   These changes include grammar fixes, wording fixes, and the following.</p>
+<p>The second edition includes specific changes based on experience
+accumulated from deployment of the first edition in the period
+2007-2016 and documented in TC184/SC4/WG15N2, as well as changes to
+harmonize with the latest edition of AP242 via shared references to
+the 1000-series parts of ISO 10303.  These changes include grammar
+fixes, wording fixes, and the following.</p>
 
 
 <!-- ============================== -->
@@ -26,22 +31,28 @@ them in clause 4 and 5.  The names of some of the application objects
 have changed.</P>
 
 <UL>
-<LI>Area_measure is now Area_data_element;</LI>
-<LI>Length_measure is now Length_data_element;</LI>
-<LI>Mass_measure is now Mass_data_element;</LI>
-<LI>Plane_angle_measure is now Angle_data_element;</LI>
-<LI>Pressure_measure is now Pressure_data_element;</LI>
-<LI>Rot_speed_measure is now Frequency_data_element;</LI>
-<LI>Speed_measure is now Velocity_data_element;</LI>
-<LI>Time_measure us now Duration;</LI>
+<LI>Area_measure becomes Area_data_element;</LI>
+<LI>Length_measure becomes Length_data_element;</LI>
+<LI>Mass_measure becomes Mass_data_element;</LI>
+<LI>Plane_angle_measure becomes Angle_data_element;</LI>
+<LI>Pressure_measure becomes Pressure_data_element;</LI>
+<LI>Rot_speed_measure becomes Frequency_data_element;</LI>
+<LI>Speed_measure becomes Velocity_data_element;</LI>
+<LI>Time_measure becomes Duration;</LI>
 <LI>Value_range remains Value_range;</LI>
 <LI>Value_with_unit remains Value_with_unit;</LI>
-<LI>Volume_measure is now Volume_data_element.</LI>
+<LI>Volume_measure becomes Volume_data_element.</LI>
 </UL>
 
-<P>Value_with_tolerance and Toleranced_length_measure are now one of three different application objects depending on their use.  Value_with_unit if no tolerance limits are applied, Value_with_tolerances for values with a plus/minus limit, and Qualified_numerical_item_with_unit for other limits.</P>
+<P>Value_with_tolerance and Toleranced_length_measure become one of
+three different application objects depending on their use.
+Value_with_unit if no tolerance limits are applied,
+Value_with_tolerances for values with a plus/minus limit, and
+Qualified_numerical_item_with_unit for other limits.</P>
 
-<P>Limit_qualifier, Limits_and_fits, and Plus_minus_value are now value_qualifier of Qualified_numerical_item_with_unit or Dimension_value_with_limitation.</P>
+<P>Limit_qualifier, Limits_and_fits, and Plus_minus_value become the
+value_qualifier of Qualified_numerical_item_with_unit or
+Dimension_value_with_limitation.</P>
 
 
 
@@ -70,12 +81,10 @@ Product_view_definition.id mapping.  The previous its_geometry
 attribute is now given by the inherited Product_view_definition
 primary_shape_representation.</P>
 
-<P>Made <a href="clause4.htm#ao-workpiece">Workpiece</a> a subtype of
-Product_view_definition for ARM integration.  Mapping is unchanged but
-the previous its_id attribute is now given by the inherited
-Product_view_definition.id mapping.  The previous its_geometry
-attribute is now given by the inherited Product_view_definition
-primary_shape_representation.</P>
+<P>Replace <a href="clause4.htm#ao-workpiece">Workpiece</a>
+its_material parameter with an inverse attribute over
+Material_identification for ARM integration.  The integrated
+representation has not changed.</P>
 
 <P>Replace Workpiece_assembly_component application object with the
 Next_assembly_usage application object defined by ISO 10303-1026.  The
@@ -97,7 +106,7 @@ definition for property assignment select.</P>
 
 <P>Replace Material application object with the
 Material_identification application object defined by ISO 10303-1681.
-Add workpiece, cutting_component, cutting_edge_properties to the ARM
+Add Workpiece, Cutting_component, Cutting_edge_properties to the ARM
 definition for material_item_select.</P>
 
 <P>Replace Material_property application object with the
@@ -304,13 +313,18 @@ and other product information available for tools.</P>
 <P>Expand <a href="clause4.htm#ao-workplan">Workplan</a> with toolpath
 placement, referenced as "toolpath_orientation", to allow reuse of
 nested workplans or workingsteps in different locations.  This
-information was previously only available on workingsteps. </P>
+information was previously only available on workingsteps.</P>
 
 <P>Replace Boolean_expression application object and all subtypes with
 the objects of the same name defined by ISO 10303-1526.  These objects
 were originally defined by ISO 13584-20 and are equivalent.</P>
 
-<P>Change the supertype of <a href="clause5.htm#aim-machining_process_executable">machining_process_executable</a> to process_operation, which is also an action_method subtype, to further interoperation with AP242.  Local rules WR1 and WR2 on process_operation are currently incompatible with AP238 usage, but this has been noted and is being corrected.</P>
+<P>Change the supertype
+of <a href="clause5.htm#aim-machining_process_executable">machining_process_executable</a>
+to process_operation, which is also an action_method subtype, to
+further interoperation with AP242.  Local rules WR1 and WR2 on
+process_operation are currently incompatible with AP238 usage, but
+this has been noted and is being corrected.</P>
 
 <P>Change mappings for properties that use the ISO 13584-20 expression
 types.  This includes NC_constant, NC_variable, and references to
@@ -344,6 +358,12 @@ under previous editions.
 <!-- ============================== -->
 <H3><A NAME="clause-K-1-6"></A>K.1.6 Changes in toolpath UoF</H3>
 
+<P>Expand <a href="clause4.htm#ao-trajectory">Trajectory</a> (the
+supertype of all toolpaths) with cross section parameters for a more
+detailed representation of tool contact area than the depth and
+overcut parameters can provide to better support speed and feed
+optimization for machining operations.</P>
+
 <P>Expand <a href="clause4.htm#ao-cutter_contact_trajectory">Cutter_contact_trajectory</a>
 and <a href="clause4.htm#ao-cutter_location_trajectory">Cutter_location_trajectory</a>
 with a toolpath reference direction curve to describe the orientation
@@ -351,11 +371,6 @@ of asymmetric tools.  This is analogous to the way in which ISO 10303
 geometry placements are described using an axis direction as well as a
 reference direction.</P>
 
-<P>Expand <a href="clause4.htm#ao-trajectory">Trajectory</a> (the
-supertype of all toolpaths) with cross section parameters for a more
-detailed representation of tool contact area than the depth and
-overcut parameters can provide to better support speed and feed
-optimization for machining operations.</P>
 
 <P>Add <a href="clause5.htm#aim-via_arc_point">via_arc_point</a>
 and <a href="clause5.htm#aim-via_helix_point">via_helix_point</a> to
@@ -366,6 +381,12 @@ clause 5 to support high-speed milling operations. </P>
 <H3><A NAME="clause-K-1-7"></A>K.1.7 Changes in process data for milling UoF</H3>
 <!-- ============================== -->
 <H3><A NAME="clause-K-1-8"></A>K.1.8 Changes in cutting tools for milling UoF</H3>
+
+<P>Replace <a href="clause4.htm#ao-cutting_component">Cutting_component</a>
+its_material parameter with an inverse attribute over
+Material_identification for ARM integration.  The integrated
+representation has not changed.</P>
+
 <!-- ============================== -->
 <H3><A NAME="clause-K-1-9"></A>K.1.9 Changes in process data for turning UoF</H3>
 <!-- ============================== -->

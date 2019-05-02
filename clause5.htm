@@ -457,15 +457,6 @@ property_definition_representation
 property_definition_representation.used_representation -&gt;
 representation =&gt;
 shape_representation
-{ shape_representation =&gt;
-(advanced_brep_shape_representation)
-(edge_based_wireframe_shape_representation)
-(faceted_brep_shape_representation)
-(geometrically_bounded_surface_shape_representation)
-(geometrically_bounded_wireframe_shape_representation)
-(manifold_surface_shape_representation)
-(non_manifold_surface_shape_representation)
-(shell_based_wireframe_shape_representation) }
 </td>
 </tr>
 </table>
@@ -485,14 +476,7 @@ shape_representation
 
 #2: cylindrical_shape_representation
 
-#3: (advanced_brep_shape_representation)
-(edge_based_wireframe_shape_representation)
-(faceted_brep_shape_representation)
-(geometrically_bounded_surface_shape_representation)
-(geometrically_bounded_wireframe_shape_representation)
-(manifold_surface_shape_representation)
-(non_manifold_surface_shape_representation)
-(shell_based_wireframe_shape_representation)</td>
+#3: shape_representation</td>
 </tr>
 
 <tr><th>Source:</th>
@@ -500,14 +484,7 @@ shape_representation
 
 10303-238
 
-10303-514
-10303-501
-10303-512
-10303-507
-10303-510
-10303-509
-10303-508
-10303-502</td>
+10303-41</td>
 </tr>
 
 <tr><th>Reference path:</th>
@@ -539,14 +516,7 @@ shape_representation =&gt;
 block_shape_representation)
 #2:  (shape_representation_with_parameters =&gt;
 cylindrical_shape_representation)
-#3: (advanced_brep_shape_representation)
-(edge_based_wireframe_shape_representation)
-(faceted_brep_shape_representation)
-(geometrically_bounded_surface_shape_representation)
-(geometrically_bounded_wireframe_shape_representation)
-(manifold_surface_shape_representation)
-(non_manifold_surface_shape_representation)
-(shell_based_wireframe_shape_representation)
+#3: (shape_representation)
 </td>
 </tr>
 </table>
@@ -4392,7 +4362,7 @@ product_definition_relationship
 </table>
 
 
-<H5><A NAME="map-workpiece_setup-its_workpiece"></A>5.1.5.38.1 workpiece_setup to workpiece (as its_workpiece)</H5>
+<H5><A NAME="map-workpiece_setup-its_workpiece"></A>5.1.5.38.1 workpiece_setup to product_view_definition (as its_workpiece)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -4678,7 +4648,6 @@ product_definition_formation
 </table>
 
 
-
 <H5><A NAME="map-workplan-its_minimum_machine_params"></A>5.1.5.39.4 workplan to machine_parameters (as its_minimum_machine_params)</H5>
 
 <table class="map">
@@ -4698,6 +4667,40 @@ machining_execution_resource
 </td>
 </tr>
 </table>
+
+<H5><A NAME="map-workplan-toolpath_orientation"></A>5.1.5.39.5 toolpath_orientation</H5>
+
+<table class="map">
+<tr><th>AIM element:</th>
+<td>axis2_placement_3d</td>
+</tr>
+
+<tr><th>Source:</th>
+<td>10303-42</td>
+</tr>
+
+<tr><th>Reference path:</th>
+<td class="path">machining_workplan &lt;=
+machining_process_executable &lt;=
+action_method
+characterized_action_definition = action_method
+characterized_action_definition &lt;-
+action_property.definition
+{ action_property.name = 'toolpath orientation' }
+action_property &lt;-
+action_property_representation.property
+action_property_representation
+action_property_representation.representation -&gt;
+representation
+representation.items[i] -&gt;
+representation_item =&gt;
+geometric_representation_item =&gt;
+placement =&gt;
+axis2_placement_3d
+</td>
+</tr>
+</table>
+
 
 
 <H3><A NAME="mapuof-operation"></A>5.1.6 Mapping specification for operation UoF</H3>
@@ -9895,7 +9898,7 @@ machining_process_model
 </table>
 
 
-<H5><A NAME="map-milling_machine_functions-other_functions"></A>5.1.8.38.10 milling_machine_functions to Representation_item (as other_functions)</H5>
+<H5><A NAME="map-milling_machine_functions-other_functions"></A>5.1.8.38.10 milling_machine_functions to representation_item (as other_functions)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -24911,41 +24914,52 @@ END_RULE;
 
 <H4><A NAME="aim-nc_variable_compatible_initial_value"></A>5.2.4.5 nc_variable_compatible_initial_value</H4>
 
-<P>The <B>nc_variable_compatible_initial_value</B> rule specifies that each instance of <B>numeric_variable</B> that is also an <B>expression_representation_item</B> shall be associated with at most one initial value, given by a <B>literal_value</B>.  Furthermore, the initial value shall be of type <B>int_literal</B> if the <B>numeric_variable</B> is of type <B>int_numeric_variable</B>, and of type <B>real_literal</B> if the <B>numeric_variable</B> is of type <B>real_numeric_variable</B>.</P>
+<P>The <B>nc_variable_compatible_initial_value</B> rule specifies that
+each instance of <B>expression_item_representation_item</B> that
+references a <B>numeric_variable</B> shall be associated with at most
+one initial value, given by a <B>literal_value</B>.  Furthermore, the
+initial value shall be of type <B>int_literal</B> if
+the <B>numeric_variable</B> is of type <B>int_numeric_variable</B>,
+and of type <B>real_literal</B> if the <B>numeric_variable</B> is of
+type <B>real_numeric_variable</B>.</P>
 
 <H6 CLASS="section-underlined">EXPRESS specification:</H6>
 <PRE CLASS="code">
 *)
 RULE nc_variable_compatible_initial_value FOR
-  (expression_representation_item,
+  (expression_item_representation_item,
    representation_item_relationship);
 WHERE
   -- each nc_variable has at most one one initial value
-  WR1: (0 = SIZEOF (QUERY (nv &lt;* expression_representation_item |
+  WR1: (0 = SIZEOF (QUERY (nv &lt;* expression_item_representation_item | 
             ('MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.NUMERIC_VARIABLE'
-              IN TYPEOF (nv)) AND NOT
+	      IN TYPEOF (nv.item)) AND NOT
             (1 &gt;= SIZEOF (QUERY (rir &lt;* representation_item_relationship |
                    (rir.description = 'initial value')  AND
                    (rir.relating_representation_item :=: nv)
-        ))))));
+	))))));
 
   -- the types on either side of the initial value relationship must match
   -- each nc_variable has at most one one initial value
   WR2: (0 = SIZEOF (QUERY (rir &lt;* representation_item_relationship |
-            (rir.description = 'initial value')  AND
-            ('MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.NUMERIC_VARIABLE'
-              IN TYPEOF (rir.relating_representation_item))
-            AND NOT
-            ((('MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.INT_NUMERIC_VARIABLE'
-                IN TYPEOF (rir.relating_representation_item)) AND
-              ('MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.INT_LITERAL'
-                IN TYPEOF (rir.related_representation_item)))
+  	 (rir.description = 'initial value')  AND 
+ 	 ('MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.EXPRESSION_ITEM_REPRESENTATION_ITEM'
+ 	   IN TYPEOF (rir.relating_representation_item)) AND 
+ 	 ('MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.EXPRESSION_ITEM_REPRESENTATION_ITEM'
+ 	   IN TYPEOF (rir.related_representation_item)) AND
+ 	 ('MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.NUMERIC_VARIABLE'
+ 	   IN TYPEOF (rir.relating_representation_item\expression_item_representation_item.item)) 
+ 	 AND NOT
+            ((('MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.INT_NUMERIC_VARIABLE' 
+                IN TYPEOF (rir.relating_representation_item\expression_item_representation_item.item)) AND
+              ('MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.INT_LITERAL' 
+                IN TYPEOF (rir.related_representation_item\expression_item_representation_item.item)))
              OR
-            ((('MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.REAL_NUMERIC_VARIABLE'
-                IN TYPEOF (rir.relating_representation_item)) AND
-              ('MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.REAL_LITERAL'
-                IN TYPEOF (rir.related_representation_item)
-        )))))));
+            ((('MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.REAL_NUMERIC_VARIABLE' 
+                IN TYPEOF (rir.relating_representation_item\expression_item_representation_item.item)) AND
+              ('MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.REAL_LITERAL' 
+                IN TYPEOF (rir.related_representation_item\expression_item_representation_item.item)
+	)))))));
 END_RULE;
 (*
 </PRE>
@@ -24953,7 +24967,7 @@ END_RULE;
 
 <H6 CLASS="section-underlined">Argument definitions:</H6>
 
-<P><B>expression_representation_item:</B> the set of all instances of <B>expression_representation_item</B>.</P>
+<P><B>expression_item_representation_item:</B> the set of all instances of <B>expression_item_representation_item</B>.</P>
 
 <P><B>representation_item_relationship:</B> the set of all instances of <B>representation_item_relationship</B>.</P>
 
