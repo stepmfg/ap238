@@ -1,0 +1,2133 @@
+SCHEMA ap238_arm_schema;
+(*
+    ISO TC184/SC4/WG15N81 (superceeds N36)
+    ISO WORKING DRAFT 10303-238 Edition 2
+    ARM EXPRESS SHORT FORM
+
+    2019-05-03 -- Completed integration with the modules for the
+      measure, workpiece, manufacturing feature, GD&T, library
+      reference, and management UoFs.
+
+    2018-05-30 -- Converted AIC references to modules for the shape
+      representations and features.  Changed P47 refs to modules for
+      tolerances, dimensions, and associative presentation PMI.  Added
+      module refs for tesselated, point cloud, and construction
+      geometry shape reps, additive setup and kinematic description of
+      machine tool models.  Imported management modules 1012-1015
+      rather than defining the assignments locally.  Renamed the
+      schema to match new title of AP.
+
+  ------------------------------
+  This ARM for model-based integrated manufacturing combines the
+  machining information requirement models defined by ISO 14649-10,
+  11, 12, 111 and 121, with ISO 10303 definitions for product model
+  geometry, geometric dimensioning and tolerancing, feature
+  descriptions, product data management and other information.
+
+*)
+
+
+(* ======================================== *)
+(* MODULE IMPORT LISTS *)
+
+-- Core workpiece and GDT definition for interoperating with AP242
+USE FROM Model_based_3d_geometrical_dimensioning_and_tolerancing_representation_arm;   -- 10303-1816
+   -- Activity_arm
+   -- Activity_method_arm
+   -- Activity_method_assignment_arm
+   -- Advanced_boundary_representation_arm
+   -- Alias_identification_arm
+   -- Alternative_solution_arm
+   -- Approval_arm
+   -- Assembly_structure_arm
+   -- Attribute_classification_arm
+   -- Basic_curve_arm
+   -- Basic_geometric_topology_arm
+   -- Basic_geometry_arm
+   -- B_spline_geometry_arm
+   -- Certification_arm
+   -- Characterizable_object_arm
+   -- Classification_assignment_arm
+   -- Classification_with_attributes_arm
+   -- Class_arm
+   -- Condition_arm
+   -- Configuration_effectivity_arm
+   -- Configuration_item_arm
+   -- Construction_geometry_arm
+   -- Contextual_shape_positioning_arm
+   -- Contract_arm
+   -- Date_time_arm
+   -- Date_time_assignment_arm
+   -- Derived_shape_element_arm
+   -- Design_material_aspects_arm
+   -- Design_product_data_management_arm
+   -- Dimension_tolerance_arm
+   -- Document_and_version_identification_arm
+   -- Document_assignment_arm
+   -- Document_definition_arm
+   -- Document_management_arm
+   -- Document_properties_arm
+   -- Document_structure_arm
+   -- Effectivity_application_arm
+   -- Effectivity_arm
+   -- Elemental_geometric_shape_arm
+   -- Elemental_topology_arm
+   -- Event_arm
+   -- Event_assignment_arm
+   -- Extended_date_arm
+   -- Extended_measure_representation_arm
+   -- External_class_arm
+   -- External_item_identification_assignment_arm
+   -- External_model_arm
+   -- External_source_arm
+   -- Feature_and_connection_zone_arm
+   -- File_identification_arm
+   -- Foundation_representation_arm
+   -- Functional_breakdown_arm
+   -- Generic_material_aspects_arm
+   -- Geometric_model_relationship_arm
+   -- Geometric_tolerance_arm
+   -- Group_arm
+   -- Identification_assignment_arm
+   -- Incomplete_data_reference_mechanism_arm
+   -- Independent_property_arm
+   -- Independent_property_representation_arm
+   -- Information_rights_arm
+   -- Item_definition_structure_arm
+   -- Management_resource_information_arm
+   -- Manifold_subsurface_arm
+   -- Manifold_surface_arm
+   -- Manufacturing_configuration_effectivity_arm
+   -- Maths_value_arm
+   -- Measure_representation_arm
+   -- Multi_linguism_arm
+   -- Name_assignment_arm
+   -- Parametric_representation_arm
+   -- Part_and_version_identification_arm
+   -- Part_collection_arm
+   -- Part_definition_relationship_arm
+   -- Part_shape_arm
+   -- Part_view_definition_arm
+   -- Person_organization_arm
+   -- Person_organization_assignment_arm
+   -- Physical_breakdown_arm
+   -- Plib_class_reference_arm
+   -- Pre_defined_product_data_management_specializations_arm
+   -- Process_property_assignment_arm
+   -- Product_and_manufacturing_information_with_nominal_3d_models_arm
+   -- Product_as_individual_arm
+   -- Product_breakdown_arm
+   -- Product_class_arm
+   -- Product_concept_identification_arm
+   -- Product_data_management_arm
+   -- Product_identification_arm
+   -- Product_occurrence_arm
+   -- Product_placement_arm
+   -- Product_replacement_arm
+   -- Product_structure_arm
+   -- Product_version_arm
+   -- Product_version_relationship_arm
+   -- Product_view_definition_arm
+   -- Product_view_definition_properties_arm
+   -- Product_view_definition_reference_arm
+   -- Product_view_definition_relationship_arm
+   -- Project_arm
+   -- Property_assignment_arm
+   -- Property_as_definition_arm
+   -- Qualified_measure_arm
+   -- Requirement_assignment_arm
+   -- Requirement_identification_and_version_arm
+   -- Requirement_view_definition_arm
+   -- Requirement_view_definition_relationship_arm
+   -- Security_classification_arm
+   -- Shape_composition_arm
+   -- Shape_feature_arm
+   -- Shape_property_assignment_arm
+   -- Single_part_representation_arm
+   -- Solid_model_arm
+   -- Specification_based_configuration_arm
+   -- Specification_control_arm
+   -- Specified_product_arm
+   -- Support_resource_arm
+   -- Surface_conditions_arm
+   -- Test_select_product_arm
+   -- Time_interval_arm
+   -- Time_interval_assignment_arm
+   -- Topologically_bounded_surface_arm
+   -- Value_with_unit_arm
+   -- Value_with_unit_extension_arm
+   -- Work_order_arm
+   -- Work_request_arm
+
+-- Feature definitions harmonized between STEP AP242/238/224 and ISO 141649
+USE FROM Mechanical_design_features_and_requirements_arm;	-- 10303-1846
+   -- Appearance_assignment_arm
+   -- Associative_draughting_elements_arm
+   -- Associative_text_arm
+   -- Basic_data_representation_arm
+   -- Characteristic_arm
+   -- Colour_arm
+   -- Curve_appearance_arm
+   -- Draughting_element_arm
+   -- External_library_arm
+   -- External_properties_arm
+   -- Machining_features_arm
+   -- Mechanical_design_features_and_requirements_arm
+   -- Specification_document_arm
+   -- Styled_curve_arm
+   -- Tagged_text_representation_arm
+   -- Text_appearance_arm
+
+-- Presentation and other PMI
+USE FROM Default_tolerance_arm;					-- 10303-1052
+USE FROM Dimension_and_tolerance_callouts_arm;			-- 10303-1362
+USE FROM Mechanical_design_presentation_representation_with_draughting_arm; -- 10303-1315
+USE FROM Product_and_manufacturing_annotation_presentation_arm; -- 10303-1812
+   -- Camera_view_3d_arm
+   -- Characterized_representation_arm
+   -- Default_setting_association_arm
+   -- Extended_basic_geometry_arm
+   -- Fill_area_style_arm
+   -- General_surface_appearance_arm
+   -- Layer_assignment_arm
+   -- Mechanical_design_geometric_presentation_arm
+   -- Mechanical_design_shaded_presentation_arm
+   -- Presentation_hierarchy_arm
+   -- Shape_appearance_layers_arm
+   -- Draughting_annotation_arm
+   -- Draughting_element_specialisations_arm
+
+USE FROM Design_product_data_management_arm;			-- 10303-1628
+USE FROM Geometric_validation_property_representation_arm; 	-- 10303-1039
+
+-- Shape representations types
+USE FROM Compound_shape_representation_arm;			-- 10303-1327
+USE FROM Curve_swept_solid_arm;					-- 10303-1659
+USE FROM Edge_based_wireframe_arm;				-- 10303-1501
+USE FROM Elementary_boundary_representation_arm;		-- 10303-1329
+USE FROM Faceted_boundary_representation_arm; 			-- 10303-1512
+USE FROM Geometrically_bounded_surface_arm;			-- 10303-1507
+USE FROM Geometrically_bounded_wireframe_arm;			-- 10303-1510
+USE FROM Non_manifold_surface_arm;				-- 10303-1324
+USE FROM Primitive_solids_arm;					-- 10303-1791
+USE FROM Scan_data_3d_shape_arm; 				-- 10303-1831
+USE FROM Shell_based_wireframe_arm;				-- 10303-1502
+USE FROM Tessellated_geometry_arm;				-- 10303-1819
+USE FROM Topologically_bounded_surface_arm;			-- 10303-1511
+USE FROM Vertex_colours_for_tessellated_geometry_arm;		-- 10303-1836
+
+-- Machine tool kinematic representation
+USE FROM Kinematic_analysis_control_and_result_arm;		-- 10303-1817
+
+-- Additive manufacturing setup and support
+USE FROM Additive_manufacturing_part_and_build_information_arm;	-- 10303-1835
+   -- Process_plan_arm
+   -- Resource_item_arm
+
+USE FROM External_representation_item_arm;			-- 10303-1779
+USE FROM Numeric_expression_arm;				-- 10303-1526
+USE FROM Product_categorization_arm;				-- 10303-1016
+
+
+-- Stubs for P42 geometry.  No stepmod ARM definitions for these.
+TYPE bounded_pcurve  = STRING; END_TYPE; -- Part 42
+TYPE elementary_surface  = STRING; END_TYPE; -- Part 42
+
+
+
+(* ************************************************************ *)
+(* ************************************************************ *)
+(* PRODUCT DATA MANAGEMENT DEFINITIONS				*)
+(*								*)
+(* These definitions are based on Modules 1012 and 1015 as 	*)
+(* well timestamp information specific to this part.	 	*)
+(*								*)
+(* ************************************************************ *)
+(* ************************************************************ *)
+
+TYPE last_modified_timestamp_item_238 = SELECT BASED_ON date_or_date_time_item WITH(
+	Executable,
+	Operation,
+	Manufacturing_project,
+	Toolpath,
+	Workpiece
+	);
+END_TYPE;
+
+ENTITY last_modified_timestamp
+  SUBTYPE OF (Date_or_date_time_assignment);
+WHERE
+  WR1: SELF\date_or_date_time_assignment.role = 'last modified';
+END_ENTITY;
+
+
+
+(* ************************************************************ *)
+(* ************************************************************ *)
+(*                                                              *)
+(* TYPES DEFINED IN GENERAL PROCESS DATA     	ISO 14649-10    *)
+(*                                                              *)
+(* Version IS date: 2004-12-15					*)
+(* Version 6.1 date: 2004-06-25	(unchanged)			*)
+(* Author: ISO TC184/SC1/WG7					*)
+(* ************************************************************ *)
+(* ************************************************************ *)
+
+TYPE rot_direction = ENUMERATION OF (cw,ccw);
+END_TYPE;
+
+
+(* ************************************************************ *)
+(* ************************************************************ *)
+(*                                                              *)
+(*  PROJECT                                                     *)
+(*                                                              *)
+(* ************************************************************ *)
+(* ************************************************************ *)
+
+-- 10303-238: renamed project to manufacturing project to avoid
+--   conflict with the 10303-1061 project_arm.project definition.
+--   Made a subtype of product_version for integration.
+
+ENTITY manufacturing_project
+  SUBTYPE OF (Product_version);
+  -- 10303-238: id now provided by inherited product_version.id
+  -- its_id:          identifier;
+  main_workplan:   workplan;
+
+  -- 10303-238: relax to Product_view_definition for integration
+  its_workpieces:  SET [0:?] OF Product_view_definition;
+
+  its_owner:	OPTIONAL Person_in_organization;
+  its_release:	OPTIONAL Date_time;
+  its_status:   OPTIONAL Approval;
+(*
+Informal proposition:
+its_id shall be unique within the part programme.
+*)
+END_ENTITY;
+
+
+(* ************************************************************ *)
+(* ************************************************************ *)
+(*                                                              *)
+(* Workpiece and manufacturing feature                          *)
+(*                                                              *)
+(* ************************************************************ *)
+(* ************************************************************ *)
+
+
+-- 10303-238: changed to ARM subtype of product_view_definition for
+--   integration, mappings unchanged.
+
+ENTITY workpiece
+  SUBTYPE OF (Product_view_definition);
+  -- 10303-238: id now provided by inherited product_view_definition.id
+  -- its_id:          identifier;
+
+  -- 10303-238: its_material now defined as inverse described below
+  -- its_material:            OPTIONAL material;
+
+  global_tolerance:        OPTIONAL Length_data_element;
+  its_rawpiece:            OPTIONAL Workpiece;
+
+  -- 10303-238: its_geometry provided by product_view_definition
+  -- primary_shape_representation, this relaxes the original advanced
+  -- brep value to more general shape representation.
+  -- its_geometry: OPTIONAL advanced_brep_shape_representation;
+
+  its_bounding_geometry:   OPTIONAL bounding_geometry_select;
+  clamping_positions:       SET [0:?] OF cartesian_point;
+
+  -- 10303-238: added to document available PDM information
+  its_approvals:          SET [0:?] OF Approval;
+  its_categories:         SET [0:?] OF STRING;
+
+  -- 10303-238: its_components now defined as inverse described below
+  -- its_components:         SET [0:?] OF workpiece_assembly_component;
+
+  its_datestamps:         SET [0:?] OF Date_or_date_time_assignment;
+  its_orgs:               SET [0:?] OF Organization_or_person_in_organization_assignment;
+  its_people:             SET [0:?] OF Organization_or_person_in_organization_assignment;
+  its_related_geometry:   SET [0:?] OF Geometric_model;
+  its_timestamps:         SET [0:?] OF Date_or_date_time_assignment;
+
+  product_approvals:      SET [0:?] OF Approval;
+  product_datestamps:     SET [0:?] OF Date_or_date_time_assignment;
+  product_orgs:           SET [0:?] OF Organization_or_person_in_organization_assignment;
+  product_people:         SET [0:?] OF Organization_or_person_in_organization_assignment;
+  product_timestamps:     SET [0:?] OF Date_or_date_time_assignment;
+
+  revision_approvals:     SET [0:?] OF Approval;
+  revision_datestamps:    SET [0:?] OF Date_or_date_time_assignment;
+  revision_id:            OPTIONAL identifier;
+  revision_orgs:          SET [0:?] OF Organization_or_person_in_organization_assignment;
+  revision_people:        SET [0:?] OF Organization_or_person_in_organization_assignment;
+  revision_timestamps:    SET [0:?] OF Date_or_date_time_assignment;
+
+INVERSE
+  -- 10303-238: changed type to material_identification for ARM
+  --   integration.  Changed to inverse attribute to accommodate
+  --   definition of Material_identification.  The integrated
+  --   representation is unchanged.
+  its_material: SET[0:1] OF Material_identification FOR items;
+
+  -- 10303-238: E1 added as explicit attribute with a set of
+  --   workpiece_assembly_component ARM objects but E2 changed to
+  --   inverse over Next_assembly_usage for integration.  The
+  --   integrated representation is unchanged.
+  its_components:  SET [0:?] OF Next_assembly_usage for relating_view;
+END_ENTITY;
+
+
+
+(* ************************************************************ *)
+(* Material                                                     *)
+(* ************************************************************ *)
+
+-- 10303-238: Change material to Material_identification, which is a
+-- material assignment to things in the ARM material_item_select.  Add
+-- workpiece, cutting_component, cutting_edge_properties to this.
+
+TYPE material_item_select_238 = SELECT BASED_ON material_item_select WITH(
+     Workpiece,
+     Cutting_component,
+     Cutting_edge_properties
+     );
+END_TYPE;
+
+
+
+(* ************************************************************ *)
+(* Part Properties		                                *)
+(* ************************************************************ *)
+
+-- 10303-238: Change general_property to Assigned_property, which is a
+-- assignment to things in the ARM property_assignment_select.  Add
+-- workpiece and shape element to this.
+
+TYPE property_assignment_select_238 = SELECT BASED_ON property_assignment_select WITH(
+	Shape_element,
+	Workpiece
+	);
+END_TYPE;
+
+(* ************************************************************ *)
+(* Bounding geometry                                            *)
+(* ************************************************************ *)
+
+TYPE bounding_geometry_select = SELECT (
+	Rectangular_block,
+	Circular_cylinder,
+ 	advanced_brep_shape_representation,
+	edge_based_wireframe_shape_representation,	-- ADDED BY 10303-238
+	faceted_brep_shape_representation,		-- ADDED BY 10303-238
+	geometrically_bounded_surface_shape_representation, -- ADDED BY 10303-238
+	geometrically_bounded_wireframe_shape_representation, -- ADDED BY 10303-238
+	manifold_surface_shape_representation,		-- ADDED BY 10303-238
+	Non_manifold_shape_representation,		-- ADDED BY 10303-238
+	shell_based_wireframe_shape_representation,	-- ADDED BY 10303-238
+	Tessellated_shape_representation,   		-- ADDED BY 10303-238
+	Scan_data_shape_representation   		-- ADDED BY 10303-238
+);
+END_TYPE;
+
+
+(* ************************************************************ *)
+(* ************************************************************ *)
+(*                                                              *)
+(* Executable                                                   *)
+(*                                                              *)
+(* ************************************************************ *)
+(* ************************************************************ *)
+
+ENTITY executable
+  ABSTRACT SUPERTYPE OF (ONEOF( workingstep, nc_function, program_structure));
+  its_id: identifier;
+  as_is:   OPTIONAL Product_view_definition; -- ADDED BY 10303-238
+  enabled: OPTIONAL BOOLEAN; 	     	     -- ADDED BY 10303-238
+  removal: OPTIONAL Product_view_definition; -- ADDED BY 10303-238
+  to_be:   OPTIONAL Product_view_definition; -- ADDED BY 10303-238
+END_ENTITY;
+(*
+Informal proposition:
+its_id shall be unique within the part programme.
+*)
+
+
+(* ************************************************************ *)
+(* Workingstep                                                  *)
+(* ************************************************************ *)
+
+ENTITY workingstep
+  ABSTRACT SUPERTYPE OF (ONEOF (machining_workingstep, rapid_movement, touch_probing))
+  SUBTYPE OF (executable);
+  its_secplane :              elementary_surface;
+END_ENTITY;
+
+
+(* ************************************************************ *)
+(* Machining workingstep                                        *)
+(* ************************************************************ *)
+
+ENTITY machining_workingstep
+  SUBTYPE OF (workingstep);
+  its_feature: 		Manufacturing_feature;
+  its_operation: 	machining_operation;
+  -- 10303-238: as_is, to_be, and removal now inherited from Executable
+  -- its_effect:  OPTIONAL in_process_geometry;
+  final_features: OPTIONAL SET [0:?] OF Manufacturing_feature;  -- ADDED BY 10303-238
+  toolpath_orientation: OPTIONAL Axis_placement_3d; -- ADDED BY 10303-238
+END_ENTITY;
+
+
+(* ************************************************************ *)
+(* Rapid movement                                               *)
+(* ************************************************************ *)
+
+ENTITY rapid_movement
+  SUPERTYPE OF (return_home)
+  SUBTYPE OF (workingstep, operation);
+END_ENTITY;
+
+ENTITY return_home
+  SUBTYPE OF (rapid_movement);
+END_ENTITY;
+
+
+(* ************************************************************ *)
+(* Touch probing                                                *)
+(* ************************************************************ *)
+
+ENTITY touch_probing
+  ABSTRACT SUPERTYPE OF (ONEOF (workpiece_probing,
+  	   workpiece_complete_probing, tool_probing))
+  SUBTYPE OF (workingstep, operation);
+  measured_offset: nc_variable;
+END_ENTITY;
+
+ENTITY workpiece_probing
+  SUBTYPE OF (touch_probing);
+  start_position:         Axis_placement_3d;
+  -- 10303-238: relax to Product_view_definition for integration
+  its_workpiece:          Product_view_definition;
+  its_direction:          direction;
+  expected_value:         Length_data_element;
+  its_probe:              touch_probe;
+END_ENTITY;
+
+ENTITY workpiece_complete_probing
+  SUBTYPE OF (touch_probing);
+  -- 10303-238: relax to Product_view_definition for integration
+  its_workpiece:	Product_view_definition;
+  probing_distance: 	Length_data_element;
+  its_probe: 		touch_probe;
+  computed_offset: 	offset_vector;
+END_ENTITY;
+
+ENTITY touch_probe;
+  SUBTYPE OF (machining_tool); -- ADDED BY 10303-238
+  -- its_id: identifier; -- now inherited from machining_tool
+END_ENTITY;
+
+ENTITY offset_vector;
+  translate:		LIST [3:3] OF nc_variable;
+  rotate: 		OPTIONAL LIST [3:3] OF nc_variable;
+WHERE
+  WR1: (SIZEOF(QUERY(i <* translate | NOT EXISTS(i.initial_value))) = 0)
+AND (NOT EXISTS(rotate) OR (SIZEOF(QUERY(i <* rotate | NOT EXISTS(i.initial_value))) = 0));
+END_ENTITY;
+
+ENTITY tool_probing
+  ABSTRACT SUPERTYPE OF (ONEOF (tool_length_probing, tool_radius_probing))
+  SUBTYPE OF (touch_probing);
+  offset:                     cartesian_point;
+  max_wear:                   Length_data_element;
+  its_tool:                   machining_tool;
+END_ENTITY;
+
+ENTITY tool_length_probing
+  SUBTYPE OF (tool_probing);
+END_ENTITY;
+
+ENTITY tool_radius_probing
+  SUBTYPE OF (tool_probing);
+END_ENTITY;
+
+
+(* ************************************************************ *)
+(* machining_tool                                                 *)
+(* ************************************************************ *)
+
+ENTITY machining_tool
+  ABSTRACT SUPERTYPE;
+  its_id: 		label;
+  its_usage:      	OPTIONAL tool_usage;        -- ADDED BY 10303-238
+END_ENTITY;
+
+
+ENTITY tool_usage;  -- ADDED BY 10303-238
+  its_id:         	label;
+  its_position:   	OPTIONAL identifier;
+  its_carousel:   	OPTIONAL identifier;
+  its_product: 		OPTIONAL Product_view_definition;
+  its_library_reference: OPTIONAL Externally_defined_representation;
+  gage_placement:	OPTIONAL Axis_placement_3d;
+  tool_end_placement:	OPTIONAL Axis_placement_3d;
+END_ENTITY;
+
+(* ************************************************************ *)
+(* NC_function                                                  *)
+(* ************************************************************ *)
+
+ENTITY nc_function
+  ABSTRACT SUPERTYPE SUBTYPE OF (executable);
+END_ENTITY;
+
+ENTITY display_message
+  SUBTYPE OF (nc_function);
+  its_text:                   text;
+END_ENTITY;
+
+ENTITY optional_stop
+  SUBTYPE OF (nc_function);
+END_ENTITY;
+
+ENTITY program_stop
+  SUBTYPE OF (nc_function);
+END_ENTITY;
+
+ENTITY set_mark
+  SUBTYPE OF (nc_function);
+END_ENTITY;
+
+ENTITY wait_for_mark
+  SUBTYPE OF (nc_function);
+  its_channel:                channel;
+END_ENTITY;
+
+ENTITY extended_nc_function	-- ADDED BY 10303-238
+  SUBTYPE OF (nc_function);
+  description:               text;
+END_ENTITY;
+
+(* ************************************************************ *)
+(* Program structure                                            *)
+(* ************************************************************ *)
+
+ENTITY program_structure
+  ABSTRACT SUPERTYPE OF (ONEOF(workplan, parallel, non_sequential, selective, if_statement, while_statement, assignment))
+  SUBTYPE OF (executable);
+END_ENTITY;
+
+(* ************************************************************ *)
+(* Workplan                                                     *)
+(* ************************************************************ *)
+
+ENTITY workplan
+  SUBTYPE OF (program_structure);
+  its_elements:                 LIST[0:?] OF executable;
+  its_channel:                  OPTIONAL channel;
+  its_setup:                    OPTIONAL setup;
+  -- 10303-238: as_is, to_be, and removal now inherited from Executable
+  -- its_effect:                OPTIONAL in_process_geometry;
+  its_minimum_machine_params:   OPTIONAL machine_parameters; -- ADDED BY 10303-238
+  toolpath_orientation:         OPTIONAL Axis_placement_3d;  -- ADDED BY 10303-238
+WHERE
+   WR1: SIZEOF(QUERY(it <* its_elements | it = SELF)) = 0;
+END_ENTITY;
+
+ENTITY channel;
+  its_id: identifier;
+END_ENTITY;
+
+ENTITY setup;
+  its_id:               identifier;
+  its_origin:		OPTIONAL Axis_placement_3d;
+  its_secplane:         elementary_surface;
+  its_workpiece_setup:  LIST [0:?] OF workpiece_setup;
+  its_fixture_usage:    OPTIONAL fixture_usage; 	-- ADDED BY 10303-238
+END_ENTITY;
+(*
+Informal proposition:
+If its_origin is not set, the default for the origin
+of the setup is identical with the machine origin.
+*)
+
+
+ENTITY workpiece_setup;
+  -- 10303-238: relax to Product_view_definition for integration
+  its_workpiece:              Product_view_definition;
+  its_origin:                 Axis_placement_3d;
+  its_offset:                 OPTIONAL offset_vector;
+  its_restricted_area:        OPTIONAL restricted_area_select;
+  its_instructions:           LIST [0:?] OF setup_instruction;
+END_ENTITY;
+
+TYPE restricted_area_select = SELECT (
+   Bounded_surface,
+   bounding_geometry_select);
+END_TYPE;
+
+
+ENTITY fixture_usage;  -- ADDED BY 10303-238e2
+  its_id:		label;
+  its_product:		OPTIONAL Product_view_definition;
+  mount_reference:      OPTIONAL Axis_placement_3d;
+  workpiece_reference:	OPTIONAL Axis_placement_3d;
+END_ENTITY;
+
+
+ENTITY machine_parameters;	-- ADDED BY 10303-238
+  feedrate:		OPTIONAL Velocity_data_element;
+  spindle_speed:	OPTIONAL Frequency_data_element;
+  spindle_power:	OPTIONAL value_with_unit;
+  spindle_torque:	OPTIONAL value_with_unit;
+  number_of_control_axis:	OPTIONAL INTEGER;
+  number_of_simultaneous_axis:	OPTIONAL INTEGER;
+  positioning_accuracy:	OPTIONAL Length_data_element;
+
+  table_indexing:	OPTIONAL BOOLEAN;
+  table_length:		OPTIONAL Length_data_element;
+  table_width:		OPTIONAL Length_data_element;
+
+  axis_travel: 		SET [0:?] OF machine_axis_travel;
+  work_volume_length:	OPTIONAL Length_data_element;
+  work_volume_width:	OPTIONAL Length_data_element;
+  work_volume_height:	OPTIONAL Length_data_element;
+
+WHERE
+    WR1: (0 = SIZEOF(axis_travel)) OR
+ 	 ((NOT EXISTS (work_volume_length)) AND
+ 	  (NOT EXISTS (work_volume_width)) AND
+ 	  (NOT EXISTS (work_volume_length)));
+END_ENTITY;
+
+ENTITY machine_axis_travel; 	-- ADDED BY 10303-238
+  axis_identifier: 	STRING;
+  travel_distance:	value_with_unit;
+END_ENTITY;
+
+
+ENTITY setup_instruction;
+  description:       OPTIONAL text;
+  external_document: OPTIONAL identifier;
+WHERE
+  WR1: EXISTS (description) OR EXISTS (external_document);
+END_ENTITY;
+
+ENTITY parallel
+  SUBTYPE OF (program_structure);
+  branches:   SET [2:?] OF executable;
+END_ENTITY;
+
+ENTITY non_sequential
+  SUBTYPE OF (program_structure);
+  its_elements:   SET[2:?] OF executable;
+END_ENTITY;
+
+ENTITY selective
+  SUBTYPE OF (program_structure);
+  its_elements:   SET[2:?] OF executable;
+END_ENTITY;
+
+ENTITY if_statement
+  SUBTYPE OF (program_structure);
+  condition:                  Boolean_expression;
+  true_branch:                executable;
+  false_branch:               OPTIONAL executable;
+END_ENTITY;
+
+ENTITY while_statement
+  SUBTYPE OF (program_structure);
+  condition: Boolean_expression;
+  body:      executable;
+END_ENTITY;
+
+ENTITY assignment
+  SUBTYPE OF (program_structure);
+  its_lvalue:                 nc_variable;
+  its_rvalue:                 rvalue;
+END_ENTITY;
+
+TYPE rvalue = SELECT(nc_constant, nc_variable);
+END_TYPE;
+
+ENTITY nc_variable; 
+  SUBTYPE OF (Numeric_variable);  -- ADDED BY 10303-238
+  its_name:      LABEL;
+  initial_value: OPTIONAL NUMBER;
+END_ENTITY;
+
+ENTITY nc_constant; 
+  SUBTYPE OF (Literal_number);  -- ADDED BY 10303-238
+  its_name:  LABEL;
+  -- 10303-238: its_value now inherited literal_number.the_value
+  -- its_value: OPTIONAL NUMBER;
+END_ENTITY;
+
+
+
+
+
+(* ************************************************************ *)
+(* ************************************************************ *)
+(*                                                              *)
+(* Operation                                                    *)
+(*                                                              *)
+(* ************************************************************ *)
+(* ************************************************************ *)
+
+
+ENTITY operation
+  ABSTRACT SUPERTYPE OF (ONEOF (machining_operation, rapid_movement, touch_probing));
+  its_toolpath:               OPTIONAL toolpath_list;
+  its_tool_direction:         OPTIONAL tool_direction;
+END_ENTITY;
+
+ENTITY toolpath_list;
+  its_list: LIST [1:?] OF toolpath;
+END_ENTITY;
+
+ENTITY tool_direction
+  ABSTRACT SUPERTYPE OF (ONEOF (two_axes, three_axes));
+END_ENTITY;
+
+ENTITY two_axes
+  SUBTYPE OF (tool_direction);
+END_ENTITY;
+
+ENTITY three_axes
+  SUBTYPE OF (tool_direction);
+END_ENTITY;
+
+
+(* ************************************************************ *)
+(* Machining operation                                          *)
+(* ************************************************************ *)
+
+ENTITY machining_operation
+  ABSTRACT SUPERTYPE
+  SUBTYPE OF (operation);
+  its_id:                 identifier;
+  retract_plane:          OPTIONAL Length_data_element;
+  start_point:        	  OPTIONAL cartesian_point;
+  its_tool:               machining_tool;
+  its_technology:         technology;
+  its_machine_functions:  machine_functions;
+END_ENTITY;
+(*
+Informal proposition:
+If attribute SELF\operation.its_toolpath exists, then attributes its_machining_strategy, retract_plane and start_point, if present, are for information only.
+*)
+
+
+(* ************************************************************ *)
+(* Technology                                                   *)
+(* ************************************************************ *)
+
+ENTITY technology
+  ABSTRACT SUPERTYPE;
+  feedrate:		OPTIONAL Velocity_data_element;
+  feedrate_reference:  	tool_reference_point;
+END_ENTITY;
+
+TYPE tool_reference_point = ENUMERATION OF (tcp, ccp);
+END_TYPE;
+
+
+(* ************************************************************ *)
+(* Machine functions                                            *)
+(* ************************************************************ *)
+
+ENTITY machine_functions
+  ABSTRACT SUPERTYPE;
+END_ENTITY;
+
+
+(* ************************************************************ *)
+(* ************************************************************ *)
+(*                                                              *)
+(* Toolpath                                                     *)
+(*                                                              *)
+(* ************************************************************ *)
+(* ************************************************************ *)
+
+
+ENTITY toolpath
+  ABSTRACT SUPERTYPE OF (ONEOF(feedstop, trajectory, parameterised_path));
+  its_priority:                 BOOLEAN;
+  its_type:                     toolpath_type;
+  its_speed:                    OPTIONAL toolpath_speedprofile;
+  its_technology:               OPTIONAL technology;
+  its_machine_functions:        OPTIONAL machine_functions;
+  its_id:                       identifier;  -- ADDED BY 10303-238
+END_ENTITY;
+
+TYPE toolpath_type = ENUMERATION OF (
+  approach,
+  lift,
+  connect,
+  non_contact,
+  contact,
+  trajectory_path
+  );
+END_TYPE;
+
+TYPE toolpath_speedprofile = SELECT (
+  toolpath_speed,
+  Ratio_data_element,
+  speed_name
+  );
+END_TYPE;
+
+ENTITY toolpath_speed;
+  -- speed:                   b_spline_curve;
+  speed:                      bounded_curve; -- RELAXED BY 10303-238
+  -- WHERE
+  -- WR1: speed\geometric_representation_item.dim = 1;
+(*
+Informal proposition:
+- speed shall have only values greater than zero.
+*)
+END_ENTITY;
+
+TYPE speed_name = ENUMERATION OF(RAPID);
+END_TYPE;
+
+
+(* ************************************************************ *)
+(* Feedstop                                                     *)
+(* ************************************************************ *)
+
+ENTITY feedstop
+  SUBTYPE OF (toolpath);
+  dwell:  Duration;
+END_ENTITY;
+
+
+(* ************************************************************ *)
+(* Trajectory                                                   *)
+(* ************************************************************ *)
+
+ENTITY trajectory
+  ABSTRACT SUPERTYPE OF (ONEOF(cutter_location_trajectory, cutter_contact_trajectory,
+     axis_trajectory))
+  SUBTYPE OF (toolpath);
+  its_direction:     OPTIONAL BOOLEAN;
+  its_material_removal_depth:   OPTIONAL material_removal_measure; -- ADDED BY 10303-238
+  its_material_removal_overcut: OPTIONAL material_removal_measure; -- ADDED BY 10303-238
+  its_material_removal_total_volume: OPTIONAL volume_measure;      -- ADDED BY 10303-238
+  cross_section_area_parameters: OPTIONAL bounded_curve;           -- ADDED BY 10303-238
+END_ENTITY;
+
+-- TYPE material_removal_curve = Bounded_curve; END_TYPE;
+TYPE material_removal_measure = SELECT (
+  Length_data_element,
+--  material_removal_curve
+  Bounded_curve
+);
+END_TYPE;
+
+(* ************************************************************ *)
+(* Cutter location trajectory                                   *)
+(* ************************************************************ *)
+
+ENTITY cutter_location_trajectory
+  SUBTYPE OF (trajectory);
+  basiccurve:                  bounded_curve; 
+  its_toolaxis:                OPTIONAL bounded_curve;
+  its_toolref_direction:       OPTIONAL bounded_curve;      -- ADDED BY 10303-238
+  surface_normal:              OPTIONAL bounded_curve;
+  path_maximum_deviation:      OPTIONAL Length_data_element;-- ADDED BY 10303-238
+  tool_axis_maximum_deviation: OPTIONAL Angle_data_element; -- ADDED BY 10303-238
+END_ENTITY;
+
+(*
+Information proposition:
+its_toolaxis must have the same must have the same parameter range as basiccurve.
+*)
+
+
+
+(* ************************************************************ *)
+(* Cutter contact trajectory                                    *)
+(* ************************************************************ *)
+
+ENTITY cutter_contact_trajectory
+  SUBTYPE OF (trajectory);
+  basiccurve:                  curve_with_surface_normal;
+  its_toolaxis:                OPTIONAL bounded_curve;
+  its_toolref_direction:       OPTIONAL bounded_curve;      -- ADDED BY 10303-238
+  its_contact_type:            OPTIONAL contact_type;
+  path_maximum_deviation:      OPTIONAL Length_data_element;-- ADDED BY 10303-238
+  tool_axis_maximum_deviation: OPTIONAL Angle_data_element; -- ADDED BY 10303-238
+END_ENTITY;
+(*
+Informal proposition:
+its_toolaxis must have the same must have the same parameter range as basiccurve.
+*)
+
+TYPE curve_with_surface_normal = SELECT (bounded_pcurve, curve_with_normal_vector);
+END_TYPE;
+
+ENTITY curve_with_normal_vector;
+  basiccurve:                 bounded_curve;
+  surface_normal:             bounded_curve;
+END_ENTITY;
+(*
+Informal proposition:
+basiccurve and surface_normal must have the same parameter range
+*)
+
+TYPE contact_type = ENUMERATION OF (side, front);
+END_TYPE;
+
+
+(* ************************************************************ *)
+(* Axis trajectory                                              *)
+(* ************************************************************ *)
+
+ENTITY axis_trajectory
+SUBTYPE OF (trajectory);
+  axis_list: LIST [1:?] OF identifier;
+  commands:  LIST [1:?] OF Bounded_curve;
+-- WHERE
+-- WR1: SIZEOF(QUERY(cmd <* commands |
+-- cmd\geometric_representation_item.dim <> 1)) = 0;
+END_ENTITY;
+
+
+(* ************************************************************ *)
+(* Parameterised path                                           *)
+(* ************************************************************ *)
+
+ENTITY parameterised_path
+  ABSTRACT SUPERTYPE OF (ONEOF (approach_lift_path, connector))
+  SUBTYPE OF (toolpath);
+END_ENTITY;
+
+
+(* ************************************************************ *)
+(* Connector                                                    *)
+(* ************************************************************ *)
+
+ENTITY connector
+  ABSTRACT SUPERTYPE OF (ONEOF(connect_secplane, connect_direct))
+  SUBTYPE OF (parameterised_path);
+END_ENTITY;
+
+ENTITY connect_secplane
+  SUBTYPE OF (connector);
+  up_dir  : OPTIONAL direction;
+  down_dir: OPTIONAL direction;
+END_ENTITY;
+
+ENTITY connect_direct
+  SUBTYPE OF (connector);
+END_ENTITY;
+
+
+(* ************************************************************ *)
+(* Approach and lift movement                                   *)
+(* ************************************************************ *)
+
+ENTITY approach_lift_path
+  ABSTRACT SUPERTYPE OF (ONEOF (ap_lift_path_angle, ap_lift_path_tangent))
+  SUBTYPE OF (parameterised_path);
+  fix_point:                  cartesian_point;
+  fix_point_dir:              OPTIONAL direction;
+END_ENTITY;
+
+ENTITY ap_lift_path_angle
+  SUBTYPE OF (approach_lift_path);
+  angle:                      Angle_data_element;
+  benddist:                   Length_data_element;
+END_ENTITY;
+
+ENTITY ap_lift_path_tangent
+  SUBTYPE OF (approach_lift_path);
+  radius:                     Length_data_element;
+END_ENTITY;
+
+
+
+
+
+(* ************************************************************ *)
+(* ************************************************************ *)
+(*                                                              *)
+(* TYPES DEFINED IN TOOLS FOR MILLING     	ISO 14649-111   *)
+(*                                                              *)
+(* Version 14.1 date: 2004-04-30				*)
+(* Author: ISO TC184/SC1/WG7					*)
+(* ************************************************************ *)
+(* ************************************************************ *)
+
+ENTITY milling_machine_cutting_tool
+  ABSTRACT SUPERTYPE OF ( ONEOF(milling_cutting_tool, drilling_cutting_tool,
+  tapping_cutting_tool, rotating_boring_cutting_tool, reaming_cutting_tool))
+  SUBTYPE OF (machining_tool);
+  its_cutting_edges:            SET [1:?] OF cutting_component;
+  overall_assembly_length:      Length_data_element;
+  effective_cutting_diameter:   Length_data_element;
+  maximum_depth_of_cut:         Length_data_element;
+  hand_of_cut:                  OPTIONAL hand_of_cut_type;
+  coolant_through_tool:         OPTIONAL BOOLEAN;
+END_ENTITY;
+
+ENTITY cutting_component;
+  tool_functional_length: Length_data_element;
+
+-- 10303-238: its_material now defined as inverse described below
+  -- its_material:        OPTIONAL material;
+  expected_tool_life:     OPTIONAL Duration;
+  its_technology:         OPTIONAL technology;
+
+INVERSE
+  -- 10303-238: changed type to material_identification for ARM
+  --   integration.  Changed to inverse attribute to accommodate
+  --   definition of Material_identification.  The integrated
+  --   representation is unchanged.
+  its_material: SET[0:1] OF Material_identification FOR items;
+END_ENTITY;
+
+TYPE hand_of_cut_type = ENUMERATION OF(left, neutral, right);
+END_TYPE;
+
+ENTITY drilling_cutting_tool
+  SUPERTYPE OF (ONEOF(counterbore, countersink, spade_drill, spotdrill,
+  step_drill, twist_drill))
+  SUBTYPE OF (milling_machine_cutting_tool);
+  point_angle: Angle_data_element;
+END_ENTITY;
+
+ENTITY spotdrill
+  SUBTYPE OF (drilling_cutting_tool);
+END_ENTITY;
+
+ENTITY counterbore
+  SUBTYPE OF (drilling_cutting_tool);
+END_ENTITY;
+
+ENTITY countersink
+  SUBTYPE OF (drilling_cutting_tool);
+  minimum_cutting_diameter: OPTIONAL Length_data_element;
+  maximum_usable_length: Length_data_element;
+END_ENTITY;
+
+ENTITY twist_drill
+  SUPERTYPE OF (tapered_drill)
+  SUBTYPE OF (drilling_cutting_tool);
+END_ENTITY;
+
+ENTITY tapered_drill
+  SUBTYPE OF (twist_drill);
+  taper_angle: Angle_data_element;
+END_ENTITY;
+
+ENTITY spade_drill
+  SUBTYPE OF (drilling_cutting_tool);
+END_ENTITY;
+
+ENTITY step_drill
+  SUBTYPE OF (drilling_cutting_tool);
+  diameters:   LIST [1:?] of Length_data_element;
+  step_length: LIST [1:?] of Length_data_element;
+END_ENTITY;
+
+ENTITY milling_cutting_tool
+  ABSTRACT SUPERTYPE OF (ONEOF(dovetail_mill, endmill, facemill, shouldermill,
+  side_mill, t_slot_mill, thread_mill))
+  SUBTYPE OF (milling_machine_cutting_tool);
+  number_of_effective_teeth:    OPTIONAL INTEGER;
+  edge_radius: 			OPTIONAL Length_data_element;
+END_ENTITY;
+
+ENTITY facemill
+  SUBTYPE OF (milling_cutting_tool);
+  tool_cutting_edge_angle: Angle_data_element;
+END_ENTITY;
+
+ENTITY shouldermill
+  SUBTYPE OF (milling_cutting_tool);
+END_ENTITY;
+
+ENTITY endmill
+  SUPERTYPE OF (ONEOF(ballnose_endmill, bullnose_endmill, profiled_end_mill))
+  SUBTYPE OF (milling_cutting_tool);
+  tool_cutting_edge_angle: Angle_data_element;
+END_ENTITY;
+
+ENTITY ballnose_endmill
+  SUBTYPE OF (endmill);
+  WHERE
+  WR1: NOT EXISTS(SELF.edge_radius)
+       OR (EXISTS(SELF.edge_radius) AND
+	   EXISTS(SELF.effective_cutting_diameter) AND
+	  (SELF.edge_radius = SELF.effective_cutting_diameter/2));
+END_ENTITY;
+
+ENTITY bullnose_endmill
+  SUBTYPE OF (endmill);
+  WHERE
+  WR1: 	EXISTS(SELF.edge_radius) AND
+ 	EXISTS(SELF.effective_cutting_diameter) AND
+ 	(SELF.edge_radius < SELF.effective_cutting_diameter/2);
+END_ENTITY;
+
+ENTITY profiled_end_mill
+  SUBTYPE OF (endmill);
+END_ENTITY;
+
+ENTITY t_slot_mill
+  SUBTYPE OF (milling_cutting_tool);
+  cutting_width: Length_data_element;
+END_ENTITY;
+
+ENTITY dovetail_mill
+  SUBTYPE OF (milling_cutting_tool);
+  included_angle: Angle_data_element;
+END_ENTITY;
+
+ENTITY side_mill
+  SUBTYPE OF (milling_cutting_tool);
+  cutter_width: Length_data_element;
+END_ENTITY;
+
+ENTITY thread_mill
+  SUBTYPE OF (milling_cutting_tool);
+  thread_form_type: STRING;
+  thread_size: Length_data_element;
+  thread_pitch: REAL;
+END_ENTITY;
+
+ENTITY reaming_cutting_tool
+  SUPERTYPE OF (ONEOF (tapered_reamer, combined_drill_and_reamer))
+  SUBTYPE OF (milling_machine_cutting_tool);
+  taper_length: Length_data_element;
+END_ENTITY;
+
+ENTITY tapered_reamer
+  SUBTYPE OF (reaming_cutting_tool);
+  taper_angle: Angle_data_element;
+END_ENTITY;
+
+ENTITY combined_drill_and_reamer
+  SUBTYPE OF (reaming_cutting_tool);
+  drill_length: Length_data_element;
+END_ENTITY;
+
+ENTITY rotating_boring_cutting_tool
+  SUBTYPE OF (milling_machine_cutting_tool);
+  retract_movement_forbidden: BOOLEAN;
+END_ENTITY;
+
+ENTITY tapping_cutting_tool
+  SUPERTYPE OF (combined_drill_and_tap)
+  SUBTYPE OF (milling_machine_cutting_tool);
+  thread_form_type: STRING;
+  thread_size: Length_data_element;
+  thread_pitch: REAL;
+  taper_thread_count: REAL;
+END_ENTITY;
+
+ENTITY combined_drill_and_tap
+  SUBTYPE OF (tapping_cutting_tool);
+  drill_length: OPTIONAL Length_data_element;
+END_ENTITY;
+
+ENTITY user_defined_milling_tool
+  SUBTYPE OF (milling_machine_cutting_tool);
+  corner_radius:			OPTIONAL Length_data_element;
+  corner_radius_center_horizontal:	OPTIONAL Length_data_element;
+  corner_radius_center_vertical:	OPTIONAL Length_data_element;
+  description:   			OPTIONAL text;
+  taper_angle:				OPTIONAL Angle_data_element;
+  tip_outer_angle:			OPTIONAL Angle_data_element;
+END_ENTITY;
+
+
+(* ************************************************************ *)
+(* ************************************************************ *)
+(*                                                              *)
+(* TYPES DEFINED IN PROCESS DATA FOR MILLING     ISO 14649-11   *)
+(*                                                              *)
+(* Version IS date: 2004-12-15					*)
+(* Version 19.1 date: 2004-06-25 (unchanged)			*)
+(* Author: ISO TC184/SC1/WG7					*)
+(* ************************************************************ *)
+(* ************************************************************ *)
+
+(* ************************************************************ *)
+(* NC functions for milling                                     *)
+(* ************************************************************ *)
+
+ENTITY exchange_pallet
+  SUBTYPE OF (nc_function);
+END_ENTITY;
+
+ENTITY index_pallet
+  SUBTYPE OF (nc_function);
+  its_index:             INTEGER;
+END_ENTITY;
+
+ENTITY index_table
+  SUBTYPE OF (nc_function);
+  its_index:             INTEGER;
+END_ENTITY;
+
+ENTITY load_tool
+  SUBTYPE OF (nc_function);
+  its_tool:              machining_tool;
+END_ENTITY;
+
+ENTITY unload_tool
+  SUBTYPE OF (nc_function);
+  its_tool:              OPTIONAL machining_tool;
+END_ENTITY;
+
+(* ************************************************************ *)
+(* Technology-specific Tool direction select                    *)
+(* ************************************************************ *)
+
+ENTITY tool_direction_for_milling
+  ABSTRACT SUPERTYPE OF (ONEOF(three_axes_tilted_tool, five_axes_var_tilt_yaw, five_axes_const_tilt_yaw))
+  SUBTYPE OF (tool_direction);
+END_ENTITY;
+
+ENTITY three_axes_tilted_tool
+  SUBTYPE OF (tool_direction_for_milling);
+  its_tool_direction: direction;
+END_ENTITY;
+
+ENTITY five_axes_var_tilt_yaw
+  SUBTYPE OF (tool_direction_for_milling);
+END_ENTITY;
+
+ENTITY five_axes_const_tilt_yaw
+  SUBTYPE OF (tool_direction_for_milling);
+  tilt_angle : Angle_data_element;
+  yaw_angle  : Angle_data_element;
+END_ENTITY;
+
+(* ************************************************************ *)
+(* Base class for technology specific operation and strategy    *)
+(* ************************************************************ *)
+
+ENTITY milling_machining_operation
+  ABSTRACT SUPERTYPE OF (ONEOF(milling_type_operation, drilling_type_operation))
+  SUBTYPE OF (machining_operation);
+  overcut_length: OPTIONAL Length_data_element;
+WHERE
+  WR1: (EXISTS(SELF.its_technology.feedrate_per_tooth) AND
+        EXISTS(SELF.its_tool.number_of_effective_teeth)) OR
+        (NOT(EXISTS(SELF.its_technology.feedrate_per_tooth)));
+END_ENTITY;
+
+
+(* ************************************************************ *)
+(* Milling technology                                           *)
+(* ************************************************************ *)
+
+ENTITY milling_technology
+  SUBTYPE OF (technology);
+  cutspeed:                      OPTIONAL Velocity_data_element;
+  spindle:                       OPTIONAL Frequency_data_element;
+  feedrate_per_tooth:            OPTIONAL Length_data_element;
+  synchronize_spindle_with_feed: BOOLEAN;
+  inhibit_feedrate_override:     BOOLEAN;
+  inhibit_spindle_override:      BOOLEAN;
+  its_adaptive_control:          OPTIONAL adaptive_control;
+WHERE
+  WR1: (EXISTS(cutspeed) AND NOT EXISTS(spindle))
+    OR (EXISTS(spindle) AND NOT EXISTS(cutspeed))
+    OR (EXISTS(its_adaptive_control));
+  WR2: (EXISTS(SELF.feedrate) AND NOT EXISTS(feedrate_per_tooth))
+    OR (EXISTS(feedrate_per_tooth) AND NOT EXISTS(SELF.feedrate))
+    OR (EXISTS(its_adaptive_control));
+END_ENTITY;
+
+ENTITY adaptive_control;
+END_ENTITY;
+
+(* ************************************************************ *)
+(* Milling machine functions                                    *)
+(* ************************************************************ *)
+
+ENTITY milling_machine_functions
+  SUBTYPE OF (machine_functions);
+  coolant:              BOOLEAN;
+  coolant_pressure:     OPTIONAL Pressure_data_element;
+  mist:                 OPTIONAL BOOLEAN;
+  through_spindle_coolant: BOOLEAN;
+  through_pressure:     OPTIONAL Pressure_data_element;
+  axis_clamping:        LIST [0:?] OF identifier; 
+  chip_removal:         BOOLEAN;
+  oriented_spindle_stop: OPTIONAL direction;
+  its_process_model:    OPTIONAL process_model_list;
+  other_functions:      SET [0:?] OF Representation_item;
+  axis_constraints: OPTIONAL SET [0:?] OF machine_axis_constraint;-- ADDED BY 10303-238
+END_ENTITY;
+
+ENTITY machine_axis_constraint; -- ADDED BY 10303-238
+  axis_identifier: 	STRING;
+  axis_range:		Value_range;
+END_ENTITY;
+
+ENTITY process_model_list;
+  its_list: LIST [1:?] OF process_model;
+END_ENTITY;
+
+ENTITY process_model;
+  ini_data_file:  label;
+  its_type:       label;
+END_ENTITY;
+
+(* ************************************************************ *)
+(* Milling type operation                                       *)
+(* ************************************************************ *)
+
+ENTITY milling_type_operation
+  ABSTRACT SUPERTYPE OF (ONEOF(freeform_operation, two5D_milling_operation))
+  SUBTYPE OF (milling_machining_operation);
+  approach:         OPTIONAL approach_retract_strategy;
+  retract:          OPTIONAL approach_retract_strategy;
+END_ENTITY;
+
+(* ************************************************************ *)
+(* approach retract strategy                                    *)
+(* ************************************************************ *)
+
+ENTITY approach_retract_strategy
+  ABSTRACT SUPERTYPE OF (ONEOF (plunge_strategy, air_strategy, along_path));
+  tool_orientation: OPTIONAL direction;
+END_ENTITY;
+
+ENTITY plunge_strategy
+  ABSTRACT SUPERTYPE OF (ONEOF (plunge_toolaxis, plunge_ramp, plunge_helix, plunge_zigzag))
+  SUBTYPE OF (approach_retract_strategy);
+END_ENTITY;
+
+ENTITY plunge_toolaxis
+  SUBTYPE OF (plunge_strategy);
+END_ENTITY;
+
+ENTITY plunge_ramp
+  SUBTYPE OF (plunge_strategy);
+  angle:    Angle_data_element;
+END_ENTITY;
+
+ENTITY plunge_helix
+  SUBTYPE OF (plunge_strategy);
+  radius:   Length_data_element;
+  angle:    Angle_data_element;
+END_ENTITY;
+
+ENTITY plunge_zigzag
+  SUBTYPE OF (plunge_strategy);
+  angle:    Angle_data_element;
+  width:    Length_data_element;
+END_ENTITY;
+
+ENTITY air_strategy
+  ABSTRACT SUPERTYPE OF (ONEOF (ap_retract_angle, ap_retract_tangent))
+  SUBTYPE OF (approach_retract_strategy);
+END_ENTITY;
+
+ENTITY ap_retract_angle
+  SUBTYPE OF (air_strategy);
+  angle:         Angle_data_element;
+  travel_length: Length_data_element;
+END_ENTITY;
+
+ENTITY ap_retract_tangent
+  SUBTYPE OF (air_strategy);
+  radius: Length_data_element;
+END_ENTITY;
+
+ENTITY along_path
+  SUBTYPE OF (approach_retract_strategy);
+  path: toolpath_list;
+END_ENTITY;
+
+(* ************************************************************ *)
+(* Freeform operation                                           *)
+(* ************************************************************ *)
+
+ENTITY freeform_operation
+  SUBTYPE OF (milling_type_operation);
+  its_machining_strategy: OPTIONAL freeform_strategy;
+END_ENTITY;
+
+ENTITY freeform_rough_milling      	-- ADDED BY 10303-238
+  SUBTYPE OF (freeform_operation);
+END_ENTITY;
+
+ENTITY freeform_finish_milling		-- ADDED BY 10303-238
+  SUBTYPE OF (freeform_operation);
+END_ENTITY;
+
+(* ************************************************************ *)
+(* Freeform strategy                                            *)
+(* ************************************************************ *)
+
+ENTITY freeform_strategy
+  ABSTRACT SUPERTYPE OF (ONEOF(uv_strategy, plane_cc_strategy, plane_cl_strategy, leading_line_strategy));
+  pathmode:               pathmode_type;
+  cutmode:                cutmode_type;
+  its_milling_tolerances: tolerances;
+  stepover:               OPTIONAL Length_data_element;
+END_ENTITY;
+
+TYPE pathmode_type = ENUMERATION OF (
+  forward,
+  zigzag
+  );
+END_TYPE;
+
+TYPE cutmode_type = ENUMERATION OF (
+  climb,
+  conventional
+  );
+END_TYPE;
+
+ENTITY tolerances;
+  chordal_tolerance: 	Length_data_element;
+  scallop_height: 	Length_data_element;
+END_ENTITY;
+
+ENTITY uv_strategy
+  SUBTYPE OF (freeform_strategy);
+  forward_direction:      direction;
+  sideward_direction:     direction;
+END_ENTITY;
+
+ENTITY plane_cc_strategy
+  SUBTYPE OF (freeform_strategy);
+  its_plane_normal: direction;
+END_ENTITY;
+
+ENTITY plane_cl_strategy
+  SUBTYPE OF (freeform_strategy);
+  its_plane_normal: direction;
+END_ENTITY;
+
+ENTITY leading_line_strategy
+  SUBTYPE OF (freeform_strategy);
+  its_line : bounded_curve;
+END_ENTITY;
+
+(* ************************************************************ *)
+(* two5D milling operation                                      *)
+(* ************************************************************ *)
+
+ENTITY two5D_milling_operation
+  ABSTRACT SUPERTYPE OF (ONEOF(plane_milling, side_milling, bottom_and_side_milling))
+  SUBTYPE OF (milling_type_operation);
+  its_machining_strategy: OPTIONAL two5D_milling_strategy;
+END_ENTITY;
+
+(* ************************************************************ *)
+(* two5D_milling_strategy                                       *)
+(* ************************************************************ *)
+
+ENTITY two5D_milling_strategy
+  ABSTRACT SUPERTYPE OF (ONEOF (unidirectional, bidirectional, contour_parallel, bidirectional_contour, contour_bidirectional, contour_spiral, center_milling, explicit_strategy));
+  overlap:                OPTIONAL Ratio_data_element;
+  allow_multiple_passes:  OPTIONAL BOOLEAN;
+END_ENTITY;
+
+ENTITY unidirectional
+  SUBTYPE OF (two5D_milling_strategy);
+  feed_direction:        OPTIONAL direction;
+  cutmode:                OPTIONAL cutmode_type;
+END_ENTITY;
+
+ENTITY bidirectional
+  SUBTYPE OF (two5D_milling_strategy);
+  feed_direction:        OPTIONAL direction;
+  stepover_direction:    OPTIONAL left_or_right;
+  its_stroke_connection_strategy: OPTIONAL stroke_connection_strategy;
+END_ENTITY;
+
+TYPE left_or_right = ENUMERATION OF (left, right);
+END_TYPE;
+
+TYPE stroke_connection_strategy = ENUMERATION OF
+(straghtline, lift_shift_plunge, degouge, loop_back);
+END_TYPE;
+
+ENTITY contour_parallel
+  SUBTYPE OF (two5D_milling_strategy);
+  rotation_direction:     OPTIONAL rot_direction;
+  cutmode:                OPTIONAL cutmode_type;
+END_ENTITY;
+
+ENTITY bidirectional_contour
+  SUBTYPE OF (two5D_milling_strategy);
+  feed_direction: 	OPTIONAL direction;
+  stepover_direction: 	OPTIONAL left_or_right;
+  rotation_direction: 	OPTIONAL rot_direction;
+  spiral_cutmode: 	OPTIONAL cutmode_type;
+END_ENTITY;
+
+ENTITY contour_bidirectional
+  SUBTYPE OF (two5D_milling_strategy);
+  feed_direction:       OPTIONAL direction;
+  stepover_direction:   OPTIONAL left_or_right;
+  rotation_direction:   OPTIONAL rot_direction;
+  spiral_cutmode:       OPTIONAL cutmode_type;
+END_ENTITY;
+
+ENTITY contour_spiral
+  SUBTYPE OF (two5D_milling_strategy);
+  rotation_direction:     OPTIONAL rot_direction;
+  cutmode:                OPTIONAL cutmode_type;
+END_ENTITY;
+
+ENTITY center_milling
+  SUBTYPE OF (two5D_milling_strategy);
+END_ENTITY;
+
+ENTITY explicit_strategy
+  SUBTYPE OF (two5D_milling_strategy);
+END_ENTITY;
+
+(* ************************************************************ *)
+(* plane_milling, side_milling, bottom_and_side_milling         *)
+(* ************************************************************ *)
+
+ENTITY plane_milling
+  ABSTRACT SUPERTYPE OF (ONEOF(plane_rough_milling, plane_finish_milling))
+  SUBTYPE OF (two5D_milling_operation);
+  axial_cutting_depth: 	OPTIONAL Length_data_element;
+  allowance_bottom: 	OPTIONAL Length_data_element;
+END_ENTITY;
+
+ENTITY plane_rough_milling
+  SUBTYPE OF (plane_milling);
+WHERE
+  WR1: EXISTS(SELF.allowance_bottom) AND (SELF.allowance_bottom>=0.0);
+END_ENTITY;
+
+ENTITY plane_finish_milling
+  SUBTYPE OF (plane_milling);
+END_ENTITY;
+
+ENTITY side_milling
+  ABSTRACT SUPERTYPE OF (ONEOF(side_rough_milling, side_finish_milling))
+  SUBTYPE OF (two5D_milling_operation);
+  axial_cutting_depth:    OPTIONAL Length_data_element;
+  radial_cutting_depth:   OPTIONAL Length_data_element;
+  allowance_side:         OPTIONAL Length_data_element;
+END_ENTITY;
+
+ENTITY side_rough_milling
+  SUBTYPE OF (side_milling);
+WHERE
+  WR1: EXISTS(SELF.allowance_side) AND (SELF.allowance_side>=0.0);
+END_ENTITY;
+
+ENTITY side_finish_milling
+  SUBTYPE OF (side_milling);
+END_ENTITY;
+
+ENTITY bottom_and_side_milling
+  ABSTRACT SUPERTYPE OF (ONEOF(bottom_and_side_rough_milling, bottom_and_side_finish_milling))
+  SUBTYPE OF (two5D_milling_operation);
+  axial_cutting_depth:    OPTIONAL Length_data_element;
+  radial_cutting_depth:   OPTIONAL Length_data_element;
+  allowance_side:         OPTIONAL Length_data_element;
+  allowance_bottom:       OPTIONAL Length_data_element;
+END_ENTITY;
+
+ENTITY bottom_and_side_rough_milling
+  SUBTYPE OF (bottom_and_side_milling);
+WHERE
+  WR1: EXISTS(SELF.allowance_side) AND (SELF.allowance_side>=0.0);
+  WR2: EXISTS(SELF.allowance_bottom) AND (SELF.allowance_bottom>=0.0);
+END_ENTITY;
+
+ENTITY bottom_and_side_finish_milling
+  SUBTYPE OF (bottom_and_side_milling);
+END_ENTITY;
+
+(* ************************************************************ *)
+(* Drilling type operation                                      *)
+(* ************************************************************ *)
+
+ENTITY drilling_type_operation
+  ABSTRACT SUPERTYPE OF (ONEOF(drilling_operation, boring_operation, back_boring, tapping, thread_drilling))
+  SUBTYPE OF (milling_machining_operation);
+  cutting_depth:              OPTIONAL Length_data_element;
+  previous_diameter:          OPTIONAL Length_data_element;
+  dwell_time_bottom:          OPTIONAL Duration;
+  feed_on_retract:            OPTIONAL Ratio_data_element;
+  its_machining_strategy:     OPTIONAL drilling_type_strategy;
+END_ENTITY;
+
+(* ************************************************************ *)
+(* Drilling type strategy                                       *)
+(* ************************************************************ *)
+
+ENTITY drilling_type_strategy;
+  reduced_cut_at_start:       OPTIONAL Ratio_data_element;
+  reduced_feed_at_start:      OPTIONAL Ratio_data_element;
+  depth_of_start:             OPTIONAL Length_data_element;
+  reduced_cut_at_end:         OPTIONAL Ratio_data_element;
+  reduced_feed_at_end:        OPTIONAL Ratio_data_element;
+  depth_of_end:               OPTIONAL Length_data_element;
+WHERE
+  WR1: EXISTS(depth_of_start) OR 
+       NOT (EXISTS(reduced_cut_at_start) OR EXISTS(reduced_feed_at_start));
+  WR2: EXISTS(depth_of_end) OR 
+       NOT (EXISTS(reduced_cut_at_end) OR EXISTS(reduced_feed_at_end));
+END_ENTITY;
+
+(* ************************************************************ *)
+(* Drilling operation                                           *)
+(* ************************************************************ *)
+
+ENTITY drilling_operation
+  ABSTRACT SUPERTYPE OF (ONEOF(drilling, center_drilling, counter_sinking, multistep_drilling))
+  SUBTYPE OF (drilling_type_operation);
+END_ENTITY;
+
+ENTITY drilling
+  SUBTYPE OF (drilling_operation);
+END_ENTITY;
+
+ENTITY center_drilling
+  SUBTYPE OF (drilling_operation);
+END_ENTITY;
+
+ENTITY counter_sinking
+  SUBTYPE OF (drilling_operation);
+END_ENTITY;
+
+ENTITY multistep_drilling
+  SUBTYPE OF (drilling_operation);
+  retract_distance:       Length_data_element;
+  first_depth:            Length_data_element;
+  depth_of_step:          Length_data_element;
+  dwell_time_step:        OPTIONAL Duration;
+END_ENTITY;
+
+(* ************************************************************ *)
+(* Boring operation                                             *)
+(* ************************************************************ *)
+
+ENTITY boring_operation
+  ABSTRACT SUPERTYPE OF (ONEOF(boring, reaming))
+  SUBTYPE OF (drilling_type_operation);
+  spindle_stop_at_bottom:         BOOLEAN;
+  depth_of_testcut:               OPTIONAL Length_data_element;
+  waiting_position:               OPTIONAL cartesian_point;
+END_ENTITY;
+
+ENTITY boring
+  SUBTYPE OF (boring_operation);
+END_ENTITY;
+
+ENTITY reaming
+  SUBTYPE OF (boring_operation);
+END_ENTITY;
+
+ENTITY back_boring
+  SUBTYPE OF (drilling_type_operation);
+WHERE
+  WR1:  EXISTS(SELF.its_machine_functions.oriented_spindle_stop);
+END_ENTITY;
+
+ENTITY tapping
+  SUBTYPE OF (drilling_type_operation);
+  compensation_chuck:             BOOLEAN;
+END_ENTITY;
+
+ENTITY thread_drilling
+  SUBTYPE OF (drilling_type_operation);
+  helical_movement_on_forward:    BOOLEAN;
+END_ENTITY;
+
+
+(* ************************************************************ *)
+(* ************************************************************ *)
+(*                                                              *)
+(* TYPES DEFINED IN TOOLS FOR TURNING     	ISO 14649-121   *)
+(*                                                              *)
+(* Version IS date: 2005-09-01 					*)
+(* Version 11 date: 2005-01-04 (unchanged)			*)
+(* Author: ISO TC184/SC1/WG7					*)
+(* ************************************************************ *)
+(* ************************************************************ *)
+
+ENTITY turning_machine_cutting_tool
+  SUBTYPE OF (machining_tool);
+  functional_length:		Length_data_element;
+  f_dimension:			Length_data_element;
+  minimum_cutting_diameter: 	OPTIONAL Length_data_element;
+  a_dimension_on_f: 		OPTIONAL Length_data_element;
+  a_dimension_on_lf: 		OPTIONAL Length_data_element;
+  cutting_edge: 		cutting_edge_properties;
+  hand_of_tool: 		OPTIONAL hand_of_tool_type;
+END_ENTITY;
+
+ENTITY cutting_edge_properties;
+  -- 10303-238: its_material now defined as inverse described below
+  -- its_material:		OPTIONAL material;
+
+  expected_tool_life:		OPTIONAL Duration;
+  its_technology: 		OPTIONAL technology;
+  cutting_edge_length: 		OPTIONAL Length_data_element;
+  tool_cutting_edge_angle: 	OPTIONAL Angle_data_element;
+  tool_cutting_edge_angle_type: OPTIONAL STRING;
+  tool_included_angle: 		OPTIONAL Angle_data_element;
+  corner_transitions: 		LIST [0:?] OF corner_transition;
+  maximum_side_cutting_depth: 	OPTIONAL Length_data_element;
+  maximum_end_cutting_depth: 	OPTIONAL Length_data_element;
+
+INVERSE
+  -- 10303-238: changed type to material_identification for ARM
+  --   integration.  Changed to inverse attribute to accommodate
+  --   definition of Material_identification.  The integrated
+  --   representation is unchanged.
+  its_material: SET[0:1] OF Material_identification FOR items;
+END_ENTITY;
+
+ENTITY corner_transition;
+  corner_identity:      INTEGER;
+  transition:           corner_transition_select;
+END_ENTITY;
+
+TYPE corner_transition_select = SELECT (
+  chamfered_corner,
+  rounded_corner,
+  profiled_corner);
+END_TYPE;
+
+ENTITY chamfered_corner;
+  corner_chamfer_angle: 	Angle_data_element;
+  corner_chamfer_length: 	OPTIONAL Length_data_element;
+  corner_chamfer_width: 	OPTIONAL Length_data_element;
+END_ENTITY;
+
+
+ENTITY rounded_corner;
+  corner_radius: Length_data_element;
+END_ENTITY;
+
+ENTITY profiled_corner;
+  transition_profile: open_profile;
+END_ENTITY;
+
+TYPE hand_of_tool_type = ENUMERATION OF (left,right,neutral);
+END_TYPE;
+
+
+ENTITY general_turning_tool
+  SUBTYPE OF (turning_machine_cutting_tool);
+END_ENTITY;
+
+ENTITY turning_threading_tool
+  SUBTYPE OF (turning_machine_cutting_tool);
+  threading_pitch:	Length_data_element;
+  thread_hand:		thread_hand_type;
+  its_thread_type:	thread_type;
+  thread_profile:	thread_profile_type;
+  thread_form_type:	STRING;
+END_ENTITY;
+
+TYPE thread_hand_type = ENUMERATION OF (left, right);
+END_TYPE;
+
+TYPE thread_type = ENUMERATION OF (internal, external);
+END_TYPE;
+
+TYPE thread_profile_type = ENUMERATION OF (full_profile, partial_profile);
+END_TYPE;
+
+ENTITY grooving_tool
+  SUBTYPE OF (turning_machine_cutting_tool);
+  cutting_width:		   Length_data_element;
+  maximum_grooving_depth:	   Length_data_element;
+  corner_radius:		   OPTIONAL Length_data_element;
+  maximum_axial_grooving_diameter: OPTIONAL Length_data_element;
+  minimum_axial_grooving_diameter: OPTIONAL Length_data_element;
+END_ENTITY;
+
+
+ENTITY knurling_tool
+  SUBTYPE OF (turning_machine_cutting_tool);
+  knurl_pattern:  knurl_pattern_type;
+  cutting_length: OPTIONAL Length_data_element;
+  angle: 	  OPTIONAL Angle_data_element;
+  pitch: 	  OPTIONAL Length_data_element;
+END_ENTITY;
+
+TYPE knurl_pattern_type = ENUMERATION OF (straight, diagonal, diamond);
+END_TYPE;
+
+
+ENTITY user_defined_turning_tool
+  SUBTYPE OF (turning_machine_cutting_tool);
+  identifier: label;
+END_ENTITY;
+
+
+
+
+(* ************************************************************ *)
+(* ************************************************************ *)
+(*                                                              *)
+(* TYPES DEFINED IN PROCESS DATA FOR TURNING  	ISO 14649-12    *)
+(*                                                              *)
+(* Version IS date: 2005-12-15 					*)
+(* Version 15 date: 2005-01-05 (unchanged)			*)
+(* Author: ISO TC184/SC1/WG7					*)
+(* ************************************************************ *)
+(* ************************************************************ *)
+
+
+(* ***** Turning workingstep ********************************************** *)
+ENTITY turning_workingstep
+  SUBTYPE OF (workingstep);
+  its_features:	LIST [2:?] OF Manufacturing_feature;
+  its_operation:        turning_machining_operation;
+  -- 10303-238: as_is, to_be, and removal now inherited from Executable
+  -- its_effect:       OPTIONAL in_process_geometry;
+  toolpath_orientation: OPTIONAL Axis_placement_3d; -- ADDED BY 10303-238
+END_ENTITY;
+
+
+(* ***** Turning technology *********************************************** *)
+ENTITY turning_technology
+  SUBTYPE OF (technology);
+  spindle_speed:		speed_select;
+  feed_per_revolution:		OPTIONAL feed_per_rev_type;
+  sync_spindle_and_z_feed: 	BOOLEAN;
+  inhibit_feedrate_override:	BOOLEAN;
+  inhibit_spindle_override: 	BOOLEAN;
+  its_adaptive_control: 	OPTIONAL adaptive_control;
+WHERE
+  WR1: (EXISTS(SELF.feedrate) AND 
+        NOT EXISTS(SELF.feed_per_revolution)) OR 
+        (NOT EXISTS(SELF.feedrate) AND EXISTS(SELF.feed_per_revolution));
+END_ENTITY;
+
+TYPE speed_select = SELECT (const_spindle_speed, const_cutting_speed);
+END_TYPE;
+
+
+ENTITY const_spindle_speed;
+  rot_speed:	Frequency_data_element;
+END_ENTITY;
+
+ENTITY const_cutting_speed;
+  speed:	Velocity_data_element;
+  max_speed: 	OPTIONAL Frequency_data_element;
+END_ENTITY;
+
+TYPE feed_per_rev_type = REAL;
+END_TYPE;
+
+TYPE feed_select = SELECT (
+	Velocity_data_element, -- feed_velocity_type
+	feed_per_rev_type);
+END_TYPE;
+
+
+
+(* ***** Turning machine functions **************************************** *)
+-- E2: changed ARM type of turning_machine_functions.other_functions
+-- from property_parameter to Representation_item.  Mapping unchanged.
+
+ENTITY turning_machine_functions
+  SUBTYPE OF (machine_functions);
+  coolant:		BOOLEAN;
+  coolant_type: 	OPTIONAL coolant_select;
+  coolant_pressure: 	OPTIONAL Pressure_data_element;
+  axis_clamping: 	LIST [0:?] OF identifier;
+  chip_removal: 	OPTIONAL BOOLEAN;
+  oriented_spindle_stop: OPTIONAL direction;
+  its_process_model:	OPTIONAL process_model_list;
+  other_functions: 	SET [0:?] OF Representation_item;
+  tail_stock: 		OPTIONAL BOOLEAN;
+  steady_rest: 		OPTIONAL BOOLEAN;
+  follow_rest: 		OPTIONAL BOOLEAN;
+END_ENTITY;
+
+
+TYPE coolant_select = ENUMERATION OF (flood, mist, through_tool);
+END_TYPE;
+
+
+(* ***** Turning strategy ************************************************* *)
+ENTITY turning_machining_strategy
+  ABSTRACT SUPERTYPE OF (ONEOF (unidirectional_turning, bidirectional_turning,
+    thread_strategy, contour_turning, grooving_strategy, explicit_turning_strategy));
+  overcut_length:		OPTIONAL Length_data_element;
+  allow_multiple_passes: 	OPTIONAL BOOLEAN;
+  cutting_depth: 		LIST[0:?] OF Length_data_element;
+  variable_feedrate: 		OPTIONAL Ratio_data_element;
+END_ENTITY;
+
+ENTITY unidirectional_turning
+  SUBTYPE OF (turning_machining_strategy);
+  feed_direction:	OPTIONAL direction;
+  back_path_direction:  OPTIONAL direction;
+  lift_direction: 	OPTIONAL direction;
+  stepover_direction: 	OPTIONAL direction;
+  lift_height: 		OPTIONAL Length_data_element;
+  lift_feed: 		OPTIONAL feed_select;
+  stepover_feed: 	OPTIONAL feed_select;
+END_ENTITY;
+
+ENTITY bidirectional_turning
+  SUBTYPE OF (turning_machining_strategy);
+  feed_direction:	OPTIONAL direction;
+  stepover_direction: 	OPTIONAL direction;
+  stepover_feed: 	OPTIONAL feed_select;
+END_ENTITY;
+
+ENTITY contour_turning
+  SUBTYPE OF (turning_machining_strategy);
+  feed_direction:	OPTIONAL direction;
+  back_path_direction: 	OPTIONAL direction;
+  lift_direction: 	OPTIONAL direction;
+  stepover_direction: 	OPTIONAL direction;
+  lift_height: 		OPTIONAL Length_data_element;
+  lift_feed: 		OPTIONAL feed_select;
+  stepover_feed: 	OPTIONAL feed_select;
+  variable_stepover_feed: OPTIONAL Ratio_data_element;
+END_ENTITY;
+
+ENTITY thread_strategy
+  SUBTYPE OF (turning_machining_strategy);
+  cut_in_amount_function: thread_cut_depth_type;
+  threading_direction: 	  threading_direction_type;
+  path_return_angle: 	  OPTIONAL Angle_data_element;
+  lift_height: 		  OPTIONAL Length_data_element;
+END_ENTITY;
+
+
+TYPE thread_cut_depth_type = ENUMERATION OF (constant_depth, variable_depth, constant_removal_amount);
+END_TYPE;
+
+TYPE threading_direction_type = ENUMERATION OF (left, right, center, left_zigzag, right_zigzag);
+END_TYPE;
+
+ENTITY grooving_strategy
+  SUPERTYPE OF (multistep_grooving_strategy)
+  SUBTYPE OF (turning_machining_strategy);
+  grooving_direction:	OPTIONAL direction;
+  travel_distance: 	OPTIONAL Length_data_element;
+END_ENTITY;
+
+ENTITY multistep_grooving_strategy
+  SUBTYPE OF (grooving_strategy);
+  retract_distance:	Length_data_element;
+END_ENTITY;
+
+ENTITY explicit_turning_strategy
+  SUBTYPE OF (turning_machining_strategy);
+END_ENTITY;
+
+
+(* ***** Turning operations *********************************************** *)
+ENTITY turning_machining_operation
+  ABSTRACT SUPERTYPE OF (ONEOF(facing, grooving, contouring, threading, knurling))
+  SUBTYPE OF (machining_operation);
+  approach:                     OPTIONAL approach_retract_strategy;
+  retract:                      OPTIONAL approach_retract_strategy;
+  its_machining_strategy:       OPTIONAL turning_machining_strategy;
+END_ENTITY;
+
+ENTITY facing
+  ABSTRACT SUPERTYPE OF (ONEOF(facing_rough, facing_finish))
+  SUBTYPE OF (turning_machining_operation);
+  allowance:	OPTIONAL Length_data_element;
+END_ENTITY;
+
+ENTITY facing_rough
+  SUBTYPE OF (facing);
+WHERE
+  WR1: EXISTS(SELF.allowance) AND (SELF.allowance >= 0.0);
+END_ENTITY;
+
+ENTITY facing_finish
+  SUBTYPE OF (facing);
+END_ENTITY;
+
+ENTITY grooving
+  ABSTRACT SUPERTYPE OF (ONEOF(grooving_rough, grooving_finish, cutting_in))
+  SUBTYPE OF (turning_machining_operation);
+  dwell:	OPTIONAL dwell_select;
+  allowance: 	OPTIONAL Length_data_element;
+END_ENTITY;
+
+ENTITY grooving_rough
+  SUBTYPE OF (grooving);
+WHERE
+  WR1: EXISTS(SELF.allowance) AND (SELF.allowance >= 0.0);
+END_ENTITY;
+
+ENTITY grooving_finish
+  SUBTYPE OF (grooving);
+END_ENTITY;
+
+ENTITY cutting_in
+  SUBTYPE OF (grooving);
+WHERE
+  WR1: NOT(EXISTS(SELF.allowance));
+END_ENTITY;
+
+TYPE dwell_revolution = REAL;
+END_TYPE;
+
+-- TYPE dwell_time = Duration;
+-- END_TYPE;
+
+TYPE dwell_select = SELECT (
+	Duration, -- dwell_time
+	dwell_revolution);
+END_TYPE;
+
+ENTITY contouring
+  ABSTRACT SUPERTYPE OF (ONEOF(contouring_rough, contouring_finish))
+  SUBTYPE OF (turning_machining_operation);
+  allowance:	OPTIONAL Length_data_element;
+END_ENTITY;
+
+ENTITY contouring_rough
+  SUBTYPE OF (contouring);
+WHERE
+  WR1: EXISTS(SELF.allowance) AND (SELF.allowance >= 0.0);
+END_ENTITY;
+
+ENTITY contouring_finish
+  SUBTYPE OF (contouring);
+END_ENTITY;
+
+ENTITY threading
+  ABSTRACT SUPERTYPE OF (ONEOF(threading_rough, threading_finish))
+  SUBTYPE OF (turning_machining_operation);
+  allowance:	OPTIONAL Length_data_element;
+END_ENTITY;
+
+ENTITY threading_rough
+  SUBTYPE OF (threading);
+WHERE
+  WR1: EXISTS(SELF.allowance) AND (SELF.allowance >= 0.0);
+END_ENTITY;
+
+ENTITY threading_finish
+  SUBTYPE OF (threading);
+END_ENTITY;
+
+ENTITY knurling
+  SUBTYPE OF (turning_machining_operation);
+END_ENTITY;
+
+
+END_SCHEMA;

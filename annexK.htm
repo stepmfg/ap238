@@ -292,13 +292,16 @@ Product_view_definition so that features and tolerances can also be
 provided with the geometry and topology.
 
 <P>Add <a href="clause4.htm#ao-fixture_usage">Fixture_usage</a>
-definition, which is referenced by Setup as "its_fixture_usage" to
-identify a particular usage of a fixture and associate a product model
-for the
+definition to identify a particular usage of a fixture and associate a
+product model for the
 fixture. Added <a href="clause5.htm#aim-machining_fixture_usage">machining_fixture_usage</a>
 to clause 5 for use in the mapping.  This replaces the first edition
 extension to Executable that referenced a workpiece directly as the
 its_fixture.</P>
+
+<P>Expand <a href="clause4.htm#ao-setup">Setup</a> to reference a
+<a href="clause4.htm#ao-fixture_usage">Fixture_usage</a> as
+"its_fixture_usage".
 
 <P>Expand <a href="clause4.htm#ao-tool_usage">Tool_usage</a>
 definition to include gage and tool-end placements, which clarify how
@@ -313,7 +316,7 @@ and other product information available for tools.</P>
 <P>Expand <a href="clause4.htm#ao-workplan">Workplan</a> with toolpath
 placement, referenced as "toolpath_orientation", to allow reuse of
 nested workplans or workingsteps in different locations.  This
-information was previously only available on workingsteps.</P>
+information was previously only available on Machining_workingstep.</P>
 
 <P>Replace Boolean_expression application object and all subtypes with
 the objects of the same name defined by ISO 10303-1526.  These objects
@@ -379,6 +382,9 @@ clause 5 to support high-speed milling operations. </P>
 
 <!-- ============================== -->
 <H3><A NAME="clause-K-1-7"></A>K.1.7 Changes in process data for milling UoF</H3>
+
+<p>No change.
+
 <!-- ============================== -->
 <H3><A NAME="clause-K-1-8"></A>K.1.8 Changes in cutting tools for milling UoF</H3>
 
@@ -389,9 +395,20 @@ representation has not changed.</P>
 
 <!-- ============================== -->
 <H3><A NAME="clause-K-1-9"></A>K.1.9 Changes in process data for turning UoF</H3>
+
+<P>Expand <a href="clause4.htm#ao-turning_workingstep">Turning_workingstep</a>
+with toolpath placement, referenced as "toolpath_orientation", to
+allow reuse of the toolpaths of an operation in a different location.
+This information was previously only available on
+Machining_workingstep.</P>
+
 <!-- ============================== -->
 <H3><A NAME="clause-K-1-10"></A>K.1.10 Changes in cutting tools for turning UoF</H3>
 
+<P>Replace <a href="clause4.htm#ao-cutting_edge_properties">Cutting_edge_properties</a>
+its_material parameter with an inverse attribute over
+Material_identification for ARM integration.  The integrated
+representation has not changed.</P>
 
 <!-- ============================== -->
 <H3><A NAME="clause-K-1-11"></A>K.1.11 Changes in geometric dimensioning and tolerancing UoF</H3>
@@ -482,20 +499,38 @@ ISO 10303-1779.</P>
 <!-- ============================== -->
 <H3><A NAME="clause-K-1-13"></A>K.1.13 Changes in management UoF</H3>
 
-<P>Replace the Assigned_date and Assigned_time application objects
-with a reference to the Date_or_date_time_assignment application
-object defined by ISO 10303-1014.</P>
+<P>Made <A href="#ao-last_modified_timestamp">Last_modified_timestamp</A>
+a subtype of Date_or_date_time_assignment for ARM integration.  The
+date_and_time_value and items data defined by the previous edition of
+this document are now given by the assigned_date and items data
+defined by Date_or_date_time_assignment.  The integrated
+representation of this information is unchanged.</P>
+
+<P>Replace Approval, Approval_relationship, Approval_status, and
+Approving_person_organization application object definitions and
+mappings with references to the definitions with the same names in ISO
+10303-1012.  The integrated representation of this information is
+unchanged.</P>
 
 <P>Replace the Assigned_organization and Assigned_person application
-objects with a reference to the
-Organization_or_person_in_organization_assignment application object
-defined by ISO 10303-1013.</P>
+object definitions and mappings with a reference to the
+Organization_or_person_in_organization_assignment definition in ISO
+10303-1013.  The integrated representation of this information is
+unchanged.
+
+<P>Replace the Assigned_date and Assigned_time application object
+definitions and mappings with a reference to the
+Date_or_date_time_assignment definition in ISO 10303-1014.  The
+integrated representation of this information is unchanged.</P>
+
+<P>Replace the Security_classification and
+Security_classification_assignment application object definitions and
+mappings with references to the definitions with the same names in ISO
+10303-1015.  The integrated representation of this information is
+unchanged.</P>
 
 
-
-
-
-<p class=pagefoot>Document TC184/SC4/WG15 N36
+<p class=pagefoot>Document TC184/SC4/WG15 N81
 </body>
 </html>
 

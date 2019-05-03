@@ -168,7 +168,7 @@ machining_project }
 </table>
 
 
-<H5><A NAME="map-manufacturing_project-main_workplan"></A>5.1.2.1.1 project to workplan (as main_workplan)</H5>
+<H5><A NAME="map-manufacturing_project-main_workplan"></A>5.1.2.1.1 manufacturing_project to workplan (as main_workplan)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -196,7 +196,7 @@ machining_workplan
 </table>
 
 
-<H5><A NAME="map-manufacturing_project-its_workpieces"></A>5.1.2.1.2 project to product_view_definition (as its_workpieces)</H5>
+<H5><A NAME="map-manufacturing_project-its_workpieces"></A>5.1.2.1.2 manufacturing_project to product_view_definition (as its_workpieces)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -218,7 +218,7 @@ product_definition
 </table>
 
 
-<H5><A NAME="map-manufacturing_project-its_owner"></A>5.1.2.1.3 project to person_in_organization (as its_owner)</H5>
+<H5><A NAME="map-manufacturing_project-its_owner"></A>5.1.2.1.3 manufacturing_project to person_in_organization (as its_owner)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -272,7 +272,7 @@ date_and_time
 </table>
 
 
-<H5><A NAME="map-manufacturing_project-its_status"></A>5.1.2.1.5 project to approval (as its_status)</H5>
+<H5><A NAME="map-manufacturing_project-its_status"></A>5.1.2.1.5 manufacturing_project to approval (as its_status)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -319,58 +319,7 @@ below.
 </tr>
 </table>
 
-
-<H5><A NAME="map-workpiece-its_id"></A>5.1.3.1.1 its_id</H5>
-
-<table class="map">
-<tr><th>AIM element:</th>
-<td>product.id</td>
-</tr>
-
-<tr><th>Source:</th>
-<td>10303-41</td>
-</tr>
-
-<tr><th>Reference path:</th>
-<td class="path">product_definition
-product_definition.formation -&gt;
-product_definition_formation
-product_definition_formation.of_product -&gt;
-product
-product.id
-</td>
-</tr>
-</table>
-
-
-<H5><A NAME="map-workpiece-its_material"></A>5.1.3.1.2 workpiece to material (as its_material)</H5>
-
-<table class="map">
-<tr><th>AIM element:</th>
-<td>PATH</td>
-</tr>
-
-<tr><th>Reference path:</th>
-<td class="path">product_definition &lt;-
-product_definition_relationship.relating_product_definition
-{product_definition_relationship =&gt;
-product_definition_usage =&gt;
-make_from_usage_option}
-product_definition_relationship
-product_definition_relationship.related_product_definition -&gt;
-product_definition
-characterized_product_definition = product_definition
-characterized_product_definition
-characterized_definition = characterized_product_definition
-characterized_definition &lt;-
-material_designation.definitions[i]
-material_designation
-</td>
-</tr>
-</table>
-
-
-<H5><A NAME="map-workpiece-global_tolerance"></A>5.1.3.1.3 global_tolerance</H5>
+<H5><A NAME="map-workpiece-global_tolerance"></A>5.1.3.1.1 global_tolerance</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -407,7 +356,7 @@ length_measure_with_unit
 </table>
 
 
-<H5><A NAME="map-workpiece-its_rawpiece"></A>5.1.3.1.4 workpiece to workpiece (as its_rawpiece)</H5>
+<H5><A NAME="map-workpiece-its_rawpiece"></A>5.1.3.1.2 workpiece to workpiece (as its_rawpiece)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -427,7 +376,7 @@ product_definition
 </table>
 
 
-<H5><A NAME="map-workpiece-its_geometry"></A>5.1.3.1.5 its_geometry</H5>
+<H5><A NAME="map-workpiece-its_geometry"></A>5.1.3.1.3 its_geometry</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -462,7 +411,7 @@ shape_representation
 </table>
 
 
-<H5><A NAME="map-workpiece-its_bounding_geometry"></A>5.1.3.1.6 its_bounding_geometry</H5>
+<H5><A NAME="map-workpiece-its_bounding_geometry"></A>5.1.3.1.4 its_bounding_geometry</H5>
 <div class="mapnote">
 <p>#1: if bounding geometry is a block</p>
 <p>#2: if bounding geometry is a  right_circular_cylinder</p>
@@ -522,7 +471,7 @@ cylindrical_shape_representation)
 </table>
 
 
-<H5><A NAME="map-workpiece-clamping_positions"></A>5.1.3.1.7 clamping_positions</H5>
+<H5><A NAME="map-workpiece-clamping_positions"></A>5.1.3.1.5 clamping_positions</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -559,7 +508,7 @@ cartesian_point
 </table>
 
 
-<H5><A NAME="map-workpiece-its_approvals"></A>5.1.3.1.8 workpiece to approval (as its_approvals)</H5>
+<H5><A NAME="map-workpiece-its_approvals"></A>5.1.3.1.6 workpiece to approval (as its_approvals)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -580,7 +529,7 @@ approval
 </table>
 
 
-<H5><A NAME="map-workpiece-its_categories"></A>5.1.3.1.9 its_categories</H5>
+<H5><A NAME="map-workpiece-its_categories"></A>5.1.3.1.7 its_categories</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -612,7 +561,7 @@ product_category.name
 </table>
 
 
-<H5><A NAME="map-workpiece-its_components"></A>5.1.3.1.10 workpiece to next_assembly_usage (as its_components)</H5>
+<H5><A NAME="map-workpiece-its_components"></A>5.1.3.1.8 workpiece to next_assembly_usage (as its_components)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -631,7 +580,7 @@ next_assembly_usage_occurrence
 </table>
 
 
-<H5><A NAME="map-workpiece-its_datestamps"></A>5.1.3.1.11 workpiece to date_or_date_time_assignment (as its_datestamps)</H5>
+<H5><A NAME="map-workpiece-its_datestamps"></A>5.1.3.1.9 workpiece to date_or_date_time_assignment (as its_datestamps)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -649,7 +598,7 @@ applied_date_assignment
 </table>
 
 
-<H5><A NAME="map-workpiece-its_orgs"></A>5.1.3.1.12 workpiece to organization_or_person_in_organization_assignment (as its_orgs)</H5>
+<H5><A NAME="map-workpiece-its_orgs"></A>5.1.3.1.10 workpiece to organization_or_person_in_organization_assignment (as its_orgs)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -667,7 +616,7 @@ applied_organization_assignment
 </table>
 
 
-<H5><A NAME="map-workpiece-its_people"></A>5.1.3.1.13 workpiece to organization_or_person_in_organization_assignment (as its_people)</H5>
+<H5><A NAME="map-workpiece-its_people"></A>5.1.3.1.11 workpiece to organization_or_person_in_organization_assignment (as its_people)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -685,7 +634,7 @@ applied_person_and_organization_assignment
 </table>
 
 
-<H5><A NAME="map-workpiece-its_related_geometry"></A>5.1.3.1.14 its_related_geometry</H5>
+<H5><A NAME="map-workpiece-its_related_geometry"></A>5.1.3.1.12 its_related_geometry</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -728,7 +677,7 @@ shape_representation
 </table>
 
 
-<H5><A NAME="map-workpiece-its_timestamps"></A>5.1.3.1.15 workpiece to date_or_date_time_assignment (as its_timestamps)</H5>
+<H5><A NAME="map-workpiece-its_timestamps"></A>5.1.3.1.13 workpiece to date_or_date_time_assignment (as its_timestamps)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -746,7 +695,7 @@ applied_date_and_time_assignment
 </table>
 
 
-<H5><A NAME="map-workpiece-product_approvals"></A>5.1.3.1.16 workpiece to approval (as product_approvals)</H5>
+<H5><A NAME="map-workpiece-product_approvals"></A>5.1.3.1.14 workpiece to approval (as product_approvals)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -771,7 +720,7 @@ approval
 </table>
 
 
-<H5><A NAME="map-workpiece-product_datestamps"></A>5.1.3.1.17 workpiece to date_or_date_time_assignment (as product_datestamps)</H5>
+<H5><A NAME="map-workpiece-product_datestamps"></A>5.1.3.1.15 workpiece to date_or_date_time_assignment (as product_datestamps)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -793,7 +742,7 @@ applied_date_assignment
 </table>
 
 
-<H5><A NAME="map-workpiece-product_orgs"></A>5.1.3.1.18 workpiece to organization_or_person_in_organization_assignment (as product_orgs)</H5>
+<H5><A NAME="map-workpiece-product_orgs"></A>5.1.3.1.16 workpiece to organization_or_person_in_organization_assignment (as product_orgs)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -815,7 +764,7 @@ applied_organization_assignment
 </table>
 
 
-<H5><A NAME="map-workpiece-product_people"></A>5.1.3.1.19 workpiece to organization_or_person_in_organization_assignment (as product_people)</H5>
+<H5><A NAME="map-workpiece-product_people"></A>5.1.3.1.17 workpiece to organization_or_person_in_organization_assignment (as product_people)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -837,7 +786,7 @@ applied_person_and_organization_assignment
 </table>
 
 
-<H5><A NAME="map-workpiece-product_timestamps"></A>5.1.3.1.20 workpiece to date_or_date_time_assignment (as product_timestamps)</H5>
+<H5><A NAME="map-workpiece-product_timestamps"></A>5.1.3.1.18 workpiece to date_or_date_time_assignment (as product_timestamps)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -859,7 +808,7 @@ applied_date_and_time_assignment
 </table>
 
 
-<H5><A NAME="map-workpiece-revision_approvals"></A>5.1.3.1.21 workpiece to approval (as revision_approvals)</H5>
+<H5><A NAME="map-workpiece-revision_approvals"></A>5.1.3.1.19 workpiece to approval (as revision_approvals)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -882,7 +831,7 @@ approval
 </table>
 
 
-<H5><A NAME="map-workpiece-revision_datestamps"></A>5.1.3.1.22 workpiece to date_or_date_time_assignment (as revision_datestamps)</H5>
+<H5><A NAME="map-workpiece-revision_datestamps"></A>5.1.3.1.20 workpiece to date_or_date_time_assignment (as revision_datestamps)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -902,7 +851,7 @@ applied_date_assignment
 </table>
 
 
-<H5><A NAME="map-workpiece-revision_id"></A>5.1.3.1.23 revision_id</H5>
+<H5><A NAME="map-workpiece-revision_id"></A>5.1.3.1.21 revision_id</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -925,7 +874,7 @@ product_definition_formation.id
 </table>
 
 
-<H5><A NAME="map-workpiece-revision_orgs"></A>5.1.3.1.24 workpiece to organization_or_person_in_organization_assignment (as revision_orgs)</H5>
+<H5><A NAME="map-workpiece-revision_orgs"></A>5.1.3.1.22 workpiece to organization_or_person_in_organization_assignment (as revision_orgs)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -945,7 +894,7 @@ applied_organization_assignment
 </table>
 
 
-<H5><A NAME="map-workpiece-revision_people"></A>5.1.3.1.25 workpiece to organization_or_person_in_organization_assignment (as revision_people)</H5>
+<H5><A NAME="map-workpiece-revision_people"></A>5.1.3.1.23 workpiece to organization_or_person_in_organization_assignment (as revision_people)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -965,7 +914,7 @@ applied_person_and_organization_assignment
 </table>
 
 
-<H5><A NAME="map-workpiece-revision_timestamps"></A>5.1.3.1.26 workpiece to date_or_date_time_assignment (as revision_timestamps)</H5>
+<H5><A NAME="map-workpiece-revision_timestamps"></A>5.1.3.1.24 workpiece to date_or_date_time_assignment (as revision_timestamps)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -2376,8 +2325,30 @@ shape_aspect
 </tr>
 </table>
 
+<H5><A NAME="map-machining_workingstep-its_operation"></A>5.1.5.11.2 machining_workingstep to machining_operation (as its_operation)</H5>
 
-<H5><A NAME="map-machining_workingstep-final_features"></A>5.1.5.11.2 machining_workingstep to manufacturing_feature (as final_features)</H5>
+<table class="map">
+<tr><th>AIM element:</th>
+<td>PATH</td>
+</tr>
+
+<tr><th>Reference path:</th>
+<td class="path">machining_workingstep &lt;=
+machining_process_executable &lt;=
+action_method &lt;-
+action_method_relationship.relating_method
+action_method_relationship
+{ action_method_relationship =&gt;
+machining_operation_relationship }
+action_method_relationship.related_method -&gt;
+action_method =&gt;
+machining_operation
+</td>
+</tr>
+</table>
+
+
+<H5><A NAME="map-machining_workingstep-final_features"></A>5.1.5.11.3 machining_workingstep to manufacturing_feature (as final_features)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -2413,29 +2384,6 @@ property_or_shape_select = shape_definition
 shape_definition
 shape_definition = shape_aspect
 shape_aspect
-</td>
-</tr>
-</table>
-
-
-<H5><A NAME="map-machining_workingstep-its_operation"></A>5.1.5.11.3 machining_workingstep to machining_operation (as its_operation)</H5>
-
-<table class="map">
-<tr><th>AIM element:</th>
-<td>PATH</td>
-</tr>
-
-<tr><th>Reference path:</th>
-<td class="path">machining_workingstep &lt;=
-machining_process_executable &lt;=
-action_method &lt;-
-action_method_relationship.relating_method
-action_method_relationship
-{ action_method_relationship =&gt;
-machining_operation_relationship }
-action_method_relationship.related_method -&gt;
-action_method =&gt;
-machining_operation
 </td>
 </tr>
 </table>
@@ -16871,6 +16819,39 @@ turning_type_operation
 </table>
 
 
+<H5><A NAME="map-turning_workingstep-toolpath_orientation"></A>5.1.10.27.3 toolpath_orientation</H5>
+
+<table class="map">
+<tr><th>AIM element:</th>
+<td>axis2_placement_3d</td>
+</tr>
+
+<tr><th>Source:</th>
+<td>10303-42</td>
+</tr>
+
+<tr><th>Reference path:</th>
+<td class="path">machining_workingstep &lt;=
+machining_process_executable &lt;=
+action_method
+characterized_action_definition = action_method
+characterized_action_definition &lt;-
+action_property.definition
+{ action_property.name = 'toolpath orientation' }
+action_property &lt;-
+action_property_representation.property
+action_property_representation
+action_property_representation.representation -&gt;
+representation
+representation.items[i] -&gt;
+representation_item =&gt;
+geometric_representation_item =&gt;
+placement =&gt;
+axis2_placement_3d
+</td>
+</tr>
+</table>
+
 
 <!-- ============================== -->
 <DIV><DIV class=quick>
@@ -18674,7 +18655,6 @@ is defined by ISO 10303-1129, ISO 10303-1291, ISO 10303-1331, and ISO
 
 <H3><A NAME="mapuof-management"></A>5.1.14 Mapping specification for management UoF</H3>
 
-
 <P>The mapping specification for the application objects in this UoF
 is defined by ISO 10303-1012, ISO 10303-1013, ISO 10303-1014, ISO
 10303-1015, and the specification below.
@@ -18761,209 +18741,220 @@ apply exclusively to those items that are imported into the AIM.</P>
 *)
 SCHEMA model_based_integrated_manufacturing_schema;
 
-USE FROM Additive_manufacturing_part_and_build_information_mim;  -- 10303-1835
-USE FROM Advanced_boundary_representation_mim;			 -- 10303-1514
-USE FROM Approval_mim; 						 -- 10303-1012
-USE FROM Construction_geometry_mim; 				 -- 10303-1131
-USE FROM Date_time_assignment_mim; 				 -- 10303-1014
-USE FROM Default_tolerance_mim;				 	 -- 10303-1052
-USE FROM Dimension_and_tolerance_callouts_mim;	 		 -- 10303-1362
-USE FROM Dimension_tolerance_mim;				 -- 10303-1050
-USE FROM Edge_based_wireframe_mim;				 -- 10303-1501
-USE FROM External_properties_mim; 				 -- 10303-1129
-USE FROM Faceted_boundary_representation_mim;			 -- 10303-1512
-USE FROM Geometric_tolerance_mim;				 -- 10303-1051
-USE FROM Geometrically_bounded_surface_mim;			 -- 10303-1507
-USE FROM Geometrically_bounded_wireframe_mim;			 -- 10303-1510
-USE FROM Kinematic_motion_representation_mim;			 -- 10303-1796
-USE FROM Kinematic_structure_mim; 				 -- 10303-1797
-USE FROM Machining_features_mim; 				 -- 10303-1814
-USE FROM Manifold_surface_mim;					 -- 10303-1509
-USE FROM Mechanical_design_features_and_requirements_mim;	 -- 10303-1846
-USE FROM Mechanical_design_presentation_representation_with_draughting_mim; -- 10303-1315
-USE FROM Non_manifold_surface_mim;				 -- 10303-1324
-USE FROM Person_organization_assignment_mim;			 -- 10303-1013
-USE FROM Plib_class_reference_mim; 				 -- 10303-1291
-USE FROM Product_and_manufacturing_annotation_presentation_mim;	 -- 10303-1812
-USE FROM Scan_data_3d_shape_mim; 				 -- 10303-1831
-USE FROM Security_classification_mim; 				 -- 10303-1015
-USE FROM Shell_based_wireframe_mim;				 -- 10303-1502
-USE FROM Tessellated_geometry_mim;				 -- 10303-1819
-USE FROM Topologically_bounded_surface_mim;			 -- 10303-1511
+-- Core workpiece and GDT definition for interoperating with AP242
+USE FROM Model_based_3d_geometrical_dimensioning_and_tolerancing_representation_mim;   -- 10303-1816
+   -- Activity_mim
+   -- Activity_method_mim
+   -- Activity_method_assignment_mim
+   -- Advanced_boundary_representation_mim
+   -- Alias_identification_mim
+   -- Alternative_solution_mim
+   -- Approval_mim
+   -- Assembly_structure_mim
+   -- Attribute_classification_mim
+   -- Basic_curve_mim
+   -- Basic_geometric_topology_mim
+   -- Basic_geometry_mim
+   -- B_spline_geometry_mim
+   -- Certification_mim
+   -- Characterizable_object_mim
+   -- Classification_assignment_mim
+   -- Classification_with_attributes_mim
+   -- Class_mim
+   -- Condition_mim
+   -- Configuration_effectivity_mim
+   -- Configuration_item_mim
+   -- Construction_geometry_mim
+   -- Contextual_shape_positioning_mim
+   -- Contract_mim
+   -- Date_time_mim
+   -- Date_time_assignment_mim
+   -- Derived_shape_element_mim
+   -- Design_material_aspects_mim
+   -- Design_product_data_management_mim
+   -- Dimension_tolerance_mim
+   -- Document_and_version_identification_mim
+   -- Document_assignment_mim
+   -- Document_definition_mim
+   -- Document_management_mim
+   -- Document_properties_mim
+   -- Document_structure_mim
+   -- Effectivity_application_mim
+   -- Effectivity_mim
+   -- Elemental_geometric_shape_mim
+   -- Elemental_topology_mim
+   -- Event_mim
+   -- Event_assignment_mim
+   -- Extended_date_mim
+   -- Extended_measure_representation_mim
+   -- External_class_mim
+   -- External_item_identification_assignment_mim
+   -- External_model_mim
+   -- External_source_mim
+   -- Feature_and_connection_zone_mim
+   -- File_identification_mim
+   -- Foundation_representation_mim
+   -- Functional_breakdown_mim
+   -- Generic_material_aspects_mim
+   -- Geometric_model_relationship_mim
+   -- Geometric_tolerance_mim
+   -- Group_mim
+   -- Identification_assignment_mim
+   -- Incomplete_data_reference_mechanism_mim
+   -- Independent_property_mim
+   -- Independent_property_representation_mim
+   -- Information_rights_mim
+   -- Item_definition_structure_mim
+   -- Management_resource_information_mim
+   -- Manifold_subsurface_mim
+   -- Manifold_surface_mim
+   -- Manufacturing_configuration_effectivity_mim
+   -- Maths_value_mim
+   -- Measure_representation_mim
+   -- Multi_linguism_mim
+   -- Name_assignment_mim
+   -- Parametric_representation_mim
+   -- Part_and_version_identification_mim
+   -- Part_collection_mim
+   -- Part_definition_relationship_mim
+   -- Part_shape_mim
+   -- Part_view_definition_mim
+   -- Person_organization_mim
+   -- Person_organization_assignment_mim
+   -- Physical_breakdown_mim
+   -- Plib_class_reference_mim
+   -- Pre_defined_product_data_management_specializations_mim
+   -- Process_property_assignment_mim
+   -- Product_and_manufacturing_information_with_nominal_3d_models_mim
+   -- Product_as_individual_mim
+   -- Product_breakdown_mim
+   -- Product_class_mim
+   -- Product_concept_identification_mim
+   -- Product_data_management_mim
+   -- Product_identification_mim
+   -- Product_occurrence_mim
+   -- Product_placement_mim
+   -- Product_replacement_mim
+   -- Product_structure_mim
+   -- Product_version_mim
+   -- Product_version_relationship_mim
+   -- Product_view_definition_mim
+   -- Product_view_definition_properties_mim
+   -- Product_view_definition_reference_mim
+   -- Product_view_definition_relationship_mim
+   -- Project_mim
+   -- Property_assignment_mim
+   -- Property_as_definition_mim
+   -- Qualified_measure_mim
+   -- Requirement_assignment_mim
+   -- Requirement_identification_and_version_mim
+   -- Requirement_view_definition_mim
+   -- Requirement_view_definition_relationship_mim
+   -- Security_classification_mim
+   -- Shape_composition_mim
+   -- Shape_feature_mim
+   -- Shape_property_assignment_mim
+   -- Single_part_representation_mim
+   -- Solid_model_mim
+   -- Specification_based_configuration_mim
+   -- Specification_control_mim
+   -- Specified_product_mim
+   -- Support_resource_mim
+   -- Surface_conditions_mim
+   -- Test_select_product_mim
+   -- Time_interval_mim
+   -- Time_interval_assignment_mim
+   -- Topologically_bounded_surface_mim
+   -- Value_with_unit_mim
+   -- Value_with_unit_extension_mim
+   -- Work_order_mim
+   -- Work_request_mim
 
-USE FROM action_schema						 -- 10303-41
-    (action,
-     action_method,
-     action_method_relationship,
-     action_resource,
-     action_resource_relationship,
+-- Feature definitions harmonized between STEP AP242/238/224 and ISO 141649
+USE FROM Mechanical_design_features_and_requirements_mim;	-- 10303-1846
+   -- Appearance_assignment_mim
+   -- Associative_draughting_elements_mim
+   -- Associative_text_mim
+   -- Basic_data_representation_mim
+   -- Characteristic_mim
+   -- Colour_mim
+   -- Curve_appearance_mim
+   -- Draughting_element_mim
+   -- External_library_mim
+   -- External_properties_mim
+   -- Machining_features_mim
+   -- Mechanical_design_features_and_requirements_mim
+   -- Specification_document_mim
+   -- Styled_curve_mim
+   -- Tagged_text_representation_mim
+   -- Text_appearance_mim
+
+-- Presentation and other PMI
+USE FROM Default_tolerance_mim;					-- 10303-1052
+USE FROM Dimension_and_tolerance_callouts_mim;			-- 10303-1362
+USE FROM Mechanical_design_presentation_representation_with_draughting_mim; -- 10303-1315
+USE FROM Product_and_manufacturing_annotation_presentation_mim; -- 10303-1812
+   -- Camera_view_3d_mim
+   -- Characterized_representation_mim
+   -- Default_setting_association_mim
+   -- Extended_basic_geometry_mim
+   -- Fill_area_style_mim
+   -- General_surface_appearance_mim
+   -- Layer_assignment_mim
+   -- Mechanical_design_geometric_presentation_mim
+   -- Mechanical_design_shaded_presentation_mim
+   -- Presentation_hierarchy_mim
+   -- Shape_appearance_layers_mim
+   -- Draughting_annotation_mim
+   -- Draughting_element_specialisations_mim
+
+USE FROM Design_product_data_management_mim;			-- 10303-1628
+USE FROM Geometric_validation_property_representation_mim; 	-- 10303-1039
+
+-- Shape representations types
+USE FROM Compound_shape_representation_mim;			-- 10303-1327
+USE FROM Curve_swept_solid_mim;					-- 10303-1659
+USE FROM Edge_based_wireframe_mim;				-- 10303-1501
+USE FROM Elementary_boundary_representation_mim;		-- 10303-1329
+USE FROM Faceted_boundary_representation_mim; 			-- 10303-1512
+USE FROM Geometrically_bounded_surface_mim;			-- 10303-1507
+USE FROM Geometrically_bounded_wireframe_mim;			-- 10303-1510
+USE FROM Non_manifold_surface_mim;				-- 10303-1324
+USE FROM Primitive_solids_mim;					-- 10303-1791
+USE FROM Scan_data_3d_shape_mim; 				-- 10303-1831
+USE FROM Shell_based_wireframe_mim;				-- 10303-1502
+USE FROM Tessellated_geometry_mim;				-- 10303-1819
+USE FROM Topologically_bounded_surface_mim;			-- 10303-1511
+USE FROM Vertex_colours_for_tessellated_geometry_mim;		-- 10303-1836
+
+-- Machine tool kinematic representation
+USE FROM Kinematic_analysis_control_and_result_mim;		-- 10303-1817
+
+-- Additive manufacturing setup and support
+USE FROM Additive_manufacturing_part_and_build_information_mim;	-- 10303-1835
+   -- Process_plan_mim
+   -- Resource_item_mim
+   
+USE FROM External_representation_item_mim;			-- 10303-1779
+USE FROM Numeric_expression_mim;				-- 10303-1526
+USE FROM Product_categorization_mim;				-- 10303-1016
+
+
+USE FROM action_schema						-- 10303-41
+    (action_resource_relationship,
      action_resource_type);
 
-USE FROM application_context_schema				 -- 10303-41
-    (application_context,
-     application_context_element,
-     application_protocol_definition,
-     product_context,
-     product_definition_context);
-
-USE FROM geometric_model_schema					 -- 10303-42
-    (block,
-     right_circular_cylinder);
-
-USE FROM geometry_schema					 -- 10303-42
-    (bounded_curve,
-     bounded_surface,
-     elementary_surface,
-     geometric_representation_context);
-
-USE FROM iso13584_expressions_schema				 -- 13584-20
-    (and_expression,
-     binary_boolean_expression,
-     boolean_expression,
-     comparison_equal,
-     comparison_expression,
-     comparison_greater,
-     comparison_greater_equal,
-     comparison_less,
-     comparison_less_equal,
-     comparison_not_equal,
-     expression,
-     int_literal,
-     int_numeric_variable,
-     literal_number,
-     multiple_arity_boolean_expression,
-     not_expression,
-     numeric_expression,
-     numeric_variable,
-     or_expression,
-     real_literal,
-     real_numeric_variable,
-     simple_numeric_expression,
-     unary_boolean_expression,
-     xor_expression);
-
-USE FROM iso13584_generic_expressions_schema			 -- 13584-20
-    (binary_generic_expression,
-     generic_expression);
-
-USE FROM material_property_definition_schema			 -- 10303-45
-    (material_designation,
-     material_designation_characterization,
-     material_property);
-
-USE FROM material_property_representation_schema		 -- 10303-45
-    (material_property_representation);
-
-USE FROM measure_schema						 -- 10303-41
-    (area_measure,
-     context_dependent_measure,
-     context_dependent_unit,
-     conversion_based_unit,
-     count_measure,
-     derived_unit,
-     descriptive_measure,
-     global_unit_assigned_context,
-     length_measure_with_unit,
-     length_unit,
-     mass_measure,
-     mass_measure_with_unit,
-     mass_unit,
-     measure_with_unit,
-     named_unit,
-     numeric_measure,
-     parameter_value,
-     plane_angle_measure_with_unit,
-     plane_angle_unit,
-     positive_plane_angle_measure,
-     ratio_measure,
-     ratio_measure_with_unit,
-     ratio_unit,
-     si_unit,
-     solid_angle_measure,
-     solid_angle_measure_with_unit,
-     solid_angle_unit,
-     time_measure,
-     time_measure_with_unit,
-     time_unit,
-     volume_measure);
-
-USE FROM method_definition_schema				 -- 10303-49
+USE FROM method_definition_schema				-- 10303-49
     (action_method_with_associated_documents,
      concurrent_action_method,
      sequential_method,
      serial_action_method);
 
-USE FROM process_property_representation_schema			 -- 10303-49
-    (action_property_representation,
-     resource_property_representation);
+USE FROM representation_schema					-- 10303-43
+    (representation_item_relationship);
 
-USE FROM process_property_schema				 -- 10303-49
-    (action_property,
-     action_resource_requirement,
-     characterized_action_definition,
-     characterized_resource_definition,
-     process_product_association,
-     process_property_association,
-     property_process,
-     requirement_for_action_resource,
-     resource_property,
-     resource_requirement_type);
-
-USE FROM product_definition_schema				 -- 10303-41
-    (product,
-     product_category,
-     product_category_relationship,
-     product_definition,
-     product_definition_formation,
-     product_definition_formation_with_specified_source,
-     product_definition_relationship,
-     product_definition_with_associated_documents,
-     product_related_product_category);
-
-USE FROM product_property_definition_schema			 -- 10303-41
-    (characterized_object,
-     product_definition_shape,
-     property_definition,
-     shape_aspect,
-     shape_aspect_relationship,
-     shape_definition);
-
-USE FROM product_property_representation_schema			 -- 10303-41
-    (context_dependent_shape_representation,
-     property_definition_representation,
-     shape_definition_representation,
-     shape_representation,
-     shape_representation_relationship);
-
-USE FROM product_structure_schema				 -- 10303-44
-    (make_from_usage_option,
-     next_assembly_usage_occurrence);
-
-USE FROM qualified_measure_schema				 -- 10303-45
-    (descriptive_representation_item,
-     expanded_uncertainty,
-     measure_qualification,
-     measure_representation_item,
-     precision_qualifier,
-     qualified_representation_item,
-     qualitative_uncertainty,
-     standard_uncertainty,
-     uncertainty_qualifier,
-     value_qualifier);
-
-USE FROM representation_schema					 -- 10303-43
-    (compound_representation_item,
-     global_uncertainty_assigned_context,
-     item_defined_transformation,
-     list_representation_item,
-     mapped_item,
-     representation,
-     representation_item,
-     representation_item_relationship,
-     representation_relationship,
-     representation_relationship_with_transformation,
-     set_representation_item,
-     value_representation_item);
+USE FROM systems_engineering_representation_schema		-- 10303-61
+    (expression_item_representation_item);
 (*
 </PRE>
 
@@ -20114,7 +20105,7 @@ Only one descriptive_representation_item instance is needed to describe the 'chi
 
 <H5><A NAME="aim-mbmfg_approval_item"></A>5.2.2.1.1 mbmfg_approval_item</H5>
 
-<P>The <B>mbmfg_approval_item</B> type is an extension of the <b>approval_item</b> type.    It adds the data types <B>product</B>, <B>product_definition</B>, and <B>product_definition_formation</B> to which an <B>approval</B> may be assigned.</P>
+<P>The <B>mbmfg_approval_item</B> type is an extension of the <b>approval_item</b> type.  It adds the data types <B>product</B>, <B>product_definition</B>, and <B>product_definition_formation</B> to which an <B>approval</B> may be assigned.</P>
 
 <H6 CLASS="section-underlined">EXPRESS specification:</H6>
 <PRE CLASS="code">
@@ -20130,7 +20121,7 @@ END_TYPE;
 
 <H5><A NAME="aim-mbmfg_classification_item"></A>5.2.2.1.2 mbmfg_classification_item</H5>
 
-<P>The <B>mbmfg_classification_item</B> type is an extension of the <b>classification_item</b> type.    It adds the data type <B>externally_defined_representation_with_parameters</B> to which a <B>group</B> may be assigned.</P>
+<P>The <B>mbmfg_classification_item</B> type is an extension of the <b>classification_item</b> type.  It adds the data type <B>externally_defined_representation_with_parameters</B> to which a <B>group</B> may be assigned.</P>
 
 <H6 CLASS="section-underlined">EXPRESS specification:</H6>
 <PRE CLASS="code">
@@ -20146,7 +20137,7 @@ END_TYPE;
 
 <H5><A NAME="aim-mbmfg_date_and_time_item"></A>5.2.2.1.3 mbmfg_date_and_time_item</H5>
 
-<P>The <B>mbmfg_date_and_time_item</B> type is an extension of the <b>date_and_time_item</b> type.    It adds the data types <B>machining_operation</B>, <B>machining_process_executable</B>, <B>machining_toolpath</B>, <B>product</B>, <B>product_definition</B>, and <B>product_definition_formation</B> to which a referenced <B>date_and_time</B> may be assigned.</P>
+<P>The <B>mbmfg_date_and_time_item</B> type is an extension of the <b>date_and_time_item</b> type.  It adds the data types <B>machining_operation</B>, <B>machining_process_executable</B>, <B>machining_toolpath</B>, <B>product</B>, <B>product_definition</B>, and <B>product_definition_formation</B> to which a referenced <B>date_and_time</B> may be assigned.</P>
 
 <H6 CLASS="section-underlined">EXPRESS specification:</H6>
 <PRE CLASS="code">
@@ -20165,7 +20156,7 @@ END_TYPE;
 
 <H5><A NAME="aim-mbmfg_date_item"></A>5.2.2.1.4 mbmfg_date_item</H5>
 
-<P>The <B>mbmfg_date_and_time_item</B> type is an extension of the <b>date_and_time_item</b> type.    It adds the data types <B>product</B>, <B>product_definition</B>, and <B>product_definition_formation</B> to which a referenced <B>date</B> may be assigned.</P>
+<P>The <B>mbmfg_date_item</B> type is an extension of the <b>date_item</b> type.  It adds the data types <B>product</B>, <B>product_definition</B>, and <B>product_definition_formation</B> to which a referenced <B>date</B> may be assigned.</P>
 
 <H6 CLASS="section-underlined">EXPRESS specification:</H6>
 <PRE CLASS="code">
@@ -20183,7 +20174,7 @@ END_TYPE;
 
 <H5><A NAME="aim-mbmfg_organization_item"></A>5.2.2.1.5 mbmfg_organization_item</H5>
 
-<P>The <B>mbmfg_organization_item</B> type is an extension of the <b>organization_item</b> type.    It adds the data types <B>product</B>, <B>product_definition</B>, and <B>product_definition_formation</B> to which a referenced <B>organization</B> may be assigned.</P>
+<P>The <B>mbmfg_organization_item</B> type is an extension of the <b>organization_item</b> type.  It adds the data types <B>product</B>, <B>product_definition</B>, and <B>product_definition_formation</B> to which a referenced <B>organization</B> may be assigned.</P>
 
 <H6 CLASS="section-underlined">EXPRESS specification:</H6>
 <PRE CLASS="code">
@@ -20216,9 +20207,30 @@ END_TYPE;
 
 
 
+<H5><A NAME="aim-mbmfg_presented_item_select"></A>5.2.2.1.7 mbmfg_presented_item_select</H5>
+
+<P>The <B>mbmfg_presented_item_select</B> type is an extension of the <b>presented_item_select</b> type.  It adds the data types <b>action</b>, <b>action_method</b>, <b>action_relationship</b>, <b>product_concept</b>, <b>product_concept_feature</b>, <b>product_concept_feature_category</b>, <B>product_definition</B>, and <B>product_definition_formation</B>, and <b>product_definition_relationship</b> to which a referenced <B>presented_item</B> may be assigned.</P>
+
+<H6 CLASS="section-underlined">EXPRESS specification:</H6>
+<PRE CLASS="code">
+*)
+TYPE mbmfg_presented_item_select = SELECT BASED_ON presented_item_select WITH (
+	action,
+	action_method,
+	action_relationship,
+	product_concept,
+	product_concept_feature,
+	product_concept_feature_category,
+	product_definition,
+	product_definition_formation,
+	product_definition_relationship
+	);
+END_TYPE;
+(*
+</PRE>
 
 
-<H5><A NAME="aim-mbmfg_security_classification_item"></A>5.2.2.1.7 mbmfg_security_classification_item</H5>
+<H5><A NAME="aim-mbmfg_security_classification_item"></A>5.2.2.1.8 mbmfg_security_classification_item</H5>
 
 <P>The <B>mbmfg_security_classification_item</B> type is an extension of the <b>security_classification_item</b> type.    It adds the data types <B>machining_operation</B>, <B>machining_process_executable</B>, <B>machining_toolpath</B>, <B>product_definition</B>, and <B>product_definition_formation</B> to which a referenced <B>security_classification</B> may be assigned.</P>
 
@@ -20232,6 +20244,30 @@ TYPE mbmfg_security_classification_item = SELECT BASED_ON security_classificatio
 	product_definition,
 	product_definition_formation
         );
+END_TYPE;
+(*
+</PRE>
+
+
+<H5><A NAME="aim-mbmfg_action_method_items"></A>5.2.2.1.9 mbmfg_action_method_items</H5>
+
+<P>The <B>mbmfg_action_method_items</B> type is an extension of the <b>action_method_items</b> type.    It adds the data types <b>characterized_object</b>, <b>dimensional_location</b>, <b>dimensional_size</b>, <b>geometric_tolerance</b>, <B>machining_cutting_component</B>, <B>machining_execution_resource</B>, <B>machining_tool</B>, <B>product_definition</B>, <B>product_definition_formation</B>, and <b>shape_aspect</b> to which a referenced <B>action_method</B> may be assigned.</P>
+
+<H6 CLASS="section-underlined">EXPRESS specification:</H6>
+<PRE CLASS="code">
+*)
+TYPE mbmfg_action_method_items = SELECT BASED_ON action_method_items WITH (
+	characterized_object,		-- feature, old and new style
+	dimensional_location,
+	dimensional_size,
+	geometric_tolerance,
+	machining_cutting_component,
+	machining_execution_resource,
+	machining_tool,
+	product_definition,		-- workpiece, setup
+	product_definition_formation,	-- project
+	shape_aspect			-- feature, transitions
+	);
 END_TYPE;
 (*
 </PRE>
@@ -26672,6 +26708,6 @@ END_SCHEMA;
 
 
 
-<p class=pagefoot>Document TC184/SC4/WG15 N36
+<p class=pagefoot>Document TC184/SC4/WG15 N81
 </body>
 </html>
