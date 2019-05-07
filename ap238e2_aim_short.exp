@@ -238,6 +238,8 @@ USE FROM representation_schema					-- 10303-43
 USE FROM systems_engineering_representation_schema		-- 10303-61
     (expression_item_representation_item);
 
+USE FROM application_context_schema				-- 10303-41
+    (application_protocol_definition);
 
 
 (* ======================================== *)
@@ -330,11 +332,8 @@ END_TYPE;
 -- The additive manufacturing module defines a stub for MPE.  Use this version
 -- in the final long form.
 
-(* SHTOLO use inherited stub
-
 ENTITY machining_process_executable
   SUBTYPE OF (process_operation);
---  SUBTYPE OF (action_method);
   WHERE
   WR1:  NOT (0 = SIZEOF (TYPEOF (SELF) *
             ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_FEATURE_PROCESS',
@@ -493,8 +492,6 @@ ENTITY machining_workplan
 
   WR4:  (verify_optional_in_process_geometry (SELF));
 END_ENTITY;
-
-SHTOLO   *)
 
 ENTITY machining_feature_process
   SUBTYPE OF (machining_process_executable);
