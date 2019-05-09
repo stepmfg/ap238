@@ -3187,6 +3187,12 @@ ENTITY additive_manufacturing_support_structure_geometry_relationship
   SUBTYPE OF (additive_manufacturing_setup_relationship);
 END_ENTITY; -- 10303-1835: additive_manufacturing_part_and_build_information_mim
 
+ENTITY additive_type_operation
+  SUBTYPE OF (machining_operation);
+  WHERE
+    WR1:  (SELF.description IN ['oned','twod']);
+END_ENTITY; -- 10303-238: model_based_integrated_manufacturing_schema
+
 ENTITY address;
     internal_location       : OPTIONAL label;
     street_number           : OPTIONAL label;
@@ -8554,6 +8560,12 @@ END_ENTITY; -- 10303-61: systems_engineering_representation_schema
 
 ENTITY expression_representation_item
   SUBTYPE OF (representation_item, generic_expression);
+END_ENTITY; -- 10303-238: model_based_integrated_manufacturing_schema
+
+ENTITY extended_type_operation
+  SUBTYPE OF (machining_operation);
+  WHERE
+    WR1:  EXISTS (self.description);
 END_ENTITY; -- 10303-238: model_based_integrated_manufacturing_schema
 
 ENTITY extended_tuple_space

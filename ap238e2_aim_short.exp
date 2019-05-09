@@ -1770,6 +1770,22 @@ ENTITY turning_type_strategy
         );
 END_ENTITY;
 
+(* ======================================== *)
+(* ADDITIVE OPERATION SUBTYPES (From Part 17) *)
+
+-- following the pattern of milling_type_operation, drilling_type_operation, and turning_type_operation
+
+ENTITY additive_type_operation
+  SUBTYPE OF (machining_operation);
+  WHERE
+  WR1:  (SELF.description IN ['oned','twod']);
+END_ENTITY;
+
+ENTITY extended_type_operation
+  SUBTYPE OF (machining_operation);
+  WHERE
+  WR1:  EXISTS (self.description);
+END_ENTITY;
 
 
 (* ======================================== *)

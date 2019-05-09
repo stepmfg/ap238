@@ -15,14 +15,14 @@
 
 <p>The second edition includes specific changes based on experience
 accumulated from deployment of the first edition in the period
-2007-2016 and documented in TC184/SC4/WG15N2, as well as changes to
+2007-2019 and documented in TC184/SC4/WG15N2, as well as changes to
 harmonize with the latest edition of AP242 via shared references to
 the 1000-series parts of ISO 10303.  These changes include grammar
 fixes, wording fixes, and the following.</p>
 
 
 <!-- ============================== -->
-<H3><A NAME="clause-K-1-1"></A>K.1.1 Changes in measure UoF</H3>
+<H3><A NAME="clause-K-1-measure"></A>K.1.1 Changes in measure UoF</H3>
 
 <P>Change the <a href="clause4.htm#uof-measure">measure UoF</a> to
 reference application object definitions and mappings from ISO
@@ -57,7 +57,7 @@ Dimension_value_with_limitation.</P>
 
 
 <!-- ============================== -->
-<H3><A NAME="clause-K-1-2"></A>K.1.2 Changes in project UoF</H3>
+<H3><A NAME="clause-K-1-project"></A>K.1.2 Changes in project UoF</H3>
 
 <P>Rename the Project application object
 to <a href="clause4.htm#ao-manufacturing_project">Manufacturing_project</a>
@@ -72,7 +72,7 @@ to the Person_in_organization application object defined by ISO
 
 
 <!-- ============================== -->
-<H3><A NAME="clause-K-1-3"></A>K.1.3 Changes in workpiece UoF</H3>
+<H3><A NAME="clause-K-1-workpiece"></A>K.1.3 Changes in workpiece UoF</H3>
 
 <P>Made <a href="clause4.htm#ao-workpiece">Workpiece</a> a subtype of
 Product_view_definition for ARM integration.  Mapping is unchanged but
@@ -140,7 +140,7 @@ application object supported by ISO 10303-242.</P>
 
 
 <!-- ============================== -->
-<H3><A NAME="clause-K-1-4"></A>K.1.4 Changes in manufacturing feature UoF</H3>
+<H3><A NAME="clause-K-1-feature"></A>K.1.4 Changes in manufacturing feature UoF</H3>
 
 <P>Move the Manufacturing_feature application object from
 the <a href="clause4.htm#uof-workpiece ">workpiece UoF</a> into the
@@ -275,7 +275,7 @@ application objects have changed.</P>
 </UL>
 
 <!-- ============================== -->
-<H3><A NAME="clause-K-1-5"></A>K.1.5 Changes in executable UoF</H3>
+<H3><A NAME="clause-K-1-executable"></A>K.1.5 Changes in executable UoF</H3>
 
 <P>Expand <a href="clause4.htm#ao-executable">Executable</a> with
 "enabled" attribute to permit any process element to be marked as
@@ -359,7 +359,18 @@ under previous editions.
 
 
 <!-- ============================== -->
-<H3><A NAME="clause-K-1-6"></A>K.1.6 Changes in toolpath UoF</H3>
+<H3><A NAME="clause-K-1-operation"></A>K.1.6 Changes in operation UoF</H3>
+
+<P>Add <a href="clause4.htm#ao-extended_operation">Extended_operation</a>
+to permit use with process descriptions not described by ISO 14649-11,
+ISO 14649-12, and ISO 14649-17.  </P>
+
+<P>Add <a href="clause5.htm#extended_type_operation">extended_type_operation</a>
+to clause 5 to support mapping of Extended_operation. </P>
+
+
+<!-- ============================== -->
+<H3><A NAME="clause-K-1-toolpath"></A>K.1.7 Changes in toolpath UoF</H3>
 
 <P>Expand <a href="clause4.htm#ao-trajectory">Trajectory</a> (the
 supertype of all toolpaths) with cross section parameters for a more
@@ -381,12 +392,12 @@ clause 5 to support high-speed milling operations. </P>
 
 
 <!-- ============================== -->
-<H3><A NAME="clause-K-1-7"></A>K.1.7 Changes in process data for milling UoF</H3>
+<H3><A NAME="clause-K-1-milling_process"></A>K.1.8 Changes in process data for milling UoF</H3>
 
 <p>No change.
 
 <!-- ============================== -->
-<H3><A NAME="clause-K-1-8"></A>K.1.8 Changes in cutting tools for milling UoF</H3>
+<H3><A NAME="clause-K-1-milling_tools"></A>K.1.9 Changes in cutting tools for milling UoF</H3>
 
 <P>Replace <a href="clause4.htm#ao-cutting_component">Cutting_component</a>
 its_material parameter with an inverse attribute over
@@ -394,7 +405,7 @@ Material_identification for ARM integration.  The integrated
 representation has not changed.</P>
 
 <!-- ============================== -->
-<H3><A NAME="clause-K-1-9"></A>K.1.9 Changes in process data for turning UoF</H3>
+<H3><A NAME="clause-K-1-turning_process"></A>K.1.10 Changes in process data for turning UoF</H3>
 
 <P>Expand <a href="clause4.htm#ao-turning_workingstep">Turning_workingstep</a>
 with toolpath placement, referenced as "toolpath_orientation", to
@@ -403,7 +414,7 @@ This information was previously only available on
 Machining_workingstep.</P>
 
 <!-- ============================== -->
-<H3><A NAME="clause-K-1-10"></A>K.1.10 Changes in cutting tools for turning UoF</H3>
+<H3><A NAME="clause-K-1-turning_tools"></A>K.1.11 Changes in cutting tools for turning UoF</H3>
 
 <P>Replace <a href="clause4.htm#ao-cutting_edge_properties">Cutting_edge_properties</a>
 its_material parameter with an inverse attribute over
@@ -411,8 +422,34 @@ Material_identification for ARM integration.  The integrated
 representation has not changed.</P>
 
 <!-- ============================== -->
-<H3><A NAME="clause-K-1-11"></A>K.1.11 Changes in geometric dimensioning and tolerancing UoF</H3>
+<H3><A NAME="clause-K-1-additive_process"></A>K.1.12 Changes in process data for additive manufacturing UoF</H3>
 
+<P>Add new <A href="#uof-additive_process">process data for additive
+manufacturing UoF</A> which describes the machining actions defined by
+ISO 14649-17, with application object definitions and mappings for the
+following objects.
+
+<UL>
+<LI><A href="#ao-am_liquid_technology"></A>Am_liquid_technology;</LI>
+<LI><A href="#ao-am_machine_functions"></A>Am_machine_functions;</LI>
+<LI><A href="#ao-am_oned_operation"></A>Am_oned_operation;</LI>
+<LI><A href="#ao-am_operation"></A>Am_operation;</LI>
+<LI><A href="#ao-am_powder_technology"></A>Am_powder_technology;</LI>
+<LI><A href="#ao-am_protective_atmosphere"></A>Am_protective_atmosphere;</LI>
+<LI><A href="#ao-am_solid_technology"></A>Am_solid_technology;</LI>
+<LI><A href="#ao-am_technology"></A>Am_technology;</LI>
+<LI><A href="#ao-am_twod_operation"></A>Am_twod_operation;</LI>
+<LI><A href="#ao-am_workingstep"></A>Am_workingstep;</LI>
+<LI><A href="#ao-am_workpiece"></A>Am_workpiece.</LI>
+</UL>
+
+<P>Add <a href="clause5.htm#additive_type_operation">additive_type_operation</a>
+to clause 5 to support mapping of Am_operation and subtypes. </P>
+
+
+
+<!-- ============================== -->
+<H3><A NAME="clause-K-1-gdt"></A>K.1.13 Changes in geometric dimensioning and tolerancing UoF</H3>
 
 <P>Change the <a href="clause4.htm#uof-gdt">geometric dimensioning and
 tolerancing UoF</a> to reference the following feature application
@@ -479,7 +516,7 @@ externally_defined_dimension_definition, and
 placed_datum_target_feature.</P>
 
 <!-- ============================== -->
-<H3><A NAME="clause-K-1-12"></A>K.1.12 Changes in library reference UoF</H3>
+<H3><A NAME="clause-K-1-library_reference"></A>K.1.14 Changes in library reference UoF</H3>
 
 <P>Replace the entire library reference UoF with references to
 appropriate module definitions.
@@ -497,7 +534,7 @@ Library_property_value is now External_representation_item defined by
 ISO 10303-1779.</P>
 
 <!-- ============================== -->
-<H3><A NAME="clause-K-1-13"></A>K.1.13 Changes in management UoF</H3>
+<H3><A NAME="clause-K-1-management"></A>K.1.15 Changes in management UoF</H3>
 
 <P>Made <A href="#ao-last_modified_timestamp">Last_modified_timestamp</A>
 a subtype of Date_or_date_time_assignment for ARM integration.  The
