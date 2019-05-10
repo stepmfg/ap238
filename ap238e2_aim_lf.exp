@@ -1,4 +1,4 @@
-	SCHEMA model_based_integrated_manufacturing_schema;
+SCHEMA model_based_integrated_manufacturing_schema;
 (*
     ISO TC184/SC4/WG15N81 (superceeds N36)
     ISO WORKING DRAFT 10303-238 Edition 2
