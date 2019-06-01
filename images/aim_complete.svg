@@ -1,24 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<title>ISO 10303-238</title>
-<link rel="stylesheet" href="style.css">
-</head>
-<body>
-<p class=pagehead>Working Draft ISO 10303-238 Edition 2</p>
-
-
-<H1 CLASS="annex"><A NAME="clause-H"></A>Annex H<BR>(informative)<BR><BR>AIM EXPRESS-G</H1>
-
-<P>The diagrams in this annex correspond to the AIM EXPRESS expanded listing given in <a href="annexA.htm">Annex A</a>. The diagrams use the EXPRESS-G graphical notation for the EXPRESS language. EXPRESS-G is defined in Annex D of ISO 10303-11:1994.</P>
-
-
-
-
-<DIV class="expg">
-<FIGURE><A NAME="fig-aim"></A>
-
+<?xml version="1.0" standalone="no" ?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg width="13268px" height="10182px" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" >
 <style>
 /* <![CDATA[ */
@@ -28677,13 +28658,3 @@ text { font-family: Arial; font-size: 10px; }
 <path d="M2377 3147 L 2435 3147" />
 <path d="M2377 3178 L 2407 3178" />
 </svg>
-
-<FIGCAPTION>Figure H.1 &mdash; AIM EXPRESS-G diagram</FIGCAPTION>
-</FIGURE>
-</DIV>
-
-
-
-<p class=pagefoot>Document TC184/SC4/WG15 N81
-</body>
-</html>
