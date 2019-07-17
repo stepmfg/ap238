@@ -1,21 +1,8 @@
-SCHEMA model_based_integrated_manufacturing_schema;
+	SCHEMA model_based_integrated_manufacturing_schema;
 (*
-    ISO TC184/SC4/WG15N81 (superceeds N36)
+    ISO TC184/SC4/WG15N94 (superceeds N81)
     ISO WORKING DRAFT 10303-238 Edition 2
     AIM EXPRESS LONG FORM
-
-    2019-05-03 -- Completed integration with the modules for the
-      measure, workpiece, manufacturing feature, GD&T, library
-      reference, and management UoFs.
-
-    2018-05-30 -- Converted AIC references to modules for the shape
-      representations and features.  Changed P47 refs to modules for
-      tolerances, dimensions, and associative presentation PMI.  Added
-      module refs for tesselated, point cloud, and construction
-      geometry shape reps, additive setup and kinematic description of
-      machine tool models.  Imported management modules 1012-1015
-      rather than defining the assignments locally.  Renamed the
-      schema to match new title of AP.
  *)
 
 CONSTANT
@@ -3166,6 +3153,10 @@ END_ENTITY; -- 10303-105: kinematic_structure_schema
 ENTITY additive_manufacturing_build_plate_relationship
   SUBTYPE OF (additive_manufacturing_setup_relationship);
 END_ENTITY; -- 10303-1835: additive_manufacturing_part_and_build_information_mim
+
+ENTITY additive_manufacturing_feature
+   SUBTYPE OF (feature_definition);
+END_ENTITY; -- 10303-238: model_based_integrated_manufacturing_schema
 
 ENTITY additive_manufacturing_setup
   SUBTYPE OF (product);
