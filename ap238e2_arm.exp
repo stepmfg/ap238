@@ -2315,5 +2315,12 @@ ENTITY Extended_operation
   description:               text;
 END_ENTITY;
 
+ENTITY Machine_with_kinematics
+  SUBTYPE OF (Product_view_definition);
+  configuration:  OPTIONAL identifier;
+  mechanism: Mechanism_representation;
+END_ENTITY;
+
+
 
 END_SCHEMA;
