@@ -3150,9 +3150,17 @@ ENTITY actuated_kinematic_pair
     r_z : OPTIONAL actuated_direction;
 END_ENTITY; -- 10303-105: kinematic_structure_schema
 
+ENTITY additive_manufacturing_atom
+   SUBTYPE OF (shape_aspect);
+END_ENTITY; -- 10303-238: model_based_integrated_manufacturing_schema
+
 ENTITY additive_manufacturing_build_plate_relationship
   SUBTYPE OF (additive_manufacturing_setup_relationship);
 END_ENTITY; -- 10303-1835: additive_manufacturing_part_and_build_information_mim
+
+ENTITY additive_manufacturing_construction
+   SUBTYPE OF (shape_aspect);
+END_ENTITY; -- 10303-238: model_based_integrated_manufacturing_schema
 
 ENTITY additive_manufacturing_feature
    SUBTYPE OF (feature_definition);

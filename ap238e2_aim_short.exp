@@ -1770,6 +1770,14 @@ ENTITY additive_manufacturing_feature
    SUBTYPE OF (feature_definition);
 END_ENTITY;
 
+ENTITY additive_manufacturing_construction
+   SUBTYPE OF (shape_aspect);
+END_ENTITY;
+
+ENTITY additive_manufacturing_atom
+   SUBTYPE OF (shape_aspect);
+END_ENTITY;
+
 ENTITY extended_type_operation
   SUBTYPE OF (machining_operation);
   WHERE
