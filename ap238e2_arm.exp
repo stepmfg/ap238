@@ -1,7 +1,7 @@
 SCHEMA ap238_arm_schema;
 (*
-    ISO TC184/SC4/WG15N94 (superceeds N81)
-    ISO WORKING DRAFT 10303-238 Edition 2
+    ISO TC184/SC4/WG15N94 (supersedes N81)
+    ISO/DIS 10303-238 Edition 2
     ARM EXPRESS SHORT FORM
 
   ------------------------------

@@ -222,6 +222,7 @@ $html{tochead} = <<'PERL_EOF';
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<p class=pagehead>ISO/DIS 10303-238</p>
 
 <H1 CLASS="unum">Contents</H1>
 
@@ -273,7 +274,7 @@ $html{tail} = <<'PERL_EOF';
 
 </div>
 
-<p class=pagefoot>Document TC184/SC4/WG15 Nxxx
+<p class=pagefoot>&copy; ISO 2020 &mdash; All rights reserved
 </body>
 </html>
 PERL_EOF
