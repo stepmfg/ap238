@@ -15,20 +15,20 @@
 
 <H2><A NAME="clause-5-1"></A>5.1 Mapping specification</H2>
 
-<P>This clause contains the mapping specification that shows how each UoF and application object of this part of ISO 10303 (see <a href="clause4.htm">clause 4</a>) maps to one or more AIM constructs (see <a href="annexA.htm">Annex A</a>). Each mapping specifies up to five elements.</P>
+<P>This clause contains the mapping specification that shows how each UoF and application object of this document (see <a href="clause4.htm">clause 4</a>) maps to one or more AIM constructs (see <a href="annexA.htm">Annex A</a>). Each mapping specifies up to five elements.</P>
 
 <P CLASS="note">
-<SPAN>NOTE</SPAN> It is customary to present mapping specifications in alphabetical order by UoF name, however this part of ISO 10303 presents the mapping specification in the same order as they appear in clause 4.1.  This ordering matches the ordering of clauses in the ISO 14649 parts and is intended to simplify reference between these documents.</P>
+<SPAN>NOTE</SPAN> It is customary to present mapping specifications in alphabetical order by UoF name, however this document presents the mapping specification in the same order as they appear in clause 4.1.  This ordering matches the ordering of clauses in the ISO 14649 parts and is intended to simplify reference between these documents.</P>
 
 <P><b>Application element</b>: The mapping for each application element is specified in a separate sub-clause below. Application element names are given in title case. Attribute names and assertions are listed after the the application object to which they belong and are given in lower case.</P>
 
 <P><b>AIM element</b>: The name of one or more AIM entity data types (see <a href="annexA.htm">Annex A</a>), the term &quot;IDENTICAL MAPPING&quot;, or the term &quot;PATH&quot;. AIM entity data type names are given in lower case. Attributes of AIM entity data types are referred to as &lt;entity name&gt;.&lt;attribute name&gt;.  The mapping of an application element may involve more than one AIM element.  Each of these AIM elements is presented on a separate line in the mapping specification.  The term &quot;IDENTICAL MAPPING&quot; indicates that both application objects involved in an application assertion  map to the same instance of an AIM entity data type.  The term &quot;PATH&quot; indicates that the application assertion maps to a collection of related AIM entity instances specified by the entire reference path.</P>
 
-<P><b>Source</b>: For those AIM elements that are interpreted  from any common resource, this is the ISO standard number and part number in which the resource is defined.  For those AIM elements that are created for the purposes of this part of IOS 10303, this is &quot;ISO 10303-&quot; followed by the number of this part.</P>
+<P><b>Source</b>: For those AIM elements that are interpreted  from any common resource, this is the ISO standard number and part number in which the resource is defined.  For those AIM elements that are created for the purposes of this document, this is &quot;ISO 10303-&quot; followed by the number of this part.</P>
 
 <P><b>Rules</b>: One or more global rules may be specified that apply to the population of the AIM entity data types specified as the AIM element or in the reference path. For rules that are derived from relationships between application objects, the same rule is referred to by the mapping entries of all the involved AIM elements. A reference to a global rule may be accompanied by a reference to the subclause in which the rule is defined.</P>
 
-<P><b>Reference path</b>: To describe fully the mapping of an application object, it may be necessary to specify a reference path involving several related AIM elements.  Each line in the reference path documents the role of an AIM element relative to the AIM element in the line following it.   Two or more such related AIM elements define the interpretation of the integrated resources that satisfies the requirement specified by  the application object. For each AIM element that has been created for use within this part of ISO 10303, a reference path to its supertype from an integrated resource is specified.</P>
+<P><b>Reference path</b>: To describe fully the mapping of an application object, it may be necessary to specify a reference path involving several related AIM elements.  Each line in the reference path documents the role of an AIM element relative to the AIM element in the line following it.   Two or more such related AIM elements define the interpretation of the integrated resources that satisfies the requirement specified by  the application object. For each AIM element that has been created for use within this document, a reference path to its supertype from an integrated resource is specified.</P>
 
 <P>For the expression of reference paths and of the constraints between AIM elements, the following notational conventions apply:</P>
 
@@ -20567,8 +20567,8 @@ date_time_role
 
 <P>This clause specifies the EXPRESS schema that uses elements from
 the the common resources and contains the types, entity
-specializations, rules, and functions that are specific to this part
-of ISO 10303. This clause also specifies modifications to the text for
+specializations, rules, and functions that are specific to this
+document. This clause also specifies modifications to the text for
 constructs that are imported from the common resources. The
 definitions and EXPRESS provided in the integrated resources for
 constructs used in the AIM may include select list items and subtypes
@@ -20812,13 +20812,13 @@ USE FROM application_context_schema				-- 10303-41
 
 <P>Where the ISO 14649 standards describe requirements not already handled by other APs, this integration process is straightforward.  However, there are several areas where the ISO 14649 standards redefine concepts that have already been addressed by existing application protocols.</P>
 
-<P>The first is the definition of manufacturing features.  Requirements for manufacturing features are documented in ISO 10303-1816.  During development of the ISO 14649 standards, efforts were made to align ISO 14649 feature definitions with those already existing in ISO 10303.  Progress was made, but a number of differences remain.  See <a href="#funcon-feature">Manufacturing feature concepts</a> for discussion of the general feature concepts and <a href="#funcon-feature-bytype">Manufacturing feature details by type</a> for an explanation of how differences are handled for specific feature types within this part of ISO 10303.</P>
+<P>The first is the definition of manufacturing features.  Requirements for manufacturing features are documented in ISO 10303-1816.  During development of the ISO 14649 standards, efforts were made to align ISO 14649 feature definitions with those already existing in ISO 10303.  Progress was made, but a number of differences remain.  See <a href="#funcon-feature">Manufacturing feature concepts</a> for discussion of the general feature concepts and <a href="#funcon-feature-bytype">Manufacturing feature details by type</a> for an explanation of how differences are handled for specific feature types within this document.</P>
 
 <P>The second is the use of units of measurement.  The ISO 14649 standards constrain the usage of units to simplify their model.  Within the context of ISO 10303 application protocols, this constraint is inappropriate because of the general unit handling mechanism of the ISO 10303 integrated resources.  See <a href="#measure-concepts">Measurement concepts</a> for discussion of measurement concepts in more detail. </P>
 
 <P>In addition, there are several places where the ISO 14649 standards directly reference ISO 10303 integrated resources without giving any context as to how they should be used.  To cover these situations, additional definitions have been added to Clause 4 to provide guidance.  The ISO 10303 integrated representation also requires additional context descriptions for some types of information  See <a href="#context-concepts">Context concepts</a> for discussion of these context descriptions.</P>
 
-<P>Finally, there are information requirements which were not considered by ISO 14649 for the isolated case of input to a CNC control, but which must be considered by this part of ISO 10303 for integrating across the lifecycle such as geometric dimensions and tolerances.  Additional definitions have been added to Clause 4 to handle these.</P>
+<P>Finally, there are information requirements which were not considered by ISO 14649 for the isolated case of input to a CNC control, but which must be considered by this document for integrating across the lifecycle such as geometric dimensions and tolerances.  Additional definitions have been added to Clause 4 to handle these.</P>
 
 
 <H4><A NAME="funcon-feature"></A>5.2.1.2 Manufacturing feature concepts</H4>
@@ -20865,7 +20865,7 @@ USE FROM application_context_schema				-- 10303-41
 
 
 
-<P>ISO 14649 requires a depth surface for all machining_feature types, even where profile and path information is available.  Within this part of ISO 10303, this constraint is relaxed since depth is already available from the profile and path parameters. The depth surface is represented by a parameter called &quot;maximum feature depth,&quot; which is also an optional parameter in the AP 224 and AP 214 models.</P>
+<P>ISO 14649 requires a depth surface for all machining_feature types, even where profile and path information is available.  Within this document, this constraint is relaxed since depth is already available from the profile and path parameters. The depth surface is represented by a parameter called &quot;maximum feature depth,&quot; which is also an optional parameter in the AP 224 and AP 214 models.</P>
 <P CLASS="note">
 <SPAN>NOTE</SPAN> Why were the reference points for features done this way?  Before it is machined, the top of a feature often corresponds to a tangible location on the stock where a machinist could measure or make a mark.  The bottom of the feature is usually buried within the stock.</P>
 <P CLASS="note">
@@ -20981,7 +20981,7 @@ In the ISO 14649 representation, the feature placement location defines the top 
 
 
 
-<P>AP 224 and other parts of ISO 10303 identify features on the final form of the workpiece that are not necessarily tied to a specific sequence of machining processes.  These features are used as input to the process planning activity.  The output of macro process-planning may be described as an AP 240 data set that will include these features but may identify additional intermediate features related to a particular process.   This part of ISO 10303 describes the micro process-plan and is concerned with the features associated with a particular process, but it is desirable to link the features on the final form with  the set of workingsteps that contribute to their manufacture.   This associativity through the entire design to manufacturing path is useful for related downstream tasks, such as inspection, which could use the tracability to pinpoint critical areas of interest in the micro and macro process-plans.</P>
+<P>AP 224 and other parts of ISO 10303 identify features on the final form of the workpiece that are not necessarily tied to a specific sequence of machining processes.  These features are used as input to the process planning activity.  The output of macro process-planning may be described as an AP 240 data set that will include these features but may identify additional intermediate features related to a particular process.   This document describes the micro process-plan and is concerned with the features associated with a particular process, but it is desirable to link the features on the final form with  the set of workingsteps that contribute to their manufacture.   This associativity through the entire design to manufacturing path is useful for related downstream tasks, such as inspection, which could use the tracability to pinpoint critical areas of interest in the micro and macro process-plans.</P>
 <P CLASS="note">
 <SPAN>EXAMPLE 2</SPAN> <a href="#fig-inprocess_final">Figure 10</a> shows a workpiece whose final form contains a step and an open slot.  The input to the process planner was an open slot and step, and for whatever reason, he decided to machine the slot first and the step second.    The workplan contains two workingsteps, the first of which refers to a closed slot and the second of which refers to the step.</P>
 <P CLASS="note">
@@ -20998,7 +20998,7 @@ A similar situation arises for &quot;consumed&quot; features such as entry holes
 
 
 
-<P>ISO 14649 links the machining_workingstep application object to the feature that defines its removal volume through the its_feature attribute.  In this part of ISO 10303, an optional attribute called final_features has been added to machining_workingstep to support traceability back to the features used as input to the process planning activity.</P>
+<P>ISO 14649 links the machining_workingstep application object to the feature that defines its removal volume through the its_feature attribute.  In this document, an optional attribute called final_features has been added to machining_workingstep to support traceability back to the features used as input to the process planning activity.</P>
 
 <P>If used, this attribute contains a set of one or more features visible on the final form of the workpiece that the process planner was targeting when he or she added the machining_workingstep to the machining workplan.</P>
 
@@ -21022,7 +21022,7 @@ A similar situation arises for &quot;consumed&quot; features such as entry holes
 
 <P>In ISO 14649, the placement of the feature is defined to lie at the top of the material to be removed.  One must then geometrically evaluate the distance between this placement and the depth surface to determine the depth of material.</P>
 
-<P>This part of ISO 10303 adds the removal_depth and removal_direction attributes to the planar_face application object. These attributes are present for harmonization with the other ISO 10303 parts and also simplify conversion between the two conventions.</P>
+<P>This document adds the removal_depth and removal_direction attributes to the planar_face application object. These attributes are present for harmonization with the other ISO 10303 parts and also simplify conversion between the two conventions.</P>
 
 <P>To convert to the ISO 14649 representation, move the placement along the direction given by the removal_direction by the distance given by the removal_depth attribute.</P>
 
@@ -21043,7 +21043,7 @@ A similar situation arises for &quot;consumed&quot; features such as entry holes
 
 <P>In ISO 14649, a hole does not use profile or path definitions. Instead, the diameter is an attribute of the Round_hole definition.  To convey depth, the feature placement is assumed to be at the top of the hole with Z pointed away from the material.  To determine the depth of the hole, one must geometrically evaluate the distance in the negative Z direction between this placement and the depth surface.  </P>
 
-<P>This part of ISO 10303 adds the course_of_travel attribute to the Round_hole application object.  This attribute represents the travel path for harmonization with the other ISO 10303 parts and simplifies conversion between the two conventions.</P>
+<P>This document adds the course_of_travel attribute to the Round_hole application object.  This attribute represents the travel path for harmonization with the other ISO 10303 parts and simplifies conversion between the two conventions.</P>
 
 <P>To convert to the ISO 14649 representation, construct the depth surface if it is not present and adjust the feature placement.  For a placement at the top of the hole (bottom_at_path_end is TRUE), rotate the feature placement about the X axis so that Z =&gt; -Z and Y =&gt; -Y.   For a placement at the bottom of the hole (bottom_at_path_end is FALSE), move the placement in the Z direction by the length of the course_of_travel path.</P>
 
@@ -21064,7 +21064,7 @@ A similar situation arises for &quot;consumed&quot; features such as entry holes
 
 <P>In ISO 14649, the pocket definitions have a profile but not a path attribute.  In order to convey depth, the placement of the feature is assumed to be at the top of the feature with Z pointed away from the material.  To determine the depth of the pocket, one must geometrically evaluate the distance in the negative Z direction between this placement and the depth surface.</P>
 
-<P>This part of ISO 10303 adds the course_of_travel attribute to the Pocket application object. This attribute represents the travel path for harmonization with the other ISO 10303 parts and simplifies conversion between the two conventions.</P>
+<P>This document adds the course_of_travel attribute to the Pocket application object. This attribute represents the travel path for harmonization with the other ISO 10303 parts and simplifies conversion between the two conventions.</P>
 
 <P>To convert to the ISO 14649 representation, construct the depth surface if it is not present and adjust the feature placement.  For a placement at the top of the pocket (bottom_at_path_end is TRUE), rotate the feature placement about the X axis so that Z =&gt; -Z and Y =&gt; -Y.   For a placement at the bottom of the pocket (bottom_at_path_end is FALSE), move the placement in the Z direction by the length of the course_of_travel path.</P>
 
@@ -21118,7 +21118,7 @@ A similar situation arises for &quot;consumed&quot; features such as entry holes
 
 <P>In ISO 14649, the slot definition has a profile and path, but uses a different convention for the location and orientation of the feature placement.  The placement is defined at the top of the material with the Z axis pointing up and the travel path is defined to extend along the Y axis.  To determine the depth of the slot, one must geometrically evaluate the distance in the negative Z direction between this placement and the depth surface.</P>
 
-<P>This part of ISO 10303 adds depth attributes to the Square_u_profile and Rounded_u_profile application objects.  These attributes represent the depth of the profiles for harmonization with the other ISO 10303 parts and to simplify conversion between the two conventions.  The depths of other open profile types can be computed from existing parameters.</P>
+<P>This document adds depth attributes to the Square_u_profile and Rounded_u_profile application objects.  These attributes represent the depth of the profiles for harmonization with the other ISO 10303 parts and to simplify conversion between the two conventions.  The depths of other open profile types can be computed from existing parameters.</P>
 
 <P>To convert to the ISO 14649 representation, rotate the feature placement about the X axis so that Z =&gt; Y and Y =&gt; -Z.  Then move the placement along the length of the course_of_travel and depth of the swept profile.</P>
 
@@ -21141,7 +21141,7 @@ A similar situation arises for &quot;consumed&quot; features such as entry holes
 
 <P>In ISO 14649, the step definition has a profile and path, but uses a different convention for the location and orientation of the feature placement.  The placement is defined at the top of the material with the Z axis pointing up and the travel path is defined to extend along the Y axis.  To determine the depth of the step, one must geometrically evaluate the distance in the negative Z direction between this placement and the depth surface.</P>
 
-<P>This part of ISO 10303 adds the first_side_length and second_side_length attributes to the Vee_profile application object.  These attributes represent the length of each arm of the vee for harmonization with the other ISO 10303 parts and to simplify conversion between the two conventions.</P>
+<P>This document adds the first_side_length and second_side_length attributes to the Vee_profile application object.  These attributes represent the length of each arm of the vee for harmonization with the other ISO 10303 parts and to simplify conversion between the two conventions.</P>
 
 <P>To convert to the ISO 14649 representation, rotate the feature placement about the X axis so that Z =&gt; Y and Y =&gt; -Z.  Then move the placement along the length of the course_of_travel and the second_side_length arm of the vee profile.  </P>
 
@@ -21156,7 +21156,7 @@ A similar situation arises for &quot;consumed&quot; features such as entry holes
 <P CLASS="note">
 <SPAN>NOTE 1</SPAN>  Why were two approaches used?  Historically, the ISO 10303 approach was defined first, but this requires that brep geometry be present in order to describe transition features.  From the ISO 14649 perspective, geometry is optional and may be omitted, so it made sense to define transition features as a relationship between two features instead. </P>
 
-<P>This part of ISO 10303 extends the Chamfer and Edge_round application objects to support the use of both approaches.  This was done by adding chamfer_face, first_face_shape and second_face_shape attributes to Chamfer and adding edge_round_face, first_face_shape and second_face_shape attributes to Edge_round.  These attributes are optional and represent the faces associated with the transition features for harmonization with the other ISO 10303 parts.  <a href="#fig-transition">Figure 18</a> shows both approaches for transition features.  </P>
+<P>This document extends the Chamfer and Edge_round application objects to support the use of both approaches.  This was done by adding chamfer_face, first_face_shape and second_face_shape attributes to Chamfer and adding edge_round_face, first_face_shape and second_face_shape attributes to Edge_round.  These attributes are optional and represent the faces associated with the transition features for harmonization with the other ISO 10303 parts.  <a href="#fig-transition">Figure 18</a> shows both approaches for transition features.  </P>
 
 
 
@@ -21730,7 +21730,7 @@ The cubic millimetre unit is encoded by #20, which is a derived_unit based on a 
 
 <P>ISO 14649 defines the direction of spindle rotation to be counter-clockwise when described as a positive rotational speed value, and clockwise when described as a negative rotational speed value.  However, ISO 14649-11 is silent on the direction of rotation when spindle speed is described as a linear speed value.</P>
 
-<P>In this part of ISO 10303, the same sign convention shall be used for spindle speeds described as either rotational or linear speeds: positive linear speed describes counter-clockwise spindle rotation and negative linear speed describes clockwise spindle rotation.  The rotational direction is as observed looking from spindle to workpiece.   A zero rotational or linear speed shall indicate a stopped spindle.</P>
+<P>In this document, the same sign convention shall be used for spindle speeds described as either rotational or linear speeds: positive linear speed describes counter-clockwise spindle rotation and negative linear speed describes clockwise spindle rotation.  The rotational direction is as observed looking from spindle to workpiece.   A zero rotational or linear speed shall indicate a stopped spindle.</P>
 <P CLASS="note">
 <SPAN>NOTE</SPAN> Many cutting tools require clockwise motion so spindle speeds will typically be negative.</P>
 
@@ -21830,7 +21830,7 @@ Only one descriptive_representation_item instance is needed to describe the 'chi
 
 <H5><A NAME="context-product"></A>5.2.1.5.2 Product and product_definition contexts</H5>
 
-<P>Within this part of ISO 10303, <a href="clause4.htm#ao-manufacturing_project">Project</a>, <a href="clause4.htm#ao-setup">Setup</a>, and <a href="clause4.htm#ao-workpiece">Workpiece</a> are encoded in the integrated representation as products.  Like representations, additional context information is also required for these products.</P>
+<P>Within this document, <a href="clause4.htm#ao-manufacturing_project">Project</a>, <a href="clause4.htm#ao-setup">Setup</a>, and <a href="clause4.htm#ao-workpiece">Workpiece</a> are encoded in the integrated representation as products.  Like representations, additional context information is also required for these products.</P>
 
 <P>A product is required to have a product_context which identifies engineering discipline from whose point of view the data is being presented by the application protocol. This in turn refers to an application_context and application_protocol_definition which describes the application protocol used to describe the product, the schema name, and status of the application protocol within the ISO standardization process.  It is recommended to instantiate the product_context, application_context, and application_protocol_definition entities exactly once in the data set.</P>
 
@@ -21840,7 +21840,7 @@ Only one descriptive_representation_item instance is needed to describe the 'chi
 <SPAN>NOTE</SPAN> A value of &quot;manufacturing&quot; is recommended for both product_context discipline_type and  product_definition_context life_cycle_stage.</P>
 
 <P CLASS="note">
-<SPAN>EXAMPLE</SPAN> In the exchange file fragment below, #10, #20, and #30 are the product structure instances encoding a workpiece with its_id = &quot;1234-K789&quot; and a revision_id = &quot;1.0&quot;.   The product_context (#40) identifies a design discipline, the product_definition_context (#70) identifies a life cycle stage, and instances #50 and #60 identifies this part of ISO 10303.</P>
+<SPAN>EXAMPLE</SPAN> In the exchange file fragment below, #10, #20, and #30 are the product structure instances encoding a workpiece with its_id = &quot;1234-K789&quot; and a revision_id = &quot;1.0&quot;.   The product_context (#40) identifies a design discipline, the product_definition_context (#70) identifies a life cycle stage, and instances #50 and #60 identifies this document.</P>
 
 <PRE CLASS="note">
 #10=PRODUCT('1234-K789','widget','a fictional product',(#40));
@@ -22662,7 +22662,7 @@ END_ENTITY;
 
 <H5><A NAME="aim-extended_type_operation"></A>5.2.3.1.15 extended_type_operation</H5>
 
-<P>An <B>extended_type_operation</B> is a type of <B>machining_operation</B> that represents the details of a manufacturing step of a machining process that is not described by other capabilities of this part of ISO 10303.</P>
+<P>An <B>extended_type_operation</B> is a type of <B>machining_operation</B> that represents the details of a manufacturing step of a machining process that is not described by other capabilities of this document.</P>
 
 <H6 CLASS="section-underlined">EXPRESS specification:</H6>
 <PRE CLASS="code">
@@ -26636,11 +26636,11 @@ END_ENTITY;
 
 <H5><A NAME="aim-application_context"></A>5.2.3.2.1 application_context</H5>
 
-<P>The base definition of the <B>application_context</B> entity is given in ISO 10303-41. The following modifications apply to this part of ISO 10303.</P>
+<P>The base definition of the <B>application_context</B> entity is given in ISO 10303-41. The following modifications apply to this document.</P>
 
 <H6 CLASS="section-underlined">Associated global rules:</H6>
 
-<P>The following global rule defined in this part of ISO 10303 applies to the <B>application_context</B> entity:</P>
+<P>The following global rule defined in this document applies to the <B>application_context</B> entity:</P>
 <UL>
 <LI>See <a href="#aim-application_context_requires_ap_definition">application_context_requires_ap_definition</a>.</LI>
 </UL>
@@ -26649,11 +26649,11 @@ END_ENTITY;
 
 <H5><A NAME="aim-application_protocol_definition"></A>5.2.3.2.2 application_protocol_definition</H5>
 
-<P>The base definition of the <B>application_protocol_definition</B> entity is given in ISO 10303-41. The following modifications apply to this part of ISO 10303.</P>
+<P>The base definition of the <B>application_protocol_definition</B> entity is given in ISO 10303-41. The following modifications apply to this document.</P>
 
 <H6 CLASS="section-underlined">Associated global rules:</H6>
 
-<P>The following global rule defined in this part of ISO 10303 applies to the <B>application_protocol_definition</B> entity:</P>
+<P>The following global rule defined in this document applies to the <B>application_protocol_definition</B> entity:</P>
 <UL>
 <LI>See <a href="#aim-application_context_requires_ap_definition">application_context_requires_ap_definition</a>.</LI>
 </UL>
@@ -26661,11 +26661,11 @@ END_ENTITY;
 
 <H5><A NAME="aim-derived_unit"></A>5.2.3.2.3 derived_unit</H5>
 
-<P>The base definition of the <B>derived_unit</B> entity is given in ISO 10303-41. The following modifications apply to this part of ISO 10303.</P>
+<P>The base definition of the <B>derived_unit</B> entity is given in ISO 10303-41. The following modifications apply to this document.</P>
 
 <H6 CLASS="section-underlined">Associated global rules:</H6>
 
-<P>The following global rule defined in this part of ISO 10303 applies to the <B>derived_unit</B> entity:</P>
+<P>The following global rule defined in this document applies to the <B>derived_unit</B> entity:</P>
 <UL>
 <LI>See <a href="#aim-dependent_instantiable_derived_unit">dependent_instantiable_derived_unit</a>.</LI>
 </UL>
@@ -26674,11 +26674,11 @@ END_ENTITY;
 
 <H5><A NAME="aim-named_unit"></A>5.2.3.2.4 named_unit</H5>
 
-<P>The base definition of the <B>named_unit</B> entity is given in ISO 10303-41. The following modifications apply to this part of ISO 10303.</P>
+<P>The base definition of the <B>named_unit</B> entity is given in ISO 10303-41. The following modifications apply to this document.</P>
 
 <H6 CLASS="section-underlined">Associated global rules:</H6>
 
-<P>The following global rule defined in this part of ISO 10303 applies to the <B>named_unit</B> entity:</P>
+<P>The following global rule defined in this document applies to the <B>named_unit</B> entity:</P>
 <UL>
 <LI>See <a href="#aim-dependent_instantiable_named_unit">dependent_instantiable_named_unit</a>.</LI>
 </UL>
@@ -26687,11 +26687,11 @@ END_ENTITY;
 
 <H5><A NAME="aim-numeric_variable"></A>5.2.3.2.5 numeric_variable</H5>
 
-<P>The base definition of the <B>numeric_variable</B> entity is given in ISO 13584-20. The following modifications apply to this part of ISO 10303.</P>
+<P>The base definition of the <B>numeric_variable</B> entity is given in ISO 13584-20. The following modifications apply to this document.</P>
 
 <H6 CLASS="section-underlined">Associated global rules:</H6>
 
-<P>The following global rule defined in this part of ISO 10303 applies to the <B>numeric_variable</B> entity:</P>
+<P>The following global rule defined in this document applies to the <B>numeric_variable</B> entity:</P>
 <UL>
 <LI>See <a href="#aim-nc_variable_compatible_initial_value">nc_variable_compatible_initial_value</a>.</LI>
 </UL>
@@ -26700,11 +26700,11 @@ END_ENTITY;
 
 <H5><A NAME="aim-process_property_association"></A>5.2.3.2.6 process_property_association</H5>
 
-<P>The base definition of the <B>process_property_association</B> entity is given in ISO 10303-49. The following modifications apply to this part of ISO 10303.</P>
+<P>The base definition of the <B>process_property_association</B> entity is given in ISO 10303-49. The following modifications apply to this document.</P>
 
 <H6 CLASS="section-underlined">Associated global rules:</H6>
 
-<P>The following global rule defined in this part of ISO 10303 applies to the <B>process_property_association</B> entity:</P>
+<P>The following global rule defined in this document applies to the <B>process_property_association</B> entity:</P>
 <UL>
 <LI>See <a href="#aim-feature_optional_machining_property_process">feature_optional_machining_property_process</a>.</LI>
 </UL>
@@ -26713,11 +26713,11 @@ END_ENTITY;
 
 <H5><A NAME="aim-product"></A>5.2.3.2.7 product</H5>
 
-<P>The base definition of the <B>product</B> entity is given in ISO 10303-41. The following modifications apply to this part of ISO 10303.</P>
+<P>The base definition of the <B>product</B> entity is given in ISO 10303-41. The following modifications apply to this document.</P>
 
 <H6 CLASS="section-underlined">Associated global rules:</H6>
 
-<P>The following global rule defined in this part of ISO 10303 applies to the <B>product</B> entity:</P>
+<P>The following global rule defined in this document applies to the <B>product</B> entity:</P>
 <UL>
 <LI>See <a href="#aim-product_requires_version">product_requires_version</a>.</LI>
 </UL>
@@ -26726,11 +26726,11 @@ END_ENTITY;
 
 <H5><A NAME="aim-product_definition_formation"></A>5.2.3.2.8 product_definition_formation</H5>
 
-<P>The base definition of the <B>product_definition_formation</B> entity is given in ISO 10303-41. The following modifications apply to this part of ISO 10303.</P>
+<P>The base definition of the <B>product_definition_formation</B> entity is given in ISO 10303-41. The following modifications apply to this document.</P>
 
 <H6 CLASS="section-underlined">Associated global rules:</H6>
 
-<P>The following global rule defined in this part of ISO 10303 applies to the <B>product_definition_formation</B> entity:</P>
+<P>The following global rule defined in this document applies to the <B>product_definition_formation</B> entity:</P>
 <UL>
 <LI>See <a href="#aim-product_requires_version">product_requires_version</a>.</LI>
 </UL>
@@ -26739,11 +26739,11 @@ END_ENTITY;
 
 <H5><A NAME="aim-representation_item_relationship"></A>5.2.3.2.9 representation_item_relationship</H5>
 
-<P>The base definition of the <B>representation_item_relationship</B> entity is given in ISO 10303-43. The following modifications apply to this part of ISO 10303.</P>
+<P>The base definition of the <B>representation_item_relationship</B> entity is given in ISO 10303-43. The following modifications apply to this document.</P>
 
 <H6 CLASS="section-underlined">Associated global rules:</H6>
 
-<P>The following global rule defined in this part of ISO 10303 applies to the <B>representation_item_relationship</B> entity:</P>
+<P>The following global rule defined in this document applies to the <B>representation_item_relationship</B> entity:</P>
 <UL>
 <LI>See <a href="#aim-nc_variable_compatible_initial_value">nc_variable_compatible_initial_value</a>.</LI>
 </UL>
@@ -26751,11 +26751,11 @@ END_ENTITY;
 
 <H5><A NAME="aim-shape_aspect"></A>5.2.3.2.10 shape_aspect</H5>
 
-<P>The base definition of the <B>shape_aspect</B> entity is given in ISO 10303-41. The following modifications apply to this part of ISO 10303.</P>
+<P>The base definition of the <B>shape_aspect</B> entity is given in ISO 10303-41. The following modifications apply to this document.</P>
 
 <H6 CLASS="section-underlined">Associated global rules:</H6>
 
-<P>The following global rule defined in this part of ISO 10303 applies to the <B>shape_aspect</B> entity:</P>
+<P>The following global rule defined in this document applies to the <B>shape_aspect</B> entity:</P>
 <UL>
 <LI>See <a href="#aim-feature_optional_machining_property_process">feature_optional_machining_property_process</a>.</LI>
 </UL>
@@ -26767,7 +26767,7 @@ END_ENTITY;
 
 <H4><A NAME="aim-application_context_requires_ap_definition"></A>5.2.4.1 application_context_requires_ap_definition</H4>
 
-<P>The <B>application_context_requires_ap_definition</B> rule specifies that each instance of <B>application_context</B> shall be referenced by exactly one <B>application_protocol_definition</B> that specifies this part of ISO 10303.</P>
+<P>The <B>application_context_requires_ap_definition</B> rule specifies that each instance of <B>application_context</B> shall be referenced by exactly one <B>application_protocol_definition</B> that specifies this document.</P>
 
 <H6 CLASS="section-underlined">EXPRESS specification:</H6>
 <PRE CLASS="code">
