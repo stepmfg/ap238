@@ -56,7 +56,7 @@
 <PRE CLASS="note">
 machining_functions &lt;=
 action_method
-{ action_method.description = `milling' }
+{ action_method.description = 'milling' }
 </PRE>
 
 <P>
@@ -71,7 +71,7 @@ action_method
 characterized_action_definition = action_method
 characterized_action_definition &lt;-
 action_property.definition 
-{ action_property.name = `coolant' }
+{ action_property.name = 'coolant' }
 action_property &lt;-
 action_property_representation.property 
 action_property_representation
@@ -81,8 +81,8 @@ representation.items[i] -&gt;
 representation_item =&gt;
 descriptive_representation_item
 descriptive_representation_item.description
-{ (descriptive_representation_item.description = `coolant on' )
- (descriptive_representation_item.description = `coolant off' ) }
+{ (descriptive_representation_item.description = 'coolant on' )
+ (descriptive_representation_item.description = 'coolant off' ) }
 </PRE>
 
 <P>The comment indicates that #50, #59, #60, #61, and #62 describe the coolant parameter. Instance #50 is the machining_functions instance at the start of the reference path.  This is referred to by #59, an action property with a name of &quot;coolant.&quot;   This action_property is referred to by #60, which is an action_property_representation.  This refers to #61, which is a representation that contains descriptive_representation_item #62 in its items set.  The last lines of the reference path constrain the value of the description attribute to either &quot;coolant on&quot; or &quot;coolant off.&quot;   In instance #62, the value is &quot;coolant on,&quot; which is also documented at the end of the comment.  This can seem verbose, but implementation tests have shown that in normal use, almost all data in a file will be geometry instances that describe either workpiece shape or toolpath curves.</P>

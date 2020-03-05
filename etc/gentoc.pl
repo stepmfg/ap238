@@ -222,7 +222,7 @@ $html{tochead} = <<'PERL_EOF';
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<p class=pagehead>ISO/DIS 10303-238</p>
+<p class=pagehead>ISO 10303-238</p>
 
 <H1 CLASS="unum">Contents</H1>
 
