@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 # 
-# Copyright (c) 1991-2017 by STEP Tools Inc. 
+# Copyright (c) 1991-2020 by STEP Tools Inc. 
 # All Rights Reserved.
 # 
 # Permission to use, copy, modify, and distribute this software and
@@ -124,7 +124,7 @@ $html{armhead} = <<'PERL_EOF';
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<p class=pagehead>ISO/DIS 10303-238</p>
+<p class=pagehead>ISO 10303-238</p>
 
 <H1 CLASS="unum">Application Object Index</H1>
 

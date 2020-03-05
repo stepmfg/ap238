@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 # 
-# Copyright (c) 1991-2017 by STEP Tools Inc. 
+# Copyright (c) 1991-2020 by STEP Tools Inc. 
 # All Rights Reserved.
 # 
 # Permission to use, copy, modify, and distribute this software and
