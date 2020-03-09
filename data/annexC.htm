@@ -12,15 +12,27 @@
 
 <H2><A NAME="clause-C-1"></A>C.1 General</H2>
 
-<P>The implementation method defines what types of exchange behaviour are required with respect to this document. Conformance to this document shall be realized in an exchange structure described by either ISO 10303-21 or ISO 10303-28.</P>
+<P>The implementation method defines what types of exchange behaviour
+are required with respect to this document. Conformance to this
+document shall be realized in an exchange structure described by
+either ISO 10303-21 or ISO 10303-28.</P>
 
 <H2><A NAME="clause-C-2"></A>C.2 Requirements specific to ISO 10303-21</H2>
 
-<P>If the implementation method is ISO 10303-21, the file format shall be encoded according to the syntax and EXPRESS language mapping defined in ISO 10303-21 and in the AIM defined in Annex A of this document. The header of the exchange structure shall identify use of this document by the schema name 'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA'.</P>
+<P>If the implementation method is ISO 10303-21, the file format shall
+be encoded according to the syntax and EXPRESS language mapping
+defined in ISO 10303-21 and in the AIM expanded listing defined
+in <a href="annexA.htm">Annex A</a> of this document. The header of
+the exchange structure shall identify use of this document by the
+schema name 'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA'.</P>
 
 <H2><A NAME="clause-C-3"></A>C.3 Requirements specific to ISO 10303-28</H2>
 
-<P>If the implementation method is ISO 10303-28, the file format shall be encoded according to the syntax and EXPRESS language mapping defined in ISO 10303-28 and in the AIM defined in Annex A of this document.   The ISO 10303-28 configuration shown below shall be used.</P>
+<P>If the implementation method is ISO 10303-28, the file format shall
+be encoded according to the syntax and EXPRESS language mapping
+defined in ISO 10303-28 and in the AIM expanded listing defined
+in <a href="annexA.htm">Annex A</a> of this document.  The ISO
+10303-28 configuration shown below shall be used.</P>
 
 <PRE CLASS="code">
 &lt;?xml version=&quot;1.0&quot;?&gt;
@@ -36,10 +48,16 @@
 &lt;/configuration&gt;
 </PRE>
 
-<P>The iso_10303_28_terse element shall identify the use of this document by the namespace  'urn:oid:1.0.10303.238.2.0.1' and the 'schema' attribute value of 'model_based_integrated_manufacturing_schema'.</P>
+<P>The iso_10303_28_terse element shall identify the use of this
+document by the namespace 'urn:oid:1.0.10303.238.2.0.1' and the
+'schema' attribute value of
+'model_based_integrated_manufacturing_schema'.</P>
 
 <P CLASS="note">
-<SPAN>EXAMPLE</SPAN> The ISO 10303-28 configuration results in instance data written using the &quot;attribute-content&quot; encoding enclosed in the iso_10303_28_terse UOS element, as shown in the fragment below.</P>
+<SPAN>EXAMPLE</SPAN> The ISO 10303-28 configuration results in
+instance data written using the &quot;attribute-content&quot; encoding
+enclosed in the iso_10303_28_terse UOS element, as shown in the
+fragment below.</P>
 
 <PRE CLASS="note">
 &lt;?xml version=&quot;1.0&quot;?&gt;
