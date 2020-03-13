@@ -245,7 +245,7 @@ $html{framehead} = <<'PERL_EOF';
 
 <div class="contents side">
 <UL>
-<li class=clause><a href="index.htm" target="_parent">Cover</a>
+<li class=clause><a href="../index.htm" target="_parent">Cover</a>
 <li class=clause><a href="idxarm.htm" target="body">Application Object Index</a>
 PERL_EOF
     ;

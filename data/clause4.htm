@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -12,16 +12,16 @@
 
 <H2><A NAME="general"></A>4.1 General</H2>
 
-<P>This clause specifies the information required for manufacturing
-using numerical controlled machining and associated processes,
-including information requirements defined by the ISO 14649 data model
-for computerized numerical controllers.</P>
+<P>This clause specifies the information required for model based
+integrated manufacturing, including information requirements defined
+by the ISO 14649 data model for computerized numerical
+controllers.</P>
 
 <P>The information requirements are specified as a set of units of
 functionality, application objects, and application assertions. These
 assertions pertain to individual application objects and to
 relationships between application objects. The information
-requirements are defined using the terminology of thesubject area of
+requirements are defined using the terminology of the subject area of
 this application protocol.</P>
 
 <P CLASS="note">
@@ -34,7 +34,8 @@ of the activities identified as being within the scope of this
 application protocol in <a href="annexF.htm">Annex F</a>.</P>
 
 <P CLASS="note">
-<SPAN>NOTE 3</SPAN> The mapping table specified in 5.1 shows how the
+<SPAN>NOTE 3</SPAN> The mapping specification given 
+in <a href="clause5.htm#mappings">clause 5.1</a> defines how the
 integrated resources and application interpreted constructs are used
 to meet the information requirements of this application protocol.</P>
 
@@ -43,8 +44,8 @@ to meet the information requirements of this application protocol.</P>
 
 <H3><A NAME="uofs-general"></A>4.2.1 General</H3>
 
-<P>This subclause specifies the units of functionality for the
-model based integrated manufacturing application protocol. This document
+<P>This subclause specifies the units of functionality for the model
+based integrated manufacturing application protocol. This document
 specifies the following units of functionality:</P>
 <UL>
 
@@ -69,11 +70,10 @@ each UoF supports are given below. The application objects included in
 the UoFs are defined in <a class="refnum" href="#application-objects">4.3</a>,
 ISO 14649, or ISO 10303 application modules as indicated below.</P>
 
-
 <H3><A NAME="uof-measure"></A>4.2.2 Measure</H3>
-<P>
-The measure UoF specifies the representation of physical quantities by
-its value and its unit, along with the representation of allowable
+
+<P>The measure UoF specifies the representation of physical quantities
+by its value and its unit, along with the representation of allowable
 variation in that quantity.</P>
 
 <P CLASS="note">
@@ -109,10 +109,10 @@ Dimension_value_with_limitation when used with dimensions.</P>
 not explicitly specify a unit.  Instead, a default unit is defined for
 each quantity (mm for length, degrees for angles, etc).  In addition,
 only length parameters could be qualified with a tolerance.  The
-definitions used by this document allow units to be
-explicitly specified, allow tolerance qualification for any of the
-measure types, and adds a maximum/minimum Limit_qualifier to the types
-of qualifications available.</P>
+definitions used by this document allow units to be explicitly
+specified, allow tolerance qualification for any of the measure types,
+and adds a maximum/minimum Limit_qualifier to the types of
+qualifications available.</P>
 
 
 <P>The following application objects are used by the measure UoF, and
@@ -163,12 +163,14 @@ the machining program.</P>
 
 <P>The following application object is used by the project UoF, and
 shall be as defined by ISO 14649-10:</P>
+
 <P CLASS="note">
 <SPAN>NOTE 1</SPAN> The name Manufacturing_project is used to avoid a
 conflict with the Project definition in ISO 10303-1061. </P>
 
 <UL>
-<LI><A href="#ao-manufacturing_project">Manufacturing_project</A> (as Project in ISO 14649-10).</LI>
+<LI><A href="#ao-manufacturing_project">Manufacturing_project</A> (as
+Project in ISO 14649-10).</LI>
 </UL>
 
 <P>The following application object is used by the project UoF, and
@@ -187,7 +189,7 @@ Person_in_organization application object definition.</P>
 <H3><A NAME="uof-workpiece"></A>4.2.4 Workpiece</H3>
 
 <P>The workpiece UoF specifies the mechanical product that is to be
-produced by a machining program.  This description may include
+produced by a machining program.  This description can include
 material, surface condition, features, and the AS-IS and TO-BE shape
 of the product.</P>
 
@@ -517,7 +519,7 @@ feature UoF, and shall be as defined by ISO 10303-1846.</P>
 
 <P>The executable UoF specifies the information necessary to describe
 control flow of a machining program as well as the non-machining
-actions that may be performed by a numerical control. This includes
+actions that can be performed by a numerical control. This includes
 sequential, parallel, and conditional control flow, as well as the
 logical expressions and variable elements necessary to describe the
 conditions for conditional control flow.  This UoF also specifies the
@@ -627,7 +629,7 @@ this information is unchanged from previous edition of this document.
 <H3><A NAME="uof-operation"></A>4.2.7 Operation</H3>
 
 <P>The operation UoF specifies the information necessary to describe
-the technology-independent aspects of machining actions that may be
+the technology-independent aspects of machining actions that can be
 performed by a numerical control.</P>
 
 <P CLASS="note">
@@ -708,7 +710,7 @@ additional information requirements beyond those specified by ISO
 
 <P>The process data for milling UoF specifies the information
 necessary to describe the milling and drilling-specific aspects of
-machining actions that may be performed by a numerical control.  This
+machining actions that can be performed by a numerical control.  This
 includes the information necessary to describe strategies and process
 parameters for milling and drilling.</P>
 
@@ -847,7 +849,7 @@ cutting tools for milling UoF, and shall be as defined by this document:</P>
 
 <P>The process data for turning UoF specifies the information
 necessary to describe the turning-specific aspects of machining
-actions that may be performed by a numerical control.  This includes
+actions that can be performed by a numerical control.  This includes
 the information necessary to describe strategies and process
 parameters for turning.</P>
 
@@ -920,7 +922,7 @@ turning UoF, and shall be as defined by ISO 14649-121.</P>
 
 <P>The process data for additive manufacturing UoF specifies the
 information necessary to describe the additive manufacturing-specific
-aspects of machining actions that may be performed by a numerical
+aspects of machining actions that can be performed by a numerical
 control.  This includes the information necessary to describe
 strategies and process parameters for additive manufacturing.</P>
 
@@ -1422,8 +1424,9 @@ END_ENTITY;
 <H4><A NAME="ao-am_feature-its_material"></A>4.3.7.1 its_material</H4>
 
 <P>The its_material parameter defined by ISO 14649-17 as an inherited
-value is represented by the set of Material_identification application
-objects with an items parameter that contains the Am_feature.</P>
+value shall be represented by the set of Material_identification
+application objects with an items parameter that contains the
+Am_feature.</P>
 
 
 <!-- ============================== -->
@@ -1469,31 +1472,34 @@ END_ENTITY;
 
 <H4><A NAME="ao-am_gradient_feature-primary_surface"></A>4.3.8.1 primary_surface</H4>
 
-<P>The primary_surface parameter defined by ISO 14649-17 is
+<P>The primary_surface parameter defined by ISO 14649-17 shall be
 represented by the inherited primary_shape_representation attribute.
 
 <H4><A NAME="ao-am_gradient_feature-secondary_surface"></A>4.3.8.2 secondary_surface</H4>
 
-<P>The secondary_surface parameter defined by ISO 14649-17 is
+<P>The secondary_surface parameter defined by ISO 14649-17 shall be
 represented by the inherited primary_shape_representation attribute of
 the secondary_feature.
 
 <H4><A NAME="ao-am_gradient_feature-secondary_colour"></A>4.3.8.3 secondary_colour</H4>
 
-<P>The secondary_colour parameter defined by ISO 14649-17 is
+<P>The secondary_colour parameter defined by ISO 14649-17 shall be
 represented by the inherited primary_colour attribute of the
 secondary_feature.
 
 <H4><A NAME="ao-am_gradient_feature-secondary_material"></A>4.3.8.4 secondary_material</H4>
 
-<P>The secondary_material parameter defined by ISO 14649-17 is
+<P>The secondary_material parameter defined by ISO 14649-17 shall be
 represented by the inherited its_material attribute of the
 secondary_feature.
 
 
 <H4><A NAME="ao-am_gradient_feature-secondary_feature"></A>4.3.8.5 secondary_feature</H4>
 
-<P>The secondary_feature specifies an Am_feature which describes the end of the gradient.  See <a href="#aa-am_gradient_feature-to-am_feature">Am_gradient_feature to Am_feature</a>  for the application assertion.
+<P>The secondary_feature specifies an Am_feature which describes the
+end of the gradient.
+See <a href="#aa-am_gradient_feature-to-am_feature">Am_gradient_feature
+to Am_feature</a> for the application assertion.
 
 
 
@@ -1567,7 +1573,7 @@ END_ENTITY;
 
 <H4><A NAME="am_heterogenuous_atom-its_material"></A>4.3.10.1 its_material</H4>
 
-<P>The its_material parameter defined by ISO 14649-17 is represented
+<P>The its_material parameter defined by ISO 14649-17 shall be represented
 by the set of Material_identification application objects with an
 items parameter that contains the Am_heterogenuous_atom.</P>
 
@@ -1699,7 +1705,7 @@ END_ENTITY;
 
 <H4><A NAME="ao-am_oned_operation-path"></A>4.3.14.1 path</H4>
 
-<P>The path parameter defined by ISO 14649-17 is replaced by the
+<P>The path parameter defined by ISO 14649-17 shall be replaced by the
 its_toolpath parameter inherited from the Operation application
 object.
 
@@ -1742,7 +1748,7 @@ END_ENTITY;
 
 <H4><A NAME="ao-am_operation-its_support_geometry"></A>4.3.15.1 its_support_geometry</H4>
 
-<P>The its_support_geometry parameter defined by ISO 14649-17 is
+<P>The its_support_geometry parameter defined by ISO 14649-17 shall be
 replaced by the its_support_geometry parameters defined by the
 Am_workingstep application object.
 
@@ -1969,7 +1975,7 @@ END_ENTITY;
 
 <H4><A NAME="ao-am_workingstep-its_effect"></A>4.3.23.1 its_effect</H4>
 
-<P>The its_effect parameter defined by ISO 14649-17 is replaced by the
+<P>The its_effect parameter defined by ISO 14649-17 shall be replaced by the
 set of as-is, to-be, and removal parameters inherited from the
 Executable application object.
 
@@ -1983,7 +1989,7 @@ any type of Manufacturing_feature.
 
 <P>The its_support_geometry specifies a Product_view_definition which
 describes the shape and other properties of the support structure
-required by the workingstep. The its_support_geometry need not be
+required by the workingstep. The its_support_geometry may not be
 specified for a particular
 Executable. See <a href="#aa-am_workingstep-to-product_view_definition">Am_workingstep
 to Product_view_definition</a> for the application assertion.</P>
@@ -3143,11 +3149,11 @@ END_TYPE;
 
 <H4><A NAME="ao-cutter_contact_trajectory-its_toolaxis"></A>4.3.67.1 its_toolaxis</H4>
 
-<P>The its_toolaxis parameter shall be as defined by ISO 14649-10 to contain
-tilt and yaw angles, but this document modifies this
-requirement so that its_toolaxis shall contain the IJK components of
-the tool axis vector, as shall be as defined by the Cutter_location_trajectory
-its_toolaxis parameter.</P>
+<P>The its_toolaxis parameter is defined by ISO 14649-10 to contain
+tilt and yaw angles, but this document modifies this requirement so
+that its_toolaxis shall contain the IJK components of the tool axis
+vector, as is defined by the Cutter_location_trajectory its_toolaxis
+parameter.</P>
 
 
 <H4><A NAME="ao-cutter_contact_trajectory-its_toolref_direction"></A>4.3.67.2 its_toolref_direction</H4>
@@ -3158,7 +3164,7 @@ data. This is specified as a three-dimensional curve specifying IJK
 direction components at each point along the
 Cutter_contact_trajectory. The curve shall obey the same
 parameterization constraints as the &quot;its_toolaxis&quot; data. The
-its_toolref_direction need not be specified for a particular
+its_toolref_direction may not be specified for a particular
 Cutter_contact_trajectory.</P>
 
 
@@ -3168,7 +3174,7 @@ Cutter_contact_trajectory.</P>
 distance is specified, the NC control shall not allow the physical
 motion of the cutter contact point during execution of the toolpath to 
 exceed this distance from the basiccurve specified by the toolpath.
-The path_maximum_deviation need not be specified for a particular
+The path_maximum_deviation may not be specified for a particular
 Cutter_contact_trajectory. </P>
 
 
@@ -3178,7 +3184,7 @@ Cutter_contact_trajectory. </P>
 angle is specified, the NC control shall not allow the physical
 orientation of the tool axis during execution of the toolpath to
 exceed this angular distance from the its_toolaxis direction.  The
-tool_axis_maximum_deviation need not be specified for a particular
+tool_axis_maximum_deviation may not be specified for a particular
 Cutter_contact_trajectory. </P>
 
 <P CLASS="note">
@@ -3248,7 +3254,7 @@ data. This is specified as a three-dimensional curve specifying IJK
 direction components at each point along the
 Cutter_location_trajectory. The curve shall obey the same
 parameterization constraints as the &quot;its_toolaxis&quot; data. The
-its_toolref_direction need not be specified for a particular
+its_toolref_direction may not be specified for a particular
 Cutter_location_trajectory.</P>
 
 <H4><A NAME="ao-cutter_location_trajectory-surface_normal"></A>4.3.68.2 surface_normal</H4>
@@ -3264,7 +3270,7 @@ the surface normal vector.</P>
 distance is specified, the NC control shall not allow the physical
 motion of the cutter centre point during execution of the toolpath to
 exceed this distance from the basiccurve specified by the toolpath.
-The path_maximum_deviation need not be specified for a particular
+The path_maximum_deviation may not be specified for a particular
 Cutter_location_trajectory. </P>
 
 
@@ -3274,7 +3280,7 @@ Cutter_location_trajectory. </P>
 angle is specified, the NC control shall not allow the physical
 orientation of the tool axis during execution of the toolpath to
 exceed this angular distance from the its_toolaxis direction.  The
-tool_axis_maximum_deviation need not be specified for a particular
+tool_axis_maximum_deviation may not be specified for a particular
 Cutter_location_trajectory. </P>
 
 <P CLASS="note">
@@ -3329,9 +3335,9 @@ END_ENTITY;
 
 <H4><A NAME="ao-cutting_component-its_material"></A>4.3.69.1 its_material</H4>
 
-<P>The its_material parameter defined by ISO 14649-111 is represented
-by the set of Material_identification application objects with an
-items parameter that contains the Cutting_component.</P>
+<P>The its_material parameter defined by ISO 14649-111 shall be
+represented by the set of Material_identification application objects
+with an items parameter that contains the Cutting_component.</P>
 
 <P CLASS="note">
 <SPAN>NOTE</SPAN> The integrated representation of this information is
@@ -3388,9 +3394,9 @@ END_ENTITY;
 
 <H4><A NAME="ao-cutting_edge_properties-its_material"></A>4.3.70.1 its_material</H4>
 
-<P>The its_material parameter defined by ISO 14649-121 is represented
-by the set of Material_identification application objects with an
-items parameter that contains the Cutting_edge_properties.</P>
+<P>The its_material parameter defined by ISO 14649-121 shall be
+represented by the set of Material_identification application objects
+with an items parameter that contains the Cutting_edge_properties.</P>
 
 <P CLASS="note">
 <SPAN>NOTE</SPAN> The integrated representation of this information is
@@ -3702,7 +3708,7 @@ END_ENTITY;
 
 <P>The as_is specifies a Product_view_definition which describes the
 shape and other properties of the manufactured product before the
-Executable is executed. The as_is need not be specified for a
+Executable is executed. The as_is may not be specified for a
 particular
 Executable. See <a href="#aa-executable-to-product_view_definition-as-as_is">Executable
 to Product_view_definition (as as_is)</a> for the application
@@ -3713,14 +3719,14 @@ assertion.</P>
 <P>The enabled specifies whether the Executable is executed or ignored
 when processing the elements of a manufacturing project. The
 Executable is executed if enabled is true or not specified, and
-ignored if enabled is false. The enabled need not be specified for a
+ignored if enabled is false. The enabled may not be specified for a
 particular Executable.</P>
 
 <H4><A NAME="ao-executable-removal"></A>4.3.81.3 removal</H4>
 
 <P>The removal specifies a Product_view_definition which describes the
 shape and other properties of the material removed from the
-manufactured product by the Executable. The removal need not be
+manufactured product by the Executable. The removal may not be
 specified for a particular
 Executable. See <a href="#aa-executable-to-product_view_definition-as-removal">Executable
 to Product_view_definition (as removal)</a> for the application
@@ -3730,7 +3736,7 @@ assertion.</P>
 
 <P>The to_be specifies a Product_view_definition which describes the
 predicted shape and other properties of the manufactured product after
-the Executable is executed. The to_be need not be specified for a
+the Executable is executed. The to_be may not be specified for a
 particular
 Executable. See <a href="#aa-executable-to-product_view_definition-as-to_be">Executable
 to Product_view_definition (as to_be)</a> for the application
@@ -4035,7 +4041,7 @@ Fixture_usage.</P>
 
 <P>The its_product specifies a Product_view_definition object that
 describes the physical shape and associated product information of the
-fixture.  The its_product need not be specified for a particular
+fixture.  The its_product may not be specified for a particular
 Fixture_usage.
 See <a href="#aa-fixture_usage-to-product_view_definition">Fixture_usage
 to Product_view_definition</a> for the application assertion.</P>
@@ -4044,14 +4050,14 @@ to Product_view_definition</a> for the application assertion.</P>
 
 <P>The mount_reference specifies a location on the its_product fixture
 model used for aligning the fixture with a machine tool model. The
-mount_reference need not be specified for a particular
+mount_reference may not be specified for a particular
 Fixture_usage.</P>
 
 <H4><A NAME="ao-fixture_usage-workpiece_reference"></A>4.3.93.4 workpiece_reference</H4>
 
 <P>The workpiece_reference specifies a location on the its_product
 fixture model used for aligning the machining workpiece with the
-fixture. The workpiece_reference need not be specified for a
+fixture. The workpiece_reference may not be specified for a
 particular Fixture_usage.</P>
 
 
@@ -4489,7 +4495,7 @@ END_ENTITY;
 </DIV>
 
 <P>A Machine_axis_constraint identifies the range of motion that a
-machine axis may traverse.</P>
+machine axis can traverse.</P>
 
 <P CLASS="note">
 <SPAN>NOTE</SPAN> It is advisable to avoid use of this information
@@ -4502,7 +4508,7 @@ axes to be considered as part of the solution.</P>
 
 <P CLASS="note">
 <SPAN>EXAMPLE</SPAN> When a rotary C table is mounted on a rotary B
-table, there may be two combinations of C and B angles that give the
+table, there can be two combinations of C and B angles that give the
 same tool axis direction.  Also, when drilling on a machine with
 redundant (not necessarily parallel) linear axes, such as a machine
 with a movable quill (W axis), either the W or other axes could be
@@ -4540,7 +4546,7 @@ and lower measure values permitted for that axis.</P>
 </DIV>
 
 <P>A Machine_axis_travel identifies the distance that a machine axis
-may traverse. </P>
+can traverse. </P>
 
 <P>The data associated with a Machine_axis_travel are the following:</P>
 <UL>
@@ -4626,7 +4632,7 @@ END_ENTITY;
 
 <P>The axis_travel specifies zero or more Machine_axis_travel objects
 which describe the distance that the machine tool can move its cutting
-tool along specified axes. The axis_travel need not be specified for a
+tool along specified axes. The axis_travel may not be specified for a
 particular Machine_parameters and the axis_travel shall not be
 specified if work_volume_length, work_volume_width, or
 work_volume_height is specified.
@@ -4637,7 +4643,7 @@ to Machine_axis_travel</a> for the application assertion.</P>
 <H4><A NAME="ao-machine_parameters-feedrate"></A>4.3.115.2 feedrate</H4>
 
 <P>The feedrate specifies the linear velocity at which a machine tool
-can move its cutting tool.  The feedrate need not be specified for a
+can move its cutting tool.  The feedrate may not be specified for a
 particular Machine_parameters.</P>
 
 
@@ -4645,7 +4651,7 @@ particular Machine_parameters.</P>
 
 <P>The number_of_control_axis specifies number of machine tool axes
 that can be controlled by a numerical controller.  The
-number_of_control_axis need not be specified for a particular
+number_of_control_axis may not be specified for a particular
 Machine_parameters.</P>
 
 
@@ -4653,7 +4659,7 @@ Machine_parameters.</P>
 
 <P>The number_of_simultaneous_axis specifies number of machine tool
 axes that can be controlled simultaneously by a numerical controller.
-The number_of_simultaneous_axis need not be specified for a particular
+The number_of_simultaneous_axis may not be specified for a particular
 Machine_parameters.</P>
 
 
@@ -4661,14 +4667,14 @@ Machine_parameters.</P>
 
 <P>The positioning_accuracy specifies positioning accuracy of the
 machine tool axes considering displacement error and repeatability
-error. The positioning_accuracy need not be specified for a particular
+error. The positioning_accuracy may not be specified for a particular
 Machine_parameters.</P>
 
 
 <H4><A NAME="ao-machine_parameters-spindle_power"></A>4.3.115.6 spindle_power</H4>
 
 <P>The spindle_power specifies the power which a machine tool can
-apply to turn its spindle.  The spindle_power need not be specified
+apply to turn its spindle.  The spindle_power may not be specified
 for a particular Machine_parameters.</P>
 
 <P CLASS="note">
@@ -4678,7 +4684,7 @@ for a particular Machine_parameters.</P>
 <H4><A NAME="ao-machine_parameters-spindle_torque"></A>4.3.115.7 spindle_torque</H4>
 
 <P>The spindle_torque specifies the torque which a machine tool can
-apply to turn its spindle.  The spindle_torque need not be specified
+apply to turn its spindle.  The spindle_torque may not be specified
 for a particular Machine_parameters.</P>
 
 <P CLASS="note">
@@ -4689,27 +4695,27 @@ Meters (for SI usage) or Foot Pounds (for English usage).</P>
 <H4><A NAME="ao-machine_parameters-spindle_speed"></A>4.3.115.8 spindle_speed</H4>
 
 <P>The spindle_speed specifies the rotational velocity at which a
-machine tool can move its spindle.  The spindle_speed need not be
+machine tool can move its spindle.  The spindle_speed may not be
 specified for a particular Machine_parameters.</P>
 
 
 <H4><A NAME="ao-machine_parameters-table_indexing"></A>4.3.115.9 table_indexing</H4>
 
 <P>The table_indexing specifies whether the machine tool table shall
-be capable of indexing. The table_indexing need not be specified for a
+be capable of indexing. The table_indexing may not be specified for a
 particular Machine_parameters.</P>
 
 <H4><A NAME="ao-machine_parameters-table_length"></A>4.3.115.10 table_length</H4>
 
 <P>The table_length specifies length of the machine tool work
-table. The table_length need not be specified for a particular
+table. The table_length may not be specified for a particular
 Machine_parameters.</P>
 
 
 <H4><A NAME="ao-machine_parameters-table_width"></A>4.3.115.11 table_width</H4>
 
 <P>The table_width specifies length of the machine tool work
-table. The table_width need not be specified for a particular
+table. The table_width may not be specified for a particular
 Machine_parameters.</P>
 
 
@@ -4718,7 +4724,7 @@ Machine_parameters.</P>
 <P>The work_volume_height specifies height of the volume in which the
 machine tool can move its cutting tool. The volume is aligned so that
 the height component lies along the Z axis of the machine. The
-work_volume_height need not be specified for a particular
+work_volume_height may not be specified for a particular
 Machine_parameters and the work_volume_height shall not be specified
 if axis_travel is specified.</P>
 
@@ -4728,7 +4734,7 @@ if axis_travel is specified.</P>
 <P>The work_volume_length specifies length of the volume in which the
 machine tool can move its cutting tool. The volume is aligned so that
 the length component lies along the X axis of the machine. The
-work_volume_length need not be specified for a particular
+work_volume_length may not be specified for a particular
 Machine_parameters and the work_volume_length shall not be specified
 if axis_travel is specified.</P>
 
@@ -4738,7 +4744,7 @@ if axis_travel is specified.</P>
 <P>The work_volume_width specifies width of the volume in which the
 machine tool can move its cutting tool. The volume is aligned so that
 the width component lies along the Y axis of the machine. The
-work_volume_width need not be specified for a particular
+work_volume_width may not be specified for a particular
 Machine_parameters and the work_volume_width shall not be specified if
 axis_travel is specified.</P>
 
@@ -4770,7 +4776,7 @@ following:</P>
 <H4><A NAME="ao-machine_with_kinematics-configuration"></A>4.3.116.1 Configuration</H4>
 
 <P>The configuration identifies the coordinate system and motion of
-the machine.  The configuration need not be specified for a particular
+the machine.  The configuration may not be specified for a particular
 Machine_with_kinematics.</P>
 
 <P CLASS="note">
@@ -4851,7 +4857,7 @@ END_ENTITY;
 
 <P>The its_usage specifies a Tool_usage object that describes the tool
 selected to satisfy the tool requirements set forth by the
-Machining_tool.  The its_usage need not be specified for a particular
+Machining_tool.  The its_usage may not be specified for a particular
 Machining_tool.
 See <a href="#aa-machining_tool-to-tool_usage">Machining_tool to
 Tool_usage</a> for the application assertion.</P>
@@ -4898,7 +4904,7 @@ END_ENTITY;
 
 <H4><A NAME="ao-machining_workingstep-its_effect"></A>4.3.119.1 its_effect</H4>
 
-<P>The its_effect parameter defined by ISO 14649-10 is replaced by the
+<P>The its_effect parameter defined by ISO 14649-10 shall be replaced by the
 set of as-is, to-be, and removal parameters inherited from the
 Executable application object.
 
@@ -4908,9 +4914,9 @@ Executable application object.
 Manufacturing_feature objects visible on the final form of the
 workpiece that the workingstep contributes to.  If the
 machining_workingstep its_feature is a process-specific feature
-consumed by further activities in a process, final_features may be
+consumed by further activities in a process, final_features can be
 used for traceability to features on the final form of the workpiece.
-The final_features need not be specified for a particular
+It is not required that final_features be specified for a particular
 Machining_workingstep.
 See <a href="#aa-machining_workingstep-to-manufacturing_feature-as-final_features">Machining_workingstep
 to Manufacturing_feature (as final_features)</a> for the application
@@ -4938,7 +4944,7 @@ critical areas of interest in the micro and macro process-plans.</P>
 <SPAN>EXAMPLE</SPAN> A workingstep drills a hole which is later used
 as the entry point for a pocketing operation.  The hole is consumed by
 pocketing operation and not visible on the final form of the
-workpiece.  The final_features of the drilling workingstep may
+workpiece.  The final_features of the drilling workingstep can
 reference the pocket to indicate participation in the creation of that
 feature.</P>
 
@@ -4947,7 +4953,7 @@ feature.</P>
 
 <P>The toolpath_orientation specifies the placement of the set of
 toolpaths given by the its_operation its_toolpath parameter.  The
-toolpath_orientation need not be specified for a particular
+toolpath_orientation may not be specified for a particular
 Machining_workingstep.  If the toolpath_orientation is not specified,
 the toolpaths shall assume an origin of (0,0,0) and axis directions
 X=(1,0,0) Y=(0,1,0) and Z=(0,0,1).</P>
@@ -5249,7 +5255,7 @@ END_ENTITY;
 
 <H4><A NAME="ao-nc_constant-its_value"></A>4.3.128.1 its_value</H4>
 
-<P>The its_value parameter defined by ISO 14649-10 is given by the
+<P>The its_value parameter defined by ISO 14649-10 shall be given by the
 inherited the_value parameter defined by Literal_number.</P>
 
 <P CLASS="note">
@@ -5866,7 +5872,7 @@ END_ENTITY;
 
 <H4><A NAME="ao-manufacturing_project-its_id"></A>4.3.153.1 its_id</H4>
 
-<P>The its_id parameter defined by ISO 14649-10 is given by the
+<P>The its_id parameter defined by ISO 14649-10 shall be given by the
 inherited id parameter defined by product_version.</P>
 
 <P CLASS="note">
@@ -6829,7 +6835,7 @@ specific tool to satisfy the requirements.</P>
 <H4><A NAME="ao-tool_usage-its_carousel"></A>4.3.192.1 its_carousel</H4>
 
 <P>The its_carousel specifies a machine tool turret, magazine, or
-carousel.  The its_carousel need not be specified for a particular
+carousel.  The its_carousel may not be specified for a particular
 Tool_usage.</P>
 
 <H4><A NAME="ao-tool_usage-its_id"></A>4.3.192.2 its_id</H4>
@@ -6842,7 +6848,7 @@ Tool_usage.</P>
 <P>The its_library_reference specifies an
 Externally_defined_representation object that identifies the tool
 whose associated product information is provided within an external
-specification or document. The its_library_reference need not be
+specification or document. The its_library_reference may not be
 specified for a particular Tool_usage.
 See <a href="#aa-tool_usage-to-externally_defined_representation">Tool_usage
 to Externally_defined_representation</a> for the application
@@ -6858,14 +6864,14 @@ reference dictionaries that describe tool properties.</P>
 <H4><A NAME="ao-tool_usage-its_position"></A>4.3.192.4 its_position</H4>
 
 <P>The its_position specifies a location within a machine tool turret,
-magazine, or carousel. The its_position need not be specified for a
+magazine, or carousel. The its_position may not be specified for a
 particular Tool_usage. </P>
 
 <H4><A NAME="ao-tool_usage-its_product"></A>4.3.192.5 its_product</H4>
 
 <P>The its_product specifies a Product_view_definition object that
 describes the physical shape and associated product information of the
-tool.  The its_product need not be specified for a particular
+tool.  The its_product may not be specified for a particular
 Tool_usage.
 See <a href="#aa-tool_usage-to-product_view_definition">Tool_usage to
 Product_view_definition</a> for the application assertion.</P>
@@ -6873,7 +6879,7 @@ Product_view_definition</a> for the application assertion.</P>
 <H4><A NAME="ao-tool_usage-gage_placement"></A>4.3.192.6 gage_placement</H4>
 
 <P>The gage_placement specifies the location on the its_product tool
-model where the tool is mounted on a machine. The gage_placement need
+model where the tool is mounted on a machine. The gage_placement may
 not be specified for a particular Tool_usage. If the gage_placement is
 not specified, the location shall be on the tool axis given by the
 tool_end_placement at the distance from the origin given by the
@@ -6885,7 +6891,7 @@ overall assembly length of the referencing Machining_tool.</P>
 <P>The tool_end_placement specifies the location on the its_product
 tool model of the tool end point. The axis parameter of the
 tool_end_placement indicates the tool axis. The tool_end_placement
-need not be specified for a particular Tool_usage. If the
+may not be specified for a particular Tool_usage. If the
 tool_end_placement is not specified, the location shall be the origin
 of the its_product tool model.</P>
 
@@ -6941,7 +6947,7 @@ END_TYPE;
 <H4><A NAME="ao-toolpath-its_id"></A>4.3.193.1 its_id</H4>
 
 <P>The its_id specifies the string identifier of the Toolpath.  The
-its_id need not be specified for a particular Toolpath. </P>
+its_id may not be specified for a particular Toolpath. </P>
 
 
 
@@ -6981,7 +6987,8 @@ requirements.</P>
 
 <P>The data associated with a Toolpath_speed are the following:</P>
 <UL>
-<LI>all of the data defined by ISO 14649-10, as modified below for the speed attribute.</LI>
+<LI>all of the data defined by ISO 14649-10, as modified below for the
+speed attribute.</LI>
 </UL>
 
 <P CLASS="note">
@@ -7121,12 +7128,12 @@ END_TYPE;
 
 <P>The its_material_removal_depth specifies the length of material
 removed at each point of the Trajectory as measured along the axis of
-the cutting tool.  This may be specified as a either a constant depth
+the cutting tool.  This can be specified as a either a constant depth
 or as a one-dimensional curve specifying the depth at each point along
 the toolpath.  The curve shall obey the same parameterization
 constraints as the &quot;its_speed&quot; data associated with
 a <a href="#ao-toolpath">Toolpath</a>. The its_material_removal_depth
-need not be specified for a particular Trajectory.</P>
+may not be specified for a particular Trajectory.</P>
 
 <P CLASS="note">
 <SPAN>NOTE</SPAN> Machining strategies have cutting depth fields used
@@ -7141,12 +7148,12 @@ speed.</P>
 
 <P>The its_material_removal_overcut specifies the length of material
 removed at each point of the Trajectory as measured perpendicular to
-the axis of the cutting tool.  This may be specified as a either a
+the axis of the cutting tool.  This can be specified as a either a
 constant overcut or as a one-dimensional curve specifying the overcut
 at each point along the toolpath.  The curve shall obey the same
 parameterization constraints as the &quot;its_speed&quot; data
 associated with a <a href="#ao-toolpath">Toolpath</a>.  The
-its_material_removal_overcut need not be specified for a particular
+its_material_removal_overcut may not be specified for a particular
 Trajectory.</P>
 
 
@@ -7154,7 +7161,7 @@ Trajectory.</P>
 
 <P>The its_material_removal_total_volume specifies the total volume of
 material removed by the Trajectory.  The
-its_material_removal_total_volume need not be specified for a
+its_material_removal_total_volume may not be specified for a
 particular Trajectory.</P>
 
 <H4><A NAME="ao-trajectory-cross_section_area_parameters"></A>4.3.198.4 cross_section_area_parameters</H4>
@@ -7166,7 +7173,7 @@ curve specifying the cross section at each point along the
 toolpath. The curve shall obey the same parameterization constraints
 as the &quot;its_speed&quot; data associated with
 a <a href="#ao-toolpath">Toolpath</a>.  The
-cross_section_area_parameters need not be specified for a particular
+cross_section_area_parameters may not be specified for a particular
 Trajectory.</P>
 
 <P>Each point in the seven-dimensional curve shall describe the
@@ -7465,7 +7472,7 @@ END_ENTITY;
 
 <H4><A NAME="ao-turning_workingstep-its_effect"></A>4.3.205.1 its_effect</H4>
 
-<P>The its_effect parameter defined by ISO 14649-12 is replaced by the
+<P>The its_effect parameter defined by ISO 14649-12 shall be replaced by the
 set of as-is, to-be, and removal parameters inherited from the
 Executable application object.
 
@@ -7474,7 +7481,7 @@ Executable application object.
 
 <P>The toolpath_orientation specifies the placement of the set of
 toolpaths given by the its_operation its_toolpath parameter.  The
-toolpath_orientation need not be specified for a particular
+toolpath_orientation may not be specified for a particular
 Machining_workingstep.  If the toolpath_orientation is not specified,
 the toolpaths shall assume an origin of (0,0,0) and axis directions
 X=(1,0,0) Y=(0,1,0) and Z=(0,0,1).</P>
@@ -7989,9 +7996,9 @@ END_TYPE;
 
 <H4><A NAME="ao-workpiece-its_id"></A>4.3.219.1 its_id</H4>
 
-<P>The its_id parameter defined by ISO 14649-10 is given by the id
-parameter of the of_product parameter of the defined_version parameter
-inherited from Product_view_definition.</P>
+<P>The its_id parameter defined by ISO 14649-10 shall be given by the
+id parameter of the of_product parameter of the defined_version
+parameter inherited from Product_view_definition.</P>
 
 <P CLASS="note">
 <SPAN>NOTE</SPAN> The integrated representation of this information is
@@ -7999,9 +8006,9 @@ unchanged from previous edition of this document.</P>
 
 <H4><A NAME="ao-workpiece-its_material"></A>4.3.219.2 its_material</H4>
 
-<P>The its_material parameter defined by ISO 14649-10 is represented
-by the set of Material_identification application objects with an
-items parameter that contains the Workpiece.</P>
+<P>The its_material parameter defined by ISO 14649-10 shall be
+represented by the set of Material_identification application objects
+with an items parameter that contains the Workpiece.</P>
 
 <P CLASS="note">
 <SPAN>NOTE</SPAN> The integrated representation of this information is
@@ -8009,11 +8016,11 @@ unchanged from previous edition of this document.</P>
 
 <H4><A NAME="ao-workpiece-its_geometry"></A>4.3.219.3 its_geometry</H4>
 
-<P>The its_geometry parameter defined by ISO 14649-10 is given by the
-inherited primary_shape_representation parameter defined by
+<P>The its_geometry parameter defined by ISO 14649-10 shall be given
+by the inherited primary_shape_representation parameter defined by
 Product_view_definition.  ISO 14649-10 defines this parameter to be of
-type advanced_brep_shape_representation, but this document
-relaxes the type requirement to allow any Geometric_model.</P>
+type advanced_brep_shape_representation, but this document relaxes the
+type requirement to allow any Geometric_model.</P>
 
 <P CLASS="note">
 <SPAN>NOTE 1</SPAN> The integrated representation of this information
@@ -8031,13 +8038,13 @@ brep) descriptions.</P>
 
 <H4><A NAME="ao-workpiece-its_bounding_geometry"></A>4.3.219.4 its_bounding_geometry</H4>
 
-<P>The its_bounding_geometry parameter shall be as defined by ISO 14649-10 to
-be of type block, right_circular_cylinder, or
-advanced_brep_shape_representation, but this document relaxes
-this requirement so that its_bounding_geometry may also be an
-edge-based wireframe shape, faceted brep shape, geometrically-bounded
-surface shape, geometrically-bounded wireframe shape, manifold surface
-shape, non-manifold surface shape, or shell-based wireframe shape.</P>
+<P>The its_bounding_geometry parameter shall be as defined by ISO
+14649-10 to be of type block, right_circular_cylinder, or
+advanced_brep_shape_representation, but this document relaxes this
+requirement so that its_bounding_geometry can also be an edge-based
+wireframe shape, faceted brep shape, geometrically-bounded surface
+shape, geometrically-bounded wireframe shape, manifold surface shape,
+non-manifold surface shape, or shell-based wireframe shape.</P>
 
 <P CLASS="note">
 <SPAN>NOTE</SPAN> This relaxation allows the use of shape
@@ -8053,7 +8060,7 @@ brep) descriptions.</P>
 
 <P>The its_approvals specifies the set of Approval objects that define
 the approval status of the manufacturing description of the revision
-given by the revision_id of the Workpiece. The its_approvals need not
+given by the revision_id of the Workpiece. The its_approvals may not
 be specified for a particular Workpiece.
 See <a href="#aa-workpiece-to-approval-as-its_approvals">Workpiece to
 Approval (as its_approvals)</a> for the application assertion.</P>
@@ -8062,7 +8069,7 @@ Approval (as its_approvals)</a> for the application assertion.</P>
 <H4><A NAME="ao-workpiece-its_categories"></A>4.3.219.6 its_categories</H4>
 
 <P>The its_categories specifies the set of names that identify
-categories that apply to the Workpiece.  The its_categories need not
+categories that apply to the Workpiece.  The its_categories may not
 be specified for a particular Workpiece. Where applicable, the
 following values shall be used:</P>
 
@@ -8101,7 +8108,7 @@ unchanged from previous edition of this document.</P>
 The its_datestamps specifies the set of Date_or_date_time_assignment
 objects that define dates and associated roles that apply to the
 manufacturing description of the revision given by the revision_id of
-the Workpiece.  The its_datestamps need not be specified for a
+the Workpiece.  The its_datestamps may not be specified for a
 particular Workpiece.
 See <a href="#aa-workpiece-to-date_or_date_time_assignment-as-its_datestamps">Workpiece
 to Date_or_date_time_assignment (as its_datestamps)</a> for the
@@ -8114,7 +8121,7 @@ application assertion.</P>
 Organization_or_person_in_organization_assignment objects that define
 organizations and associated roles that apply to the manufacturing
 description of the revision given by the revision_id of the Workpiece.
-The its_orgs need not be specified for a particular Workpiece.
+The its_orgs may not be specified for a particular Workpiece.
 See <a href="#aa-workpiece-to-organization_or_person_in_organization_assignment-as-its_orgs">Workpiece
 to Organization_or_person_in_organization_assignment (as its_orgs)</a>
 for the application assertion.</P>
@@ -8126,7 +8133,7 @@ for the application assertion.</P>
 Organization_or_person_in_organization_assignment objects that define
 people and associated roles that apply to the manufacturing
 description of the revision given by the revision_id of the Workpiece.
-The its_people need not be specified for a particular Workpiece.
+The its_people may not be specified for a particular Workpiece.
 See <a href="#aa-workpiece-to-organization_or_person_in_organization_assignment-as-its_people">Workpiece
 to Organization_or_person_in_organization_assignment (as
 its_people)</a> for the application assertion.</P>
@@ -8152,7 +8159,7 @@ axis2_placement_3d.</P>
 Date_or_date_time_assignment objects that define dates with times and
 associated roles that apply to the manufacturing description of the
 revision given by the revision_id of the Workpiece.  The
-its_timestamps need not be specified for a particular Workpiece.
+its_timestamps may not be specified for a particular Workpiece.
 See <a href="#aa-workpiece-to-date_or_date_time_assignment-as-its_timestamps">Workpiece
 to Date_or_date_time_assignment (as its_timestamps)</a> for the
 application assertion.</P>
@@ -8162,7 +8169,7 @@ application assertion.</P>
 
 <P>The product_approvals specifies the set of Approval objects that
 define approval status across all revisions of the Workpiece. The
-product_approvals need not be specified for a particular Workpiece.
+product_approvals may not be specified for a particular Workpiece.
 See <a href="#aa-workpiece-to-approval-as-product_approvals">Workpiece
 to Approval (as product_approvals)</a> for the application
 assertion.</P>
@@ -8173,7 +8180,7 @@ assertion.</P>
 <P>The product_datestamps specifies the set of
 Date_or_date_time_assignment objects that define dates and associated
 roles that apply across all revisions of the Workpiece.  The
-product_datestamps need not be specified for a particular Workpiece.
+product_datestamps may not be specified for a particular Workpiece.
 See <a href="#aa-workpiece-to-date_or_date_time_assignment-as-product_datestamps">Workpiece
 to Date_or_date_time_assignment (as product_datestamps)</a> for the
 application assertion.</P>
@@ -8184,7 +8191,7 @@ application assertion.</P>
 <P>The product_orgs specifies the set of
 Organization_or_person_in_organization_assignment objects that define
 organizations and associated roles that apply across all revisions of
-the Workpiece.  The product_orgs need not be specified for a
+the Workpiece.  The product_orgs may not be specified for a
 particular Workpiece.
 See <a href="#aa-workpiece-to-organization_or_person_in_organization_assignment-as-product_orgs">Workpiece
 to Organization_or_person_in_organization_assignment (as
@@ -8196,7 +8203,7 @@ product_orgs)</a> for the application assertion.</P>
 <P>The product_people specifies the set of
 Organization_or_person_in_organization_assignment objects that define
 people and associated roles that apply across all revisions of the
-Workpiece.  The product_people need not be specified for a particular
+Workpiece.  The product_people may not be specified for a particular
 Workpiece.
 See <a href="#aa-workpiece-to-organization_or_person_in_organization_assignment-as-product_people">Workpiece
 to Organization_or_person_in_organization_assignment (as
@@ -8208,7 +8215,7 @@ product_people)</a> for the application assertion.</P>
 <P>The product_timestamps specifies the set of
 Date_or_date_time_assignment objects that define dates with times and
 associated roles that apply across all revisions of the Workpiece.
-The product_timestamps need not be specified for a particular
+The product_timestamps may not be specified for a particular
 Workpiece.
 See <a href="#aa-workpiece-to-date_or_date_time_assignment-as-product_timestamps">Workpiece
 to Date_or_date_time_assignment (as product_timestamps)</a> for the
@@ -8219,7 +8226,7 @@ application assertion.</P>
 <P>
 The revision_approvals specifies the set of Approval objects that
 define the approval status of the revision given by the revision_id of
-the Workpiece. The revision_approvals need not be specified for a
+the Workpiece. The revision_approvals may not be specified for a
 particular Workpiece.
 See <a href="#aa-workpiece-to-approval-as-revision_approvals">Workpiece
 to Approval (as revision_approvals)</a> for the application
@@ -8231,7 +8238,7 @@ assertion.</P>
 <P>The revision_datestamps specifies the set of
 Date_or_date_time_assignment objects that define dates and associated
 roles that apply to the revision given by the revision_id of the
-Workpiece.  The revision_datestamps need not be specified for a
+Workpiece.  The revision_datestamps may not be specified for a
 particular Workpiece.
 See <a href="#aa-workpiece-to-date_or_date_time_assignment-as-revision_datestamps">Workpiece
 to Date_or_date_time_assignment (as revision_datestamps)</a> for the
@@ -8241,7 +8248,7 @@ application assertion.</P>
 <H4><A NAME="ao-workpiece-revision_id"></A>4.3.219.20 revision_id</H4>
 
 <P>The revision_id identifies the revision of the Workpiece.  The
-revision_id need not be specified for a particular Workpiece.</P>
+revision_id may not be specified for a particular Workpiece.</P>
 
 
 <H4><A NAME="ao-workpiece-revision_orgs"></A>4.3.219.21 revision_orgs</H4>
@@ -8249,7 +8256,7 @@ revision_id need not be specified for a particular Workpiece.</P>
 <P>The revision_orgs specifies the set of
 Organization_or_person_in_organization_assignment objects that define
 organizations and associated roles that apply to the revision given by
-the revision_id of the Workpiece.  The revision_orgs need not be
+the revision_id of the Workpiece.  The revision_orgs may not be
 specified for a particular Workpiece.
 See <a href="#aa-workpiece-to-organization_or_person_in_organization_assignment-as-revision_orgs">Workpiece
 to Organization_or_person_in_organization_assignment (as
@@ -8261,7 +8268,7 @@ revision_orgs)</a> for the application assertion.</P>
 <P>The revision_people specifies the set of
 Organization_or_person_in_organization_assignment objects that define
 people and associated roles that apply to the revision given by the
-revision_id of the Workpiece.  The revision_people need not be
+revision_id of the Workpiece.  The revision_people may not be
 specified for a particular Workpiece.
 See <a href="#aa-workpiece-to-organization_or_person_in_organization_assignment-as-revision_people">Workpiece
 to Organization_or_person_in_organization_assignment (as
@@ -8273,7 +8280,7 @@ revision_people)</a> for the application assertion.</P>
 <P>The revision_timestamps specifies the set of
 Date_or_date_time_assignment objects that define dates with times and
 associated roles that apply to the revision given by the revision_id
-of the Workpiece.  The revision_timestamps need not be specified for a
+of the Workpiece.  The revision_timestamps may not be specified for a
 particular Workpiece.
 See <a href="#aa-workpiece-to-date_or_date_time_assignment-as-revision_timestamps">Workpiece
 to Date_or_date_time_assignment (as revision_timestamps)</a> for the
@@ -8295,7 +8302,8 @@ requirements.</P>
 <P>The data associated with a Workpiece_complete_probing are the following:</P>
 
 <UL>
-<LI>all of the data defined by ISO 14649-10, as modified below for the its_workpiece attribute.</LI>
+<LI>all of the data defined by ISO 14649-10, as modified below for the
+its_workpiece attribute.</LI>
 </UL>
 
 <P CLASS="note">
@@ -8457,15 +8465,15 @@ END_ENTITY;
 
 <H4><A NAME="ao-workplan-its_effect"></A>4.3.223.1 its_effect</H4>
 
-<P>The its_effect parameter defined by ISO 14649-10 is replaced by the
-set of as-is, to-be, and removal parameters inherited from the
+<P>The its_effect parameter defined by ISO 14649-10 shall be replaced
+by the set of as-is, to-be, and removal parameters inherited from the
 Executable application object.
 
 <H4><A NAME="ao-workplan-its_minimum_machine_params"></A>4.3.223.2 its_minimum_machine_params</H4>
 
 <P>The its_minimum_machine_params specifies a Machine_parameters
 object which describe the minimum machine tool characteristics
-required to execute the workplan. The its_minimum_machine_params need
+required to execute the workplan. The its_minimum_machine_params may
 not be specified for a particular Workplan.
 See <a href="#aa-workplan-to-machine_parameters">Workplan to
 Machine_parameters</a> for the application assertion.</P>
@@ -8474,7 +8482,7 @@ Machine_parameters</a> for the application assertion.</P>
 
 <P>The toolpath_orientation specifies the placement of the set of
 toolpaths associated with the Executables given by the its_elements
-parameter. The toolpath_orientation need not be specified for a
+parameter. The toolpath_orientation may not be specified for a
 particular Workplan. The placement shall be applied cumulatively in
 addition to toolpath_orientations specified by nested Workplan or
 Machining_workinstep executables. If the toolpath_orientation is not

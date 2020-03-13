@@ -17,43 +17,93 @@
 
 <H3><A NAME="maps-general"></A>5.1.1 General</H3>
 
-<P>This clause specifies how each UoF and application object in <a href="clause4.htm">clause 4</a> shall be represented by one or more AIM EXPRESS constructs given by <a href="annexA.htm">Annex A</a>. Each mapping specification contains up to five elements.</P>
+<P>This clause specifies how each UoF and application object
+in <a href="clause4.htm">clause 4</a> shall be represented by one or
+more AIM EXPRESS constructs given by <a href="annexA.htm">Annex
+A</a>. Each mapping specification contains up to five elements.</P>
 
 <P CLASS="note">
-<SPAN>NOTE</SPAN> It is customary to present mapping specifications in alphabetical order by UoF name, however this document presents the mapping specification in the same order as they appear in <a href="clause4.htm#uofs">clause 4.2</a>.  This ordering matches the ordering of clauses in the ISO 14649 parts and is intended to simplify reference between these documents.</P>
+<SPAN>NOTE</SPAN> It is customary to present mapping specifications in
+alphabetical order by UoF name, however this document presents the
+mapping specification in the same order as they appear
+in <a href="clause4.htm#uofs">clause 4.2</a>.  This ordering matches
+the ordering of clauses in the ISO 14649 parts and is intended to
+simplify reference between these documents.</P>
 
-<P><b>Application element</b>: The mapping for each application element is specified in a separate sub-clause below. Application element names are given in title case. Attribute names and assertions are listed after the the application object to which they belong and are given in lower case.</P>
+<P><b>Application element</b>: The mapping for each application
+element is specified in a separate sub-clause below. Application
+element names are given in title case. Attribute names and assertions
+are listed after the the application object to which they belong and
+are given in lower case.</P>
 
-<P><b>AIM element</b>: The name of one or more AIM entity data types (see <a href="annexA.htm">Annex A</a>), the term &quot;IDENTICAL MAPPING&quot;, or the term &quot;PATH&quot;. AIM entity data type names are given in lower case. Attributes of AIM entity data types are referred to as &lt;entity name&gt;.&lt;attribute name&gt;.  The mapping of an application element may involve more than one AIM element.  Each of these AIM elements is presented on a separate line in the mapping specification.  The term &quot;IDENTICAL MAPPING&quot; indicates that both application objects involved in an application assertion  map to the same instance of an AIM entity data type.  The term &quot;PATH&quot; indicates that the application assertion maps to a collection of related AIM entity instances specified by the entire reference path.</P>
+<P><b>AIM element</b>: The name of one or more AIM entity data types
+(see <a href="annexA.htm">Annex A</a>), the term &quot;IDENTICAL
+MAPPING&quot;, or the term &quot;PATH&quot;. AIM entity data type
+names are given in lower case. Attributes of AIM entity data types are
+referred to as &lt;entity name&gt;.&lt;attribute name&gt;.  The
+mapping of an application element may involve more than one AIM
+element.  Each of these AIM elements is presented on a separate line
+in the mapping specification.  The term &quot;IDENTICAL MAPPING&quot;
+indicates that both application objects involved in an application
+assertion map to the same instance of an AIM entity data type.  The
+term &quot;PATH&quot; indicates that the application assertion maps to
+a collection of related AIM entity instances specified by the entire
+reference path.</P>
 
-<P><b>Source</b>: For those AIM elements that are interpreted  from any common resource, this is the ISO standard number and part number in which the resource is defined.  For those AIM elements that are created for the purposes of this document, this is &quot;ISO 10303-&quot; followed by the number of this part.</P>
+<P><b>Source</b>: For those AIM elements that are interpreted from any
+common resource, this is the ISO standard number and part number in
+which the resource is defined.  For those AIM elements that are
+created for the purposes of this document, this is &quot;ISO
+10303-&quot; followed by the number of this part.</P>
 
-<P><b>Rules</b>: One or more global rules may be specified that apply to the population of the AIM entity data types specified as the AIM element or in the reference path. For rules that are derived from relationships between application objects, the same rule is referred to by the mapping entries of all the involved AIM elements. A reference to a global rule may be accompanied by a reference to the subclause in which the rule is defined.</P>
+<P><b>Rules</b>: One or more global rules may be specified that apply
+to the population of the AIM entity data types specified as the AIM
+element or in the reference path. For rules that are derived from
+relationships between application objects, the same rule is referred
+to by the mapping entries of all the involved AIM elements. A
+reference to a global rule may be accompanied by a reference to the
+subclause in which the rule is defined.</P>
 
-<P><b>Reference path</b>: To describe fully the mapping of an application object, it may be necessary to specify a reference path involving several related AIM elements.  Each line in the reference path documents the role of an AIM element relative to the AIM element in the line following it.   Two or more such related AIM elements define the interpretation of the integrated resources that satisfies the requirement specified by  the application object. For each AIM element that has been created for use within this document, a reference path to its supertype from an integrated resource is specified.</P>
+<P><b>Reference path</b>: To describe fully the mapping of an
+application object, it may be necessary to specify a reference path
+involving several related AIM elements.  Each line in the reference
+path documents the role of an AIM element relative to the AIM element
+in the line following it.  Two or more such related AIM elements
+define the interpretation of the integrated resources that satisfies
+the requirement specified by the application object. For each AIM
+element that has been created for use within this document, a
+reference path to its supertype from an integrated resource is
+specified.</P>
 
-<P>For the expression of reference paths and of the constraints between AIM elements, the following notational conventions apply:</P>
+<P>For the expression of reference paths and of the constraints
+between AIM elements, the following notational conventions apply:</P>
 
 <table class="maplegend">
 <tbody>
 <tr>
 <td>[]</td>
-<td>enclosed section constrains multiple AIM elements or sections of the reference path are required to satisfy an information requirement;</td>
+<td>enclosed section constrains multiple AIM elements or sections of
+the reference path are required to satisfy an information
+requirement;</td>
 </tr>
 
 <tr>
 <td>()</td>
-<td>enclosed section constrains multiple AIM elements or sections of the reference path are identified as alternatives within the mapping to satisfy an information requirement;</td>
+<td>enclosed section constrains multiple AIM elements or sections of
+the reference path are identified as alternatives within the mapping
+to satisfy an information requirement;</td>
 </tr>
 
 <tr>
 <td>{}</td>
-<td>enclosed section constrains the reference path to satisfy an information requirement;</td>
+<td>enclosed section constrains the reference path to satisfy an
+information requirement;</td>
 </tr>
 
 <tr>
 <td>&lt;&gt;</td>
-<td>enclosed section constrains at one or more required reference path;</td>
+<td>enclosed section constrains at one or more required reference
+path;</td>
 </tr>
 
 <tr>
@@ -63,32 +113,39 @@
 
 <tr>
 <td>-&gt;</td>
-<td>the attribute, whose name precedes the -&gt; symbol, references the entity or select type whose name follows the -&gt; symbol;</td>
+<td>the attribute, whose name precedes the -&gt; symbol, references
+the entity or select type whose name follows the -&gt; symbol;</td>
 </tr>
 
 <tr>
 <td>&lt;-</td>
-<td>the entity or select type, whose name precedes the &lt;- symbol, is referenced by the entity attribute whose name follows the &lt;- symbol;</td>
+<td>the entity or select type, whose name precedes the &lt;- symbol,
+is referenced by the entity attribute whose name follows the &lt;-
+symbol;</td>
 </tr>
 
 <tr>
 <td>[i]</td>
-<td>the attribute, whose name precedes the [i] symbol, is an aggregate; any element of that aggregate is referred to;</td>
+<td>the attribute, whose name precedes the [i] symbol, is an
+aggregate; any element of that aggregate is referred to;</td>
 </tr>
 
 <tr>
 <td>[n]</td>
-<td>the attribute, whose name precedes the [n] symbol, is an ordered aggregate; member n of that aggregate is referred to;</td>
+<td>the attribute, whose name precedes the [n] symbol, is an ordered
+aggregate; member n of that aggregate is referred to;</td>
 </tr>
 
 <tr>
 <td>=&gt;</td>
-<td>the entity, whose name precedes the =&gt; symbol, is a supertype of the entity whose name follows the =&gt; symbol;</td>
+<td>the entity, whose name precedes the =&gt; symbol, is a supertype
+of the entity whose name follows the =&gt; symbol;</td>
 </tr>
 
 <tr>
 <td>&lt;=</td>
-<td>the entity, whose name precedes the &lt;= symbol, is a subtype of the entity whose name follows the &lt;= symbol;</td>
+<td>the entity, whose name precedes the &lt;= symbol, is a subtype of
+the entity whose name follows the &lt;= symbol;</td>
 </tr>
 
 <tr>
@@ -103,7 +160,10 @@
 
 <tr>
 <td>*</td>
-<td>one or more instances of the relationship entity data type may be assembled in a relationship tree structure. The path between the relationship entity and the related entities, is enclosed with braces;</td>
+<td>one or more instances of the relationship entity data type may be
+assembled in a relationship tree structure. The path between the
+relationship entity and the related entities, is enclosed with
+braces;</td>
 </tr>
 
 <tr>
@@ -113,12 +173,16 @@
 
 <tr>
 <td>*&gt;</td>
-<td>the select or enumeration type, whose name precedes the *&gt; symbol, is extended into the select or enumeration type whose name follows the *&gt; symbol;</td>
+<td>the select or enumeration type, whose name precedes the *&gt;
+symbol, is extended into the select or enumeration type whose name
+follows the *&gt; symbol;</td>
 </tr>
 
 <tr>
 <td>&lt;*</td>
-<td>the select or enumeration type, whose name precedes the &lt;* symbol, is an extension of the select or enumeration type whose name follows the &lt;* symbol;</td>
+<td>the select or enumeration type, whose name precedes the &lt;*
+symbol, is an extension of the select or enumeration type whose name
+follows the &lt;* symbol;</td>
 </tr>
 
 <tr>
@@ -1209,7 +1273,7 @@ product_definition
 <H5><A NAME="map-executable-enabled"></A>5.1.6.4.3 enabled</H5>
 
 <div class="mapnote">
-<p>#1: if value is true (mapping may also be omitted if value is true)</p>
+<p>#1: if value is true (mapping may be omitted if value is true)</p>
 <p>#2: if value is false</p>
 </div>
 
@@ -5140,7 +5204,7 @@ numeric_measure }
 
 <H5><A NAME="map-technology-feedrate_reference"></A>5.1.7.5.2 feedrate_reference</H5>
 <div class="mapnote">
-<p>#1: if value is tool center point  (mapping may also be omitted if value is tool center point)</p>
+<p>#1: if value is tool center point  (mapping may be omitted if value is tool center point)</p>
 <p>#2: if value is cutter contact point </p>
 </div>
 
@@ -6458,7 +6522,7 @@ action_method
 <H5><A NAME="map-toolpath-its_priority"></A>5.1.8.13.1 its_priority</H5>
 <div class="mapnote">
 <p>#1: if value is true</p>
-<p>#2: if value is false  (mapping may also be omitted if value is false)</p>
+<p>#2: if value is false  (mapping may be omitted if value is false)</p>
 </div>
 
 <table class="map">
@@ -6500,7 +6564,7 @@ descriptive_representation_item.description
 <p>#3: if value is connect</p>
 <p>#4: if value is non-contact</p>
 <p>#5: if value is contact</p>
-<p>#6: if value is trajectory path  (mapping may also be omitted if value is trajectory path)</p>
+<p>#6: if value is trajectory path  (mapping may be omitted if value is trajectory path)</p>
 </div>
 
 <table class="map">
@@ -6716,7 +6780,7 @@ action_method
 
 <H5><A NAME="map-trajectory-its_direction"></A>5.1.8.15.1 its_direction</H5>
 <div class="mapnote">
-<p>#1: if value is true   (mapping may also be omitted if value is true)</p>
+<p>#1: if value is true   (mapping may be omitted if value is true)</p>
 <p>#2: if value is false</p>
 </div>
 
@@ -7625,7 +7689,7 @@ action_method
 <H5><A NAME="map-boring_operation-spindle_stop_at_bottom"></A>5.1.9.11.1 spindle_stop_at_bottom</H5>
 <div class="mapnote">
 <p>#1: if value is true</p>
-<p>#2: if value is false  (mapping may also be omitted if value is false)</p>
+<p>#2: if value is false  (mapping may be omitted if value is false)</p>
 </div>
 
 <table class="map">
@@ -9735,7 +9799,7 @@ numeric_measure }
 <H5><A NAME="map-milling_machine_functions-mist"></A>5.1.9.38.3 mist</H5>
 <div class="mapnote">
 <p>#1: if value is true</p>
-<p>#2: if value is false  (mapping may also be omitted if value is false)</p>
+<p>#2: if value is false  (mapping may be omitted if value is false)</p>
 </div>
 
 <table class="map">
@@ -9775,7 +9839,7 @@ descriptive_representation_item.description
 <H5><A NAME="map-milling_machine_functions-through_spindle_coolant"></A>5.1.9.38.4 through_spindle_coolant</H5>
 <div class="mapnote">
 <p>#1: if value is true</p>
-<p>#2: if value is false  (mapping may also be omitted if value is false)</p>
+<p>#2: if value is false  (mapping may be omitted if value is false)</p>
 </div>
 
 <table class="map">
@@ -9891,7 +9955,7 @@ descriptive_representation_item.description
 <H5><A NAME="map-milling_machine_functions-chip_removal"></A>5.1.9.38.7 chip_removal</H5>
 <div class="mapnote">
 <p>#1: if value is true</p>
-<p>#2: if value is false  (mapping may also be omitted if value is false)</p>
+<p>#2: if value is false  (mapping may be omitted if value is false)</p>
 </div>
 
 <table class="map">
@@ -10260,7 +10324,7 @@ length_measure_with_unit
 <H5><A NAME="map-milling_technology-synchronize_spindle_with_feed"></A>5.1.9.40.4 synchronize_spindle_with_feed</H5>
 <div class="mapnote">
 <p>#1: if value is true</p>
-<p>#2: if value is false  (mapping may also be omitted if value is false)</p>
+<p>#2: if value is false  (mapping may be omitted if value is false)</p>
 </div>
 
 <table class="map">
@@ -10300,7 +10364,7 @@ descriptive_representation_item.description
 <H5><A NAME="map-milling_technology-inhibit_feedrate_override"></A>5.1.9.40.5 inhibit_feedrate_override</H5>
 <div class="mapnote">
 <p>#1: if value is true</p>
-<p>#2: if value is false  (mapping may also be omitted if value is false)</p>
+<p>#2: if value is false  (mapping may be omitted if value is false)</p>
 </div>
 
 <table class="map">
@@ -10340,7 +10404,7 @@ descriptive_representation_item.description
 <H5><A NAME="map-milling_technology-inhibit_spindle_override"></A>5.1.9.40.6 inhibit_spindle_override</H5>
 <div class="mapnote">
 <p>#1: if value is true</p>
-<p>#2: if value is false  (mapping may also be omitted if value is false)</p>
+<p>#2: if value is false  (mapping may be omitted if value is false)</p>
 </div>
 
 <table class="map">
@@ -11574,7 +11638,7 @@ action_method
 <H5><A NAME="map-tapping-compensation_chuck"></A>5.1.9.59.1 compensation_chuck</H5>
 <div class="mapnote">
 <p>#1: if value is true</p>
-<p>#2: if value is false  (mapping may also be omitted if value is false)</p>
+<p>#2: if value is false  (mapping may be omitted if value is false)</p>
 </div>
 
 <table class="map">
@@ -11644,7 +11708,7 @@ action_method
 <H5><A NAME="map-thread_drilling-helical_movement_on_forward"></A>5.1.9.60.1 helical_movement_on_forward</H5>
 <div class="mapnote">
 <p>#1: if value is true</p>
-<p>#2: if value is false  (mapping may also be omitted if value is false)</p>
+<p>#2: if value is false  (mapping may be omitted if value is false)</p>
 </div>
 
 <table class="map">
@@ -11956,7 +12020,7 @@ ratio_measure_with_unit
 
 <H5><A NAME="map-two5d_milling_strategy-allow_multiple_passes"></A>5.1.9.65.2 allow_multiple_passes</H5>
 <div class="mapnote">
-<p>#1: if value is true (mapping may also be omitted if value is true)</p>
+<p>#1: if value is true (mapping may be omitted if value is true)</p>
 <p>#2: if value is false</p>
 </div>
 
@@ -16112,7 +16176,7 @@ descriptive_representation_item.description
 <H5><A NAME="map-turning_machine_functions-chip_removal"></A>5.1.11.23.5 chip_removal</H5>
 <div class="mapnote">
 <p>#1: if value is true</p>
-<p>#2: if value is false  (mapping may also be omitted if value is false)</p>
+<p>#2: if value is false  (mapping may be omitted if value is false)</p>
 </div>
 
 <table class="map">
@@ -16243,7 +16307,7 @@ representation_item
 <H5><A NAME="map-turning_machine_functions-tail_stock"></A>5.1.11.23.9 tail_stock</H5>
 <div class="mapnote">
 <p>#1: if value is true</p>
-<p>#2: if value is false  (mapping may also be omitted if value is false)</p>
+<p>#2: if value is false  (mapping may be omitted if value is false)</p>
 </div>
 
 <table class="map">
@@ -16283,7 +16347,7 @@ descriptive_representation_item.description
 <H5><A NAME="map-turning_machine_functions-steady_rest"></A>5.1.11.23.10 steady_rest</H5>
 <div class="mapnote">
 <p>#1: if value is true</p>
-<p>#2: if value is false  (mapping may also be omitted if value is false)</p>
+<p>#2: if value is false  (mapping may be omitted if value is false)</p>
 </div>
 
 <table class="map">
@@ -16323,7 +16387,7 @@ descriptive_representation_item.description
 <H5><A NAME="map-turning_machine_functions-follow_rest"></A>5.1.11.23.11 follow_rest</H5>
 <div class="mapnote">
 <p>#1: if value is true</p>
-<p>#2: if value is false  (mapping may also be omitted if value is false)</p>
+<p>#2: if value is false  (mapping may be omitted if value is false)</p>
 </div>
 
 <table class="map">
@@ -16523,7 +16587,7 @@ length_measure_with_unit
 
 <H5><A NAME="map-turning_machining_strategy-allow_multiple_passes"></A>5.1.11.25.2 allow_multiple_passes</H5>
 <div class="mapnote">
-<p>#1: if value is true (mapping may also be omitted if value is true)</p>
+<p>#1: if value is true (mapping may be omitted if value is true)</p>
 <p>#2: if value is false</p>
 </div>
 
@@ -16730,7 +16794,7 @@ measure_with_unit
 <H5><A NAME="map-turning_technology-sync_spindle_and_z_feed"></A>5.1.11.26.3 sync_spindle_and_z_feed</H5>
 <div class="mapnote">
 <p>#1: if value is true</p>
-<p>#2: if value is false  (mapping may also be omitted if value is false)</p>
+<p>#2: if value is false  (mapping may be omitted if value is false)</p>
 </div>
 
 <table class="map">
@@ -16770,7 +16834,7 @@ descriptive_representation_item.description
 <H5><A NAME="map-turning_technology-inhibit_feedrate_override"></A>5.1.11.26.4 inhibit_feedrate_override</H5>
 <div class="mapnote">
 <p>#1: if value is true</p>
-<p>#2: if value is false  (mapping may also be omitted if value is false)</p>
+<p>#2: if value is false  (mapping may be omitted if value is false)</p>
 </div>
 
 <table class="map">
@@ -16810,7 +16874,7 @@ descriptive_representation_item.description
 <H5><A NAME="map-turning_technology-inhibit_spindle_override"></A>5.1.11.26.5 inhibit_spindle_override</H5>
 <div class="mapnote">
 <p>#1: if value is true</p>
-<p>#2: if value is false  (mapping may also be omitted if value is false)</p>
+<p>#2: if value is false  (mapping may be omitted if value is false)</p>
 </div>
 
 <table class="map">
@@ -20537,7 +20601,7 @@ date_time_role
 <A NAME="mapnote-1">1)</A> For bounding geometry that is either a block or cylinder, ISO 14649-10 references block and right_circular_cylinder.   For harmonization with AP 224 and AP 214 these two cases have been mapped to the shape_representation subtypes block_shape_representation and cylindrical_shape_representation instead.  Aside from these two cases, the mapping for its_bounding_geometry is simply the its_geometry parameter of the its_rawpiece.</P>
 
 <P CLASS="numbered-notes">
-<A NAME="mapnote-2">2)</A> The product_definition_formation_with_specified_source subtype of product_definition_formation is present in the integrated representation to simplify the use of workpiece descriptions that may have originated from an AP 203 process.  This use of this subtype is not recommended in the general case.</P>
+<A NAME="mapnote-2">2)</A> The product_definition_formation_with_specified_source subtype of product_definition_formation is present in the integrated representation to simplify the use of workpiece descriptions that have originated from an AP 203 process.  This use of this subtype is not recommended in the general case.</P>
 
 <P CLASS="numbered-notes">
 <A NAME="mapnote-3">3)</A> Assembly information is likely to originate in upstream applications using AP 203, AP 214, or AP 242, which permit assembly components to be placed using mapped_item or item_defined_transformation.   The originating_orientation and resulting_orientation mappings allow either technique to be used for compatibility with existing APs and data sets.  When using item_defined_transformation, some APs have not clearly stated which attribute refers to the component and which refers to the enclosing assembly, which has led to confusion.  Here transform_item_1 refers to the original workpiece placement and transform_item_2 refers to the placement within the assembly.  Additional discussion on the handling of shape in assemblies can be found in 5.2.1.6 of ISO 10303-214.</P>
@@ -20575,7 +20639,7 @@ specializations, rules, and functions that are specific to this
 document. This clause also specifies modifications to the text for
 constructs that are imported from the common resources. The
 definitions and EXPRESS provided in the integrated resources for
-constructs used in the AIM may include select list items and subtypes
+constructs used in the AIM can include select list items and subtypes
 that are not imported into the AIM. Requirements stated in the
 integrated resources that refer to select list items and subtypes
 apply exclusively to those items that are imported into the AIM.</P>
@@ -20857,7 +20921,7 @@ USE FROM application_context_schema				-- 10303-41
 
 <P>The authors of ISO 14649 chose a different method and instead encode depth as a surface representing the deepest part of the feature.  As part of this, ISO 14649 defines the origin of the feature at the top of the feature, so that depth can be computed geometrically as the distance between the feature placement and the depth surface.</P>
 
-<P>Consequently, a feature may have different values for placement location, and possibly orientation, in the ISO 10303 integrated representation and the ISO 14649 representation.</P>
+<P>Consequently, a feature can have different values for placement location, and possibly orientation, in the ISO 10303 integrated representation and the ISO 14649 representation.</P>
 <P CLASS="note">
 <SPAN>EXAMPLE</SPAN> Consider <a href="#fig-depth_diffs">Figure 6</a> and assume a round hole 2 units deep, with the bottom centre of the hole located at (0, 0, 0).  In the ISO 10303 representation, the placement location of the hole is (0, 0, 0) and the length of the sweep path is 2 units. In the ISO 14649 representation, the placement location of the hole would be (0, 0, +2) and the feature would point to an instance of elementary_surface defining a plane at z=0;</P>
 
@@ -20875,7 +20939,7 @@ USE FROM application_context_schema				-- 10303-41
 <P CLASS="note">
 The ISO 10303 standards originally defined features on the final form of the part as input to process planning.  However, the features on the final part may not exactly match the features as machined.  Consider a flat surface with a hole drilled in it.  If the hole is drilled before the face is machined, the top of the hole will be higher than if it is drilled after the face is machined.   The location in space of the bottom of the hole remains the same regardless of the sequence of operations.</P>
 <P CLASS="note">
-Since planning activity may explore different operation sequences, describing the location from a reference point at the bottom of the feature allows the numeric value of the location to remain constant, even if the volume of the feature changes during process planning.   Subsequent ISO 10303 standards continue to use this convention for compatibility.</P>
+Since planning activity can explore different operation sequences, describing the location from a reference point at the bottom of the feature allows the numeric value of the location to remain constant, even if the volume of the feature changes during process planning.   Subsequent ISO 10303 standards continue to use this convention for compatibility.</P>
 <P CLASS="note">
 ISO 14649 chose to use the top to more closely match the conventions used by machinists.  Application software built around AP 238 may find it useful to present location information to a human using the ISO 14649 conventions, while still using the ISO 10303 convention for data exchange.</P>
 
@@ -20886,7 +20950,7 @@ ISO 14649 chose to use the top to more closely match the conventions used by mac
 
 <P>In the ISO 10303 integrated representation, profiles are defined to exist in the XY plane. Most features sweep the profile in the Z direction (the one exception is planar face, which uses a linear profile defined to lie along the X axis and is swept along the Y axis).  The origin of a feature, its profile, and its path are all at the same point in space.  Within the AIM instance data, it is recommended that the &quot;placement&quot; parameters of all three share the same axis2_placement_3d instance.</P>
 
-<P>In ISO 14649, profiles are also defined in the XY plane, but sometimes interpreted as lying in the XZ plane because of the way feature orientation is defined.  In the ISO 14649 representation, the origin of the profile, path, and feature may lie at different points. See <a href="#funcon-feature-bytype">Manufacturing feature details by type</a> for a listing of specific differences for each feature type.</P>
+<P>In ISO 14649, profiles are also defined in the XY plane, but sometimes interpreted as lying in the XZ plane because of the way feature orientation is defined.  In the ISO 14649 representation, the origin of the profile, path, and feature can lie at different points. See <a href="#funcon-feature-bytype">Manufacturing feature details by type</a> for a listing of specific differences for each feature type.</P>
 <P CLASS="note">
 <SPAN>EXAMPLE</SPAN> <a href="#fig-placement_diffs">Figure 7</a> shows a slot made up of a rounded u profile.  In the ISO 10303 representation, the feature placement gives the origin of both the sweep path and the profile, with the profile in the XY plane and the sweep along the Z axis.</P>
 
@@ -20920,7 +20984,7 @@ In the ISO 14649 representation, the feature placement location defines the top 
 <P CLASS="note">
 <SPAN>EXAMPLE 1</SPAN> <a href="#fig-aim_features">Figure 8</a> shows an instance diagram for a feature containing implicit and explicit representations. The instances describing the profile and path are not shown, but each is a shape_aspect subtype similar to the feature instance.  The parameters describing each is held by a shape_representation_with_parameters instance and related to the profile or path using the same pattern of shape_definition_representation and product_definition_shape instances as shown below.</P>
 
-<P>An alternate mapping path is given for the explicit_representation parameter that does not use the shape_representation or shape_definition_representation subtypes.  This alternate should only be used for reading instance data that may have originated from an AP 224 process.  The preferred mapping should be used for any new instance data.  Examples 2 and 3 illustrate both mappings.</P>
+<P>An alternate mapping path is given for the explicit_representation parameter that does not use the shape_representation or shape_definition_representation subtypes.  This alternate should only be used for reading instance data that has originated from an AP 224 process.  The preferred mapping should be used for any new instance data.  Examples 2 and 3 illustrate both mappings.</P>
 <P CLASS="note">
 <SPAN>EXAMPLE 2</SPAN> The preferred explicit_representation encoding.  In the exchange file fragment below, #10 describes a round hole feature on a workpiece (#100, not shown).   The explicit shape description is given by the advanced_face instances (#50, #60, #70) in a shape_representation (#40) with a name of &quot;explicit feature shape&quot;, and is related to the feature through a shape_definition_representation (#30) and product_definition_shape (#20).</P>
 <PRE CLASS="note">
@@ -20944,7 +21008,7 @@ In the ISO 14649 representation, the feature placement location defines the top 
 
 </PRE>
 <P CLASS="note">
-<SPAN>EXAMPLE 3</SPAN> The alternate explicit_representation encoding.   The exchange file fragment below describes the same feature as the previous example, but the advanced_face instances are in an instance of the representation base type (#40) with no name, and is related to the feature through a property_definition_representation (#30) and property_definition (#20) with no name.   Since other feature properties may have representations containing faces, there may be some ambiguity.</P>
+<SPAN>EXAMPLE 3</SPAN> The alternate explicit_representation encoding.   The exchange file fragment below describes the same feature as the previous example, but the advanced_face instances are in an instance of the representation base type (#40) with no name, and is related to the feature through a property_definition_representation (#30) and property_definition (#20) with no name.   Since other feature properties can have representations containing faces, there can be some ambiguity.</P>
 <PRE CLASS="note">
 #10=(
   CHARACTERIZED_OBJECT('',$)
@@ -20971,9 +21035,9 @@ In the ISO 14649 representation, the feature placement location defines the top 
 
 <P>A machining workplan is composed of machining workingsteps, each of which refers to a feature that defines a volume of space acted upon by that workingstep.  This volume of space is empty of material when the operation is finished, subject to any finishing allowance or overcut modifiers in the associated operation parameters.   Furthermore, the workingstep shall not remove any material outside of the feature volume.</P>
 <P CLASS="note">
-<SPAN>NOTE</SPAN> The volume defined by the feature may not be the exact removal volume since some of the material may have already been removed by previous workingsteps.   Consider roughing and finishing of a pocket.  Both workingsteps would refer to the pocket.  The roughing step removes the entire volume except for a finishing allowance, while the finishing step removes only a thin shell.</P>
+<SPAN>NOTE</SPAN> It is possible that the volume defined by the feature is not be the exact removal volume if some of the material has already been removed by previous workingsteps.   Consider roughing and finishing of a pocket.  Both workingsteps would refer to the pocket.  The roughing step removes the entire volume except for a finishing allowance, while the finishing step removes only a thin shell.</P>
 
-<P>These features are tightly tied to the machining process defined by the workplan.  If a manufacturing engineer creates an alternate workplan to make the same workpiece, the new workplan may use a completely different set of features.  </P>
+<P>These features are tightly tied to the machining process defined by the workplan.  If a manufacturing engineer creates an alternate workplan to make the same workpiece, the new workplan can use a completely different set of features.</P>
 <P CLASS="note">
 <SPAN>EXAMPLE 1</SPAN> <a href="#fig-inprocess_alternate">Figure 9</a> shows a stairway-shaped workpiece and two different machining processes to produce that workpiece.  The example on the right shows a depth-first machining workplan while the example on the left shows a breadth-first machining workplan.  Both workplans produce the same result, but each calls out very different features.</P>
 
@@ -20985,13 +21049,41 @@ In the ISO 14649 representation, the feature placement location defines the top 
 
 
 
-<P>AP 224 and other parts of ISO 10303 identify features on the final form of the workpiece that are not necessarily tied to a specific sequence of machining processes.  These features are used as input to the process planning activity.  The output of macro process-planning may be described as an AP 240 data set that will include these features but may identify additional intermediate features related to a particular process.   This document describes the micro process-plan and is concerned with the features associated with a particular process, but it is desirable to link the features on the final form with  the set of workingsteps that contribute to their manufacture.   This associativity through the entire design to manufacturing path is useful for related downstream tasks, such as inspection, which could use the tracability to pinpoint critical areas of interest in the micro and macro process-plans.</P>
+<P>AP 224 and other parts of ISO 10303 identify features on the final
+form of the workpiece that are not necessarily tied to a specific
+sequence of machining processes.  These features are used as input to
+the process planning activity.  The output of macro process-planning
+can be described as an AP 240 data set that includes these features
+with additional intermediate features related to a particular process.
+This document describes the micro process-plan and is concerned with
+the features associated with a particular process, but it is desirable
+to link the features on the final form with the set of workingsteps
+that contribute to their manufacture.  This associativity through the
+entire design to manufacturing path is useful for related downstream
+tasks, such as inspection, which could use the tracability to pinpoint
+critical areas of interest in the micro and macro process-plans.</P>
+
 <P CLASS="note">
-<SPAN>EXAMPLE 2</SPAN> <a href="#fig-inprocess_final">Figure 10</a> shows a workpiece whose final form contains a step and an open slot.  The input to the process planner was an open slot and step, and for whatever reason, he decided to machine the slot first and the step second.    The workplan contains two workingsteps, the first of which refers to a closed slot and the second of which refers to the step.</P>
+<SPAN>EXAMPLE 2</SPAN> <a href="#fig-inprocess_final">Figure 10</a>
+shows a workpiece whose final form contains a step and an open slot.
+The input to the process planner was an open slot and step, and for
+whatever reason, he decided to machine the slot first and the step
+second.  The workplan contains two workingsteps, the first of which
+refers to a closed slot and the second of which refers to the
+step.</P>
+
 <P CLASS="note">
-With the first workingstep, ISO 14649 is only concerned with the closed slot, and there is no way to trace back to the open slot feature on the final part.  In the second workingstep, of course, the process and final form feature are the same thing.</P>
+With the first workingstep, ISO 14649 is only concerned with the
+closed slot, and there is no way to trace back to the open slot
+feature on the final part.  In the second workingstep, of course, the
+process and final form feature are the same thing.</P>
+
 <P CLASS="note">
-A similar situation arises for &quot;consumed&quot; features such as entry holes, which are drilled to provide a starting point for an endmill to facilitate later machining operations.  The entry hole feature never appears on the final workpiece because it is machined away by subsequent operations.</P>
+A similar situation arises for &quot;consumed&quot; features such as
+entry holes, which are drilled to provide a starting point for an
+endmill to facilitate later machining operations.  The entry hole
+feature never appears on the final workpiece because it is machined
+away by subsequent operations.</P>
 
 
 <FIGURE><A NAME="fig-inprocess_final"></A>
@@ -21154,13 +21246,38 @@ A similar situation arises for &quot;consumed&quot; features such as entry holes
 
 <H5><A NAME="funcon-transition_features"></A>5.2.2.3.7 Transition Features</H5>
 
-<P>In the ISO 10303 application protocols, chamfers and edge rounds are defined as a relationship between two sets of geometric elements on the boundary representation of the workpiece.  Each transition feature has a first_face_shape and a second_face_shape parameter.  Each contains a set of face_surface or oriented_face instances taken from the brep description of the workpiece shape.  In addition, several characteristic parameters are associated with each feature type.  Chamfers have an offset and face angle, while edge rounds have two offsets and a radius to describe the transition surface.</P>
+<P>In the ISO 10303 application protocols, chamfers and edge rounds
+are defined as a relationship between two sets of geometric elements
+on the boundary representation of the workpiece.  Each transition
+feature has a first_face_shape and a second_face_shape parameter.
+Each contains a set of face_surface or oriented_face instances taken
+from the brep description of the workpiece shape.  In addition,
+several characteristic parameters are associated with each feature
+type.  Chamfers have an offset and face angle, while edge rounds have
+two offsets and a radius to describe the transition surface.</P>
 
-<P>ISO 14649 calls out the same characteristic parameters, but defines chamfers and edge rounds as a relationship between two features.  Each transition feature has a first_feature and a second_feature parameter referring to the features on either side of the transition.   </P>
+<P>ISO 14649 calls out the same characteristic parameters, but defines
+chamfers and edge rounds as a relationship between two features.  Each
+transition feature has a first_feature and a second_feature parameter
+referring to the features on either side of the transition.  </P>
+
 <P CLASS="note">
-<SPAN>NOTE 1</SPAN>  Why were two approaches used?  Historically, the ISO 10303 approach was defined first, but this requires that brep geometry be present in order to describe transition features.  From the ISO 14649 perspective, geometry is optional and may be omitted, so it made sense to define transition features as a relationship between two features instead. </P>
+<SPAN>NOTE 1</SPAN> Why were two approaches used?  Historically, the
+ISO 10303 approach was defined first, but this requires that brep
+geometry be present in order to describe transition features.  From
+the ISO 14649 perspective, geometry is optional and may be omitted, so
+it made sense to define transition features as a relationship between
+two features instead. </P>
 
-<P>This document extends the Chamfer and Edge_round application objects to support the use of both approaches.  This was done by adding chamfer_face, first_face_shape and second_face_shape attributes to Chamfer and adding edge_round_face, first_face_shape and second_face_shape attributes to Edge_round.  These attributes are optional and represent the faces associated with the transition features for harmonization with the other ISO 10303 parts.  <a href="#fig-transition">Figure 18</a> shows both approaches for transition features.  </P>
+<P>This document extends the Chamfer and Edge_round application
+objects to support the use of both approaches.  This was done by
+adding chamfer_face, first_face_shape and second_face_shape attributes
+to Chamfer and adding edge_round_face, first_face_shape and
+second_face_shape attributes to Edge_round.  These attributes are
+optional and represent the faces associated with the transition
+features for harmonization with the other ISO 10303
+parts.  <a href="#fig-transition">Figure 18</a> shows both approaches
+for transition features.  </P>
 
 
 
@@ -21184,14 +21301,36 @@ As originally mapped in AP 224, Edge_round has three face sets, each mapped to a
 
 <H5><A NAME="measure-values-and-units"></A>5.2.2.4.1 Measurement values and units</H5>
 
-<P>In the ISO 10303 integrated representation, measurements such as length, angle, and time are represented as instances of the measure_with_unit type.  A subtype is used when one exists for the particular type of measure value.  The following sections discuss measure_with_unit subtypes in greater detail.</P>
+<P>In the ISO 10303 integrated representation, measurements such as
+length, angle, and time are represented as instances of the
+measure_with_unit type.  A subtype is used when one exists for the
+particular type of measure value.  The following sections discuss
+measure_with_unit subtypes in greater detail.</P>
 
-<P>Within each instance, the value_component attribute holds the numeric value of a measure and the unit_component attribute holds a reference to an instance of named_unit or derived_unit defining the unit of measurement for the value.  In this way, each numeric value is accompanied by a unit to provide context.  In general, only one instance of each unit is needed, as a single unit instance may be shared by many measure_with_unit instances.</P>
+<P>Within each instance, the value_component attribute holds the
+numeric value of a measure and the unit_component attribute holds a
+reference to an instance of named_unit or derived_unit defining the
+unit of measurement for the value.  In this way, each numeric value is
+accompanied by a unit to provide context.  In general, only one
+instance of each unit is needed, as a single unit instance can be
+shared by many measure_with_unit instances.</P>
 
-<P>Measurements most often appear in the items set of the representation of an action_property, resource_property, or property_definition.   The items set must refer to representation_item instances, so measurements are encoded as a measure_representation_item, which is a subtype of measure_with_unit and representation_item.  The measure_with_unit subtypes for specific types of values are still used by creating a complex entity instance with measure_representation_item.</P>
+<P>Measurements most often appear in the items set of the
+representation of an action_property, resource_property, or
+property_definition.  The items set must refer to representation_item
+instances, so measurements are encoded as a
+measure_representation_item, which is a subtype of measure_with_unit
+and representation_item.  The measure_with_unit subtypes for specific
+types of values are still used by creating a complex entity instance
+with measure_representation_item.</P>
 
 <P CLASS="note">
-<SPAN>EXAMPLE 1</SPAN> No value-specific subtype of measure_with_unit exists for count measurements, so a count value is simply encoded as an instance of measure_representation_item.   In the exchange file fragment below, #10 is an instance of this type describing a count of 5.   The unit for the value is encoded by #20, which is a context_dependent_unit with a name of &quot;count&quot;.</P>
+<SPAN>EXAMPLE 1</SPAN> No value-specific subtype of measure_with_unit
+exists for count measurements, so a count value is simply encoded as
+an instance of measure_representation_item.  In the exchange file
+fragment below, #10 is an instance of this type describing a count of
+5.  The unit for the value is encoded by #20, which is a
+context_dependent_unit with a name of &quot;count&quot;.</P>
 
 <PRE CLASS="note">
 #10=MEASURE_REPRESENTATION_ITEM('', COUNT_MEASURE(5.),#20);
@@ -21200,7 +21339,15 @@ As originally mapped in AP 224, Edge_round has three face sets, each mapped to a
 </PRE>
 
 <P CLASS="note">
-<SPAN>EXAMPLE 2</SPAN> A length measurement would be encoded as a complex instance of length_measure_with_unit and measure_representation_item.   In the exchange file fragment below, #40 is a complex instance of these types describing a value of 22.5mm.   The millimetre unit is encoded by #50, which is also a complex instance of length_unit and si_unit.   In general, each value-specific subtype of measure_with_unit has a corresponding subtypes of named_unit that is used in a complex instance with either si_unit or conversion_based_unit for units describing those types of values.</P>
+<SPAN>EXAMPLE 2</SPAN> A length measurement would be encoded as a
+complex instance of length_measure_with_unit and
+measure_representation_item.  In the exchange file fragment below, #40
+is a complex instance of these types describing a value of 22.5mm.
+The millimetre unit is encoded by #50, which is also a complex
+instance of length_unit and si_unit.  In general, each value-specific
+subtype of measure_with_unit has a corresponding subtypes of
+named_unit that is used in a complex instance with either si_unit or
+conversion_based_unit for units describing those types of values.</P>
 
 <PRE CLASS="note">
 #40=(
@@ -21218,14 +21365,28 @@ As originally mapped in AP 224, Edge_round has three face sets, each mapped to a
 </PRE>
 
 
-<P>In ISO 14649 all basic measures are defined using specific, fixed units (all lengths are expressed in millimeters, all plane angles are expressed in degrees), so units do not appear explicitly in the data sets.  ISO 14649 is unable to transmit measurements defined by other units without first numerically converting the values to the specified units.</P>
+<P>In ISO 14649 all basic measures are defined using specific, fixed
+units (all lengths are expressed in millimeters, all plane angles are
+expressed in degrees), so units do not appear explicitly in the data
+sets.  ISO 14649 is unable to transmit measurements defined by other
+units without first numerically converting the values to the specified
+units.</P>
 
-<P>To convert to the ISO 14649 representation, convert the numeric value of each measure from the unit description provided with the measure to the default unit specified by ISO 14649.</P>
+<P>To convert to the ISO 14649 representation, convert the numeric
+value of each measure from the unit description provided with the
+measure to the default unit specified by ISO 14649.</P>
 
 
 <H5><A NAME="measure-quals"></A>5.2.2.4.2 Tolerance qualifications</H5>
 
-<P>In the ISO 10303 integrated representation, qualifications such as plus/minus bounds, significant digits, limits and fits, or maximum/minimum may be applied to measurement values.  This is encoded by creating a complex entity instance of qualified_representation_item, measure_representation_item,  and, if one exists, a value-specific measure_with_unit subtype. The qualified_representation_item adds a set of value qualifiers to the instance that describe the conditions placed on the value.</P>
+<P>In the ISO 10303 integrated representation, qualifications such as
+plus/minus bounds, significant digits, limits and fits, or
+maximum/minimum can be applied to measurement values.  This is encoded
+by creating a complex entity instance of
+qualified_representation_item, measure_representation_item, and, if
+one exists, a value-specific measure_with_unit subtype. The
+qualified_representation_item adds a set of value qualifiers to the
+instance that describe the conditions placed on the value.</P>
 
 <P CLASS="note">
 <SPAN>EXAMPLE 1</SPAN> A length measurement with a plus/minus tolerance is encoded as a complex instance of length_measure_with_unit, measure_representation_item, and qualified_representation_item.   In the exchange file fragment below, #10  describes a value of 80mm plus or minus 0.1, with 5 significant digits of precision.  The upper and lower bounds (#20 and #30) are encoded using standard_uncertainty instances, while the digits of precision (#40) are encoded using a a precision_qualifier.</P>
@@ -21812,11 +21973,23 @@ Only one descriptive_representation_item instance is needed to describe the 'chi
 #70=( NAMED_UNIT(*) SI_UNIT($,.STERADIAN.) SOLID_ANGLE_UNIT() );
 </PRE>
 
-<P>A context is still required for a representation containing non-geometric representation_item instances.  In this case, an instance of the representation_context base type is sufficent.   </P>
+<P>A context is still required for a representation containing
+non-geometric representation_item instances.  In this case, an
+instance of the representation_context base type is sufficent.</P>
 
-<P>In general, only one instance of each type of context is needed, as it may be shared by many representation instances.</P>
+<P>In general, only one instance of each type of context is needed, as
+it can be shared by many representation instances.</P>
+
 <P CLASS="note">
-<SPAN>EXAMPLE 2</SPAN> In the exchange file fragment below, #10 is a representation containing a description (#20) and a length measure (#21).   The length measure is already completely described by its unit (#40) and neither it nor the description require additional context information.   The representation context (#30) satisfies the EXPRESS definition requirement that the representation context_of_items has a value.</P>
+
+<SPAN>EXAMPLE 2</SPAN> In the exchange file fragment below, #10 is a
+representation containing a description (#20) and a length measure
+(#21).  The length measure is already completely described by its unit
+(#40) and neither it nor the description require additional context
+information.  The representation context (#30) satisfies the EXPRESS
+definition requirement that the representation context_of_items has a
+value.</P>
+
 <PRE CLASS="note">
 #10=REPRESENTATION('',(#20,#21),#30);
 #20=DESCRIPTIVE_REPRESENTATION_ITEM('','coolant on');
@@ -21920,12 +22093,15 @@ Only one descriptive_representation_item instance is needed to describe the 'chi
 </PRE>
 
 
-<P>A toolpath containing a circular arc may also be described using a polyline with an instance of the <a href="#aim-via_arc_point">via_arc_point</a> subtype of cartesian_point.</P>
+<P>A toolpath containing a circular arc may be described using a
+polyline with an instance of
+the <a href="#aim-via_arc_point">via_arc_point</a> subtype of
+cartesian_point.</P>
 
 
 <H5><A NAME="funcon-path-circles"></A>5.2.2.6.4 Complete circles</H5>
 
-<P>When describing a toolpath consisting of a complete circle, the trimmed_curve approach described in the previous section is used, but the trim_1 (start) and trim_2 (end) points shall be the same point in space, and specify where the cutter enters &amp; exits the circle.  The start and end may either reference the same cartesian_point instance or two instances with identical XYZ values.</P>
+<P>When describing a toolpath consisting of a complete circle, the trimmed_curve approach described in the previous section is used, but the trim_1 (start) and trim_2 (end) points shall be the same point in space, and specify where the cutter enters &amp; exits the circle.  The start and end shall either reference the same cartesian_point instance or two instances with identical XYZ values.</P>
 <P CLASS="note">
 <SPAN>NOTE</SPAN> Use of the same cartesian_point instance is preferred as this avoids numeric comparisons between coordinate values.</P>
 <P CLASS="note">
@@ -21939,7 +22115,10 @@ Only one descriptive_representation_item instance is needed to describe the 'chi
 
 
 
-<P>A toolpath containing a complete circle may also be described using a polyline with two instances of the <a href="#aim-via_arc_point">via_arc_point</a> subtype of cartesian_point.</P>
+<P>A toolpath containing a complete circle may be described using a
+polyline with two instances of
+the <a href="#aim-via_arc_point">via_arc_point</a> subtype of
+cartesian_point.</P>
 
 
 
@@ -21951,7 +22130,11 @@ Only one descriptive_representation_item instance is needed to describe the 'chi
 
 <H5><A NAME="aim-mbmfg_approval_item"></A>5.2.3.1.1 mbmfg_approval_item</H5>
 
-<P>The <B>mbmfg_approval_item</B> type is an extension of the <b>approval_item</b> type.  It adds the data types <B>product</B>, <B>product_definition</B>, and <B>product_definition_formation</B> to which an <B>approval</B> may be assigned.</P>
+<P>The <B>mbmfg_approval_item</B> type is an extension of
+the <b>approval_item</b> type.  It adds the data
+types <B>product</B>, <B>product_definition</B>,
+and <B>product_definition_formation</B> to which an <B>approval</B>
+can be assigned.</P>
 
 <H6 CLASS="section-underlined">EXPRESS specification:</H6>
 <PRE CLASS="code">
@@ -21967,7 +22150,10 @@ END_TYPE;
 
 <H5><A NAME="aim-mbmfg_classification_item"></A>5.2.3.1.2 mbmfg_classification_item</H5>
 
-<P>The <B>mbmfg_classification_item</B> type is an extension of the <b>classification_item</b> type.  It adds the data type <B>externally_defined_representation_with_parameters</B> to which a <B>group</B> may be assigned.</P>
+<P>The <B>mbmfg_classification_item</B> type is an extension of
+the <b>classification_item</b> type.  It adds the data
+type <B>externally_defined_representation_with_parameters</B> to which
+a <B>group</B> can be assigned.</P>
 
 <H6 CLASS="section-underlined">EXPRESS specification:</H6>
 <PRE CLASS="code">
@@ -21983,7 +22169,12 @@ END_TYPE;
 
 <H5><A NAME="aim-mbmfg_date_and_time_item"></A>5.2.3.1.3 mbmfg_date_and_time_item</H5>
 
-<P>The <B>mbmfg_date_and_time_item</B> type is an extension of the <b>date_and_time_item</b> type.  It adds the data types <B>machining_operation</B>, <B>machining_process_executable</B>, <B>machining_toolpath</B>, <B>product</B>, <B>product_definition</B>, and <B>product_definition_formation</B> to which a referenced <B>date_and_time</B> may be assigned.</P>
+<P>The <B>mbmfg_date_and_time_item</B> type is an extension of
+the <b>date_and_time_item</b> type.  It adds the data
+types <B>machining_operation</B>, <B>machining_process_executable</B>,
+<B>machining_toolpath</B>, <B>product</B>, <B>product_definition</B>,
+and <B>product_definition_formation</B> to which a
+referenced <B>date_and_time</B> can be assigned.</P>
 
 <H6 CLASS="section-underlined">EXPRESS specification:</H6>
 <PRE CLASS="code">
@@ -22002,7 +22193,11 @@ END_TYPE;
 
 <H5><A NAME="aim-mbmfg_date_item"></A>5.2.3.1.4 mbmfg_date_item</H5>
 
-<P>The <B>mbmfg_date_item</B> type is an extension of the <b>date_item</b> type.  It adds the data types <B>product</B>, <B>product_definition</B>, and <B>product_definition_formation</B> to which a referenced <B>date</B> may be assigned.</P>
+<P>The <B>mbmfg_date_item</B> type is an extension of
+the <b>date_item</b> type.  It adds the data
+types <B>product</B>, <B>product_definition</B>,
+and <B>product_definition_formation</B> to which a
+referenced <B>date</B> can be assigned.</P>
 
 <H6 CLASS="section-underlined">EXPRESS specification:</H6>
 <PRE CLASS="code">
@@ -22020,7 +22215,11 @@ END_TYPE;
 
 <H5><A NAME="aim-mbmfg_organization_item"></A>5.2.3.1.5 mbmfg_organization_item</H5>
 
-<P>The <B>mbmfg_organization_item</B> type is an extension of the <b>organization_item</b> type.  It adds the data types <B>product</B>, <B>product_definition</B>, and <B>product_definition_formation</B> to which a referenced <B>organization</B> may be assigned.</P>
+<P>The <B>mbmfg_organization_item</B> type is an extension of
+the <b>organization_item</b> type.  It adds the data
+types <B>product</B>, <B>product_definition</B>,
+and <B>product_definition_formation</B> to which a
+referenced <B>organization</B> can be assigned.</P>
 
 <H6 CLASS="section-underlined">EXPRESS specification:</H6>
 <PRE CLASS="code">
@@ -22037,7 +22236,11 @@ END_TYPE;
 
 <H5><A NAME="aim-mbmfg_person_and_organization_item"></A>5.2.3.1.6 mbmfg_person_and_organization_item</H5>
 
-<P>The <B>mbmfg_person_and_organization_item</B> type is an extension of the <b>person_and_organization_item</b> type.    It adds the data types <B>product</B>, <B>product_definition</B>, and <B>product_definition_formation</B> to which a referenced <B>person_and_organization</B> may be assigned.</P>
+<P>The <B>mbmfg_person_and_organization_item</B> type is an extension
+of the <b>person_and_organization_item</b> type.  It adds the data
+types <B>product</B>, <B>product_definition</B>,
+and <B>product_definition_formation</B> to which a
+referenced <B>person_and_organization</B> can be assigned.</P>
 
 <H6 CLASS="section-underlined">EXPRESS specification:</H6>
 <PRE CLASS="code">
@@ -22055,7 +22258,13 @@ END_TYPE;
 
 <H5><A NAME="aim-mbmfg_presented_item_select"></A>5.2.3.1.7 mbmfg_presented_item_select</H5>
 
-<P>The <B>mbmfg_presented_item_select</B> type is an extension of the <b>presented_item_select</b> type.  It adds the data types <b>action</b>, <b>action_method</b>, <b>action_relationship</b>, <b>product_concept</b>, <b>product_concept_feature</b>, <b>product_concept_feature_category</b>, <B>product_definition</B>, and <B>product_definition_formation</B>, and <b>product_definition_relationship</b> to which a referenced <B>presented_item</B> may be assigned.</P>
+<P>The <B>mbmfg_presented_item_select</B> type is an extension of
+the <b>presented_item_select</b> type.  It adds the data
+types <b>action</b>, <b>action_method</b>, <b>action_relationship</b>,
+<b>product_concept</b>, <b>product_concept_feature</b>, <b>product_concept_feature_category</b>,
+<B>product_definition</B>, <B>product_definition_formation</B>,
+and <b>product_definition_relationship</b> to which a
+referenced <B>presented_item</B> can be assigned.</P>
 
 <H6 CLASS="section-underlined">EXPRESS specification:</H6>
 <PRE CLASS="code">
@@ -22078,7 +22287,12 @@ END_TYPE;
 
 <H5><A NAME="aim-mbmfg_security_classification_item"></A>5.2.3.1.8 mbmfg_security_classification_item</H5>
 
-<P>The <B>mbmfg_security_classification_item</B> type is an extension of the <b>security_classification_item</b> type.    It adds the data types <B>machining_operation</B>, <B>machining_process_executable</B>, <B>machining_toolpath</B>, <B>product_definition</B>, and <B>product_definition_formation</B> to which a referenced <B>security_classification</B> may be assigned.</P>
+<P>The <B>mbmfg_security_classification_item</B> type is an extension
+of the <b>security_classification_item</b> type.  It adds the data
+types <B>machining_operation</B>, <B>machining_process_executable</B>,
+<B>machining_toolpath</B>, <B>product_definition</B>,
+and <B>product_definition_formation</B> to which a
+referenced <B>security_classification</B> can be assigned.</P>
 
 <H6 CLASS="section-underlined">EXPRESS specification:</H6>
 <PRE CLASS="code">
@@ -22097,7 +22311,13 @@ END_TYPE;
 
 <H5><A NAME="aim-mbmfg_action_method_items"></A>5.2.3.1.9 mbmfg_action_method_items</H5>
 
-<P>The <B>mbmfg_action_method_items</B> type is an extension of the <b>action_method_items</b> type.    It adds the data types <b>characterized_object</b>, <b>dimensional_location</b>, <b>dimensional_size</b>, <b>geometric_tolerance</b>, <B>machining_cutting_component</B>, <B>machining_execution_resource</B>, <B>machining_tool</B>, <B>product_definition</B>, <B>product_definition_formation</B>, and <b>shape_aspect</b> to which a referenced <B>action_method</B> may be assigned.</P>
+<P>The <B>mbmfg_action_method_items</B> type is an extension of
+the <b>action_method_items</b> type.  It adds the data
+types <b>characterized_object</b>, <b>dimensional_location</b>,
+<b>dimensional_size</b>, <b>geometric_tolerance</b>, <B>machining_cutting_component</B>,
+<B>machining_execution_resource</B>, <B>machining_tool</B>, <B>product_definition</B>,
+<B>product_definition_formation</B>, and <b>shape_aspect</b> to which
+a referenced <B>action_method</B> can be assigned.</P>
 
 <H6 CLASS="section-underlined">EXPRESS specification:</H6>
 <PRE CLASS="code">
@@ -23504,7 +23724,12 @@ END_ENTITY;
 
 <H5><A NAME="aim-machining_final_feature_relationship"></A>5.2.4.1.33 machining_final_feature_relationship</H5>
 
-<P>A <B>machining_final_feature_relationship </B>is a type of <B>action_method_relationship</B> that represents a  feature visible on the final form of the workpiece that a workingstep may not manufacture directly, but in some way contributes to the creation of.  See <a href="clause4.htm#ao-machining_workingstep">Machining_workingstep final_features</a> for more information.</P>
+<P>A <B>machining_final_feature_relationship </B>is a type
+of <B>action_method_relationship</B> that represents a feature visible
+on the final form of the workpiece that a workingstep may not
+manufacture directly, but in some way contributes to the creation of.
+See <a href="clause4.htm#ao-machining_workingstep">Machining_workingstep
+final_features</a> for more information.</P>
 
 <H6 CLASS="section-underlined">EXPRESS specification:</H6>
 <PRE CLASS="code">
@@ -23520,7 +23745,11 @@ END_ENTITY;
 
 <H5><A NAME="aim-machining_fixture_usage"></A>5.2.4.1.34 machining_fixture_usage</H5>
 
-<P>A <B>machining_fixture_usage</B> is a type of <B>action_method</B> that represents fixture usage to satisfy requirements for machining.  See the ARM definition for <a href="clause4.htm#ao-fixture_usage">Tool_usage</a> for more information.</P>
+<P>A <B>machining_fixture_usage</B> is a type of <B>action_method</B>
+that represents fixture usage to satisfy requirements for machining.
+See the ARM definition
+for <a href="clause4.htm#ao-fixture_usage">Tool_usage</a> for more
+information.</P>
 
 
 <H6 CLASS="section-underlined">EXPRESS specification:</H6>
