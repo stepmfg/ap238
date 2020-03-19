@@ -20901,6 +20901,12 @@ USE FROM application_context_schema				-- 10303-41
 
 <FIGURE><A NAME="fig-feature_profiles"></A>
 <IMG SRC="../images/feature_profiles.svg">
+<DIV class=key>
+<B>Key</B>
+<p>1&emsp;Round Hole, circular profile swept along a linear path</p>
+<p>2&emsp;Pocket, closed profile swept along a linear path</p>
+<p>3&emsp;Step, vee profile swept along a linear path</p>
+</DIV>
 <FIGCAPTION>Figure 5 &mdash; Profile and path definition of features</FIGCAPTION>
 </FIGURE>
 
@@ -20928,6 +20934,15 @@ USE FROM application_context_schema				-- 10303-41
 
 <FIGURE><A NAME="fig-depth_diffs"></A>
 <IMG SRC="../images/depth_diffs.svg">
+<DIV class=key>
+<B>Key</B>
+<p>1&emsp;ISO 10303 representation</p>
+<p>2&emsp;ISO 14649 representation</p>
+<p>3&emsp;path</p>
+<p>4&emsp;profile</p>
+<p>5&emsp;feature placement reference point</p>
+<p>6&emsp;depth surface</p>
+</DIV>
 <FIGCAPTION>Figure 6 &mdash; Feature placement differences</FIGCAPTION>
 </FIGURE>
 
@@ -20957,6 +20972,14 @@ ISO 14649 chose to use the top to more closely match the conventions used by mac
 
 <FIGURE><A NAME="fig-placement_diffs"></A>
 <IMG SRC="../images/slot_origin.svg">
+<DIV class=key>
+<B>Key</B>
+<p>1&emsp;profile (swept_shape)</p>
+<p>2&emsp;profile depth</p>
+<p>3&emsp;ISO 10303 feature origin</p>
+<p>4&emsp;path (course_of_travel)</p>
+<p>5&emsp;ISO 14649 origin (note orientation of axes)</p>
+</DIV>
 <FIGCAPTION>Figure 7 &mdash; Feature placement differences</FIGCAPTION>
 </FIGURE>
 
@@ -21088,6 +21111,14 @@ away by subsequent operations.</P>
 
 <FIGURE><A NAME="fig-inprocess_final"></A>
 <IMG SRC="../images/inprocess_final.svg">
+<DIV class=key>
+<B>Key</B>
+<p>1&emsp;open slot (final form feature)</p>
+<p>2&emsp;closed slot (process feature)</p>
+<p>3&emsp;workingstep #1 (bottom and side mill)</p>
+<p>4&emsp;workingstep #2 (bottom and side mill)</p>
+<p>5&emsp;step (both process and final form feature)</p>
+</DIV>
 <FIGCAPTION>Figure 10 &mdash; Example of process and final form features</FIGCAPTION>
 </FIGURE>
 
@@ -21109,6 +21140,14 @@ away by subsequent operations.</P>
 
 <FIGURE><A NAME="fig-planar_face_origin"></A>
 <IMG SRC="../images/planar_face_origin.svg">
+<DIV class=key>
+<B>Key</B>
+<p>1&emsp;ISO 14649 origin</p>
+<p>2&emsp;feature originxs</p>
+<p>3&emsp;profile</p>
+<p>4&emsp;path</p>
+<p>5&emsp;removal depth</p>
+</DIV>
 <FIGCAPTION>Figure 11 &mdash; Planar face origin and parameters</FIGCAPTION>
 </FIGURE>
 
@@ -21130,6 +21169,15 @@ away by subsequent operations.</P>
 
 <FIGURE><A NAME="fig-round_hole_origin"></A>
 <IMG SRC="../images/round_hole_origin.svg">
+<DIV class=key>
+<B>Key</B>
+<p>1&emsp;ISO 10303 feature origin, bottom_at_path_end = TRUE</p>
+<p>2&emsp;ISO 10303 feature origin, bottom_at_path_end = FALSE</p>
+<p>3&emsp;ISO 14649 feature origin</p>
+<p>4&emsp;path</p>
+<p>5&emsp;bottom of the hole</p>
+<p>6&emsp;depth surface</p>
+</DIV>
 <FIGCAPTION>Figure 12 &mdash; Round hole origin</FIGCAPTION>
 </FIGURE>
 
@@ -21151,6 +21199,15 @@ away by subsequent operations.</P>
 
 <FIGURE><A NAME="fig-pocket_origin"></A>
 <IMG SRC="../images/pocket_origin.svg">
+<DIV class=key>
+<B>Key</B>
+<p>1&emsp;ISO 10303 feature origin, bottom_at_path_end = TRUE</p>
+<p>2&emsp;ISO 10303 feature origin, bottom_at_path_end = FALSE</p>
+<p>3&emsp;ISO 14649 feature origin</p>
+<p>4&emsp;path</p>
+<p>5&emsp;bottom of the pocket</p>
+<p>6&emsp;depth surface</p>
+</DIV>
 <FIGCAPTION>Figure 13 &mdash; Pocket origin</FIGCAPTION>
 </FIGURE>
 
@@ -21174,6 +21231,14 @@ away by subsequent operations.</P>
 
 <FIGURE><A NAME="fig-outside_profile_origin"></A>
 <IMG SRC="../images/outside_profile_origin.svg">
+<DIV class=key>
+<B>Key</B>
+<p>1&emsp;ISO 14649 feature origin</p>
+<p>2&emsp;profile (feature_boundary)</p>
+<p>3&emsp;ISO 10303 feature origin</p>
+<p>4&emsp;material to be removed</p>
+<p>5&emsp;path (profile_swept_shape)</p>
+</DIV>
 <FIGCAPTION>Figure 14 &mdash; General Outside profile origin</FIGCAPTION>
 </FIGURE>
 
@@ -21188,6 +21253,15 @@ away by subsequent operations.</P>
 
 <FIGURE><A NAME="fig-shape_profile_origin"></A>
 <IMG SRC="../images/shape_profile_origin.svg">
+<DIV class=key>
+<B>Key</B>
+<p>1&emsp;ISO 10303 feature origin, start_or_end = TRUE</p>
+<p>2&emsp;ISO 10303 feature origin, start_or_end = FALSE</p>
+<p>3&emsp;ISO 14649 feature origin</p>
+<p>4&emsp;path</p>
+<p>5&emsp;shape_profile floor_condition</p>
+<p>6&emsp;depth surface</p>
+</DIV>
 <FIGCAPTION>Figure 15 &mdash; Shape profile origin</FIGCAPTION>
 </FIGURE>
 
@@ -21205,6 +21279,14 @@ away by subsequent operations.</P>
 
 <FIGURE><A NAME="fig-slot_origin"></A>
 <IMG SRC="../images/slot_origin.svg">
+<DIV class=key>
+<B>Key</B>
+<p>1&emsp;profile (swept_shape)</p>
+<p>2&emsp;profile depth</p>
+<p>3&emsp;ISO 10303 feature origin</p>
+<p>4&emsp;path (course_of_travel)</p>
+<p>5&emsp;ISO 14649 origin (note orientation of axes)</p>
+</DIV>
 <FIGCAPTION>Figure 16 &mdash; Slot origin and orientation</FIGCAPTION>
 </FIGURE>
 
@@ -21228,9 +21310,17 @@ away by subsequent operations.</P>
 
 <FIGURE><A NAME="fig-step_origin"></A>
 <IMG SRC="../images/step_origin.svg">
+<DIV class=key>
+<B>Key</B>
+<p>1&emsp;profile (wall_boundary)</p>
+<p>2&emsp;second_side_length (from profile)</p>
+<p>3&emsp;ISO 10303 feature origin</p>
+<p>4&emsp;first_side_length (from profile)</p>
+<p>5&emsp;path (open_boundar2)</p>
+<p>6&emsp;ISO 14649 feature origin (note orientation of axes)</p>
+</DIV>
 <FIGCAPTION>Figure 17 &mdash; Step origin and orientation</FIGCAPTION>
 </FIGURE>
-
 
 
 <P>A direction vector is part of the travel path and defines the direction that the profile is swept.  This shall be aligned along the Z axis of the feature placement.  The profile lies in the XY plane of the feature placement with the profile origin aligned with feature placement at the point of the vee profile.</P>
@@ -21283,6 +21373,13 @@ for transition features.  </P>
 
 <FIGURE><A NAME="fig-transition"></A>
 <IMG SRC="../images/transition.svg">
+<DIV class=key>
+<B>Key</B>
+<p>1&emsp;first_feature (planar face feature) or first_face_shape (brep faces)</p>
+<p>2&emsp;chamfer_face (brep face)</p>
+<p>3&emsp;second_feature (outside profile feature) or second_face_shape (brep faces)</p>
+<p>4&emsp;edge_round_face (brep face)</p>
+</DIV>
 <FIGCAPTION>Figure 18 &mdash; Transition features relating faces or features</FIGCAPTION>
 </FIGURE>
 

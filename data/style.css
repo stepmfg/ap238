@@ -51,10 +51,26 @@ FIGURE {
     text-align: center;
 }
 
+FIGURE DIV.key {
+    margin: 1em 3em;
+    text-align: left;
+}
+FIGURE DIV.key P {
+    margin: 0;
+    text-indent: -2em;
+    padding-left: 2em;
+}
+/*FIGURE DIV.key OL {
+    padding-left: 0;
+    list-style-position: inside;
+}*/
+
 FIGCAPTION {
     margin-top: 1em;
     font-weight: bold;
 }
+
+
 
 
 CAPTION { 
