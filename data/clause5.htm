@@ -18992,7 +18992,7 @@ material_designation
 </tr>
 </table>
 
-
+ 
 
 
 <H5><A NAME="map-am_feature-primary_colour"></A>5.1.13.3.2 primary_colour</H5>
@@ -19136,71 +19136,12 @@ additive_manufacturing_construction
 </table>
 
 
-
-<!-- ============================== -->
-<DIV><DIV class=quick>
-<A HREF="clause4.htm#ao-am_heterogeneous_feature">AO</a>
-<A HREF="annexG.htm#am_heterogeneous_feature">ARM</a>
-</DIV>
-<H4><A NAME="map-am_heterogeneous_feature"></A>5.1.13.5 AM_HETEROGENEOUS_FEATURE</H4>
-</DIV>
-
-
-<table class="map">
-<tr><th>AIM element:</th>
-<td>additive_manufacturing_feature</td>
-</tr>
-
-<tr><th>Source:</th>
-<td>10303-238</td>
-</tr>
-
-<tr><th>Reference path:</th>
-<td class="path">additive_manufacturing_feature &lt;=
-feature_definition &lt;=
-characterized_object
-characterized_object.description = 'heterogeneous'
-</td>
-</tr>
-</table>
-
-<H5><A NAME="map-am_heterogeneous_feature-items"></A>5.1.13.5.1 items</H5>
-
-<table class="map">
-<tr><th>AIM element:</th>
-<td>PATH</td>
-</tr>
-
-<tr><th>Reference path:</th>
-<td class="path">additive_manufacturing_feature &lt;=
-feature_definition &lt;=
-characterized_object
-characterized_definition = characterized_object
-characterized_definition &lt;-
-property_definition.definition
-property_definition =&gt;
-product_definition_shape &lt;-
-shape_aspect.of_shape
-{shape_aspect.description = 'atom occurrence'}
-shape_aspect &lt;-
-shape_aspect_relationship.related_shape_aspect
-{shape_aspect_relationship =&gt;
-feature_component_relationship}
-{shape_aspect_relationship.description = 'atom usage'}
-shape_aspect_relationship
-shape_aspect_relationship.relating_shape_aspect -&gt;
-shape_aspect =&gt;
-additive_manufacturing_atom
-</td>
-</tr>
-</table>
-
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-am_heterogenuous_atom">AO</a>
 <A HREF="annexG.htm#am_heterogenuous_atom">ARM</a>
 </DIV>
-<H4><A NAME="map-am_heterogenuous_atom"></A>5.1.13.6 AM_HETEROGENUOUS_ATOM</H4>
+<H4><A NAME="map-am_heterogenuous_atom"></A>5.1.13.5 AM_HETEROGENUOUS_ATOM</H4>
 </DIV>
 
 
@@ -19229,7 +19170,7 @@ feature_component_definition }
 </table>
 
 
-<H5><A NAME="map-am_heterogenuous_atom-local_coord_axes"></A>5.1.13.6.1 local_coord_axes</H5>
+<H5><A NAME="map-am_heterogenuous_atom-local_coord_axes"></A>5.1.13.5.1 local_coord_axes</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -19264,7 +19205,7 @@ axis2_placement_3d
 </table>
 
 
-<H5><A NAME="map-am_heterogenuous_atom-its_material"></A>5.1.13.6.2 its_material</H5>
+<H5><A NAME="map-am_heterogenuous_atom-its_material"></A>5.1.13.5.2 its_material</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -19286,7 +19227,7 @@ material_designation
 
 
 
-<H5><A NAME="map-am_heterogenuous_atom-its_colour"></A>5.1.13.6.3 its_colour</H5>
+<H5><A NAME="map-am_heterogenuous_atom-its_colour"></A>5.1.13.5.3 its_colour</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -19332,7 +19273,7 @@ colour
 
 
 
-<H5><A NAME="map-am_heterogenuous_atom-its_construction"></A>5.1.13.6.4 its_construction</H5>
+<H5><A NAME="map-am_heterogenuous_atom-its_construction"></A>5.1.13.5.4 its_construction</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -19355,7 +19296,7 @@ additive_manufacturing_construction
 </table>
 
 
-<H5><A NAME="map-am_heterogenuous_atom-governing_function"></A>5.1.13.6.5 governing_function</H5>
+<H5><A NAME="map-am_heterogenuous_atom-governing_function"></A>5.1.13.5.5 governing_function</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -19390,6 +19331,65 @@ function_application
 </tr>
 </table>
 
+
+
+<!-- ============================== -->
+<DIV><DIV class=quick>
+<A HREF="clause4.htm#ao-am_heterogenuous_feature">AO</a>
+<A HREF="annexG.htm#am_heterogenuous_feature">ARM</a>
+</DIV>
+<H4><A NAME="map-am_heterogenuous_feature"></A>5.1.13.6 AM_HETEROGENUOUS_FEATURE</H4>
+</DIV>
+
+
+<table class="map">
+<tr><th>AIM element:</th>
+<td>additive_manufacturing_feature</td>
+</tr>
+
+<tr><th>Source:</th>
+<td>10303-238</td>
+</tr>
+
+<tr><th>Reference path:</th>
+<td class="path">additive_manufacturing_feature &lt;=
+feature_definition &lt;=
+characterized_object
+characterized_object.description = 'heterogenuous'
+</td>
+</tr>
+</table>
+
+<H5><A NAME="map-am_heterogenuous_feature-items"></A>5.1.13.6.1 items</H5>
+
+<table class="map">
+<tr><th>AIM element:</th>
+<td>PATH</td>
+</tr>
+
+<tr><th>Reference path:</th>
+<td class="path">additive_manufacturing_feature &lt;=
+feature_definition &lt;=
+characterized_object
+characterized_definition = characterized_object
+characterized_definition &lt;-
+property_definition.definition
+property_definition =&gt;
+product_definition_shape &lt;-
+shape_aspect.of_shape
+{shape_aspect.description = 'atom occurrence'}
+shape_aspect &lt;-
+shape_aspect_relationship.related_shape_aspect
+{shape_aspect_relationship =&gt;
+feature_component_relationship}
+{shape_aspect_relationship.description = 'atom usage'}
+shape_aspect_relationship
+shape_aspect_relationship.relating_shape_aspect -&gt;
+shape_aspect =&gt;
+additive_manufacturing_atom
+</td>
+</tr>
+</table>
 
 
 <!-- ============================== -->
@@ -19519,40 +19519,6 @@ representation.items[i] -&gt;
 representation_item =&gt;
 descriptive_representation_item
 descriptive_representation_item.description
-{(descriptive_representation_item.description = 'honeycomb')
-(descriptive_representation_item.description = 'concentric')
-(descriptive_representation_item.description = 'line')
-(descriptive_representation_item.description = 'rectilinear')
-(descriptive_representation_item.description = 'hilbert curve')
-(descriptive_representation_item.description = 'archimedean chords')
-(descriptive_representation_item.description = 'octagram spiral')}
-</td>
-</tr>
-</table>
-
-
-<!-- ============================== -->
-<DIV><DIV class=quick>
-<A HREF="clause4.htm#ao-am_liquid_technology">AO</a>
-<A HREF="annexG.htm#am_liquid_technology">ARM</a>
-</DIV>
-<H4><A NAME="map-am_liquid_technology"></A>5.1.13.8 AM_LIQUID_TECHNOLOGY</H4>
-</DIV>
-
-
-<table class="map">
-<tr><th>AIM element:</th>
-<td>machining_technology</td>
-</tr>
-
-<tr><th>Source:</th>
-<td>10303-238</td>
-</tr>
-
-<tr><th>Reference path:</th>
-<td class="path">machining_technology &lt;=
-action_method
-{ action_method.description = 'additive liquid' }
 </td>
 </tr>
 </table>
@@ -19563,7 +19529,7 @@ action_method
 <A HREF="clause4.htm#ao-am_machine_functions">AO</a>
 <A HREF="annexG.htm#am_machine_functions">ARM</a>
 </DIV>
-<H4><A NAME="map-am_machine_functions"></A>5.1.13.9 AM_MACHINE_FUNCTIONS</H4>
+<H4><A NAME="map-am_machine_functions"></A>5.1.13.8 AM_MACHINE_FUNCTIONS</H4>
 </DIV>
 
 <table class="map">
@@ -19584,7 +19550,7 @@ action_method
 </table>
 
 
-<H5><A NAME="map-am_machine_functions-its_atmosphere"></A>5.1.13.9.1 am_machine_functions to am_protective_atmosphere (as its_atmosphere)</H5>
+<H5><A NAME="map-am_machine_functions-functions"></A>5.1.13.8.1 am_machine_functions to representation_item (as functions)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -19597,107 +19563,7 @@ action_method
 characterized_action_definition = action_method
 characterized_action_definition &lt;-
 action_property.definition
-{ action_property.name = 'atmosphere' }
-action_property &lt;-
-action_property_representation.property
-action_property_representation
-action_property_representation.representation -&gt;
-representation
-</td>
-</tr>
-</table>
-
-
-
-<H5><A NAME="map-am_machine_functions-area_temperature"></A>5.1.13.9.2 area_temperature</H5>
-
-<table class="map">
-<tr><th>AIM element:</th>
-<td>measure_with_unit</td>
-</tr>
-
-<tr><th>Source:</th>
-<td>10303-41</td>
-</tr>
-
-<tr><th>Reference path:</th>
-<td class="path">machining_functions &lt;=
-action_method
-characterized_action_definition = action_method
-characterized_action_definition &lt;-
-action_property.definition
-{ action_property.name = 'area temperature' }
-action_property &lt;-
-action_property_representation.property
-action_property_representation
-action_property_representation.representation -&gt;
-representation
-representation.items[i] -&gt;
-representation_item =&gt;
-measure_representation_item &lt;=
-measure_with_unit
-{ measure_with_unit.value_component -&gt;
-measure_value
-measure_value = celsius_temperature_measure 
-celsius_temperature_measure }
-</td>
-</tr>
-</table>
-
-
-
-
-<H5><A NAME="map-am_machine_functions-area_humidity"></A>5.1.13.9.3 area_humidity</H5>
-
-<table class="map">
-<tr><th>AIM element:</th>
-<td>measure_with_unit</td>
-</tr>
-
-<tr><th>Source:</th>
-<td>10303-41</td>
-</tr>
-
-<tr><th>Reference path:</th>
-<td class="path">machining_functions &lt;=
-action_method
-characterized_action_definition = action_method
-characterized_action_definition &lt;-
-action_property.definition
-{ action_property.name = 'area humidity' }
-action_property &lt;-
-action_property_representation.property
-action_property_representation
-action_property_representation.representation -&gt;
-representation
-representation.items[i] -&gt;
-representation_item =&gt;
-measure_representation_item &lt;=
-measure_with_unit
-{ measure_with_unit.value_component -&gt;
-measure_value
-measure_value = numeric_measure
-numeric_measure }
-</td>
-</tr>
-</table>
-
-
-
-<H5><A NAME="map-am_machine_functions-other_functions"></A>5.1.13.9.4 am_machine_functions to representation_item (as other_functions)</H5>
-
-<table class="map">
-<tr><th>AIM element:</th>
-<td>PATH</td>
-</tr>
-
-<tr><th>Reference path:</th>
-<td class="path">machining_functions &lt;=
-action_method
-characterized_action_definition = action_method
-characterized_action_definition &lt;-
-action_property.definition
-{ action_property.name = 'other functions' }
+{ action_property.name = 'functions' }
 action_property &lt;-
 action_property_representation.property
 action_property_representation
@@ -19722,7 +19588,7 @@ representation_item
 <A HREF="clause4.htm#ao-am_oned_operation">AO</a>
 <A HREF="annexG.htm#am_oned_operation">ARM</a>
 </DIV>
-<H4><A NAME="map-am_oned_operation"></A>5.1.13.10 AM_ONED_OPERATION</H4>
+<H4><A NAME="map-am_oned_operation"></A>5.1.13.9 AM_ONED_OPERATION</H4>
 </DIV>
 
 <table class="map">
@@ -19744,7 +19610,7 @@ action_method
 </table>
 
 
-<H5><A NAME="map-am_oned_operation-approach"></A>5.1.13.10.1 am_oned_operation to approach_retract_strategy  (as approach)</H5>
+<H5><A NAME="map-am_oned_operation-approach"></A>5.1.13.9.1 am_oned_operation to approach_retract_strategy  (as approach)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -19769,7 +19635,7 @@ machining_approach_retract_strategy
 </table>
 
 
-<H5><A NAME="map-am_oned_operation-retract"></A>5.1.13.10.2 am_oned_operation to approach_retract_strategy  (as retract)</H5>
+<H5><A NAME="map-am_oned_operation-retract"></A>5.1.13.9.2 am_oned_operation to approach_retract_strategy  (as retract)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -19800,7 +19666,7 @@ machining_approach_retract_strategy
 <A HREF="clause4.htm#ao-am_operation">AO</a>
 <A HREF="annexG.htm#am_operation">ARM</a>
 </DIV>
-<H4><A NAME="map-am_operation"></A>5.1.13.11 AM_OPERATION</H4>
+<H4><A NAME="map-am_operation"></A>5.1.13.10 AM_OPERATION</H4>
 </DIV>
 
 <table class="map">
@@ -19820,7 +19686,7 @@ action_method
 </tr>
 </table>
 
-<H5><A NAME="map-am_operation-machine_functions"></A>5.1.13.11.1 am_operation to am_machine_functions (as machine_functions)</H5>
+<H5><A NAME="map-am_operation-machine_functions"></A>5.1.13.10.1 am_operation to am_machine_functions (as machine_functions)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -19844,155 +19710,12 @@ machining_functions
 
 
 
-<H5><A NAME="map-am_operation-its_technology"></A>5.1.13.11.2 am_operation to am_technology (as its_technology)</H5>
-
-<table class="map">
-<tr><th>AIM element:</th>
-<td>PATH</td>
-</tr>
-
-<tr><th>Reference path:</th>
-<td class="path">additive_type_operation &lt;=
-machining_operation &lt;=
-action_method &lt;-
-action_method_relationship.relating_method
-action_method_relationship
-{ action_method_relationship =&gt;
-machining_technology_relationship }
-action_method_relationship.related_method -&gt;
-action_method =&gt;
-machining_technology
-</td>
-</tr>
-</table>
-
-
-
-<!-- ============================== -->
-<DIV><DIV class=quick>
-<A HREF="clause4.htm#ao-am_powder_technology">AO</a>
-<A HREF="annexG.htm#am_powder_technology">ARM</a>
-</DIV>
-<H4><A NAME="map-am_powder_technology"></A>5.1.13.12 AM_POWDER_TECHNOLOGY</H4>
-</DIV>
-
-
-<table class="map">
-<tr><th>AIM element:</th>
-<td>machining_technology</td>
-</tr>
-
-<tr><th>Source:</th>
-<td>10303-238</td>
-</tr>
-
-<tr><th>Reference path:</th>
-<td class="path">machining_technology &lt;=
-action_method
-{ action_method.description = 'additive powder' }
-</td>
-</tr>
-</table>
-
-
-
-<!-- ============================== -->
-<DIV><DIV class=quick>
-<A HREF="clause4.htm#ao-am_protective_atmosphere">AO</a>
-<A HREF="annexG.htm#am_protective_atmosphere">ARM</a>
-</DIV>
-<H4><A NAME="map-am_protective_atmosphere"></A>5.1.13.13 AM_PROTECTIVE_ATMOSPHERE</H4>
-</DIV>
-
-<table class="map">
-<tr><th>AIM element:</th>
-<td>representation</td>
-</tr>
-
-<tr><th>Source:</th>
-<td>10303-43</td>
-</tr>
-
-<tr><th>Reference path:</th>
-<td class="path">representation
-{ representation.name = 'protective atmosphere' }
-</td>
-</tr>
-</table>
-
-
-<H5><A NAME="map-am_protective_atmosphere-its_id"></A>5.1.13.13.1 its_id</H5>
-
-<table class="map">
-<tr><th>AIM element:</th>
-<td>id_attribute.attribute_value</td>
-</tr>
-
-<tr><th>Source:</th>
-<td>10303-41</td>
-</tr>
-
-<tr><th>Reference path:</th>
-<td class="path">representation
-representation = id_attribute_select
-id_attribute_select &lt;- id_attribute.identified_item
-id_attribute.attribute_value
-</td>
-</tr>
-</table>
-
-<H5><A NAME="map-am_protective_atmosphere-gas_pressure"></A>5.1.13.13.2 gas_pressure</H5>
-
-<table class="map">
-<tr><th>AIM element:</th>
-<td>measure_with_unit</td>
-</tr>
-
-<tr><th>Source:</th>
-<td>10303-41</td>
-</tr>
-
-<tr><th>Reference path:</th>
-<td class="path">representation
-representation.items[i] -&gt;
-{ representation_item.name = 'gas pressure' }
-representation_item =&gt;
-measure_representation_item &lt;=
-measure_with_unit
-</td>
-</tr>
-</table>
-
-<H5><A NAME="map-am_protective_atmosphere-flow_rate"></A>5.1.13.13.3 flow_rate</H5>
-
-<table class="map">
-<tr><th>AIM element:</th>
-<td>measure_with_unit</td>
-</tr>
-
-<tr><th>Source:</th>
-<td>10303-41</td>
-</tr>
-
-<tr><th>Reference path:</th>
-<td class="path">representation
-representation.items[i] -&gt;
-{ representation_item.name = 'flow rate' }
-representation_item =&gt;
-measure_representation_item &lt;=
-measure_with_unit
-</td>
-</tr>
-</table>
-
-
-
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-am_simple_feature">AO</a>
 <A HREF="annexG.htm#am_simple_feature">ARM</a>
 </DIV>
-<H4><A NAME="map-am_simple_feature"></A>5.1.13.14 AM_SIMPLE_FEATURE</H4>
+<H4><A NAME="map-am_simple_feature"></A>5.1.13.11 AM_SIMPLE_FEATURE</H4>
 </DIV>
 
 <table class="map">
@@ -20014,7 +19737,7 @@ characterized_object.description = 'simple'
 </table>
 
 
-<H5><A NAME="map-am_simple_feature-skin_thickness"></A>5.1.13.14.1 skin_thickness</H5>
+<H5><A NAME="map-am_simple_feature-skin_thickness"></A>5.1.13.11.1 skin_thickness</H5>
 
 
 <table class="map">
@@ -20051,7 +19774,7 @@ length_measure_with_unit
 </table>
 
 
-<H5><A NAME="map-am_simple_feature-skin_construction"></A>5.1.13.14.2 skin_construction</H5>
+<H5><A NAME="map-am_simple_feature-skin_construction"></A>5.1.13.11.2 skin_construction</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -20082,7 +19805,7 @@ additive_manufacturing_construction
 </tr>
 </table>
 
-<H5><A NAME="map-am_simple_feature-core_construction"></A>5.1.13.14.3 core_construction</H5>
+<H5><A NAME="map-am_simple_feature-core_construction"></A>5.1.13.11.3 core_construction</H5>
   
 
 <table class="map">
@@ -20122,7 +19845,7 @@ additive_manufacturing_construction
 <A HREF="clause4.htm#ao-am_solid">AO</a>
 <A HREF="annexG.htm#am_solid">ARM</a>
 </DIV>
-<H4><A NAME="map-am_solid"></A>5.1.13.15 AM_SOLID</H4>
+<H4><A NAME="map-am_solid"></A>5.1.13.12 AM_SOLID</H4>
 </DIV>
 
 
@@ -20144,146 +19867,13 @@ shape_aspect
 </table>
 
 
-<!-- ============================== -->
-<DIV><DIV class=quick>
-<A HREF="clause4.htm#ao-am_solid_technology">AO</a>
-<A HREF="annexG.htm#am_solid_technology">ARM</a>
-</DIV>
-<H4><A NAME="map-am_solid_technology"></A>5.1.13.16 AM_SOLID_TECHNOLOGY</H4>
-</DIV>
-
-
-<table class="map">
-<tr><th>AIM element:</th>
-<td>machining_technology</td>
-</tr>
-
-<tr><th>Source:</th>
-<td>10303-238</td>
-</tr>
-
-<tr><th>Reference path:</th>
-<td class="path">machining_technology &lt;=
-action_method
-{ action_method.description = 'additive solid' }
-</td>
-</tr>
-</table>
-
-
-<!-- ============================== -->
-<DIV><DIV class=quick>
-<A HREF="clause4.htm#ao-am_technology">AO</a>
-<A HREF="annexG.htm#am_technology">ARM</a>
-</DIV>
-<H4><A NAME="map-am_technology"></A>5.1.13.17 AM_TECHNOLOGY</H4>
-</DIV>
-
-<table class="map">
-<tr><th>AIM element:</th>
-<td>machining_technology</td>
-</tr>
-
-<tr><th>Source:</th>
-<td>10303-238</td>
-</tr>
-
-<tr><th>Reference path:</th>
-<td class="path">machining_technology &lt;=
-action_method
-{ (action_method.description = 'additive liquid')
-  (action_method.description = 'additive powder')
-  (action_method.description = 'additive solid') }
-</td>
-</tr>
-</table>
-
-
-<H5><A NAME="map-am_technology-tool_velocity"></A>5.1.13.17.1 tool_velocity</H5>
-
-<table class="map">
-<tr><th>AIM element:</th>
-<td>measure_with_unit</td>
-</tr>
-
-<tr><th>Source:</th>
-<td>10303-41</td>
-</tr>
-
-<tr><th>Reference path:</th>
-<td class="path">machining_technology &lt;=
-action_method
-characterized_action_definition = action_method
-characterized_action_definition &lt;-
-action_property.definition
-{ action_property.name = 'feedrate' }
-action_property &lt;-
-action_property_representation.property
-action_property_representation
-action_property_representation.representation -&gt;
-{ representation =&gt;
-machining_feed_speed_representation }
-representation
-{ representation.name = 'feed speed' }
-representation.items[i] -&gt;
-{ representation_item.name = 'feed speed' }
-representation_item =&gt;
-measure_representation_item &lt;=
-measure_with_unit
-{ measure_with_unit.value_component -&gt;
-measure_value
-measure_value = numeric_measure
-numeric_measure }
-</td>
-</tr>
-</table>
-
-
-
-<H5><A NAME="map-am_technology-tool_power"></A>5.1.13.17.2 tool_power</H5>
-
-<table class="map">
-<tr><th>AIM element:</th>
-<td>measure_with_unit</td>
-</tr>
-
-<tr><th>Source:</th>
-<td>10303-41</td>
-</tr>
-
-<tr><th>Reference path:</th>
-<td class="path">machining_technology &lt;=
-action_method
-characterized_action_definition = action_method
-characterized_action_definition &lt;-
-action_property.definition
-{ action_property.name = 'tool power' }
-action_property &lt;-
-action_property_representation.property
-action_property_representation
-action_property_representation.representation -&gt;
-representation
-representation.items[i] -&gt;
-representation_item =&gt;
-measure_representation_item &lt;=
-measure_with_unit
-{ measure_with_unit.value_component -&gt;
-measure_value
-measure_value = numeric_measure
-numeric_measure }
-</td>
-</tr>
-</table>
-
-
-
 
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-am_twod_operation">AO</a>
 <A HREF="annexG.htm#am_twod_operation">ARM</a>
 </DIV>
-<H4><A NAME="map-am_twod_operation"></A>5.1.13.18 AM_TWOD_OPERATION</H4>
+<H4><A NAME="map-am_twod_operation"></A>5.1.13.13 AM_TWOD_OPERATION</H4>
 </DIV>
 
 
@@ -20305,7 +19895,7 @@ action_method
 </tr>
 </table>
 
-<H5><A NAME="map-am_twod_operation-layer_thickness"></A>5.1.13.18.1 layer_thickness</H5>
+<H5><A NAME="map-am_twod_operation-layer_thickness"></A>5.1.13.13.1 layer_thickness</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -20339,7 +19929,7 @@ length_measure_with_unit
 
 
 
-<H5><A NAME="map-am_twod_operation-base_layer"></A>5.1.13.18.2 am_twod_operation to elementary_surface (as base_layer)</H5>
+<H5><A NAME="map-am_twod_operation-base_layer"></A>5.1.13.13.2 am_twod_operation to elementary_surface (as base_layer)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -20372,7 +19962,7 @@ elementary_surface
 </tr>
 </table>
 
-<H5><A NAME="map-am_twod_operation-normal_direction"></A>5.1.13.18.3 normal_direction</H5>
+<H5><A NAME="map-am_twod_operation-normal_direction"></A>5.1.13.13.3 normal_direction</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -20410,7 +20000,7 @@ direction
 <A HREF="clause4.htm#ao-am_workingstep">AO</a>
 <A HREF="annexG.htm#am_workingstep">ARM</a>
 </DIV>
-<H4><A NAME="map-am_workingstep"></A>5.1.13.19 AM_WORKINGSTEP</H4>
+<H4><A NAME="map-am_workingstep"></A>5.1.13.14 AM_WORKINGSTEP</H4>
 </DIV>
 
 <table class="map">
@@ -20432,7 +20022,7 @@ action_method
 </table>
 
 
-<H5><A NAME="map-am_workingstep-its_operation"></A>5.1.13.19.1 am_workingstep to am_operation (as its_operation)</H5>
+<H5><A NAME="map-am_workingstep-its_operation"></A>5.1.13.14.1 am_workingstep to am_operation (as its_operation)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -20456,7 +20046,7 @@ additive_type_operation
 </table>
 
 
-<H5><A NAME="map-am_workingstep-its_feature"></A>5.1.13.19.2 am_workingstep to manufacturing_feature (as its_feature)</H5>
+<H5><A NAME="map-am_workingstep-its_feature"></A>5.1.13.14.2 am_workingstep to manufacturing_feature (as its_feature)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -20497,7 +20087,7 @@ shape_aspect
 </table>
 
 
-<H5><A NAME="map-am_workingstep-its_support_geometry"></A>5.1.13.19.3 am_workingstep to product_view_definition (as its_support_geometry)</H5>
+<H5><A NAME="map-am_workingstep-its_support_geometry"></A>5.1.13.14.3 am_workingstep to product_view_definition (as its_support_geometry)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -20527,7 +20117,7 @@ product_definition
 <A HREF="clause4.htm#ao-am_workpiece ">AO</a>
 <A HREF="annexG.htm#am_workpiece ">ARM</a>
 </DIV>
-<H4><A NAME="map-am_workpiece "></A>5.1.13.20 AM_WORKPIECE </H4>
+<H4><A NAME="map-am_workpiece "></A>5.1.13.15 AM_WORKPIECE </H4>
 </DIV>
 
 <table class="map">
