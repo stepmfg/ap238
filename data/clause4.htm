@@ -1,4 +1,4 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -661,6 +661,7 @@ additional information requirements beyond those specified by ISO
 14649-10.</P>
 
 <UL>
+<LI><A href="#ao-machine_functions">Machine_functions</A>;</LI>
 <LI><A href="#ao-operation">Operation</A>.</LI>
 </UL>
 
@@ -901,6 +902,7 @@ turning UoF, and shall be as defined by ISO 14649-12.</P>
 additional information requirements beyond those specified by ISO
 14649-12.</P>
 <UL>
+<LI><A href="#ao-turning_machine_functions">Turning_machine_functions</A>;</LI>
 <LI><A href="#ao-turning_workingstep">Turning_workingstep</A>;</LI>
 </UL>
 
@@ -966,6 +968,7 @@ additional information requirements beyond those specified by ISO
 <LI><a href="#ao-am_feature">Am_feature</A>;</LI>
 <LI><a href="#ao-am_gradient_feature">Am_gradient_feature</A>;</LI>
 <LI><a href="#ao-am_heterogenuous_atom">Am_heterogenuous_atom</A>;</LI>
+<LI><a href="#ao-am_machine_functions">Am_machine_functions</A>;</LI>
 <LI><A href="#ao-am_operation">Am_operation</A>;</LI>
 <LI><A href="#ao-am_workingstep">Am_workingstep</A>.</LI>
 </UL>
@@ -1616,19 +1619,36 @@ END_TYPE;
 </DIV>
 
 <P>The Am_machine_functions application object shall be as defined by
-ISO 14649-17.</P>
+ISO 14649-17.  This document adds the following information
+requirements.</P>
+
+<P>The data associated with a Am_machine_functions are the following:</P>
+<UL>
+<LI>all of the data defined by ISO 14649-17, as modified below for the
+functions attribute.</LI>
+</UL>
 
 <P CLASS="note">
-<SPAN>NOTE</SPAN> The ISO 14649 EXPRESS description for Am_machine_functions
-is shown below.  Refer to ISO 14649-17 for the complete definition and
-explanation of usage.</P>
+<SPAN>NOTE</SPAN> The ISO 14649 EXPRESS description for
+Am_machine_functions, as adapted by this document, is shown below.
+Refer to ISO 14649-17 for the complete definition and explanation of
+usage.</P>
 
 <PRE CLASS="note">
 ENTITY am_machine_functions
   SUBTYPE OF (machine_functions);
-  functions: 	OPTIONAL SET [1:?] OF Representation_item;
+  -- 10303-238: functions moved to supertype as other_functions for
+  --   consistent handling across technologies
+  -- functions: OPTIONAL SET [1:?] OF Representation_item;
 END_ENTITY;
 </PRE>
+
+
+<H4><A NAME="ao-am_machine_functions-functions"></A>4.3.12.1 functions</H4>
+
+<P>The functions parameter defined by ISO 14649-17 shall be replaced
+by the other_functions parameter defined by the Machine_functions
+application object.
 
 
 <!-- ============================== -->
@@ -4475,18 +4495,64 @@ axes. </P>
 <H3><A NAME="ao-machine_functions"></A>4.3.110 Machine_functions</H3>
 </DIV>
 
-<P>The Machine_functions application object shall be as defined by ISO 14649-10.</P>
+<P>The Machine_functions application object shall be as defined by ISO
+14649-10.  This document adds the following information
+requirements.</P>
+
+<P>The data associated with a Machine_functions are the following:</P>
+<UL>
+<LI>all of the data defined by ISO 14649-10;</LI>
+<LI>other_functions.</LI>
+</UL>
 
 <P CLASS="note">
 <SPAN>NOTE</SPAN> The ISO 14649 EXPRESS description for
-Machine_functions is shown below.  Refer to ISO 14649-10 for the
-complete definition and explanation of usage.</P>
+Machine_functions, as adapted by this document, is shown below.  Refer
+to ISO 14649-10 for the complete definition and explanation of
+usage.</P>
 
 <PRE CLASS="note">
 ENTITY machine_functions 
   ABSTRACT SUPERTYPE;
+  -- 10303-238: consolidate other_functions from subtypes into
+  --   the supertype for consistent handling across technologies
+  other_functions:  SET [0:?] OF Representation_item;
 END_ENTITY;
 </PRE>
+
+
+<H4><A NAME="ao-machine_functions-other_functions"></A>4.3.110.1 other_functions</H4>
+
+<P>The other_functions specifies a set of conditions on the machine
+that shall be in effect at the start of the machining operation or
+toolpath that refers to the Machine_functions.</P>
+
+<p>Each condition shall be identified by a Representation_item name
+and the required state shall be described by the value of the
+Representation_item.  This shall not be used if a condition can be
+specified using other capabilities of this document.</P>
+
+<P CLASS="note">
+<SPAN>NOTE 1</SPAN> This consolidates Am_machine_functions functions,
+Milling_machine_functions other_functions, and
+Turning_machine_functions other_functions parameters into a single
+place.</P>
+
+<P CLASS="note">
+<SPAN>NOTE 2</SPAN> ISO 14649 describes this as Property_parameter and
+Descriptive_parameter application objects. These have been replaced by
+the Representation_item and String_representation_item objects. The
+integrated representation of this information is unchanged from
+previous edition of this document.</P>
+
+<P CLASS="note">
+<SPAN>EXAMPLE</SPAN> A condition that has several possible states can
+be described by a String_representation_item subtype with a value such
+as "<em>condition-name</em> on" or "<em>condition-name</em> off".  A
+condition that has a state defined by a measured value, such as
+pressure, can be described by a Numerical_item_with_unit subtype with
+a value such as 150Pa.</P>
+
 
 
 <!-- ============================== -->
@@ -4957,20 +5023,21 @@ END_TYPE;
 <H3><A NAME="ao-milling_machine_functions"></A>4.3.119 Milling_machine_functions</H3>
 </DIV>
 
-<P>The Milling_machine_functions application object shall be as defined by
-ISO 14649-11.  This document adds the
-following information requirements.</P>
+<P>The Milling_machine_functions application object shall be as
+defined by ISO 14649-11.  This document adds the following information
+requirements.</P>
 
 <P>The data associated with a Milling_machine_functions are the following:</P>
 <UL>
-<LI>all of the data defined by ISO 14649-11;</LI>
+<LI>all of the data defined by ISO 14649-11, as modified below for the
+other_functions attribute;</LI>
 <LI>axis_constraints.</LI>
 </UL>
 
 <P CLASS="note">
 <SPAN>NOTE</SPAN> The ISO 14649 EXPRESS description for
-Milling_machine_functions, as adapted by this document, is
-shown below.  Refer to ISO 14649-11 for the original definition and
+Milling_machine_functions, as adapted by this document, is shown
+below.  Refer to ISO 14649-11 for the original definition and
 explanation of usage.</P>
 
 <PRE CLASS="note">
@@ -4985,7 +5052,9 @@ ENTITY milling_machine_functions
   chip_removal:         BOOLEAN;
   oriented_spindle_stop: OPTIONAL direction;
   its_process_model:    OPTIONAL process_model_list;
-  other_functions:      SET [0:?] OF Representation_item;
+  -- 10303-238: other_functions moved to supertype for consistent
+  --   handling across technologies
+  -- other_functions:   SET [0:?] OF Representation_item;
   axis_constraints: OPTIONAL SET [0:?] OF machine_axis_constraint;-- ADDED BY 10303-238
 END_ENTITY;
 </PRE>
@@ -5000,6 +5069,13 @@ to Machine_axis_constraint</a> for the application assertion.</P>
 
 <P CLASS="note">
 <SPAN>NOTE</SPAN> It is advisable to avoid use of this information since it is machine dependent.</P>
+
+
+<H4><A NAME="ao-milling_machine_functions-other_functions"></A>4.3.119.2 other_functions</H4>
+
+<P>The other_functions parameter defined by ISO 14649-11 shall be
+replaced by the other_functions parameter defined by the
+Machine_functions application object.
 
 
 <!-- ============================== -->
@@ -7248,13 +7324,22 @@ END_TYPE;
 <H3><A NAME="ao-turning_machine_functions"></A>4.3.197 Turning_machine_functions</H3>
 </DIV>
 
-<P>The Turning_machine_functions application object shall be as defined by
-ISO 14649-12.</P>
+<P>The Turning_machine_functions application object shall be as
+defined by ISO 14649-12. This document adds the following information
+requirements.</P>
+
+<P>The data associated with a Turning_machine_functions are the
+following:</P>
+<UL>
+<LI>all of the data defined by ISO 14649-12, as modified below for the
+other_functions attribute.</LI>
+</UL>
 
 <P CLASS="note">
 <SPAN>NOTE</SPAN> The ISO 14649 EXPRESS description for
-Turning_machine_functions is shown below.  Refer to ISO 14649-12 for
-the complete definition and explanation of usage.</P>
+Turning_machine_functions, as adapted by this document, is shown
+below.  Refer to ISO 14649-12 for the complete definition and
+explanation of usage.</P>
 
 <PRE CLASS="note">
 ENTITY turning_machine_functions
@@ -7266,7 +7351,9 @@ ENTITY turning_machine_functions
   chip_removal: 	OPTIONAL BOOLEAN;
   oriented_spindle_stop: OPTIONAL direction;
   its_process_model:	OPTIONAL process_model_list;
-  other_functions: 	SET [0:?] OF Representation_item;
+  -- 10303-238: other_functions moved to supertype for consistent
+  --   handling across technologies
+  -- other_functions:   SET [0:?] OF Representation_item;
   tail_stock: 		OPTIONAL BOOLEAN;
   steady_rest: 		OPTIONAL BOOLEAN;
   follow_rest: 		OPTIONAL BOOLEAN;
@@ -7275,6 +7362,14 @@ END_ENTITY;
 TYPE coolant_select = ENUMERATION OF (flood, mist, through_tool);
 END_TYPE;
 </PRE>
+
+
+
+<H4><A NAME="ao-turning_machine_functions-other_functions"></A>4.3.197.1 other_functions</H4>
+
+<P>The other_functions parameter defined by ISO 14649-12 shall be
+replaced by the other_functions parameter defined by the
+Machine_functions application object.
 
 
 <!-- ============================== -->

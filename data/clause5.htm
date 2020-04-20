@@ -5030,6 +5030,31 @@ action_method
 </tr>
 </table>
 
+<H5><A NAME="map-machine_functions-other_functions"></A>5.1.7.2.1 machine_functions to representation_item (as other_functions)</H5>
+
+<table class="map">
+<tr><th>AIM element:</th>
+<td>PATH</td>
+</tr>
+
+<tr><th>Reference path:</th>
+<td class="path">machining_functions &lt;=
+action_method
+characterized_action_definition = action_method
+characterized_action_definition &lt;-
+action_property.definition
+{ action_property.name = 'other functions' }
+action_property &lt;-
+action_property_representation.property
+action_property_representation
+action_property_representation.representation -&gt;
+representation
+representation.items[i] -&gt;
+representation_item
+</td>
+</tr>
+</table>
+
 
 <!-- ============================== -->
 <DIV><DIV class=quick>
@@ -10216,39 +10241,8 @@ machining_process_model
 </table>
 
 
-<H5><A NAME="map-milling_machine_functions-other_functions"></A>5.1.9.38.10 milling_machine_functions to representation_item (as other_functions)</H5>
 
-<table class="map">
-<tr><th>AIM element:</th>
-<td>PATH</td>
-</tr>
-
-<tr><th>Reference path:</th>
-<td class="path">machining_functions &lt;=
-action_method
-characterized_action_definition = action_method
-characterized_action_definition &lt;-
-action_property.definition
-{ action_property.name = 'other functions' }
-action_property &lt;-
-action_property_representation.property
-action_property_representation
-action_property_representation.representation -&gt;
-representation
-representation.items[i] -&gt;
-representation_item =&gt;
-compound_representation_item
-compound_representation_item.item_element -&gt;
-compound_item_definition
-compound_item_definition = set_representation_item
-set_representation_item[i] -&gt;
-representation_item
-</td>
-</tr>
-</table>
-
-
-<H5><A NAME="map-milling_machine_functions-axis_constraints"></A>5.1.9.38.11 axis_constraints</H5>
+<H5><A NAME="map-milling_machine_functions-axis_constraints"></A>5.1.9.38.10 axis_constraints</H5>
 
 <table class="map">
 
@@ -16437,39 +16431,7 @@ machining_process_model
 </table>
 
 
-<H5><A NAME="map-turning_machine_functions-other_functions"></A>5.1.11.23.8 turning_machine_functions to Representation_item (as other_functions)</H5>
-
-<table class="map">
-<tr><th>AIM element:</th>
-<td>PATH</td>
-</tr>
-
-<tr><th>Reference path:</th>
-<td class="path">machining_functions &lt;=
-action_method
-characterized_action_definition = action_method
-characterized_action_definition &lt;-
-action_property.definition
-{ action_property.name = 'other functions' }
-action_property &lt;-
-action_property_representation.property
-action_property_representation
-action_property_representation.representation -&gt;
-representation
-representation.items[i] -&gt;
-representation_item =&gt;
-compound_representation_item
-compound_representation_item.item_element -&gt;
-compound_item_definition
-compound_item_definition = set_representation_item
-set_representation_item[i] -&gt;
-representation_item
-</td>
-</tr>
-</table>
-
-
-<H5><A NAME="map-turning_machine_functions-tail_stock"></A>5.1.11.23.9 tail_stock</H5>
+<H5><A NAME="map-turning_machine_functions-tail_stock"></A>5.1.11.23.8 tail_stock</H5>
 <div class="mapnote">
 <p>#1: if value is true</p>
 <p>#2: if value is false  (mapping may be omitted if value is false)</p>
@@ -16509,7 +16471,7 @@ descriptive_representation_item.description
 </table>
 
 
-<H5><A NAME="map-turning_machine_functions-steady_rest"></A>5.1.11.23.10 steady_rest</H5>
+<H5><A NAME="map-turning_machine_functions-steady_rest"></A>5.1.11.23.9 steady_rest</H5>
 <div class="mapnote">
 <p>#1: if value is true</p>
 <p>#2: if value is false  (mapping may be omitted if value is false)</p>
@@ -16549,7 +16511,7 @@ descriptive_representation_item.description
 </table>
 
 
-<H5><A NAME="map-turning_machine_functions-follow_rest"></A>5.1.11.23.11 follow_rest</H5>
+<H5><A NAME="map-turning_machine_functions-follow_rest"></A>5.1.11.23.10 follow_rest</H5>
 <div class="mapnote">
 <p>#1: if value is true</p>
 <p>#2: if value is false  (mapping may be omitted if value is false)</p>
@@ -19714,37 +19676,6 @@ action_method
 </tr>
 </table>
 
-
-<H5><A NAME="map-am_machine_functions-functions"></A>5.1.13.8.1 am_machine_functions to representation_item (as functions)</H5>
-
-<table class="map">
-<tr><th>AIM element:</th>
-<td>PATH</td>
-</tr>
-
-<tr><th>Reference path:</th>
-<td class="path">machining_functions &lt;=
-action_method
-characterized_action_definition = action_method
-characterized_action_definition &lt;-
-action_property.definition
-{ action_property.name = 'functions' }
-action_property &lt;-
-action_property_representation.property
-action_property_representation
-action_property_representation.representation -&gt;
-representation
-representation.items[i] -&gt;
-representation_item =&gt;
-compound_representation_item
-compound_representation_item.item_element -&gt;
-compound_item_definition
-compound_item_definition = set_representation_item
-set_representation_item[i] -&gt;
-representation_item
-</td>
-</tr>
-</table>
 
 
 
