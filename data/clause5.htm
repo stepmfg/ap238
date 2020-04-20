@@ -23035,11 +23035,6 @@ END_ENTITY;
 <P><B>WR8</B>: If the <B>description</B> of the <B>machining_approach_retract_strategy</B> is 'plunge zigzag', the <B>machining_approach_retract_strategy</B> shall be the <B>definition</B> of exactly one <B>action_property</B> with a <B>name</B> of 'plunge width', and the <B>representation</B> used to describe the <B>action_property</B> shall contain a <B>representation_item </B>of type <B>measure_representation_item</B> and <B>length_measure_with_unit</B>.</P>
 
 
-<H6 CLASS="section-underlined">Informal propositions:</H6>
-
-<P><B>IP1</B>: All <B>machining_toolpath_sequence_relationship</B> instances which refer to the same <B>machining_approach_retract_strategy</B> through <B>relating_method</B> shall have unique <B>sequence_position</B> values.</P>
-
-
 
 <H5><A NAME="aim-machining_cutting_component"></A>5.2.4.1.25 machining_cutting_component</H5>
 
@@ -23671,22 +23666,11 @@ ENTITY machining_functions
 
          (verify_related_type_for_amr   (SELF,
           ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_PROCESS_MODEL_RELATIONSHIP'],
-          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_PROCESS_MODEL'])) AND
-
-         (verify_optional_action_property (SELF, 'other functions')) AND
-         (0 = SIZEOF (QUERY (prop &lt;* get_action_property
-                             (SELF, 'other functions') | NOT
-           (0 &lt; SIZEOF (QUERY (prep &lt;* USEDIN (prop, 'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.' +
-              'ACTION_PROPERTY_REPRESENTATION.PROPERTY') |
-             (1 = SIZEOF (QUERY (it &lt;* prep.representation.items |
-                (('MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.COMPOUND_REPRESENTATION_ITEM'
-                   IN TYPEOF(it)) AND
-                 ('MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.SET_REPRESENTATION_ITEM'
-                   IN TYPEOF(it.item_element)))
-             )))
-           )))
-         )))
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_PROCESS_MODEL']))
         );
+
+  WR4:  (verify_optional_action_property (SELF, 'other functions'));
+
 END_ENTITY;
 (*
 </PRE>
@@ -23720,13 +23704,9 @@ END_ENTITY;
 <LI>the <B>machining_functions</B> shall be the <B>definition</B> of at most one <B>action_property</B> with a <B>name</B> of 'chip removal', and the <B>representation</B> used to describe the <B>action_property</B> shall contain a <B>representation_item </B>of type <B>descriptive_representation_item</B> with a <B>description</B> of 'chip removal on' or 'chip removal off';</LI>
 <LI>the <B>machining_functions</B> shall be the <B>definition</B> of at most one <B>action_property</B> with a <B>name</B> of 'oriented spindle stop', and the <B>representation</B> used to describe the <B>action_property</B> shall contain a <B>representation_item </B>of type <B>direction</B>;</LI>
 <LI>the <B>machining_functions</B> shall be the <B>relating_method</B> of zero or more <B>machining_process_model_relationship</B>, in which <B>related_method</B> shall be of type <B>machining_process_model</B>;</LI>
-<LI>the <B>machining_functions</B> shall be the <B>definition</B> of at most one <B>action_property</B> with a <B>name</B> of 'other functions', and the <B>representation</B> used to describe the <B>action_property</B> shall contain exactly one <B>compound_representation_item</B>, in which the <B>item_element</B> is of type <B>set_representation_item</B>.</LI>
 </UL>
 
-
-<H6 CLASS="section-underlined">Informal propositions:</H6>
-
-<P><B>IP1</B>: All <B>machining_process_model_relationship</B> instances which refer to the same <B>machining_functions</B> through <B>relating_method</B> shall have unique <B>sequence_position</B> values.</P>
+<P><B>WR4</B>: The <B>machining_functions</B> shall be the <B>definition</B> of at most one <B>action_property</B> with a <B>name</B> of 'other functions'.</LI>
 
 
 
