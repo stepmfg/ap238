@@ -4529,8 +4529,11 @@ toolpath that refers to the Machine_functions.</P>
 
 <p>Each condition shall be identified by a Representation_item name
 and the required state shall be described by the value of the
-Representation_item.  This shall not be used if a condition can be
-specified using other capabilities of this document.</P>
+Representation_item.  If conditions must be applied sequentially, the
+Representation_items shall be nested, in the required order, within a
+List_representation_item.  The other_functions shall not be used if a
+condition can be specified using other capabilities of this
+document.</P>
 
 <P CLASS="note">
 <SPAN>NOTE 1</SPAN> This consolidates Am_machine_functions functions,

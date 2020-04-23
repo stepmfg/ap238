@@ -21905,6 +21905,82 @@ cartesian_point.</P>
 
 
 
+<H5><A NAME="funcon-path-functions"></A>5.2.2.6.5 NC functions on a path</H5>
+
+<P>The <a href="clause4.htm#ao-machine_functions">Machine_functions</a>
+application object shall be used to declare conditions required on the
+machine tool for the execution of an operation or toolpath segment.
+Advanced machining applications may require conditions that are not
+among those enumerated by this document.  These conditions can be
+declared using the other_functions parameter of Machine_functions.</P>
+
+<P>Historically, conditions on machine tools were often established
+using locally-defined numeric codes that are modal in nature.  When
+describing the effect of these codes using other_function, the name of
+the Representation_item shall be the condition name and the value
+shall be one of the range of possible modes.</P>
+
+<P CLASS="note">
+<SPAN>NOTE</SPAN>
+The <a href="clause4.htm#ao-extended_nc_function">Extended_NC_function</a>
+application object should not be used to convey individual modal codes
+because it does not identify the common condition that the codes
+control.  Also, an Extended_NC_function can not appear between two
+toolpath segments, only between Operations
+
+<P CLASS="note">
+<SPAN>EXAMPLE</SPAN> An advanced fiber placement tool as illustrated
+in <a href="#fig-fiber_placement">Figure 20</a> can contain many
+spools of fiber, heaters, and tapehead activity state.  These may be
+controlled by numeric codes like the ones listed below.
+
+<PRE CLASS="note">
+N332 M12 (Heater high)
+N334 M9 P65535 (Tapehead on)
+...
+N534 M11 (Heater low)
+...
+N554 M10 (Tapehead off)
+N560 M13 (Heater off)
+</PRE>
+
+<P CLASS="note">These states can be represented using the following
+descriptive representation items:</P>
+
+
+<PRE CLASS="note">
+#31=DESCRIPTIVE_REPRESENTATION_ITEM('heater','heater high');
+#32=DESCRIPTIVE_REPRESENTATION_ITEM('heater','heater low');
+#33=DESCRIPTIVE_REPRESENTATION_ITEM('heater','heater off');
+
+#51=DESCRIPTIVE_REPRESENTATION_ITEM('tapehead','tapehead on');
+#52=DESCRIPTIVE_REPRESENTATION_ITEM('tapehead','tapehead off');
+</PRE>
+
+<P CLASS="note">The exchange file fragment below shows a machine
+functions that declares 'tapehead on' and 'heater high' conditions
+using the 'other functions' property.</P>
+
+<PRE CLASS="note">
+#100=MACHINING_FUNCTIONS('','milling','','');
+#101=ACTION_PROPERTY('other functions','',#100);
+#102=ACTION_PROPERTY_REPRESENTATION('','',#101,#103);
+#103=REPRESENTATION('',(#105,#106),#104);
+#104=REPRESENTATION_CONTEXT('','units not necessary');
+#105=DESCRIPTIVE_REPRESENTATION_ITEM('tapehead','tapehead on');
+#106=DESCRIPTIVE_REPRESENTATION_ITEM('heater','heater high');
+</PRE>
+
+
+
+
+<FIGURE><A NAME="fig-fiber_placement"></A>
+<IMG SRC="../images/fiber_placement.jpg">
+<FIGCAPTION>Figure 20 &mdash; Advanced fiber placement machine tool</FIGCAPTION>
+</FIGURE>
+
+
+
 <H3><A NAME="aim-types"></A>5.2.3 Model based integrated manufacturing types</H3>
 
 
@@ -26606,11 +26682,11 @@ If a via point and the preceeding or following point in a polyline are considere
 
 
 <P CLASS="note">
-<a href="#fig-via_arcs">Figure 20</a> illustrates the arc and a complete circle described by the exchange file fragment.</P>
+<a href="#fig-via_arcs">Figure 21</a> illustrates the arc and a complete circle described by the exchange file fragment.</P>
 
 <FIGURE><A NAME="fig-via_arcs"></A>
 <IMG SRC="../images/via_arcs.svg">
-<FIGCAPTION>Figure 20 &mdash; Arcs with via points</FIGCAPTION>
+<FIGCAPTION>Figure 21 &mdash; Arcs with via points</FIGCAPTION>
 </FIGURE>
 
 
