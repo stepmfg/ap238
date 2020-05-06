@@ -61,6 +61,8 @@ local(*DSTFRM);
 
 ## Scan for tables and figures too
 
+# For HTML syntax checking, nested ULs need to be wrapped in LI
+
 sub scan_toc_entries {
     my($file) = @_;
 
@@ -84,8 +86,8 @@ sub scan_toc_entries {
 	    print "CLAUSE $tag -- $body\n";
 	    while ($depth > 1) {
 		$depth--;
-		print DST "</UL>\n";
-		print DSTFRM "</UL>\n";
+		print DST "</UL></LI>\n";
+		print DSTFRM "</UL></LI>\n";
 	    }
 	    print DST "<LI CLASS=clause><a href=\"$file\">$body</A></LI>\n";
 	    print DSTFRM "<LI CLASS=clause><a href=\"$file\" target=\"body\">$body</A></LI>\n";	    
@@ -102,13 +104,13 @@ sub scan_toc_entries {
 	    
 	    while ($depth < $lev) {
 		$depth++;
-		print DST "<UL>\n";
-		print DSTFRM "<UL>\n";
+		print DST "<LI><UL>\n";
+		print DSTFRM "<LI><UL>\n";
 	    }
 	    while ($depth > $lev) {
 		$depth--;
-		print DST "</UL>\n";
-		print DSTFRM "</UL>\n";
+		print DST "</UL></LI>\n";
+		print DSTFRM "</UL></LI>\n";
 	    }
 	    
 	    print "CLAUSE $tag -- $body\n";
@@ -143,8 +145,8 @@ sub scan_toc_entries {
     
     while ($depth > 1) {
 	$depth--;
-	print DST "</UL>\n";
-	print DSTFRM "</UL>\n";
+	print DST "</UL></LI>\n";
+	print DSTFRM "</UL></LI>\n";
     }
     close (SRC);
 }
