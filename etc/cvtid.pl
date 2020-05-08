@@ -17,17 +17,19 @@
 # 
 # Author: David Loffredo (loffredo@steptools.com)
 # 
-# Renumber clauses in document.
+# Convert anchors from <A NAME=""> to <Hx ID=""> because name is
+# obsolete in HTML5
 
-# Can renumber the anchors in one pass, we need to renumber the
-# references in a second pass.
 
 
 use strict;
-my $do_scanonly=0;
-my %html;
+my %anchor;
+my $fignum = 0;
+my $tabnum = 0;
+
 
 my @files = (
+    "abstract.htm",
     "foreword.htm",
     "introduction.htm",
     "clause1.htm",
@@ -50,8 +52,10 @@ my @files = (
     "bibliography.htm"
  );
 
-sub gen_armidx {
-    my($file, $dst) = @_;
+my $do_scanonly=0;
+
+sub reformat_anchors {
+    my($file) = @_;
 
     # scan anchors and update numbering if needed.  We also build a
     # dictionary with the updated anchor text.
@@ -65,36 +69,55 @@ sub gen_armidx {
     local(*SRC);
     
     open (SRC, $file) or die "could not open $file";
-    open (DST, "> $dst") or die "could not open $dst";
-    
     print "Scanning $file\n";
-    print DST $html{armhead};
-    print DST "<TABLE class=\"altrow\">\n";
     
     while (<SRC>) {
-	/^<H3 ID=\"ao-([^\"]+)\">(.*)/i && do {
-	    my $tag = $1;
-	    my $body = $2;
-	    $body =~ s/<\/H3>\s*$//i;
-	    $body =~ s/^\s*((\d+|[A-Z])\.[\d\.]+)*\s+//;  
-
-	    my $armid = lc $tag;
-	    print DST "<TR><TD>$body</TD>\n";
-	    print DST "<TD><A HREF=\"clause4.htm#ao-$tag\">AO</a></TD>\n";
-	    print DST "<TD><A HREF=\"clause5.htm#map-$tag\">Map</a></TD>\n";
-	    print DST "<TD><A HREF=\"annexG.htm#$armid\">ARM</a></TD>\n";
-	    print DST "</TR>\n";
+	/^<FIGURE><A NAME=\"([^\"]+)\"><\/A>/i && do {
+	    print "FIGURE $1\n";
+	    s/^<FIGURE><A NAME=\"([^\"]+)\"><\/A>/<FIGURE ID="$1">/i;
+	    $changed = 1;
 	};
+
+	/^<CAPTION><A NAME=\"([^\"]+)\"><\/A>/i && do {
+	    print "CAPTION $1\n";
+	    s/^<CAPTION><A NAME=\"([^\"]+)\"><\/A>/<CAPTION ID="$1">/i;
+	    $changed = 1;
+	};
+
+	/^<LI><A NAME=\"([^\"]+)\"><\/A>/i && do {
+	    print "LIST $1\n";
+	    s/^<LI><A NAME=\"([^\"]+)\"><\/A>/<LI ID="$1">/i;
+	    $changed = 1;
+	};
+
+	/^<H1 CLASS=\"(clause|unum|annex)\"><A NAME=\"([^\"]+)\"><\/A>/i && do {
+	    print "CLAUSE $2, $1\n";
+	    s/^<H1 CLASS=\"(clause|unum|annex)\"><A NAME=\"([^\"]+)\"><\/A>/<H1 ID="$2" CLASS="$1">/i;
+	    $changed = 1;
+	};
+
+	/^<H([2-6])><A NAME=\"([^\"]+)\"><\/A>/ && do {
+	    print "SUBCLAUSE $2\n";
+	    s/^<H([2-6])><A NAME=\"([^\"]+)\"><\/A>/<H$1 ID="$2">/i;
+	    $changed = 1;
+	};
+	push @contents, $_;
     }
-    print DST "</TABLE>\n";
-    print DST $html{tail};
-
-    close (DST);
     close (SRC);
+
+
+    if ($changed && !$do_scanonly) {
+	# extract it if it is not present;
+	print "$file: writing updated file\n";
+
+	rename $file, $bakfile	or die ("$bakfile: $!");
+	open (DST, "> $file")	or die ("$file: $!");
+	print DST @contents	or die ("$file: $!");
+	close DST		or die ("$file: $!");
+#	unlink $bakfile		or die ("$bakfile: $!");
+    }
+
 }
-
-
-
 
 sub main {
     while ($_[0]) {
@@ -106,38 +129,13 @@ sub main {
 
 	/^-/ && die "$0: unknown option: $_ (use -help for usage)\n";
 
+	push @files, $_;  # tack on as just a plain file
 	shift;
     }
 
-    
-    gen_armidx ("clause4.htm", "idxarm.htm");
+    foreach (@files) { reformat_anchors ($_); }
     return 1;
 }
-
-$html{armhead} = <<'PERL_EOF';
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<title>ISO 10303-238</title>
-
-<link rel="stylesheet" href="style.css">
-</head>
-<body>
-<p class=pagehead>ISO 10303-238</p>
-
-<H1 CLASS="unum">Application Object Index</H1>
-
-PERL_EOF
-    ;
-
-$html{tail} = <<'PERL_EOF';
-
-<p class=pagefoot>&copy; ISO 2020 &mdash; All rights reserved
-</body>
-</html>
-PERL_EOF
-    ;
 
 main (@ARGV);
 

@@ -8,10 +8,10 @@
 <body>
 <p class=pagehead>ISO 10303-238</p>
 
-<H1 CLASS="annex"><A NAME="clause-K"></A>Annex K<BR>(informative)<BR><BR>Change log</H1>
+<H1 ID="clause-K" CLASS="annex">Annex K<BR>(informative)<BR><BR>Change log</H1>
 
 
-<H2><A NAME="clause-K-1"></A>K.1 Changes in second edition</H2>
+<H2 ID="clause-K-1">K.1 Changes in second edition</H2>
 
 <p>The second edition includes specific changes based on experience
 accumulated from deployment of the first edition in the period
@@ -22,7 +22,7 @@ fixes, wording fixes, and the following.</p>
 
 
 <!-- ============================== -->
-<H3><A NAME="clause-K-1-measure"></A>K.1.1 Changes in measure UoF</H3>
+<H3 ID="clause-K-1-measure">K.1.1 Changes in measure UoF</H3>
 
 <P>Change the <a href="clause4.htm#uof-measure">measure UoF</a> to
 reference application object definitions and mappings from ISO
@@ -57,7 +57,7 @@ Dimension_value_with_limitation.</P>
 
 
 <!-- ============================== -->
-<H3><A NAME="clause-K-1-project"></A>K.1.2 Changes in project UoF</H3>
+<H3 ID="clause-K-1-project">K.1.2 Changes in project UoF</H3>
 
 <P>Rename the Project application object
 to <a href="clause4.htm#ao-manufacturing_project">Manufacturing_project</a>
@@ -72,7 +72,7 @@ to the Person_in_organization application object defined by ISO
 
 
 <!-- ============================== -->
-<H3><A NAME="clause-K-1-workpiece"></A>K.1.3 Changes in workpiece UoF</H3>
+<H3 ID="clause-K-1-workpiece">K.1.3 Changes in workpiece UoF</H3>
 
 <P>Replace General_property, Part_property, and Process_property
 application objects with the Assigned_property application object
@@ -139,7 +139,7 @@ application object supported by ISO 10303-242.</P>
 
 
 <!-- ============================== -->
-<H3><A NAME="clause-K-1-feature"></A>K.1.4 Changes in manufacturing feature UoF</H3>
+<H3 ID="clause-K-1-feature">K.1.4 Changes in manufacturing feature UoF</H3>
 
 <P>Move the Manufacturing_feature application object from
 the <a href="clause4.htm#uof-workpiece ">workpiece UoF</a> into the
@@ -274,7 +274,7 @@ application objects have changed.</P>
 </UL>
 
 <!-- ============================== -->
-<H3><A NAME="clause-K-1-executable"></A>K.1.5 Changes in executable UoF</H3>
+<H3 ID="clause-K-1-executable">K.1.5 Changes in executable UoF</H3>
 
 <P>Replace Boolean_expression application object and all subtypes with
 the objects of the same name defined by ISO 10303-1526.  These objects
@@ -359,7 +359,7 @@ retained in the AIM EXPRESS for compatibility with data sets created
 under previous editions.
 
 <!-- ============================== -->
-<H3><A NAME="clause-K-1-operation"></A>K.1.6 Changes in operation UoF</H3>
+<H3 ID="clause-K-1-operation">K.1.6 Changes in operation UoF</H3>
 
 <P>Add <a href="clause4.htm#ao-extended_operation">Extended_operation</a>
 to permit use with process descriptions not described by ISO 14649-11,
@@ -378,7 +378,7 @@ consistent handling.  Also simplified the mapping to eliminate an
 unneeded set_representation_item.
 
 <!-- ============================== -->
-<H3><A NAME="clause-K-1-toolpath"></A>K.1.7 Changes in toolpath UoF</H3>
+<H3 ID="clause-K-1-toolpath">K.1.7 Changes in toolpath UoF</H3>
 
 <P>Expand <a href="clause4.htm#ao-cutter_contact_trajectory">Cutter_contact_trajectory</a>
 and <a href="clause4.htm#ao-cutter_location_trajectory">Cutter_location_trajectory</a>
@@ -399,12 +399,12 @@ clause 5 to support high-speed milling operations. </P>
 
 
 <!-- ============================== -->
-<H3><A NAME="clause-K-1-milling_process"></A>K.1.8 Changes in process data for milling UoF</H3>
+<H3 ID="clause-K-1-milling_process">K.1.8 Changes in process data for milling UoF</H3>
 
 <p>No change.
 
 <!-- ============================== -->
-<H3><A NAME="clause-K-1-milling_tools"></A>K.1.9 Changes in cutting tools for milling UoF</H3>
+<H3 ID="clause-K-1-milling_tools">K.1.9 Changes in cutting tools for milling UoF</H3>
 
 <P>Replace <a href="clause4.htm#ao-cutting_component">Cutting_component</a>
 its_material parameter with an inverse attribute over
@@ -412,7 +412,7 @@ Material_identification for ARM integration.  The integrated
 representation has not changed.</P>
 
 <!-- ============================== -->
-<H3><A NAME="clause-K-1-turning_process"></A>K.1.10 Changes in process data for turning UoF</H3>
+<H3 ID="clause-K-1-turning_process">K.1.10 Changes in process data for turning UoF</H3>
 
 <P>Expand <a href="clause4.htm#ao-turning_workingstep">Turning_workingstep</a>
 with toolpath placement, referenced as "toolpath_orientation", to
@@ -421,7 +421,7 @@ This information was previously only available on
 Machining_workingstep.</P>
 
 <!-- ============================== -->
-<H3><A NAME="clause-K-1-turning_tools"></A>K.1.11 Changes in cutting tools for turning UoF</H3>
+<H3 ID="clause-K-1-turning_tools">K.1.11 Changes in cutting tools for turning UoF</H3>
 
 <P>Replace <a href="clause4.htm#ao-cutting_edge_properties">Cutting_edge_properties</a>
 its_material parameter with an inverse attribute over
@@ -429,7 +429,7 @@ Material_identification for ARM integration.  The integrated
 representation has not changed.</P>
 
 <!-- ============================== -->
-<H3><A NAME="clause-K-1-additive_process"></A>K.1.12 Changes in process data for additive manufacturing UoF</H3>
+<H3 ID="clause-K-1-additive_process">K.1.12 Changes in process data for additive manufacturing UoF</H3>
 
 <P>Add new <A href="clause4.htm#uof-additive_process">process data for additive
 manufacturing UoF</A> which describes the machining actions defined by
@@ -460,7 +460,7 @@ to clause 5 to support mapping of Am_operation and subtypes. </P>
 
 
 <!-- ============================== -->
-<H3><A NAME="clause-K-1-gdt"></A>K.1.13 Changes in geometric dimensioning and tolerancing UoF</H3>
+<H3 ID="clause-K-1-gdt">K.1.13 Changes in geometric dimensioning and tolerancing UoF</H3>
 
 <P>Change the <a href="clause4.htm#uof-gdt">geometric dimensioning and
 tolerancing UoF</a> to reference the following feature application
@@ -527,7 +527,7 @@ externally_defined_dimension_definition, and
 placed_datum_target_feature.</P>
 
 <!-- ============================== -->
-<H3><A NAME="clause-K-1-library_reference"></A>K.1.14 Changes in library reference UoF</H3>
+<H3 ID="clause-K-1-library_reference">K.1.14 Changes in library reference UoF</H3>
 
 <P>Replace the entire library reference UoF with references to
 appropriate module definitions.
@@ -547,7 +547,7 @@ supertype and is not longer used.</P>
 
 
 <!-- ============================== -->
-<H3><A NAME="clause-K-1-management"></A>K.1.15 Changes in management UoF</H3>
+<H3 ID="clause-K-1-management">K.1.15 Changes in management UoF</H3>
 
 <P>Replace Approval, Approval_relationship, Approval_status, and
 Approving_person_organization application object definitions and

@@ -76,11 +76,12 @@ sub scan_toc_entries {
     open (SRC, $file) or die "could not open $file";
 
     while (<SRC>) {
-	/^<H1 CLASS=\"(clause|unum|annex)\"><A NAME=\"([^\"]+)\"><\/A>(.*)/ && do {
-	    my $cls = $1;
-	    my $tag = $2;
+	
+	/^<H1 ID=\"([^\"]+)\" CLASS=\"(clause|unum|annex)\">(.*)/i && do {
+	    my $tag = $1;
+	    my $cls = $2;
 	    my $body = $3;
-	    $body =~ s/<\/H1>\s*$//;
+	    $body =~ s/<\/H1>\s*$//i;
 	    $body =~ s/<BR>/ /g;
 
 	    print "CLAUSE $tag -- $body\n";
@@ -94,11 +95,11 @@ sub scan_toc_entries {
 	};
 
 
-	/^<H([2-6])><A NAME=\"([^\"]+)\"><\/A>(.*)/ && do {
+	/^<H([2-6]) ID=\"([^\"]+)\">(.*)/i && do {
 	    my $lev = $1;
 	    my $tag = $2;
 	    my $body = $3;
-	    $body =~ s/<\/H$lev>\s*$//;
+	    $body =~ s/<\/H$lev>\s*$//i;
 
 	    next if $lev > $maxdepth;
 	    
@@ -118,23 +119,23 @@ sub scan_toc_entries {
 	    print DSTFRM "<LI><a href=\"$file#$tag\" target=\"body\">$body</A></LI>\n";	    
 	};
 
-	/^<FIGURE><A NAME=\"([^\"]+)\"><\/A>/ && do {
+	/^<FIGURE ID=\"([^\"]+)\">/i && do {
 	    my $tag = $1;
 	    my $body;
 
-	    while (not /<\/FIGURE>/) {
+	    while (not /<\/FIGURE>/i) {
 		$_ = <SRC>;
-		$body = $1 if /<FIGCAPTION>(.*)<\/FIGCAPTION>/;
+		$body = $1 if /<FIGCAPTION>(.*)<\/FIGCAPTION>/i;
 	    }
 
 	    print "FIGURE $tag -- $body\n";
 	    push @figs, "<LI><a href=\"$file#$tag\"%%TARGET%%>$body</A></LI>\n";
 	};
 
-	/^<CAPTION><A NAME=\"([^\"]+)\"><\/A>(.*)/ && do {
+	/^<CAPTION ID=\"([^\"]+)\">(.*)/i && do {
 	    my $tag = $1;
 	    my $body = $2;
-	    $body =~ s/<\/CAPTION>\s*$//;
+	    $body =~ s/<\/CAPTION>\s*$//i;
 
 	    print "TABLE $tag -- $body\n";
 
