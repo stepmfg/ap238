@@ -1,5 +1,31 @@
 
-/* indent toc lists, except for outermost */
+/* TC184/SC4 cover page */
+TABLE.cover {
+    border-collapse:collapse;
+}
+TABLE.cover TD {
+    border: 1px solid black;
+    padding: 5px;
+    vertical-align: top;
+}
+TABLE.cover TD.people {
+    width: 50%;
+}
+P.docnum {
+    float:left;
+    margin: 0;
+    font-size: 200%;
+    font-weight: bold;
+}
+P.docdate {
+    float:right;
+    margin: 0;
+}
+P.docrev   { font-weight: bold;   clear:both; }
+P.doctitle { font-weight: bold; }
+
+
+/* Table of contents, indent lists except for outermost */
 DIV.side { font-size: 80%; }
 DIV.contents UL { padding-left: 1.5em; }
 DIV.contents > UL { padding-left: 0em; }
@@ -12,7 +38,7 @@ DIV.index P.idx2 { text-indent: 2em; }
 DIV.termdef H5 { margin-bottom: 0; }
 DIV.termdef P { margin-top: 0; }
 
-
+/* Document title, headings, page headers and footers */ 
 DIV.title_heading {
     border-top:1px solid black; 
     border-bottom:1px solid black; 
@@ -27,7 +53,6 @@ DIV.title_heading P {
 
 P.pagefoot { margin-top: 3em; }
 P.pagehead { font-weight: bold; text-align: right; margin-bottom: 2em; }
-
 
 /* if headings deeper than h6 needed, add classes to h6 */
 H1, H2, H3, H4, H5, H6 {
@@ -60,18 +85,11 @@ FIGURE DIV.key P {
     text-indent: -2em;
     padding-left: 2em;
 }
-/*FIGURE DIV.key OL {
-    padding-left: 0;
-    list-style-position: inside;
-}*/
 
 FIGCAPTION {
     margin-top: 1em;
     font-weight: bold;
 }
-
-
-
 
 CAPTION { 
     margin: 0.5em 0em 1em 0em;
@@ -81,16 +99,14 @@ CAPTION {
 }
 
 
-
+/* Notes and examples */
 P.note {
     font-size: 80%;
     margin-left: 2em;
 }
 /* apply spacing after NOTE or EXAMPLE header */
 P.note SPAN:first-of-type { padding-right: 2em; }
-
-
-
+P.center { text-align: center; }
 
 PRE.code { }
 PRE.note {
@@ -124,9 +140,6 @@ TABLE.maplegend TD:first-child {
     white-space: pre;
 }
 
-
-
-
 DIV.mapnote {
     padding-left: 1.5em;
     margin: 0 0 1em 0;
@@ -137,7 +150,7 @@ DIV.mapnote P {
 }
 
 
-/*  table with alternating row color  */
+/*  Table with alternating row color, used for shortnames  */
 TABLE.altrow { border-collapse:collapse; }
 TABLE.altrow td{ padding: 0.1em 0.3em 0.1em 0.3em; }
 TABLE.altrow tr:nth-child(even){ background: #e0e0e0; }
