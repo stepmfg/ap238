@@ -22219,11 +22219,114 @@ using the 'other functions' property.</P>
 
 <H5 ID="funcon-twin-process">5.2.2.6.6 Digital twin process</H5>
 
-The process model defined by ISO 14649 describes the planned state of
-processes and makes no attempt to represent the results of execution.
-Where a planned process would produce results, such as touch_probing,
-the operations identify an external variable name, but the value must
-be collected from a machine tool by some unspecified method.
+<p>The process model defined by ISO 14649 describes the planned state
+of processes and makes no attempt to represent the results of
+execution.  Where a planned process would produce results, such as
+touch_probing, the operations identify an external variable name, but
+the value must be collected from a machine tool by some unspecified
+method.</p>
+
+<P CLASS="note">
+<SPAN>NOTE</SPAN>
+During testing with the first edition of this document, results of
+execution such as geometry as-machined, motion reported by the machine
+tool, and cutting tools selected at machining time were mixed with the
+planned process data in single, combined, data sets.  The model could
+represent the values, but could not distinguish between as-planned and
+as-executed data sources.  Furthermore, the model could only represent
+as-executed values for a single execution run.</P>
+
+<P CLASS="note">
+The twin_state, as_planned and other parameters added to Executable by
+the second edition of this document enable a clear distinction between
+as-planned and as-executed values, and scale to represent values from
+many execution runs.  The external reference mechanism introduced by
+ISO 10303-21:2016 may be used to organize as-planned and as-executed
+processes into separate exchange structures.</P>
+
+<p>This document extends the process model with additional parameters
+to describe a process that has been executed by a machine tool or
+simulated by software.  This is called a digital twin process.  A
+digital twin process represents the process values, encountered during
+machining and can reference the planned process that was being
+executed.  A planned process is typically executed many times, and
+many digital twin processes can reference a single planned process, as
+shown in <a href="#fig-twinmodel">Figure 21</a>.</p>
+
+<FIGURE ID="fig-twinmodel">
+<IMG SRC="../images/twinmodel.svg" ALT="Twin Model">
+<DIV class=key>
+<B>Key</B>
+<p>1&emsp;Planned process, with process steps and models of as-planned results</p>
+<p>2&emsp;Digital twin processes for many machining runs</p>
+<p>3&emsp;Digital twin models for as-machined results</p>
+<p>4&emsp;Link from twin process element to planned process element</p>
+</DIV>
+<FIGCAPTION>Figure 21 &mdash; Planned and twin processes</FIGCAPTION>
+</FIGURE>
+
+
+<p>A twin process follows the same structure as a planned process.
+The root is a Manufacturing_Project application object, which refers
+to a Workplan as its main workplan.  A twin process shall set the
+twin_state to 'machining' or 'simulated' in the main workplan and all
+children Executables.  A planned process shall not set the twin_state
+to any value in the main workplan and all children Executables.</p>
+
+<p>An Executable within a twin process may set the state_start,
+state_end, and state_error parameters to describe when it was machined
+or simulated, and whether it completed sucessfully.  The Executable
+may may set the as_planned parameter to identify the Executable within
+a planned process that was machined or simulated.  If an Executable
+within a twin process was not planned before execution, the as_planned
+parameter shall not be set.</p>
+
+<P CLASS="note">
+<SPAN>EXAMPLE 1</SPAN> An unplanned operation may not originate in a
+CAM system.  A workpiece may be delivered by a supplier, stored in a
+warehouse and cut to size before CAM-planned operations begin.
+Operations like ordering and pre-cutting are not described in CAM
+because they are not executed by a machine control, but recording them
+in the results data may be important if the part fails in the field.
+The Extended_operation can describe operations for which there is no
+STEP-NC definition, with details determined by the enterprise.</P>
+
+<p>An Executable within a twin process shall describe information
+gathered from simulating or executing a manufacturing task.  Because
+the amount of information available may vary, a twin process may only
+give a summary description for an entire workplan or may include a
+detailed description for some, but not all, workingsteps in a process.
+<a href="#fig-twindetail">Figure 22</a> shows twin processes
+at different levels of detail.</p>
+
+<P CLASS="note">
+<SPAN>EXAMPLE 2</SPAN>
+A simple twin process may include a “twin” for the main workplan with
+as-is and to-be geometry, but nothing else.  A more detailed twin
+process may include "twins" for each workingsteps, with as-machined
+toolpaths constructed from MTconnect data.</P>
+
+<FIGURE ID="fig-twindetail">
+<IMG SRC="../images/twindetail.svg" ALT="Twin Details">
+<DIV class=key>
+<B>Key</B>
+<p>1&emsp;Simple twin process with as-machined model for entire workplan</p>
+<p>2&emsp;Planned process</p>
+<p>3&emsp;Detailed twin process with as-machined model for individual workingstep</p>
+</DIV>
+<FIGCAPTION>Figure 22 &mdash; Detail levels of twin processes</FIGCAPTION>
+</FIGURE>
+
+<p>Any application object parameter that is required but not set in a
+twin process shall be interpreted to have the value set in the
+as-planned process.</p>
+
+<P CLASS="note">
+<SPAN>EXAMPLE 3</SPAN> When interpreting a twin process, if the
+operation of a workingstep is not set, the operation of the as_planned
+executable is used.  Similarly, if the tool_diameter of the twin
+process is not set, then the tool_diameter found through the
+as_planned executable is used.</P>
 
 
 <H3 ID="aim-types">5.2.3 Model based integrated manufacturing types</H3>
@@ -26945,11 +27048,11 @@ If a via point and the preceeding or following point in a polyline are considere
 
 
 <P CLASS="note">
-<a href="#fig-via_arcs">Figure 21</a> illustrates the arc and a complete circle described by the exchange file fragment.</P>
+<a href="#fig-via_arcs">Figure 23</a> illustrates the arc and a complete circle described by the exchange file fragment.</P>
 
 <FIGURE ID="fig-via_arcs">
 <IMG SRC="../images/via_arcs.svg" ALT="Arcs with via points">
-<FIGCAPTION>Figure 21 &mdash; Arcs with via points</FIGCAPTION>
+<FIGCAPTION>Figure 23 &mdash; Arcs with via points</FIGCAPTION>
 </FIGURE>
 
 

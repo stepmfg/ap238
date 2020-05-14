@@ -5247,896 +5247,10 @@ planning with origins that were convenient for the designer.</P>
 
 <!-- ============================== -->
 <DIV><DIV class=quick>
-<A HREF="clause5.htm#map-milling_cutting_tool">Map</a>
-<A HREF="annexG.htm#milling_cutting_tool">ARM</a>
-</DIV>
-<H3 ID="ao-milling_cutting_tool">4.3.118 Milling_cutting_tool</H3>
-</DIV>
-
-<P>The Milling_cutting_tool application object shall be as defined by ISO 14649-111.</P>
-
-<P CLASS="note">
-<SPAN>NOTE</SPAN> The ISO 14649 EXPRESS description for
-Milling_cutting_tool is shown below.  Refer to ISO 14649-111 for the
-complete definition and explanation of usage.</P>
-
-<PRE CLASS="note">
-ENTITY milling_cutting_tool
-  ABSTRACT SUPERTYPE OF (ONEOF(dovetail_mill, endmill, facemill, shouldermill,
-  side_mill, t_slot_mill, thread_mill))
-  SUBTYPE OF (milling_machine_cutting_tool);
-  number_of_effective_teeth:    OPTIONAL INTEGER;
-  edge_radius: 			OPTIONAL Length_data_element;
-END_ENTITY;
-</PRE>
-
-
-<!-- ============================== -->
-<DIV><DIV class=quick>
-<A HREF="clause5.htm#map-milling_machine_cutting_tool">Map</a>
-<A HREF="annexG.htm#milling_machine_cutting_tool">ARM</a>
-</DIV>
-<H3 ID="ao-milling_machine_cutting_tool">4.3.119 Milling_machine_cutting_tool</H3>
-</DIV>
-
-<P>The Milling_machine_cutting_tool application object shall be as defined by ISO 14649-111.</P>
-
-<P CLASS="note">
-<SPAN>NOTE</SPAN> The ISO 14649 EXPRESS description for
-Milling_machine_cutting_tool is shown below.  Refer to ISO 14649-111
-for the complete definition and explanation of usage.</P>
-
-<PRE CLASS="note">
-ENTITY milling_machine_cutting_tool
-  ABSTRACT SUPERTYPE OF ( ONEOF(milling_cutting_tool, drilling_cutting_tool,
-  tapping_cutting_tool, rotating_boring_cutting_tool, reaming_cutting_tool))
-  SUBTYPE OF (machining_tool);
-  its_cutting_edges:            SET [1:?] OF cutting_component;
-  overall_assembly_length:      Length_data_element;
-  effective_cutting_diameter:   Length_data_element;
-  maximum_depth_of_cut:         Length_data_element;
-  hand_of_cut:                  OPTIONAL hand_of_cut_type;
-  coolant_through_tool:         OPTIONAL BOOLEAN;
-END_ENTITY;
-
-TYPE hand_of_cut_type = ENUMERATION OF(left, neutral, right);
-END_TYPE;
-</PRE>
-
-
-<!-- ============================== -->
-<DIV><DIV class=quick>
-<A HREF="clause5.htm#map-milling_machine_functions">Map</a>
-<A HREF="annexG.htm#milling_machine_functions">ARM</a>
-</DIV>
-<H3 ID="ao-milling_machine_functions">4.3.120 Milling_machine_functions</H3>
-</DIV>
-
-<P>The Milling_machine_functions application object shall be as
-defined by ISO 14649-11.  This document adds the following information
-requirements.</P>
-
-<P>The data associated with a Milling_machine_functions are the following:</P>
-<UL>
-<LI>all of the data defined by ISO 14649-11, as modified below for the
-other_functions attribute;</LI>
-<LI>axis_constraints.</LI>
-</UL>
-
-<P CLASS="note">
-<SPAN>NOTE</SPAN> The ISO 14649 EXPRESS description for
-Milling_machine_functions, as adapted by this document, is shown
-below.  Refer to ISO 14649-11 for the original definition and
-explanation of usage.</P>
-
-<PRE CLASS="note">
-ENTITY milling_machine_functions
-  SUBTYPE OF (machine_functions);
-  coolant: 		BOOLEAN;
-  coolant_pressure:     OPTIONAL Pressure_data_element;
-  mist:                 OPTIONAL BOOLEAN;
-  through_spindle_coolant: BOOLEAN;
-  through_pressure:     OPTIONAL Pressure_data_element;
-  axis_clamping:        LIST [0:?] OF identifier; 
-  chip_removal:         BOOLEAN;
-  oriented_spindle_stop: OPTIONAL direction;
-  its_process_model:    OPTIONAL process_model_list;
-  -- 10303-238: other_functions moved to supertype for consistent
-  --   handling across technologies
-  -- other_functions:   SET [0:?] OF Representation_item;
-  axis_constraints: OPTIONAL SET [0:?] OF machine_axis_constraint;-- ADDED BY 10303-238
-END_ENTITY;
-</PRE>
-
-
-<H4 ID="ao-milling_machine_functions-axis_constraints">4.3.120.1 axis_constraints</H4>
-
-<P>The axis_constraints specifies zero or more Machine_axis_constraint
-that shall be used by the NC control when computing axis motion.
-See <a href="#aa-milling_machine_functions-to-machine_axis_constraint">Milling_machine_functions
-to Machine_axis_constraint</a> for the application assertion.</P>
-
-<P CLASS="note">
-<SPAN>NOTE</SPAN> It is advisable to avoid use of this information since it is machine dependent.</P>
-
-
-<H4 ID="ao-milling_machine_functions-other_functions">4.3.120.2 other_functions</H4>
-
-<P>The other_functions parameter defined by ISO 14649-11 shall be
-replaced by the other_functions parameter defined by the
-Machine_functions application object.
-
-
-<!-- ============================== -->
-<DIV><DIV class=quick>
-<A HREF="clause5.htm#map-milling_machining_operation">Map</a>
-<A HREF="annexG.htm#milling_machining_operation">ARM</a>
-</DIV>
-<H3 ID="ao-milling_machining_operation">4.3.121 Milling_machining_operation</H3>
-</DIV>
-
-<P>The Milling_machining_operation application object shall be as defined by ISO 14649-11.</P>
-
-<P CLASS="note">
-<SPAN>NOTE</SPAN> The ISO 14649 EXPRESS description for
-Milling_machining_operation is shown below.  Refer to ISO 14649-11 for
-the complete definition and explanation of usage.</P>
-
-<PRE CLASS="note">
-ENTITY milling_machining_operation
-  ABSTRACT SUPERTYPE OF (ONEOF(milling_type_operation, drilling_type_operation))
-  SUBTYPE OF (machining_operation);
-  overcut_length: OPTIONAL Length_data_element;
-WHERE
-  WR1: (EXISTS(SELF.its_technology.feedrate_per_tooth) AND
-        EXISTS(SELF.its_tool.number_of_effective_teeth)) OR
-        (NOT(EXISTS(SELF.its_technology.feedrate_per_tooth)));
-END_ENTITY;
-</PRE>
-
-
-<!-- ============================== -->
-<DIV><DIV class=quick>
-<A HREF="clause5.htm#map-milling_technology">Map</a>
-<A HREF="annexG.htm#milling_technology">ARM</a>
-</DIV>
-<H3 ID="ao-milling_technology">4.3.122 Milling_technology</H3>
-</DIV>
-
-<P>The Milling_technology application object shall be as defined by ISO 14649-11.</P>
-
-<P CLASS="note">
-<SPAN>NOTE</SPAN> The ISO 14649 EXPRESS description for
-Milling_technology is shown below.  Refer to ISO 14649-11 for the
-complete definition and explanation of usage.</P>
-
-<PRE CLASS="note">
-ENTITY milling_technology
-  SUBTYPE OF (technology); 
-  cutspeed:                      OPTIONAL Velocity_data_element;
-  spindle:                       OPTIONAL Frequency_data_element;
-  feedrate_per_tooth:            OPTIONAL Length_data_element;
-  synchronize_spindle_with_feed: BOOLEAN;
-  inhibit_feedrate_override:     BOOLEAN;
-  inhibit_spindle_override:      BOOLEAN;
-  its_adaptive_control:          OPTIONAL adaptive_control;
-WHERE
-  WR1: (EXISTS(cutspeed) AND NOT EXISTS(spindle))
-    OR (EXISTS(spindle) AND NOT EXISTS(cutspeed))
-    OR (EXISTS(its_adaptive_control));
-  WR2: (EXISTS(SELF.feedrate) AND NOT EXISTS(feedrate_per_tooth))
-    OR (EXISTS(feedrate_per_tooth) AND NOT EXISTS(SELF.feedrate))
-    OR (EXISTS(its_adaptive_control));
-END_ENTITY;
-</PRE>
-
-
-<!-- ============================== -->
-<DIV><DIV class=quick>
-<A HREF="clause5.htm#map-milling_type_operation">Map</a>
-<A HREF="annexG.htm#milling_type_operation">ARM</a>
-</DIV>
-<H3 ID="ao-milling_type_operation">4.3.123 Milling_type_operation</H3>
-</DIV>
-
-<P>The Milling_type_operation application object shall be as defined by ISO 14649-11.</P>
-
-<P CLASS="note">
-<SPAN>NOTE</SPAN> The ISO 14649 EXPRESS description for
-Milling_type_operation is shown below.  Refer to ISO 14649-11 for the
-complete definition and explanation of usage.</P>
-
-<PRE CLASS="note">
-ENTITY milling_type_operation   
-  ABSTRACT SUPERTYPE OF (ONEOF(freeform_operation, two5D_milling_operation))
-  SUBTYPE OF (milling_machining_operation);
-  approach:         OPTIONAL approach_retract_strategy;
-  retract:          OPTIONAL approach_retract_strategy;
-END_ENTITY;
-</PRE>
-
-
-<!-- ============================== -->
-<DIV><DIV class=quick>
-<A HREF="clause5.htm#map-multistep_drilling">Map</a>
-<A HREF="annexG.htm#multistep_drilling">ARM</a>
-</DIV>
-<H3 ID="ao-multistep_drilling">4.3.124 Multistep_drilling</H3>
-</DIV>
-
-<P>The Multistep_drilling application object shall be as defined by ISO 14649-11.</P>
-
-<P CLASS="note">
-<SPAN>NOTE</SPAN> The ISO 14649 EXPRESS description for
-Multistep_drilling is shown below.  Refer to ISO 14649-11 for the
-complete definition and explanation of usage.</P>
-
-<PRE CLASS="note">
-ENTITY multistep_drilling
-  SUBTYPE OF (drilling_operation);
-  retract_distance:       Length_data_element;
-  first_depth:            Length_data_element;
-  depth_of_step:          Length_data_element;
-  dwell_time_step:        OPTIONAL Duration;
-END_ENTITY;
-</PRE>
-
-
-<!-- ============================== -->
-<DIV><DIV class=quick>
-<A HREF="clause5.htm#map-multistep_grooving_strategy">Map</a>
-<A HREF="annexG.htm#multistep_grooving_strategy">ARM</a>
-</DIV>
-<H3 ID="ao-multistep_grooving_strategy">4.3.125 Multistep_grooving_strategy</H3>
-</DIV>
-
-<P>The Multistep_grooving_strategy application object shall be as defined by
-ISO 14649-12.</P>
-
-<P CLASS="note">
-<SPAN>NOTE</SPAN> The ISO 14649 EXPRESS description for
-Multistep_grooving_strategy is shown below.  Refer to ISO 14649-12 for
-the complete definition and explanation of usage.</P>
-
-<PRE CLASS="note">
-ENTITY multistep_grooving_strategy
-  SUBTYPE OF (grooving_strategy);
-  retract_distance:	Length_data_element;
-END_ENTITY;
-</PRE>
-
-
-<!-- ============================== -->
-<DIV><DIV class=quick>
-<A HREF="clause5.htm#map-nc_constant">Map</a>
-<A HREF="annexG.htm#nc_constant">ARM</a>
-</DIV>
-<H3 ID="ao-nc_constant">4.3.126 NC_constant</H3>
-</DIV>
-
-<P>The NC_constant application object is a type of Literal_number that
-meets the information requirements defined for NC_constant by ISO
-14649-10.  This document adds the following information
-requirements.</P>
-
-<P>The data associated with a NC_constant are the following:</P>
-
-<UL>
-<LI>all of the data defined by ISO 14649-10, as modified below for the
-its_value attribute.</LI>
-</UL>
-
-<P CLASS="note">
-<SPAN>NOTE</SPAN> The ISO 14649 EXPRESS description for NC_constant,
-as adapted by this document, is shown below.  Refer to ISO
-14649-10 for the complete definition and explanation of usage.</P>
-
-<PRE CLASS="note">
-ENTITY nc_constant; 
-  SUBTYPE OF (Literal_number);  -- ADDED BY 10303-238
-  its_name:  LABEL;
-  -- 10303-238: its_value now inherited literal_number.the_value
-  -- its_value: OPTIONAL NUMBER;
-END_ENTITY;
-</PRE>
-
-<H4 ID="ao-nc_constant-its_value">4.3.126.1 its_value</H4>
-
-<P>The its_value parameter defined by ISO 14649-10 shall be given by the
-inherited the_value parameter defined by Literal_number.</P>
-
-<P CLASS="note">
-<SPAN>NOTE</SPAN> The integrated representation of this information is
-unchanged from previous edition of this document.</P>
-
-
-
-<!-- ============================== -->
-<DIV><DIV class=quick>
-<A HREF="clause5.htm#map-nc_function">Map</a>
-<A HREF="annexG.htm#nc_function">ARM</a>
-</DIV>
-<H3 ID="ao-nc_function">4.3.127 NC_function</H3>
-</DIV>
-<P>The NC_function application object shall be as defined by ISO
-14649-10.</P>
-
-<P CLASS="note">
-<SPAN>NOTE</SPAN> The ISO 14649 EXPRESS description for NC_function is
-shown below.  Refer to ISO 14649-10 for the complete definition and
-explanation of usage.</P>
-
-<PRE CLASS="note">
-ENTITY nc_function
-  ABSTRACT SUPERTYPE SUBTYPE OF (executable);
-END_ENTITY;
-</PRE>
-
-
-<!-- ============================== -->
-<DIV><DIV class=quick>
-<A HREF="clause5.htm#map-nc_variable">Map</a>
-<A HREF="annexG.htm#nc_variable">ARM</a>
-</DIV>
-<H3 ID="ao-nc_variable">4.3.128 NC_variable</H3>
-</DIV>
-
-<P>The NC_variable application object is a type of Numeric_variable
-that meets the information requirements defined for NC_variable by
-ISO 14649-10.</P>
-
-<P CLASS="note">
-<SPAN>NOTE</SPAN> The ISO 14649 EXPRESS description for NC_variable,
-as adapted by this document, is shown below.  Refer to ISO
-14649-10 for the complete definition and explanation of usage.</P>
-
-<PRE CLASS="note">
-ENTITY nc_variable; 
-  SUBTYPE OF (Numeric_variable);  -- ADDED BY 10303-238
-  its_name:      LABEL;
-  initial_value: OPTIONAL NUMBER;
-END_ENTITY;
-</PRE>
-
-
-<!-- ============================== -->
-<DIV><DIV class=quick>
-<A HREF="clause5.htm#map-non_sequential">Map</a>
-<A HREF="annexG.htm#non_sequential">ARM</a>
-</DIV>
-<H3 ID="ao-non_sequential">4.3.129 Non_sequential</H3>
-</DIV>
-
-<P>The Non_sequential application object shall be as defined by ISO 14649-10.</P>
-
-<P CLASS="note">
-<SPAN>NOTE</SPAN> The ISO 14649 EXPRESS description for Non_sequential
-is shown below.  Refer to ISO 14649-10 for the complete definition and
-explanation of usage.</P>
-
-<PRE CLASS="note">
-ENTITY non_sequential
-  SUBTYPE OF (program_structure);
-  its_elements:   SET[2:?] OF executable;
-END_ENTITY;
-</PRE>
-
-
-<!-- ============================== -->
-<DIV><DIV class=quick>
-<A HREF="clause5.htm#map-offset_vector">Map</a>
-<A HREF="annexG.htm#offset_vector">ARM</a>
-</DIV>
-<H3 ID="ao-offset_vector">4.3.130 Offset_vector</H3>
-</DIV>
-
-<P>The Offset_vector application object shall be as defined by ISO 14649-10.</P>
-
-<P CLASS="note">
-<SPAN>NOTE</SPAN> The ISO 14649 EXPRESS description for Offset_vector
-is shown below.  Refer to ISO 14649-10 for the complete definition and
-explanation of usage.</P>
-
-<PRE CLASS="note">
-ENTITY offset_vector; 
-  translate: LIST [3:3] OF nc_variable;
-  rotate:    OPTIONAL LIST [3:3] OF nc_variable;
-WHERE
-  WR1: (SIZEOF(QUERY(i &lt;* translate | NOT EXISTS(i.initial_value))) = 0)
-     AND (NOT EXISTS(rotate) OR (SIZEOF(QUERY(i &lt;* rotate |
-          NOT EXISTS(i.initial_value))) = 0));
-END_ENTITY;
-</PRE>
-
-
-<!-- ============================== -->
-<DIV><DIV class=quick>
-<A HREF="clause5.htm#map-operation">Map</a>
-<A HREF="annexG.htm#operation">ARM</a>
-</DIV>
-<H3 ID="ao-operation">4.3.131 Operation</H3>
-</DIV>
-
-<P>The Operation application object shall be as defined by ISO
-14649-10.  This document adds the following information
-requirements.</P>
-
-<P>The data associated with an Operation are the following:</P>
-
-<UL>
-<LI>all of the data defined by ISO 14649-10;</LI>
-<LI>cam_properties.</LI>
-</UL>
-
-<P CLASS="note">
-<SPAN>NOTE</SPAN> The ISO 14649 EXPRESS description for Operation, as
-nnadapted by this document is shown below.  Refer to ISO 14649-10 for
-the original definition and explanation of usage.</P>
-
-<PRE CLASS="note">
-ENTITY operation
-  ABSTRACT SUPERTYPE OF (ONEOF (machining_operation, rapid_movement, touch_probing, extended_operation));
-  its_toolpath:               OPTIONAL toolpath_list;
-  its_tool_direction:         OPTIONAL tool_direction;
-
-INVERSE
-  -- 10303-238: Additional CAM properties for operations
-  cam_properties: SET[0:?] OF Cam_property FOR described_element;
-END_ENTITY;
-</PRE>
-
-
-<H4 ID="ao-operation-cam_properties">4.3.131.1 cam_properties</H4>
-
-<P>The cam_properties shall be represented by the set of Cam_property
-application objects with an described_element parameter that contains
-the Operation.</P>
-
-
-
-<!-- ============================== -->
-<DIV><DIV class=quick>
-<A HREF="clause5.htm#map-optional_stop">Map</a>
-<A HREF="annexG.htm#optional_stop">ARM</a>
-</DIV>
-<H3 ID="ao-optional_stop">4.3.132 Optional_stop</H3>
-</DIV>
-
-<P>The Optional_stop application object shall be as defined by ISO 14649-10.</P>
-
-<P CLASS="note">
-<SPAN>NOTE</SPAN> The ISO 14649 EXPRESS description for Optional_stop
-is shown below.  Refer to ISO 14649-10 for the complete definition and
-explanation of usage.</P>
-
-<PRE CLASS="note">
-ENTITY optional_stop
-  SUBTYPE OF (nc_function);
-END_ENTITY;
-</PRE>
-
-
-<!-- ============================== -->
-<DIV><DIV class=quick>
-<A HREF="clause5.htm#map-parallel">Map</a>
-<A HREF="annexG.htm#parallel">ARM</a>
-</DIV>
-<H3 ID="ao-parallel">4.3.133 Parallel</H3>
-</DIV>
-
-<P>The Parallel application object shall be as defined by ISO 14649-10.</P>
-
-<P CLASS="note">
-<SPAN>NOTE</SPAN> The ISO 14649 EXPRESS description for Parallel is
-shown below.  Refer to ISO 14649-10 for the complete definition and
-explanation of usage.</P>
-
-<PRE CLASS="note">
-ENTITY parallel
-  SUBTYPE OF (program_structure);
-  branches:   SET [2:?] OF executable;
-END_ENTITY;
-</PRE>
-
-
-<!-- ============================== -->
-<DIV><DIV class=quick>
-<A HREF="clause5.htm#map-parameterised_path">Map</a>
-<A HREF="annexG.htm#parameterised_path">ARM</a>
-</DIV>
-<H3 ID="ao-parameterised_path">4.3.134 Parameterised_path</H3>
-</DIV>
-
-<P>The Parameterised_path application object shall be as defined by ISO 14649-10.</P>
-<P CLASS="note">
-<SPAN>NOTE</SPAN> The ISO 14649 EXPRESS description for
-Parameterised_path is shown below.  Refer to ISO 14649-10 for the
-complete definition and explanation of usage.</P>
-
-<PRE CLASS="note">
-ENTITY parameterised_path
-  ABSTRACT SUPERTYPE OF (ONEOF (approach_lift_path, connector))
-  SUBTYPE OF (toolpath);
-END_ENTITY;
-</PRE>
-
-
-<!-- ============================== -->
-<DIV><DIV class=quick>
-<A HREF="clause5.htm#map-plane_cc_strategy">Map</a>
-<A HREF="annexG.htm#plane_cc_strategy">ARM</a>
-</DIV>
-<H3 ID="ao-plane_cc_strategy">4.3.135 Plane_cc_strategy</H3>
-</DIV>
-
-<P>The Plane_cc_strategy application object shall be as defined by ISO 14649-11.</P>
-
-<P CLASS="note">
-<SPAN>NOTE</SPAN> The ISO 14649 EXPRESS description for
-Plane_cc_strategy is shown below.  Refer to ISO 14649-11 for the
-complete definition and explanation of usage.</P>
-
-<PRE CLASS="note">
-ENTITY plane_cc_strategy
-  SUBTYPE OF (freeform_strategy);
-  its_plane_normal: direction;
-END_ENTITY;
-</PRE>
-
-
-<!-- ============================== -->
-<DIV><DIV class=quick>
-<A HREF="clause5.htm#map-plane_cl_strategy">Map</a>
-<A HREF="annexG.htm#plane_cl_strategy">ARM</a>
-</DIV>
-<H3 ID="ao-plane_cl_strategy">4.3.136 Plane_cl_strategy</H3>
-</DIV>
-
-<P>The Plane_cl_strategy application object shall be as defined by ISO 14649-11.</P>
-
-<P CLASS="note">
-<SPAN>NOTE</SPAN> The ISO 14649 EXPRESS description for
-Plane_cl_strategy is shown below.  Refer to ISO 14649-11 for the
-complete definition and explanation of usage.</P>
-
-<PRE CLASS="note">
-ENTITY plane_cl_strategy
-  SUBTYPE OF (freeform_strategy);
-  its_plane_normal: direction;
-END_ENTITY;
-</PRE>
-
-
-<!-- ============================== -->
-<DIV><DIV class=quick>
-<A HREF="clause5.htm#map-plane_finish_milling">Map</a>
-<A HREF="annexG.htm#plane_finish_milling">ARM</a>
-</DIV>
-<H3 ID="ao-plane_finish_milling">4.3.137 Plane_finish_milling</H3>
-</DIV>
-
-<P>The Plane_finish_milling application object shall be as defined by ISO 14649-11.</P>
-
-<P CLASS="note">
-<SPAN>NOTE</SPAN> The ISO 14649 EXPRESS description for
-Plane_finish_milling is shown below.  Refer to ISO 14649-11 for the
-complete definition and explanation of usage.</P>
-
-<PRE CLASS="note">
-ENTITY plane_finish_milling
-  SUBTYPE OF (plane_milling);
-END_ENTITY;
-</PRE>
-
-
-<!-- ============================== -->
-<DIV><DIV class=quick>
-<A HREF="clause5.htm#map-plane_milling">Map</a>
-<A HREF="annexG.htm#plane_milling">ARM</a>
-</DIV>
-<H3 ID="ao-plane_milling">4.3.138 Plane_milling</H3>
-</DIV>
-
-<P>The Plane_milling application object shall be as defined by ISO 14649-11.</P>
-
-<P CLASS="note">
-<SPAN>NOTE</SPAN> The ISO 14649 EXPRESS description for Plane_milling
-is shown below.  Refer to ISO 14649-11 for the complete definition and
-explanation of usage.</P>
-
-<PRE CLASS="note">
-ENTITY plane_milling
-  ABSTRACT SUPERTYPE OF (ONEOF(plane_rough_milling, plane_finish_milling))
-  SUBTYPE OF (two5D_milling_operation);
-  axial_cutting_depth: 	OPTIONAL Length_data_element;
-  allowance_bottom: 	OPTIONAL Length_data_element;
-END_ENTITY;
-</PRE>
-
-
-<!-- ============================== -->
-<DIV><DIV class=quick>
-<A HREF="clause5.htm#map-plane_rough_milling">Map</a>
-<A HREF="annexG.htm#plane_rough_milling">ARM</a>
-</DIV>
-<H3 ID="ao-plane_rough_milling">4.3.139 Plane_rough_milling</H3>
-</DIV>
-
-<P>The Plane_rough_milling application object shall be as defined by ISO 14649-11.</P>
-
-<P CLASS="note">
-<SPAN>NOTE</SPAN> The ISO 14649 EXPRESS description for
-Plane_rough_milling is shown below.  Refer to ISO 14649-11 for the
-complete definition and explanation of usage.</P>
-
-<PRE CLASS="note">
-ENTITY plane_rough_milling
-  SUBTYPE OF (plane_milling);
-WHERE
-  WR1: EXISTS(SELF.allowance_bottom) AND (SELF.allowance_bottom&gt;=0.0);
-END_ENTITY;
-</PRE>
-
-
-<!-- ============================== -->
-<DIV><DIV class=quick>
-<A HREF="clause5.htm#map-plunge_helix">Map</a>
-<A HREF="annexG.htm#plunge_helix">ARM</a>
-</DIV>
-<H3 ID="ao-plunge_helix">4.3.140 Plunge_helix</H3>
-</DIV>
-<P>
-The Plunge_helix application object shall be as defined by ISO 14649-11.</P>
-<P CLASS="note">
-<SPAN>NOTE</SPAN> The ISO 14649 EXPRESS description for Plunge_helix
-is shown below.  Refer to ISO 14649-11 for the complete definition and
-explanation of usage.</P>
-
-<PRE CLASS="note">
-ENTITY plunge_helix
-  SUBTYPE OF (plunge_strategy);
-  radius:   Length_data_element;
-  angle:    Angle_data_element;
-END_ENTITY;
-</PRE>
-
-
-<!-- ============================== -->
-<DIV><DIV class=quick>
-<A HREF="clause5.htm#map-plunge_ramp">Map</a>
-<A HREF="annexG.htm#plunge_ramp">ARM</a>
-</DIV>
-<H3 ID="ao-plunge_ramp">4.3.141 Plunge_ramp</H3>
-</DIV>
-
-<P>The Plunge_ramp application object shall be as defined by ISO 14649-11.</P>
-
-<P CLASS="note">
-<SPAN>NOTE</SPAN> The ISO 14649 EXPRESS description for Plunge_ramp is
-shown below.  Refer to ISO 14649-11 for the complete definition and
-explanation of usage.</P>
-
-<PRE CLASS="note">
-ENTITY plunge_ramp
-  SUBTYPE OF (plunge_strategy);
-  angle:    Angle_data_element;
-END_ENTITY;
-</PRE>
-
-
-<!-- ============================== -->
-<DIV><DIV class=quick>
-<A HREF="clause5.htm#map-plunge_strategy">Map</a>
-<A HREF="annexG.htm#plunge_strategy">ARM</a>
-</DIV>
-<H3 ID="ao-plunge_strategy">4.3.142 Plunge_strategy</H3>
-</DIV>
-
-<P>The Plunge_strategy application object shall be as defined by ISO 14649-11.</P>
-
-<P CLASS="note">
-<SPAN>NOTE</SPAN> The ISO 14649 EXPRESS description for
-Plunge_strategy is shown below.  Refer to ISO 14649-11 for the
-complete definition and explanation of usage.</P>
-
-<PRE CLASS="note">
-ENTITY plunge_strategy
-  ABSTRACT SUPERTYPE OF (ONEOF (plunge_toolaxis, plunge_ramp, 
-     plunge_helix, plunge_zigzag))
-  SUBTYPE OF (approach_retract_strategy);
-END_ENTITY;
-</PRE>
-
-
-<!-- ============================== -->
-<DIV><DIV class=quick>
-<A HREF="clause5.htm#map-plunge_toolaxis">Map</a>
-<A HREF="annexG.htm#plunge_toolaxis">ARM</a>
-</DIV>
-<H3 ID="ao-plunge_toolaxis">4.3.143 Plunge_toolaxis</H3>
-</DIV>
-
-<P>The Plunge_toolaxis application object shall be as defined by ISO 14649-11.</P>
-
-<P CLASS="note">
-<SPAN>NOTE</SPAN> The ISO 14649 EXPRESS description for
-Plunge_toolaxis is shown below.  Refer to ISO 14649-11 for the
-complete definition and explanation of usage.</P>
-
-<PRE CLASS="note">
-ENTITY plunge_toolaxis
-  SUBTYPE OF (plunge_strategy);
-END_ENTITY;
-</PRE>
-
-
-<!-- ============================== -->
-<DIV><DIV class=quick>
-<A HREF="clause5.htm#map-plunge_zigzag">Map</a>
-<A HREF="annexG.htm#plunge_zigzag">ARM</a>
-</DIV>
-<H3 ID="ao-plunge_zigzag">4.3.144 Plunge_zigzag</H3>
-</DIV>
-
-<P>The Plunge_zigzag application object shall be as defined by ISO 14649-11.</P>
-
-<P CLASS="note">
-<SPAN>NOTE</SPAN> The ISO 14649 EXPRESS description for Plunge_zigzag
-is shown below.  Refer to ISO 14649-11 for the complete definition and
-explanation of usage.</P>
-
-<PRE CLASS="note">
-ENTITY plunge_zigzag
-  SUBTYPE OF (plunge_strategy);
-  angle:    Angle_data_element;
-  width:    Length_data_element;
-END_ENTITY;
-</PRE>
-
-
-
-<!-- ============================== -->
-<DIV><DIV class=quick>
-<A HREF="clause5.htm#map-process_model">Map</a>
-<A HREF="annexG.htm#process_model">ARM</a>
-</DIV>
-<H3 ID="ao-process_model">4.3.145 Process_model</H3>
-</DIV>
-
-<P>The Process_model application object shall be as defined by ISO 14649-11.</P>
-<P CLASS="note">
-<SPAN>NOTE</SPAN> The ISO 14649 EXPRESS description for Process_model
-is shown below.  Refer to ISO 14649-11 for the complete definition and
-explanation of usage.</P>
-
-<PRE CLASS="note">
-ENTITY process_model;
-  ini_data_file:  label;
-  its_type:       label;
-END_ENTITY;
-</PRE>
-
-
-<!-- ============================== -->
-<DIV><DIV class=quick>
-<A HREF="clause5.htm#map-process_model_list">Map</a>
-<A HREF="annexG.htm#process_model_list">ARM</a>
-</DIV>
-<H3 ID="ao-process_model_list">4.3.146 Process_model_list</H3>
-</DIV>
-
-<P>The Process_model_list application object shall be as defined by ISO 14649-11.</P>
-
-<P CLASS="note">
-<SPAN>NOTE</SPAN> The ISO 14649 EXPRESS description for
-Process_model_list is shown below.  Refer to ISO 14649-11 for the
-complete definition and explanation of usage.</P>
-
-<PRE CLASS="note">
-ENTITY process_model_list;
-  its_list: LIST [1:?] OF process_model;
-END_ENTITY;
-</PRE>
-
-
-<!-- ============================== -->
-<DIV><DIV class=quick>
-<A HREF="clause5.htm#map-profiled_corner">Map</a>
-<A HREF="annexG.htm#profiled_corner">ARM</a>
-</DIV>
-<H3 ID="ao-profiled_corner">4.3.147 Profiled_corner</H3>
-</DIV>
-
-<P>The Profiled_corner application object shall be as defined by ISO 14649-121.</P>
-
-<P CLASS="note">
-<SPAN>NOTE</SPAN> The ISO 14649 EXPRESS description for
-Profiled_corner is shown below.  Refer to ISO 14649-121 for the
-complete definition and explanation of usage.</P>
-
-<PRE CLASS="note">
-ENTITY profiled_corner;
-  transition_profile:   open_profile;
-END_ENTITY;
-</PRE>
-
-
-<!-- ============================== -->
-<DIV><DIV class=quick>
-<A HREF="clause5.htm#map-profiled_end_mill">Map</a>
-<A HREF="annexG.htm#profiled_end_mill">ARM</a>
-</DIV>
-<H3 ID="ao-profiled_end_mill">4.3.148 Profiled_end_mill</H3>
-</DIV>
-
-<P>The Profiled_end_mill application object shall be as defined by ISO 14649-111.</P>
-
-<P CLASS="note">
-<SPAN>NOTE</SPAN> The ISO 14649 EXPRESS description for
-Profiled_end_mill is shown below.  Refer to ISO 14649-111 for the
-complete definition and explanation of usage.</P>
-
-<PRE CLASS="note">
-ENTITY profiled_end_mill
-  SUBTYPE OF (endmill);
-END_ENTITY;
-</PRE>
-
-
-<!-- ============================== -->
-<DIV><DIV class=quick>
-<A HREF="clause5.htm#map-program_stop">Map</a>
-<A HREF="annexG.htm#program_stop">ARM</a>
-</DIV>
-<H3 ID="ao-program_stop">4.3.149 Program_stop</H3>
-</DIV>
-
-<P>The Program_stop application object shall be as defined by ISO
-14649-10.</P>
-
-<P CLASS="note">
-<SPAN>NOTE</SPAN> The ISO 14649 EXPRESS description for Program_stop
-is shown below.  Refer to ISO 14649-10 for the complete definition and
-explanation of usage.</P>
-
-<PRE CLASS="note">
-ENTITY program_stop
-  SUBTYPE OF (nc_function);
-END_ENTITY;
-</PRE>
-
-
-<!-- ============================== -->
-<DIV><DIV class=quick>
-<A HREF="clause5.htm#map-program_structure">Map</a>
-<A HREF="annexG.htm#program_structure">ARM</a>
-</DIV>
-<H3 ID="ao-program_structure">4.3.150 Program_structure</H3>
-</DIV>
-
-<P>The Program_structure application object shall be as defined by ISO
-14649-10.</P>
-
-<P CLASS="note">
-<SPAN>NOTE</SPAN> The ISO 14649 EXPRESS description for
-Program_structure is shown below.  Refer to ISO 14649-10 for the
-complete definition and explanation of usage.</P>
-
-<PRE CLASS="note">
-ENTITY program_structure
-  ABSTRACT SUPERTYPE OF (ONEOF(workplan, parallel, non_sequential, selective,
-     if_statement, while_statement, assignment))
-  SUBTYPE OF (executable);
-END_ENTITY;
-</PRE>
-
-
-<!-- ============================== -->
-<DIV><DIV class=quick>
 <A HREF="clause5.htm#map-manufacturing_project">Map</a>
 <A HREF="annexG.htm#manufacturing_project">ARM</a>
 </DIV>
-<H3 ID="ao-manufacturing_project">4.3.151 Manufacturing_project</H3>
+<H3 ID="ao-manufacturing_project">4.3.118 Manufacturing_project</H3>
 </DIV>
 
 <P>The Manufacturing_project application object is a type of
@@ -6178,7 +5292,7 @@ ENTITY manufacturing_project
 END_ENTITY;
 </PRE>
 
-<H4 ID="ao-manufacturing_project-its_id">4.3.151.1 its_id</H4>
+<H4 ID="ao-manufacturing_project-its_id">4.3.118.1 its_id</H4>
 
 <P>The its_id parameter defined by ISO 14649-10 shall be given by the
 inherited id parameter defined by product_version.</P>
@@ -6187,11 +5301,900 @@ inherited id parameter defined by product_version.</P>
 <SPAN>NOTE</SPAN> The integrated representation of this information is
 unchanged from previous edition of this document.</P>
 
-<H4 ID="ao-manufacturing_project-its_workpieces">4.3.151.2 its_workpieces</H4>
+<H4 ID="ao-manufacturing_project-its_workpieces">4.3.118.2 its_workpieces</H4>
 
 <P>The its_workpieces set shall be as defined by ISO 14649-10 to be of type
 Workpiece, but this document relaxes this requirement to
 allow any type of Product_view_definition.
+
+
+
+
+<!-- ============================== -->
+<DIV><DIV class=quick>
+<A HREF="clause5.htm#map-milling_cutting_tool">Map</a>
+<A HREF="annexG.htm#milling_cutting_tool">ARM</a>
+</DIV>
+<H3 ID="ao-milling_cutting_tool">4.3.119 Milling_cutting_tool</H3>
+</DIV>
+
+<P>The Milling_cutting_tool application object shall be as defined by ISO 14649-111.</P>
+
+<P CLASS="note">
+<SPAN>NOTE</SPAN> The ISO 14649 EXPRESS description for
+Milling_cutting_tool is shown below.  Refer to ISO 14649-111 for the
+complete definition and explanation of usage.</P>
+
+<PRE CLASS="note">
+ENTITY milling_cutting_tool
+  ABSTRACT SUPERTYPE OF (ONEOF(dovetail_mill, endmill, facemill, shouldermill,
+  side_mill, t_slot_mill, thread_mill))
+  SUBTYPE OF (milling_machine_cutting_tool);
+  number_of_effective_teeth:    OPTIONAL INTEGER;
+  edge_radius: 			OPTIONAL Length_data_element;
+END_ENTITY;
+</PRE>
+
+
+<!-- ============================== -->
+<DIV><DIV class=quick>
+<A HREF="clause5.htm#map-milling_machine_cutting_tool">Map</a>
+<A HREF="annexG.htm#milling_machine_cutting_tool">ARM</a>
+</DIV>
+<H3 ID="ao-milling_machine_cutting_tool">4.3.120 Milling_machine_cutting_tool</H3>
+</DIV>
+
+<P>The Milling_machine_cutting_tool application object shall be as defined by ISO 14649-111.</P>
+
+<P CLASS="note">
+<SPAN>NOTE</SPAN> The ISO 14649 EXPRESS description for
+Milling_machine_cutting_tool is shown below.  Refer to ISO 14649-111
+for the complete definition and explanation of usage.</P>
+
+<PRE CLASS="note">
+ENTITY milling_machine_cutting_tool
+  ABSTRACT SUPERTYPE OF ( ONEOF(milling_cutting_tool, drilling_cutting_tool,
+  tapping_cutting_tool, rotating_boring_cutting_tool, reaming_cutting_tool))
+  SUBTYPE OF (machining_tool);
+  its_cutting_edges:            SET [1:?] OF cutting_component;
+  overall_assembly_length:      Length_data_element;
+  effective_cutting_diameter:   Length_data_element;
+  maximum_depth_of_cut:         Length_data_element;
+  hand_of_cut:                  OPTIONAL hand_of_cut_type;
+  coolant_through_tool:         OPTIONAL BOOLEAN;
+END_ENTITY;
+
+TYPE hand_of_cut_type = ENUMERATION OF(left, neutral, right);
+END_TYPE;
+</PRE>
+
+
+<!-- ============================== -->
+<DIV><DIV class=quick>
+<A HREF="clause5.htm#map-milling_machine_functions">Map</a>
+<A HREF="annexG.htm#milling_machine_functions">ARM</a>
+</DIV>
+<H3 ID="ao-milling_machine_functions">4.3.121 Milling_machine_functions</H3>
+</DIV>
+
+<P>The Milling_machine_functions application object shall be as
+defined by ISO 14649-11.  This document adds the following information
+requirements.</P>
+
+<P>The data associated with a Milling_machine_functions are the following:</P>
+<UL>
+<LI>all of the data defined by ISO 14649-11, as modified below for the
+other_functions attribute;</LI>
+<LI>axis_constraints.</LI>
+</UL>
+
+<P CLASS="note">
+<SPAN>NOTE</SPAN> The ISO 14649 EXPRESS description for
+Milling_machine_functions, as adapted by this document, is shown
+below.  Refer to ISO 14649-11 for the original definition and
+explanation of usage.</P>
+
+<PRE CLASS="note">
+ENTITY milling_machine_functions
+  SUBTYPE OF (machine_functions);
+  coolant: 		BOOLEAN;
+  coolant_pressure:     OPTIONAL Pressure_data_element;
+  mist:                 OPTIONAL BOOLEAN;
+  through_spindle_coolant: BOOLEAN;
+  through_pressure:     OPTIONAL Pressure_data_element;
+  axis_clamping:        LIST [0:?] OF identifier; 
+  chip_removal:         BOOLEAN;
+  oriented_spindle_stop: OPTIONAL direction;
+  its_process_model:    OPTIONAL process_model_list;
+  -- 10303-238: other_functions moved to supertype for consistent
+  --   handling across technologies
+  -- other_functions:   SET [0:?] OF Representation_item;
+  axis_constraints: OPTIONAL SET [0:?] OF machine_axis_constraint;-- ADDED BY 10303-238
+END_ENTITY;
+</PRE>
+
+
+<H4 ID="ao-milling_machine_functions-axis_constraints">4.3.121.1 axis_constraints</H4>
+
+<P>The axis_constraints specifies zero or more Machine_axis_constraint
+that shall be used by the NC control when computing axis motion.
+See <a href="#aa-milling_machine_functions-to-machine_axis_constraint">Milling_machine_functions
+to Machine_axis_constraint</a> for the application assertion.</P>
+
+<P CLASS="note">
+<SPAN>NOTE</SPAN> It is advisable to avoid use of this information since it is machine dependent.</P>
+
+
+<H4 ID="ao-milling_machine_functions-other_functions">4.3.121.2 other_functions</H4>
+
+<P>The other_functions parameter defined by ISO 14649-11 shall be
+replaced by the other_functions parameter defined by the
+Machine_functions application object.
+
+
+<!-- ============================== -->
+<DIV><DIV class=quick>
+<A HREF="clause5.htm#map-milling_machining_operation">Map</a>
+<A HREF="annexG.htm#milling_machining_operation">ARM</a>
+</DIV>
+<H3 ID="ao-milling_machining_operation">4.3.122 Milling_machining_operation</H3>
+</DIV>
+
+<P>The Milling_machining_operation application object shall be as defined by ISO 14649-11.</P>
+
+<P CLASS="note">
+<SPAN>NOTE</SPAN> The ISO 14649 EXPRESS description for
+Milling_machining_operation is shown below.  Refer to ISO 14649-11 for
+the complete definition and explanation of usage.</P>
+
+<PRE CLASS="note">
+ENTITY milling_machining_operation
+  ABSTRACT SUPERTYPE OF (ONEOF(milling_type_operation, drilling_type_operation))
+  SUBTYPE OF (machining_operation);
+  overcut_length: OPTIONAL Length_data_element;
+WHERE
+  WR1: (EXISTS(SELF.its_technology.feedrate_per_tooth) AND
+        EXISTS(SELF.its_tool.number_of_effective_teeth)) OR
+        (NOT(EXISTS(SELF.its_technology.feedrate_per_tooth)));
+END_ENTITY;
+</PRE>
+
+
+<!-- ============================== -->
+<DIV><DIV class=quick>
+<A HREF="clause5.htm#map-milling_technology">Map</a>
+<A HREF="annexG.htm#milling_technology">ARM</a>
+</DIV>
+<H3 ID="ao-milling_technology">4.3.123 Milling_technology</H3>
+</DIV>
+
+<P>The Milling_technology application object shall be as defined by ISO 14649-11.</P>
+
+<P CLASS="note">
+<SPAN>NOTE</SPAN> The ISO 14649 EXPRESS description for
+Milling_technology is shown below.  Refer to ISO 14649-11 for the
+complete definition and explanation of usage.</P>
+
+<PRE CLASS="note">
+ENTITY milling_technology
+  SUBTYPE OF (technology); 
+  cutspeed:                      OPTIONAL Velocity_data_element;
+  spindle:                       OPTIONAL Frequency_data_element;
+  feedrate_per_tooth:            OPTIONAL Length_data_element;
+  synchronize_spindle_with_feed: BOOLEAN;
+  inhibit_feedrate_override:     BOOLEAN;
+  inhibit_spindle_override:      BOOLEAN;
+  its_adaptive_control:          OPTIONAL adaptive_control;
+WHERE
+  WR1: (EXISTS(cutspeed) AND NOT EXISTS(spindle))
+    OR (EXISTS(spindle) AND NOT EXISTS(cutspeed))
+    OR (EXISTS(its_adaptive_control));
+  WR2: (EXISTS(SELF.feedrate) AND NOT EXISTS(feedrate_per_tooth))
+    OR (EXISTS(feedrate_per_tooth) AND NOT EXISTS(SELF.feedrate))
+    OR (EXISTS(its_adaptive_control));
+END_ENTITY;
+</PRE>
+
+
+<!-- ============================== -->
+<DIV><DIV class=quick>
+<A HREF="clause5.htm#map-milling_type_operation">Map</a>
+<A HREF="annexG.htm#milling_type_operation">ARM</a>
+</DIV>
+<H3 ID="ao-milling_type_operation">4.3.124 Milling_type_operation</H3>
+</DIV>
+
+<P>The Milling_type_operation application object shall be as defined by ISO 14649-11.</P>
+
+<P CLASS="note">
+<SPAN>NOTE</SPAN> The ISO 14649 EXPRESS description for
+Milling_type_operation is shown below.  Refer to ISO 14649-11 for the
+complete definition and explanation of usage.</P>
+
+<PRE CLASS="note">
+ENTITY milling_type_operation   
+  ABSTRACT SUPERTYPE OF (ONEOF(freeform_operation, two5D_milling_operation))
+  SUBTYPE OF (milling_machining_operation);
+  approach:         OPTIONAL approach_retract_strategy;
+  retract:          OPTIONAL approach_retract_strategy;
+END_ENTITY;
+</PRE>
+
+
+<!-- ============================== -->
+<DIV><DIV class=quick>
+<A HREF="clause5.htm#map-multistep_drilling">Map</a>
+<A HREF="annexG.htm#multistep_drilling">ARM</a>
+</DIV>
+<H3 ID="ao-multistep_drilling">4.3.125 Multistep_drilling</H3>
+</DIV>
+
+<P>The Multistep_drilling application object shall be as defined by ISO 14649-11.</P>
+
+<P CLASS="note">
+<SPAN>NOTE</SPAN> The ISO 14649 EXPRESS description for
+Multistep_drilling is shown below.  Refer to ISO 14649-11 for the
+complete definition and explanation of usage.</P>
+
+<PRE CLASS="note">
+ENTITY multistep_drilling
+  SUBTYPE OF (drilling_operation);
+  retract_distance:       Length_data_element;
+  first_depth:            Length_data_element;
+  depth_of_step:          Length_data_element;
+  dwell_time_step:        OPTIONAL Duration;
+END_ENTITY;
+</PRE>
+
+
+<!-- ============================== -->
+<DIV><DIV class=quick>
+<A HREF="clause5.htm#map-multistep_grooving_strategy">Map</a>
+<A HREF="annexG.htm#multistep_grooving_strategy">ARM</a>
+</DIV>
+<H3 ID="ao-multistep_grooving_strategy">4.3.126 Multistep_grooving_strategy</H3>
+</DIV>
+
+<P>The Multistep_grooving_strategy application object shall be as defined by
+ISO 14649-12.</P>
+
+<P CLASS="note">
+<SPAN>NOTE</SPAN> The ISO 14649 EXPRESS description for
+Multistep_grooving_strategy is shown below.  Refer to ISO 14649-12 for
+the complete definition and explanation of usage.</P>
+
+<PRE CLASS="note">
+ENTITY multistep_grooving_strategy
+  SUBTYPE OF (grooving_strategy);
+  retract_distance:	Length_data_element;
+END_ENTITY;
+</PRE>
+
+
+<!-- ============================== -->
+<DIV><DIV class=quick>
+<A HREF="clause5.htm#map-nc_constant">Map</a>
+<A HREF="annexG.htm#nc_constant">ARM</a>
+</DIV>
+<H3 ID="ao-nc_constant">4.3.127 NC_constant</H3>
+</DIV>
+
+<P>The NC_constant application object is a type of Literal_number that
+meets the information requirements defined for NC_constant by ISO
+14649-10.  This document adds the following information
+requirements.</P>
+
+<P>The data associated with a NC_constant are the following:</P>
+
+<UL>
+<LI>all of the data defined by ISO 14649-10, as modified below for the
+its_value attribute.</LI>
+</UL>
+
+<P CLASS="note">
+<SPAN>NOTE</SPAN> The ISO 14649 EXPRESS description for NC_constant,
+as adapted by this document, is shown below.  Refer to ISO
+14649-10 for the complete definition and explanation of usage.</P>
+
+<PRE CLASS="note">
+ENTITY nc_constant; 
+  SUBTYPE OF (Literal_number);  -- ADDED BY 10303-238
+  its_name:  LABEL;
+  -- 10303-238: its_value now inherited literal_number.the_value
+  -- its_value: OPTIONAL NUMBER;
+END_ENTITY;
+</PRE>
+
+<H4 ID="ao-nc_constant-its_value">4.3.127.1 its_value</H4>
+
+<P>The its_value parameter defined by ISO 14649-10 shall be given by the
+inherited the_value parameter defined by Literal_number.</P>
+
+<P CLASS="note">
+<SPAN>NOTE</SPAN> The integrated representation of this information is
+unchanged from previous edition of this document.</P>
+
+
+
+<!-- ============================== -->
+<DIV><DIV class=quick>
+<A HREF="clause5.htm#map-nc_function">Map</a>
+<A HREF="annexG.htm#nc_function">ARM</a>
+</DIV>
+<H3 ID="ao-nc_function">4.3.128 NC_function</H3>
+</DIV>
+<P>The NC_function application object shall be as defined by ISO
+14649-10.</P>
+
+<P CLASS="note">
+<SPAN>NOTE</SPAN> The ISO 14649 EXPRESS description for NC_function is
+shown below.  Refer to ISO 14649-10 for the complete definition and
+explanation of usage.</P>
+
+<PRE CLASS="note">
+ENTITY nc_function
+  ABSTRACT SUPERTYPE SUBTYPE OF (executable);
+END_ENTITY;
+</PRE>
+
+
+<!-- ============================== -->
+<DIV><DIV class=quick>
+<A HREF="clause5.htm#map-nc_variable">Map</a>
+<A HREF="annexG.htm#nc_variable">ARM</a>
+</DIV>
+<H3 ID="ao-nc_variable">4.3.129 NC_variable</H3>
+</DIV>
+
+<P>The NC_variable application object is a type of Numeric_variable
+that meets the information requirements defined for NC_variable by
+ISO 14649-10.</P>
+
+<P CLASS="note">
+<SPAN>NOTE</SPAN> The ISO 14649 EXPRESS description for NC_variable,
+as adapted by this document, is shown below.  Refer to ISO
+14649-10 for the complete definition and explanation of usage.</P>
+
+<PRE CLASS="note">
+ENTITY nc_variable; 
+  SUBTYPE OF (Numeric_variable);  -- ADDED BY 10303-238
+  its_name:      LABEL;
+  initial_value: OPTIONAL NUMBER;
+END_ENTITY;
+</PRE>
+
+
+<!-- ============================== -->
+<DIV><DIV class=quick>
+<A HREF="clause5.htm#map-non_sequential">Map</a>
+<A HREF="annexG.htm#non_sequential">ARM</a>
+</DIV>
+<H3 ID="ao-non_sequential">4.3.130 Non_sequential</H3>
+</DIV>
+
+<P>The Non_sequential application object shall be as defined by ISO 14649-10.</P>
+
+<P CLASS="note">
+<SPAN>NOTE</SPAN> The ISO 14649 EXPRESS description for Non_sequential
+is shown below.  Refer to ISO 14649-10 for the complete definition and
+explanation of usage.</P>
+
+<PRE CLASS="note">
+ENTITY non_sequential
+  SUBTYPE OF (program_structure);
+  its_elements:   SET[2:?] OF executable;
+END_ENTITY;
+</PRE>
+
+
+<!-- ============================== -->
+<DIV><DIV class=quick>
+<A HREF="clause5.htm#map-offset_vector">Map</a>
+<A HREF="annexG.htm#offset_vector">ARM</a>
+</DIV>
+<H3 ID="ao-offset_vector">4.3.131 Offset_vector</H3>
+</DIV>
+
+<P>The Offset_vector application object shall be as defined by ISO 14649-10.</P>
+
+<P CLASS="note">
+<SPAN>NOTE</SPAN> The ISO 14649 EXPRESS description for Offset_vector
+is shown below.  Refer to ISO 14649-10 for the complete definition and
+explanation of usage.</P>
+
+<PRE CLASS="note">
+ENTITY offset_vector; 
+  translate: LIST [3:3] OF nc_variable;
+  rotate:    OPTIONAL LIST [3:3] OF nc_variable;
+WHERE
+  WR1: (SIZEOF(QUERY(i &lt;* translate | NOT EXISTS(i.initial_value))) = 0)
+     AND (NOT EXISTS(rotate) OR (SIZEOF(QUERY(i &lt;* rotate |
+          NOT EXISTS(i.initial_value))) = 0));
+END_ENTITY;
+</PRE>
+
+
+<!-- ============================== -->
+<DIV><DIV class=quick>
+<A HREF="clause5.htm#map-operation">Map</a>
+<A HREF="annexG.htm#operation">ARM</a>
+</DIV>
+<H3 ID="ao-operation">4.3.132 Operation</H3>
+</DIV>
+
+<P>The Operation application object shall be as defined by ISO
+14649-10.  This document adds the following information
+requirements.</P>
+
+<P>The data associated with an Operation are the following:</P>
+
+<UL>
+<LI>all of the data defined by ISO 14649-10;</LI>
+<LI>cam_properties.</LI>
+</UL>
+
+<P CLASS="note">
+<SPAN>NOTE</SPAN> The ISO 14649 EXPRESS description for Operation, as
+nnadapted by this document is shown below.  Refer to ISO 14649-10 for
+the original definition and explanation of usage.</P>
+
+<PRE CLASS="note">
+ENTITY operation
+  ABSTRACT SUPERTYPE OF (ONEOF (machining_operation, rapid_movement, touch_probing, extended_operation));
+  its_toolpath:               OPTIONAL toolpath_list;
+  its_tool_direction:         OPTIONAL tool_direction;
+
+INVERSE
+  -- 10303-238: Additional CAM properties for operations
+  cam_properties: SET[0:?] OF Cam_property FOR described_element;
+END_ENTITY;
+</PRE>
+
+
+<H4 ID="ao-operation-cam_properties">4.3.132.1 cam_properties</H4>
+
+<P>The cam_properties shall be represented by the set of Cam_property
+application objects with an described_element parameter that contains
+the Operation.</P>
+
+
+
+<!-- ============================== -->
+<DIV><DIV class=quick>
+<A HREF="clause5.htm#map-optional_stop">Map</a>
+<A HREF="annexG.htm#optional_stop">ARM</a>
+</DIV>
+<H3 ID="ao-optional_stop">4.3.133 Optional_stop</H3>
+</DIV>
+
+<P>The Optional_stop application object shall be as defined by ISO 14649-10.</P>
+
+<P CLASS="note">
+<SPAN>NOTE</SPAN> The ISO 14649 EXPRESS description for Optional_stop
+is shown below.  Refer to ISO 14649-10 for the complete definition and
+explanation of usage.</P>
+
+<PRE CLASS="note">
+ENTITY optional_stop
+  SUBTYPE OF (nc_function);
+END_ENTITY;
+</PRE>
+
+
+<!-- ============================== -->
+<DIV><DIV class=quick>
+<A HREF="clause5.htm#map-parallel">Map</a>
+<A HREF="annexG.htm#parallel">ARM</a>
+</DIV>
+<H3 ID="ao-parallel">4.3.134 Parallel</H3>
+</DIV>
+
+<P>The Parallel application object shall be as defined by ISO 14649-10.</P>
+
+<P CLASS="note">
+<SPAN>NOTE</SPAN> The ISO 14649 EXPRESS description for Parallel is
+shown below.  Refer to ISO 14649-10 for the complete definition and
+explanation of usage.</P>
+
+<PRE CLASS="note">
+ENTITY parallel
+  SUBTYPE OF (program_structure);
+  branches:   SET [2:?] OF executable;
+END_ENTITY;
+</PRE>
+
+
+<!-- ============================== -->
+<DIV><DIV class=quick>
+<A HREF="clause5.htm#map-parameterised_path">Map</a>
+<A HREF="annexG.htm#parameterised_path">ARM</a>
+</DIV>
+<H3 ID="ao-parameterised_path">4.3.135 Parameterised_path</H3>
+</DIV>
+
+<P>The Parameterised_path application object shall be as defined by ISO 14649-10.</P>
+<P CLASS="note">
+<SPAN>NOTE</SPAN> The ISO 14649 EXPRESS description for
+Parameterised_path is shown below.  Refer to ISO 14649-10 for the
+complete definition and explanation of usage.</P>
+
+<PRE CLASS="note">
+ENTITY parameterised_path
+  ABSTRACT SUPERTYPE OF (ONEOF (approach_lift_path, connector))
+  SUBTYPE OF (toolpath);
+END_ENTITY;
+</PRE>
+
+
+<!-- ============================== -->
+<DIV><DIV class=quick>
+<A HREF="clause5.htm#map-plane_cc_strategy">Map</a>
+<A HREF="annexG.htm#plane_cc_strategy">ARM</a>
+</DIV>
+<H3 ID="ao-plane_cc_strategy">4.3.136 Plane_cc_strategy</H3>
+</DIV>
+
+<P>The Plane_cc_strategy application object shall be as defined by ISO 14649-11.</P>
+
+<P CLASS="note">
+<SPAN>NOTE</SPAN> The ISO 14649 EXPRESS description for
+Plane_cc_strategy is shown below.  Refer to ISO 14649-11 for the
+complete definition and explanation of usage.</P>
+
+<PRE CLASS="note">
+ENTITY plane_cc_strategy
+  SUBTYPE OF (freeform_strategy);
+  its_plane_normal: direction;
+END_ENTITY;
+</PRE>
+
+
+<!-- ============================== -->
+<DIV><DIV class=quick>
+<A HREF="clause5.htm#map-plane_cl_strategy">Map</a>
+<A HREF="annexG.htm#plane_cl_strategy">ARM</a>
+</DIV>
+<H3 ID="ao-plane_cl_strategy">4.3.137 Plane_cl_strategy</H3>
+</DIV>
+
+<P>The Plane_cl_strategy application object shall be as defined by ISO 14649-11.</P>
+
+<P CLASS="note">
+<SPAN>NOTE</SPAN> The ISO 14649 EXPRESS description for
+Plane_cl_strategy is shown below.  Refer to ISO 14649-11 for the
+complete definition and explanation of usage.</P>
+
+<PRE CLASS="note">
+ENTITY plane_cl_strategy
+  SUBTYPE OF (freeform_strategy);
+  its_plane_normal: direction;
+END_ENTITY;
+</PRE>
+
+
+<!-- ============================== -->
+<DIV><DIV class=quick>
+<A HREF="clause5.htm#map-plane_finish_milling">Map</a>
+<A HREF="annexG.htm#plane_finish_milling">ARM</a>
+</DIV>
+<H3 ID="ao-plane_finish_milling">4.3.138 Plane_finish_milling</H3>
+</DIV>
+
+<P>The Plane_finish_milling application object shall be as defined by ISO 14649-11.</P>
+
+<P CLASS="note">
+<SPAN>NOTE</SPAN> The ISO 14649 EXPRESS description for
+Plane_finish_milling is shown below.  Refer to ISO 14649-11 for the
+complete definition and explanation of usage.</P>
+
+<PRE CLASS="note">
+ENTITY plane_finish_milling
+  SUBTYPE OF (plane_milling);
+END_ENTITY;
+</PRE>
+
+
+<!-- ============================== -->
+<DIV><DIV class=quick>
+<A HREF="clause5.htm#map-plane_milling">Map</a>
+<A HREF="annexG.htm#plane_milling">ARM</a>
+</DIV>
+<H3 ID="ao-plane_milling">4.3.139 Plane_milling</H3>
+</DIV>
+
+<P>The Plane_milling application object shall be as defined by ISO 14649-11.</P>
+
+<P CLASS="note">
+<SPAN>NOTE</SPAN> The ISO 14649 EXPRESS description for Plane_milling
+is shown below.  Refer to ISO 14649-11 for the complete definition and
+explanation of usage.</P>
+
+<PRE CLASS="note">
+ENTITY plane_milling
+  ABSTRACT SUPERTYPE OF (ONEOF(plane_rough_milling, plane_finish_milling))
+  SUBTYPE OF (two5D_milling_operation);
+  axial_cutting_depth: 	OPTIONAL Length_data_element;
+  allowance_bottom: 	OPTIONAL Length_data_element;
+END_ENTITY;
+</PRE>
+
+
+<!-- ============================== -->
+<DIV><DIV class=quick>
+<A HREF="clause5.htm#map-plane_rough_milling">Map</a>
+<A HREF="annexG.htm#plane_rough_milling">ARM</a>
+</DIV>
+<H3 ID="ao-plane_rough_milling">4.3.140 Plane_rough_milling</H3>
+</DIV>
+
+<P>The Plane_rough_milling application object shall be as defined by ISO 14649-11.</P>
+
+<P CLASS="note">
+<SPAN>NOTE</SPAN> The ISO 14649 EXPRESS description for
+Plane_rough_milling is shown below.  Refer to ISO 14649-11 for the
+complete definition and explanation of usage.</P>
+
+<PRE CLASS="note">
+ENTITY plane_rough_milling
+  SUBTYPE OF (plane_milling);
+WHERE
+  WR1: EXISTS(SELF.allowance_bottom) AND (SELF.allowance_bottom&gt;=0.0);
+END_ENTITY;
+</PRE>
+
+
+<!-- ============================== -->
+<DIV><DIV class=quick>
+<A HREF="clause5.htm#map-plunge_helix">Map</a>
+<A HREF="annexG.htm#plunge_helix">ARM</a>
+</DIV>
+<H3 ID="ao-plunge_helix">4.3.141 Plunge_helix</H3>
+</DIV>
+<P>
+The Plunge_helix application object shall be as defined by ISO 14649-11.</P>
+<P CLASS="note">
+<SPAN>NOTE</SPAN> The ISO 14649 EXPRESS description for Plunge_helix
+is shown below.  Refer to ISO 14649-11 for the complete definition and
+explanation of usage.</P>
+
+<PRE CLASS="note">
+ENTITY plunge_helix
+  SUBTYPE OF (plunge_strategy);
+  radius:   Length_data_element;
+  angle:    Angle_data_element;
+END_ENTITY;
+</PRE>
+
+
+<!-- ============================== -->
+<DIV><DIV class=quick>
+<A HREF="clause5.htm#map-plunge_ramp">Map</a>
+<A HREF="annexG.htm#plunge_ramp">ARM</a>
+</DIV>
+<H3 ID="ao-plunge_ramp">4.3.142 Plunge_ramp</H3>
+</DIV>
+
+<P>The Plunge_ramp application object shall be as defined by ISO 14649-11.</P>
+
+<P CLASS="note">
+<SPAN>NOTE</SPAN> The ISO 14649 EXPRESS description for Plunge_ramp is
+shown below.  Refer to ISO 14649-11 for the complete definition and
+explanation of usage.</P>
+
+<PRE CLASS="note">
+ENTITY plunge_ramp
+  SUBTYPE OF (plunge_strategy);
+  angle:    Angle_data_element;
+END_ENTITY;
+</PRE>
+
+
+<!-- ============================== -->
+<DIV><DIV class=quick>
+<A HREF="clause5.htm#map-plunge_strategy">Map</a>
+<A HREF="annexG.htm#plunge_strategy">ARM</a>
+</DIV>
+<H3 ID="ao-plunge_strategy">4.3.143 Plunge_strategy</H3>
+</DIV>
+
+<P>The Plunge_strategy application object shall be as defined by ISO 14649-11.</P>
+
+<P CLASS="note">
+<SPAN>NOTE</SPAN> The ISO 14649 EXPRESS description for
+Plunge_strategy is shown below.  Refer to ISO 14649-11 for the
+complete definition and explanation of usage.</P>
+
+<PRE CLASS="note">
+ENTITY plunge_strategy
+  ABSTRACT SUPERTYPE OF (ONEOF (plunge_toolaxis, plunge_ramp, 
+     plunge_helix, plunge_zigzag))
+  SUBTYPE OF (approach_retract_strategy);
+END_ENTITY;
+</PRE>
+
+
+<!-- ============================== -->
+<DIV><DIV class=quick>
+<A HREF="clause5.htm#map-plunge_toolaxis">Map</a>
+<A HREF="annexG.htm#plunge_toolaxis">ARM</a>
+</DIV>
+<H3 ID="ao-plunge_toolaxis">4.3.144 Plunge_toolaxis</H3>
+</DIV>
+
+<P>The Plunge_toolaxis application object shall be as defined by ISO 14649-11.</P>
+
+<P CLASS="note">
+<SPAN>NOTE</SPAN> The ISO 14649 EXPRESS description for
+Plunge_toolaxis is shown below.  Refer to ISO 14649-11 for the
+complete definition and explanation of usage.</P>
+
+<PRE CLASS="note">
+ENTITY plunge_toolaxis
+  SUBTYPE OF (plunge_strategy);
+END_ENTITY;
+</PRE>
+
+
+<!-- ============================== -->
+<DIV><DIV class=quick>
+<A HREF="clause5.htm#map-plunge_zigzag">Map</a>
+<A HREF="annexG.htm#plunge_zigzag">ARM</a>
+</DIV>
+<H3 ID="ao-plunge_zigzag">4.3.145 Plunge_zigzag</H3>
+</DIV>
+
+<P>The Plunge_zigzag application object shall be as defined by ISO 14649-11.</P>
+
+<P CLASS="note">
+<SPAN>NOTE</SPAN> The ISO 14649 EXPRESS description for Plunge_zigzag
+is shown below.  Refer to ISO 14649-11 for the complete definition and
+explanation of usage.</P>
+
+<PRE CLASS="note">
+ENTITY plunge_zigzag
+  SUBTYPE OF (plunge_strategy);
+  angle:    Angle_data_element;
+  width:    Length_data_element;
+END_ENTITY;
+</PRE>
+
+
+
+<!-- ============================== -->
+<DIV><DIV class=quick>
+<A HREF="clause5.htm#map-process_model">Map</a>
+<A HREF="annexG.htm#process_model">ARM</a>
+</DIV>
+<H3 ID="ao-process_model">4.3.146 Process_model</H3>
+</DIV>
+
+<P>The Process_model application object shall be as defined by ISO 14649-11.</P>
+<P CLASS="note">
+<SPAN>NOTE</SPAN> The ISO 14649 EXPRESS description for Process_model
+is shown below.  Refer to ISO 14649-11 for the complete definition and
+explanation of usage.</P>
+
+<PRE CLASS="note">
+ENTITY process_model;
+  ini_data_file:  label;
+  its_type:       label;
+END_ENTITY;
+</PRE>
+
+
+<!-- ============================== -->
+<DIV><DIV class=quick>
+<A HREF="clause5.htm#map-process_model_list">Map</a>
+<A HREF="annexG.htm#process_model_list">ARM</a>
+</DIV>
+<H3 ID="ao-process_model_list">4.3.147 Process_model_list</H3>
+</DIV>
+
+<P>The Process_model_list application object shall be as defined by ISO 14649-11.</P>
+
+<P CLASS="note">
+<SPAN>NOTE</SPAN> The ISO 14649 EXPRESS description for
+Process_model_list is shown below.  Refer to ISO 14649-11 for the
+complete definition and explanation of usage.</P>
+
+<PRE CLASS="note">
+ENTITY process_model_list;
+  its_list: LIST [1:?] OF process_model;
+END_ENTITY;
+</PRE>
+
+
+<!-- ============================== -->
+<DIV><DIV class=quick>
+<A HREF="clause5.htm#map-profiled_corner">Map</a>
+<A HREF="annexG.htm#profiled_corner">ARM</a>
+</DIV>
+<H3 ID="ao-profiled_corner">4.3.148 Profiled_corner</H3>
+</DIV>
+
+<P>The Profiled_corner application object shall be as defined by ISO 14649-121.</P>
+
+<P CLASS="note">
+<SPAN>NOTE</SPAN> The ISO 14649 EXPRESS description for
+Profiled_corner is shown below.  Refer to ISO 14649-121 for the
+complete definition and explanation of usage.</P>
+
+<PRE CLASS="note">
+ENTITY profiled_corner;
+  transition_profile:   open_profile;
+END_ENTITY;
+</PRE>
+
+
+<!-- ============================== -->
+<DIV><DIV class=quick>
+<A HREF="clause5.htm#map-profiled_end_mill">Map</a>
+<A HREF="annexG.htm#profiled_end_mill">ARM</a>
+</DIV>
+<H3 ID="ao-profiled_end_mill">4.3.149 Profiled_end_mill</H3>
+</DIV>
+
+<P>The Profiled_end_mill application object shall be as defined by ISO 14649-111.</P>
+
+<P CLASS="note">
+<SPAN>NOTE</SPAN> The ISO 14649 EXPRESS description for
+Profiled_end_mill is shown below.  Refer to ISO 14649-111 for the
+complete definition and explanation of usage.</P>
+
+<PRE CLASS="note">
+ENTITY profiled_end_mill
+  SUBTYPE OF (endmill);
+END_ENTITY;
+</PRE>
+
+
+<!-- ============================== -->
+<DIV><DIV class=quick>
+<A HREF="clause5.htm#map-program_stop">Map</a>
+<A HREF="annexG.htm#program_stop">ARM</a>
+</DIV>
+<H3 ID="ao-program_stop">4.3.150 Program_stop</H3>
+</DIV>
+
+<P>The Program_stop application object shall be as defined by ISO
+14649-10.</P>
+
+<P CLASS="note">
+<SPAN>NOTE</SPAN> The ISO 14649 EXPRESS description for Program_stop
+is shown below.  Refer to ISO 14649-10 for the complete definition and
+explanation of usage.</P>
+
+<PRE CLASS="note">
+ENTITY program_stop
+  SUBTYPE OF (nc_function);
+END_ENTITY;
+</PRE>
+
+
+<!-- ============================== -->
+<DIV><DIV class=quick>
+<A HREF="clause5.htm#map-program_structure">Map</a>
+<A HREF="annexG.htm#program_structure">ARM</a>
+</DIV>
+<H3 ID="ao-program_structure">4.3.151 Program_structure</H3>
+</DIV>
+
+<P>The Program_structure application object shall be as defined by ISO
+14649-10.</P>
+
+<P CLASS="note">
+<SPAN>NOTE</SPAN> The ISO 14649 EXPRESS description for
+Program_structure is shown below.  Refer to ISO 14649-10 for the
+complete definition and explanation of usage.</P>
+
+<PRE CLASS="note">
+ENTITY program_structure
+  ABSTRACT SUPERTYPE OF (ONEOF(workplan, parallel, non_sequential, selective,
+     if_statement, while_statement, assignment))
+  SUBTYPE OF (executable);
+END_ENTITY;
+</PRE>
+
 
 <!-- ============================== -->
 <DIV><DIV class=quick>
@@ -7898,10 +7901,32 @@ END_ENTITY;
 
 <!-- ============================== -->
 <DIV><DIV class=quick>
+<A HREF="clause5.htm#map-two_axes">Map</a>
+<A HREF="annexG.htm#two_axes">ARM</a>
+</DIV>
+<H3 ID="ao-two_axes">4.3.205 Two_axes</H3>
+</DIV>
+
+<P>The Two_axes application object shall be as defined by ISO 14649-10.</P>
+
+<P CLASS="note">
+<SPAN>NOTE</SPAN> The ISO 14649 EXPRESS description for Two_axes is
+shown below.  Refer to ISO 14649-10 for the complete definition and
+explanation of usage.</P>
+
+<PRE CLASS="note">
+ENTITY two_axes
+  SUBTYPE OF (tool_direction);
+END_ENTITY;
+</PRE>
+
+
+<!-- ============================== -->
+<DIV><DIV class=quick>
 <A HREF="clause5.htm#map-two5d_milling_operation">Map</a>
 <A HREF="annexG.htm#two5d_milling_operation">ARM</a>
 </DIV>
-<H3 ID="ao-two5d_milling_operation">4.3.205 Two5d_milling_operation</H3>
+<H3 ID="ao-two5d_milling_operation">4.3.206 Two5d_milling_operation</H3>
 </DIV>
 
 <P>The Two5d_milling_operation application object shall be as defined by ISO 14649-11.</P>
@@ -7925,7 +7950,7 @@ END_ENTITY;
 <A HREF="clause5.htm#map-two5d_milling_strategy">Map</a>
 <A HREF="annexG.htm#two5d_milling_strategy">ARM</a>
 </DIV>
-<H3 ID="ao-two5d_milling_strategy">4.3.206 Two5d_milling_strategy</H3>
+<H3 ID="ao-two5d_milling_strategy">4.3.207 Two5d_milling_strategy</H3>
 </DIV>
 
 <P>The Two5d_milling_strategy application object shall be as defined by ISO 14649-11.</P>
@@ -7944,29 +7969,6 @@ ENTITY two5D_milling_strategy
   allow_multiple_passes:  OPTIONAL BOOLEAN;
 END_ENTITY;
 </PRE>
-
-
-<!-- ============================== -->
-<DIV><DIV class=quick>
-<A HREF="clause5.htm#map-two_axes">Map</a>
-<A HREF="annexG.htm#two_axes">ARM</a>
-</DIV>
-<H3 ID="ao-two_axes">4.3.207 Two_axes</H3>
-</DIV>
-
-<P>The Two_axes application object shall be as defined by ISO 14649-10.</P>
-
-<P CLASS="note">
-<SPAN>NOTE</SPAN> The ISO 14649 EXPRESS description for Two_axes is
-shown below.  Refer to ISO 14649-10 for the complete definition and
-explanation of usage.</P>
-
-<PRE CLASS="note">
-ENTITY two_axes
-  SUBTYPE OF (tool_direction);
-END_ENTITY;
-</PRE>
-
 
 <!-- ============================== -->
 <DIV><DIV class=quick>

@@ -72,7 +72,7 @@ sub renum_anchors {
     print "Scanning $file\n";
     
     while (<SRC>) {
-	/^<FIGURE><A NAME=\"([^\"]+)\"><\/A>/i && do {
+	/^<FIGURE ID=\"([^\"]+)\">/i && do {
 	    my $tag = $1;
 	    my $url = "$file#$tag";
 	    warn "Duplicate anchor $tag" if exists $anchor{$url};
@@ -104,7 +104,7 @@ sub renum_anchors {
 	    }
 	};
 
-	/^<CAPTION><A NAME=\"([^\"]+)\"><\/A>(.*)<\/CAPTION>/i && do {
+	/^<CAPTION ID=\"([^\"]+)\">(.*)<\/CAPTION>/i && do {
 	    my $tag = $1;
 	    my $body = $2;
 	    my $orig = $_;
@@ -121,7 +121,7 @@ sub renum_anchors {
 		txt => $body,
 		cap => "Table $num &mdash; $body"
 	    };
-	    $_ = "<CAPTION><A NAME=\"$tag\"></A>$anchor{$url}->{cap}</CAPTION>\n";
+	    $_ = "<CAPTION ID=\"$tag\">$anchor{$url}->{cap}</CAPTION>\n";
 
 	    if ($orig ne $_) {
 		$changed = 1;
@@ -129,9 +129,9 @@ sub renum_anchors {
 	    }
 	};
 
-	/^<H1 CLASS=\"(clause|unum|annex)\"><A NAME=\"([^\"]+)\"><\/A>(.*)<\/H1>/i && do {
-	    my $cls = $1;
-	    my $tag = $2;
+	/^<H1 ID=\"([^\"]+)\" CLASS=\"(clause|unum|annex)\">(.*)<\/H1>/i && do {
+	    my $tag = $1;
+	    my $cls = $2;
 	    my $body = $3;
 	    my $url = "$file#$tag";
 	    warn "Duplicate anchor $tag" if exists $anchor{$url};
@@ -155,7 +155,7 @@ sub renum_anchors {
 	    # Top level renumber manually if needed.
 	};
 
-	/^<H([2-6])><A NAME=\"([^\"]+)\"><\/A>(.*)/ && do {
+	/^<H([2-6]) ID=\"([^\"]+)\">(.*)/i && do {
 	    my $lev = $1;
 	    my $tag = $2;
 	    my $body = $3;
@@ -184,7 +184,7 @@ sub renum_anchors {
 		cap => "$num $body"
 	    };
 	    
-	    $_ = "<H$lev><A NAME=\"$tag\"></A>$num $body</H$lev>\n";
+	    $_ = "<H$lev ID=\"$tag\">$num $body</H$lev>\n";
 	    if ($num ne $oldsec) {
 		print "Changed: $oldsec  --> $num\n";
 		$changed = 1;
