@@ -3993,9 +3993,7 @@ Machining_workingstep. See <A href="#aa-feature_complete_probing-to-manufacturin
 <H4 ID="ao-feature_complete_probing-its_probe">4.3.86.2 its_probe</H4>
 
 <P>The its_probe specifies a tool of type Touch_probe which shall be
-used for
-measurement. See <A href="#aa-feature_complete_probing-to-touch_probe-as-its_probe">Feature_complete_probing
-to Touch_probe (as its_probe)</A> for the application assertion.</P>
+used for measurement. See <A href="#aa-feature_complete_probing-to-touch_probe-as-its_probe">Feature_complete_probing to Touch_probe (as its_probe)</A> for the application assertion.</P>
 
 <H4 ID="ao-feature_complete_probing-start_position">4.3.86.3 start_position</H4>
 
@@ -7365,6 +7363,15 @@ with the same distribution of points.</P>
 <P>A Touch_probe is a type
 of <a href="#ao-machining_tool">Machining_tool</a> that meets the
 information requirements defined for Touch_probe by ISO 14649-10.
+This document adds the following information requirements.</P>
+
+<P>The data associated with a Touch_probe are the following:</P>
+<UL>
+<LI>all of the data defined by ISO 14649-10;</LI>
+<LI>ball_radius;</LI>
+<LI>overall_assembly_length;</LI>
+<LI>stylus_diameter.</LI>
+</UL>
 
 <P CLASS="note">
 <SPAN>NOTE</SPAN> This document modifies the definition of Touch_probe
@@ -7375,9 +7382,30 @@ Touch_probe, as adapted by this document, is shown below.</P>
 <PRE CLASS="note">
 ENTITY touch_probe;
   SUBTYPE OF (machining_tool); -- ADDED BY 10303-238
-  -- its_id: identifier; -- now inherited from machining_tool
+  -- its_id: identifier;    -- now inherited from machining_tool
+  ball_radius:              OPTIONAL Length_data_element;   -- ADDED BY 10303-238
+  overall_assembly_length:  Length_data_element;            -- ADDED BY 10303-238
+  stylus_diameter:          OPTIONAL Length_data_element;   -- ADDED BY 10303-238
 END_ENTITY;
 </PRE>
+
+<H4 ID="ao-touch_probe-ball_radius">4.3.194.1 ball_radius</H4>
+
+<p>The ball_radius specifies the radius of the ball at the tip of the
+probe.  The ball_radius may not be specified for a particular
+Touch_probe.</P>
+
+<H4 ID="ao-touch_probe-overall_assembly_length">4.3.194.2 overall_assembly_length</H4>
+
+<p>The overall_assembly_length specifies the length of the probe tool
+assembly measured from the gage plane to the center of the ball, if
+any, at the tip of the probe.</p>
+
+
+<H4 ID="ao-touch_probe-stylus_diameter">4.3.194.3 stylus_diameter</H4>
+
+<p>The stylus_diameter specifies the diameter of the probe shaft.  The
+stylus_diameter may not be specified for a particular Touch_probe.</P>
 
 
 <!-- ============================== -->

@@ -4226,6 +4226,115 @@ action_resource
 </table>
 
 
+<H5 ID="map-touch_probe-ball_radius">5.1.6.35.1 ball_radius</H5>
+
+<table class="map">
+<tr><th>AIM element:</th>
+<td>length_measure_with_unit</td>
+</tr>
+
+<tr><th>Source:</th>
+<td>10303-41</td>
+</tr>
+
+<tr><th>Reference path:</th>
+<td class="path">machining_tool &lt;=
+action_resource
+characterized_resource_definition  = action_resource
+characterized_resource_definition &lt;-
+resource_property.resource
+{ resource_property.name = 'tool body' }
+resource_property &lt;-
+resource_property_representation.property
+resource_property_representation
+resource_property_representation.representation -&gt;
+{ representation =&gt;
+machining_tool_body_representation }
+representation
+representation.items[i] -&gt;
+{ representation_item.name =  'ball radius' }
+representation_item =&gt;
+measure_representation_item &lt;=
+measure_with_unit =&gt;
+length_measure_with_unit
+</td>
+</tr>
+</table>
+
+
+<H5 ID="map-touch_probe-overall_assembly_length">5.1.6.35.2 overall_assembly_length</H5>
+
+<table class="map">
+<tr><th>AIM element:</th>
+<td>length_measure_with_unit</td>
+</tr>
+
+<tr><th>Source:</th>
+<td>10303-41</td>
+</tr>
+
+<tr><th>Reference path:</th>
+<td class="path">machining_tool &lt;=
+action_resource
+characterized_resource_definition  = action_resource
+characterized_resource_definition &lt;-
+resource_property.resource
+{ resource_property.name = 'tool body' }
+resource_property &lt;-
+resource_property_representation.property
+resource_property_representation
+resource_property_representation.representation -&gt;
+{ representation =&gt;
+machining_tool_body_representation }
+representation
+representation.items[i] -&gt;
+{ representation_item.name =  'overall assembly length' }
+representation_item =&gt;
+measure_representation_item &lt;=
+measure_with_unit =&gt;
+length_measure_with_unit
+</td>
+</tr>
+</table>
+
+  
+
+<H5 ID="map-touch_probe-stylus_diameter">5.1.6.35.3 stylus_diameter</H5>
+
+<table class="map">
+<tr><th>AIM element:</th>
+<td>length_measure_with_unit</td>
+</tr>
+
+<tr><th>Source:</th>
+<td>10303-41</td>
+</tr>
+
+<tr><th>Reference path:</th>
+<td class="path">machining_tool &lt;=
+action_resource
+characterized_resource_definition  = action_resource
+characterized_resource_definition &lt;-
+resource_property.resource
+{ resource_property.name = 'tool body' }
+resource_property &lt;-
+resource_property_representation.property
+resource_property_representation
+resource_property_representation.representation -&gt;
+{ representation =&gt;
+machining_tool_body_representation }
+representation
+representation.items[i] -&gt;
+{ representation_item.name =  'stylus diameter' }
+representation_item =&gt;
+measure_representation_item &lt;=
+measure_with_unit =&gt;
+length_measure_with_unit
+</td>
+</tr>
+</table>
+
+
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-touch_probing">AO</a>
