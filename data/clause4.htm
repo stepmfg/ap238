@@ -3573,21 +3573,6 @@ END_ENTITY;
 14649-10. This document adds the following information
 requirements.</P>
 
-<P CLASS="note">
-<SPAN>NOTE 1</SPAN> The modifications below extend the ISO 14649
-In_process_geometry concept to permit specification of in-process
-shape, features, and other product properties for any Executable. The
-shape_representation is specified using the
-product_view_definition.primary_shape_representation. In particular,
-the integrated representation allows the use of shapes described by an
-edge-based wireframe (ISO 10303-1501), shell-based wireframe (ISO
-10303-1502), geometrically-bounded surfaces (ISO 10303-1507),
-non-manifold surfaces (ISO 10303-1324), manifold surfaces (ISO
-10303-1509), geometrically-bounded wireframe (ISO 10303-1510), faceted
-brep (ISO 10303-1512), tessellated geometry (ISO 10303-1819), scan
-data 3D shape (ISO 10303-1831), as well as the advanced brep (ISO
-10303-1514) descriptions originally supported by ISO 14649.</P>
-
 <P>The data associated with an Executable are the following:</P>
 
 <UL>
@@ -3605,9 +3590,21 @@ data 3D shape (ISO 10303-1831), as well as the advanced brep (ISO
 </UL>
 
 <P CLASS="note">
-<SPAN>NOTE 2</SPAN> The ISO 14649 EXPRESS description for Executable,
+<SPAN>NOTE</SPAN> The ISO 14649 EXPRESS description for Executable,
 as adapted by this document, is shown below. Refer to ISO
 14649-10 for the complete definition and explanation of usage.</P>
+
+<P CLASS="note">The shapes from the ISO 14649 In_process_geometry
+concept are replaced by complete product descriptions. The
+product_view_definition.primary_shape_representation gives the shape
+representation, which can be described by an edge-based wireframe (ISO
+10303-1501), shell-based wireframe (ISO 10303-1502),
+geometrically-bounded surfaces (ISO 10303-1507), non-manifold surfaces
+(ISO 10303-1324), manifold surfaces (ISO 10303-1509),
+geometrically-bounded wireframe (ISO 10303-1510), faceted brep (ISO
+10303-1512), tessellated geometry (ISO 10303-1819), scan data 3D shape
+(ISO 10303-1831), as well as the advanced brep (ISO 10303-1514)
+descriptions originally supported by ISO 14649.</P>
 
 <PRE CLASS="note">
 ENTITY executable
