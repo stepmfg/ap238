@@ -1,7 +1,7 @@
 SCHEMA model_based_integrated_manufacturing_schema;
 (*
-    ISO TC184/SC4/WG15N94 (supersedes N81)
-    ISO/DIS 10303-238 Edition 2
+    ISO TC184/SC4/WG15N155 (superceeds N94)
+    ISO 10303-238 Edition 2
     AIM EXPRESS SHORT FORM
 *)
 
@@ -730,22 +730,11 @@ ENTITY machining_functions
 
          (verify_related_type_for_amr   (SELF,
           ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_PROCESS_MODEL_RELATIONSHIP'],
-          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_PROCESS_MODEL'])) AND
-
-         (verify_optional_action_property (SELF, 'other functions')) AND
-         (0 = SIZEOF (QUERY (prop <* get_action_property
-                             (SELF, 'other functions') | NOT
-           (0 < SIZEOF (QUERY (prep <* USEDIN (prop, 'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.' +
-              'ACTION_PROPERTY_REPRESENTATION.PROPERTY') |
-             (1 = SIZEOF (QUERY (it <* prep.representation.items |
-                (('MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.COMPOUND_REPRESENTATION_ITEM'
-                   IN TYPEOF(it)) AND
-                 ('MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.SET_REPRESENTATION_ITEM'
-                   IN TYPEOF(it.item_element)))
-             )))
-           )))
-         )))
+          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_PROCESS_MODEL'])) 
         );
+
+  WR4:  (verify_optional_action_property (SELF, 'other functions'));
+
 END_ENTITY;
 
 ENTITY machining_toolpath
@@ -963,9 +952,11 @@ END_ENTITY;
 
 
 ENTITY machining_touch_probing
-  SUBTYPE OF (machining_process_executable, machining_operation);
+--  SUBTYPE OF (machining_process_executable, machining_operation);
+  SUBTYPE OF (machining_operation);  -- SIMPLIFIED BY AP238e2
   WHERE
-  WR1:  (SELF.description IN ['tool length probing', 'tool radius probing',
+  WR1:  (SELF.description IN ['feature complete probing',
+          'tool length probing', 'tool radius probing',
           'workpiece probing', 'workpiece complete probing']);
 
   WR2:  ((verify_required_action_property       (SELF, 'security plane')) AND
@@ -2669,7 +2660,6 @@ ENTITY machining_process_branch_relationship
 END_ENTITY;
 
 
-
 (* ============================================================ *)
 (* DEFINITIONS ADDED BY AP238 TC1 *)
 
@@ -2713,6 +2703,28 @@ ENTITY machining_fixture_usage
   WR3:  ((verify_optional_action_property (SELF, 'workpiece reference')) AND
          (verify_rep_item_for_action_property (SELF, 'workpiece reference',
           ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.AXIS2_PLACEMENT_3D'])));
+END_ENTITY;
+
+
+(* ============================================================ *)
+(* DEFINITIONS ADDED BY AP238 E2 *)
+
+ENTITY machining_machine_usage
+  SUBTYPE OF (action_method);
+  WHERE  	  
+  WR1:  (1 >= SIZEOF (QUERY (act <*
+          USEDIN (SELF, 'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.ACTION.CHOSEN_METHOD') |
+          (act.name = 'machine usage')))) AND
+        (0 = SIZEOF (QUERY (act <*
+          USEDIN (SELF, 'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.ACTION.CHOSEN_METHOD') |
+          (act.name = 'machine usage') AND NOT
+          ('MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.PRODUCT_DEFINITION_PROCESS' IN TYPEOF (act))
+        )));
+END_ENTITY;
+
+
+ENTITY machining_usage_relationship
+  SUBTYPE OF (action_method_relationship);
 END_ENTITY;
 
 

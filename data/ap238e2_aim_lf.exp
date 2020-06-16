@@ -1,12 +1,12 @@
-	SCHEMA model_based_integrated_manufacturing_schema;
+SCHEMA model_based_integrated_manufacturing_schema;
 (*
-    ISO TC184/SC4/WG15N94 (supersedes N81)
-    ISO/DIS 10303-238 Edition 2
+    ISO TC184/SC4/WG15N155 (superceeds N94)
+    ISO 10303-238 Edition 2
     AIM EXPRESS LONG FORM
  *)
 
 CONSTANT
-    the_tuples                   : extended_tuple_space := 
+    the_tuples                    : extended_tuple_space := 
                                        make_extended_tuple_space(
                                        the_zero_tuple_space, the_generics);
     dummy_tri                     : topological_representation_item := 
@@ -44,11 +44,11 @@ CONSTANT
                                        make_extended_tuple_space(
                                        the_zero_tuple_space, the_reals);
     the_nonnegative_reals         : real_interval_from_min := 
-                                       make_real_interval_from_min(
-				       0, closed);
+                                       make_real_interval_from_min(0, 
+                                       closed);
     the_neg1_one_interval         : finite_real_interval := 
-                                       make_finite_real_interval(
-				       -1, closed , 1, closed);
+                                       make_finite_real_interval(-1, closed
+                                       , 1, closed);
     the_complex_tuples            : extended_tuple_space := 
                                        make_extended_tuple_space(
                                        the_zero_tuple_space, 
@@ -59,14 +59,15 @@ CONSTANT
                                        make_elementary_space(
                                        es_maths_spaces);
     the_zero_pi_interval          : finite_real_interval := 
-                                       make_finite_real_interval(
-				       0, closed, PI, closed);
+                                       make_finite_real_interval(0, closed,
+                                        PI, closed);
     the_neghalfpi_halfpi_interval : finite_real_interval := 
-    				       make_finite_real_interval(
-				       -0.5 * PI, closed, 0.5 * PI, closed);
+                                       make_finite_real_interval(-0.5 
+                                       * PI, closed, 0.5 * 
+                                       PI, closed);
     the_negpi_pi_interval         : finite_real_interval := 
-                                       make_finite_real_interval(
-				       -PI, open, PI, closed);
+                                       make_finite_real_interval(-PI, 
+                                       open, PI, closed);
 END_CONSTANT;
 
 TYPE absorbed_dose_measure = REAL;
@@ -88,6 +89,7 @@ TYPE action_items = SELECT
    approval_status,
    assembly_component_usage_substitute,
    certification,
+   characterized_object,
    class,
    class_system,
    configuration_design,
@@ -95,7 +97,11 @@ TYPE action_items = SELECT
    configuration_item,
    configured_effectivity_assignment,
    contract,
+   dimensional_location,
+   dimensional_size,
+   directed_dimensional_location,
    document_file,
+   document_type,
    general_property,
    material_designation,
    organization_relationship,
@@ -112,6 +118,7 @@ TYPE action_items = SELECT
    product_definition_relationship,
    product_definition_substitute,
    property_definition,
+   property_definition_relationship,
    security_classification,
    security_classification_level,
    shape_aspect,
@@ -122,7 +129,6 @@ END_TYPE; -- 10303-1047: activity_mim
 TYPE action_method_items = SELECT 
   (action,
    action_method,
-   action_method_relationship,
    action_property,
    applied_action_assignment,
    characterized_object,
@@ -601,7 +607,6 @@ TYPE classification_item = SELECT
   (action,
    action_directive,
    action_method,
-   action_method_relationship,
    action_property,
    action_relationship,
    action_request_solution,
@@ -611,7 +616,6 @@ TYPE classification_item = SELECT
    address,
    alternate_product_relationship,
    applied_action_assignment,
-   applied_action_method_assignment,
    applied_action_request_assignment,
    applied_approval_assignment,
    applied_certification_assignment,
@@ -698,8 +702,8 @@ END_TYPE; -- 10303-1114: classification_assignment_mim
 
 TYPE classified_item = SELECT 
   (product,
-   product_definition_formation,
-   product_definition);
+   product_definition,
+   product_definition_formation);
 END_TYPE; -- 10303-1111: classification_with_attributes_mim
 
 TYPE colour_type_enum = ENUMERATION OF 
@@ -1408,6 +1412,7 @@ END_TYPE; -- 10303-50: mathematical_functions_schema
 TYPE external_identification_item = SELECT 
   (action_relationship,
    action_request_status,
+   applied_external_identification_assignment,
    applied_organization_assignment,
    applied_person_and_organization_assignment,
    approval,
@@ -1752,9 +1757,6 @@ TYPE link_or_shape_representation = SELECT
    shape_representation);
 END_TYPE; -- 10303-105: kinematic_motion_representation_schema
 
-TYPE list_item_defined_transformation = LIST [2:?] OF item_defined_transformation;
-END_TYPE; -- 10303-43: representation_schema
-
 TYPE list_of_reversible_topology_item = LIST [0:?] OF reversible_topology_item;
 END_TYPE; -- 10303-42: topology_schema
 
@@ -2034,8 +2036,7 @@ TYPE name_attribute_select = SELECT
 END_TYPE; -- 10303-41: basic_attribute_schema
 
 TYPE name_item = SELECT 
-  (applied_action_method_assignment,
-   assembly_component_usage,
+  (assembly_component_usage,
    external_class_library,
    group,
    group_relationship,
@@ -2484,9 +2485,6 @@ TYPE security_classification_item = SELECT
    versioned_action_request);
 END_TYPE; -- 10303-1015: security_classification_mim
 
-TYPE set_item_defined_transformation = SET [2:?] OF item_defined_transformation;
-END_TYPE; -- 10303-43: representation_schema
-
 TYPE set_of_reversible_topology_item = SET [0:?] OF reversible_topology_item;
 END_TYPE; -- 10303-42: topology_schema
 
@@ -2844,9 +2842,7 @@ END_TYPE; -- 10303-47: shape_tolerance_schema
 
 TYPE transformation = SELECT 
   (item_defined_transformation,
-   functionally_defined_transformation,
-   list_item_defined_transformation,
-   set_item_defined_transformation);
+   functionally_defined_transformation);
 END_TYPE; -- 10303-43: representation_schema
 
 TYPE transition_code = ENUMERATION OF 
@@ -2898,7 +2894,8 @@ TYPE value_format_type = identifier;
 END_TYPE; -- 10303-45: qualified_measure_schema
 
 TYPE value_qualifier = SELECT 
-  (precision_qualifier,
+  (maths_value_precision_qualifier,
+   precision_qualifier,
    type_qualifier,
    uncertainty_qualifier,
    value_format_type_qualifier);
@@ -3020,18 +3017,6 @@ ENTITY action_directive;
     requests    : SET [1:?] OF versioned_action_request;
 END_ENTITY; -- 10303-41: action_schema
 
-ENTITY action_directive_relationship;
-    name          : label;
-    description   : OPTIONAL STRING;
-    relating      : action_directive;
-    related       : action_directive;
-    relation_type : STRING;
-  WHERE
-    WR1: acyclic_action_directive_relationship(SELF, [ related ], 
-              'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.ACTION_DIRECTIVE_RELATIONSHIP'
-              );
-END_ENTITY; -- 10303-41: action_schema
-
 ENTITY action_method;
     name        : label;
     description : OPTIONAL text;
@@ -3151,7 +3136,7 @@ ENTITY actuated_kinematic_pair
 END_ENTITY; -- 10303-105: kinematic_structure_schema
 
 ENTITY additive_manufacturing_atom
-   SUBTYPE OF (shape_aspect);
+  SUBTYPE OF (shape_aspect);
 END_ENTITY; -- 10303-238: model_based_integrated_manufacturing_schema
 
 ENTITY additive_manufacturing_build_plate_relationship
@@ -3159,11 +3144,11 @@ ENTITY additive_manufacturing_build_plate_relationship
 END_ENTITY; -- 10303-1835: additive_manufacturing_part_and_build_information_mim
 
 ENTITY additive_manufacturing_construction
-   SUBTYPE OF (shape_aspect);
+  SUBTYPE OF (shape_aspect);
 END_ENTITY; -- 10303-238: model_based_integrated_manufacturing_schema
 
 ENTITY additive_manufacturing_feature
-   SUBTYPE OF (feature_definition);
+  SUBTYPE OF (feature_definition);
 END_ENTITY; -- 10303-238: model_based_integrated_manufacturing_schema
 
 ENTITY additive_manufacturing_setup
@@ -3189,7 +3174,7 @@ END_ENTITY; -- 10303-1835: additive_manufacturing_part_and_build_information_mim
 ENTITY additive_type_operation
   SUBTYPE OF (machining_operation);
   WHERE
-    WR1:  (SELF.description IN ['oned','twod']);
+    WR1: SELF.description IN [ 'oned', 'twod' ];
 END_ENTITY; -- 10303-238: model_based_integrated_manufacturing_schema
 
 ENTITY address;
@@ -3643,6 +3628,11 @@ ENTITY applied_approval_assignment
     items : SET [1:?] OF approval_item;
 END_ENTITY; -- 10303-1012: approval_mim
 
+ENTITY applied_approval_scope
+  SUBTYPE OF (approval_assignment);
+    items : SET [1:?] OF approval_scope_item;
+END_ENTITY; -- 10303-238: model_based_integrated_manufacturing_schema
+
 ENTITY applied_area
   SUBTYPE OF (shape_aspect);
   WHERE
@@ -3752,6 +3742,11 @@ ENTITY applied_date_assignment
   SUBTYPE OF (date_assignment);
     items : SET [1:?] OF date_item;
 END_ENTITY; -- 10303-1014: date_time_assignment_mim
+
+ENTITY applied_directed_action_assignment
+  SUBTYPE OF (directed_action_assignment);
+    items : SET [1:?] OF action_request_item;
+END_ENTITY; -- 10303-1043: work_order_mim
 
 ENTITY applied_document_reference
   SUBTYPE OF (document_reference);
@@ -4221,6 +4216,52 @@ ENTITY banded_matrix
     WR3: member_of(default_entry, factor1(SELF\linearized_table_function.
               source.range));
 END_ENTITY; -- 10303-50: mathematical_functions_schema
+
+ENTITY basic_round_hole
+  SUBTYPE OF (round_hole);
+    depth              : OPTIONAL positive_length_measure_with_unit;
+    depth_tolerance    : OPTIONAL tolerance_value;
+    diameter           : positive_length_measure_with_unit;
+    diameter_tolerance : OPTIONAL tolerance_value_or_limits_and_fits;
+    placement          : shape_representation;
+    through_hole       : BOOLEAN;
+  WHERE
+    WR1: SIZEOF(placement\representation.items) = 1;
+    WR2: SIZEOF(QUERY (ri <* placement\representation.items| (
+              'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.AXIS2_PLACEMENT_3D'
+               IN TYPEOF(ri)))) = 1;
+    WR3: 
+              'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.LENGTH_MEASURE_WITH_UNIT'
+               IN TYPEOF(depth_tolerance\tolerance_value.lower_bound);
+    WR4: 
+              'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.LENGTH_MEASURE_WITH_UNIT'
+               IN TYPEOF(depth_tolerance\tolerance_value.upper_bound);
+    WR5: NOT ('MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.TOLERANCE_VALUE'
+               IN TYPEOF(diameter_tolerance)) OR (
+              'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.LENGTH_MEASURE_WITH_UNIT'
+               IN TYPEOF(diameter_tolerance\tolerance_value.lower_bound));
+    WR6: NOT ('MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.TOLERANCE_VALUE'
+               IN TYPEOF(diameter_tolerance)) OR (
+              'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.LENGTH_MEASURE_WITH_UNIT'
+               IN TYPEOF(diameter_tolerance\tolerance_value.upper_bound));
+    WR7: NOT (through_hole AND EXISTS(depth));
+END_ENTITY; -- 10303-238: model_based_integrated_manufacturing_schema
+
+ENTITY basic_round_hole_occurrence
+  SUBTYPE OF (shape_aspect_occurrence);
+    SELF\shape_aspect_occurrence.definition : basic_round_hole;
+  WHERE
+    WR1: 'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.PRODUCT_DEFINITION' 
+              IN TYPEOF(SELF\shape_aspect.of_shape\property_definition.
+              definition);
+    WR2: SELF\shape_aspect.product_definitional = TRUE;
+END_ENTITY; -- 10303-238: model_based_integrated_manufacturing_schema
+
+ENTITY basic_round_hole_occurrence_in_assembly
+  SUBTYPE OF (basic_round_hole_occurrence);
+    modified_components : LIST [1:?] OF UNIQUE 
+                             multi_level_reference_designator;
+END_ENTITY; -- 10303-238: model_based_integrated_manufacturing_schema
 
 ENTITY basic_sparse_matrix
   SUBTYPE OF (explicit_table_function, multiple_arity_generic_expression);
@@ -5848,10 +5889,6 @@ ENTITY concurrent_action_method
   SUBTYPE OF (action_method_relationship);
 END_ENTITY; -- 10303-49: method_definition_schema
 
-ENTITY condition
-  SUBTYPE OF (action_method);
-END_ENTITY; -- 10303-41: effectivity_schema
-
 ENTITY conditional_concept_feature
   SUBTYPE OF (product_concept_feature);
     condition : concept_feature_relationship_with_condition;
@@ -5990,6 +6027,13 @@ ENTITY connected_edge_set
     ces_edges : SET [1:?] OF edge;
 END_ENTITY; -- 10303-42: topology_schema
 
+ENTITY connected_edge_sub_set
+  SUBTYPE OF (connected_edge_set);
+    parent_edge_set : connected_edge_set;
+  WHERE
+    WR1: SELF :<>: parent_edge_set;
+END_ENTITY; -- 10303-238: model_based_integrated_manufacturing_schema
+
 ENTITY connected_face_set
   SUPERTYPE OF (ONEOF(closed_shell, open_shell))
   SUBTYPE OF (topological_representation_item);
@@ -5999,6 +6043,8 @@ END_ENTITY; -- 10303-42: topology_schema
 ENTITY connected_face_sub_set
   SUBTYPE OF (connected_face_set);
     parent_face_set : connected_face_set;
+  WHERE
+    WR1: SELF :<>: parent_face_set;
 END_ENTITY; -- 10303-42: topology_schema
 
 ENTITY connected_volume_set
@@ -6009,6 +6055,8 @@ END_ENTITY; -- 10303-42: topology_schema
 ENTITY connected_volume_sub_set
   SUBTYPE OF (connected_volume_set);
     parent_volume_set : connected_volume_set;
+  WHERE
+    WR1: SELF :<>: parent_volume_set;
 END_ENTITY; -- 10303-42: topology_schema
 
 ENTITY connection_zone_interface_plane_relationship
@@ -6333,7 +6381,7 @@ ENTITY counterdrill_hole_definition
     counterdrill_angle              : 
                                          positive_plane_angle_measure_with_unit
                                          ;
-    counterdrill_angle_tolerance    : tolerance_value;
+    counterdrill_angle_tolerance    : OPTIONAL tolerance_value;
     drilled_hole_depth              : OPTIONAL 
                                          positive_length_measure_with_unit;
     drilled_hole_depth_tolerance    : OPTIONAL tolerance_value;
@@ -6393,7 +6441,7 @@ ENTITY countersink_hole_definition
     countersink_angle               : 
                                          positive_plane_angle_measure_with_unit
                                          ;
-    countersink_angle_tolerance     : tolerance_value;
+    countersink_angle_tolerance     : OPTIONAL tolerance_value;
     countersink_diameter            : positive_length_measure_with_unit;
     countersink_diameter_tolerance  : OPTIONAL 
                                          tolerance_value_or_limits_and_fits
@@ -6526,7 +6574,7 @@ ENTITY curve_bounded_surface
               'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.OUTER_BOUNDARY_CURVE'
                IN TYPEOF(temp)))) <= 1;
     WR4: SIZEOF(QUERY (temp <* boundaries| (temp\composite_curve_on_surface
-              .basis_surface[1] <> SELF.basis_surface))) = 0;
+              .basis_surface[1] <> basis_surface))) = 0;
 END_ENTITY; -- 10303-42: geometry_schema
 
 ENTITY curve_dimension
@@ -7991,8 +8039,7 @@ ENTITY eccentric_conical_volume
 END_ENTITY; -- 10303-42: geometry_schema
 
 ENTITY edge
-  SUPERTYPE OF (ONEOF(edge_curve, edge_with_length, oriented_edge, subedge)
-      )
+  SUPERTYPE OF (ONEOF(edge_curve, oriented_edge, subedge))
   SUBTYPE OF (topological_representation_item);
     edge_start : vertex;
     edge_end   : vertex;
@@ -8168,11 +8215,6 @@ ENTITY edge_round
               used_representation.name = 'second face shape'))) <= 1))) = 0
               ;
 END_ENTITY; -- 10303-113: machining_feature_schema
-
-ENTITY edge_with_length
-  SUBTYPE OF (edge);
-    edge_length : positive_length_measure;
-END_ENTITY; -- 10303-42: topology_schema
 
 ENTITY effectivity
   SUPERTYPE OF (ONEOF(serial_numbered_effectivity, dated_effectivity, 
@@ -8561,12 +8603,6 @@ ENTITY expression_representation_item
   SUBTYPE OF (representation_item, generic_expression);
 END_ENTITY; -- 10303-238: model_based_integrated_manufacturing_schema
 
-ENTITY extended_type_operation
-  SUBTYPE OF (machining_operation);
-  WHERE
-    WR1:  EXISTS (self.description);
-END_ENTITY; -- 10303-238: model_based_integrated_manufacturing_schema
-
 ENTITY extended_tuple_space
   SUBTYPE OF (maths_space, generic_literal);
     base     : tuple_space;
@@ -8576,6 +8612,12 @@ ENTITY extended_tuple_space
     WR2: no_cyclic_space_reference(SELF, []);
     WR3: extender <> the_empty_space;
 END_ENTITY; -- 10303-50: mathematical_functions_schema
+
+ENTITY extended_type_operation
+  SUBTYPE OF (machining_operation);
+  WHERE
+    WR1: EXISTS(SELF.description);
+END_ENTITY; -- 10303-238: model_based_integrated_manufacturing_schema
 
 ENTITY extension
   SUBTYPE OF (derived_shape_aspect);
@@ -11797,6 +11839,7 @@ ENTITY locally_refined_spline_curve
   WHERE
     WR1: SIZEOF(b_splines) = SIZEOF(control_points_list);
     WR2: SIZEOF(scaling_factors) = SIZEOF(control_points_list);
+    WR3: constraints_scaling(scaling_factors);
 END_ENTITY; -- 10303-42: geometry_schema
 
 ENTITY locally_refined_spline_surface
@@ -11817,7 +11860,7 @@ ENTITY locally_refined_spline_surface
     WR1: SIZEOF(u_b_splines) = SIZEOF(control_points_list);
     WR2: SIZEOF(v_b_splines) = SIZEOF(control_points_list);
     WR3: SIZEOF(scaling_factors) = SIZEOF(control_points_list);
-    WR4: constraints_scaling(SELF.scaling_factors);
+    WR4: constraints_scaling(scaling_factors);
 END_ENTITY; -- 10303-42: geometry_schema
 
 ENTITY locally_refined_spline_volume
@@ -11838,7 +11881,7 @@ ENTITY locally_refined_spline_volume
     WR2: SIZEOF(v_b_splines) = SIZEOF(control_points_list);
     WR3: SIZEOF(w_b_splines) = SIZEOF(control_points_list);
     WR4: SIZEOF(scaling_factors) = SIZEOF(control_points_list);
-    WR5: constraints_scaling(SELF.scaling_factors);
+    WR5: constraints_scaling(scaling_factors);
 END_ENTITY; -- 10303-42: geometry_schema
 
 ENTITY location_shape_representation
@@ -12301,7 +12344,7 @@ ENTITY machining_functions
               verify_optional_action_property(SELF, 'follow rest')) AND 
               verify_enumeration_action_property(SELF, 'follow rest', [ 
               'follow rest used', 'follow rest not used' ]);
-    WR3: NOT (SELF.description IN [ 'milling', 'turning' ]) OR (((((((
+    WR3: NOT (SELF.description IN [ 'milling', 'turning' ]) OR (((((
               verify_optional_action_property(SELF, 'axis clamping') AND (0
                = SIZEOF(QUERY (prop <* get_action_property(SELF, 
               'axis clamping')| NOT (0 < SIZEOF(QUERY (prep <* USEDIN(prop,
@@ -12326,21 +12369,25 @@ ENTITY machining_functions
               'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_PROCESS_MODEL_RELATIONSHIP'
                ], [ 
               'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_PROCESS_MODEL'
-               ])) AND verify_optional_action_property(SELF, 
-              'other functions')) AND (0 = SIZEOF(QUERY (prop <* 
-              get_action_property(SELF, 'other functions')| NOT (0 < SIZEOF
-              (QUERY (prep <* USEDIN(prop, 
-              'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.' + 
-              'ACTION_PROPERTY_REPRESENTATION.PROPERTY')| (1 = SIZEOF(QUERY
-               (it <* prep.representation.items| (
-              'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.COMPOUND_REPRESENTATION_ITEM'
-               IN TYPEOF(it)) AND (
-              'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.SET_REPRESENTATION_ITEM'
-               IN TYPEOF(it.item_element)))))))))));
+               ]);
+    WR4: verify_optional_action_property(SELF, 'other functions');
 END_ENTITY; -- 10303-238: model_based_integrated_manufacturing_schema
 
 ENTITY machining_functions_relationship
   SUBTYPE OF (action_method_relationship);
+END_ENTITY; -- 10303-238: model_based_integrated_manufacturing_schema
+
+ENTITY machining_machine_usage
+  SUBTYPE OF (action_method);
+  WHERE
+    WR1: (1 >= SIZEOF(QUERY (act <* USEDIN(SELF, 
+              'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.ACTION.CHOSEN_METHOD'
+              )| (act.name = 'machine usage')))) AND (0 = SIZEOF(QUERY (act
+               <* USEDIN(SELF, 
+              'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.ACTION.CHOSEN_METHOD'
+              )| (act.name = 'machine usage') AND NOT (
+              'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.PRODUCT_DEFINITION_PROCESS'
+               IN TYPEOF(act)))));
 END_ENTITY; -- 10303-238: model_based_integrated_manufacturing_schema
 
 ENTITY machining_nc_function
@@ -13203,10 +13250,11 @@ ENTITY machining_toolpath_speed_profile_representation
 END_ENTITY; -- 10303-238: model_based_integrated_manufacturing_schema
 
 ENTITY machining_touch_probing
-  SUBTYPE OF (machining_process_executable, machining_operation);
+  SUBTYPE OF (machining_operation);
   WHERE
-    WR1: SELF.description IN [ 'tool length probing', 'tool radius probing'
-              , 'workpiece probing', 'workpiece complete probing' ];
+    WR1: SELF.description IN [ 'feature complete probing', 
+              'tool length probing', 'tool radius probing', 
+              'workpiece probing', 'workpiece complete probing' ];
     WR2: verify_required_action_property(SELF, 'security plane') AND 
               verify_rep_item_for_action_property(SELF, 'security plane', [
                
@@ -13279,6 +13327,10 @@ ENTITY machining_touch_probing
               )| (
               'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_TOOL' 
               IN TYPEOF(mt)))));
+END_ENTITY; -- 10303-238: model_based_integrated_manufacturing_schema
+
+ENTITY machining_usage_relationship
+  SUBTYPE OF (action_method_relationship);
 END_ENTITY; -- 10303-238: model_based_integrated_manufacturing_schema
 
 ENTITY machining_workingstep
@@ -13922,6 +13974,10 @@ ENTITY maths_tuple_literal
   SUBTYPE OF (generic_literal);
     lit_value : LIST OF maths_value;
 END_ENTITY; -- 10303-50: mathematical_functions_schema
+
+ENTITY maths_value_precision_qualifier;
+    precision_value : maths_value;
+END_ENTITY; -- 10303-45: qualified_measure_schema
 
 ENTITY maths_variable
   SUBTYPE OF (generic_variable);
@@ -18699,7 +18755,7 @@ ENTITY rational_locally_refined_spline_curve
   WHERE
     WR1: SIZEOF(weights_data) = SIZEOF(SELF\locally_refined_spline_curve.
               control_points_list);
-    WR2: weights_positive(SELF.weights_data);
+    WR2: weights_positive(weights_data);
 END_ENTITY; -- 10303-42: geometry_schema
 
 ENTITY rational_locally_refined_spline_surface
@@ -18708,7 +18764,7 @@ ENTITY rational_locally_refined_spline_surface
   WHERE
     WR1: SIZEOF(weights_data) = SIZEOF(SELF\locally_refined_spline_surface.
               control_points_list);
-    WR2: weights_positive(SELF.weights_data);
+    WR2: weights_positive(weights_data);
 END_ENTITY; -- 10303-42: geometry_schema
 
 ENTITY rational_locally_refined_spline_volume
@@ -18717,7 +18773,7 @@ ENTITY rational_locally_refined_spline_volume
   WHERE
     WR1: SIZEOF(weights_data) = SIZEOF(SELF\locally_refined_spline_volume.
               control_points_list);
-    WR2: weights_positive(SELF.weights_data);
+    WR2: weights_positive(weights_data);
 END_ENTITY; -- 10303-42: geometry_schema
 
 ENTITY rational_representation_item
@@ -19267,6 +19323,14 @@ ENTITY representation_relationship_with_transformation
               context_of_items) AND item_in_context(transformation_operator
               \item_defined_transformation.transform_item_2, SELF\
               representation_relationship.rep_2.context_of_items);
+    WR3: NOT (
+              'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.ITEM_DEFINED_TRANSFORMATION'
+               IN TYPEOF(transformation_operator)) OR (SELF\
+              representation_relationship.rep_1 IN using_representations(
+              transformation_operator\item_defined_transformation.
+              transform_item_1)) AND (SELF\representation_relationship.
+              rep_2 IN using_representations(transformation_operator\
+              item_defined_transformation.transform_item_2));
 END_ENTITY; -- 10303-43: representation_schema
 
 ENTITY requirement_assigned_object
@@ -19718,11 +19782,15 @@ ENTITY rotation_about_direction
 END_ENTITY; -- 10303-105: kinematic_state_schema
 
 ENTITY round_hole
+  SUPERTYPE OF (ONEOF(basic_round_hole, explicit_round_hole))
   SUBTYPE OF (feature_definition);
   WHERE
-    WR1: ('MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.EXPLICIT_ROUND_HOLE'
-               IN TYPEOF(SELF)) XOR (SIZEOF(QUERY (pds <* QUERY (pd <* 
-              USEDIN(SELF, 
+    WR1: (SIZEOF([ 
+              'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.EXPLICIT_ROUND_HOLE'
+              , 
+              'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.BASIC_ROUND_HOLE'
+               ] * TYPEOF(SELF)) = 1) XOR (SIZEOF(QUERY (pds <* QUERY (pd 
+              <* USEDIN(SELF, 
               'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.PROPERTY_DEFINITION.DEFINITION'
               )| (
               'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.PRODUCT_DEFINITION_SHAPE'
@@ -19737,9 +19805,12 @@ ENTITY round_hole
               'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.CIRCULAR_CLOSED_PROFILE'
                IN TYPEOF(sdr.relating_shape_aspect)) AND (sdr.name = 
               'diameter'))) = 1))) = 1))) = 0);
-    WR2: ('MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.EXPLICIT_ROUND_HOLE'
-               IN TYPEOF(SELF)) XOR (SIZEOF(QUERY (pds <* QUERY (pd <* 
-              USEDIN(SELF, 
+    WR2: (SIZEOF([ 
+              'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.EXPLICIT_ROUND_HOLE'
+              , 
+              'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.BASIC_ROUND_HOLE'
+               ] * TYPEOF(SELF)) = 1) XOR (SIZEOF(QUERY (pds <* QUERY (pd 
+              <* USEDIN(SELF, 
               'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.PROPERTY_DEFINITION.DEFINITION'
               )| (
               'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.PRODUCT_DEFINITION_SHAPE'
@@ -19755,9 +19826,12 @@ ENTITY round_hole
                IN TYPEOF(sdr.relating_shape_aspect)) AND (sdr.name = 
               'hole depth')) AND (sdr.relating_shape_aspect.description = 
               'linear'))) = 1))) = 1))) = 0);
-    WR3: ('MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.EXPLICIT_ROUND_HOLE'
-               IN TYPEOF(SELF)) XOR (SIZEOF(QUERY (pds <* QUERY (pd <* 
-              USEDIN(SELF, 
+    WR3: (SIZEOF([ 
+              'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.EXPLICIT_ROUND_HOLE'
+              , 
+              'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.BASIC_ROUND_HOLE'
+               ] * TYPEOF(SELF)) = 1) XOR (SIZEOF(QUERY (pds <* QUERY (pd 
+              <* USEDIN(SELF, 
               'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.PROPERTY_DEFINITION.DEFINITION'
               )| (
               'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.PRODUCT_DEFINITION_SHAPE'
@@ -19774,9 +19848,12 @@ ENTITY round_hole
               'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.ROUND_HOLE' IN 
               TYPEOF(fcr.related_shape_aspect.of_shape.definition)))) = 1))
               ) = 1))) = 0);
-    WR4: ('MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.EXPLICIT_ROUND_HOLE'
-               IN TYPEOF(SELF)) XOR (SIZEOF(QUERY (pds <* QUERY (pd <* 
-              USEDIN(SELF, 
+    WR4: (SIZEOF([ 
+              'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.EXPLICIT_ROUND_HOLE'
+              , 
+              'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.BASIC_ROUND_HOLE'
+               ] * TYPEOF(SELF)) = 1) XOR (SIZEOF(QUERY (pds <* QUERY (pd 
+              <* USEDIN(SELF, 
               'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.PROPERTY_DEFINITION.DEFINITION'
               )| (
               'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.PRODUCT_DEFINITION_SHAPE'
@@ -19793,8 +19870,11 @@ ENTITY round_hole
               'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.ROUND_HOLE' IN 
               TYPEOF(fcr.related_shape_aspect.of_shape.definition)))) = 1))
               ) <= 1))) = 0);
-    WR5: ('MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.EXPLICIT_ROUND_HOLE'
-               IN TYPEOF(SELF)) XOR (SIZEOF(QUERY (pdr <* 
+    WR5: (SIZEOF([ 
+              'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.EXPLICIT_ROUND_HOLE'
+              , 
+              'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.BASIC_ROUND_HOLE'
+               ] * TYPEOF(SELF)) = 1) XOR (SIZEOF(QUERY (pdr <* 
               get_property_definition_representations(SELF)| (
               'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.SHAPE_REPRESENTATION_WITH_PARAMETERS'
                IN TYPEOF(pdr.used_representation)))) = 1);
@@ -21479,6 +21559,8 @@ END_ENTITY; -- 10303-105: kinematic_structure_schema
 ENTITY subedge
   SUBTYPE OF (edge);
     parent_edge : edge;
+  WHERE
+    WR1: SELF :<>: parent_edge;
 END_ENTITY; -- 10303-42: topology_schema
 
 ENTITY subface
@@ -21487,7 +21569,19 @@ ENTITY subface
   WHERE
     WR1: NOT mixed_loop_type_set((list_to_set(list_face_loops(SELF)) + 
               list_to_set(list_face_loops(parent_face))));
+    WR2: SELF :<>: parent_face;
 END_ENTITY; -- 10303-42: topology_schema
+
+ENTITY subpath
+  SUBTYPE OF (open_path);
+    parent_path : path;
+  WHERE
+    WR1: SELF :<>: parent_path;
+    WR2: NOT (('MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.EDGE_LOOP' IN 
+              TYPEOF(SELF)) AND (
+              'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.OPEN_PATH' IN 
+              TYPEOF(parent_path)));
+END_ENTITY; -- 10303-238: model_based_integrated_manufacturing_schema
 
 ENTITY substring_expression
   SUBTYPE OF (string_expression, multiple_arity_generic_expression);
@@ -23688,14 +23782,6 @@ ENTITY vertex_loop
     loop_vertex : vertex;
 END_ENTITY; -- 10303-42: topology_schema
 
-ENTITY vertex_on_edge
-  SUBTYPE OF (vertex);
-    parent_edge         : edge_with_length;
-    distance_from_start : positive_length_measure;
-  WHERE
-    WR1: distance_from_start < parent_edge.edge_length;
-END_ENTITY; -- 10303-42: topology_schema
-
 ENTITY vertex_point
   SUBTYPE OF (vertex, geometric_representation_item);
     vertex_geometry : point;
@@ -24686,6 +24772,7 @@ RULE validate_dependently_instantiable_entity_data_types FOR
    effectivity_context_role,
    event_occurrence_role,
    founded_item,
+   functionally_defined_transformation,
    one_direction_repeat_factor,
    product_context,
    product_definition_context_role,
@@ -24711,6 +24798,7 @@ RULE validate_dependently_instantiable_entity_data_types FOR
       all_instances := all_instances + effectivity_context_role;
       all_instances := all_instances + event_occurrence_role;
       all_instances := all_instances + founded_item;
+      all_instances := all_instances + functionally_defined_transformation;
       all_instances := all_instances + one_direction_repeat_factor;
       all_instances := all_instances + product_context;
       all_instances := all_instances + product_definition_context_role;
@@ -24797,30 +24885,6 @@ FUNCTION acyclic (
     END_IF;
     RETURN (result);
 END_FUNCTION; -- 13584-20: iso13584_generic_expressions_schema
-
-FUNCTION acyclic_action_directive_relationship (
-    relation          : action_directive_relationship;
-    relatives         : SET [1:?] OF action_directive;
-    specific_relation : STRING 
-    ) : BOOLEAN;
-  LOCAL
-    x : SET OF action_directive_relationship;
-  END_LOCAL;
-    IF relation.relating IN relatives THEN
-      RETURN (FALSE);
-    END_IF;
-    x := QUERY (adr <* bag_to_set(USEDIN(relation.relating, 
-      'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.' + 
-      'ACTION_DIRECTIVE_RELATIONSHIP.' + 'RELATED'))| specific_relation IN 
-      TYPEOF(adr));
-    REPEAT i := 1 TO HIINDEX(x);
-      IF NOT acyclic_action_directive_relationship(x[i], (relatives + 
-        relation.relating), specific_relation) THEN
-        RETURN (FALSE);
-      END_IF;
-    END_REPEAT;
-    RETURN (TRUE);
-END_FUNCTION; -- 10303-41: action_schema
 
 FUNCTION acyclic_classification_assignment_relationship (
     relation          : classification_assignment_relationship;
@@ -32351,9 +32415,6 @@ FUNCTION md_valid_content_in_geometric_set_for_placeholder (
       pass := FALSE;
     END_IF;
     IF SIZEOF(texts) > 1 THEN
-      pass := FALSE;
-    END_IF;
-    IF SIZEOF(points) < 1 THEN
       pass := FALSE;
     END_IF;
     IF SIZEOF(placements) <> 1 THEN
