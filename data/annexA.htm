@@ -3645,11 +3645,6 @@ ENTITY applied_approval_assignment
     items : SET [1:?] OF approval_item;
 END_ENTITY; -- 10303-1012: approval_mim
 
-ENTITY applied_approval_scope
-  SUBTYPE OF (approval_assignment);
-    items : SET [1:?] OF approval_scope_item;
-END_ENTITY; -- 10303-238: model_based_integrated_manufacturing_schema
-
 ENTITY applied_area
   SUBTYPE OF (shape_aspect);
   WHERE
