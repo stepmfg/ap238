@@ -819,8 +819,10 @@ END_ENTITY;
 
 ENTITY Operation
   ABSTRACT SUPERTYPE OF (ONEOF (Machining_operation, Rapid_movement, Touch_probing, Extended_operation));
-  its_toolpath:               OPTIONAL Toolpath_list;
-  its_tool_direction:         OPTIONAL Tool_direction;
+  -- 10303-238: its_id moved to supertype to cover all operations
+  its_id:		identifier;
+  its_toolpath:		OPTIONAL Toolpath_list;
+  its_tool_direction:	OPTIONAL Tool_direction;
 
 INVERSE
   -- 10303-238: Additional CAM properties for operations
@@ -857,7 +859,8 @@ END_ENTITY;
 ENTITY Machining_operation
   ABSTRACT SUPERTYPE
   SUBTYPE OF (Operation);
-  its_id:                 identifier;
+  -- 10303-238: its_id moved to supertype to cover all operations
+  -- its_id:                 identifier;
   retract_plane:          OPTIONAL Length_data_element;
   start_point:        	  OPTIONAL cartesian_point;
   its_tool:               Machining_tool;

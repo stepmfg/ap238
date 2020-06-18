@@ -664,6 +664,7 @@ additional information requirements beyond those specified by ISO
 
 <UL>
 <LI><A href="#ao-machine_functions">Machine_functions</A>;</LI>
+<LI><A href="#ao-machining_operation">Machining_operation</A>;</LI>
 <LI><A href="#ao-operation">Operation</A>.</LI>
 </UL>
 
@@ -5072,18 +5073,30 @@ the kinematic links of the machine.</P>
 <H3 ID="ao-machining_operation">4.3.115 Machining_operation</H3>
 </DIV>
 
-<P>The Machining_operation application object shall be as defined by ISO 14649-10.</P>
+<P>The Machining_operation application object shall be as defined by
+ISO 14649-10.  This document adds the following information
+requirements.</P>
+
+<P>The data associated with an Machining_operation are the following:</P>
+
+<UL>
+<LI>all of the data defined by ISO 14649-10, as modified below for the
+its_id attribute.</LI>
+</UL>
+
 
 <P CLASS="note">
 <SPAN>NOTE</SPAN> The ISO 14649 EXPRESS description for
 Machining_operation is shown below.  Refer to ISO 14649-10 for the
 complete definition and explanation of usage.</P>
 
+
 <PRE CLASS="note">
 ENTITY Machining_operation
   ABSTRACT SUPERTYPE
   SUBTYPE OF (Operation);
-  its_id:                 identifier;
+  -- 10303-238: its_id moved to supertype to cover all operations
+  -- its_id:                 identifier;
   retract_plane:          OPTIONAL Length_data_element;
   start_point:            OPTIONAL cartesian_point;
   its_tool:               Machining_tool; 
@@ -5091,6 +5104,11 @@ ENTITY Machining_operation
   its_machine_functions:  Machine_functions;
 END_ENTITY;
 </PRE>
+
+<H4 ID="ao-machining_operation-its_id">4.3.193.1 its_id</H4>
+
+<P>The its_id parameter defined by ISO 14649-10 shall be replaced by
+the its_id parameter defined by the Operation application object.
 
 
 <!-- ============================== -->
@@ -5725,7 +5743,8 @@ requirements.</P>
 
 <UL>
 <LI>all of the data defined by ISO 14649-10;</LI>
-<LI>cam_properties.</LI>
+<LI>cam_properties;</LI>
+<LI>its_id.</LI>
 </UL>
 
 <P CLASS="note">
@@ -5736,8 +5755,10 @@ the original definition and explanation of usage.</P>
 <PRE CLASS="note">
 ENTITY Operation
   ABSTRACT SUPERTYPE OF (ONEOF (Machining_operation, Rapid_movement, Touch_probing, Extended_operation));
-  its_toolpath:               OPTIONAL Toolpath_list;
-  its_tool_direction:         OPTIONAL Tool_direction;
+  -- 10303-238: its_id moved to supertype to cover all operations
+  its_id:		identifier;
+  its_toolpath:		OPTIONAL Toolpath_list;
+  its_tool_direction:	OPTIONAL Tool_direction;
 
 INVERSE
   -- 10303-238: Additional CAM properties for operations
@@ -5751,6 +5772,10 @@ END_ENTITY;
 <P>The cam_properties shall be represented by the set of Cam_property
 application objects with an described_element parameter that contains
 the Operation.</P>
+
+<H4 ID="ao-operation-its_id">4.3.132.1 its_id</H4>
+
+<P>The its_id shall be string that identifies the operation.</P>
 
 
 
