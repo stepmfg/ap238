@@ -12544,10 +12544,6 @@ ENTITY machining_process_executable
               , 
               'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_NC_FUNCTION'
               , 
-              'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_RAPID_MOVEMENT'
-              , 
-              'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_TOUCH_PROBING'
-              , 
               'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_WORKINGSTEP'
               , 
               'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_WORKPLAN'
@@ -12683,13 +12679,7 @@ ENTITY machining_project_workpiece_relationship
 END_ENTITY; -- 10303-238: model_based_integrated_manufacturing_schema
 
 ENTITY machining_rapid_movement
-  SUBTYPE OF (machining_process_executable, machining_operation);
-  WHERE
-    WR1: verify_required_action_property(SELF, 'security plane') AND 
-              verify_rep_item_for_action_property(SELF, 'security plane', [
-               
-              'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.ELEMENTARY_SURFACE'
-               ]);
+  SUBTYPE OF (machining_operation);
 END_ENTITY; -- 10303-238: model_based_integrated_manufacturing_schema
 
 ENTITY machining_setup

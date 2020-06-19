@@ -323,8 +323,6 @@ ENTITY machining_process_executable
   WR1:  NOT (0 = SIZEOF (TYPEOF (SELF) *
             ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_FEATURE_PROCESS',
              'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_NC_FUNCTION',
-             'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_RAPID_MOVEMENT',
-             'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_TOUCH_PROBING',
              'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_WORKINGSTEP',
              'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_WORKPLAN']
         )) OR
@@ -942,11 +940,7 @@ END_ENTITY;
 
 
 ENTITY machining_rapid_movement
-  SUBTYPE OF (machining_process_executable, machining_operation);
-  WHERE
-  WR1:  ((verify_required_action_property       (SELF, 'security plane')) AND
-         (verify_rep_item_for_action_property   (SELF, 'security plane',
-          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.ELEMENTARY_SURFACE'])));
+  SUBTYPE OF (machining_operation);
 END_ENTITY;
 
 

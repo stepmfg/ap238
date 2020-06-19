@@ -576,6 +576,7 @@ additional information requirements beyond those specified by ISO
 <LI><A href="#ao-machining_workingstep">Machining_workingstep</A>;</LI>
 <LI><A href="#ao-nc_constant">NC_constant</A>;</LI>
 <LI><A href="#ao-nc_variable">NC_variable</A>;</LI>
+<LI><A href="#ao-rapid_movement">Rapid_movement</A>;</LI>
 <LI><A href="#ao-setup">Setup</A>;</LI>
 <LI><A href="#ao-touch_probe">Touch_probe</A>;</LI>
 <LI><A href="#ao-touch_probing">Touch_probing</A>;</LI>
@@ -5105,7 +5106,7 @@ ENTITY Machining_operation
 END_ENTITY;
 </PRE>
 
-<H4 ID="ao-machining_operation-its_id">4.3.193.1 its_id</H4>
+<H4 ID="ao-machining_operation-its_id">4.3.115.1 its_id</H4>
 
 <P>The its_id parameter defined by ISO 14649-10 shall be replaced by
 the its_id parameter defined by the Operation application object.
@@ -5773,7 +5774,7 @@ END_ENTITY;
 application objects with an described_element parameter that contains
 the Operation.</P>
 
-<H4 ID="ao-operation-its_id">4.3.132.1 its_id</H4>
+<H4 ID="ao-operation-its_id">4.3.132.2 its_id</H4>
 
 <P>The its_id shall be string that identifies the operation.</P>
 
@@ -6224,17 +6225,22 @@ END_ENTITY;
 <H3 ID="ao-rapid_movement">4.3.152 Rapid_movement</H3>
 </DIV>
 
-<P>The Rapid_movement application object shall be as defined by ISO 14649-10.</P>
+<P>The Rapid_movement application object shall be as defined by ISO
+14649-10.  This document adds the information requirement that
+Rapid_movement shall only be used as a type of Operation and shall not
+be used as a type of Workingstep.</P>
 
 <P CLASS="note">
-<SPAN>NOTE</SPAN> The ISO 14649 EXPRESS description for Rapid_movement
-is shown below.  Refer to ISO 14649-10 for the complete definition and
-explanation of usage.</P>
+<SPAN>NOTE</SPAN> The ISO 14649 EXPRESS description for
+Rapid_movement, as modified by this document, is shown below.  Refer
+to ISO 14649-10 for the complete definition and explanation of
+usage.</P>
 
 <PRE CLASS="note">
 ENTITY Rapid_movement
   SUPERTYPE OF (Return_home)
-  SUBTYPE OF (Workingstep, Operation);
+  -- SUBTYPE OF (Workingstep, Operation);
+  SUBTYPE OF (Operation);  -- SIMPLIFIED BY 10303-238
 END_ENTITY;
 </PRE>
 
@@ -8312,13 +8318,15 @@ END_ENTITY;
 <P>The Workingstep application object shall be as defined by ISO 14649-10.</P>
 
 <P CLASS="note">
-<SPAN>NOTE</SPAN> The ISO 14649 EXPRESS description for Workingstep is
-shown below.  Refer to ISO 14649-10 for the complete definition and
-explanation of usage.</P>
+<SPAN>NOTE</SPAN> The ISO 14649 EXPRESS description for Workingstep,
+as modified by this document, is shown below.  Refer to ISO 14649-10
+for the complete definition and explanation of usage.</P>
 
 <PRE CLASS="note">
 ENTITY Workingstep
-  ABSTRACT SUPERTYPE OF (ONEOF (Machining_workingstep, Rapid_movement, Touch_probing))
+  -- SIMPLIFIED BY 10303-238
+  -- ABSTRACT SUPERTYPE OF (ONEOF (Machining_workingstep, Rapid_movement, Touch_probing))
+  ABSTRACT SUPERTYPE
   SUBTYPE OF (Executable);
   its_secplane:         elementary_surface;
 END_ENTITY;

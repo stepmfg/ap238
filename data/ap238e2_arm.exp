@@ -476,7 +476,9 @@ END_ENTITY;
 (* ************************************************************ *)
 
 ENTITY Workingstep
-  ABSTRACT SUPERTYPE OF (ONEOF (Machining_workingstep, Rapid_movement, Touch_probing))
+  -- SIMPLIFIED BY 10303-238
+  -- ABSTRACT SUPERTYPE OF (ONEOF (Machining_workingstep, Rapid_movement, Touch_probing))
+  ABSTRACT SUPERTYPE
   SUBTYPE OF (Executable);
   its_secplane :              elementary_surface;
 END_ENTITY;
@@ -503,7 +505,8 @@ END_ENTITY;
 
 ENTITY Rapid_movement
   SUPERTYPE OF (Return_home)
-  SUBTYPE OF (Workingstep, Operation);
+  -- SUBTYPE OF (Workingstep, Operation);
+  SUBTYPE OF (Operation);  -- SIMPLIFIED BY 10303-238
 END_ENTITY;
 
 ENTITY Return_home

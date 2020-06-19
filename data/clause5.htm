@@ -3443,8 +3443,7 @@ action_method
 
 <tr><th>Reference path:</th>
 <td class="path">machining_rapid_movement &lt;=
-[ machining_operation &lt;= ]
-[ machining_process_executable &lt;= ]
+machining_operation &lt;=
 action_method
 </td>
 </tr>
@@ -3470,8 +3469,7 @@ action_method
 
 <tr><th>Reference path:</th>
 <td class="path">machining_rapid_movement &lt;=
-[ machining_operation &lt;= ]
-[ machining_process_executable &lt;= ]
+machining_operation &lt;=
 action_method
 { action_method.description = 'return home' }
 </td>
@@ -4529,33 +4527,18 @@ machining_process_executable
 </DIV>
 <H4 ID="map-workingstep">5.1.6.39 WORKINGSTEP</H4>
 </DIV>
-<div class="mapnote">
-<p>#1: if workingstep is a</p>
-<p>     machining_workingstep or</p>
-<p>     turning_workingstep</p>
-<p>#2: if workingstep is a rapid_movement</p>
-<p>#3: if workingstep is a touch_probing</p>
-</div>
 
 <table class="map">
 <tr><th>AIM element:</th>
-<td>#1: (machining_workingstep)
-#2: (machining_rapid_movement)
-#3: (machining_touch_probing)</td>
+<td>machining_workingstep</td>
 </tr>
 
 <tr><th>Source:</th>
-<td>10303-238
-10303-238
-10303-238</td>
+<td>10303-238</td>
 </tr>
 
 <tr><th>Reference path:</th>
-<td class="path">#1: (machining_workingstep &lt;=)
-
-#2: (machining_rapid_movement &lt;=)
-
-#3: (machining_touch_probing &lt;=)
+<td class="path">machining_workingstep &lt;=
 machining_process_executable &lt;=
 action_method
 </td>
@@ -4564,13 +4547,6 @@ action_method
 
 
 <H5 ID="map-workingstep-its_secplane">5.1.6.39.1 its_secplane</H5>
-<div class="mapnote">
-<p>&nbsp;</p>
-<p>#1: if workingstep is a machining_workingstep or turning_workingstep</p>
-<p>#2: if workingstep is a rapid_movement</p>
-<p>#3: if workingstep is a touch_probing</p>
-</div>
-
 <table class="map">
 <tr><th>AIM element:</th>
 <td>elementary_surface</td>
@@ -4581,9 +4557,7 @@ action_method
 </tr>
 
 <tr><th>Reference path:</th>
-<td class="path">#1: (machining_workingstep &lt;=)
-#2: (machining_rapid_movement &lt;=)
-#3: (machining_touch_probing &lt;=)
+<td class="path">machining_workingstep &lt;=
 machining_process_executable &lt;=
 action_method
 characterized_action_definition = action_method
@@ -5432,7 +5406,7 @@ action_method
 </tr>
 </table>
 
-<H5 ID="map-machining_operation-retract_plane">5.1.7.3.2 retract_plane</H5>
+<H5 ID="map-machining_operation-retract_plane">5.1.7.3.1 retract_plane</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -5465,7 +5439,7 @@ length_measure_with_unit
 </table>
 
 
-<H5 ID="map-machining_operation-start_point">5.1.7.3.3 start_point</H5>
+<H5 ID="map-machining_operation-start_point">5.1.7.3.2 start_point</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -5498,7 +5472,7 @@ cartesian_point
 </table>
 
 
-<H5 ID="map-machining_operation-its_tool">5.1.7.3.4 machining_operation to machining_tool (as its_tool)</H5>
+<H5 ID="map-machining_operation-its_tool">5.1.7.3.3 machining_operation to machining_tool (as its_tool)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -5518,7 +5492,7 @@ machining_tool
 </table>
 
 
-<H5 ID="map-machining_operation-its_technology">5.1.7.3.5 machining_operation to technology (as its_technology)</H5>
+<H5 ID="map-machining_operation-its_technology">5.1.7.3.4 machining_operation to technology (as its_technology)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -5540,7 +5514,7 @@ machining_technology
 </table>
 
 
-<H5 ID="map-machining_operation-its_machine_functions">5.1.7.3.6 machining_operation to machine_functions (as its_machine_functions)</H5>
+<H5 ID="map-machining_operation-its_machine_functions">5.1.7.3.5 machining_operation to machine_functions (as its_machine_functions)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -5587,7 +5561,7 @@ action_method
 </table>
 
 
-<H5 ID="map-operation-its_id">5.1.7.3.1 its_id</H5>
+<H5 ID="map-operation-its_id">5.1.7.4.1 its_id</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -5607,7 +5581,7 @@ action_method.name
 </table>
 
 
-<H5 ID="map-operation-its_toolpath">5.1.7.4.1 operation to toolpath (as its_toolpath)</H5>
+<H5 ID="map-operation-its_toolpath">5.1.7.4.2 operation to toolpath (as its_toolpath)</H5>
 <div class="mapnote">
 <p><A href="#mapnote-7">See NOTE 7</A></p>
 </div>
@@ -5634,7 +5608,7 @@ machining_toolpath
 </table>
 
 
-<H5 ID="map-operation-its_tool_direction">5.1.7.4.2 operation to tool_direction (as its_tool_direction)</H5>
+<H5 ID="map-operation-its_tool_direction">5.1.7.4.3 operation to tool_direction (as its_tool_direction)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -5659,7 +5633,7 @@ machining_tool_direction_representation
 </table>
 
 
-<H5 ID="map-operation-cam_properties">5.1.7.4.3 operation to cam_property (as cam_properties)</H5>
+<H5 ID="map-operation-cam_properties">5.1.7.4.4 operation to cam_property (as cam_properties)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -24591,8 +24565,6 @@ ENTITY machining_process_executable
   WR1:  NOT (0 = SIZEOF (TYPEOF (SELF) *
             ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_FEATURE_PROCESS',
              'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_NC_FUNCTION',
-             'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_RAPID_MOVEMENT',
-             'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_TOUCH_PROBING',
              'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_WORKINGSTEP',
              'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_WORKPLAN']
         )) OR
@@ -24719,7 +24691,7 @@ END_ENTITY;
 
 <H6 CLASS="section-underlined">Formal propositions:</H6>
 
-<P><B>WR1</B>: If the <B>machining_process_executable</B> is exactly of type <B>machining_process_executable</B> and not an instance of any of the subtypes <B>machining_workingstep</B>, <B>machining_workplan</B>, <B>machining_feature_process</B>, <B>machining_rapid_movement</B>, <B>machining_touch_probing</B>, or <B>machining_nc_function</B>, the  <B>description</B> of the <B>machining_process_executable</B> shall be either 'assignment', 'if statement', 'non-sequential', 'parallel', 'selective', 'while statement', or 'setup instructions'.</P>
+<P><B>WR1</B>: If the <B>machining_process_executable</B> is exactly of type <B>machining_process_executable</B> and not an instance of any of the subtypes <B>machining_workingstep</B>, <B>machining_workplan</B>, <B>machining_feature_process</B>, or <B>machining_nc_function</B>, the  <B>description</B> of the <B>machining_process_executable</B> shall be either 'assignment', 'if statement', 'non-sequential', 'parallel', 'selective', 'while statement', or 'setup instructions'.</P>
 
 <P><B>WR2</B>: If the <B>description</B> of the <B>machining_process_executable</B> is 'assignment', the <B>machining_process_executable</B> shall satisfy the following conditions:</P>
 <UL>
@@ -24898,26 +24870,16 @@ END_ENTITY;
 
 <H5 ID="aim-machining_rapid_movement">5.2.4.1.53 machining_rapid_movement</H5>
 
-<P>A <B>machining_rapid_movement</B> is a type of <B>machining_process_executable</B> and <B>machining_operation</B> that represents a rapid motion of the machine axes in a machining process.  See the ARM definitions for Rapid_movement and subtypes in ISO 14649-10 for more information.</P>
+<P>A <B>machining_rapid_movement</B> is a type of <B>machining_operation</B> that represents a rapid motion of the machine axes in a machining process.  See the ARM definitions for Rapid_movement and subtypes in ISO 14649-10 for more information.</P>
 
 <H6 CLASS="section-underlined">EXPRESS specification:</H6>
 <PRE CLASS="code">
 *)
 ENTITY machining_rapid_movement
-  SUBTYPE OF (machining_process_executable, machining_operation);
-  WHERE
-  WR1:  ((verify_required_action_property       (SELF, 'security plane')) AND
-         (verify_rep_item_for_action_property   (SELF, 'security plane',
-          ['MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.ELEMENTARY_SURFACE'])));
+  SUBTYPE OF (machining_operation);
 END_ENTITY;
 (*
 </PRE>
-
-
-<H6 CLASS="section-underlined">Formal propositions:</H6>
-
-<P><B>WR1</B>: The <B>machining_rapid_movement</B> shall be the <B>definition</B> of exactly one <B>action_property</B> with a <B>name</B> of 'security plane', and the <B>representation</B> used to describe the <B>action_property</B> shall contain a <B>representation_item </B>of type <B>elementary_surface</B>.</P>
-
 
 
 <H5 ID="aim-machining_setup">5.2.4.1.54 machining_setup</H5>
