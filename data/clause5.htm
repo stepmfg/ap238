@@ -8,10 +8,7 @@
 <body>
 <p class=pagehead>ISO 10303-238</p>
 
-<!-- &#92; -->
-
 <H1 ID="clause-5" CLASS="clause">5 Application interpreted model</H1>
-
 
 <H2 ID="mappings">5.1 Mapping specification</H2>
 
@@ -2868,102 +2865,6 @@ shape_aspect
 </tr>
 </table>
 
-<H5 ID="map-machining_workingstep-its_operation">5.1.6.15.2 machining_workingstep to machining_operation (as its_operation)</H5>
-
-<table class="map">
-<tr><th>AIM element:</th>
-<td>PATH</td>
-</tr>
-
-<tr><th>Reference path:</th>
-<td class="path">machining_workingstep &lt;=
-machining_process_executable &lt;=
-action_method &lt;-
-action_method_relationship.relating_method
-action_method_relationship
-{ action_method_relationship =&gt;
-machining_operation_relationship }
-action_method_relationship.related_method -&gt;
-action_method =&gt;
-machining_operation
-</td>
-</tr>
-</table>
-
-
-<H5 ID="map-machining_workingstep-final_features">5.1.6.15.3 machining_workingstep to manufacturing_feature (as final_features)</H5>
-
-<table class="map">
-<tr><th>AIM element:</th>
-<td>PATH</td>
-</tr>
-
-<tr><th>Rules:</th>
-<td><a href="#aim-feature_optional_machining_property_process">feature_optional_machining_property_process</a></td>
-</tr>
-
-<tr><th>Reference path:</th>
-<td class="path">machining_workingstep &lt;=
-machining_process_executable &lt;=
-action_method &lt;-
-action_method_relationship.relating_method
-action_method_relationship
-{ action_method_relationship =&gt;
-machining_final_feature_relationship }
-action_method_relationship.related_method -&gt;
-{ action_method =&gt;
-machining_process_executable =&gt;
-machining_feature_process }
-action_method &lt;-
-action.chosen_method
-{ action.name = 'machining' }
-action =&gt;
-property_process &lt;-
-process_property_association.process
-process_property_association
-process_property_association.property_or_shape -&gt;
-property_or_shape_select
-property_or_shape_select = shape_definition
-shape_definition
-shape_definition = shape_aspect
-shape_aspect
-</td>
-</tr>
-</table>
-
-
-<H5 ID="map-machining_workingstep-toolpath_orientation">5.1.6.15.4 toolpath_orientation</H5>
-
-<table class="map">
-<tr><th>AIM element:</th>
-<td>axis2_placement_3d</td>
-</tr>
-
-<tr><th>Source:</th>
-<td>10303-42</td>
-</tr>
-
-<tr><th>Reference path:</th>
-<td class="path">machining_workingstep &lt;=
-machining_process_executable &lt;=
-action_method
-characterized_action_definition = action_method
-characterized_action_definition &lt;-
-action_property.definition
-{ action_property.name = 'toolpath orientation' }
-action_property &lt;-
-action_property_representation.property
-action_property_representation
-action_property_representation.representation -&gt;
-representation
-representation.items[i] -&gt;
-representation_item =&gt;
-geometric_representation_item =&gt;
-placement =&gt;
-axis2_placement_3d
-</td>
-</tr>
-</table>
 
 
 <!-- ============================== -->
@@ -4574,6 +4475,104 @@ representation_item =&gt;
 geometric_representation_item =&gt;
 surface =&gt;
 elementary_surface
+</td>
+</tr>
+</table>
+
+
+<H5 ID="map-workingstep-final_features">5.1.6.39.2 workingstep to manufacturing_feature (as final_features)</H5>
+
+<table class="map">
+<tr><th>AIM element:</th>
+<td>PATH</td>
+</tr>
+
+<tr><th>Rules:</th>
+<td><a href="#aim-feature_optional_machining_property_process">feature_optional_machining_property_process</a></td>
+</tr>
+
+<tr><th>Reference path:</th>
+<td class="path">machining_workingstep &lt;=
+machining_process_executable &lt;=
+action_method &lt;-
+action_method_relationship.relating_method
+action_method_relationship
+{ action_method_relationship =&gt;
+machining_final_feature_relationship }
+action_method_relationship.related_method -&gt;
+{ action_method =&gt;
+machining_process_executable =&gt;
+machining_feature_process }
+action_method &lt;-
+action.chosen_method
+{ action.name = 'machining' }
+action =&gt;
+property_process &lt;-
+process_property_association.process
+process_property_association
+process_property_association.property_or_shape -&gt;
+property_or_shape_select
+property_or_shape_select = shape_definition
+shape_definition
+shape_definition = shape_aspect
+shape_aspect
+</td>
+</tr>
+</table>
+
+
+<H5 ID="map-workingstep-its_operation">5.1.6.39.3 workingstep to machining_operation (as its_operation)</H5>
+
+<table class="map">
+<tr><th>AIM element:</th>
+<td>PATH</td>
+</tr>
+
+<tr><th>Reference path:</th>
+<td class="path">machining_workingstep &lt;=
+machining_process_executable &lt;=
+action_method &lt;-
+action_method_relationship.relating_method
+action_method_relationship
+{ action_method_relationship =&gt;
+machining_operation_relationship }
+action_method_relationship.related_method -&gt;
+action_method =&gt;
+machining_operation
+</td>
+</tr>
+</table>
+
+
+<H5 ID="map-workingstep-toolpath_orientation">5.1.6.39.4 toolpath_orientation</H5>
+
+<table class="map">
+<tr><th>AIM element:</th>
+<td>axis2_placement_3d</td>
+</tr>
+
+<tr><th>Source:</th>
+<td>10303-42</td>
+</tr>
+
+<tr><th>Reference path:</th>
+<td class="path">machining_workingstep &lt;=
+machining_process_executable &lt;=
+action_method
+characterized_action_definition = action_method
+characterized_action_definition &lt;-
+action_property.definition
+{ action_property.name = 'toolpath orientation' }
+action_property &lt;-
+action_property_representation.property
+action_property_representation
+action_property_representation.representation -&gt;
+representation
+representation.items[i] -&gt;
+representation_item =&gt;
+geometric_representation_item =&gt;
+placement =&gt;
+axis2_placement_3d
 </td>
 </tr>
 </table>
@@ -17453,62 +17452,6 @@ shape_aspect
 </table>
 
 
-<H5 ID="map-turning_workingstep-its_operation">5.1.11.27.2 turning_workingstep to turning_machining_operation (as its_operation)</H5>
-
-<table class="map">
-<tr><th>AIM element:</th>
-<td>PATH</td>
-</tr>
-
-<tr><th>Reference path:</th>
-<td class="path">machining_workingstep &lt;=
-machining_process_executable &lt;=
-action_method &lt;-
-action_method_relationship.relating_method
-action_method_relationship
-{ action_method_relationship =&gt;
-machining_operation_relationship }
-action_method_relationship.related_method -&gt;
-action_method =&gt;
-machining_operation =&gt;
-turning_type_operation
-</td>
-</tr>
-</table>
-
-
-<H5 ID="map-turning_workingstep-toolpath_orientation">5.1.11.27.3 toolpath_orientation</H5>
-
-<table class="map">
-<tr><th>AIM element:</th>
-<td>axis2_placement_3d</td>
-</tr>
-
-<tr><th>Source:</th>
-<td>10303-42</td>
-</tr>
-
-<tr><th>Reference path:</th>
-<td class="path">machining_workingstep &lt;=
-machining_process_executable &lt;=
-action_method
-characterized_action_definition = action_method
-characterized_action_definition &lt;-
-action_property.definition
-{ action_property.name = 'toolpath orientation' }
-action_property &lt;-
-action_property_representation.property
-action_property_representation
-action_property_representation.representation -&gt;
-representation
-representation.items[i] -&gt;
-representation_item =&gt;
-geometric_representation_item =&gt;
-placement =&gt;
-axis2_placement_3d
-</td>
-</tr>
-</table>
 
 
 <!-- ============================== -->
@@ -20444,31 +20387,8 @@ action_method
 </table>
 
 
-<H5 ID="map-am_workingstep-its_operation">5.1.13.14.1 am_workingstep to am_operation (as its_operation)</H5>
 
-<table class="map">
-<tr><th>AIM element:</th>
-<td>PATH</td>
-</tr>
-
-<tr><th>Reference path:</th>
-<td class="path">machining_workingstep &lt;=
-machining_process_executable &lt;=
-action_method &lt;-
-action_method_relationship.relating_method
-action_method_relationship
-{ action_method_relationship =&gt;
-machining_operation_relationship }
-action_method_relationship.related_method -&gt;
-action_method =&gt;
-machining_operation =&gt;
-additive_type_operation
-</td>
-</tr>
-</table>
-
-
-<H5 ID="map-am_workingstep-its_feature">5.1.13.14.2 am_workingstep to manufacturing_feature (as its_feature)</H5>
+<H5 ID="map-am_workingstep-its_feature">5.1.13.14.1 am_workingstep to manufacturing_feature (as its_feature)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -20509,7 +20429,7 @@ shape_aspect
 </table>
 
 
-<H5 ID="map-am_workingstep-its_support_geometry">5.1.13.14.3 am_workingstep to product_view_definition (as its_support_geometry)</H5>
+<H5 ID="map-am_workingstep-its_support_geometry">5.1.13.14.2 am_workingstep to product_view_definition (as its_support_geometry)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -21132,9 +21052,9 @@ away by subsequent operations.</P>
 
 
 
-<P>ISO 14649 links the machining_workingstep application object to the feature that defines its removal volume through the its_feature attribute.  In this document, an optional attribute called final_features has been added to machining_workingstep to support traceability back to the features used as input to the process planning activity.</P>
+<P>ISO 14649 links the machining_workingstep application object to the feature that defines its removal volume through the its_feature attribute.  In this document, an optional attribute called final_features has been added to workingstep to support traceability back to the features used as input to the process planning activity.</P>
 
-<P>If used, this attribute contains a set of one or more features visible on the final form of the workpiece that the process planner was targeting when he or she added the machining_workingstep to the machining workplan.</P>
+<P>If used, this attribute contains a set of one or more features visible on the final form of the workpiece that the process planner was targeting when he or she added the workingstep to the machining workplan.</P>
 
 
 <H4 ID="funcon-feature-bytype">5.2.2.3 Manufacturing feature details by type</H4>

@@ -476,11 +476,15 @@ END_ENTITY;
 (* ************************************************************ *)
 
 ENTITY Workingstep
-  -- SIMPLIFIED BY 10303-238
-  -- ABSTRACT SUPERTYPE OF (ONEOF (Machining_workingstep, Rapid_movement, Touch_probing))
   ABSTRACT SUPERTYPE
   SUBTYPE OF (Executable);
   its_secplane :              elementary_surface;
+
+  -- 10303-238: consolidate its_operation into supertype for
+  --   consistent handling across technologies
+  its_operation: 	Operation;
+  final_features:       OPTIONAL SET [0:?] OF Manufacturing_feature;  -- ADDED BY 10303-238
+  toolpath_orientation: OPTIONAL Axis_placement_3d; -- ADDED BY 10303-238
 END_ENTITY;
 
 
@@ -491,11 +495,12 @@ END_ENTITY;
 ENTITY Machining_workingstep
   SUBTYPE OF (Workingstep);
   its_feature: 		Manufacturing_feature;
-  its_operation: 	Machining_operation;
+
+  -- 10303-238: its_operation now inherited from Workingstep
+  -- its_operation: 	Machining_operation;
+
   -- 10303-238: as_is, to_be, and removal now inherited from Executable
   -- its_effect:  OPTIONAL in_process_geometry;
-  final_features: OPTIONAL SET [0:?] OF Manufacturing_feature;  -- ADDED BY 10303-238
-  toolpath_orientation: OPTIONAL Axis_placement_3d; -- ADDED BY 10303-238
 END_ENTITY;
 
 
@@ -1952,11 +1957,18 @@ END_ENTITY;
 ENTITY Turning_workingstep
   SUBTYPE OF (Workingstep);
   its_features:	LIST [2:?] OF Manufacturing_feature;
-  its_operation:        Turning_machining_operation;
+
+  -- 10303-238: its_operation now inherited from Workingstep
+  -- its_operation:        Turning_machining_operation;
+
   -- 10303-238: as_is, to_be, and removal now inherited from Executable
   -- its_effect:       OPTIONAL in_process_geometry;
-  toolpath_orientation: OPTIONAL Axis_placement_3d; -- ADDED BY 10303-238
+
+WHERE
+  WR1: 'AP238_ARM_SCHEMA.TURNING_MACHINING_OPERATION' IN
+	TYPEOF(SELF\Workingstep.its_operation);
 END_ENTITY;
+
 
 
 (* ***** Turning technology *********************************************** *)
@@ -2212,7 +2224,9 @@ ENTITY Am_workingstep
   SUBTYPE OF (Workingstep);
   -- 10303-238: as_is, to_be, and removal now inherited from Executable
   -- its_effect:       OPTIONAL in_process_geometry;
-  its_operation: 	Am_operation;
+
+  -- 10303-238: its_operation now inherited from Workingstep
+  -- its_operation: 	Am_operation;
 
   -- 10303-238: relax to general manufacturing feature for integration
   its_feature: 		Manufacturing_feature;
@@ -2224,6 +2238,10 @@ ENTITY Am_workingstep
   -- into a product to match handling of as_is/to_be/removal
   -- description.  
   its_support_geometry:   OPTIONAL Product_view_definition;
+
+WHERE
+  WR1: 'AP238_ARM_SCHEMA.AM_OPERATION' IN
+	TYPEOF(SELF\Workingstep.its_operation);
 END_ENTITY;
 
 ENTITY Am_machine_functions

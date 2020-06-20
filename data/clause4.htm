@@ -580,6 +580,7 @@ additional information requirements beyond those specified by ISO
 <LI><A href="#ao-setup">Setup</A>;</LI>
 <LI><A href="#ao-touch_probe">Touch_probe</A>;</LI>
 <LI><A href="#ao-touch_probing">Touch_probing</A>;</LI>
+<LI><A href="#ao-workingstep">Workingstep</A>;</LI>
 <LI><A href="#ao-workpiece_complete_probing">Workpiece_complete_probing</A>;</LI>
 <LI><A href="#ao-workpiece_probing">Workpiece_probing</A>;</LI>
 <LI><A href="#ao-workplan">Workplan</A>.</LI>
@@ -1814,7 +1815,8 @@ requirements.</P>
 The data associated with a Am_workingstep are the following:</P>
 <UL>
 <LI>all of the data defined by ISO 14649-17, as modified below for the
-its_effect, its_feature, and its_resulting_part attributes;</LI>
+its_effect, its_feature, its_operation, and its_resulting_part
+attributes;</LI>
 <LI>its_support_geometry.</LI>
 </UL>
 
@@ -1829,7 +1831,9 @@ ENTITY Am_workingstep
   SUBTYPE OF (Workingstep);
   -- 10303-238: as_is, to_be, and removal now inherited from Executable
   -- its_effect:       OPTIONAL in_process_geometry;
-  its_operation: 	Am_operation;
+
+  -- 10303-238: its_operation now inherited from Workingstep
+  -- its_operation: 	Am_operation;
 
   -- 10303-238: relax to general manufacturing feature for integration
   its_feature: 		Manufacturing_feature;
@@ -1837,10 +1841,14 @@ ENTITY Am_workingstep
   -- 10303-238: same as the to_be attribute inherited from Executable
   -- its_resulting_part:         Am_workpiece
 
-  -- 10303-238: moved from am_operation and changed from raw geometry
+  -- 10303-238: moved from Am_operation and changed from raw geometry
   -- into a product to match handling of as_is/to_be/removal
   -- description.  
   its_support_geometry:   OPTIONAL Product_view_definition;
+
+WHERE
+  WR1: 'AP238_ARM_SCHEMA.AM_OPERATION' IN
+	TYPEOF(SELF\Workingstep.its_operation);
 END_ENTITY;
 </PRE>
 
@@ -1856,12 +1864,18 @@ Executable application object.
 type Am_feature, but this document relaxes this requirement to allow
 any type of Manufacturing_feature.
 
-<H4 ID="ao-am_workingstep-its_resulting_part">4.3.18.3 its_resulting_part</H4>
+<H4 ID="ao-am_workingstep-its_operation">4.3.18.3 its_operation</H4>
+
+<P>The its_operation parameter defined by ISO 14649-17 shall be
+replaced by the its_operation parameter inherited from the Workingstep
+application object.
+
+<H4 ID="ao-am_workingstep-its_resulting_part">4.3.18.4 its_resulting_part</H4>
 
 <P>The its_resulting_part defined by ISO 14649-17 shall be replaced by
 the to-be parameter inherited from the Executable application object.
 
-<H4 ID="ao-am_workingstep-its_support_geometry">4.3.18.4 its_support_geometry</H4>
+<H4 ID="ao-am_workingstep-its_support_geometry">4.3.18.5 its_support_geometry</H4>
 
 <P>The its_support_geometry specifies a Product_view_definition which
 describes the shape and other properties of the support structure
@@ -3985,9 +3999,11 @@ a <A href="clause5.htm#funcon-twin-process">digital twin process</A>.</P>
 describes the feature that shall be measured.  The expected_value may
 not be specified for a particular Feature_complete_probing.  If the
 expected_value is not specified, the Feature_complete_probing shall be
-the its_operation of a Machining_workingstep and the feature to be
-measured shall be given by the its_feature of that
-Machining_workingstep. See <A href="#aa-feature_complete_probing-to-manufacturing_feature-as-expected_value">Feature_complete_probing to Manufacturing_feature (as expected_value)</A> for the application assertion.</P>
+the its_operation of a Workingstep and the feature to be measured
+shall be given by the its_feature of that
+Machining_workingstep. See <A href="#aa-feature_complete_probing-to-manufacturing_feature-as-expected_value">Feature_complete_probing
+to Manufacturing_feature (as expected_value)</A> for the application
+assertion.</P>
 
 <H4 ID="ao-feature_complete_probing-its_probe">4.3.86.2 its_probe</H4>
 
@@ -5170,9 +5186,7 @@ requirements.</P>
 The data associated with a Machining_workingstep are the following:</P>
 <UL>
 <LI>all of the data defined by ISO 14649-10, as modified below for the
-its_effect attribute;</LI>
-<LI>final_features;</LI>
-<LI>toolpath_orientation.</LI>
+its_effect and its_operation attributes.</LI>
 </UL>
 
 <P CLASS="note">
@@ -5184,12 +5198,13 @@ explanation of usage.</P>
 <PRE CLASS="note">
 ENTITY Machining_workingstep
   SUBTYPE OF (Workingstep);
-  its_feature:        Manufacturing_feature;
-  its_operation:      Machining_operation;
+  its_feature: 		Manufacturing_feature;
+
+  -- 10303-238: its_operation now inherited from Workingstep
+  -- its_operation: 	Machining_operation;
+
   -- 10303-238: as_is, to_be, and removal now inherited from Executable
-  -- its_effect:      OPTIONAL in_process_geometry;
-  final_features:     OPTIONAL SET [0:?] OF Manufacturing_feature; -- ADDED BY 10303-238
-  toolpath_orientation: OPTIONAL Axis_placement_3d; -- ADDED BY 10303-238
+  -- its_effect:  OPTIONAL in_process_geometry;
 END_ENTITY;
 </PRE>
 
@@ -5199,64 +5214,11 @@ END_ENTITY;
 set of as-is, to-be, and removal parameters inherited from the
 Executable application object.
 
-<H4 ID="ao-machining_workingstep-final_features">4.3.117.2 final_features</H4>
+<H4 ID="ao-machining_workingstep-its_operation">4.3.117.2 its_operation</H4>
 
-<P>The final_features specifies a set of zero or more
-Manufacturing_feature objects visible on the final form of the
-workpiece that the workingstep contributes to.  If the
-machining_workingstep its_feature is a process-specific feature
-consumed by further activities in a process, final_features can be
-used for traceability to features on the final form of the workpiece.
-It is not required that final_features be specified for a particular
-Machining_workingstep.
-See <a href="#aa-machining_workingstep-to-manufacturing_feature-as-final_features">Machining_workingstep
-to Manufacturing_feature (as final_features)</a> for the application
-assertion.
-See <A href="clause5.htm#funcon-feature-inprocess">Features describing
-process or final form</A> for additional discussion on the use of this
-attribute.</P>
-
-<P CLASS="note">
-<SPAN>NOTE</SPAN> Consider the flow of data through the design and
-manufacture of a part.  The features on the final part are usually the
-input to process planning, possibly described as an ISO 10303-224 data
-set.  The output of macro process-planning, possibly described as an
-ISO 10303-240 data set, will include these features as well as
-intermediate features related to a particular process.  This document
-describes the micro process-plan and is concerned with the features
-associated with a particular process, but having the ability to
-associate a process step with the ultimate feature on the final part
-allows us to preserve information flowing down from the larger
-process-plan.  This will be of benefit to related downstream tasks,
-such as inspection, which could use the tracability to pinpoint
-critical areas of interest in the micro and macro process-plans.</P>
-
-<P CLASS="note">
-<SPAN>EXAMPLE</SPAN> A workingstep drills a hole which is later used
-as the entry point for a pocketing operation.  The hole is consumed by
-pocketing operation and not visible on the final form of the
-workpiece.  The final_features of the drilling workingstep can
-reference the pocket to indicate participation in the creation of that
-feature.</P>
-
-
-<H4 ID="ao-machining_workingstep-toolpath_orientation">4.3.117.3 toolpath_orientation</H4>
-
-<P>The toolpath_orientation specifies the placement of the set of
-toolpaths given by the its_operation its_toolpath parameter.  The
-toolpath_orientation may not be specified for a particular
-Machining_workingstep.  If the toolpath_orientation is not specified,
-the toolpaths shall assume an origin of (0,0,0) and axis directions
-X=(1,0,0) Y=(0,1,0) and Z=(0,0,1).</P>
-
-<P CLASS="note">
-<SPAN>NOTE</SPAN> To reuse the toolpaths of an operation in a
-different location, ISO 14649 uses the origin from different features
-associated with the operation through a workingstep.  This technique
-is not practical in this document because of feature
-harmonization constraints, since features often come from design and
-planning with origins that were convenient for the designer.</P>
-
+<P>The its_operation parameter defined by ISO 14649-10 shall be
+replaced by the its_operation parameter inherited from the Workingstep
+application object.
 
 
 <!-- ============================== -->
@@ -7883,8 +7845,7 @@ requirements.</P>
 
 <UL>
 <LI>all of the data defined by ISO 14649-12, as modified below for the
-its_effect attribute;</LI>
-<LI>toolpath_orientation.</LI>
+its_effect and its_operation attributes.</LI>
 </UL>
 
 <P CLASS="note">
@@ -7897,11 +7858,17 @@ explanation of usage.</P>
 <PRE CLASS="note">
 ENTITY Turning_workingstep
   SUBTYPE OF (Workingstep);
-  its_features:         LIST [2:?] OF Manufacturing_feature;
-  its_operation:        Turning_machining_operation;
+  its_features:	LIST [2:?] OF Manufacturing_feature;
+
+  -- 10303-238: its_operation now inherited from Workingstep
+  -- its_operation:        Turning_machining_operation;
+
   -- 10303-238: as_is, to_be, and removal now inherited from Executable
   -- its_effect:       OPTIONAL in_process_geometry;
-  toolpath_orientation: OPTIONAL Axis_placement_3d; -- ADDED BY 10303-238
+
+WHERE
+  WR1: 'AP238_ARM_SCHEMA.TURNING_MACHINING_OPERATION' IN
+	TYPEOF(SELF\Workingstep.its_operation);
 END_ENTITY;
 </PRE>
 
@@ -7912,22 +7879,12 @@ set of as-is, to-be, and removal parameters inherited from the
 Executable application object.
 
 
-<H4 ID="ao-turning_workingstep-toolpath_orientation">4.3.203.2 toolpath_orientation</H4>
 
-<P>The toolpath_orientation specifies the placement of the set of
-toolpaths given by the its_operation its_toolpath parameter.  The
-toolpath_orientation may not be specified for a particular
-Machining_workingstep.  If the toolpath_orientation is not specified,
-the toolpaths shall assume an origin of (0,0,0) and axis directions
-X=(1,0,0) Y=(0,1,0) and Z=(0,0,1).</P>
+<H4 ID="ao-turning_workingstep-its_operation">4.3.203.2 its_operation</H4>
 
-<P CLASS="note">
-<SPAN>NOTE</SPAN> To reuse the toolpaths of an operation in a
-different location, ISO 14649 uses the origin from different features
-associated with the operation through a workingstep.  This technique
-is not practical in this document because of feature
-harmonization constraints, since features often come from design and
-planning with origins that were convenient for the designer.</P>
+<P>The its_operation parameter defined by ISO 14649-12 shall be
+replaced by the its_operation parameter inherited from the Workingstep
+application object.
 
 
 
@@ -8315,22 +8272,116 @@ END_ENTITY;
 <H3 ID="ao-workingstep">4.3.216 Workingstep</H3>
 </DIV>
 
-<P>The Workingstep application object shall be as defined by ISO 14649-10.</P>
+<P>The Workingstep application object shall be as defined by ISO
+14649-10. This document adds the following information
+requirements.</P>
+
+<P>The data associated with a Workpiece are the following:</P>
+
+<UL>
+<LI>all of the data defined by ISO 14649-10;
+<LI>final_features;</LI>
+<LI>its_operation;</LI>
+<LI>toolpath_orientation.</LI>
+</UL>
 
 <P CLASS="note">
 <SPAN>NOTE</SPAN> The ISO 14649 EXPRESS description for Workingstep,
 as modified by this document, is shown below.  Refer to ISO 14649-10
 for the complete definition and explanation of usage.</P>
 
+
 <PRE CLASS="note">
 ENTITY Workingstep
-  -- SIMPLIFIED BY 10303-238
-  -- ABSTRACT SUPERTYPE OF (ONEOF (Machining_workingstep, Rapid_movement, Touch_probing))
   ABSTRACT SUPERTYPE
   SUBTYPE OF (Executable);
-  its_secplane:         elementary_surface;
+  its_secplane :              elementary_surface;
+
+  final_features:       OPTIONAL SET [0:?] OF Manufacturing_feature;  -- ADDED BY 10303-238
+
+  -- 10303-238: consolidate its_operation into supertype for
+  --   consistent handling across technologies
+  its_operation: 	Operation;
+
+  toolpath_orientation: OPTIONAL Axis_placement_3d; -- ADDED BY 10303-238
 END_ENTITY;
 </PRE>
+
+
+
+<H4 ID="ao-workingstep-final_features">4.3.216.1 final_features</H4>
+
+<P>The final_features specifies a set of zero or more
+Manufacturing_feature objects visible on the final form of the
+workpiece that the workingstep contributes to.  If a workingstep calls
+out a process-specific feature consumed or obscured by further
+activities in a process, final_features can be used for traceability
+to features on the final form of the workpiece.  It is not required
+that final_features be specified for a particular Workingstep.
+See <a href="#aa-workingstep-to-manufacturing_feature-as-final_features">Workingstep
+to Manufacturing_feature (as final_features)</a> for the application
+assertion.
+See <A href="clause5.htm#funcon-feature-inprocess">Features describing
+process or final form</A> for additional discussion on the use of this
+attribute.</P>
+
+<P CLASS="note">
+<SPAN>NOTE</SPAN> Consider the flow of data through the design and
+manufacture of a part.  The features on the final part are usually the
+input to process planning, possibly described as an ISO 10303-224 data
+set.  The output of macro process-planning, possibly described as an
+ISO 10303-240 data set, will include these features as well as
+intermediate features related to a particular process.  This document
+describes the micro process-plan and is concerned with the features
+associated with a particular process, but having the ability to
+associate a process step with the ultimate feature on the final part
+allows us to preserve information flowing down from the larger
+process-plan.  This will be of benefit to related downstream tasks,
+such as inspection, which could use the tracability to pinpoint
+critical areas of interest in the micro and macro process-plans.</P>
+
+<P CLASS="note">
+<SPAN>EXAMPLE</SPAN> A workingstep drills a hole which is later used
+as the entry point for a pocketing operation.  The hole is consumed by
+pocketing operation and not visible on the final form of the
+workpiece.  The final_features of the drilling workingstep can
+reference the pocket to indicate participation in the creation of that
+feature.</P>
+
+
+<H4 ID="ao-workingstep-its_operation">4.3.216.2 its_operation</H4>
+
+<P>The its_operation specifies an Operation object that describes the
+action performed by the Workingstep.
+See <a href="#aa-workingstep-to-operation">Workingstep to
+Operation</a> for the application assertion.
+
+<P CLASS="note">
+<SPAN>NOTE</SPAN> The ISO 14649 model originally defined separate
+its_operation parameters on the Workingstep subtypes.  These have been
+brought into the supertype for conceptual consistency as the defining
+characteristic of a workingstep.</P>
+
+
+
+<H4 ID="ao-workingstep-toolpath_orientation">4.3.216.3 toolpath_orientation</H4>
+
+<P>The toolpath_orientation specifies the placement of the set of
+toolpaths given by the its_operation its_toolpath parameter.  The
+toolpath_orientation may not be specified for a particular
+Workingstep.  If the toolpath_orientation is not specified, the
+toolpaths shall assume an origin of (0,0,0) and axis directions
+X=(1,0,0) Y=(0,1,0) and Z=(0,0,1).</P>
+
+<P CLASS="note">
+<SPAN>NOTE</SPAN> To reuse the toolpaths of an operation in a
+different location, ISO 14649 uses the origin from different features
+associated with the operation through a workingstep.  This technique
+is not practical in this document because of feature
+harmonization constraints, since features often come from design and
+planning with origins that were convenient for the designer.</P>
+
+
 
 
 <!-- ============================== -->
@@ -9070,14 +9121,8 @@ its_usage. Each Tool_usage acts as its_usage for zero or more
 Machining_tool objects.</P>
 
 
-<H3 ID="aa-machining_workingstep-to-manufacturing_feature-as-final_features">4.4.14 Machining_workingstep to Manufacturing_feature (as final_features)</H3>
 
-<P>Each Machining_workingstep has zero or more Manufacturing_feature
-as final_features. Each Manufacturing_feature is the final_features of
-zero or more Machining_workingstep.</P>
-
-
-<H3 ID="aa-milling_machine_functions-to-machine_axis_constraint">4.4.15 Milling_machine_functions to Machine_axis_constraint</H3>
+<H3 ID="aa-milling_machine_functions-to-machine_axis_constraint">4.4.14 Milling_machine_functions to Machine_axis_constraint</H3>
 
 <P>Each Milling_machine_functions has zero or more
 Machine_axis_constraint as axis_constraints. Each
@@ -9085,83 +9130,95 @@ Machine_axis_constraint is the axis_constraints of at least one
 Milling_machine_functions.</P>
 
 
-<H3 ID="aa-setup-to-fixture_usage">4.4.16 Setup to Fixture_usage</H3>
+<H3 ID="aa-setup-to-fixture_usage">4.4.15 Setup to Fixture_usage</H3>
 
 <P>Each Setup refers to zero or one Fixture_usage objects as
 its_fixture_usage. Each Setup acts as its_fixture_usage for zero or
 more Fixture_usage.</P>
 
-<H3 ID="aa-tool_usage-to-externally_defined_representation">4.4.17 Tool_usage to Externally_defined_representation</H3>
+<H3 ID="aa-tool_usage-to-externally_defined_representation">4.4.16 Tool_usage to Externally_defined_representation</H3>
 
 <P>Each Tool_usage refers to zero or one
 Externally_defined_representation objects as
 its_library_reference. Each Externally_defined_representation acts as
 its_library_reference for zero or more Tool_usage objects.</P>
 
-<H3 ID="aa-tool_usage-to-product_view_definition">4.4.18 Tool_usage to Product_view_definition</H3>
+<H3 ID="aa-tool_usage-to-product_view_definition">4.4.17 Tool_usage to Product_view_definition</H3>
 
 <P>Each Tool_usage refers to zero or one Product_view_definition
 object as its_product. Each Product_view_definition acts as
 its_product for zero or more Tool_usage objects.</P>
 
-<H3 ID="aa-workpiece-to-approval-as-its_approvals">4.4.19 Workpiece to Approval (as its_approvals)</H3>
+<H3 ID="aa-workingstep-to-manufacturing_feature-as-final_features">4.4.18 Workingstep to Manufacturing_feature (as final_features)</H3>
+
+<P>Each Workingstep has zero or more Manufacturing_feature as
+final_features. Each Manufacturing_feature is the final_features of
+zero or more Workingstep.</P>
+
+<H3 ID="aa-workingstep-to-operation">4.4.19 Workingstep to Operation</H3>
+
+<P>Each Workingstep has one Operation as its_operation. Each Operation
+is the its_operation of zero or more Workingstep.</P>
+
+
+<H3 ID="aa-workpiece-to-approval-as-its_approvals">4.4.20 Workpiece to Approval (as its_approvals)</H3>
 
 <P>Each Workpiece has zero or more Approval objects as
 its_approvals. Each Approval is the its_approvals of zero or more
 Workpiece.</P>
 
 
-<H3 ID="aa-workpiece-to-approval-as-product_approvals">4.4.20 Workpiece to Approval (as product_approvals)</H3>
+<H3 ID="aa-workpiece-to-approval-as-product_approvals">4.4.21 Workpiece to Approval (as product_approvals)</H3>
 
 <P>Each Workpiece has zero or more Approval objects as
 product_approvals. Each Approval is the product_approvals of zero or
 more Workpiece.</P>
 
 
-<H3 ID="aa-workpiece-to-approval-as-revision_approvals">4.4.21 Workpiece to Approval (as revision_approvals)</H3>
+<H3 ID="aa-workpiece-to-approval-as-revision_approvals">4.4.22 Workpiece to Approval (as revision_approvals)</H3>
 
 <P>Each Workpiece has zero or more Approval objects as
 revision_approvals. Each Approval is the revision_approvals of zero or
 more Workpiece.</P>
 
 
-<H3 ID="aa-workpiece-to-date_or_date_time_assignment-as-its_datestamps">4.4.22 Workpiece to Date_or_date_time_assignment (as its_datestamps)</H3>
+<H3 ID="aa-workpiece-to-date_or_date_time_assignment-as-its_datestamps">4.4.23 Workpiece to Date_or_date_time_assignment (as its_datestamps)</H3>
 
 <P>Each Workpiece has zero or more Date_or_date_time_assignment
 objects as its_datestamps. Each Date_or_date_time_assignment is the
 its_datestamps of zero or more Workpiece.</P>
 
-<H3 ID="aa-workpiece-to-date_or_date_time_assignment-as-its_timestamps">4.4.23 Workpiece to Date_or_date_time_assignment (as its_timestamps)</H3>
+<H3 ID="aa-workpiece-to-date_or_date_time_assignment-as-its_timestamps">4.4.24 Workpiece to Date_or_date_time_assignment (as its_timestamps)</H3>
 
 <P>Each Workpiece has zero or more Date_or_date_time_assignment
 objects as its_timestamps. Each Date_or_date_time_assignment is the
 its_timestamps of zero or more Workpiece.</P>
 
-<H3 ID="aa-workpiece-to-date_or_date_time_assignment-as-product_datestamps">4.4.24 Workpiece to Date_or_date_time_assignment (as product_datestamps)</H3>
+<H3 ID="aa-workpiece-to-date_or_date_time_assignment-as-product_datestamps">4.4.25 Workpiece to Date_or_date_time_assignment (as product_datestamps)</H3>
 
 <P>Each Workpiece has zero or more Date_or_date_time_assignment
 objects as product_datestamps. Each Date_or_date_time_assignment is
 the product_datestamps of zero or more Workpiece.</P>
 
-<H3 ID="aa-workpiece-to-date_or_date_time_assignment-as-product_timestamps">4.4.25 Workpiece to Date_or_date_time_assignment (as product_timestamps)</H3>
+<H3 ID="aa-workpiece-to-date_or_date_time_assignment-as-product_timestamps">4.4.26 Workpiece to Date_or_date_time_assignment (as product_timestamps)</H3>
 
 <P>Each Workpiece has zero or more Date_or_date_time_assignment
 objects as product_timestamps. Each Date_or_date_time_assignment is
 the product_timestamps of zero or more Workpiece.</P>
 
-<H3 ID="aa-workpiece-to-date_or_date_time_assignment-as-revision_datestamps">4.4.26 Workpiece to Date_or_date_time_assignment (as revision_datestamps)</H3>
+<H3 ID="aa-workpiece-to-date_or_date_time_assignment-as-revision_datestamps">4.4.27 Workpiece to Date_or_date_time_assignment (as revision_datestamps)</H3>
 
 <P>Each Workpiece has zero or more Date_or_date_time_assignment
 objects as revision_datestamps. Each Date_or_date_time_assignment is
 the revision_datestamps of zero or more Workpiece.</P>
 
-<H3 ID="aa-workpiece-to-date_or_date_time_assignment-as-revision_timestamps">4.4.27 Workpiece to Date_or_date_time_assignment (as revision_timestamps)</H3>
+<H3 ID="aa-workpiece-to-date_or_date_time_assignment-as-revision_timestamps">4.4.28 Workpiece to Date_or_date_time_assignment (as revision_timestamps)</H3>
 
 <P>Each Workpiece has zero or more Date_or_date_time_assignment
 objects as revision_timestamps. Each Date_or_date_time_assignment is
 the revision_timestamps of zero or more Workpiece.</P>
 
-<H3 ID="aa-workpiece-to-organization_or_person_in_organization_assignment-as-its_orgs">4.4.28 Workpiece to Organization_or_person_in_organization_assignment (as its_orgs)</H3>
+<H3 ID="aa-workpiece-to-organization_or_person_in_organization_assignment-as-its_orgs">4.4.29 Workpiece to Organization_or_person_in_organization_assignment (as its_orgs)</H3>
 
 <P>Each Workpiece has zero or more
 Organization_or_person_in_organization_assignment objects as
@@ -9169,7 +9226,7 @@ its_orgs. Each Organization_or_person_in_organization_assignment is
 the its_orgs of zero or more Workpiece.</P>
 
 
-<H3 ID="aa-workpiece-to-organization_or_person_in_organization_assignment-as-its_people">4.4.29 Workpiece to Organization_or_person_in_organization_assignment (as its_people)</H3>
+<H3 ID="aa-workpiece-to-organization_or_person_in_organization_assignment-as-its_people">4.4.30 Workpiece to Organization_or_person_in_organization_assignment (as its_people)</H3>
 
 <P>Each Workpiece has zero or more
 Organization_or_person_in_organization_assignment objects as
@@ -9177,7 +9234,7 @@ its_people. Each Organization_or_person_in_organization_assignment is
 the its_people of zero or more Workpiece.</P>
 
 
-<H3 ID="aa-workpiece-to-organization_or_person_in_organization_assignment-as-product_orgs">4.4.30 Workpiece to Organization_or_person_in_organization_assignment (as product_orgs)</H3>
+<H3 ID="aa-workpiece-to-organization_or_person_in_organization_assignment-as-product_orgs">4.4.31 Workpiece to Organization_or_person_in_organization_assignment (as product_orgs)</H3>
 
 <P>Each Workpiece has zero or more
 Organization_or_person_in_organization_assignment objects as
@@ -9185,21 +9242,21 @@ product_orgs. Each Organization_or_person_in_organization_assignment
 is the product_orgs of zero or more Workpiece.</P>
 
 
-<H3 ID="aa-workpiece-to-organization_or_person_in_organization_assignment-as-product_people">4.4.31 Workpiece to Organization_or_person_in_organization_assignment (as product_people)</H3>
+<H3 ID="aa-workpiece-to-organization_or_person_in_organization_assignment-as-product_people">4.4.32 Workpiece to Organization_or_person_in_organization_assignment (as product_people)</H3>
 
 <P>Each Workpiece has zero or more
 Organization_or_person_in_organization_assignment objects as
 product_people. Each Organization_or_person_in_organization_assignment
 is the product_people of zero or more Workpiece.</P>
 
-<H3 ID="aa-workpiece-to-organization_or_person_in_organization_assignment-as-revision_orgs">4.4.32 Workpiece to Organization_or_person_in_organization_assignment (as revision_orgs)</H3>
+<H3 ID="aa-workpiece-to-organization_or_person_in_organization_assignment-as-revision_orgs">4.4.33 Workpiece to Organization_or_person_in_organization_assignment (as revision_orgs)</H3>
 
 <P>Each Workpiece has zero or more
 Organization_or_person_in_organization_assignment objects as
 revision_orgs. Each Organization_or_person_in_organization_assignment
 is the revision_orgs of zero or more Workpiece.</P>
 
-<H3 ID="aa-workpiece-to-organization_or_person_in_organization_assignment-as-revision_people">4.4.33 Workpiece to Organization_or_person_in_organization_assignment (as revision_people)</H3>
+<H3 ID="aa-workpiece-to-organization_or_person_in_organization_assignment-as-revision_people">4.4.34 Workpiece to Organization_or_person_in_organization_assignment (as revision_people)</H3>
 
 <P>Each Workpiece has zero or more
 Organization_or_person_in_organization_assignment objects as
@@ -9208,13 +9265,13 @@ Organization_or_person_in_organization_assignment is the
 revision_people of zero or more Workpiece.</P>
 
 
-<H3 ID="aa-workplan-to-machine_parameters">4.4.34 Workplan to Machine_parameters</H3>
+<H3 ID="aa-workplan-to-machine_parameters">4.4.35 Workplan to Machine_parameters</H3>
 
 <P>Each Workplan refers to zero or one Machine_parameters object as
 its_minimum_machine_params. Each Machine_parameters acts as
 its_minimum_machine_params for zero or more Workplan objects.</P>
 
-<H3 ID="aa-workplan-to-machine_usage">4.4.35 Workplan to Machine_usage</H3>
+<H3 ID="aa-workplan-to-machine_usage">4.4.36 Workplan to Machine_usage</H3>
 
 <P>Each Workplan refers to zero or one Machine_usage objects as
 its_machine_usage. Each Workplan acts as its_machine_usage for zero or
