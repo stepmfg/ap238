@@ -5328,6 +5328,72 @@ action_method.description
 </tr>
 </table>
 
+<H5 ID="map-extended_operation-its_machine_functions">5.1.7.1.2 extended_operation to machine_functions (as its_machine_functions)</H5>
+
+<table class="map">
+<tr><th>AIM element:</th>
+<td>PATH</td>
+</tr>
+
+<tr><th>Reference path:</th>
+<td class="path">extended_type_operation &lt;=
+machining_operation &lt;=
+action_method &lt;-
+action_method_relationship.relating_method
+action_method_relationship
+{ action_method_relationship =&gt;
+machining_functions_relationship }
+action_method_relationship.related_method -&gt;
+action_method =&gt;
+machining_functions
+</td>
+</tr>
+</table>
+
+<H5 ID="map-extended_operation-its_technology">5.1.7.1.3 extended_operation to technology (as its_technology)</H5>
+
+<table class="map">
+<tr><th>AIM element:</th>
+<td>PATH</td>
+</tr>
+
+<tr><th>Reference path:</th>
+<td class="path">extended_type_operation &lt;=
+machining_operation &lt;=
+action_method &lt;-
+action_method_relationship.relating_method
+action_method_relationship
+{ action_method_relationship =&gt;
+machining_technology_relationship }
+action_method_relationship.related_method -&gt;
+action_method =&gt;
+machining_technology
+</td>
+</tr>
+</table>
+
+
+<H5 ID="map-extended_operation-its_tool">5.1.7.1.4 extended_operation to machining_tool (as its_tool)</H5>
+
+<table class="map">
+<tr><th>AIM element:</th>
+<td>PATH</td>
+</tr>
+
+<tr><th>Reference path:</th>
+<td class="path">extended_type_operation &lt;=
+machining_operation &lt;=
+action_method
+supported_item = action_method
+supported_item &lt;-
+action_resource.usage[i]
+action_resource =&gt;
+machining_tool
+</td>
+</tr>
+</table>
+
+
 
 
 

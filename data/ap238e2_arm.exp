@@ -855,7 +855,10 @@ END_ENTITY;
 
 ENTITY Extended_operation	-- ADDED BY 10303-238
   SUBTYPE OF (Operation);
-  description:               text;
+  description:		  text;
+  its_machine_functions:  OPTIONAL Machine_functions;
+  its_technology:         OPTIONAL Technology;
+  its_tool:               OPTIONAL Machining_tool;
 END_ENTITY;
 
 

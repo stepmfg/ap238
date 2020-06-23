@@ -3836,6 +3836,9 @@ behavior can be achieved using other capabilities of this document.</P>
 following:</P>
 <UL>
 <LI>description.</LI>
+<LI>its_machine_functions;</LI>
+<LI>its_technology;</LI>
+<LI>its_tool.</LI>
 </UL>
 
 <P CLASS="note">
@@ -3845,7 +3848,10 @@ application object is shown below.</P>
 <PRE CLASS="note">
 ENTITY Extended_operation
   SUBTYPE OF (Operation);
-  description:               text;
+  description:		  text;
+  its_machine_functions:  OPTIONAL Machine_functions;
+  its_technology:         OPTIONAL Technology;
+  its_tool:               OPTIONAL Machining_tool;
 END_ENTITY;
 </PRE>
 
@@ -3853,7 +3859,33 @@ END_ENTITY;
 <H4 ID="ao-extended_operation-description">4.3.81.1 description</H4>
 
 <P>The description specifies a string value which identifies the
-operation.</P>
+type of operation.</P>
+
+
+<H4 ID="ao-extended_operation-its_machine_functions">4.3.81.2 its_machine_functions</H4>
+
+<P>The its_machine_functions specifies a Machine_functions application
+object which describes the state of machine capabilities that applies
+to the operation.  The its_machine_functions may not be specified for
+a particular
+Extended_operation. See <a href="#aa-extended_operation-to-machine_functions">Extended_operation
+to Machine_functions</a> for the application assertion.</P>
+
+<H4 ID="ao-extended_operation-its_technology">4.3.81.3 its_technology</H4>
+
+<P>The its_technology specifies a Technology application object which
+describes the technological parameters that apply to the operation.
+The its_technology may not be specified for a particular
+Extended_operation. See <a href="#aa-extended_operation-to-technology">Extended_operation to Technology</a> for the application assertion.</P>
+
+<H4 ID="ao-extended_operation-its_tool">4.3.81.4 its_tool</H4>
+
+<P>The its_tool specifies a Machining_tool application object which
+describes tool requirements that apply to the operation.  The its_tool
+may not be specified for a particular
+Extended_operation. See <a href="#aa-extended_operation-to-machining_tool">Extended_operation
+to Machining_tool</a> for the application assertion.</P>
+
 
 
 <!-- ============================== -->
@@ -9075,8 +9107,29 @@ or more Executable objects.</P>
 
 
 
+<H3 ID="aa-extended_operation-to-machine_functions">4.4.8 Extended_operation to Machine_functions</H3>
 
-<H3 ID="aa-feature_complete_probing-to-manufacturing_feature-as-expected_value">4.4.8 Feature_complete_probing to Manufacturing_feature (as expected_value)</H3>
+<P>Each Extended_operation references at most one Machine_functions
+object as its_machine_functions. Each Machine_functions acts as
+its_machine_functions for zero or more Extended_operation objects.</P>
+
+<H3 ID="aa-extended_operation-to-technology">4.4.9 Extended_operation to Technology</H3>
+
+<P>Each Extended_operation references at most one Technology object as
+its_technology. Each Technology acts as its_technology for zero or
+more Extended_operation objects.</P>
+
+<H3 ID="aa-extended_operation-to-machining_tool">4.4.10 Extended_operation to Machining_tool</H3>
+
+<P>Each Extended_operation references at most one Machining_tool
+object as its_tool. Each Machining_tool acts as its_tool for zero or
+more Extended_operation objects.</P>
+
+
+
+
+
+<H3 ID="aa-feature_complete_probing-to-manufacturing_feature-as-expected_value">4.4.11 Feature_complete_probing to Manufacturing_feature (as expected_value)</H3>
 
 <P>Each Feature_complete_probing references at most one
 Manufacturing_feature object as expected_value. Each
@@ -9084,7 +9137,7 @@ Manufacturing_feature acts as expected_value for zero or more
 Feature_complete_probing objects.</P>
 
 
-<H3 ID="aa-feature_complete_probing-to-touch_probe-as-its_probe">4.4.9 Feature_complete_probing to Touch_probe (as its_probe)</H3>
+<H3 ID="aa-feature_complete_probing-to-touch_probe-as-its_probe">4.4.12 Feature_complete_probing to Touch_probe (as its_probe)</H3>
 
 <P>Each Feature_complete_probing references at most one Touch_probe
 object as its_probe. Each Touch_probe acts as its_probe for zero or
@@ -9093,28 +9146,28 @@ more Feature_complete_probing objects.</P>
 
 
 
-<H3 ID="aa-fixture_usage-to-product_view_definition">4.4.10 Fixture_usage to Product_view_definition</H3>
+<H3 ID="aa-fixture_usage-to-product_view_definition">4.4.13 Fixture_usage to Product_view_definition</H3>
 
 <P>Each Fixture_usage refers to zero or one Product_view_definition
 objects as its_product. Each Product_view_definition acts as
 its_product for zero or more Fixture_usage objects.</P>
 
 
-<H3 ID="aa-machine_parameters-to-machine_axis_travel">4.4.11 Machine_parameters to Machine_axis_travel</H3>
+<H3 ID="aa-machine_parameters-to-machine_axis_travel">4.4.14 Machine_parameters to Machine_axis_travel</H3>
 
 <P>Each Machine_parameters refers to zero or more Machine_axis_travel
 objects as axis_travel. Each Machine_axis_travel acts as axis_travel
 for one or more Machine_parameters objects.</P>
 
 
-<H3 ID="aa-machine_usage-to-product_view_definition">4.4.12 Machine_usage to Product_view_definition</H3>
+<H3 ID="aa-machine_usage-to-product_view_definition">4.4.15 Machine_usage to Product_view_definition</H3>
 
 <P>Each Machine_usage refers to zero or one Product_view_definition
 objects as its_product. Each Product_view_definition acts as
 its_product for zero or more Machine_usage objects.</P>
 
 
-<H3 ID="aa-machining_tool-to-tool_usage">4.4.13 Machining_tool to Tool_usage</H3>
+<H3 ID="aa-machining_tool-to-tool_usage">4.4.16 Machining_tool to Tool_usage</H3>
 
 <P>Each Machining_tool refers to zero or one Tool_usage objects as
 its_usage. Each Tool_usage acts as its_usage for zero or more
@@ -9122,7 +9175,7 @@ Machining_tool objects.</P>
 
 
 
-<H3 ID="aa-milling_machine_functions-to-machine_axis_constraint">4.4.14 Milling_machine_functions to Machine_axis_constraint</H3>
+<H3 ID="aa-milling_machine_functions-to-machine_axis_constraint">4.4.17 Milling_machine_functions to Machine_axis_constraint</H3>
 
 <P>Each Milling_machine_functions has zero or more
 Machine_axis_constraint as axis_constraints. Each
@@ -9130,95 +9183,95 @@ Machine_axis_constraint is the axis_constraints of at least one
 Milling_machine_functions.</P>
 
 
-<H3 ID="aa-setup-to-fixture_usage">4.4.15 Setup to Fixture_usage</H3>
+<H3 ID="aa-setup-to-fixture_usage">4.4.18 Setup to Fixture_usage</H3>
 
 <P>Each Setup refers to zero or one Fixture_usage objects as
 its_fixture_usage. Each Setup acts as its_fixture_usage for zero or
 more Fixture_usage.</P>
 
-<H3 ID="aa-tool_usage-to-externally_defined_representation">4.4.16 Tool_usage to Externally_defined_representation</H3>
+<H3 ID="aa-tool_usage-to-externally_defined_representation">4.4.19 Tool_usage to Externally_defined_representation</H3>
 
 <P>Each Tool_usage refers to zero or one
 Externally_defined_representation objects as
 its_library_reference. Each Externally_defined_representation acts as
 its_library_reference for zero or more Tool_usage objects.</P>
 
-<H3 ID="aa-tool_usage-to-product_view_definition">4.4.17 Tool_usage to Product_view_definition</H3>
+<H3 ID="aa-tool_usage-to-product_view_definition">4.4.20 Tool_usage to Product_view_definition</H3>
 
 <P>Each Tool_usage refers to zero or one Product_view_definition
 object as its_product. Each Product_view_definition acts as
 its_product for zero or more Tool_usage objects.</P>
 
-<H3 ID="aa-workingstep-to-manufacturing_feature-as-final_features">4.4.18 Workingstep to Manufacturing_feature (as final_features)</H3>
+<H3 ID="aa-workingstep-to-manufacturing_feature-as-final_features">4.4.21 Workingstep to Manufacturing_feature (as final_features)</H3>
 
 <P>Each Workingstep has zero or more Manufacturing_feature as
 final_features. Each Manufacturing_feature is the final_features of
 zero or more Workingstep.</P>
 
-<H3 ID="aa-workingstep-to-operation">4.4.19 Workingstep to Operation</H3>
+<H3 ID="aa-workingstep-to-operation">4.4.22 Workingstep to Operation</H3>
 
 <P>Each Workingstep has one Operation as its_operation. Each Operation
 is the its_operation of zero or more Workingstep.</P>
 
 
-<H3 ID="aa-workpiece-to-approval-as-its_approvals">4.4.20 Workpiece to Approval (as its_approvals)</H3>
+<H3 ID="aa-workpiece-to-approval-as-its_approvals">4.4.23 Workpiece to Approval (as its_approvals)</H3>
 
 <P>Each Workpiece has zero or more Approval objects as
 its_approvals. Each Approval is the its_approvals of zero or more
 Workpiece.</P>
 
 
-<H3 ID="aa-workpiece-to-approval-as-product_approvals">4.4.21 Workpiece to Approval (as product_approvals)</H3>
+<H3 ID="aa-workpiece-to-approval-as-product_approvals">4.4.24 Workpiece to Approval (as product_approvals)</H3>
 
 <P>Each Workpiece has zero or more Approval objects as
 product_approvals. Each Approval is the product_approvals of zero or
 more Workpiece.</P>
 
 
-<H3 ID="aa-workpiece-to-approval-as-revision_approvals">4.4.22 Workpiece to Approval (as revision_approvals)</H3>
+<H3 ID="aa-workpiece-to-approval-as-revision_approvals">4.4.25 Workpiece to Approval (as revision_approvals)</H3>
 
 <P>Each Workpiece has zero or more Approval objects as
 revision_approvals. Each Approval is the revision_approvals of zero or
 more Workpiece.</P>
 
 
-<H3 ID="aa-workpiece-to-date_or_date_time_assignment-as-its_datestamps">4.4.23 Workpiece to Date_or_date_time_assignment (as its_datestamps)</H3>
+<H3 ID="aa-workpiece-to-date_or_date_time_assignment-as-its_datestamps">4.4.26 Workpiece to Date_or_date_time_assignment (as its_datestamps)</H3>
 
 <P>Each Workpiece has zero or more Date_or_date_time_assignment
 objects as its_datestamps. Each Date_or_date_time_assignment is the
 its_datestamps of zero or more Workpiece.</P>
 
-<H3 ID="aa-workpiece-to-date_or_date_time_assignment-as-its_timestamps">4.4.24 Workpiece to Date_or_date_time_assignment (as its_timestamps)</H3>
+<H3 ID="aa-workpiece-to-date_or_date_time_assignment-as-its_timestamps">4.4.27 Workpiece to Date_or_date_time_assignment (as its_timestamps)</H3>
 
 <P>Each Workpiece has zero or more Date_or_date_time_assignment
 objects as its_timestamps. Each Date_or_date_time_assignment is the
 its_timestamps of zero or more Workpiece.</P>
 
-<H3 ID="aa-workpiece-to-date_or_date_time_assignment-as-product_datestamps">4.4.25 Workpiece to Date_or_date_time_assignment (as product_datestamps)</H3>
+<H3 ID="aa-workpiece-to-date_or_date_time_assignment-as-product_datestamps">4.4.28 Workpiece to Date_or_date_time_assignment (as product_datestamps)</H3>
 
 <P>Each Workpiece has zero or more Date_or_date_time_assignment
 objects as product_datestamps. Each Date_or_date_time_assignment is
 the product_datestamps of zero or more Workpiece.</P>
 
-<H3 ID="aa-workpiece-to-date_or_date_time_assignment-as-product_timestamps">4.4.26 Workpiece to Date_or_date_time_assignment (as product_timestamps)</H3>
+<H3 ID="aa-workpiece-to-date_or_date_time_assignment-as-product_timestamps">4.4.29 Workpiece to Date_or_date_time_assignment (as product_timestamps)</H3>
 
 <P>Each Workpiece has zero or more Date_or_date_time_assignment
 objects as product_timestamps. Each Date_or_date_time_assignment is
 the product_timestamps of zero or more Workpiece.</P>
 
-<H3 ID="aa-workpiece-to-date_or_date_time_assignment-as-revision_datestamps">4.4.27 Workpiece to Date_or_date_time_assignment (as revision_datestamps)</H3>
+<H3 ID="aa-workpiece-to-date_or_date_time_assignment-as-revision_datestamps">4.4.30 Workpiece to Date_or_date_time_assignment (as revision_datestamps)</H3>
 
 <P>Each Workpiece has zero or more Date_or_date_time_assignment
 objects as revision_datestamps. Each Date_or_date_time_assignment is
 the revision_datestamps of zero or more Workpiece.</P>
 
-<H3 ID="aa-workpiece-to-date_or_date_time_assignment-as-revision_timestamps">4.4.28 Workpiece to Date_or_date_time_assignment (as revision_timestamps)</H3>
+<H3 ID="aa-workpiece-to-date_or_date_time_assignment-as-revision_timestamps">4.4.31 Workpiece to Date_or_date_time_assignment (as revision_timestamps)</H3>
 
 <P>Each Workpiece has zero or more Date_or_date_time_assignment
 objects as revision_timestamps. Each Date_or_date_time_assignment is
 the revision_timestamps of zero or more Workpiece.</P>
 
-<H3 ID="aa-workpiece-to-organization_or_person_in_organization_assignment-as-its_orgs">4.4.29 Workpiece to Organization_or_person_in_organization_assignment (as its_orgs)</H3>
+<H3 ID="aa-workpiece-to-organization_or_person_in_organization_assignment-as-its_orgs">4.4.32 Workpiece to Organization_or_person_in_organization_assignment (as its_orgs)</H3>
 
 <P>Each Workpiece has zero or more
 Organization_or_person_in_organization_assignment objects as
@@ -9226,7 +9279,7 @@ its_orgs. Each Organization_or_person_in_organization_assignment is
 the its_orgs of zero or more Workpiece.</P>
 
 
-<H3 ID="aa-workpiece-to-organization_or_person_in_organization_assignment-as-its_people">4.4.30 Workpiece to Organization_or_person_in_organization_assignment (as its_people)</H3>
+<H3 ID="aa-workpiece-to-organization_or_person_in_organization_assignment-as-its_people">4.4.33 Workpiece to Organization_or_person_in_organization_assignment (as its_people)</H3>
 
 <P>Each Workpiece has zero or more
 Organization_or_person_in_organization_assignment objects as
@@ -9234,7 +9287,7 @@ its_people. Each Organization_or_person_in_organization_assignment is
 the its_people of zero or more Workpiece.</P>
 
 
-<H3 ID="aa-workpiece-to-organization_or_person_in_organization_assignment-as-product_orgs">4.4.31 Workpiece to Organization_or_person_in_organization_assignment (as product_orgs)</H3>
+<H3 ID="aa-workpiece-to-organization_or_person_in_organization_assignment-as-product_orgs">4.4.34 Workpiece to Organization_or_person_in_organization_assignment (as product_orgs)</H3>
 
 <P>Each Workpiece has zero or more
 Organization_or_person_in_organization_assignment objects as
@@ -9242,21 +9295,21 @@ product_orgs. Each Organization_or_person_in_organization_assignment
 is the product_orgs of zero or more Workpiece.</P>
 
 
-<H3 ID="aa-workpiece-to-organization_or_person_in_organization_assignment-as-product_people">4.4.32 Workpiece to Organization_or_person_in_organization_assignment (as product_people)</H3>
+<H3 ID="aa-workpiece-to-organization_or_person_in_organization_assignment-as-product_people">4.4.35 Workpiece to Organization_or_person_in_organization_assignment (as product_people)</H3>
 
 <P>Each Workpiece has zero or more
 Organization_or_person_in_organization_assignment objects as
 product_people. Each Organization_or_person_in_organization_assignment
 is the product_people of zero or more Workpiece.</P>
 
-<H3 ID="aa-workpiece-to-organization_or_person_in_organization_assignment-as-revision_orgs">4.4.33 Workpiece to Organization_or_person_in_organization_assignment (as revision_orgs)</H3>
+<H3 ID="aa-workpiece-to-organization_or_person_in_organization_assignment-as-revision_orgs">4.4.36 Workpiece to Organization_or_person_in_organization_assignment (as revision_orgs)</H3>
 
 <P>Each Workpiece has zero or more
 Organization_or_person_in_organization_assignment objects as
 revision_orgs. Each Organization_or_person_in_organization_assignment
 is the revision_orgs of zero or more Workpiece.</P>
 
-<H3 ID="aa-workpiece-to-organization_or_person_in_organization_assignment-as-revision_people">4.4.34 Workpiece to Organization_or_person_in_organization_assignment (as revision_people)</H3>
+<H3 ID="aa-workpiece-to-organization_or_person_in_organization_assignment-as-revision_people">4.4.37 Workpiece to Organization_or_person_in_organization_assignment (as revision_people)</H3>
 
 <P>Each Workpiece has zero or more
 Organization_or_person_in_organization_assignment objects as
@@ -9265,13 +9318,13 @@ Organization_or_person_in_organization_assignment is the
 revision_people of zero or more Workpiece.</P>
 
 
-<H3 ID="aa-workplan-to-machine_parameters">4.4.35 Workplan to Machine_parameters</H3>
+<H3 ID="aa-workplan-to-machine_parameters">4.4.38 Workplan to Machine_parameters</H3>
 
 <P>Each Workplan refers to zero or one Machine_parameters object as
 its_minimum_machine_params. Each Machine_parameters acts as
 its_minimum_machine_params for zero or more Workplan objects.</P>
 
-<H3 ID="aa-workplan-to-machine_usage">4.4.36 Workplan to Machine_usage</H3>
+<H3 ID="aa-workplan-to-machine_usage">4.4.39 Workplan to Machine_usage</H3>
 
 <P>Each Workplan refers to zero or one Machine_usage objects as
 its_machine_usage. Each Workplan acts as its_machine_usage for zero or
