@@ -525,7 +525,7 @@ END_ENTITY;
 
 ENTITY Touch_probing
   ABSTRACT SUPERTYPE OF (ONEOF (Workpiece_probing,
-  	   Workpiece_complete_probing, Tool_probing))
+  	   Workpiece_complete_probing, Tool_probing, Feature_complete_probing))
   -- SUBTYPE OF (Workingstep, Operation);
   SUBTYPE OF (Operation);  -- SIMPLIFIED BY 10303-238
   measured_offset: Nc_variable;
@@ -826,7 +826,7 @@ END_ENTITY;
 
 
 ENTITY Operation
-  ABSTRACT SUPERTYPE OF (ONEOF (Machining_operation, Rapid_movement, Touch_probing, Extended_operation));
+  ABSTRACT SUPERTYPE OF (ONEOF(Machining_operation, Rapid_movement, Touch_probing, Extended_operation, Am_operation));
   -- 10303-238: its_id moved to supertype to cover all operations
   its_id:		identifier;
   its_toolpath:		OPTIONAL Toolpath_list;
