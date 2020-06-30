@@ -49,6 +49,33 @@ sub gen_armidx {
 }
 
 
+sub gen_aimidx {
+    my($file, $dst) = @_;
+    local ($_);
+    local(*SRC);
+    
+    open (SRC, $file) or die "could not open $file";
+    open (DST, "> $dst") or die "could not open $dst";
+    
+    print "Scanning $file\n";
+    print DST "# AP238 AIM anchors\n";
+    
+    while (<SRC>) {
+	/^<H5 ID=\"aim-([^\"]+)\">(.*)/i && do {
+	    my $tag = $1;
+	    my $body = $2;
+	    $body =~ s/<\/H5>\s*$//i;
+	    $body =~ s/^\s*((\d+|[A-Z])\.[\d\.]+)*\s+//;  
+
+	    print DST "$body\tclause5.htm#aim-$tag\n";
+	};
+    }
+
+    close (DST);
+    close (SRC);
+}
+
+
 
 
 sub main {
@@ -66,6 +93,7 @@ sub main {
 
     
     gen_armidx ("clause4.htm", "arm.link");
+    gen_aimidx ("clause5.htm", "aim.link");
     return 1;
 }
 
