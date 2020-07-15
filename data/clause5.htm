@@ -1407,7 +1407,7 @@ product_definition
 </table>
 
 
-<H5 ID="map-executable-twin_mode">5.1.6.5.7 twin_mode</H5>
+<H5 ID="map-executable-twin_source">5.1.6.5.7 twin_source</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -1424,7 +1424,7 @@ action_method
 characterized_action_definition = action_method
 characterized_action_definition &lt;-
 action_property.definition
-{ action_property.name = 'twin mode' }
+{ action_property.name = 'twin source' }
 action_property &lt;-
 action_property_representation.property
 action_property_representation
@@ -22307,7 +22307,7 @@ as-executed data sources.  Furthermore, the model could only represent
 as-executed values for a single execution run.</P>
 
 <P CLASS="note">
-The twin_mode, twin_plan and other parameters added to Executable by
+The twin_source, twin_plan and other parameters added to Executable by
 the second edition of this document enable a clear distinction between
 as-planned and as-executed values, and scale to represent values from
 many execution runs.  The external reference mechanism introduced by
@@ -22339,8 +22339,8 @@ shown in <a href="#fig-twinmodel">Figure 21</a>.</p>
 <p>A twin process follows the same structure as a planned process.
 The root is a Manufacturing_Project application object, which refers
 to a Workplan as its main workplan.  A twin process shall set the
-twin_mode to 'machining' or 'simulated' in the main workplan and all
-children Executables.  A planned process shall not set the twin_mode
+twin_source to 'machining' or 'simulated' in the main workplan and all
+children Executables.  A planned process shall not set the twin_source
 to any value in the main workplan and all children Executables.</p>
 
 <p>An Executable within a twin process may set the twinning_start,
