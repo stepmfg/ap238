@@ -446,11 +446,11 @@ ENTITY Executable
   removal: OPTIONAL Product_view_definition; -- ADDED BY 10303-238
   to_be:   OPTIONAL Product_view_definition; -- ADDED BY 10303-238
   
-  twin_state: OPTIONAL Twin_state_enum;      -- ADDED BY 10303-238e2
-  as_planned: OPTIONAL Executable;           -- ADDED BY 10303-238e2
-  state_start : OPTIONAL Date_time;          -- ADDED BY 10303-238e2
-  state_end :   OPTIONAL Date_time;          -- ADDED BY 10303-238e2
-  state_error : OPTIONAL Reason_string;      -- ADDED BY 10303-238e2
+  twin_mode: OPTIONAL Twin_mode_enum;      -- ADDED BY 10303-238e2
+  twin_plan: OPTIONAL Executable;           -- ADDED BY 10303-238e2
+  twinning_start : OPTIONAL Date_time;          -- ADDED BY 10303-238e2
+  twinning_end :   OPTIONAL Date_time;          -- ADDED BY 10303-238e2
+  twinning_exception : OPTIONAL Reason_string;      -- ADDED BY 10303-238e2
 
 INVERSE
   -- 10303-238: Additional CAM properties for executables
@@ -460,7 +460,7 @@ END_ENTITY;
 Informal proposition:
 its_id shall be unique within the part programme.
 *)
-TYPE Twin_state_enum = ENUMERATION OF (simulated, machined); END_TYPE;
+TYPE Twin_mode_enum = ENUMERATION OF (simulated, machined); END_TYPE;
 TYPE Reason_string = STRING; END_TYPE;
 
 

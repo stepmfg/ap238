@@ -3594,15 +3594,15 @@ requirements.</P>
 <UL>
 <LI>all of the data defined by ISO 14649-10;</LI>
 <LI>as_is;</LI>
-<LI>as_planned;</LI>
 <LI>cam_properties;</LI>
 <LI>enabled;</LI>
 <LI>removal;</LI>
-<LI>state_end;</LI>
-<LI>state_error;</LI>
-<LI>state_start;</LI>
 <LI>to_be;</LI>
-<LI>twin_state.</LI>
+<LI>twin_mode;</LI>
+<LI>twin_plan;</LI>
+<LI>twinning_end;</LI>
+<LI>twinning_exception;</LI>
+<LI>twinning_start.</LI>
 </UL>
 
 <P CLASS="note">
@@ -3631,18 +3631,18 @@ ENTITY Executable
   removal: OPTIONAL Product_view_definition; -- ADDED BY 10303-238
   to_be:   OPTIONAL Product_view_definition; -- ADDED BY 10303-238
   
-  twin_state: OPTIONAL Twin_state_enum;      -- ADDED BY 10303-238
-  as_planned: OPTIONAL Executable;           -- ADDED BY 10303-238
-  state_start : OPTIONAL Date_time;          -- ADDED BY 10303-238
-  state_end :   OPTIONAL Date_time;          -- ADDED BY 10303-238
-  state_error : OPTIONAL Reason_string;      -- ADDED BY 10303-238
+  twin_mode: OPTIONAL Twin_mode_enum;      -- ADDED BY 10303-238
+  twin_plan: OPTIONAL Executable;           -- ADDED BY 10303-238
+  twinning_start : OPTIONAL Date_time;          -- ADDED BY 10303-238
+  twinning_end :   OPTIONAL Date_time;          -- ADDED BY 10303-238
+  twinning_exception : OPTIONAL Reason_string;      -- ADDED BY 10303-238
 
 INVERSE
   -- 10303-238: Additional CAM properties for executables
   cam_properties: SET[0:?] OF Cam_property FOR described_element;
 END_ENTITY;
 
-TYPE Twin_state_enum = ENUMERATION OF (simulated, machined); END_TYPE;
+TYPE Twin_mode_enum = ENUMERATION OF (simulated, machined); END_TYPE;
 TYPE Reason_string = STRING; END_TYPE;
 </PRE>
 
@@ -3656,23 +3656,13 @@ Executable. See <a href="#aa-executable-to-product_view_definition-as-as_is">Exe
 to Product_view_definition (as as_is)</a> for the application
 assertion.</P>
 
-<H4 ID="ao-executable-as_planned">4.3.77.2 as_planned</H4>
-
-<P>The as_planned specifies an Executable which describes the planned
-process of a machined or simulated Executable.  The as_planned may not
-be specified for a particular Executable.  The as_planned shall not be
-specified for a particular Executable if the twin_state is not
-specified for that Executable.
-See <a href="#aa-executable-to-executable-as-as_planned">Executable to
-Executable (as as_planned)</a> for the application assertion.</P>
-
-<H4 ID="ao-executable-cam_properties">4.3.77.3 cam_properties</H4>
+<H4 ID="ao-executable-cam_properties">4.3.77.2 cam_properties</H4>
 
 <P>The cam_properties shall be represented by the set of Cam_property
 application objects with an described_element parameter that contains
 the Executable.</P>
 
-<H4 ID="ao-executable-enabled">4.3.77.4 enabled</H4>
+<H4 ID="ao-executable-enabled">4.3.77.3 enabled</H4>
 
 <P>The enabled specifies whether the Executable is executed or ignored
 when processing the elements of a manufacturing project. The
@@ -3680,7 +3670,7 @@ Executable is executed if enabled is true or not specified, and
 ignored if enabled is false. The enabled may not be specified for a
 particular Executable.</P>
 
-<H4 ID="ao-executable-removal">4.3.77.5 removal</H4>
+<H4 ID="ao-executable-removal">4.3.77.4 removal</H4>
 
 <P>The removal specifies a Product_view_definition which describes the
 shape and other properties of the material removed from the
@@ -3690,31 +3680,7 @@ Executable. See <a href="#aa-executable-to-product_view_definition-as-removal">E
 to Product_view_definition (as removal)</a> for the application
 assertion.</P>
 
-<H4 ID="ao-executable-state_end">4.3.77.6 state_end</H4>
-
-The state_end specifies a point in time at which a machined or
-simulated Executable was completed.  The state_end may not be
-specified for a particular Executable.  The state_end shall not be
-specified for a particular Executable if the twin_state is not
-specified for that Executable.
-
-<H4 ID="ao-executable-state_error">4.3.77.7 state_error</H4>
-
-The state_error specifies a description of an abnormal ending
-condition for a machined or simulated Executable.  The state_error may
-not be specified for a particular Executable.  The state_error shall
-not be specified for a particular Executable if the twin_state is not
-specified for that Executable.
-
-<H4 ID="ao-executable-state_start">4.3.77.8 state_start</H4>
-
-The state_start specifies a point in time at which a machined or
-simulated Executable was started.  The state_start may not be
-specified for a particular Executable.  The state_start shall not be
-specified for a particular Executable if the twin_state is not
-specified for that Executable.
-
-<H4 ID="ao-executable-to_be">4.3.77.9 to_be</H4>
+<H4 ID="ao-executable-to_be">4.3.77.5 to_be</H4>
 
 <P>The to_be specifies a Product_view_definition which describes the
 predicted shape and other properties of the manufactured product after
@@ -3724,15 +3690,50 @@ Executable. See <a href="#aa-executable-to-product_view_definition-as-to_be">Exe
 to Product_view_definition (as to_be)</a> for the application
 assertion.</P>
 
-<H4 ID="ao-executable-twin_state">4.3.77.10 twin_state</H4>
+<H4 ID="ao-executable-twin_mode">4.3.77.6 twin_mode</H4>
 
-The twin_state specifies whether an Executable is the result of
-machining or simulation.  The twin_state may not be specified for a
-particular Executable.  If the twin_state is not specified, the
+The twin_mode specifies whether an Executable is the result of
+machining or simulation.  The twin_mode may not be specified for a
+particular Executable.  If the twin_mode is not specified, the
 Executable shall describe a planned process, not the result of
 machining or simulation.
 See <A href="clause5.htm#funcon-twin-process">Digital twin process</A>
-for fundamental concepts and assumptions related to the twin_state.
+for fundamental concepts and assumptions related to the twin_mode.
+
+<H4 ID="ao-executable-twin_plan">4.3.77.7 twin_plan</H4>
+
+<P>The twin_plan specifies an Executable which describes the planned
+process of a machined or simulated Executable.  The twin_plan may not
+be specified for a particular Executable.  The twin_plan shall not be
+specified for a particular Executable if the twin_mode is not
+specified for that Executable.
+See <a href="#aa-executable-to-executable-as-twin_plan">Executable to
+Executable (as twin_plan)</a> for the application assertion.</P>
+
+
+<H4 ID="ao-executable-twinning_end">4.3.77.8 twinning_end</H4>
+
+The twinning_end specifies a point in time at which a machined or
+simulated Executable was completed.  The twinning_end may not be
+specified for a particular Executable.  The twinning_end shall not be
+specified for a particular Executable if the twin_mode is not
+specified for that Executable.
+
+<H4 ID="ao-executable-twinning_exception">4.3.77.9 twinning_exception</H4>
+
+The twinning_exception specifies a description of an abnormal ending
+condition for a machined or simulated Executable.  The twinning_exception may
+not be specified for a particular Executable.  The twinning_exception shall
+not be specified for a particular Executable if the twin_mode is not
+specified for that Executable.
+
+<H4 ID="ao-executable-twinning_start">4.3.77.10 twinning_start</H4>
+
+The twinning_start specifies a point in time at which a machined or
+simulated Executable was started.  The twinning_start may not be
+specified for a particular Executable.  The twinning_start shall not be
+specified for a particular Executable if the twin_mode is not
+specified for that Executable.
 
 <!-- ============================== -->
 <DIV><DIV class=quick>
@@ -9079,10 +9080,10 @@ objects as its_support_geometry. Each Product_view_definition acts as
 its_support_geometry for zero or more Am_workingstep objects.</P>
 
 
-<H3 ID="aa-executable-to-executable-as-as_planned">4.4.4 Executable to Executable (as as_planned)</H3>
+<H3 ID="aa-executable-to-executable-as-twin_plan">4.4.4 Executable to Executable (as twin_plan)</H3>
 
 <P>Each Executable references at most one Executable object as
-as_planned. Each Executable acts as as_planned for zero or more
+twin_plan. Each Executable acts as twin_plan for zero or more
 Executable objects.</P>
 
 

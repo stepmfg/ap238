@@ -1296,29 +1296,8 @@ product_definition
 
 
 
-<H5 ID="map-executable-as_planned">5.1.6.5.3 executable to executable (as as_planned)</H5>
 
-<table class="map">
-<tr><th>AIM element:</th>
-<td>PATH</td>
-</tr>
-
-<tr><th>Reference path:</th>
-<td class="path">machining_process_executable &lt;=
-action_method &lt;-
-action_method_relationship.relating_method
-action_method_relationship
-{ action_method_relationship =&gt;
-machining_twin_relationship }
-action_method_relationship.related_method -&gt;
-action_method =&gt;
-machining_process_executable
-</td>
-</tr>
-</table>
-
-
-<H5 ID="map-executable-cam_properties">5.1.6.5.4 executable to cam_property (as cam_properties)</H5>
+<H5 ID="map-executable-cam_properties">5.1.6.5.3 executable to cam_property (as cam_properties)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -1338,7 +1317,7 @@ action_property
 </table>
 
 
-<H5 ID="map-executable-enabled">5.1.6.5.5 enabled</H5>
+<H5 ID="map-executable-enabled">5.1.6.5.4 enabled</H5>
 
 <div class="mapnote">
 <p>#1: if value is true (mapping may be omitted if value is true)</p>
@@ -1378,7 +1357,7 @@ descriptive_representation_item.description
 
 
 
-<H5 ID="map-executable-removal">5.1.6.5.6 executable to product_view_definition (as removal)</H5>
+<H5 ID="map-executable-removal">5.1.6.5.5 executable to product_view_definition (as removal)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -1403,96 +1382,7 @@ product_definition
 </table>
 
 
-<H5 ID="map-executable-state_end">5.1.6.5.7 state_end</H5>
-
-<table class="map">
-<tr><th>AIM element:</th>
-<td>date_and_time</td>
-</tr>
-
-<tr><th>Source:</th>
-<td>10303-41</td>
-</tr>
-
-<tr><th>Reference path:</th>
-<td class="path">machining_process_executable
-date_and_time_item = machining_process_executable
-date_and_time_item &lt;-
-applied_date_and_time_assignment.items[i]
-applied_date_and_time_assignment &lt;=
-date_and_time_assignment
-{ date_and_time_assignment.role -&gt;
-date_time_role
-date_time_role.name = 'state end' }
-date_and_time_assignment.assigned_date_and_time -&gt;
-date_and_time
-</td>
-</tr>
-</table>
-
-
-<H5 ID="map-executable-state_error">5.1.6.5.8 state_error</H5>
-
-<table class="map">
-<tr><th>AIM element:</th>
-<td>descriptive_representation_item</td>
-</tr>
-
-<tr><th>Source:</th>
-<td>10303-45</td>
-</tr>
-
-<tr><th>Reference path:</th>
-<td class="path">machining_process_executable &lt;=
-action_method
-characterized_action_definition = action_method
-characterized_action_definition &lt;-
-action_property.definition
-{ action_property.name = 'state error' }
-action_property &lt;-
-action_property_representation.property
-action_property_representation
-action_property_representation.representation -&gt;
-representation
-representation.items[i] -&gt;
-representation_item =&gt;
-descriptive_representation_item
-descriptive_representation_item.description
-</td>
-</tr>
-</table>
-
-
-<H5 ID="map-executable-state_start">5.1.6.5.9 state_start</H5>
-
-<table class="map">
-<tr><th>AIM element:</th>
-<td>date_and_time</td>
-</tr>
-
-<tr><th>Source:</th>
-<td>10303-41</td>
-</tr>
-
-<tr><th>Reference path:</th>
-<td class="path">machining_process_executable
-date_and_time_item = machining_process_executable
-date_and_time_item &lt;-
-applied_date_and_time_assignment.items[i]
-applied_date_and_time_assignment &lt;=
-date_and_time_assignment
-{ date_and_time_assignment.role -&gt;
-date_time_role
-date_time_role.name = 'state start' }
-date_and_time_assignment.assigned_date_and_time -&gt;
-date_and_time
-</td>
-</tr>
-</table>
-
-
-
-<H5 ID="map-executable-to_be">5.1.6.5.10 executable to product_view_definition (as to_be)</H5>
+<H5 ID="map-executable-to_be">5.1.6.5.6 executable to product_view_definition (as to_be)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -1517,7 +1407,7 @@ product_definition
 </table>
 
 
-<H5 ID="map-executable-twin_state">5.1.6.5.11 twin_state</H5>
+<H5 ID="map-executable-twin_mode">5.1.6.5.7 twin_mode</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -1534,7 +1424,7 @@ action_method
 characterized_action_definition = action_method
 characterized_action_definition &lt;-
 action_property.definition
-{ action_property.name = 'twin state' }
+{ action_property.name = 'twin mode' }
 action_property &lt;-
 action_property_representation.property
 action_property_representation
@@ -1549,6 +1439,117 @@ descriptive_representation_item.description
 </td>
 </tr>
 </table>
+
+<H5 ID="map-executable-twin_plan">5.1.6.5.8 executable to executable (as twin_plan)</H5>
+
+<table class="map">
+<tr><th>AIM element:</th>
+<td>PATH</td>
+</tr>
+
+<tr><th>Reference path:</th>
+<td class="path">machining_process_executable &lt;=
+action_method &lt;-
+action_method_relationship.relating_method
+action_method_relationship
+{ action_method_relationship =&gt;
+machining_twin_relationship }
+action_method_relationship.related_method -&gt;
+action_method =&gt;
+machining_process_executable
+</td>
+</tr>
+</table>
+
+
+<H5 ID="map-executable-twinning_end">5.1.6.5.9 twinning_end</H5>
+
+<table class="map">
+<tr><th>AIM element:</th>
+<td>date_and_time</td>
+</tr>
+
+<tr><th>Source:</th>
+<td>10303-41</td>
+</tr>
+
+<tr><th>Reference path:</th>
+<td class="path">machining_process_executable
+date_and_time_item = machining_process_executable
+date_and_time_item &lt;-
+applied_date_and_time_assignment.items[i]
+applied_date_and_time_assignment &lt;=
+date_and_time_assignment
+{ date_and_time_assignment.role -&gt;
+date_time_role
+date_time_role.name = 'twinning end' }
+date_and_time_assignment.assigned_date_and_time -&gt;
+date_and_time
+</td>
+</tr>
+</table>
+
+
+<H5 ID="map-executable-twinning_exception">5.1.6.5.10 twinning_exception</H5>
+
+<table class="map">
+<tr><th>AIM element:</th>
+<td>descriptive_representation_item</td>
+</tr>
+
+<tr><th>Source:</th>
+<td>10303-45</td>
+</tr>
+
+<tr><th>Reference path:</th>
+<td class="path">machining_process_executable &lt;=
+action_method
+characterized_action_definition = action_method
+characterized_action_definition &lt;-
+action_property.definition
+{ action_property.name = 'twinning exception' }
+action_property &lt;-
+action_property_representation.property
+action_property_representation
+action_property_representation.representation -&gt;
+representation
+representation.items[i] -&gt;
+representation_item =&gt;
+descriptive_representation_item
+descriptive_representation_item.description
+</td>
+</tr>
+</table>
+
+
+<H5 ID="map-executable-twinning_start">5.1.6.5.11 twinning_start</H5>
+
+<table class="map">
+<tr><th>AIM element:</th>
+<td>date_and_time</td>
+</tr>
+
+<tr><th>Source:</th>
+<td>10303-41</td>
+</tr>
+
+<tr><th>Reference path:</th>
+<td class="path">machining_process_executable
+date_and_time_item = machining_process_executable
+date_and_time_item &lt;-
+applied_date_and_time_assignment.items[i]
+applied_date_and_time_assignment &lt;=
+date_and_time_assignment
+{ date_and_time_assignment.role -&gt;
+date_time_role
+date_time_role.name = 'twinning start' }
+date_and_time_assignment.assigned_date_and_time -&gt;
+date_and_time
+</td>
+</tr>
+</table>
+
+
 
 
 <!-- ============================== -->
@@ -22306,7 +22307,7 @@ as-executed data sources.  Furthermore, the model could only represent
 as-executed values for a single execution run.</P>
 
 <P CLASS="note">
-The twin_state, as_planned and other parameters added to Executable by
+The twin_mode, twin_plan and other parameters added to Executable by
 the second edition of this document enable a clear distinction between
 as-planned and as-executed values, and scale to represent values from
 many execution runs.  The external reference mechanism introduced by
@@ -22338,16 +22339,16 @@ shown in <a href="#fig-twinmodel">Figure 21</a>.</p>
 <p>A twin process follows the same structure as a planned process.
 The root is a Manufacturing_Project application object, which refers
 to a Workplan as its main workplan.  A twin process shall set the
-twin_state to 'machining' or 'simulated' in the main workplan and all
-children Executables.  A planned process shall not set the twin_state
+twin_mode to 'machining' or 'simulated' in the main workplan and all
+children Executables.  A planned process shall not set the twin_mode
 to any value in the main workplan and all children Executables.</p>
 
-<p>An Executable within a twin process may set the state_start,
-state_end, and state_error parameters to describe when it was machined
+<p>An Executable within a twin process may set the twinning_start,
+twinning_end, and twinning_exception parameters to describe when it was machined
 or simulated, and whether it completed sucessfully.  The Executable
-may may set the as_planned parameter to identify the Executable within
+may may set the twin_plan parameter to identify the Executable within
 a planned process that was machined or simulated.  If an Executable
-within a twin process was not planned before execution, the as_planned
+within a twin process was not planned before execution, the twin_plan
 parameter shall not be set.</p>
 
 <P CLASS="note">
@@ -22392,10 +22393,10 @@ as-planned process.</p>
 
 <P CLASS="note">
 <SPAN>EXAMPLE 3</SPAN> When interpreting a twin process, if the
-operation of a workingstep is not set, the operation of the as_planned
+operation of a workingstep is not set, the operation of the twin_plan
 executable is used.  Similarly, if the tool_diameter of the twin
 process is not set, then the tool_diameter found through the
-as_planned executable is used.</P>
+twin_plan executable is used.</P>
 
 
 <H3 ID="aim-types">5.2.3 Model based integrated manufacturing types</H3>
@@ -26247,8 +26248,8 @@ END_ENTITY;
 
 <P>A <B>machining_twin_relationship </B>is a type
 of <B>action_method_relationship</B> that represents the association
-of an Executable with another Executable as its as_planned.  See
-the <a href="clause4.htm#ao-executable">Workplan.as_planned</a> for
+of an Executable with another Executable as its twin_plan.  See
+the <a href="clause4.htm#ao-executable">Workplan.twin_plan</a> for
 more information.</P>
 
 <H6 CLASS="section-underlined">EXPRESS specification:</H6>
