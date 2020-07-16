@@ -127,9 +127,19 @@ sub scan_toc_entries {
 		$_ = <SRC>;
 		$body = $1 if /<FIGCAPTION>(.*)<\/FIGCAPTION>/i;
 	    }
-
-	    print "FIGURE $tag -- $body\n";
-	    push @figs, "<LI><a href=\"$file#$tag\"%%TARGET%%>$body</A></LI>\n";
+	    
+	    # for the arm and aim expg, the entire Annex is the figure, so
+	    # omit the fragment from the link.  Otherwise the browser will
+	    # highlight the expg and all of the text will be red, which is
+	    # confusing.
+	    if ($tag eq 'fig-arm' or $tag eq 'fig-aim') {
+		print "FIGURE EXPRESS-G -- $body\n";
+		push @figs, "<LI><a href=\"$file\"%%TARGET%%>$body</A></LI>\n";
+	    }
+	    else {
+		print "FIGURE $tag -- $body\n";
+		push @figs, "<LI><a href=\"$file#$tag\"%%TARGET%%>$body</A></LI>\n";
+	    }
 	};
 
 	/^<CAPTION ID=\"([^\"]+)\">(.*)/i && do {
