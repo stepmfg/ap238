@@ -1515,6 +1515,12 @@ action_property_representation.representation -&gt;
 representation
 representation.items[i] -&gt;
 representation_item =&gt;
+compound_representation_item
+compound_representation_item.item_element -&gt;
+compound_item_definition
+compound_item_definition = list_representation_item
+list_representation_item[i] -&gt;	
+representation_item =&gt;
 descriptive_representation_item
 descriptive_representation_item.description
 </td>
@@ -26255,7 +26261,7 @@ more information.</P>
 <H6 CLASS="section-underlined">EXPRESS specification:</H6>
 <PRE CLASS="code">
 *)
-ENTITY machining_usage_relationship
+ENTITY machining_twin_relationship
   SUBTYPE OF (action_method_relationship);
 END_ENTITY;
 (*

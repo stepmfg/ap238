@@ -3635,7 +3635,7 @@ ENTITY Executable
   twin_plan: OPTIONAL Executable;               -- ADDED BY 10303-238
   twinning_start : OPTIONAL Date_time;          -- ADDED BY 10303-238
   twinning_end :   OPTIONAL Date_time;          -- ADDED BY 10303-238
-  twinning_exception : OPTIONAL Reason_string;  -- ADDED BY 10303-238
+  twinning_exception : OPTIONAL LIST [0:?] OF Reason_string;  -- ADDED BY 10303-238e2
 
 INVERSE
   -- 10303-238: Additional CAM properties for executables
@@ -3651,8 +3651,7 @@ TYPE Reason_string = STRING; END_TYPE;
 <P>The as_is specifies a Product_view_definition which describes the
 shape and other properties of the manufactured product before the
 Executable is executed. The as_is may not be specified for a
-particular
-Executable. See <a href="#aa-executable-to-product_view_definition-as-as_is">Executable
+particular Executable. See <a href="#aa-executable-to-product_view_definition-as-as_is">Executable
 to Product_view_definition (as as_is)</a> for the application
 assertion.</P>
 
@@ -3675,8 +3674,8 @@ particular Executable.</P>
 <P>The removal specifies a Product_view_definition which describes the
 shape and other properties of the material removed from the
 manufactured product by the Executable. The removal may not be
-specified for a particular
-Executable. See <a href="#aa-executable-to-product_view_definition-as-removal">Executable
+specified for a particular Executable.
+See <a href="#aa-executable-to-product_view_definition-as-removal">Executable
 to Product_view_definition (as removal)</a> for the application
 assertion.</P>
 
@@ -3685,8 +3684,8 @@ assertion.</P>
 <P>The to_be specifies a Product_view_definition which describes the
 predicted shape and other properties of the manufactured product after
 the Executable is executed. The to_be may not be specified for a
-particular
-Executable. See <a href="#aa-executable-to-product_view_definition-as-to_be">Executable
+particular Executable.
+See <a href="#aa-executable-to-product_view_definition-as-to_be">Executable
 to Product_view_definition (as to_be)</a> for the application
 assertion.</P>
 
@@ -3721,11 +3720,13 @@ specified for that Executable.
 
 <H4 ID="ao-executable-twinning_exception">4.3.77.9 twinning_exception</H4>
 
-The twinning_exception specifies a description of an abnormal ending
-condition for a machined or simulated Executable.  The twinning_exception may
-not be specified for a particular Executable.  The twinning_exception shall
-not be specified for a particular Executable if the twin_source is not
-specified for that Executable.
+The twinning_exception specifies a sequence of descriptions of
+abnormal ending condition for a machined or simulated Executable.  The
+descriptions shall be in chronological order of occurrence, with the
+earliest first.  The twinning_exception may not be specified for a
+particular Executable.  The twinning_exception shall not be specified
+for a particular Executable if the twin_source is not specified for
+that Executable.
 
 <H4 ID="ao-executable-twinning_start">4.3.77.10 twinning_start</H4>
 

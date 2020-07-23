@@ -1,6 +1,6 @@
 SCHEMA model_based_integrated_manufacturing_schema;
 (*
-    ISO TC184/SC4/WG15N155 (superceeds N94)
+    ISO TC184/SC4/WG15N156 (superceeds N155)
     ISO 10303-238 Edition 2
     AIM EXPRESS SHORT FORM
 *)
@@ -2622,6 +2622,9 @@ ENTITY machining_toolpath_sequence_relationship
   SUBTYPE OF (sequential_method);
 END_ENTITY;
 
+ENTITY machining_twin_relationship
+  SUBTYPE OF (action_method_relationship);
+END_ENTITY;
 
 
 ENTITY machining_feature_relationship
