@@ -23076,7 +23076,7 @@ text { font-family: Arial; font-size: 10px; }
 <rect  id="applied_security_classification_assignment" x="164" y="8999" width="243" height="20" />
 <text class="box" x="286" y="9010">applied_security_classification_assignment</text>
 </a>
-<a xlink:href="https://ap238.org/SMRL_v8_final/data/modules/additive_manufacturing_part_and_build_information/sys/5_mim.htm#additive_manufacturing_part_and_build_information_mim.machining_process_executable"  xlink:title="definition">
+<a xlink:href="clause5.htm#aim-machining_process_executable"  xlink:title="definition">
 <rect  id="machining_process_executable" x="417" y="218" width="180" height="20" />
 <text class="box" x="507" y="229">machining_process_executable</text>
 </a>
