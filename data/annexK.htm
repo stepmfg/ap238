@@ -284,6 +284,15 @@ were originally defined by ISO 13584-20 and are equivalent.</P>
 of Activity_property for supplemental information about a process
 description.</P>
 
+<P>Make the <a href="clause4.htm#ao-executable">Executable</a>
+application object an ARM subtype of Process_operation_definition to
+further interoperation with AP242 process plans.  The integrated
+representation of this information is unchanged from previous edition
+of this document, but the AIM action_method subtype process_operation
+was inserted as an intermediate supertype
+of <a href="clause5.htm#aim-machining_process_executable">machining_process_executable</a>
+to facilitate interoperation.</P>
+
 <P>Expand <a href="clause4.htm#ao-executable">Executable</a> with
 "enabled" attribute to permit any process element to be marked as
 enabled or disabled.  </P>
@@ -299,6 +308,14 @@ Product_view_definition so that features and tolerances can also be
 provided with the geometry and topology.
 
 <P>Expand <a href="clause4.htm#ao-executable">Executable</a> with twin_source, twin_plan, twinning_start, twinning_end, and state error parameters to describe a digital twin process.  Added <a href="clause5.htm#aim-machining_twin_relationship">machining_twin_relationship</a> to clause 5 for use in the mapping and guidance on <A href="clause5.htm#funcon-twin-process">Digital twin process</A> in the Fundamental concepts and assumptions section.</P>
+
+
+<P>Rename <a href="clause4.htm#ao-extended_nc_function">Extended_NC_function</a>
+property from "description" to "extended_description" to avoid
+conflict with the "description" property inherited from the
+Process_operation_definition supertype added to Executable.  The
+integrated representation of this information is unchanged.</P>
+
 
 <P>Add <a href="clause4.htm#ao-feature_complete_probing">Feature_complete_probing</a> application object to describe complete measurement cycle for inspecting a feature.</P>
 
@@ -331,9 +348,9 @@ information was previously only available on Machining_workingstep.</P>
 <P>Change the supertype
 of <a href="clause5.htm#aim-machining_process_executable">machining_process_executable</a>
 to process_operation, which is also an action_method subtype, to
-further interoperation with AP242.  Local rules WR1 and WR2 on
-process_operation are currently incompatible with AP238 usage, but
-this has been noted and is being corrected.</P>
+further interoperation with AP242.  Previously, process_operation had
+local rules WR1 and WR2 which were incompatible with AP238 usage, but
+this have since been removed.</P>
 
 <P>Change mappings for properties that use the ISO 13584-20 expression
 types.  This includes NC_constant, NC_variable, and references to

@@ -3585,14 +3585,16 @@ END_ENTITY;
 <H3 ID="ao-executable">4.3.77 Executable</H3>
 </DIV>
 
-<P>The Executable application object shall be as defined by ISO
-14649-10. This document adds the following information
-requirements.</P>
+<P>The Executable application object is a type of
+Process_operation_definition that meets the information requirements
+defined for Executable by ISO 14649-10. This document adds the
+following information requirements.</P>
 
 <P>The data associated with an Executable are the following:</P>
 
 <UL>
-<LI>all of the data defined by ISO 14649-10;</LI>
+<LI>all of the data defined by ISO 14649-10, as modified below for the
+its_id attribute;</LI>
 <LI>as_is;</LI>
 <LI>cam_properties;</LI>
 <LI>enabled;</LI>
@@ -3624,8 +3626,12 @@ descriptions originally supported by ISO 14649.</P>
 
 <PRE CLASS="note">
 ENTITY Executable
-  ABSTRACT SUPERTYPE OF (ONEOF( Workingstep, Nc_function, Program_structure));
-  its_id: identifier;
+  ABSTRACT SUPERTYPE OF (ONEOF( Workingstep, Nc_function, Program_structure))
+  SUBTYPE OF (Process_operation_definition); -- ADDED BY 10303-238e2
+
+  -- 10303-238: its_id now inherited as Process_operation_definition.id
+  -- its_id: identifier;
+
   as_is:   OPTIONAL Product_view_definition; -- ADDED BY 10303-238
   enabled: OPTIONAL BOOLEAN; 	     	     -- ADDED BY 10303-238
   removal: OPTIONAL Product_view_definition; -- ADDED BY 10303-238
@@ -3646,7 +3652,17 @@ TYPE Twin_source_enum = ENUMERATION OF (simulated, machined); END_TYPE;
 TYPE Reason_string = STRING; END_TYPE;
 </PRE>
 
-<H4 ID="ao-executable-as_is">4.3.77.1 as_is</H4>
+<H4 ID="ao-executable-its_id">4.3.77.1 its_id</H4>
+
+<P>The its_id parameter defined by ISO 14649-10 shall be given by the
+id parameter inherited from Process_operation_definition.</P>
+
+<P CLASS="note">
+<SPAN>NOTE</SPAN> The integrated representation of this information is
+unchanged from previous edition of this document.</P>
+
+
+<H4 ID="ao-executable-as_is">4.3.77.2 as_is</H4>
 
 <P>The as_is specifies a Product_view_definition which describes the
 shape and other properties of the manufactured product before the
@@ -3655,13 +3671,13 @@ particular Executable. See <a href="#aa-executable-to-product_view_definition-as
 to Product_view_definition (as as_is)</a> for the application
 assertion.</P>
 
-<H4 ID="ao-executable-cam_properties">4.3.77.2 cam_properties</H4>
+<H4 ID="ao-executable-cam_properties">4.3.77.3 cam_properties</H4>
 
 <P>The cam_properties shall be represented by the set of Cam_property
 application objects with an described_element parameter that contains
 the Executable.</P>
 
-<H4 ID="ao-executable-enabled">4.3.77.3 enabled</H4>
+<H4 ID="ao-executable-enabled">4.3.77.4 enabled</H4>
 
 <P>The enabled specifies whether the Executable is executed or ignored
 when processing the elements of a manufacturing project. The
@@ -3669,7 +3685,7 @@ Executable is executed if enabled is true or not specified, and
 ignored if enabled is false. The enabled may not be specified for a
 particular Executable.</P>
 
-<H4 ID="ao-executable-removal">4.3.77.4 removal</H4>
+<H4 ID="ao-executable-removal">4.3.77.5 removal</H4>
 
 <P>The removal specifies a Product_view_definition which describes the
 shape and other properties of the material removed from the
@@ -3679,7 +3695,7 @@ See <a href="#aa-executable-to-product_view_definition-as-removal">Executable
 to Product_view_definition (as removal)</a> for the application
 assertion.</P>
 
-<H4 ID="ao-executable-to_be">4.3.77.5 to_be</H4>
+<H4 ID="ao-executable-to_be">4.3.77.6 to_be</H4>
 
 <P>The to_be specifies a Product_view_definition which describes the
 predicted shape and other properties of the manufactured product after
@@ -3689,7 +3705,7 @@ See <a href="#aa-executable-to-product_view_definition-as-to_be">Executable
 to Product_view_definition (as to_be)</a> for the application
 assertion.</P>
 
-<H4 ID="ao-executable-twin_source">4.3.77.6 twin_source</H4>
+<H4 ID="ao-executable-twin_source">4.3.77.7 twin_source</H4>
 
 The twin_source specifies whether an Executable is the result of
 machining or simulation.  The twin_source may not be specified for a
@@ -3699,7 +3715,7 @@ machining or simulation.
 See <A href="clause5.htm#funcon-twin-process">Digital twin process</A>
 for fundamental concepts and assumptions related to the twin_source.
 
-<H4 ID="ao-executable-twin_plan">4.3.77.7 twin_plan</H4>
+<H4 ID="ao-executable-twin_plan">4.3.77.8 twin_plan</H4>
 
 <P>The twin_plan specifies an Executable which describes the planned
 process of a machined or simulated Executable.  The twin_plan may not
@@ -3710,7 +3726,7 @@ See <a href="#aa-executable-to-executable-as-twin_plan">Executable to
 Executable (as twin_plan)</a> for the application assertion.</P>
 
 
-<H4 ID="ao-executable-twinning_end">4.3.77.8 twinning_end</H4>
+<H4 ID="ao-executable-twinning_end">4.3.77.9 twinning_end</H4>
 
 The twinning_end specifies a point in time at which a machined or
 simulated Executable was completed.  The twinning_end may not be
@@ -3718,7 +3734,7 @@ specified for a particular Executable.  The twinning_end shall not be
 specified for a particular Executable if the twin_source is not
 specified for that Executable.
 
-<H4 ID="ao-executable-twinning_exception">4.3.77.9 twinning_exception</H4>
+<H4 ID="ao-executable-twinning_exception">4.3.77.10 twinning_exception</H4>
 
 The twinning_exception specifies a sequence of descriptions of
 abnormal ending condition for a machined or simulated Executable.  The
@@ -3728,7 +3744,7 @@ particular Executable.  The twinning_exception shall not be specified
 for a particular Executable if the twin_source is not specified for
 that Executable.
 
-<H4 ID="ao-executable-twinning_start">4.3.77.10 twinning_start</H4>
+<H4 ID="ao-executable-twinning_start">4.3.77.11 twinning_start</H4>
 
 The twinning_start specifies a point in time at which a machined or
 simulated Executable was started.  The twinning_start may not be
@@ -3798,7 +3814,7 @@ behavior can be achieved using other capabilities of this document.</P>
 <P>The data associated with an Extended_NC_function are the
 following:</P>
 <UL>
-<LI>description.</LI>
+<LI>extended_description.</LI>
 </UL>
 
 <P CLASS="note">
@@ -3808,17 +3824,22 @@ application object is shown below.</P>
 <PRE CLASS="note">
 ENTITY Extended_nc_function
   SUBTYPE OF (Nc_function);
-  description:               text;
+  extended_description:               text;
 END_ENTITY;
 </PRE>
 
-<H4 ID="ao-extended_nc_function-description">4.3.80.1 description</H4>
+<H4 ID="ao-extended_nc_function-extended_description">4.3.80.1 extended_description</H4>
 
-<P>The description specifies a string value which identifies the
-function.</P>
+<P>The extended_description specifies a string value which identifies
+the function.</P>
 
-
-
+<P CLASS="note">
+<SPAN>NOTE</SPAN>This property was called "description" in the
+previous edition of this document.  The name was changed to avoid
+conflict with the "description" property inherited from the
+Process_operation_definition supertype added in this edition for
+interoperation with AP242 process plans.  The integrated
+representation of this information is unchanged.</P>
 
 
 <!-- ============================== -->

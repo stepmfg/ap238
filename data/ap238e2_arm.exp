@@ -439,8 +439,11 @@ END_TYPE;
 (* ************************************************************ *)
 
 ENTITY Executable
-  ABSTRACT SUPERTYPE OF (ONEOF( Workingstep, Nc_function, Program_structure));
-  its_id: identifier;
+  ABSTRACT SUPERTYPE OF (ONEOF( Workingstep, Nc_function, Program_structure))
+  SUBTYPE OF (Process_operation_definition); -- ADDED BY 10303-238e2
+
+  -- 10303-238: its_id now inherited as Process_operation_definition.id
+  -- its_id: identifier;
   as_is:   OPTIONAL Product_view_definition; -- ADDED BY 10303-238
   enabled: OPTIONAL BOOLEAN; 	     	     -- ADDED BY 10303-238
   removal: OPTIONAL Product_view_definition; -- ADDED BY 10303-238
@@ -646,7 +649,9 @@ END_ENTITY;
 
 ENTITY Extended_nc_function	-- ADDED BY 10303-238
   SUBTYPE OF (Nc_function);
-  description:               text;
+  -- 10303-238: renamed to extended_description to avoid conflict with
+  --  inherited Process_operation_definition.description
+  extended_description:               text;
 END_ENTITY;
 
 (* ************************************************************ *)
