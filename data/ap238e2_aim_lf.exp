@@ -12623,6 +12623,10 @@ ENTITY machining_process_model_relationship
   SUBTYPE OF (sequential_method);
 END_ENTITY; -- 10303-238: model_based_integrated_manufacturing_schema
 
+ENTITY machining_process_property
+  SUBTYPE OF (action_property);
+END_ENTITY; -- 10303-238: model_based_integrated_manufacturing_schema
+
 ENTITY machining_process_sequence_relationship
   SUBTYPE OF (machining_process_body_relationship, sequential_method);
 END_ENTITY; -- 10303-238: model_based_integrated_manufacturing_schema

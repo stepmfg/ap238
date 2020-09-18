@@ -232,11 +232,12 @@ TYPE elementary_surface  = STRING; END_TYPE; -- Part 42
 (* ************************************************************ *)
 (* ************************************************************ *)
 
-TYPE last_modified_timestamp_item_238 = SELECT BASED_ON date_or_date_time_item WITH(
+TYPE date_time_item_238 = SELECT BASED_ON date_or_date_time_item WITH(
 	Executable,
 	Operation,
 	Manufacturing_project,
 	Toolpath,
+	Workpiece,
 	Workpiece
 	);
 END_TYPE;
@@ -449,28 +450,29 @@ ENTITY Executable
   removal: OPTIONAL Product_view_definition; -- ADDED BY 10303-238
   to_be:   OPTIONAL Product_view_definition; -- ADDED BY 10303-238
   
-  twin_source: OPTIONAL Twin_source_enum;       -- ADDED BY 10303-238e2
+  twin_source: OPTIONAL text;			-- ADDED BY 10303-238e2
   twin_plan: OPTIONAL Executable;               -- ADDED BY 10303-238e2
-  twinning_start : OPTIONAL Date_time;          -- ADDED BY 10303-238e2
-  twinning_end :   OPTIONAL Date_time;          -- ADDED BY 10303-238e2
-  twinning_exception : OPTIONAL LIST [0:?] OF Reason_string;  -- ADDED BY 10303-238e2
+  twin_start : OPTIONAL Date_time;		-- ADDED BY 10303-238e2
+  twin_end :   OPTIONAL Date_time;		-- ADDED BY 10303-238e2
+  twin_worktime : OPTIONAL Duration;		-- ADDED BY 10303-238e2
+  twin_exception : OPTIONAL text;		-- ADDED BY 10303-238e2
 
+  machine_used: OPTIONAL Machine_usage;		-- ADDED BY 10303-238e2
+  
 INVERSE
-  -- 10303-238: Additional CAM properties for executables
-  cam_properties: SET[0:?] OF Cam_property FOR described_element;
+  -- 10303-238: Additional CAM properties for planned executables or
+  -- result properties for digital twins.
+  process_properties: SET[0:?] OF Process_property FOR described_element;
 END_ENTITY;
 (*
 Informal proposition:
 its_id shall be unique within the part programme.
 *)
-TYPE Twin_source_enum = ENUMERATION OF (simulated, machined); END_TYPE;
-TYPE Reason_string = STRING; END_TYPE;
 
 
-ENTITY Cam_property	-- ADDED BY 10303-238
+ENTITY Process_property	-- ADDED BY 10303-238
   SUBTYPE OF (Activity_property);
-  DERIVE
-    SELF\Activity_property.description : STRING := 'CAM parameter';
+  property_date :   OPTIONAL Date_time;
 END_ENTITY;
 
 
@@ -675,7 +677,6 @@ ENTITY Workplan
   -- 10303-238: as_is, to_be, and removal now inherited from Executable
   -- its_effect:                OPTIONAL in_process_geometry;
   its_minimum_machine_params:   OPTIONAL Machine_parameters; -- ADDED BY 10303-238
-  its_machine_usage:		OPTIONAL Machine_usage;      -- ADDED BY 10303-238
   toolpath_orientation:         OPTIONAL Axis_placement_3d;  -- ADDED BY 10303-238
 WHERE
    WR1: SIZEOF(QUERY(it <* its_elements | it = SELF)) = 0;
@@ -839,7 +840,7 @@ ENTITY Operation
 
 INVERSE
   -- 10303-238: Additional CAM properties for operations
-  cam_properties: SET[0:?] OF Cam_property FOR described_element;
+  process_properties: SET[0:?] OF Process_property FOR described_element;
 END_ENTITY;
 
 ENTITY Toolpath_list;

@@ -77,7 +77,9 @@ to the Person_in_organization application object defined by ISO
 <P>Replace General_property, Part_property, and Process_property
 application objects with the Assigned_property application object
 defined by ISO 10303-1030.  Add workpiece, shape_element to the ARM
-definition for property assignment select.</P>
+definition for property assignment select.  The Process_property name
+has been reused for an application object defined by the Executable
+UoF that extends an Executable with additional information.</P>
 
 <P>Replace Hardness application object with the Hardness application
 object defined by ISO 10303-1110.  The integrated representation of
@@ -280,10 +282,6 @@ application objects have changed.</P>
 the objects of the same name defined by ISO 10303-1526.  These objects
 were originally defined by ISO 13584-20 and are equivalent.</P>
 
-<P>Add <a href="clause4.htm#ao-cam_property">Cam_property</a> subtype
-of Activity_property for supplemental information about a process
-description.</P>
-
 <P>Make the <a href="clause4.htm#ao-executable">Executable</a>
 application object an ARM subtype of Process_operation_definition to
 further interoperation with AP242 process plans.  The integrated
@@ -307,7 +305,13 @@ geometry changed from an advanced_brep_shape_representation to
 Product_view_definition so that features and tolerances can also be
 provided with the geometry and topology.
 
-<P>Expand <a href="clause4.htm#ao-executable">Executable</a> with twin_source, twin_plan, twinning_start, twinning_end, and state error parameters to describe a digital twin process.  Added <a href="clause5.htm#aim-machining_twin_relationship">machining_twin_relationship</a> to clause 5 for use in the mapping and guidance on <A href="clause5.htm#funcon-twin-process">Digital twin process</A> in the Fundamental concepts and assumptions section.</P>
+<P>Expand <a href="clause4.htm#ao-executable">Executable</a> with
+twin_source, twin_plan, twin_start, twin_end, twin_exception, and
+twin_worktime parameters to describe a digital twin process.
+Added <a href="clause5.htm#aim-machining_twin_relationship">machining_twin_relationship</a>
+to clause 5 for use in the mapping and guidance
+on <A href="clause5.htm#funcon-twin-process">Digital twin process</A>
+in the Fundamental concepts and assumptions section.</P>
 
 
 <P>Rename <a href="clause4.htm#ao-extended_nc_function">Extended_NC_function</a>
@@ -317,22 +321,61 @@ Process_operation_definition supertype added to Executable.  The
 integrated representation of this information is unchanged.</P>
 
 
-<P>Add <a href="clause4.htm#ao-feature_complete_probing">Feature_complete_probing</a> application object to describe complete measurement cycle for inspecting a feature.</P>
+<P>Add <a href="clause4.htm#ao-feature_complete_probing">Feature_complete_probing</a>
+application object to describe complete measurement cycle for
+inspecting a feature.</P>
 
-<P>Add <a href="clause4.htm#ao-fixture_usage">Fixture_usage</a> definition to identify a particular usage of a fixture and associate a product model for the fixture. Added <a href="clause5.htm#aim-machining_fixture_usage">machining_fixture_usage</a> to clause 5 for use in the mapping.  This replaces the first edition extension to Executable that referenced a workpiece directly as the its_fixture.</P>
+<P>Add <a href="clause4.htm#ao-fixture_usage">Fixture_usage</a>
+definition to identify a particular usage of a fixture and associate a
+product model for the
+fixture. Added <a href="clause5.htm#aim-machining_fixture_usage">machining_fixture_usage</a>
+to clause 5 for use in the mapping.  This replaces the first edition
+extension to Executable that referenced a workpiece directly as the
+its_fixture.</P>
 
-<P>Add <a href="clause4.htm#ao-machine_usage">Machine_usage</a> application object to record actual machine tool used for a workplan. Mappings use <a href="clause5.htm#aim-machining_machine_usage">machining_machine_usage</a> and <a href="clause5.htm#aim-machining_usage_relationship">machining_usage_relationship</a> AIM objects</P>
+<P>Add <a href="clause4.htm#ao-machine_usage">Machine_usage</a>
+application object to record actual machine tool used for an
+executable. Mappings
+use <a href="clause5.htm#aim-machining_machine_usage">machining_machine_usage</a>
+and <a href="clause5.htm#aim-machining_usage_relationship">machining_usage_relationship</a>
+AIM objects</P>
 
-<P>Add <a href="clause4.htm#ao-m.achine_with_kinematics">Machine_with_kinematics</a> application object as a Product_view_definition with an associated kinematics representation. </P>
+<P>Add <a href="clause4.htm#ao-machine_with_kinematics">Machine_with_kinematics</a>
+application object as a Product_view_definition with an associated
+kinematics representation.</P>
 
 
-<P>Expand <a href="clause4.htm#ao-setup">Setup</a> to reference a <a href="clause4.htm#ao-fixture_usage">Fixture_usage</a> as "its_fixture_usage".
+<P>Add <a href="clause4.htm#ao-process_property">Process_property</a>
+subtype of Activity_property for supplemental information about a
+process description.  The Process_property application object defined
+by the first edition has been replaced by the Assigned_property
+application object defined by ISO 10303-1030.</P>  Mapping
+uses <a href="clause5.htm#aim-machining_process_property">machining_process_property</a>
+AIM object.</P>
 
-<P>Expand <a href="clause4.htm#ao-tool_usage">Tool_usage</a> definition to include gage and tool-end placements, which clarify how the tool product model is oriented with respect to toolpaths and machine models for simulation and interference checking.</P>
 
-<P>Change <a href="clause4.htm#ao-touch_probe">Touch_probe</a> to be a type of <a href="clause4.htm#ao-machining_tool">Machining_tool</a>, to support a description of the probe usage, associated geometric shape, and other product information available for tools.   Add values for "overall assembly length" and "ball radius" to describe basic parameters.</P>
+<P>Expand <a href="clause4.htm#ao-setup">Setup</a> to reference
+a <a href="clause4.htm#ao-fixture_usage">Fixture_usage</a> as
+"its_fixture_usage".
 
-<P>Change the supertype list of the <a href="clause4.htm#ao-touch_probing">Touch_probing</a> and <a href="clause4.htm#ao-rapid_movement">Rapid_movement</a> application objects to only contain Operation.  As defined by ISO 14649 they were also a Workingstep, which caused confusion in usage.  The same change is made to
+<P>Expand <a href="clause4.htm#ao-tool_usage">Tool_usage</a>
+definition to include gage and tool-end placements, which clarify how
+the tool product model is oriented with respect to toolpaths and
+machine models for simulation and interference checking.</P>
+
+<P>Change <a href="clause4.htm#ao-touch_probe">Touch_probe</a> to be a
+type of <a href="clause4.htm#ao-machining_tool">Machining_tool</a>, to
+support a description of the probe usage, associated geometric shape,
+and other product information available for tools.  Add values for
+"overall assembly length" and "ball radius" to describe basic
+parameters.</P>
+
+<P>Change the supertype list of
+the <a href="clause4.htm#ao-touch_probing">Touch_probing</a>
+and <a href="clause4.htm#ao-rapid_movement">Rapid_movement</a>
+application objects to only contain Operation.  As defined by ISO
+14649 they were also a Workingstep, which caused confusion in usage.
+The same change is made to
 <a href="clause5.htm#aim-machining_touch_probing">machining_touch_probing</a>
 and
 <a href="clause5.htm#aim-machining_rapid_movement">machining_rapid_movement</a>.</P>

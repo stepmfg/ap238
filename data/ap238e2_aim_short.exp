@@ -2724,6 +2724,9 @@ ENTITY machining_usage_relationship
   SUBTYPE OF (action_method_relationship);
 END_ENTITY;
 
+ENTITY machining_process_property
+  SUBTYPE OF (action_property);
+END_ENTITY;
 
 
 (* ========================================  *)
