@@ -3707,7 +3707,7 @@ assertion.</P>
 The twin_end specifies a point in time at which a machined or
 simulated Executable was completed.  The twin_end may not be
 specified for a particular Executable.  The twin_end shall not be
-specified for a particular Executable if the twin_source is not
+specified for a particular Executable if the twin_start is not
 specified for that Executable.
 
 <H4 ID="ao-executable-twin_exception">4.3.76.9 twin_exception</H4>
@@ -3715,7 +3715,7 @@ specified for that Executable.
 The twin_exception specifies a description of abnormal ending
 condition for a machined or simulated Executable.  The twin_exception
 may not be specified for a particular Executable.  The twin_exception
-shall not be specified for a particular Executable if the twin_source
+shall not be specified for a particular Executable if the twin_start
 is not specified for that Executable.
 
 <H4 ID="ao-executable-twin_plan">4.3.76.10 twin_plan</H4>
@@ -3723,7 +3723,7 @@ is not specified for that Executable.
 <P>The twin_plan specifies an Executable which describes the planned
 process of a machined or simulated Executable.  The twin_plan may not
 be specified for a particular Executable.  The twin_plan shall not be
-specified for a particular Executable if the twin_source is not
+specified for a particular Executable if the twin_start is not
 specified for that Executable.
 See <a href="#aa-executable-to-executable-as-twin_plan">Executable to
 Executable (as twin_plan)</a> for the application assertion.</P>
@@ -3733,19 +3733,19 @@ Executable (as twin_plan)</a> for the application assertion.</P>
 
 The twin_source specifies whether an Executable is the result of
 machining or simulation.  The twin_source may not be specified for a
-particular Executable.  If the twin_source is not specified, the
-Executable shall describe a planned process, not the result of
-machining or simulation.
-See <A href="clause5.htm#funcon-twin-process">Digital twin process</A>
-for fundamental concepts and assumptions related to the twin_source.
+particular Executable.  The twin_source shall not be specified for a
+particular Executable if the twin_start is not specified for that
+Executable.
 
 <H4 ID="ao-executable-twin_start">4.3.76.12 twin_start</H4>
 
 The twin_start specifies a point in time at which a machined or
-simulated Executable was started.  The twin_start may not be
-specified for a particular Executable.  The twin_start shall not be
-specified for a particular Executable if the twin_source is not
-specified for that Executable.
+simulated Executable was started.  The twin_start may not be specified
+for a particular Executable.  If the twin_start is not specified, the
+Executable shall describe a planned process, not the result of
+machining or simulation.
+See <A href="clause5.htm#funcon-twin-process">Digital twin process</A>
+for fundamental concepts and assumptions related to the twin_start.
 
 
 <H4 ID="ao-executable-twin_worktime">4.3.76.13 twin_worktime</H4>
@@ -3754,7 +3754,7 @@ The twin_worktime specifies the duration which a machined or simulated
 Executable was actively changing the state of material. The
 twin_worktime may not be specified for a particular Executable.  The
 twin_worktime shall not be specified for a particular Executable if
-the twin_source is not specified for that Executable.
+the twin_start is not specified for that Executable.
 
 <P CLASS="note">
 <SPAN>EXAMPLE</SPAN> For milling or turning, this duration would only

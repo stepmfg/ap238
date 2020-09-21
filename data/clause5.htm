@@ -3305,7 +3305,7 @@ action_property
 </table>
 
 
-<H5 ID="map-process_property-twin_end">5.1.6.22.1 property_date</H5>
+<H5 ID="map-process_property-property_date">5.1.6.22.1 property_date</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -22344,12 +22344,13 @@ as-executed data sources.  Furthermore, the model could only represent
 as-executed values for a single execution run.</P>
 
 <P CLASS="note">
-The twin_source, twin_plan and other parameters added to Executable by
-the second edition of this document enable a clear distinction between
-as-planned and as-executed values, and scale to represent values from
-many execution runs.  The external reference mechanism introduced by
-ISO 10303-21:2016 may be used to organize as-planned and as-executed
-processes into separate exchange structures.</P>
+The twin_start, twin_end, twin_plan and other parameters added to
+Executable by the second edition of this document enable a clear
+distinction between as-planned and as-executed values, and scale to
+represent values from many execution runs.  The external reference
+mechanism introduced by ISO 10303-21:2016 may be used to organize
+as-planned and as-executed processes into separate exchange
+structures.</P>
 
 <p>This document extends the process model with additional parameters
 to describe a process that has been executed by a machine tool or
@@ -22376,15 +22377,15 @@ shown in <a href="#fig-twinmodel">Figure 21</a>.</p>
 <p>A twin process follows the same structure as a planned process.
 The root is a Manufacturing_Project application object, which refers
 to a Workplan as its main workplan.  A twin process shall set the
-twin_source to 'machining' or 'simulated' in the main workplan and all
-children Executables.  A planned process shall not set the twin_source
-to any value in the main workplan and all children Executables.</p>
+twin_start to a value in the main workplan and all children
+Executables.  A planned process shall not set the twin_start to any
+value in the main workplan and all children Executables.</p>
 
-<p>An Executable within a twin process may set the twin_start,
-twin_end, and twin_exception parameters to describe when it was machined
-or simulated, and whether it completed sucessfully.  The Executable
-may may set the twin_plan parameter to identify the Executable within
-a planned process that was machined or simulated.  If an Executable
+<p>An Executable within a twin process may set the twin_source and
+twin_exception parameters to describe whether it was machined or
+simulated, and whether it completed sucessfully.  The Executable may
+may set the twin_plan parameter to identify the Executable within a
+planned process that was machined or simulated.  If an Executable
 within a twin process was not planned before execution, the twin_plan
 parameter shall not be set.</p>
 
