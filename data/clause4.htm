@@ -3731,11 +3731,14 @@ Executable (as twin_plan)</a> for the application assertion.</P>
 
 <H4 ID="ao-executable-twin_source">4.3.76.11 twin_source</H4>
 
-The twin_source specifies whether an Executable is the result of
-machining or simulation.  The twin_source may not be specified for a
-particular Executable.  The twin_source shall not be specified for a
-particular Executable if the twin_start is not specified for that
-Executable.
+The twin_source specifies the source of digital twin data for an
+Executable.  The twin_source may not be specified for a particular
+Executable.  The twin_source shall not be specified for a particular
+Executable if the twin_start is not specified for that Executable.
+
+<P CLASS="note">
+<SPAN>EXAMPLE</SPAN> The URL of an MTConnect agent or an OPC/UA server
+are possible values for the source.</P>
 
 <H4 ID="ao-executable-twin_start">4.3.76.12 twin_start</H4>
 
@@ -4170,6 +4173,7 @@ reference locations for workpiece and machine tool.</P>
 
 <P>The data associated with a Fixture_usage are the following:</P>
 <UL>
+<LI>description;</LI>
 <LI>its_id;</LI>
 <LI>its_product;</LI>
 <LI>mount_reference;</LI>
@@ -4186,16 +4190,23 @@ ENTITY Fixture_usage;
   its_product:		OPTIONAL Product_view_definition;
   mount_reference:      OPTIONAL Axis_placement_3d;
   workpiece_reference:	OPTIONAL Axis_placement_3d;
+  description:		OPTIONAL text;
 END_ENTITY;
 </PRE>
 
 
-<H4 ID="ao-fixture_usage-its_id">4.3.89.1 its_id</H4>
+<H4 ID="ao-fixture_usage-description">4.3.89.1 description</H4>
+
+<P>The description specifies text that characterizes the
+Fixture_usage.  The description may not be specified for a particular
+Fixture_usage.</P>
+
+<H4 ID="ao-fixture_usage-its_id">4.3.89.2 its_id</H4>
 
 <P>The its_id specifies a word or group of words which identify the
 Fixture_usage.</P>
 
-<H4 ID="ao-fixture_usage-its_product">4.3.89.2 its_product</H4>
+<H4 ID="ao-fixture_usage-its_product">4.3.89.3 its_product</H4>
 
 <P>The its_product specifies a Product_view_definition object that
 describes the physical shape and associated product information of the
@@ -4204,14 +4215,14 @@ Fixture_usage.
 See <a href="#aa-fixture_usage-to-product_view_definition">Fixture_usage
 to Product_view_definition</a> for the application assertion.</P>
 
-<H4 ID="ao-fixture_usage-mount_reference">4.3.89.3 mount_reference</H4>
+<H4 ID="ao-fixture_usage-mount_reference">4.3.89.4 mount_reference</H4>
 
 <P>The mount_reference specifies a location on the its_product fixture
 model used for aligning the fixture with a machine tool model. The
 mount_reference may not be specified for a particular
 Fixture_usage.</P>
 
-<H4 ID="ao-fixture_usage-workpiece_reference">4.3.89.4 workpiece_reference</H4>
+<H4 ID="ao-fixture_usage-workpiece_reference">4.3.89.5 workpiece_reference</H4>
 
 <P>The workpiece_reference specifies a location on the its_product
 fixture model used for aligning the machining workpiece with the
@@ -5063,6 +5074,7 @@ reference locations for workpiece and machine tool.</P>
 
 <P>The data associated with a Machine_usage are the following:</P>
 <UL>
+<LI>description;</LI>
 <LI>its_id;</LI>
 <LI>its_product.</LI>
 </UL>
@@ -5075,16 +5087,23 @@ application object is shown below.</P>
 ENTITY Machine_usage;
   its_id:		label;
   its_product:		OPTIONAL Product_view_definition;
+  description:		OPTIONAL text;
 END_ENTITY;
 </PRE>
 
 
-<H4 ID="ao-machine_usage-its_id">4.3.112.1 its_id</H4>
+<H4 ID="ao-machine_usage-description">4.3.112.1 description</H4>
+
+<P>The description specifies text that characterizes the
+Machine_usage.  The description may not be specified for a particular
+Machine_usage.</P>
+
+<H4 ID="ao-machine_usage-its_id">4.3.112.2 its_id</H4>
 
 <P>The its_id specifies a word or group of words which identify the
 Machine_usage.</P>
 
-<H4 ID="ao-machine_usage-its_product">4.3.112.2 its_product</H4>
+<H4 ID="ao-machine_usage-its_product">4.3.112.3 its_product</H4>
 
 <P>The its_product specifies a Product_view_definition object that
 describes the physical shape and associated product information of the
@@ -7224,12 +7243,13 @@ specific tool to satisfy the requirements.</P>
 <P>The data associated with a Tool_usage are the following:</P>
 
 <UL>
+<LI>description;</LI>
+<LI>gage_placement;</LI>
 <LI>its_carousel;</LI>
 <LI>its_id;</LI>
 <LI>its_library_reference;</LI>
 <LI>its_position;</LI>
 <LI>its_product;</LI>
-<LI>gage_placement;</LI>
 <LI>tool_end_placement.</LI>
 </UL>
 
@@ -7246,22 +7266,37 @@ ENTITY Tool_usage;
   its_library_reference: OPTIONAL Externally_defined_representation;
   gage_placement:	OPTIONAL Axis_placement_3d;
   tool_end_placement:	OPTIONAL Axis_placement_3d;
+  description:		OPTIONAL text;
 END_ENTITY;
 </PRE>
 
 
-<H4 ID="ao-tool_usage-its_carousel">4.3.190.1 its_carousel</H4>
+<H4 ID="ao-tool_usage-description">4.3.190.1 description</H4>
+
+<P>The description specifies text that characterizes the Tool_usage.
+The description may not be specified for a particular Tool_usage.</P>
+
+<H4 ID="ao-tool_usage-gage_placement">4.3.190.2 gage_placement</H4>
+
+<P>The gage_placement specifies the location on the its_product tool
+model where the tool is mounted on a machine. The gage_placement may
+not be specified for a particular Tool_usage. If the gage_placement is
+not specified, the location shall be on the tool axis given by the
+tool_end_placement at the distance from the origin given by the
+overall assembly length of the referencing Machining_tool.</P>
+
+<H4 ID="ao-tool_usage-its_carousel">4.3.190.3 its_carousel</H4>
 
 <P>The its_carousel specifies a machine tool turret, magazine, or
 carousel.  The its_carousel may not be specified for a particular
 Tool_usage.</P>
 
-<H4 ID="ao-tool_usage-its_id">4.3.190.2 its_id</H4>
+<H4 ID="ao-tool_usage-its_id">4.3.190.4 its_id</H4>
 
 <P>The its_id specifies a word or group of words which identify the
 Tool_usage.</P>
 
-<H4 ID="ao-tool_usage-its_library_reference">4.3.190.3 its_library_reference</H4>
+<H4 ID="ao-tool_usage-its_library_reference">4.3.190.5 its_library_reference</H4>
 
 <P>The its_library_reference specifies an
 Externally_defined_representation object that identifies the tool
@@ -7279,13 +7314,13 @@ data about cutting tools and cutting tool assemblies, including
 reference dictionaries that describe tool properties.</P>
 
 
-<H4 ID="ao-tool_usage-its_position">4.3.190.4 its_position</H4>
+<H4 ID="ao-tool_usage-its_position">4.3.190.6 its_position</H4>
 
 <P>The its_position specifies a location within a machine tool turret,
 magazine, or carousel. The its_position may not be specified for a
 particular Tool_usage. </P>
 
-<H4 ID="ao-tool_usage-its_product">4.3.190.5 its_product</H4>
+<H4 ID="ao-tool_usage-its_product">4.3.190.7 its_product</H4>
 
 <P>The its_product specifies a Product_view_definition object that
 describes the physical shape and associated product information of the
@@ -7294,17 +7329,7 @@ Tool_usage.
 See <a href="#aa-tool_usage-to-product_view_definition">Tool_usage to
 Product_view_definition</a> for the application assertion.</P>
 
-<H4 ID="ao-tool_usage-gage_placement">4.3.190.6 gage_placement</H4>
-
-<P>The gage_placement specifies the location on the its_product tool
-model where the tool is mounted on a machine. The gage_placement may
-not be specified for a particular Tool_usage. If the gage_placement is
-not specified, the location shall be on the tool axis given by the
-tool_end_placement at the distance from the origin given by the
-overall assembly length of the referencing Machining_tool.</P>
-
-
-<H4 ID="ao-tool_usage-tool_end_placement">4.3.190.7 tool_end_placement</H4>
+<H4 ID="ao-tool_usage-tool_end_placement">4.3.190.8 tool_end_placement</H4>
 
 <P>The tool_end_placement specifies the location on the its_product
 tool model of the tool end point. The axis parameter of the

@@ -617,6 +617,7 @@ ENTITY Tool_usage;  -- ADDED BY 10303-238
   its_library_reference: OPTIONAL Externally_defined_representation;
   gage_placement:	OPTIONAL Axis_placement_3d;
   tool_end_placement:	OPTIONAL Axis_placement_3d;
+  description:		OPTIONAL text;
 END_ENTITY;
 
 (* ************************************************************ *)
@@ -720,6 +721,7 @@ ENTITY Fixture_usage;  -- ADDED BY 10303-238e2
   its_product:		OPTIONAL Product_view_definition;
   mount_reference:      OPTIONAL Axis_placement_3d;
   workpiece_reference:	OPTIONAL Axis_placement_3d;
+  description:		OPTIONAL text;
 END_ENTITY;
 
 
@@ -757,9 +759,8 @@ END_ENTITY;
 ENTITY Machine_usage;  -- ADDED BY 10303-238e2
   its_id:		label;
   its_product:		OPTIONAL Product_view_definition;
+  description:		OPTIONAL text;
 END_ENTITY;
-
-
 
 ENTITY Setup_instruction;
   description:       OPTIONAL text;

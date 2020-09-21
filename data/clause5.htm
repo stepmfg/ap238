@@ -1766,7 +1766,27 @@ action_method
 </tr>
 </table>
 
-<H5 ID="map-fixture_usage-its_id">5.1.6.7.1 its_id</H5>
+<H5 ID="map-fixture_usage-description">5.1.6.7.1 description</H5>
+
+<table class="map">
+<tr><th>AIM element:</th>
+<td>action_method.description</td>
+</tr>
+
+<tr><th>Source:</th>
+<td>10303-41</td>
+</tr>
+
+<tr><th>Reference path:</th>
+<td class="path">machining_fixture_usage &lt;=
+action_method
+action_method.description
+</td>
+</tr>
+</table>
+
+
+<H5 ID="map-fixture_usage-its_id">5.1.6.7.2 its_id</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -1786,7 +1806,7 @@ action_method.name
 </table>
 
 
-<H5 ID="map-fixture_usage-its_product">5.1.6.7.2 fixture_usage to product_view_definition (as its_product)</H5>
+<H5 ID="map-fixture_usage-its_product">5.1.6.7.3 fixture_usage to product_view_definition (as its_product)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -1811,7 +1831,7 @@ product_definition
 </table>
 
 
-<H5 ID="map-fixture_usage-mount_reference">5.1.6.7.3 mount_reference</H5>
+<H5 ID="map-fixture_usage-mount_reference">5.1.6.7.4 mount_reference</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -1845,7 +1865,7 @@ axis2_placement_3d
 
 
 
-<H5 ID="map-fixture_usage-workpiece_reference">5.1.6.7.4 workpiece_reference</H5>
+<H5 ID="map-fixture_usage-workpiece_reference">5.1.6.7.5 workpiece_reference</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -2599,7 +2619,27 @@ action_method
 </tr>
 </table>
 
-<H5 ID="map-machine_usage-its_id">5.1.6.11.1 its_id</H5>
+<H5 ID="map-machine_usage-description">5.1.6.11.1 description</H5>
+
+<table class="map">
+<tr><th>AIM element:</th>
+<td>action_method.description</td>
+</tr>
+
+<tr><th>Source:</th>
+<td>10303-41</td>
+</tr>
+
+<tr><th>Reference path:</th>
+<td class="path">machining_machine_usage &lt;=
+action_method
+action_method.description
+</td>
+</tr>
+</table>
+
+
+<H5 ID="map-machine_usage-its_id">5.1.6.11.2 its_id</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -2619,7 +2659,7 @@ action_method.name
 </table>
 
 
-<H5 ID="map-machine_usage-its_product">5.1.6.11.2 machine_usage to product_view_definition (as its_product)</H5>
+<H5 ID="map-machine_usage-its_product">5.1.6.11.3 machine_usage to product_view_definition (as its_product)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -3958,43 +3998,11 @@ action_method
 </table>
 
 
-<H5 ID="map-tool_usage-its_carousel">5.1.6.34.1 its_carousel</H5>
+<H5 ID="map-tool_usage-description">5.1.6.34.1 description</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
-<td>descriptive_representation_item.description</td>
-</tr>
-
-<tr><th>Source:</th>
-<td>10303-45</td>
-</tr>
-
-<tr><th>Reference path:</th>
-<td class="path">machining_tool_usage &lt;=
-action_method
-characterized_action_definition = action_method
-characterized_action_definition &lt;-
-action_property.definition
-{ action_property.name = 'tool carousel' }
-action_property &lt;-
-action_property_representation.property
-action_property_representation
-action_property_representation.representation -&gt;
-representation
-representation.items[i] -&gt;
-representation_item =&gt;
-descriptive_representation_item
-descriptive_representation_item.description
-</td>
-</tr>
-</table>
-
-
-<H5 ID="map-tool_usage-its_id">5.1.6.34.2 its_id</H5>
-
-<table class="map">
-<tr><th>AIM element:</th>
-<td>action_method.name</td>
+<td>action_method.description</td>
 </tr>
 
 <tr><th>Source:</th>
@@ -4004,96 +4012,14 @@ descriptive_representation_item.description
 <tr><th>Reference path:</th>
 <td class="path">machining_tool_usage &lt;=
 action_method
-action_method.name
-</td>
-</tr>
-</table>
-
-
-<H5 ID="map-tool_usage-its_library_reference">5.1.6.34.3 tool_usage to externally_defined_representation (as its_library_reference)</H5>
-
-<table class="map">
-<tr><th>AIM element:</th>
-<td>PATH</td>
-</tr>
-
-<tr><th>Reference path:</th>
-<td class="path">machining_tool_usage &lt;=
-action_method
-characterized_action_definition = action_method
-characterized_action_definition &lt;-
-action_property.definition
-{ action_property.name = 'library reference' }
-action_property &lt;-
-action_property_representation.property
-action_property_representation
-action_property_representation.representation -&gt;
-representation =&gt;
-externally_defined_representation_with_parameters
-</td>
-</tr>
-</table>
-
-
-<H5 ID="map-tool_usage-its_position">5.1.6.34.4 its_position</H5>
-
-<table class="map">
-<tr><th>AIM element:</th>
-<td>descriptive_representation_item.description</td>
-</tr>
-
-<tr><th>Source:</th>
-<td>10303-45</td>
-</tr>
-
-<tr><th>Reference path:</th>
-<td class="path">machining_tool_usage &lt;=
-action_method
-characterized_action_definition = action_method
-characterized_action_definition &lt;-
-action_property.definition
-{ action_property.name = 'tool position' }
-action_property &lt;-
-action_property_representation.property
-action_property_representation
-action_property_representation.representation -&gt;
-representation
-representation.items[i] -&gt;
-representation_item =&gt;
-descriptive_representation_item
-descriptive_representation_item.description
-</td>
-</tr>
-</table>
-
-
-<H5 ID="map-tool_usage-its_product">5.1.6.34.5 tool_usage to workpiece (as its_product)</H5>
-
-<table class="map">
-<tr><th>AIM element:</th>
-<td>PATH</td>
-</tr>
-
-<tr><th>Reference path:</th>
-<td class="path">machining_tool_usage &lt;=
-action_method &lt;-
-action.chosen_method
-{ action.name = 'tool usage' }
-action =&gt;
-product_definition_process &lt;-
-process_product_association.process
-process_product_association
-process_product_association.defined_product -&gt;
-characterized_product_definition
-characterized_product_definition = product_definition
-product_definition
+action_method.description
 </td>
 </tr>
 </table>
 
 
 
-<H5 ID="map-tool_usage-gage_placement">5.1.6.34.6 gage_placement</H5>
+<H5 ID="map-tool_usage-gage_placement">5.1.6.34.2 gage_placement</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -4125,8 +4051,142 @@ axis2_placement_3d
 </tr>
 </table>
 
+<H5 ID="map-tool_usage-its_carousel">5.1.6.34.3 its_carousel</H5>
 
-<H5 ID="map-tool_usage-tool_end_placement">5.1.6.34.7 tool_end_placement</H5>
+<table class="map">
+<tr><th>AIM element:</th>
+<td>descriptive_representation_item.description</td>
+</tr>
+
+<tr><th>Source:</th>
+<td>10303-45</td>
+</tr>
+
+<tr><th>Reference path:</th>
+<td class="path">machining_tool_usage &lt;=
+action_method
+characterized_action_definition = action_method
+characterized_action_definition &lt;-
+action_property.definition
+{ action_property.name = 'tool carousel' }
+action_property &lt;-
+action_property_representation.property
+action_property_representation
+action_property_representation.representation -&gt;
+representation
+representation.items[i] -&gt;
+representation_item =&gt;
+descriptive_representation_item
+descriptive_representation_item.description
+</td>
+</tr>
+</table>
+
+
+<H5 ID="map-tool_usage-its_id">5.1.6.34.4 its_id</H5>
+
+<table class="map">
+<tr><th>AIM element:</th>
+<td>action_method.name</td>
+</tr>
+
+<tr><th>Source:</th>
+<td>10303-41</td>
+</tr>
+
+<tr><th>Reference path:</th>
+<td class="path">machining_tool_usage &lt;=
+action_method
+action_method.name
+</td>
+</tr>
+</table>
+
+
+<H5 ID="map-tool_usage-its_library_reference">5.1.6.34.5 tool_usage to externally_defined_representation (as its_library_reference)</H5>
+
+<table class="map">
+<tr><th>AIM element:</th>
+<td>PATH</td>
+</tr>
+
+<tr><th>Reference path:</th>
+<td class="path">machining_tool_usage &lt;=
+action_method
+characterized_action_definition = action_method
+characterized_action_definition &lt;-
+action_property.definition
+{ action_property.name = 'library reference' }
+action_property &lt;-
+action_property_representation.property
+action_property_representation
+action_property_representation.representation -&gt;
+representation =&gt;
+externally_defined_representation_with_parameters
+</td>
+</tr>
+</table>
+
+
+<H5 ID="map-tool_usage-its_position">5.1.6.34.6 its_position</H5>
+
+<table class="map">
+<tr><th>AIM element:</th>
+<td>descriptive_representation_item.description</td>
+</tr>
+
+<tr><th>Source:</th>
+<td>10303-45</td>
+</tr>
+
+<tr><th>Reference path:</th>
+<td class="path">machining_tool_usage &lt;=
+action_method
+characterized_action_definition = action_method
+characterized_action_definition &lt;-
+action_property.definition
+{ action_property.name = 'tool position' }
+action_property &lt;-
+action_property_representation.property
+action_property_representation
+action_property_representation.representation -&gt;
+representation
+representation.items[i] -&gt;
+representation_item =&gt;
+descriptive_representation_item
+descriptive_representation_item.description
+</td>
+</tr>
+</table>
+
+
+<H5 ID="map-tool_usage-its_product">5.1.6.34.7 tool_usage to workpiece (as its_product)</H5>
+
+<table class="map">
+<tr><th>AIM element:</th>
+<td>PATH</td>
+</tr>
+
+<tr><th>Reference path:</th>
+<td class="path">machining_tool_usage &lt;=
+action_method &lt;-
+action.chosen_method
+{ action.name = 'tool usage' }
+action =&gt;
+product_definition_process &lt;-
+process_product_association.process
+process_product_association
+process_product_association.defined_product -&gt;
+characterized_product_definition
+characterized_product_definition = product_definition
+product_definition
+</td>
+</tr>
+</table>
+
+
+
+<H5 ID="map-tool_usage-tool_end_placement">5.1.6.34.8 tool_end_placement</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
