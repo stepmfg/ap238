@@ -1,6 +1,6 @@
 SCHEMA model_based_integrated_manufacturing_schema;
 (*
-    ISO TC184/SC4/WG15N156 (superceeds N155)
+    ISO TC184/SC4/WG15N158 (superceeds N156)
     ISO 10303-238 Edition 2
     AIM EXPRESS LONG FORM
  *)

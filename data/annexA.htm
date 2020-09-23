@@ -17,7 +17,7 @@ and this expanded listing, the expanded listing shall be used.</P>
 <PRE CLASS="code">
 SCHEMA model_based_integrated_manufacturing_schema;
 (*
-    ISO TC184/SC4/WG15N155 (superceeds N94)
+    ISO TC184/SC4/WG15N158 (superceeds N156)
     ISO 10303-238 Edition 2
     AIM EXPRESS LONG FORM
  *)
@@ -13333,6 +13333,10 @@ ENTITY machining_touch_probing
               )| (
               'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.MACHINING_TOOL' 
               IN TYPEOF(mt)))));
+END_ENTITY; -- 10303-238: model_based_integrated_manufacturing_schema
+
+ENTITY machining_twin_relationship
+  SUBTYPE OF (action_method_relationship);
 END_ENTITY; -- 10303-238: model_based_integrated_manufacturing_schema
 
 ENTITY machining_usage_relationship
