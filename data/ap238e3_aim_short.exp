@@ -1,7 +1,7 @@
 SCHEMA model_based_integrated_manufacturing_schema;
 (*
-    ISO TC184/SC4/WG15N158 (superceeds N156)
-    ISO 10303-238 Edition 2
+    ISO TC184/SC4/WG15Nxxx (superceeds N158)
+    ISO 10303-238 Edition 3
     AIM EXPRESS SHORT FORM
 *)
 
@@ -206,7 +206,6 @@ USE FROM External_representation_item_mim;			-- 10303-1779
 USE FROM Numeric_expression_mim;				-- 10303-1526
 USE FROM Product_categorization_mim;				-- 10303-1016
 
-
 USE FROM action_schema						-- 10303-41
     (action_resource_relationship,
      action_resource_type);
@@ -224,7 +223,8 @@ USE FROM systems_engineering_representation_schema		-- 10303-61
     (expression_item_representation_item);
 
 USE FROM application_context_schema				-- 10303-41
-    (application_protocol_definition);
+    (application_context,
+     application_protocol_definition);
 
 
 (* ======================================== *)
