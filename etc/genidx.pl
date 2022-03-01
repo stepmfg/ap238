@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 # 
-# Copyright (c) 1991-2020 by STEP Tools Inc. 
+# Copyright (c) 1991-2022 by STEP Tools Inc. 
 # All Rights Reserved.
 # 
 # Permission to use, copy, modify, and distribute this software and
@@ -133,7 +133,7 @@ PERL_EOF
 
 $html{tail} = <<'PERL_EOF';
 
-<p class=pagefoot>&copy; ISO 2020 &mdash; All rights reserved
+<p class=pagefoot>&copy; ISO 2022 &mdash; All rights reserved
 </body>
 </html>
 PERL_EOF
