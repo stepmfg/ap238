@@ -179,3 +179,10 @@ DIV.quick A {
 A.refnum {}
 A.reftxt {}
 DIV.expg {}
+
+
+/* ISO editorial prefers [1] instead of 1. in bibliographic entries */
+ol.bibliography > li::marker {
+  content:"[" counter(list-item) "] ";
+}
+
