@@ -20436,16 +20436,17 @@ action_method
 </tr>
 
 <tr><th>Reference path:</th>
-<td class="path">machining_execution_resource &lt;=
-action_resource
-characterized_resource_definition  = action_resource
-characterized_resource_definition &lt;-
-resource_property.resource
-{ resource_property.name = 'layer thickness' }
-resource_property &lt;-
-resource_property_representation.property
-resource_property_representation
-resource_property_representation.representation -&gt;
+<td class="path">additive_type_operation &lt;=
+machining_operation &lt;=
+action_method
+characterized_action_definition = action_method
+characterized_action_definition &lt;-
+action_property.definition
+{ action_property.name = 'layer thickness' }
+action_property &lt;-
+action_property_representation.property
+action_property_representation
+action_property_representation.representation -&gt;
 representation
 representation.items[i] -&gt;
 representation_item =&gt;
