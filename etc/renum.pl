@@ -302,6 +302,8 @@ sub renum_refs {
 
 
 sub main {
+    my @src;
+    
     while ($_[0]) {
 	$_ = $_[0];
 	/^-n$|^-scan$/ && do {
@@ -311,12 +313,14 @@ sub main {
 
 	/^-/ && die "$0: unknown option: $_ (use -help for usage)\n";
 
-	push @files, $_;  # tack on as just a plain file
+	push @src, $_;  # tack on as just a plain file
 	shift;
     }
 
-    foreach (@files) { renum_anchors ($_); }
-    foreach (@files) { renum_refs ($_); }
+    @src = @files if not @src;
+    
+    foreach (@src) { renum_anchors ($_); }
+    foreach (@src) { renum_refs ($_); }
     return 1;
 }
 

@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<p class=pagehead>ISO 10303-238</p>
+<p class=pagehead>ISO 10303-238:2022(E)</p>
 
 <H1 ID="clause-5" CLASS="clause">5 Application interpreted model</H1>
 
@@ -20436,16 +20436,17 @@ action_method
 </tr>
 
 <tr><th>Reference path:</th>
-<td class="path">machining_execution_resource &lt;=
-action_resource
-characterized_resource_definition  = action_resource
-characterized_resource_definition &lt;-
-resource_property.resource
-{ resource_property.name = 'layer thickness' }
-resource_property &lt;-
-resource_property_representation.property
-resource_property_representation
-resource_property_representation.representation -&gt;
+<td class="path">additive_type_operation &lt;=
+machining_operation &lt;=
+action_method
+characterized_action_definition = action_method
+characterized_action_definition &lt;-
+action_property.definition
+{ action_property.name = 'layer thickness' }
+action_property &lt;-
+action_property_representation.property
+action_property_representation
+action_property_representation.representation -&gt;
 representation
 representation.items[i] -&gt;
 representation_item =&gt;
@@ -20695,7 +20696,7 @@ date_time_role
 2) The product_definition_formation_with_specified_source subtype of product_definition_formation is present in the integrated representation to simplify the use of workpiece descriptions that have originated from an AP 203 process.  This use of this subtype is not recommended in the general case.</P>
 
 <P ID="mapnote-3" CLASS="numbered-notes">
-3) Assembly information is likely to originate in upstream applications using AP 203, AP 214, or AP 242, which permit assembly components to be placed using mapped_item or item_defined_transformation.   The originating_orientation and resulting_orientation mappings allow either technique to be used for compatibility with existing APs and data sets.  When using item_defined_transformation, some APs have not clearly stated which attribute refers to the component and which refers to the enclosing assembly, which has led to confusion.  Here transform_item_1 refers to the original workpiece placement and transform_item_2 refers to the placement within the assembly.  Additional discussion on the handling of shape in assemblies can be found in 5.2.1.6 of ISO 10303-214.</P>
+3) Assembly information is likely to originate in upstream applications using AP 203, AP 214, or AP 242, which permit assembly components to be placed using mapped_item or item_defined_transformation.   The originating_orientation and resulting_orientation mappings allow either technique to be used for compatibility with existing APs and data sets.  When using item_defined_transformation, some APs have not clearly stated which attribute refers to the component and which refers to the enclosing assembly, which has led to confusion.  Here transform_item_1 refers to the original workpiece placement and transform_item_2 refers to the placement within the assembly.  Additional discussion on the handling of shape in assemblies can be found in ISO 10303-214.</P>
 
 <P ID="mapnote-4" CLASS="numbered-notes">
 4) Although the initial_value for Nc_variable is defined as a Number by ISO 14649, the mapping has been constructed as if it were actually of type Nc_constant, so as to avoid introducing a different way of handling essentially the same concept.</P>

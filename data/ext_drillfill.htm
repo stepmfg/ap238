@@ -1,0 +1,1902 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>ISO 10303-238</title>
+<!-- <link rel="stylesheet" href="style.css"> -->
+
+<STYLE>
+/* SELF CONTAINED STYLES */
+DIV.termdef H5 { margin-bottom: 0; }
+DIV.termdef P { margin-top: 0; }
+
+/* Document title, headings, page headers and footers */ 
+DIV.title_heading {
+    border-top:1px solid black; 
+    border-bottom:1px solid black; 
+    padding-top: 0.3em; 
+    padding-bottom: 0.3em; 
+    margin-top:2em; 
+}
+
+DIV.title_heading P {
+    padding:0; margin:0; 
+}
+
+P.pagefoot { margin-top: 3em; }
+P.pagehead { font-weight: bold; text-align: right; margin-bottom: 2em; }
+
+/* if headings deeper than h6 needed, add classes to h6 */
+H1, H2, H3, H4, H5, H6 {
+    margin: 2em 0em 1em 0em;
+    font-size: 125%;
+}
+H1.unum   { }
+H1.clause { margin-top: 2em; }
+H1.annex { margin-top: 2em; text-align: center; }
+
+H6.table-title {  margin-top: 3em; text-align: center; }
+H6.section-underlined {
+    margin: 1em 0em;
+    font-size: 100%;
+    font-weight: medium;
+    text-decoration: underline ;
+}
+
+FIGURE {
+    margin: 3em;
+    text-align: center;
+}
+
+FIGURE DIV.key {
+    margin: 1em 3em;
+    text-align: left;
+}
+FIGURE DIV.key P {
+    margin: 0;
+    text-indent: -2em;
+    padding-left: 2em;
+}
+
+FIGCAPTION {
+    margin-top: 1em;
+    font-weight: bold;
+}
+
+CAPTION { 
+    margin: 0.5em 0em 1em 0em;
+    font-size: 14pt;
+    font-weight: Bold;
+    caption-side: top; 
+}
+
+
+/* Notes and examples */
+P.note {
+    font-size: 80%;
+    margin-left: 2em;
+}
+/* apply spacing after NOTE or EXAMPLE header */
+P.note SPAN:first-of-type { padding-right: 2em; }
+P.center { text-align: center; }
+
+PRE.code { }
+PRE.note {
+    margin: 0pt 0pt 0pt 29pt; 
+    font-size: 8pt;
+}
+
+
+/* Mapping specifications, clause 5 */
+TABLE.map { }
+TABLE.map TH {
+    vertical-align: top;
+    font-weight: normal;
+    text-align: left;
+    padding-right: 1.5em;
+}
+TABLE.map TD {
+    vertical-align: top;
+    white-space: pre;
+}
+
+
+TABLE.maplegend {  }
+TABLE.maplegend TD {
+    vertical-align: top;
+}
+TABLE.maplegend TD:first-child {
+    text-align: center;
+    padding-left: 1em;
+    padding-right: 1em;
+    white-space: pre;
+}
+
+DIV.mapnote {
+    padding-left: 1.5em;
+    margin: 0 0 1em 0;
+}
+DIV.mapnote P {
+    text-indent: -2em;
+    margin: 0.5em 0 0.5em 2em;
+}
+
+
+/*  Table with alternating row color, used for shortnames  */
+TABLE.altrow { border-collapse:collapse; }
+TABLE.altrow td{ padding: 0.1em 0.3em 0.1em 0.3em; }
+TABLE.altrow tr:nth-child(even){ background: #e0e0e0; }
+/* TABLE.altrow tr:nth-child(odd){ background: #b8d1f3; } */
+
+
+/* table with thin border */
+TABLE.thin { border-collapse:collapse; }
+TABLE.thin td{ padding: 0.1em 0.3em 0.1em 0.3em; border:black 1px solid; }
+
+
+
+/* navigation links between application object, mapping and expg */
+DIV.quick {
+    padding-left: 2em;
+    float: right;
+    text-align: right; 
+}
+DIV.quick A { 
+    font-size: 80%; 
+    display: block;  /* separate lines */
+} 
+
+
+/* placeholder styles for managing reference updates */
+A.refnum {}
+A.reftxt {}
+DIV.expg {}
+</STYLE>
+
+</head>
+<body>
+
+<div class=title_heading>
+<p style="float:left;">WORKING DRAFT</P>
+<p style="float:right;">ISO 10303-238 Extension</P>
+<p style="clear:both;"></P>
+</div>
+
+
+<H1 CLASS="title">
+<H1 CLASS="title">
+AP238: Model based integrated manufacturing &mdash;<BR>
+Extension for drill and fill operations</H1>
+
+<H1 ID="clause-1" CLASS="clause">1 Scope</H1>
+
+<P>This extension specifies the information requirements the use of
+the integrated resources for processes that drill holes and then fill
+them with fasteners.</P>
+
+<H1 ID="clause-2" CLASS="clause">2 Normative references</H1>
+
+<p>The following documents are referred to in the text in such a way
+that some or all of their content constitutes requirements of this
+document. For dated references, only the edition cited applies. For
+undated references, the latest edition of the referenced document
+(including any amendments) applies.</p>
+
+<P>ISO 10303-238, <EM>Industrial automation systems and integration &mdash; Product data representation and exchange &mdash; Part 238: Application protocol: Model based integrated manufacturing</EM></P>
+
+
+<H1 ID="clause-3" CLASS="clause">3 Terms and definitions</H1>
+
+<P>None.</P>
+
+<H1 ID="clause-4" CLASS="clause">4 Information requirements</H1>
+
+<H2 ID="general">4.1 General</H2>
+
+<P>This clause specifies the information required for drill and fill
+operations used in model based integrated manufacturing.  The existing
+Process data for milling UoF describes drilling operations.  The new
+Process data for filling UoF describes the operations performed after
+drilling, dealing with fasteners.</P>
+
+<H2 ID="uofs">4.2 Units of functionality</H2>
+
+<H3 ID="uof-measure">4.2.1 Process data for filling</H3>
+
+<P>The following application objects are used by the process data for filling
+UoF, and shall be as defined by this document:</P>
+
+<UL>
+<LI><A href="#ao-add_product_operation">Add_product_operation</A>;</LI>
+<LI><A href="#ao-adjust_placement_probing">Adjust_placement_probing</A>;</LI>
+<LI><A href="#ao-connect_escape_stack">Connect_escape_stack</A>;</LI>
+<LI><A href="#ao-fasten_operation">Fasten_operation</A>;</LI>
+<LI><A href="#ao-fasten_with_codes">Fasten_with_codes</A>;</LI>
+<LI><A href="#ao-fill_type_operation">Fill_type_operation</A>;</LI>
+<LI><A href="#ao-identify_product_operation">Identify_product_operation</A>;</LI>
+<LI><A href="#ao-remove_product_operation">Remove_product_operation</A>;</LI>
+<LI><A href="#ao-seal_product_operation">Seal_product_operation</A>;</LI>
+<LI><A href="#ao-serialize_product_operation">Serialize_product_operation</A>;</LI>
+<LI><A href="#ao-shave_product_operation">Shave_product_operation</A>;</LI>
+<LI><A href="#ao-tighten_product_operation">Tighten_product_operation</A>.</LI>
+</UL>
+
+
+
+<H2 ID="application-objects">4.3 Application objects</H2>
+
+<H3 ID="aos-general">4.3.1 General</H3>
+
+<P>This subclause specifies the application objects for the
+model based integrated manufacturing application protocol. Each
+application object is an atomic element that embodies a unique
+application concept and contains attributes specifying the data
+elements of the object. The application objects and their definitions
+are given below.</P>
+
+
+<!-- ============================== -->
+<DIV><DIV class=quick>
+<A HREF="#map-fill_type_operation">Map</a>
+<A HREF="annexG.htm#fill_type_operation">ARM</a>
+</DIV>
+<H3 ID="ao-fill_type_operation">4.3.2 Fill_type_operation</H3>
+</DIV>
+
+<P>The Fill_type_operation application object is a kind of machining
+operation that adds something to the as_is model.</P>
+
+
+<PRE CLASS="note">
+ENTITY Fill_type_operation
+  SUBTYPE_OF Machining_operation;
+END_ENTITY;
+</PRE>
+
+
+<!-- ============================== -->
+<DIV><DIV class=quick>
+<A HREF="#map-fasten_operation">Map</a>
+<A HREF="annexG.htm#fasten_operation">ARM</a>
+</DIV>
+<H3 ID="ao-fasten_operation">4.3.3 Fasten_operation</H3>
+</DIV>
+
+<P>The Fasten_operation application object is a kind of fill type
+operation that inserts a fastener to a stack of round holes.</P>
+
+<PRE CLASS="note">
+ENTITY Fasten_operation
+  SUBTYPE_OF Fill_type_operation;
+  manual		: BOOLEAN;
+  existing_hole		: Boolean;
+  existing_tack		: OPTIONAL Product_view_definition;
+  fastener		: Product_view_definition;
+  collar		: OPTIONAL Product_view_definition;
+  washer		: OPTIONAL Product_view_definition;
+  sealant		: OPTIONAL sealant_type;
+  clamp_force		: OPTIONAL force_measure;
+  high_speed_clamp	: OPTIONAL Boolean;
+END_ENTITY;
+
+TYPE sealant_type = ENUMERATION OF (gloop, gunk, grind)
+END_TYPE;
+</PRE>
+
+
+<H4 ID="ao-fasten_operation-manual">4.3.3.1 manual</H4>
+<H4 ID="ao-fasten_operation-existing_hole">4.3.3.2 existing_hole</H4>
+<H4 ID="ao-fasten_operation-existing_tack">4.3.3.3 existing_tack</H4>
+<H4 ID="ao-fasten_operation-fastener">4.3.3.4 fastener</H4>
+<H4 ID="ao-fasten_operation-collar">4.3.3.5 collar</H4>
+<H4 ID="ao-fasten_operation-washer">4.3.3.6 washer</H4>
+<H4 ID="ao-fasten_operation-sealant">4.3.3.7 sealant</H4>
+<H4 ID="ao-fasten_operation-clamp_force">4.3.3.8 clamp_force</H4>
+<H4 ID="ao-fasten_operation-high_speed_clamp">4.3.3.9 high_speed_clamp</H4>
+
+
+<!-- ============================== -->
+<DIV><DIV class=quick>
+<A HREF="#map-fasten_with_codes">Map</a>
+<A HREF="annexG.htm#fasten_with_codes">ARM</a>
+</DIV>
+<H3 ID="ao-fasten_with_codes">4.3.4 Fasten_with_codes</H3>
+</DIV>
+
+<P>The Fasten_with_codes application object is a kind of
+Fasten_operation that uses machine-specific codes to achieve its
+effect.</P>
+
+<PRE CLASS="note">
+ENTITY	Fasten_with_codes
+  SUBTYPE_OF Fasten_operation;
+  pass_thru_codes	: LIST[1:?] OF STRING; 
+END_ENTITY;
+</PRE>
+
+<H4 ID="ao-fasten_with_codes-pass_thru_codes">4.3.4.1 pass_thru_codes</H4>
+
+
+<!-- ============================== -->
+<DIV><DIV class=quick>
+<A HREF="#map-remove_product_operation">Map</a>
+<A HREF="annexG.htm#remove_product_operation">ARM</a>
+</DIV>
+<H3 ID="ao-remove_product_operation">4.3.5 Remove_product_operation</H3>
+</DIV>
+
+<P>The Remove_product_operation application object removes a product from the workpiece.</P>
+
+<P CLASS="note">
+<SPAN>NOTE</SPAN> Operations are performed in the context of a feature
+and workplan. This all goes wrong if there are two occurrences of the
+same product in the same context. Unlike the delta workpiece the added
+and removed items do not have set placements.</P>
+
+<PRE CLASS="note">
+ENTITY Remove_product_operation
+  SUBTYPE_OF Fill_type_operation;
+  removed_item		: Product_view_definition;
+END_ENTITY;
+</PRE>
+
+<H4 ID="ao-remove_product_operation-removed_item">4.3.5.1 removed_item</H4>
+
+<P>Each Remove_product_operation refers to one Product_view_definition
+object as added_item. Each Product_view_definition acts as added_item
+for zero or more Remove_product_operation objects.</P>
+
+
+<!-- ============================== -->
+<DIV><DIV class=quick>
+<A HREF="#map-add_product_operation">Map</a>
+<A HREF="annexG.htm#add_product_operation">ARM</a>
+</DIV>
+<H3 ID="ao-add_product_operation">4.3.6 Add_product_operation</H3>
+</DIV>
+
+<P>The Add_product_operation application object adds a product to the workpiece.</P>
+
+<P CLASS="note">
+<SPAN>NOTE</SPAN>
+Operations are performed in the context of a feature and
+workplan. This all goes wrong if there are two occurrences of the same
+product in the same context. Unlike the delta workpiece the added and
+removed items do not have set placements.</P>
+
+<PRE CLASS="note">
+ENTITY Add_product_operation
+  SUBTYPE_OF Fill_type_operation;
+  added_item		: Product_view_definition;
+  depth			: OPTIONAL distance_measure;
+END_ENTITY;
+</PRE>
+
+
+<H4 ID="ao-add_product_operation-added_item">4.3.6.1 added_item</H4>
+
+<P>Each Add_product_operation refers to one Product_view_definition
+object as added_item. Each Product_view_definition acts as
+added_item for zero or more Add_product_operation objects.</P>
+
+
+<H4 ID="ao-add_product_operation-depth">4.3.6.2 depth</H4>
+
+<P>The depth parameter.
+
+
+
+
+<!-- ============================== -->
+<DIV><DIV class=quick>
+<A HREF="#map-identify_product_operation">Map</a>
+<A HREF="annexG.htm#identify_product_operation">ARM</a>
+</DIV>
+<H3 ID="ao-identify_product_operation">4.3.7 Identify_product_operation</H3>
+</DIV>
+
+<P>The Identify_product_operation application object is a kind of
+Fill_type_operation.</P>
+
+<PRE CLASS="note">
+ENTITY Identify_product_operation
+  SUBTYPE_OF Fill_type_operation;
+  identified_item	: Product_view_definition;
+  uuid_seed		: OPTIONAL String;
+  generation_method	: OPTIONAL String;  
+END_ENTY;
+</PRE>
+
+<H4 ID="ao-identify_product_operation-identified_item">4.3.7.1 identified_item</H4>
+<H4 ID="ao-identify_product_operation-uuid_seed">4.3.7.2 uuid_seed</H4>
+<H4 ID="ao-identify_product_operation-generation_method">4.3.7.3 generation_method</H4>
+
+
+
+
+<!-- ============================== -->
+<DIV><DIV class=quick>
+<A HREF="#map-serialize_product_operation">Map</a>
+<A HREF="annexG.htm#serialize_product_operation">ARM</a>
+</DIV>
+<H3 ID="ao-serialize_product_operation">4.3.8 Serialize_product_operation</H3>
+</DIV>
+
+<P>The Serialize_product_operation application object is a kind of
+Fill_type_operation.</P>
+
+<PRE CLASS="note">
+ENTITY Serialize_product_operation
+  SUBTYPE_OF Fill_type_operation;
+  serialized_item	: Product_view_definition;
+  serial_number_seed	: OPTIONAL String;
+  generation_method	: OPTIONAL String;
+END_ENTY;
+</PRE>
+
+<H4 ID="ao-serialize_product_operation-serialized_item">4.3.8.1 serialized_item</H4>
+<H4 ID="ao-serialize_product_operation-serial_number_seed">4.3.8.2 serial_number_seed</H4>
+<H4 ID="ao-serialize_product_operation-generation_method">4.3.8.3 generation_method</H4>
+
+
+
+
+
+<!-- ============================== -->
+<DIV><DIV class=quick>
+<A HREF="#map-tighten_product_operation">Map</a>
+<A HREF="annexG.htm#tighten_product_operation">ARM</a>
+</DIV>
+<H3 ID="ao-tighten_product_operation">4.3.9 Tighten_product_operation</H3>
+</DIV>
+
+<P>The Tighten_product_operation application object is a kind of
+Fill_type_operation.</P>
+
+<PRE CLASS="note">
+ENTITY Tighten_product_operation
+  SUBTYPE_OF Fill_type_operation;
+  tightened_item		: Product_view_definition;
+  torque			: OPTIONAL force_measure;
+END_ENTITY;
+</PRE>
+
+<H4 ID="ao-tighten_product_operation-tightened_item">4.3.9.1 tightened_item</H4>
+<H4 ID="ao-tighten_product_operation-torque">4.3.9.2 torque</H4>
+
+
+<!-- ============================== -->
+<DIV><DIV class=quick>
+<A HREF="#map-shave_product_operation">Map</a>
+<A HREF="annexG.htm#shave_product_operation">ARM</a>
+</DIV>
+<H3 ID="ao-shave_product_operation">4.3.10 Shave_product_operation</H3>
+</DIV>
+
+<P>The Shave_product_operation application object is a kind of
+Fill_type_operation.</P>
+
+<PRE CLASS="note">
+ENTITY Shave_product_operation
+  SUBTYPE_OF Fill_type_operation;
+  shaved_item		: Product_view_definition;
+  depth			: OPTIONAL distance_measure;
+END_ENTITY;
+</PRE>
+
+
+<H4 ID="ao-shave_product_operation-shaved_item">4.3.10.1 shaved_item</H4>
+<H4 ID="ao-shave_product_operation-depth">4.3.10.2 depth</H4>
+
+
+<!-- ============================== -->
+<DIV><DIV class=quick>
+<A HREF="#map-seal_product_operation">Map</a>
+<A HREF="annexG.htm#seal_product_operation">ARM</a>
+</DIV>
+<H3 ID="ao-seal_product_operation">4.3.11 Seal_product_operation</H3>
+</DIV>
+
+<P>The Seal_product_operation application object is a kind of
+Fill_type_operation.</P>
+
+<PRE CLASS="note">
+ENTITY Seal_product_operation
+  SUBTYPE_OF Fill_type_operation;
+  sealed_item		: Product_view_definition;
+  quantity		: OPTIONAL volume_measure;
+  sealant		: OPTIONAL material;
+  batch			: OPTIONAL identifier;
+END_ENTITY;
+</PRE>
+
+<H4 ID="ao-seal_product_operation-sealed_item">4.3.11.1 sealed_item</H4>
+<H4 ID="ao-seal_product_operation-quantity">4.3.11.2 quantity</H4>
+<H4 ID="ao-seal_product_operation-sealant">4.3.11.3 sealant</H4>
+<H4 ID="ao-seal_product_operation-batch">4.3.11.4 batch</H4>
+
+
+<!-- ============================== -->
+<DIV><DIV class=quick>
+<A HREF="#map-adjust_placement_probing">Map</a>
+<A HREF="annexG.htm#adjust_placement_probing">ARM</a>
+</DIV>
+<H3 ID="ao-adjust_placement_probing">4.3.12 Adjust_placement_probing</H3>
+</DIV>
+
+<P>The Adjust_placement_probing application object is a kind of
+Feature_complete_probing.</P>
+
+<PRE CLASS="note">
+ENTITY Adjust_placement_probing
+  SUBTYPE_OF Feature_complete_probing;
+  adjusted_item		: Product_or_Process;
+END_ENTITY;
+</PRE>
+
+
+<H4 ID="ao-adjust_placement_probing-adjusted_item">4.3.12.1 adjusted_item</H4>
+
+
+<!-- ============================== -->
+<DIV><DIV class=quick>
+<A HREF="#map-connect_escape_stack">Map</a>
+<A HREF="annexG.htm#connect_escape_stack">ARM</a>
+</DIV>
+<H3 ID="ao-connect_escape_stack">4.3.13 Connect_escape_stack</H3>
+</DIV>
+
+<P>The Connect_escape_stack application object is a kind of
+Connector. It describes a safe escape when operation sequence
+interupted.</P>
+
+
+<PRE CLASS="note">
+ENTITY Connect_escape_stack
+  SUBTYPE_OF Connector;
+  escape_point		: placement;
+  pose_constraints 	: OPTIONAL SET [1:?] OF Machine_axis_constraint;
+  next_level		: OPTIONAL connect_escape_stack;
+END_ENTITY;
+</PRE>
+
+<H4 ID="ao-connect_escape_stack-escape_point">4.3.13.1 escape_point</H4>
+<H4 ID="ao-connect_escape_stack-pose_constraints">4.3.13.2 pose_constraints</H4>
+<H4 ID="ao-connect_escape_stack-next_level">4.3.13.3 next_level</H4>
+
+
+<!-- ============================== -->
+<DIV><DIV class=quick>
+<A HREF="#map-load_nose">Map</a>
+<A HREF="annexG.htm#load_nose">ARM</a>
+</DIV>
+<H3 ID="ao-load_nose">4.3.14 Load_nose</H3>
+</DIV>
+
+<P>The Load_nose application object is a kind of
+NC function.</P>
+
+<PRE CLASS="note">
+// Load_nose NC function
+</PRE>
+
+
+
+
+
+
+
+<H2 ID="application-assertions">4.4 Application assertions</H2>
+
+
+
+
+
+<H1 ID="clause-5" CLASS="clause">5 Application interpreted model</H1>
+
+<H2 ID="mappings">5.1 Mapping specification</H2>
+
+<H3 ID="maps-general">5.1.1 General</H3>
+
+<P>This clause specifies how each UoF and application object
+in <a href="clause4.htm">clause 4</a> shall be represented by one or
+more AIM EXPRESS constructs given by <a href="annexA.htm">Annex
+A</a>. Each mapping specification contains up to five elements.</P>
+
+
+<H3 ID="mapuof-drillfill">5.1.2 Mapping specification for Process data for filling UoF</H3>
+
+<P>The mapping specification for the application objects in this UoF
+shall be as defined by the specification below.
+
+
+
+<!-- ============================== -->
+<DIV><DIV class=quick>
+<A HREF="#ao-fill_type_operation">AO</a>
+<A HREF="annexG.htm#fill_type_operation">ARM</a>
+</DIV>
+<H4 ID="map-fill_type_operation">5.1.2.1 FILL_TYPE_OPERATION</H4>
+</DIV>
+
+<table class="map">
+<tr><th>AIM element:</th>
+<td>filling_type_operation</td>
+</tr>
+
+<tr><th>Source:</th>
+<td>10303-238</td>
+</tr>
+
+<tr><th>Reference path:</th>
+<td class="path">filling_type_operation &lt;=
+machining_operation &lt;=
+action_method
+</td>
+</tr>
+</table>
+
+
+<!-- ============================== -->
+<DIV><DIV class=quick>
+<A HREF="#ao-fasten_operation">AO</a>
+<A HREF="annexG.htm#fasten_operation">ARM</a>
+</DIV>
+<H4 ID="map-fasten_operation">5.1.2.2 FASTEN_OPERATION</H4>
+</DIV>
+
+<table class="map">
+<tr><th>AIM element:</th>
+<td>fasten_operation</td>
+</tr>
+
+<tr><th>Source:</th>
+<td>10303-238</td>
+</tr>
+
+<tr><th>Reference path:</th>
+<td class="path">fasten_operation &lt;=
+filling_type_operation &lt;=
+machining_operation &lt;=
+action_method
+</td>
+</tr>
+</table>
+
+
+<H5 ID="map-fasten_operation-manual">5.1.2.2.1 manual</H5>
+
+<div class="mapnote">
+<p>#1: if value is true</p>
+<p>#2: if value is false  (mapping may be omitted if value is false)</p>
+</div>
+
+<table class="map">
+<tr><th>Reference path:</th>
+<td class="path">descriptive_representation_item.description
+</td>
+</tr>
+
+<tr><th>Source:</th>
+<td>10303-45</td>
+</tr>
+
+<tr><th>Reference path:</th>
+<td class="path">fasten_operation &lt;=
+filling_type_operation &lt;=
+machining_operation &lt;=
+action_method
+characterized_action_definition = action_method
+characterized_action_definition &lt;-
+action_property.definition
+{ action_property.name = 'manual' }
+action_property &lt;-
+action_property_representation.property
+action_property_representation
+action_property_representation.representation -&gt;
+representation
+representation.items[i] -&gt;
+representation_item =&gt;
+descriptive_representation_item
+descriptive_representation_item.description
+{ #1: (descriptive_representation_item.description = 'manual' )
+#2: (descriptive_representation_item.description = 'automatic' ) }
+</td>
+</tr>
+</table>
+
+
+<H5 ID="map-fasten_operation-existing_hole">5.1.2.2.2 existing_hole</H5>
+
+<div class="mapnote">
+<p>#1: if value is true</p>
+<p>#2: if value is false  (mapping may be omitted if value is false)</p>
+</div>
+
+<table class="map">
+
+<tr><th>Reference path:</th>
+<td class="path">descriptive_representation_item.description
+</td>
+</tr>
+
+<tr><th>Source:</th>
+<td>10303-45</td>
+</tr>
+
+<tr><th>Reference path:</th>
+<td class="path">fasten_operation &lt;=
+filling_type_operation &lt;=
+machining_operation &lt;=
+action_method
+characterized_action_definition = action_method
+characterized_action_definition &lt;-
+action_property.definition
+{ action_property.name = 'existing hole' }
+action_property &lt;-
+action_property_representation.property
+action_property_representation
+action_property_representation.representation -&gt;
+representation
+representation.items[i] -&gt;
+representation_item =&gt;
+descriptive_representation_item
+descriptive_representation_item.description
+{ #1: (descriptive_representation_item.description = 'exists' )
+#2: (descriptive_representation_item.description = 'missing' ) }
+</td>
+</tr>
+</table>
+
+
+
+<H5 ID="map-fasten_operation-existing_tack">5.1.2.2.3 fasten_operation to product_view_definition (as existing_tack)</H5>
+
+<table class="map">
+<tr><th>AIM element:</th>
+<td>PATH</td>
+</tr>
+
+<tr><th>Reference path:</th>
+<td class="path">fasten_operation &lt;=
+filling_type_operation &lt;=
+machining_operation &lt;=
+action_method &lt;-
+action.chosen_method
+{ action.name = 'existing tack' }
+action =&gt;
+product_definition_process &lt;-
+process_product_association.process
+process_product_association
+process_product_association.defined_product -&gt;
+characterized_product_definition
+characterized_product_definition = product_definition
+product_definition
+</td>
+</tr>
+</table>
+
+
+
+<H5 ID="map-fasten_operation-fastener">5.1.2.2.4 fasten_operation to product_view_definition (as fastener)</H5>
+
+<table class="map">
+<tr><th>AIM element:</th>
+<td>PATH</td>
+</tr>
+
+<tr><th>Reference path:</th>
+<td class="path">fasten_operation &lt;=
+filling_type_operation &lt;=
+machining_operation &lt;=
+action_method &lt;-
+action.chosen_method
+{ action.name = 'fastener' }
+action =&gt;
+product_definition_process &lt;-
+process_product_association.process
+process_product_association
+process_product_association.defined_product -&gt;
+characterized_product_definition
+characterized_product_definition = product_definition
+product_definition
+</td>
+</tr>
+</table>
+
+<H5 ID="map-fasten_operation-collar">5.1.2.2.3 fasten_operation to product_view_definition (as collar)</H5>
+
+<table class="map">
+<tr><th>AIM element:</th>
+<td>PATH</td>
+</tr>
+
+<tr><th>Reference path:</th>
+<td class="path">fasten_operation &lt;=
+filling_type_operation &lt;=
+machining_operation &lt;=
+action_method &lt;-
+action.chosen_method
+{ action.name = 'collar' }
+action =&gt;
+product_definition_process &lt;-
+process_product_association.process
+process_product_association
+process_product_association.defined_product -&gt;
+characterized_product_definition
+characterized_product_definition = product_definition
+product_definition
+</td>
+</tr>
+</table>
+
+
+<H5 ID="map-fasten_operation-washer">5.1.2.2.3 fasten_operation to product_view_definition (as washer)</H5>
+
+<table class="map">
+<tr><th>AIM element:</th>
+<td>PATH</td>
+</tr>
+
+<tr><th>Reference path:</th>
+<td class="path">fasten_operation &lt;=
+filling_type_operation &lt;=
+machining_operation &lt;=
+action_method &lt;-
+action.chosen_method
+{ action.name = 'washer' }
+action =&gt;
+product_definition_process &lt;-
+process_product_association.process
+process_product_association
+process_product_association.defined_product -&gt;
+characterized_product_definition
+characterized_product_definition = product_definition
+product_definition
+</td>
+</tr>
+</table>
+
+<H5 ID="map-fasten_operation-sealant">5.1.2.2.7 sealant</H5>
+
+<table class="map">
+<tr><th>Reference path:</th>
+<td class="path">descriptive_representation_item.description
+</td>
+</tr>
+
+<tr><th>Source:</th>
+<td>10303-45</td>
+</tr>
+
+<tr><th>Reference path:</th>
+<td class="path">fasten_operation &lt;=
+filling_type_operation &lt;=
+machining_operation &lt;=
+action_method
+characterized_action_definition = action_method
+characterized_action_definition &lt;-
+action_property.definition
+{ action_property.name = 'sealant' }
+action_property &lt;-
+action_property_representation.property
+action_property_representation
+action_property_representation.representation -&gt;
+representation
+representation.items[i] -&gt;
+representation_item =&gt;
+descriptive_representation_item
+descriptive_representation_item.description
+{ (descriptive_representation_item.description = 'gloop' )
+  (descriptive_representation_item.description = 'gunk' )
+  (descriptive_representation_item.description = 'grind' ) }
+</td>
+</tr>
+</table>
+
+
+
+<H5 ID="map-fasten_operation-clamp_force">5.1.2.2.8 clamp_force</H5>
+
+<table class="map">
+<tr><th>AIM element:</th>
+<td>measure_with_unit</td>
+</tr>
+
+<tr><th>Source:</th>
+<td>10303-41</td>
+</tr>
+
+<tr><th>Reference path:</th>
+<td class="path">fasten_operation &lt;=
+filling_type_operation &lt;=
+machining_operation &lt;=
+action_method
+characterized_action_definition = action_method
+characterized_action_definition &lt;-
+action_property.definition
+{ action_property.name = 'clamp force' }
+action_property &lt;-
+action_property_representation.property
+action_property_representation
+action_property_representation.representation -&gt;
+representation
+representation.items[i] -&gt;
+representation_item =&gt;
+measure_representation_item &lt;=
+measure_with_unit
+{ measure_with_unit.value_component -&gt;
+measure_value
+measure_value = numeric_measure
+numeric_measure }
+</td>
+</tr>
+</table>
+
+
+<H5 ID="map-fasten_operation-high_speed_clamp">5.1.2.2.9 high_speed_clamp</H5>
+
+<div class="mapnote">
+<p>#1: if value is true</p>
+<p>#2: if value is false  (mapping may be omitted if value is false)</p>
+</div>
+
+<table class="map">
+
+<tr><th>Reference path:</th>
+<td class="path">descriptive_representation_item.description
+</td>
+</tr>
+
+<tr><th>Source:</th>
+<td>10303-45</td>
+</tr>
+
+<tr><th>Reference path:</th>
+<td class="path">fasten_operation &lt;=
+filling_type_operation &lt;=
+machining_operation &lt;=
+action_method
+characterized_action_definition = action_method
+characterized_action_definition &lt;-
+action_property.definition
+{ action_property.name = 'clamp speed' }
+action_property &lt;-
+action_property_representation.property
+action_property_representation
+action_property_representation.representation -&gt;
+representation
+representation.items[i] -&gt;
+representation_item =&gt;
+descriptive_representation_item
+descriptive_representation_item.description
+{ #1: (descriptive_representation_item.description = 'high' )
+#2: (descriptive_representation_item.description = 'normal' ) }
+</td>
+</tr>
+</table>
+
+
+<!-- ============================== -->
+<DIV><DIV class=quick>
+<A HREF="#ao-fasten_with_codes">AO</a>
+<A HREF="annexG.htm#fasten_with_codes">ARM</a>
+</DIV>
+<H4 ID="map-fasten_with_codes">5.1.2.3 FASTEN_WITH_CODES</H4>
+</DIV>
+
+
+<table class="map">
+<tr><th>AIM element:</th>
+<td>fasten_operation</td>
+</tr>
+
+<tr><th>Source:</th>
+<td>10303-238</td>
+</tr>
+
+<tr><th>Reference path:</th>
+<td class="path">fasten_operation &lt;=
+filling_type_operation &lt;=
+machining_operation &lt;=
+action_method
+{ action_method.description = 'codes' }
+</td>
+</tr>
+</table>
+
+<H5 ID="map-fasten_with_codes-pass_thru_codes">5.1.2.3.1 pass_thru_codes</H5>
+
+<table class="map">
+<tr><th>Reference path:</th>
+<td class="path">descriptive_representation_item.description
+</td>
+</tr>
+
+<tr><th>Source:</th>
+<td>10303-45</td>
+</tr>
+
+<tr><th>Reference path:</th>
+<td class="path">fasten_operation &lt;=
+filling_type_operation &lt;=
+machining_operation &lt;=
+action_method
+characterized_action_definition = action_method
+characterized_action_definition &lt;-
+action_property.definition
+{ action_property.name = 'codes' }
+action_property &lt;-
+action_property_representation.property
+action_property_representation
+action_property_representation.representation -&gt;
+representation
+representation.items[i] -&gt;
+representation_item =&gt;
+compound_representation_item
+compound_representation_item.item_element -&gt;
+compound_item_definition
+compound_item_definition = list_representation_item
+list_representation_item[i] -&gt;
+representation_item =&gt;
+descriptive_representation_item
+descriptive_representation_item.description
+</td>
+</tr>
+</table>
+
+
+<!-- ============================== -->
+<DIV><DIV class=quick>
+<A HREF="#ao-remove_product_operation">AO</a>
+<A HREF="annexG.htm#remove_product_operation">ARM</a>
+</DIV>
+<H4 ID="map-remove_product_operation">5.1.2.4 REMOVE_PRODUCT_OPERATION</H4>
+</DIV>
+
+<table class="map">
+<tr><th>AIM element:</th>
+<td>filling_type_operation</td>
+</tr>
+
+<tr><th>Source:</th>
+<td>10303-238</td>
+</tr>
+
+<tr><th>Reference path:</th>
+<td class="path">filling_type_operation &lt;=
+machining_operation &lt;=
+action_method
+{ action_method.description = 'remove product' }
+</td>
+</tr>
+</table>
+
+<H5 ID="map-remove_product_operation-removed_item">5.1.2.4.1 remove_product_operation to product_view_definition (as removed_item)</H5>
+
+<table class="map">
+<tr><th>AIM element:</th>
+<td>PATH</td>
+</tr>
+
+<tr><th>Reference path:</th>
+<td class="path">filling_type_operation &lt;=
+machining_operation &lt;=
+action_method &lt;-
+action.chosen_method
+{ action.name = 'removed item' }
+action =&gt;
+product_definition_process &lt;-
+process_product_association.process
+process_product_association
+process_product_association.defined_product -&gt;
+characterized_product_definition
+characterized_product_definition = product_definition
+product_definition
+</td>
+</tr>
+</table>
+
+<!-- ============================== -->
+<DIV><DIV class=quick>
+<A HREF="#ao-add_product_operation">AO</a>
+<A HREF="annexG.htm#add_product_operation">ARM</a>
+</DIV>
+<H4 ID="map-add_product_operation">5.1.2.5 ADD_PRODUCT_OPERATION</H4>
+</DIV>
+
+<table class="map">
+<tr><th>AIM element:</th>
+<td>filling_type_operation</td>
+</tr>
+
+<tr><th>Source:</th>
+<td>10303-238</td>
+</tr>
+
+<tr><th>Reference path:</th>
+<td class="path">filling_type_operation &lt;=
+machining_operation &lt;=
+action_method
+{ action_method.description = 'add product' }
+</td>
+</tr>
+</table>
+
+<H5 ID="map-add_product_operation-added_item">5.1.2.5.1 add_product_operation to product_view_definition (as added_item)</H5>
+
+<table class="map">
+<tr><th>AIM element:</th>
+<td>PATH</td>
+</tr>
+
+<tr><th>Reference path:</th>
+<td class="path">filling_type_operation &lt;=
+machining_operation &lt;=
+action_method &lt;-
+action.chosen_method
+{ action.name = 'added item' }
+action =&gt;
+product_definition_process &lt;-
+process_product_association.process
+process_product_association
+process_product_association.defined_product -&gt;
+characterized_product_definition
+characterized_product_definition = product_definition
+product_definition
+</td>
+</tr>
+</table>
+
+
+<H5 ID="map-add_product_operation-depth">5.1.2.5.2 depth</H5>
+
+<table class="map">
+<tr><th>AIM element:</th>
+<td>length_measure_with_unit</td>
+</tr>
+
+<tr><th>Source:</th>
+<td>10303-41</td>
+</tr>
+
+<tr><th>Reference path:</th>
+<td class="path">filling_type_operation &lt;=
+machining_operation &lt;=
+action_method
+characterized_action_definition = action_method
+characterized_action_definition &lt;-
+action_property.definition
+{ action_property.name = 'depth' }
+action_property &lt;-
+action_property_representation.property
+action_property_representation
+action_property_representation.representation -&gt;
+representation
+representation.items[i] -&gt;
+representation_item =&gt;
+measure_representation_item &lt;=
+measure_with_unit =&gt;
+length_measure_with_unit
+</td>
+</tr>
+</table>
+
+
+
+
+<!-- ============================== -->
+<DIV><DIV class=quick>
+<A HREF="#ao-identify_product_operation">AO</a>
+<A HREF="annexG.htm#identify_product_operation">ARM</a>
+</DIV>
+<H4 ID="map-identify_product_operation">5.1.2.6 IDENTIFY_PRODUCT_OPERATION</H4>
+</DIV>
+
+<table class="map">
+<tr><th>AIM element:</th>
+<td>filling_type_operation</td>
+</tr>
+
+<tr><th>Source:</th>
+<td>10303-238</td>
+</tr>
+
+<tr><th>Reference path:</th>
+<td class="path">filling_type_operation &lt;=
+machining_operation &lt;=
+action_method
+{ action_method.description = 'identify product' }
+</td>
+</tr>
+</table>
+
+
+<H5 ID="map-identify_product_operation-identified_item">5.1.2.6.1 identify_product_operation to product_view_definition (as identified_item)</H5>
+
+<table class="map">
+<tr><th>AIM element:</th>
+<td>PATH</td>
+</tr>
+
+<tr><th>Reference path:</th>
+<td class="path">filling_type_operation &lt;=
+machining_operation &lt;=
+action_method &lt;-
+action.chosen_method
+{ action.name = 'identified item' }
+action =&gt;
+product_definition_process &lt;-
+process_product_association.process
+process_product_association
+process_product_association.defined_product -&gt;
+characterized_product_definition
+characterized_product_definition = product_definition
+product_definition
+</td>
+</tr>
+</table>
+
+
+<H5 ID="map-identify_product_operation-uuid_seed">5.1.2.6.2 uuid_seed</H5>
+
+<table class="map">
+<tr><th>Reference path:</th>
+<td class="path">descriptive_representation_item.description
+</td>
+</tr>
+
+<tr><th>Source:</th>
+<td>10303-45</td>
+</tr>
+
+<tr><th>Reference path:</th>
+<td class="path">filling_type_operation &lt;=
+machining_operation &lt;=
+action_method
+characterized_action_definition = action_method
+characterized_action_definition &lt;-
+action_property.definition
+{ action_property.name = 'uuid seed' }
+action_property &lt;-
+action_property_representation.property
+action_property_representation
+action_property_representation.representation -&gt;
+representation
+representation.items[i] -&gt;
+representation_item =&gt;
+descriptive_representation_item
+descriptive_representation_item.description
+</td>
+</tr>
+</table>
+
+
+<H5 ID="map-identify_product_operation-generation_method">5.1.2.6.3 generation_method</H5>
+
+
+<table class="map">
+<tr><th>Reference path:</th>
+<td class="path">descriptive_representation_item.description
+</td>
+</tr>
+
+<tr><th>Source:</th>
+<td>10303-45</td>
+</tr>
+
+<tr><th>Reference path:</th>
+<td class="path">filling_type_operation &lt;=
+machining_operation &lt;=
+action_method
+characterized_action_definition = action_method
+characterized_action_definition &lt;-
+action_property.definition
+{ action_property.name = 'generation method' }
+action_property &lt;-
+action_property_representation.property
+action_property_representation
+action_property_representation.representation -&gt;
+representation
+representation.items[i] -&gt;
+representation_item =&gt;
+descriptive_representation_item
+descriptive_representation_item.description
+</td>
+</tr>
+</table>
+
+
+
+
+<!-- ============================== -->
+<DIV><DIV class=quick>
+<A HREF="#ao-serialize_product_operation">AO</a>
+<A HREF="annexG.htm#serialize_product_operation">ARM</a>
+</DIV>
+<H4 ID="map-serialize_product_operation">5.1.2.7 SERIALIZE_PRODUCT_OPERATION</H4>
+</DIV>
+
+
+<table class="map">
+<tr><th>AIM element:</th>
+<td>filling_type_operation</td>
+</tr>
+
+<tr><th>Source:</th>
+<td>10303-238</td>
+</tr>
+
+<tr><th>Reference path:</th>
+<td class="path">filling_type_operation &lt;=
+machining_operation &lt;=
+action_method
+{ action_method.description = 'serialize product' }
+</td>
+</tr>
+</table>
+
+<H5 ID="map-serialize_product_operation-serialized_item">5.1.2.7.1 serialize_product_operation to product_view_definition (as serialized_item)</H5>
+
+<table class="map">
+<tr><th>AIM element:</th>
+<td>PATH</td>
+</tr>
+
+<tr><th>Reference path:</th>
+<td class="path">filling_type_operation &lt;=
+machining_operation &lt;=
+action_method &lt;-
+action.chosen_method
+{ action.name = 'serialized item' }
+action =&gt;
+product_definition_process &lt;-
+process_product_association.process
+process_product_association
+process_product_association.defined_product -&gt;
+characterized_product_definition
+characterized_product_definition = product_definition
+product_definition
+</td>
+</tr>
+</table>
+
+
+
+<H5 ID="map-serialize_product_operation-serial_number_seed">5.1.2.7.2 serial_number_seed</H5>
+
+<table class="map">
+<tr><th>Reference path:</th>
+<td class="path">descriptive_representation_item.description
+</td>
+</tr>
+
+<tr><th>Source:</th>
+<td>10303-45</td>
+</tr>
+
+<tr><th>Reference path:</th>
+<td class="path">filling_type_operation &lt;=
+machining_operation &lt;=
+action_method
+characterized_action_definition = action_method
+characterized_action_definition &lt;-
+action_property.definition
+{ action_property.name = 'serial number seed' }
+action_property &lt;-
+action_property_representation.property
+action_property_representation
+action_property_representation.representation -&gt;
+representation
+representation.items[i] -&gt;
+representation_item =&gt;
+descriptive_representation_item
+descriptive_representation_item.description
+</td>
+</tr>
+</table>
+
+<H5 ID="map-serialize_product_operation-generation_method">5.1.2.7.3 generation_method</H5>
+
+
+<table class="map">
+<tr><th>Reference path:</th>
+<td class="path">descriptive_representation_item.description
+</td>
+</tr>
+
+<tr><th>Source:</th>
+<td>10303-45</td>
+</tr>
+
+<tr><th>Reference path:</th>
+<td class="path">filling_type_operation &lt;=
+machining_operation &lt;=
+action_method
+characterized_action_definition = action_method
+characterized_action_definition &lt;-
+action_property.definition
+{ action_property.name = 'generation method' }
+action_property &lt;-
+action_property_representation.property
+action_property_representation
+action_property_representation.representation -&gt;
+representation
+representation.items[i] -&gt;
+representation_item =&gt;
+descriptive_representation_item
+descriptive_representation_item.description
+</td>
+</tr>
+</table>
+
+
+
+
+<!-- ============================== -->
+<DIV><DIV class=quick>
+<A HREF="#ao-tighten_product_operation">AO</a>
+<A HREF="annexG.htm#tighten_product_operation">ARM</a>
+</DIV>
+<H4 ID="map-tighten_product_operation">5.1.2.8 TIGHTEN_PRODUCT_OPERATION</H4>
+</DIV>
+
+
+<table class="map">
+<tr><th>AIM element:</th>
+<td>filling_type_operation</td>
+</tr>
+
+<tr><th>Source:</th>
+<td>10303-238</td>
+</tr>
+
+<tr><th>Reference path:</th>
+<td class="path">filling_type_operation &lt;=
+machining_operation &lt;=
+action_method
+{ action_method.description = 'tighten product' }
+</td>
+</tr>
+</table>
+
+<H5 ID="map-tighten_product_operation-tightened_item">5.1.2.8.1 tighten_product_operation to product_view_definition (as tightened_item)</H5>
+
+<table class="map">
+<tr><th>AIM element:</th>
+<td>PATH</td>
+</tr>
+
+<tr><th>Reference path:</th>
+<td class="path">filling_type_operation &lt;=
+machining_operation &lt;=
+action_method &lt;-
+action.chosen_method
+{ action.name = 'tightened item' }
+action =&gt;
+product_definition_process &lt;-
+process_product_association.process
+process_product_association
+process_product_association.defined_product -&gt;
+characterized_product_definition
+characterized_product_definition = product_definition
+product_definition
+</td>
+</tr>
+</table>
+
+
+
+<H5 ID="map-tighten_product_operation-torque">5.1.2.8.2 torque</H5>
+
+<table class="map">
+<tr><th>AIM element:</th>
+<td>measure_with_unit</td>
+</tr>
+
+<tr><th>Source:</th>
+<td>10303-41</td>
+</tr>
+
+<tr><th>Reference path:</th>
+<td class="path">filling_type_operation &lt;=
+machining_operation &lt;=
+action_method
+characterized_action_definition = action_method
+characterized_action_definition &lt;-
+action_property.definition
+{ action_property.name = 'torque' }
+action_property &lt;-
+action_property_representation.property
+action_property_representation
+action_property_representation.representation -&gt;
+representation
+representation.items[i] -&gt;
+representation_item =&gt;
+measure_representation_item &lt;=
+measure_with_unit
+{ measure_with_unit.value_component -&gt;
+measure_value
+measure_value = numeric_measure
+numeric_measure }
+</td>
+</tr>
+</table>
+
+
+
+
+<!-- ============================== -->
+<DIV><DIV class=quick>
+<A HREF="#ao-shave_product_operation">AO</a>
+<A HREF="annexG.htm#shave_product_operation">ARM</a>
+</DIV>
+<H4 ID="map-shave_product_operation">5.1.2.9 SHAVE_PRODUCT_OPERATION</H4>
+</DIV>
+
+<table class="map">
+<tr><th>AIM element:</th>
+<td>filling_type_operation</td>
+</tr>
+
+<tr><th>Source:</th>
+<td>10303-238</td>
+</tr>
+
+<tr><th>Reference path:</th>
+<td class="path">filling_type_operation &lt;=
+machining_operation &lt;=
+action_method
+{ action_method.description = 'shave product' }
+</td>
+</tr>
+</table>
+
+
+<H5 ID="map-shave_product_operation-shaved_item">5.1.2.9.1 shave_product_operation to product_view_definition (as shaved_item)</H5>
+
+<table class="map">
+<tr><th>AIM element:</th>
+<td>PATH</td>
+</tr>
+
+<tr><th>Reference path:</th>
+<td class="path">filling_type_operation &lt;=
+machining_operation &lt;=
+action_method &lt;-
+action.chosen_method
+{ action.name = 'shaved item' }
+action =&gt;
+product_definition_process &lt;-
+process_product_association.process
+process_product_association
+process_product_association.defined_product -&gt;
+characterized_product_definition
+characterized_product_definition = product_definition
+product_definition
+</td>
+</tr>
+</table>
+
+
+<H5 ID="map-shave_product_operation-depth">5.1.2.9.2 depth</H5>
+
+<table class="map">
+<tr><th>AIM element:</th>
+<td>length_measure_with_unit</td>
+</tr>
+
+<tr><th>Source:</th>
+<td>10303-41</td>
+</tr>
+
+<tr><th>Reference path:</th>
+<td class="path">filling_type_operation &lt;=
+machining_operation &lt;=
+action_method
+characterized_action_definition = action_method
+characterized_action_definition &lt;-
+action_property.definition
+{ action_property.name = 'depth' }
+action_property &lt;-
+action_property_representation.property
+action_property_representation
+action_property_representation.representation -&gt;
+representation
+representation.items[i] -&gt;
+representation_item =&gt;
+measure_representation_item &lt;=
+measure_with_unit =&gt;
+length_measure_with_unit
+</td>
+</tr>
+</table>
+
+
+<!-- ============================== -->
+<DIV><DIV class=quick>
+<A HREF="#ao-seal_product_operation">AO</a>
+<A HREF="annexG.htm#seal_product_operation">ARM</a>
+</DIV>
+<H4 ID="map-seal_product_operation">5.1.2.10 SEAL_PRODUCT_OPERATION</H4>
+</DIV>
+
+<table class="map">
+<tr><th>AIM element:</th>
+<td>filling_type_operation</td>
+</tr>
+
+<tr><th>Source:</th>
+<td>10303-238</td>
+</tr>
+
+<tr><th>Reference path:</th>
+<td class="path">filling_type_operation &lt;=
+machining_operation &lt;=
+action_method
+{ action_method.description = 'seal product' }
+</td>
+</tr>
+</table>
+
+<H5 ID="map-seal_product_operation-sealed_item">5.1.2.10.1 seal_product_operation to product_view_definition (as sealed_item)</H5>
+
+<table class="map">
+<tr><th>AIM element:</th>
+<td>PATH</td>
+</tr>
+
+<tr><th>Reference path:</th>
+<td class="path">filling_type_operation &lt;=
+machining_operation &lt;=
+action_method &lt;-
+action.chosen_method
+{ action.name = 'sealed item' }
+action =&gt;
+product_definition_process &lt;-
+process_product_association.process
+process_product_association
+process_product_association.defined_product -&gt;
+characterized_product_definition
+characterized_product_definition = product_definition
+product_definition
+</td>
+</tr>
+</table>
+
+
+
+<H5 ID="map-seal_product_operation-quantity">5.1.2.10.2 quantity</H5>
+
+<table class="map">
+<tr><th>AIM element:</th>
+<td>measure_with_unit</td>
+</tr>
+
+<tr><th>Source:</th>
+<td>10303-41</td>
+</tr>
+
+<tr><th>Reference path:</th>
+<td class="path">filling_type_operation &lt;=
+machining_operation &lt;=
+action_method
+characterized_action_definition = action_method
+characterized_action_definition &lt;-
+action_property.definition
+{ action_property.name = 'quantity' }
+action_property &lt;-
+action_property_representation.property
+action_property_representation
+action_property_representation.representation -&gt;
+representation
+representation.items[i] -&gt;
+representation_item =&gt;
+measure_representation_item &lt;=
+measure_with_unit
+{ measure_with_unit.value_component -&gt;
+measure_value
+measure_value = volume_measure
+volume_measure }
+</td>
+</tr>
+</table>
+
+<H5 ID="map-seal_product_operation-sealant">5.1.2.10.3 sealant</H5>
+
+<BLOCKQUOTE>
+<p>In the ARM this is a material, which maps to material_designation.
+This can only be attached to product/shape aspect things or characterized object.
+Two options are:</p>
+
+<OL>
+<LI>Use the new 242 applied_action_method_assignment to associate the
+operation with a stub characterized object then hook the material
+designation to that characterized object.</LI>
+
+<LI>Make the sealant an actual product and then the material can just
+be a property of the product.   Then it is easy to associate product and
+action method.</LI>
+</OL>
+
+<p>I'd prefer the second because it is less weird.
+</BLOCKQUOTE>
+
+
+<H5 ID="map-seal_product_operation-batch">5.1.2.10.4 batch</H5>
+
+<table class="map">
+<tr><th>Reference path:</th>
+<td class="path">descriptive_representation_item.description
+</td>
+</tr>
+
+<tr><th>Source:</th>
+<td>10303-45</td>
+</tr>
+
+<tr><th>Reference path:</th>
+<td class="path">filling_type_operation &lt;=
+machining_operation &lt;=
+action_method
+characterized_action_definition = action_method
+characterized_action_definition &lt;-
+action_property.definition
+{ action_property.name = 'batch' }
+action_property &lt;-
+action_property_representation.property
+action_property_representation
+action_property_representation.representation -&gt;
+representation
+representation.items[i] -&gt;
+representation_item =&gt;
+descriptive_representation_item
+descriptive_representation_item.description
+</td>
+</tr>
+</table>
+
+
+
+<!-- ============================== -->
+<DIV><DIV class=quick>
+<A HREF="#ao-adjust_placement_probing">AO</a>
+<A HREF="annexG.htm#adjust_placement_probing">ARM</a>
+</DIV>
+<H4 ID="map-adjust_placement_probing">5.1.2.11 ADJUST_PLACEMENT_PROBING</H4>
+</DIV>
+
+<table class="map">
+<tr><th>AIM element:</th>
+<td>machining_touch_probing</td>
+</tr>
+
+<tr><th>Source:</th>
+<td>10303-238</td>
+</tr>
+
+<tr><th>Reference path:</th>
+<td class="path">machining_touch_probing &lt;=
+machining_operation &lt;=
+action_method
+{ action_method.description = 'adjust placement probing' }
+
+NOTE: adjust mapping for feature complete probing to allow this string
+</td>
+</tr>
+</table>
+
+
+<H5 ID="map-adjust_placement_probing-adjusted_item">5.1.2.11.1 adjusted_item</H5>
+
+<div class="mapnote">
+<p>#1: if value is a product_definition</p>
+<p>#2: if value is a machining_product_executable</p>
+</div>
+
+<table class="map">
+<tr><th>AIM element:</th>
+<td>PATH</td>
+</tr>
+
+<tr><th>Reference path:</th>
+<td class="path">machining_touch_probing &lt;=
+machining_operation &lt;=
+action_method &lt;-
+#1: (action.chosen_method
+{ action.name = 'adjusted item' }
+action =&gt;
+product_definition_process &lt;-
+process_product_association.process
+process_product_association
+process_product_association.defined_product -&gt;
+characterized_product_definition
+characterized_product_definition = product_definition
+product_definition)
+#2: (action_method_relationship.relating_method
+action_method_relationship
+{ action_method_relationship.name = 'adjusted item' }
+action_method_relationship.related_method -&gt;
+action_method =&gt;
+machining_process_executable)
+
+
+</td>
+</tr>
+</table>
+
+
+
+
+
+<!-- ============================== -->
+<DIV><DIV class=quick>
+<A HREF="#ao-connect_escape_stack">AO</a>
+<A HREF="annexG.htm#connect_escape_stack">ARM</a>
+</DIV>
+<H4 ID="map-connect_escape_stack">5.1.2.12 CONNECT_ESCAPE_STACK</H4>
+</DIV>
+
+
+<H5 ID="map-connect_escape_stack-escape_point">5.1.2.12.1 escape_point</H5>
+<H5 ID="map-connect_escape_stack-pose_constraints">5.1.2.12.2 pose_constraints</H5>
+<H5 ID="map-connect_escape_stack-next_level">5.1.2.12.3 next_level</H5>
+
+
+<!-- ============================== -->
+<DIV><DIV class=quick>
+<A HREF="#ao-load_nose">AO</a>
+<A HREF="annexG.htm#load_nose">ARM</a>
+</DIV>
+<H4 ID="map-load_nose">5.1.2.13 LOAD_NOSE</H4>
+</DIV>
+
+
+
+<H2 ID="aim-short">5.2 AIM EXPRESS short listing</H2>
+
+<H3 ID="aim-general">5.2.1 General</H3>
+
+<H3 ID="funcon">5.2.2 Fundamental concepts and assumptions</H3>
+
+<H3 ID="aim-types">5.2.3 Model based integrated manufacturing types</H3>
+
+<H3 ID="aim-entities">5.2.4 Model based integrated manufacturing entities</H3>
+
+
+<H4 ID="aim-entitydefs">5.2.4.1 Model based integrated manufacturing entity definitions</H4>
+
+
+<H5 ID="aim-filling_type_operation">5.2.4.1.1 filling_type_operation</H5>
+
+<P>A <B>filling_type_operation</B> is a type of <B>machining_operation</B> that represents the details of a machining step in which an existing hole or void is filled with a fastener.   See the ARM definitions for Filling_type_operation and subtypes for more information.</P>
+
+<H6 CLASS="section-underlined">EXPRESS specification:</H6>
+<PRE CLASS="code">
+*)
+ENTITY filling_type_operation
+  SUBTYPE OF (machining_operation);
+END_ENTITY;
+(*
+</PRE>
+<H5 ID="aim-fasten_operation">5.2.4.1.2 fasten_operation</H5>
+
+<P>A <B>fasten_operation</B> is a type of <B>filling_type_operation</B> that represents the details of a manufacturing step in which in which a fastener is inserted or manipulated.  See the ARM definitions for Fasten_operation and subtypes for more information.</P>
+
+<H6 CLASS="section-underlined">EXPRESS specification:</H6>
+<PRE CLASS="code">
+*)
+ENTITY fasten_operation
+  SUBTYPE OF (filling_type_operation);
+END_ENTITY;
+(*
+</PRE>
+
+
+
+
+
+
+<p class=pagefoot>&copy; ISO 2022 &mdash; All rights reserved
+</body>
+</html>
