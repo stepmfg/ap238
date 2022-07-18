@@ -505,7 +505,7 @@ ENTITY Seal_product_operation
   SUBTYPE_OF Fill_type_operation;
   sealed_item		: Product_view_definition;
   quantity		: OPTIONAL volume_measure;
-  sealant		: OPTIONAL material;
+  sealant		: OPTIONAL Product_view_definition;
   batch			: OPTIONAL identifier;
 END_ENTITY;
 </PRE>
@@ -532,6 +532,11 @@ ENTITY Adjust_placement_probing
   SUBTYPE_OF Feature_complete_probing;
   adjusted_item		: Product_or_Process;
 END_ENTITY;
+
+TYPE Product_or_Process = SELECT(
+     Product_view_definition,
+     Executable);
+END_TYPE;
 </PRE>
 
 
@@ -1702,25 +1707,30 @@ volume_measure }
 </tr>
 </table>
 
-<H5 ID="map-seal_product_operation-sealant">5.1.2.10.3 sealant</H5>
+<H5 ID="map-seal_product_operation-sealant">5.1.2.10.3 seal_product_operation to product_view_definition (as sealant)</H5>
 
-<BLOCKQUOTE>
-<p>In the ARM this is a material, which maps to material_designation.
-This can only be attached to product/shape aspect things or characterized object.
-Two options are:</p>
+<table class="map">
+<tr><th>AIM element:</th>
+<td>PATH</td>
+</tr>
 
-<OL>
-<LI>Use the new 242 applied_action_method_assignment to associate the
-operation with a stub characterized object then hook the material
-designation to that characterized object.</LI>
-
-<LI>Make the sealant an actual product and then the material can just
-be a property of the product.   Then it is easy to associate product and
-action method.</LI>
-</OL>
-
-<p>I'd prefer the second because it is less weird.
-</BLOCKQUOTE>
+<tr><th>Reference path:</th>
+<td class="path">filling_type_operation &lt;=
+machining_operation &lt;=
+action_method &lt;-
+action.chosen_method
+{ action.name = 'sealant' }
+action =&gt;
+product_definition_process &lt;-
+process_product_association.process
+process_product_association
+process_product_association.defined_product -&gt;
+characterized_product_definition
+characterized_product_definition = product_definition
+product_definition
+</td>
+</tr>
+</table>
 
 
 <H5 ID="map-seal_product_operation-batch">5.1.2.10.4 batch</H5>
@@ -1819,8 +1829,6 @@ action_method_relationship
 action_method_relationship.related_method -&gt;
 action_method =&gt;
 machining_process_executable)
-
-
 </td>
 </tr>
 </table>
