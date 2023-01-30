@@ -1,8 +1,8 @@
-# Working Draft for AP238 Edition 3
+# Working Draft for AP238 Edition 4
 
 This is a working draft for use by TC184/SC4/WG15 for discussion and
-development of the third edition of AP238.  This builds on the recent
-second edition by incorporating the latest SMRL v9 definitions.
+development of the fourth edition of AP238.  This extends the recent
+third edition with new manufacturing process.
 
 During development of this working draft, the document is being managed at the following GitHub repository:
 
