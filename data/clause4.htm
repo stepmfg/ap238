@@ -60,6 +60,9 @@ specifies the following units of functionality:</P>
 <LI><A href="#uof-turning_process">Process data for turning</A>;</LI>
 <LI><A href="#uof-turning_tools">Cutting tools for turning</A>;</LI>
 <LI><A href="#uof-additive_process">Process data for additive manufacturing</A>;</LI>
+<LI><A href="#uof-pbf_process">Process data for powder bed fusion</A>;</LI>
+<LI><A href="#uof-drillfill_process">Process data for drill and fill</A>;</LI>
+<LI><A href="#uof-broadcast">Broadcast</A>;</LI>
 <LI><A href="#uof-gdt">Geometric dimensioning and tolerancing</A>;</LI>
 <LI><A href="#uof-library_reference">Library reference</A>;</LI>
 <LI><A href="#uof-management">Management</A>.</LI>
@@ -316,6 +319,11 @@ unchanged from previous edition of this document.
 </UL>
 
 
+<P>In addition, the following application objects are used by the
+workpiece UoF, and shall be as defined by this document:</P>
+<UL>
+<LI><A HREF="#ao-material_workpiece">Material_workpiece</a></LI>
+</UL>
 
 
 <H3 ID="uof-feature">4.2.5 Manufacturing feature</H3>
@@ -490,6 +498,14 @@ from this document and are now found in ISO 10303-1814.</P>
 <LI>Woodruff_slot_end_type.</LI>
 </UL>
 
+<P>This document extends the following application objects with
+additional information requirements beyond those specified by ISO
+10303-1814.</P>
+
+<UL>
+<LI><A href="#ao-manufacturing_feature">Manufacturing_feature</A>.</LI>
+</UL>
+
 
 <P>The following application objects are used by the manufacturing
 feature UoF, and shall be as defined by ISO 10303-1846.</P>
@@ -579,6 +595,7 @@ additional information requirements beyond those specified by ISO
 <LI><A href="#ao-machining_workingstep">Machining_workingstep</A>;</LI>
 <LI><A href="#ao-nc_constant">NC_constant</A>;</LI>
 <LI><A href="#ao-nc_variable">NC_variable</A>;</LI>
+<LI><A href="#ao-program_structure">Program_structure</A>;</LI>
 <LI><A href="#ao-rapid_movement">Rapid_movement</A>;</LI>
 <LI><A href="#ao-setup">Setup</A>;</LI>
 <LI><A href="#ao-touch_probe">Touch_probe</A>;</LI>
@@ -671,6 +688,7 @@ additional information requirements beyond those specified by ISO
 <LI><A href="#ao-machine_functions">Machine_functions</A>;</LI>
 <LI><A href="#ao-machining_operation">Machining_operation</A>;</LI>
 <LI><A href="#ao-operation">Operation</A>.</LI>
+<LI><A href="#ao-toolpath_list">Toolpath_list</A>;</LI>
 </UL>
 
 <P>In addition, the following application object is used by the
@@ -719,6 +737,7 @@ additional information requirements beyond those specified by ISO
 <LI><A href="#ao-axis_trajectory">Axis_trajectory</A>;</LI>
 <LI><A href="#ao-cutter_contact_trajectory">Cutter_contact_trajectory</A>;</LI>
 <LI><A href="#ao-cutter_location_trajectory">Cutter_location_trajectory</A>;</LI>
+<LI><A href="#ao-feedstop">Feedstop</A>;</LI>
 <LI><A href="#ao-toolpath">Toolpath</A>;</LI>
 <LI><A href="#ao-toolpath_speed">Toolpath_speed</A>;</LI>
 <LI><A href="#ao-trajectory">Trajectory</A>.</LI>
@@ -981,7 +1000,172 @@ additional information requirements beyond those specified by ISO
 <LI><A href="#ao-am_workingstep">Am_workingstep</A>.</LI>
 </UL>
 
-<H3 ID="uof-gdt">4.2.14 Geometric dimensioning and tolerancing</H3>
+
+<H3 ID="uof-pbf_process">4.2.14 Process data for powder bed fusion</H3>
+
+<P>The process data for powder bed fusion UoF specifies the
+information necessary to describe for the numerical control automation
+of additive manufacturing processes that use a laser to melt layered
+powders into solid, complex 3D parts.</P>
+
+<P>The following application objects are used by the process data for
+powder bed fusion UoF, and shall be as defined by this document:</P>
+
+<UL>
+<LI><A HREF="#ao-am_application_feature ">Am_application_feature </a></LI>
+<LI><A HREF="#ao-am_application_identification ">Am_application_identification </a></LI>
+<LI><A HREF="#ao-am_application_region ">Am_application_region </a></LI>
+<LI><A HREF="#ao-am_composite_curve">Am_composite_curve</a></LI>
+<LI><A HREF="#ao-am_core_feature ">Am_core_feature </a></LI>
+<LI><A HREF="#ao-am_core_identification ">Am_core_identification </a></LI>
+<LI><A HREF="#ao-am_core_region ">Am_core_region </a></LI>
+<LI><A HREF="#ao-am_downskin_feature ">Am_downskin_feature </a></LI>
+<LI><A HREF="#ao-am_downskin_identification ">Am_downskin_identification </a></LI>
+<LI><A HREF="#ao-am_downskin_region ">Am_downskin_region </a></LI>
+<LI><A HREF="#ao-am_external_composite_curve_segment">Am_external_composite_curve_segment</a></LI>
+<LI><A HREF="#ao-am_feature_intersection">Am_feature_intersection</a></LI>
+<LI><A HREF="#ao-am_internal_composite_curve_segment">Am_internal_composite_curve_segment</a></LI>
+<LI><A HREF="#ao-am_machining_feature ">Am_machining_feature </a></LI>
+<LI><A HREF="#ao-am_machining_identification ">Am_machining_identification </a></LI>
+<LI><A HREF="#ao-am_machining_region ">Am_machining_region </a></LI>
+<LI><A HREF="#ao-am_oned_pbf_contour_operation">Am_oned_pbf_contour_operation</a></LI>
+<LI><A HREF="#ao-am_oned_pbf_hatch_operation">Am_oned_pbf_hatch_operation</a></LI>
+<LI><A HREF="#ao-am_oned_pbf_infill_operation">Am_oned_pbf_infill_operation</a></LI>
+<LI><A HREF="#ao-am_oned_pbf_operation">Am_oned_pbf_operation</a></LI>
+<LI><A HREF="#ao-am_pbf_feature">Am_pbf_feature</a></LI>
+<LI><A HREF="#ao-am_pbf_identification ">Am_pbf_identification </a></LI>
+<LI><A HREF="#ao-am_pbf_infill_management_strategy">Am_pbf_infill_management_strategy</a></LI>
+<LI><A HREF="#ao-am_pbf_machine_functions">Am_pbf_machine_functions</a></LI>
+<LI><A HREF="#ao-am_pbf_management_strategy">Am_pbf_management_strategy</a></LI>
+<LI><A HREF="#ao-am_pbf_operation">Am_pbf_operation</a></LI>
+<LI><A HREF="#ao-am_pbf_region">Am_pbf_region</a></LI>
+<LI><A HREF="#ao-am_pbf_region_management_strategy">Am_pbf_region_management_strategy</a></LI>
+<LI><A HREF="#ao-am_pbf_technology">Am_pbf_technology</a></LI>
+<LI><A HREF="#ao-am_region_intersection">Am_region_intersection</a></LI>
+<LI><A HREF="#ao-am_spike_identification ">Am_spike_identification </a></LI>
+<LI><A HREF="#ao-am_spike_region ">Am_spike_region </a></LI>
+<LI><A HREF="#ao-am_support_feature">Am_support_feature</a></LI>
+<LI><A HREF="#ao-am_support_identification ">Am_support_identification </a></LI>
+<LI><A HREF="#ao-am_support_region">Am_support_region</a></LI>
+<LI><A HREF="#ao-am_technology">Am_technology</a></LI>
+<LI><A HREF="#ao-am_thin_wall_identification ">Am_thin_wall_identification </a></LI>
+<LI><A HREF="#ao-am_thin_wall_region ">Am_thin_wall_region </a></LI>
+<LI><A HREF="#ao-am_threed_pbf_operation">Am_threed_pbf_operation</a></LI>
+<LI><A HREF="#ao-am_twod_pbf_chess_operation">Am_twod_pbf_chess_operation</a></LI>
+<LI><A HREF="#ao-am_twod_pbf_meander_operation">Am_twod_pbf_meander_operation</a></LI>
+<LI><A HREF="#ao-am_twod_pbf_operation">Am_twod_pbf_operation</a></LI>
+<LI><A HREF="#ao-am_twod_pbf_stripe_operation">Am_twod_pbf_stripe_operation</a></LI>
+<LI><A HREF="#ao-am_upskin_feature ">Am_upskin_feature </a></LI>
+<LI><A HREF="#ao-am_upskin_identification ">Am_upskin_identification </a></LI>
+<LI><A HREF="#ao-am_upskin_region ">Am_upskin_region </a></LI>
+</UL>
+
+<H3 ID="uof-drillfill_process">4.2.15 Process data for drill and fill</H3>
+
+<P>The process data for drill and fill UoF specifies the information
+necessary to describe the numerical control automation of processes
+that drill holes into assemblies and fill them with fasteners.  This
+includes the information necessary to describe digital twin state of
+a process during execution.</P>
+
+<P>The following application objects are used by the process data for
+drill and fill UoF, and shall be as defined by this document:</P>
+
+<UL>
+<LI><A HREF="#ao-adjust_placement_probing">Adjust_placement_probing</a></LI>
+<LI><A HREF="#ao-allowable_drill_group">Allowable_drill_group</a></LI>
+<LI><A HREF="#ao-allowable_nose_group">Allowable_nose_group</a></LI>
+<LI><A HREF="#ao-allowable_robot_group">Allowable_robot_group</a></LI>
+<LI><A HREF="#ao-best_fit_reference_frame_group">Best_fit_reference_frame_group</a></LI>
+<LI><A HREF="#ao-check_dimensions_operation ">Check_dimensions_operation </a></LI>
+<LI><A HREF="#ao-clamp_product_operation">Clamp_product_operation</a></LI>
+<LI><A HREF="#ao-collar_prototype">Collar_prototype</a></LI>
+<LI><A HREF="#ao-collar_twin">Collar_twin</a></LI>
+<LI><A HREF="#ao-connect_absolute">Connect_absolute</a></LI>
+<LI><A HREF="#ao-connect_middle">Connect_middle</a></LI>
+<LI><A HREF="#ao-connect_vector">Connect_vector</a></LI>
+<LI><A HREF="#ao-cutting_tool_prototype">Cutting_tool_prototype</a></LI>
+<LI><A HREF="#ao-cutting_tool_twin">Cutting_tool_twin</a></LI>
+<LI><A HREF="#ao-disabled_group">Disabled_group</a></LI>
+<LI><A HREF="#ao-drill_and_fill_group">Drill_and_fill_group</a></LI>
+<LI><A HREF="#ao-drill_and_fill_prototype">Drill_and_fill_prototype</a></LI>
+<LI><A HREF="#ao-drill_and_fill_stackup">Drill_and_fill_stackup</a></LI>
+<LI><A HREF="#ao-drill_and_fill_twin">Drill_and_fill_twin</a></LI>
+<LI><A HREF="#ao-escape_sequence_group">Escape_sequence_group</a></LI>
+<LI><A HREF="#ao-expected_property">Expected_property</a></LI>
+<LI><A HREF="#ao-external_check_burr_operation">External_check_burr_operation</a></LI>
+<LI><A HREF="#ao-external_check_operation">External_check_operation</a></LI>
+<LI><A HREF="#ao-external_check_spiral_operation">External_check_spiral_operation</a></LI>
+<LI><A HREF="#ao-external_coating_operation">External_coating_operation</a></LI>
+<LI><A HREF="#ao-external_fastening_operation">External_fastening_operation</a></LI>
+<LI><A HREF="#ao-external_fixturing_operation">External_fixturing_operation</a></LI>
+<LI><A HREF="#ao-external_heating_operation">External_heating_operation</a></LI>
+<LI><A HREF="#ao-external_marking_operation">External_marking_operation</a></LI>
+<LI><A HREF="#ao-external_operation">External_operation</a></LI>
+<LI><A HREF="#ao-external_packaging_operation">External_packaging_operation</a></LI>
+<LI><A HREF="#ao-external_preparation_operation">External_preparation_operation</a></LI>
+<LI><A HREF="#ao-external_removal_operation">External_removal_operation</a></LI>
+<LI><A HREF="#ao-fasten_with_codes">Fasten_with_codes</a></LI>
+<LI><A HREF="#ao-fastener_group">Fastener_group</a></LI>
+<LI><A HREF="#ao-fastener_prototype">Fastener_prototype</a></LI>
+<LI><A HREF="#ao-fastener_twin">Fastener_twin</a></LI>
+<LI><A HREF="#ao-fill_type_operation">Fill_type_operation</a></LI>
+<LI><A HREF="#ao-manufacturing_feature_prototype">Manufacturing_feature_prototype</a></LI>
+<LI><A HREF="#ao-manufacturing_feature_twin">Manufacturing_feature_twin</a></LI>
+<LI><A HREF="#ao-manufacturing_stage">Manufacturing_stage</a></LI>
+<LI><A HREF="#ao-measured_machining_material">Measured_machining_material</a></LI>
+<LI><A HREF="#ao-measured_property">Measured_property</a></LI>
+<LI><A HREF="#ao-nose_prototype">Nose_prototype</a></LI>
+<LI><A HREF="#ao-nose_twin">Nose_twin</a></LI>
+<LI><A HREF="#ao-oneup_assembly_group">Oneup_assembly_group</a></LI>
+<LI><A HREF="#ao-phase_history">Phase_history</a></LI>
+<LI><A HREF="#ao-phase_stage">Phase_stage</a></LI>
+<LI><A HREF="#ao-place_collar_operation">Place_collar_operation</a></LI>
+<LI><A HREF="#ao-place_fastener_operation">Place_fastener_operation</a></LI>
+<LI><A HREF="#ao-place_item_operation">Place_item_operation</a></LI>
+<LI><A HREF="#ao-place_tack_operation">Place_tack_operation</a></LI>
+<LI><A HREF="#ao-place_washer_operation">Place_washer_operation</a></LI>
+<LI><A HREF="#ao-precedence_group">Precedence_group</a></LI>
+<LI><A HREF="#ao-product_view_prototype">Product_view_prototype</a></LI>
+<LI><A HREF="#ao-product_view_twin">Product_view_twin</a></LI>
+<LI><A HREF="#ao-reference_frame_group">Reference_frame_group</a></LI>
+<LI><A HREF="#ao-remove_tack_operation">Remove_tack_operation</a></LI>
+<LI><A HREF="#ao-same_assembly_group">Same_assembly_group</a></LI>
+<LI><A HREF="#ao-seal_fastener_operation">Seal_fastener_operation</a></LI>
+<LI><A HREF="#ao-sealant_prototype">Sealant_prototype</a></LI>
+<LI><A HREF="#ao-sealant_twin">Sealant_twin</a></LI>
+<LI><A HREF="#ao-shave_fastener_operation">Shave_fastener_operation</a></LI>
+<LI><A HREF="#ao-stack_layer">Stack_layer</a></LI>
+<LI><A HREF="#ao-state_condition">State_condition</a></LI>
+<LI><A HREF="#ao-three_twin_reference_frame_group">Three_twin_reference_frame_group</a></LI>
+<LI><A HREF="#ao-tighten_collar_operation ">Tighten_collar_operation </a></LI>
+<LI><A HREF="#ao-tool_life_estimate">Tool_life_estimate</a></LI>
+<LI><A HREF="#ao-washer_prototype">Washer_prototype</a></LI>
+<LI><A HREF="#ao-washer_twin">Washer_twin</a></LI>
+</UL>
+
+
+
+<H3 ID="uof-broadcast">4.2.16 Broadcast</H3>
+
+
+<P>The broadcast UoF specifies the information
+necessary to .</P>
+
+<P>The following application objects are used by the broadcast UoF,
+and shall be as defined by this document:</P>
+
+<UL>
+<LI><A HREF="#ao-broadcast">Broadcast</A></LI>
+<LI><A HREF="#ao-broadcast_content">Broadcast_content</a></LI>
+<LI><A HREF="#ao-broadcast_count">Broadcast_count</a></LI>
+<LI><A HREF="#ao-broadcast_distance">Broadcast_distance</a></LI>
+<LI><A HREF="#ao-broadcast_point">Broadcast_point</a></LI>
+<LI><A HREF="#ao-broadcast_time">Broadcast_time</a></LI>
+</UL>
+
+
+<H3 ID="uof-gdt">4.2.17 Geometric dimensioning and tolerancing</H3>
 
 <P>The geometric dimensioning and tolerancing UoF specifies the
 information necessary to describe geometric dimensions, as well as the
@@ -1111,7 +1295,7 @@ dimensioning and tolerancing UoF, and shall be as defined by ISO
 
 
 
-<H3 ID="uof-library_reference">4.2.15 Library reference</H3>
+<H3 ID="uof-library_reference">4.2.18 Library reference</H3>
 
 <P>The library reference UoF provides the capability and mechanisms by
 which references can be made to information in external libraries.</P>
@@ -1174,7 +1358,7 @@ objects.</P>
 
 
 
-<H3 ID="uof-management">4.2.16 Management</H3>
+<H3 ID="uof-management">4.2.19 Management</H3>
 
 <P>The management UoF specifies the information necessary to describe
 the management aspects of a mechanical product or machining
