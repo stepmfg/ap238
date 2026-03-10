@@ -1144,8 +1144,6 @@ drill and fill UoF, and shall be as defined by this document:</P>
 <LI><A HREF="#ao-washer_twin">Washer_twin</a></LI>
 </UL>
 
-
-
 <H3 ID="uof-broadcast">4.2.16 Broadcast</H3>
 
 
@@ -5512,7 +5510,10 @@ its_id attribute;</LI>
 <LI>twin_plan;</LI>
 <LI>twin_source;</LI>
 <LI>twin_start;</LI>
-<LI>twin_worktime.</LI>
+<LI>twin_worktime;</LI>
+<LI>its_broadcast;</LI>
+<LI>phase;</LI>
+<LI>twin_equipment.</LI>
 </UL>
 
 <P CLASS="note">
@@ -5552,6 +5553,10 @@ ENTITY Executable
   twin_exception : OPTIONAL text;		-- ADDED BY 10303-238e2
 
   machine_used: OPTIONAL Machine_usage;		-- ADDED BY 10303-238e2
+
+  its_broadcast: OPTIONAL Broadcast;		-- ADDED BY 10303-238e4
+  phase: OPTIONAL Manufacturing_stage;		-- ADDED BY 10303-238e4
+  twin_equipment: OPTIONAL Identifier;		-- ADDED BY 10303-238e4
   
 INVERSE
   -- 10303-238: Additional CAM properties for planned executables or
@@ -5694,6 +5699,28 @@ the twin_start is not specified for that Executable.
 include the time spent actively removing material, omitting any time
 spent positioning the tool without cutting, rapid motion between cuts,
 or approach and retract from the part.</P>
+
+<H4 ID="ao-executable-its_broadcast">4.3.148.14 its_broadcast</H4>
+
+<P>The its_broadcast specifies a Broadcast object that describes the
+conditions and contents of messages that are to be issued about the
+executable.  The Broadcast object shall be evaluated every time
+process execution encounters the executable.</P>
+
+
+<H4 ID="ao-executable-its_phase">4.3.148.15 phase</H4>
+
+<P>The phase specifies a Manufacturing_stage object that describes the
+current phase of any feature that is modified by the executable.</P>
+
+<H4 ID="ao-executable-its_twin_equipment">4.3.148.16 twin_equipment</H4>
+
+<p>The twin_equipment specifies the identifier of any product added to
+the feature by this executable.
+
+<P CLASS="note">
+<SPAN>EXAMPLE</SPAN> A drill and fill executable could add a fastener,
+collar or washer.</P>
 
 
 
@@ -6438,7 +6465,19 @@ at the start of the measurement operation.</P>
 <H3 ID="ao-feedstop">4.3.175 Feedstop</H3>
 </DIV>
 
-<P>The Feedstop application object shall be as defined by ISO 14649-10.</P>
+<P>The Feedstop application object shall be as defined by ISO
+14649-10.  This document adds the following information
+requirements.</P>
+
+<P>The data associated with an Feedstop are the following:</P>
+
+<UL>
+<LI>all of the data defined by ISO 14649-10, as modified below for the
+dwell attribute.</LI>
+</UL>
+
+
+
 <P CLASS="note">
 <SPAN>NOTE</SPAN> The ISO 14649 EXPRESS description for Feedstop is
 shown below.  Refer to ISO 14649-10 for the complete definition and
@@ -6447,10 +6486,21 @@ explanation of usage.</P>
 <PRE CLASS="note">
 ENTITY Feedstop
   SUBTYPE OF (Toolpath);
-  dwell:  Duration;
+  dwell:  Value_with_unit;    -- RELAXED BY 10303-238e4
 END_ENTITY;
 </PRE>
 
+
+<H4 ID="ao-feedstop-dwell">4.3.175.1 dwell</H4>
+
+<P>The dwell parameter shall be as defined by ISO 14649-10 to be of
+type Duration, but this document relaxes this requirement to allow any
+type of Value_with_unit.</P>
+
+<P CLASS="note">
+<SPAN>NOTE</SPAN> Relaxing the type of the dwell attribute permits the
+value to be given as a time or as a number of revolutions.  This usage
+was identified in AP238 testing.</P>
 
 
 <!-- ============================== -->
@@ -7597,7 +7647,8 @@ requirements.</P>
 <P>The data associated with a Machining_tool are the following:</P>
 <UL>
 <LI>all of the data defined by ISO 14649-10;</LI>
-<LI>its_usage.</LI>
+<LI>its_usage;</LI>
+<LI>its_broadcast.</LI>
 </UL>
 
 <P CLASS="note">
@@ -7609,8 +7660,9 @@ usage.</P>
 <PRE CLASS="note">
 ENTITY Machining_tool 
   ABSTRACT SUPERTYPE;
-  its_id:     label;
-  its_usage:  OPTIONAL Tool_usage;   -- ADDED BY 10303-238
+  its_id:		label;
+  its_usage:		OPTIONAL Tool_usage;	-- ADDED BY 10303-238
+  its_broadcast:	OPTIONAL Broadcast;	-- ADDED BY 10303-238e4
 END_ENTITY;
 </PRE>
 
@@ -7622,6 +7674,14 @@ Machining_tool.  The its_usage may not be specified for a particular
 Machining_tool.
 See <a href="#aa-machining_tool-to-tool_usage">Machining_tool to
 Tool_usage</a> for the application assertion.</P>
+
+
+<H4 ID="ao-machining_tool-its_broadcast">4.3.205.2 its_broadcast</H4>
+
+<P>The its_broadcast specifies a Broadcast object that describes the
+conditions and contents of messages that are to be issued about the
+machining_tool.  The Broadcast object shall be evaluated every time
+process execution encounters the machining_tool.</P>
 
 
 <!-- ============================== -->
@@ -7684,20 +7744,48 @@ application object.
 <H3 ID="ao-manufacturing_feature">4.3.207 Manufacturing_feature</H3>
 </DIV>
 
-<P>An Manufacturing_feature is a type of</P>
+<P>The Manufacturing_feature application object shall be as defined by
+ISO 10303-1814.  This document adds the following information
+requirements.</P>
 
-<P>The data associated with a Manufacturing_feature are the
-following:</P>
+<P>The data associated with a Manufacturing_feature are the following:</P>
 <UL>
+<LI>all of the data defined by ISO 10303-1814;</LI>
+<LI>its_broadcast;</LI>
+<LI>twin_history.</LI>
 </UL>
 
 <P CLASS="note">
-<SPAN>NOTE</SPAN> The EXPRESS description for the Manufacturing_feature
-application object is shown below.</P>
+<SPAN>NOTE</SPAN> The ISO 10303-1814 EXPRESS description for
+Operation, as adapted by this document is shown below.  Refer to ISO
+10303-1814 for the original definition and explanation of usage.</P>
 
 <PRE CLASS="note">
+ENTITY Manufacturing_feature
+  ABSTRACT SUPERTYPE
+  SUBTYPE OF (shape_feature_definition);
+  
+  its_broadcast: OPTIONAL Broadcast;		-- ADDED BY 10303-238e4
+  twin_history: LIST [0:?] OF Phase_history;	-- ADDED BY 10303-238e4
+END_ENTITY;
 </PRE>
 
+<H4 ID="ao-manufacturing_feature-its_broadcast">4.3.207.1 its_broadcast</H4>
+
+<P>The its_broadcast specifies a Broadcast object that describes the
+conditions and contents of messages that are to be issued about the
+manufacturing feature.  The Broadcast object shall be evaluated every
+time process execution encounters the feature.</P>
+
+<H4 ID="ao-manufacturing_feature-twin_history">4.3.207.2 twin_history</H4>
+
+The twin_history specifies a sequence of Phase_history objects that
+describe the twins that modeled the feature at each stage of its manufacturing.
+
+<P CLASS="note">
+<SPAN>EXAMPLE</SPAN> One twin may model a preparation phase where the
+hole is placed and tacked, and another may model a completion phase
+where the final fastener is installed.</P>
 
 
 <!-- ============================== -->
@@ -7781,7 +7869,6 @@ below.  Refer to ISO 14649-10 for the original definition and
 explanation of usage.</P>
 
 <PRE CLASS="note">
-
 ENTITY Manufacturing_project
   SUBTYPE OF (Product_version);
   -- 10303-238: id now provided by inherited product_version.id
@@ -8404,12 +8491,13 @@ requirements.</P>
 <UL>
 <LI>all of the data defined by ISO 14649-10;</LI>
 <LI>its_id;</LI>
-<LI>process_properties.</LI>
+<LI>process_properties;</LI>
+<LI>its_broadcast.</LI>
 </UL>
 
 <P CLASS="note">
 <SPAN>NOTE</SPAN> The ISO 14649 EXPRESS description for Operation, as
-nnadapted by this document is shown below.  Refer to ISO 14649-10 for
+adapted by this document is shown below.  Refer to ISO 14649-10 for
 the original definition and explanation of usage.</P>
 
 <PRE CLASS="note">
@@ -8419,6 +8507,7 @@ ENTITY Operation
   its_id:		identifier;
   its_toolpath:		OPTIONAL Toolpath_list;
   its_tool_direction:	OPTIONAL Tool_direction;
+  its_broadcast:	OPTIONAL Broadcast;	-- ADDED BY 10303-238e4
 
 INVERSE
   -- 10303-238: Additional CAM properties for operations
@@ -8436,6 +8525,14 @@ END_ENTITY;
 <P>The process_properties shall be represented by the set of
 Process_property application objects with an described_element
 parameter that contains the Operation.</P>
+
+
+<H4 ID="ao-operation-its_broadcast">4.3.231.3 its_broadcast</H4>
+
+<P>The its_broadcast specifies a Broadcast object that describes the
+conditions and contents of messages that are to be issued about the
+operation.  The Broadcast object shall be evaluated every time process
+execution encounters the operation.</P>
 
 
 <!-- ============================== -->
@@ -10506,7 +10603,8 @@ requirements.</P>
 
 <UL>
 <LI>all of the data defined by ISO 14649-10;</LI>
-<LI>its_id.</LI>
+<LI>its_id;</LI>
+<LI>its_broadcast.</LI>
 </UL>
 
 <P CLASS="note">
@@ -10523,6 +10621,7 @@ ENTITY Toolpath
   its_technology:               OPTIONAL Technology;
   its_machine_functions:        OPTIONAL Machine_functions;
   its_id:                       identifier;  -- ADDED BY 10303-238
+  its_broadcast:		OPTIONAL Broadcast;  -- ADDED BY 10303-238e4
 END_ENTITY;
 
 TYPE Toolpath_type = ENUMERATION OF (
@@ -10543,6 +10642,12 @@ END_TYPE;
 <P>The its_id specifies the string identifier of the Toolpath.  The
 its_id may not be specified for a particular Toolpath. </P>
 
+<H4 ID="ao-toolpath-its_broadcast">4.3.313.2 its_broadcast</H4>
+
+<P>The its_broadcast specifies a Broadcast object that describes the
+conditions and contents of messages that are to be issued about the
+toolpath.  The Broadcast object shall be evaluated every time process
+execution encounters the toolpath.</P>
 
 
 <!-- ============================== -->
@@ -10553,18 +10658,41 @@ its_id may not be specified for a particular Toolpath. </P>
 <H3 ID="ao-toolpath_list">4.3.314 Toolpath_list</H3>
 </DIV>
 
-<P>The Toolpath_list application object shall be as defined by ISO 14649-10.</P>
+<P>The Toolpath_list application object shall be as defined by ISO
+14649-10. This document adds the following information
+requirements.</P>
+
+<P>The data associated with a Toolpath_list are the following:</P>
+
+<UL>
+<LI>all of the data defined by ISO 14649-10, as modified below for the
+its_list attribute.</LI>
+</UL>
 
 <P CLASS="note">
-<SPAN>NOTE</SPAN> The ISO 14649 EXPRESS description for Toolpath_list
-is shown below.  Refer to ISO 14649-10 for the complete definition and
-explanation of usage.</P>
+<SPAN>NOTE</SPAN> The ISO 14649 EXPRESS description for Toolpath_list,
+as adapted by this document, is shown below.  Refer to ISO 14649-10
+for the complete definition and explanation of usage.</P>
 
 <PRE CLASS="note">
 ENTITY Toolpath_list;
-  its_list: LIST [1:?] OF Toolpath;
+  its_list: LIST [1:?] OF Toolpath_list_element; -- RELAXED BY 10303-238e4
 END_ENTITY;
+
+TYPE Toolpath_list_element = SELECT(Toolpath, NC_function); END_TYPE;
 </PRE>
+
+<H4 ID="ao-toolpath_list-its_list">4.3.314.1 its_list</H4>
+
+<P>The its_list set shall be as defined by ISO 14649-10 to be of type
+Toolpath, but this document relaxes this requirement to also allow
+NC_function.
+
+<P CLASS="note">
+<SPAN>NOTE</SPAN> This relaxation allows the use of an NC function
+between toolpaths without breaking a process into two separate
+operations and workingsteps.</P>
+
 
 
 <!-- ============================== -->
@@ -11747,7 +11875,9 @@ attributes;</LI>
 <LI>revision_id;</LI>
 <LI>revision_orgs;</LI>
 <LI>revision_people;</LI>
-<LI>revision_timestamps.</LI>
+<LI>revision_timestamps;</LI>
+<LI>its_broadcast;</LI>
+<LI>material_type.</LI>
 </UL>
 
 <P CLASS="note">
@@ -11804,6 +11934,9 @@ ENTITY Workpiece
   revision_people:        SET [0:?] OF Organization_or_person_in_organization_assignment;
   revision_timestamps:    SET [0:?] OF Date_or_date_time_assignment;
 
+  its_broadcast:	OPTIONAL Broadcast;		-- ADDED BY 10303-238e4
+  material_type:	OPTIONAL Material_workpiece;	-- ADDED BY 10303-238e4
+
 INVERSE
   -- 10303-238: changed type to material_identification for ARM
   --   integration.  Changed to inverse attribute to accommodate
@@ -11852,6 +11985,7 @@ with an items parameter that contains the Workpiece.</P>
 <P CLASS="note">
 <SPAN>NOTE</SPAN> The integrated representation of this information is
 unchanged from previous edition of this document.</P>
+
 
 <H4 ID="ao-workpiece-its_geometry">4.3.341.3 its_geometry</H4>
 
@@ -12124,6 +12258,24 @@ particular Workpiece.
 See <a href="#aa-workpiece-to-date_or_date_time_assignment-as-revision_timestamps">Workpiece
 to Date_or_date_time_assignment (as revision_timestamps)</a> for the
 application assertion.</P>
+
+<H4 ID="ao-workpiece-its_broadcast">4.3.341.24 its_broadcast</H4>
+
+<P>The its_broadcast specifies a Broadcast object that describes the
+conditions and contents of messages that are to be issued about the
+workpiece.  The Broadcast object shall be evaluated every time process
+execution encounters a workingstep that operates on the workpiece.</P>
+
+<H4 ID="ao-workpiece-its_material_type">4.3.341.25 material_type</H4>
+
+<P>The material_type specifies the Material_workpiece object that
+describes properties of the material of the Workpiece.</P>
+
+<P CLASS="note">
+<SPAN>NOTE</SPAN> The integrated representation previously used by
+its_rawpiece parameter prior to the fourth edition of this document is
+used for material_type. The its_rawpiece parameter has been changed to
+a different integrated representation.</P>
 
 
 <!-- ============================== -->

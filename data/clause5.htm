@@ -427,12 +427,15 @@ length_measure_with_unit
 </tr>
 
 <tr><th>Reference path:</th>
-<td class="path">product_definition &lt;-
+<td class="path">product_definition
+product_definition_or_reference = product_definition
+product_definition_or_reference &lt;-
 product_definition_relationship.relating_product_definition
-{product_definition_relationship =&gt;
-product_definition_usage =&gt;
-make_from_usage_option}
+product_definition_relationship
+{ product_definition_relationship.name = 'rawpiece' }
 product_definition_relationship.related_product_definition -&gt;
+product_definition_or_reference
+product_definition_or_reference = product_definition
 product_definition
 </td>
 </tr>
@@ -997,12 +1000,138 @@ applied_date_and_time_assignment
 </table>
 
 
+<H5 ID="map-workpiece-its_broadcast">5.1.4.1.25 workpiece to broadcast (as its_broadcast)</H5>
+
+<table class="map">
+<tr><th>AIM element:</th>
+<td>PATH</td>
+</tr>
+
+<tr><th>Reference path:</th>
+<td class="path">product_definition
+action_method_items = product_definition
+action_method_items &lt;-
+applied_action_method_assignment.items[i]
+applied_action_method_assignment &lt;=
+action_method_assignment
+{ action_method_assignment.role -&gt;
+action_method_role
+action_method_role.name = 'broadcast' }
+action_method_assignment.assigned_action_method -&gt;
+action_method =&gt;
+machining_strategy =&gt;
+machining_broadcast_strategy
+</td>
+</tr>
+</table>
+
+
+<H5 ID="map-workpiece-material_type">5.1.4.1.26 workpiece to material_workpiece (as material_type)</H5>
+
+<table class="map">
+<tr><th>AIM element:</th>
+<td>PATH</td>
+</tr>
+
+<tr><th>Reference path:</th>
+<td class="path">product_definition
+product_definition_or_reference = product_definition
+product_definition_or_reference &lt;-
+product_definition_relationship.relating_product_definition
+{ product_definition_relationship =&gt;
+product_definition_usage =&gt;
+make_from_usage_option}
+product_definition_relationship.related_product_definition -&gt;
+product_definition_or_reference
+product_definition_or_reference = product_definition
+product_definition
+</td>
+</tr>
+</table>
+
+
 
 <H3 ID="mapuof-feature">5.1.5 Mapping specification for manufacturing feature UoF</H3>
 
 <P>The mapping specification for the application objects in this UoF
-shall be as defined by ISO 10303-1814 and ISO 10303-1846.
+shall be as defined by ISO 10303-1814, ISO 10303-1846 and the
+specification below.
 
+
+<!-- ============================== -->
+<DIV><DIV class=quick>
+<A HREF="clause4.htm#ao-manufacturing_feature">AO</a>
+<A HREF="annexG.htm#manufacturing_feature">ARM</a>
+</DIV>
+<H4 ID="map-manufacturing_feature">5.1.5.1 MANUFACTURING_FEATURE</H4>
+</DIV>
+
+<table class="map">
+<tr><th>AIM element:</th>
+<td>shape_aspect</td>
+</tr>
+
+<tr><th>Source:</th>
+<td>10303-41</td>
+</tr>
+
+<tr><th>Reference path:</th>
+<td class="path">shape_aspect
+</td>
+</tr>
+</table>
+
+
+
+<H5 ID="map-manufacturing_feature-twin_history">5.1.5.1.1 manufacturing_feature to phase_history (as twin_history)</H5>
+
+<table class="map">
+<tr><th>AIM element:</th>
+<td>PATH</td>
+</tr>
+
+<tr><th>Reference path:</th>
+<td class="path">shape_aspect
+action_method_items = shape_aspect
+action_method_items &lt;-
+applied_action_method_assignment.items[i]
+applied_action_method_assignment &lt;=
+action_method_assignment
+{ action_method_assignment.role -&gt;
+action_method_role
+action_method_role.name = 'log' }
+action_method_assignment.assigned_action_method -&gt;
+action_method =&gt;
+machining_process_history
+</td>
+</tr>
+</table>
+
+
+<H5 ID="map-manufacturing_feature-its_broadcast">5.1.5.1.2 manufacturing_feature to broadcast (as its_broadcast)</H5>
+
+<table class="map">
+<tr><th>AIM element:</th>
+<td>PATH</td>
+</tr>
+
+<tr><th>Reference path:</th>
+<td class="path">shape_aspect
+action_method_items = shape_aspect
+action_method_items &lt;-
+applied_action_method_assignment.items[i]
+applied_action_method_assignment &lt;=
+action_method_assignment
+{ action_method_assignment.role -&gt;
+action_method_role
+action_method_role.name = 'broadcast' }
+action_method_assignment.assigned_action_method -&gt;
+action_method =&gt;
+machining_strategy =&gt;
+machining_broadcast_strategy
+</td>
+</tr>
+</table>
 
 
 <H3 ID="mapuof-executable">5.1.6 Mapping specification for executable UoF</H3>
@@ -1554,6 +1683,95 @@ time_measure_with_unit
 </td>
 </tr>
 </table>
+
+
+
+<H5 ID="map-executable-its_broadcast">5.1.6.4.13 executable to broadcast (as its_broadcast)</H5>
+
+<table class="map">
+<tr><th>AIM element:</th>
+<td>PATH</td>
+</tr>
+
+<tr><th>Reference path:</th>
+<td class="path">machining_process_executable &lt;= 
+action_method
+action_method_items = action_method
+action_method_items &lt;-
+applied_action_method_assignment.items[i]
+applied_action_method_assignment &lt;=
+action_method_assignment
+{ action_method_assignment.role -&gt;
+action_method_role
+action_method_role.name = 'broadcast' }
+action_method_assignment.assigned_action_method -&gt;
+action_method =&gt;
+machining_strategy =&gt;
+machining_broadcast_strategy
+</td>
+</tr>
+</table>
+
+
+<H5 ID="map-executable-phase">5.1.6.4.14 executable to manufacturing_stage (as phase)</H5>
+
+<table class="map">
+<tr><th>AIM element:</th>
+<td>PATH</td>
+</tr>
+
+<tr><th>Reference path:</th>
+<td class="path">machining_process_executable &lt;=
+action_method
+action_method_items = action_method
+action_method_items &lt;-
+applied_action_method_assignment.items[i]
+applied_action_method_assignment &lt;=
+action_method_assignment
+{ action_method_assignment.role -&gt;
+action_method_role
+action_method_role.name = 'phase' }
+action_method_assignment.assigned_action_method -&gt;
+action_method =&gt;
+machining_process_stage
+</td>
+</tr>
+</table>
+
+
+<H5 ID="map-executable-twin_equipment">5.1.6.4.15 twin_equipment</H5>
+
+<table class="map">
+<tr><th>AIM element:</th>
+<td>descriptive_representation_item.description</td>
+</tr>
+
+<tr><th>Source:</th>
+<td>10303-45</td>
+</tr>
+
+<tr><th>Reference path:</th>
+<td class="path">machining_process_executable &lt;=
+action_method
+characterized_action_definition = action_method 
+characterized_action_definition &lt;- 
+action_property.definition 
+{ action_property.name = 'twin equipment' }
+action_property &lt;- 
+action_property_representation.property 
+action_property_representation 
+action_property_representation.representation -&gt; 
+representation 
+representation.items[i] -&gt; 
+representation_item =&gt; 
+descriptive_representation_item 
+descriptive_representation_item.description 
+</td>
+</tr>
+</table>
+
+
+
 
 
 <!-- ============================== -->
@@ -2841,6 +3059,37 @@ machining_tool_usage
 </td>
 </tr>
 </table>
+
+
+
+<H5 ID="map-machining_tool-its_broadcast">5.1.6.13.3 machining_tool to broadcast (as its_broadcast)</H5>
+
+<table class="map">
+<tr><th>AIM element:</th>
+<td>PATH</td>
+</tr>
+
+<tr><th>Reference path:</th>
+<td class="path">machining_tool &lt;= 
+action_resource
+action_method_items = action_resource
+action_method_items &lt;-
+applied_action_method_assignment.items[i]
+applied_action_method_assignment &lt;=
+action_method_assignment
+{ action_method_assignment.role -&gt;
+action_method_role
+action_method_role.name = 'broadcast' }
+action_method_assignment.assigned_action_method -&gt;
+action_method =&gt;
+machining_strategy =&gt;
+machining_broadcast_strategy
+</td>
+</tr>
+</table>
+
+
+
 
 
 <!-- ============================== -->
@@ -5816,6 +6065,34 @@ machining_process_property
 </table>
 
 
+<H5 ID="map-operation-its_broadcast">5.1.7.4.5 operation to broadcast (as its_broadcast)</H5>
+
+<table class="map">
+<tr><th>AIM element:</th>
+<td>PATH</td>
+</tr>
+
+<tr><th>Reference path:</th>
+<td class="path">machining_operation &lt;= 
+action_method
+action_method_items = action_method
+action_method_items &lt;-
+applied_action_method_assignment.items[i]
+applied_action_method_assignment &lt;=
+action_method_assignment
+{ action_method_assignment.role -&gt;
+action_method_role
+action_method_role.name = 'broadcast' }
+action_method_assignment.assigned_action_method -&gt;
+action_method =&gt;
+machining_strategy =&gt;
+machining_broadcast_strategy
+</td>
+</tr>
+</table>
+
+
+
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-technology">AO</a>
@@ -7106,16 +7383,19 @@ action_method
 </tr>
 </table>
 
-
 <H5 ID="map-feedstop-dwell">5.1.8.11.1 dwell</H5>
 
+<div class="mapnote">
+<p>#1 if dwell is given as a time duration</p>
+<p>#2 if dwell is given as a count of revolutions</p>
+</div>
 <table class="map">
 <tr><th>AIM element:</th>
-<td>time_measure_with_unit</td>
+<td>measure_representation_item</td>
 </tr>
 
 <tr><th>Source:</th>
-<td>10303-41</td>
+<td>10303-45</td>
 </tr>
 
 <tr><th>Reference path:</th>
@@ -7132,16 +7412,26 @@ action_property_representation.representation -&gt;
 { representation =&gt;
 machining_dwell_time_representation }
 representation
-{ representation.name = 'dwell time' }
+{ #1: (representation.name = 'dwell time')
+ #2: (representation.name = 'dwell revolution') }
 representation.items[i] -&gt;
-{ representation_item.name = 'dwell time' }
+{ #1: (representation.name = 'dwell time')
+ #2: (representation.name = 'dwell revolution') }
 representation_item =&gt;
-measure_representation_item &lt;=
+measure_representation_item
+{ #1: (measure_representation_item &lt;=
 measure_with_unit =&gt;
-time_measure_with_unit
+time_measure_with_unit)
+#2: (measure_representation_item &lt;=
+measure_with_unit
+measure_with_unit.value_component -&gt;
+measure_value
+measure_value = count_measure
+count_measure) }
 </td>
 </tr>
 </table>
+
 
 
 <!-- ============================== -->
@@ -7390,6 +7680,37 @@ action_method.name
 </td>
 </tr>
 </table>
+
+
+
+<H5 ID="map-toolpath-its_broadcast">5.1.8.13.7 toolpath to broadcast (as its_broadcast)</H5>
+
+<table class="map">
+<tr><th>AIM element:</th>
+<td>PATH</td>
+</tr>
+
+<tr><th>Reference path:</th>
+<td class="path">machining_toolpath &lt;= 
+action_method
+action_method_items = action_method
+action_method_items &lt;-
+applied_action_method_assignment.items[i]
+applied_action_method_assignment &lt;=
+action_method_assignment
+{ action_method_assignment.role -&gt;
+action_method_role
+action_method_role.name = 'broadcast' }
+action_method_assignment.assigned_action_method -&gt;
+action_method =&gt;
+machining_strategy =&gt;
+machining_broadcast_strategy
+</td>
+</tr>
+</table>
+
+
+
 
 
 <!-- ============================== -->
@@ -20084,6 +20405,7 @@ descriptive_representation_item.description
 </table>
 
 
+
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-am_machine_functions">AO</a>
@@ -20103,8 +20425,9 @@ descriptive_representation_item.description
 
 <tr><th>Reference path:</th>
 <td class="path">machining_functions &lt;=
-action_method
-{ action_method.description = 'additive' }
+action_method 
+( { action_method.description = 'additive' }
+  { action_method.description = 'additive pbf' } )
 </td>
 </tr>
 </table>
@@ -21233,41 +21556,12 @@ composite_curve_segment
 </table>
 
 
-
-<!-- ============================== -->
-<DIV><DIV class=quick>
-<A HREF="clause4.htm#ao-am_machine_functions">AO</a>
-<A HREF="annexG.htm#am_machine_functions">ARM</a>
-</DIV>
-<H4 ID="map-am_machine_functions">5.1.14.14 AM_MACHINE_FUNCTIONS</H4>
-</DIV>
-
-<table class="map">
-<tr><th>AIM element:</th>
-<td>machining_functions</td>
-</tr>
-
-<tr><th>Source:</th>
-<td>10303-238</td>
-</tr>
-
-<tr><th>Reference path:</th>
-<td class="path">machining_functions &lt;=
-action_method 
-( { action_method.description = 'additive' }
-  { action_method.description = 'additive pbf' } )
-</td>
-</tr>
-</table>
-
-
-
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-am_machining_feature">AO</a>
 <A HREF="annexG.htm#am_machining_feature">ARM</a>
 </DIV>
-<H4 ID="map-am_machining_feature">5.1.14.15 AM_MACHINING_FEATURE</H4>
+<H4 ID="map-am_machining_feature">5.1.14.14 AM_MACHINING_FEATURE</H4>
 </DIV>
 
 <table class="map">
@@ -21297,7 +21591,7 @@ characterized_object
 <A HREF="clause4.htm#ao-am_machining_region">AO</a>
 <A HREF="annexG.htm#am_machining_region">ARM</a>
 </DIV>
-<H4 ID="map-am_machining_region">5.1.14.16 AM_MACHINING_REGION</H4>
+<H4 ID="map-am_machining_region">5.1.14.15 AM_MACHINING_REGION</H4>
 </DIV>
 
 <table class="map">
@@ -21324,7 +21618,7 @@ shape_aspect
 <A HREF="clause4.htm#ao-am_oned_pbf_contour_operation">AO</a>
 <A HREF="annexG.htm#am_oned_pbf_contour_operation">ARM</a>
 </DIV>
-<H4 ID="map-am_oned_pbf_contour_operation">5.1.14.17 AM_ONED_PBF_CONTOUR_OPERATION</H4>
+<H4 ID="map-am_oned_pbf_contour_operation">5.1.14.16 AM_ONED_PBF_CONTOUR_OPERATION</H4>
 </DIV>
 
 <table class="map">
@@ -21346,7 +21640,7 @@ action_method
 </table>
 
 
-<H5 ID="map-am_oned_pbf_contour_operation-contour_offset">5.1.14.17.1 contour_offset</H5>
+<H5 ID="map-am_oned_pbf_contour_operation-contour_offset">5.1.14.16.1 contour_offset</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -21380,7 +21674,7 @@ length_measure_with_unit
 </table>
 
 
-<H5 ID="map-am_oned_pbf_contour_operation-contour_direction">5.1.14.17.2 contour_direction</H5>
+<H5 ID="map-am_oned_pbf_contour_operation-contour_direction">5.1.14.16.2 contour_direction</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -21422,7 +21716,7 @@ descriptive_representation_item.description
 <A HREF="clause4.htm#ao-am_oned_pbf_hatch_operation">AO</a>
 <A HREF="annexG.htm#am_oned_pbf_hatch_operation">ARM</a>
 </DIV>
-<H4 ID="map-am_oned_pbf_hatch_operation">5.1.14.18 AM_ONED_PBF_HATCH_OPERATION</H4>
+<H4 ID="map-am_oned_pbf_hatch_operation">5.1.14.17 AM_ONED_PBF_HATCH_OPERATION</H4>
 </DIV>
 
 <table class="map">
@@ -21444,7 +21738,7 @@ action_method
 </table>
 
 
-<H5 ID="map-am_oned_pbf_hatch_operation-hatch_space">5.1.14.18.1 hatch_space</H5>
+<H5 ID="map-am_oned_pbf_hatch_operation-hatch_space">5.1.14.17.1 hatch_space</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -21478,7 +21772,7 @@ length_measure_with_unit
 </table>
 
 
-<H5 ID="map-am_oned_pbf_hatch_operation-hatch_style">5.1.14.18.2 hatch_style</H5>
+<H5 ID="map-am_oned_pbf_hatch_operation-hatch_style">5.1.14.17.2 hatch_style</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -21520,7 +21814,7 @@ descriptive_representation_item.description
 <A HREF="clause4.htm#ao-am_oned_pbf_infill_operation">AO</a>
 <A HREF="annexG.htm#am_oned_pbf_infill_operation">ARM</a>
 </DIV>
-<H4 ID="map-am_oned_pbf_infill_operation">5.1.14.19 AM_ONED_PBF_INFILL_OPERATION</H4>
+<H4 ID="map-am_oned_pbf_infill_operation">5.1.14.18 AM_ONED_PBF_INFILL_OPERATION</H4>
 </DIV>
 
 <table class="map">
@@ -21542,7 +21836,7 @@ action_method
 </table>
 
 
-<H5 ID="map-am_oned_pbf_infill_operation-offset">5.1.14.19.1 offset</H5>
+<H5 ID="map-am_oned_pbf_infill_operation-offset">5.1.14.18.1 offset</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -21582,7 +21876,7 @@ length_measure_with_unit
 <A HREF="clause4.htm#ao-am_oned_pbf_operation">AO</a>
 <A HREF="annexG.htm#am_oned_pbf_operation">ARM</a>
 </DIV>
-<H4 ID="map-am_oned_pbf_operation">5.1.14.20 AM_ONED_PBF_OPERATION</H4>
+<H4 ID="map-am_oned_pbf_operation">5.1.14.19 AM_ONED_PBF_OPERATION</H4>
 </DIV>
 
 <table class="map">
@@ -21611,7 +21905,7 @@ action_method
 <A HREF="clause4.htm#ao-am_pbf_feature">AO</a>
 <A HREF="annexG.htm#am_pbf_feature">ARM</a>
 </DIV>
-<H4 ID="map-am_pbf_feature">5.1.14.21 AM_PBF_FEATURE</H4>
+<H4 ID="map-am_pbf_feature">5.1.14.20 AM_PBF_FEATURE</H4>
 </DIV>
 
 <table class="map">
@@ -21640,7 +21934,7 @@ characterized_object
 </table>
 
 
-<H5 ID="map-am_pbf_feature-process">5.1.14.21.1 am_pbf_feature to am_pbf_identification (as process)</H5>
+<H5 ID="map-am_pbf_feature-process">5.1.14.20.1 am_pbf_feature to am_pbf_identification (as process)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -21663,7 +21957,7 @@ additive_part_process_aspect
 </table>
 
 
-<H5 ID="map-am_pbf_feature-shell">5.1.14.21.2 shell</H5>
+<H5 ID="map-am_pbf_feature-shell">5.1.14.20.2 shell</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -21709,7 +22003,7 @@ closed_shell
 <A HREF="clause4.htm#ao-am_pbf_identification">AO</a>
 <A HREF="annexG.htm#am_pbf_identification">ARM</a>
 </DIV>
-<H4 ID="map-am_pbf_identification">5.1.14.22 AM_PBF_IDENTIFICATION</H4>
+<H4 ID="map-am_pbf_identification">5.1.14.21 AM_PBF_IDENTIFICATION</H4>
 </DIV>
 
 <table class="map">
@@ -21729,7 +22023,7 @@ shape_aspect
 </table>
 
 
-<H5 ID="map-am_pbf_identification-id">5.1.14.22.1 id</H5>
+<H5 ID="map-am_pbf_identification-id">5.1.14.21.1 id</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -21749,7 +22043,7 @@ shape_aspect.name
 </table>
 
 
-<H5 ID="map-am_pbf_identification-description">5.1.14.22.2 description</H5>
+<H5 ID="map-am_pbf_identification-description">5.1.14.21.2 description</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -21783,7 +22077,7 @@ descriptive_representation_item.description
 </table>
 
 
-<H5 ID="map-am_pbf_identification-small_area_limit">5.1.14.22.3 small_area_limit</H5>
+<H5 ID="map-am_pbf_identification-small_area_limit">5.1.14.21.3 small_area_limit</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -21821,7 +22115,7 @@ numeric_measure }
 </table>
 
 
-<H5 ID="map-am_pbf_identification-large_area_limit">5.1.14.22.4 large_area_limit</H5>
+<H5 ID="map-am_pbf_identification-large_area_limit">5.1.14.21.4 large_area_limit</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -21859,7 +22153,7 @@ numeric_measure }
 </table>
 
 
-<H5 ID="map-am_pbf_identification-precedence">5.1.14.22.5 precedence</H5>
+<H5 ID="map-am_pbf_identification-precedence">5.1.14.21.5 precedence</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -21897,7 +22191,7 @@ count_measure
 </table>
 
 
-<H5 ID="map-am_pbf_identification-parent">5.1.14.22.6 am_pbf_identification to am_pbf_identification (as parent)</H5>
+<H5 ID="map-am_pbf_identification-parent">5.1.14.21.6 am_pbf_identification to am_pbf_identification (as parent)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -21924,7 +22218,7 @@ additive_part_process_aspect
 <A HREF="clause4.htm#ao-am_pbf_infill_management_strategy">AO</a>
 <A HREF="annexG.htm#am_pbf_infill_management_strategy">ARM</a>
 </DIV>
-<H4 ID="map-am_pbf_infill_management_strategy">5.1.14.23 AM_PBF_INFILL_MANAGEMENT_STRATEGY</H4>
+<H4 ID="map-am_pbf_infill_management_strategy">5.1.14.22 AM_PBF_INFILL_MANAGEMENT_STRATEGY</H4>
 </DIV>
 
 <table class="map">
@@ -21946,7 +22240,7 @@ action_method
 </table>
 
 
-<H5 ID="map-am_pbf_infill_management_strategy-reverse_columns">5.1.14.23.1 reverse_columns</H5>
+<H5 ID="map-am_pbf_infill_management_strategy-reverse_columns">5.1.14.22.1 reverse_columns</H5>
 
 <div class="mapnote">
 <p>#1: if value is true</p>
@@ -21986,7 +22280,7 @@ descriptive_representation_item.description
 </table>
 
 
-<H5 ID="map-am_pbf_infill_management_strategy-reverse_rows">5.1.14.23.2 reverse_rows</H5>
+<H5 ID="map-am_pbf_infill_management_strategy-reverse_rows">5.1.14.22.2 reverse_rows</H5>
 
 <div class="mapnote">
 <p>#1: if value is true</p>
@@ -22025,7 +22319,7 @@ descriptive_representation_item.description
 </table>
 
 
-<H5 ID="map-am_pbf_infill_management_strategy-maximum_time_between_adjacent">5.1.14.23.3 maximum_time_between_adjacent</H5>
+<H5 ID="map-am_pbf_infill_management_strategy-maximum_time_between_adjacent">5.1.14.22.3 maximum_time_between_adjacent</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -22059,7 +22353,7 @@ time_measure_with_unit
 </table>
 
 
-<H5 ID="map-am_pbf_infill_management_strategy-minimum_time_between_adjacent">5.1.14.23.4 minimum_time_between_adjacent</H5>
+<H5 ID="map-am_pbf_infill_management_strategy-minimum_time_between_adjacent">5.1.14.22.4 minimum_time_between_adjacent</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -22093,7 +22387,7 @@ time_measure_with_unit
 </table>
 
 
-<H5 ID="map-am_pbf_infill_management_strategy-restriction_high_angle">5.1.14.23.5 restriction_high_angle</H5>
+<H5 ID="map-am_pbf_infill_management_strategy-restriction_high_angle">5.1.14.22.5 restriction_high_angle</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -22127,7 +22421,7 @@ plane_angle_measure_with_unit
 </table>
 
 
-<H5 ID="map-am_pbf_infill_management_strategy-restriction_low_angle">5.1.14.23.6 restriction_low_angle</H5>
+<H5 ID="map-am_pbf_infill_management_strategy-restriction_low_angle">5.1.14.22.6 restriction_low_angle</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -22167,7 +22461,7 @@ plane_angle_measure_with_unit
 <A HREF="clause4.htm#ao-am_pbf_machine_functions">AO</a>
 <A HREF="annexG.htm#am_pbf_machine_functions">ARM</a>
 </DIV>
-<H4 ID="map-am_pbf_machine_functions">5.1.14.24 AM_PBF_MACHINE_FUNCTIONS</H4>
+<H4 ID="map-am_pbf_machine_functions">5.1.14.23 AM_PBF_MACHINE_FUNCTIONS</H4>
 </DIV>
 
 <table class="map">
@@ -22188,7 +22482,7 @@ action_method
 </table>
 
 
-<H5 ID="map-am_pbf_machine_functions-coating_speed">5.1.14.24.1 coating_speed</H5>
+<H5 ID="map-am_pbf_machine_functions-coating_speed">5.1.14.23.1 coating_speed</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -22224,7 +22518,7 @@ numeric_measure }
 </table>
 
 
-<H5 ID="map-am_pbf_machine_functions-recoater_return_speed">5.1.14.24.2 recoater_return_speed</H5>
+<H5 ID="map-am_pbf_machine_functions-recoater_return_speed">5.1.14.23.2 recoater_return_speed</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -22260,7 +22554,7 @@ numeric_measure }
 </table>
 
 
-<H5 ID="map-am_pbf_machine_functions-minimum_time_between_layers">5.1.14.24.3 minimum_time_between_layers</H5>
+<H5 ID="map-am_pbf_machine_functions-minimum_time_between_layers">5.1.14.23.3 minimum_time_between_layers</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -22293,7 +22587,7 @@ time_measure_with_unit
 </table>
 
 
-<H5 ID="map-am_pbf_machine_functions-plate_temperature">5.1.14.24.4 plate_temperature</H5>
+<H5 ID="map-am_pbf_machine_functions-plate_temperature">5.1.14.23.4 plate_temperature</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -22329,7 +22623,7 @@ thermodynamic_temperature_measure }
 </table>
 
 
-<H5 ID="map-am_pbf_machine_functions-plate_thickness">5.1.14.24.5 plate_thickness</H5>
+<H5 ID="map-am_pbf_machine_functions-plate_thickness">5.1.14.23.5 plate_thickness</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -22362,7 +22656,7 @@ length_measure_with_unit
 </table>
 
 
-<H5 ID="map-am_pbf_machine_functions-gas_rate">5.1.14.24.6 gas_rate</H5>
+<H5 ID="map-am_pbf_machine_functions-gas_rate">5.1.14.23.6 gas_rate</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -22398,7 +22692,7 @@ numeric_measure }
 </table>
 
 
-<H5 ID="map-am_pbf_machine_functions-gas_direction">5.1.14.24.7 gas_direction</H5>
+<H5 ID="map-am_pbf_machine_functions-gas_direction">5.1.14.23.7 gas_direction</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -22430,7 +22724,7 @@ direction
 </table>
 
 
-<H5 ID="map-am_pbf_machine_functions-gas_type">5.1.14.24.8 am_pbf_machine_functions to material (as gas_type)</H5>
+<H5 ID="map-am_pbf_machine_functions-gas_type">5.1.14.23.8 am_pbf_machine_functions to material (as gas_type)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -22459,7 +22753,7 @@ material_designation
 </table>
 
 
-<H5 ID="map-am_pbf_machine_functions-feedstock_definition">5.1.14.24.9 am_pbf_machine_functions to material (as feedstock_definition)</H5>
+<H5 ID="map-am_pbf_machine_functions-feedstock_definition">5.1.14.23.9 am_pbf_machine_functions to material (as feedstock_definition)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -22494,7 +22788,7 @@ material_designation
 <A HREF="clause4.htm#ao-am_pbf_machining_identification">AO</a>
 <A HREF="annexG.htm#am_pbf_machining_identification">ARM</a>
 </DIV>
-<H4 ID="map-am_pbf_machining_identification">5.1.14.25 AM_PBF_MACHINING_IDENTIFICATION</H4>
+<H4 ID="map-am_pbf_machining_identification">5.1.14.24 AM_PBF_MACHINING_IDENTIFICATION</H4>
 </DIV>
 
 <table class="map">
@@ -22515,7 +22809,7 @@ shape_aspect
 </table>
 
 
-<H5 ID="map-am_pbf_machining_identification-future_feature">5.1.14.25.1 am_machining_identification to manufacturing_feature (as future_feature)</H5>
+<H5 ID="map-am_pbf_machining_identification-future_feature">5.1.14.24.1 am_machining_identification to manufacturing_feature (as future_feature)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -22541,7 +22835,7 @@ shape_aspect
 <A HREF="clause4.htm#ao-am_pbf_management_strategy">AO</a>
 <A HREF="annexG.htm#am_pbf_management_strategy">ARM</a>
 </DIV>
-<H4 ID="map-am_pbf_management_strategy">5.1.14.26 AM_PBF_MANAGEMENT_STRATEGY</H4>
+<H4 ID="map-am_pbf_management_strategy">5.1.14.25 AM_PBF_MANAGEMENT_STRATEGY</H4>
 </DIV>
 
 <table class="map">
@@ -22570,7 +22864,7 @@ action_method
 <A HREF="clause4.htm#ao-am_pbf_operation">AO</a>
 <A HREF="annexG.htm#am_pbf_operation">ARM</a>
 </DIV>
-<H4 ID="map-am_pbf_operation">5.1.14.27 AM_PBF_OPERATION</H4>
+<H4 ID="map-am_pbf_operation">5.1.14.26 AM_PBF_OPERATION</H4>
 </DIV>
 
 <table class="map">
@@ -22603,7 +22897,7 @@ action_method
 <A HREF="clause4.htm#ao-am_pbf_region">AO</a>
 <A HREF="annexG.htm#am_pbf_region">ARM</a>
 </DIV>
-<H4 ID="map-am_pbf_region">5.1.14.28 AM_PBF_REGION</H4>
+<H4 ID="map-am_pbf_region">5.1.14.27 AM_PBF_REGION</H4>
 </DIV>
 
 <table class="map">
@@ -22631,7 +22925,7 @@ shape_aspect
 </table>
 
 
-<H5 ID="map-am_pbf_region-slice">5.1.14.28.1 slice</H5>
+<H5 ID="map-am_pbf_region-slice">5.1.14.27.1 slice</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -22671,7 +22965,7 @@ count_measure
 </table>
 
 
-<H5 ID="map-am_pbf_region-process">5.1.14.28.2 am_pbf_region to am_pbf_identification (as process)</H5>
+<H5 ID="map-am_pbf_region-process">5.1.14.27.2 am_pbf_region to am_pbf_identification (as process)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -22692,7 +22986,7 @@ additive_part_process_aspect
 </table>
 
 
-<H5 ID="map-am_pbf_region-feature">5.1.14.28.3 am_pbf_region to am_feature (as feature)</H5>
+<H5 ID="map-am_pbf_region-feature">5.1.14.27.3 am_pbf_region to am_feature (as feature)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -22721,7 +23015,7 @@ additive_manufacturing_feature
 <A HREF="clause4.htm#ao-am_pbf_region_management_strategy">AO</a>
 <A HREF="annexG.htm#am_pbf_region_management_strategy">ARM</a>
 </DIV>
-<H4 ID="map-am_pbf_region_management_strategy">5.1.14.29 AM_PBF_REGION_MANAGEMENT_STRATEGY</H4>
+<H4 ID="map-am_pbf_region_management_strategy">5.1.14.28 AM_PBF_REGION_MANAGEMENT_STRATEGY</H4>
 </DIV>
 
 <table class="map">
@@ -22743,7 +23037,7 @@ action_method
 </table>
 
 
-<H5 ID="map-am_pbf_region_management_strategy-compute_downskin">5.1.14.29.1 compute_downskin</H5>
+<H5 ID="map-am_pbf_region_management_strategy-compute_downskin">5.1.14.28.1 compute_downskin</H5>
 
 <div class="mapnote">
 <p>#1: if value is true</p>
@@ -22782,7 +23076,7 @@ descriptive_representation_item.description
 </table>
 
 
-<H5 ID="map-am_pbf_region_management_strategy-compute_upskin">5.1.14.29.2 compute_upskin</H5>
+<H5 ID="map-am_pbf_region_management_strategy-compute_upskin">5.1.14.28.2 compute_upskin</H5>
 
 <div class="mapnote">
 <p>#1: if value is true</p>
@@ -22821,7 +23115,7 @@ descriptive_representation_item.description
 </table>
 
 
-<H5 ID="map-am_pbf_region_management_strategy-compute_spike">5.1.14.29.3 compute_spike</H5>
+<H5 ID="map-am_pbf_region_management_strategy-compute_spike">5.1.14.28.3 compute_spike</H5>
 
 <div class="mapnote">
 <p>#1: if value is true</p>
@@ -22860,7 +23154,7 @@ descriptive_representation_item.description
 </table>
 
 
-<H5 ID="map-am_pbf_region_management_strategy-compute_thin_wall">5.1.14.29.4 compute_thin_wall</H5>
+<H5 ID="map-am_pbf_region_management_strategy-compute_thin_wall">5.1.14.28.4 compute_thin_wall</H5>
 
 <div class="mapnote">
 <p>#1: if value is true</p>
@@ -22905,7 +23199,7 @@ descriptive_representation_item.description
 <A HREF="clause4.htm#ao-am_pbf_technology">AO</a>
 <A HREF="annexG.htm#am_pbf_technology">ARM</a>
 </DIV>
-<H4 ID="map-am_pbf_technology">5.1.14.30 AM_PBF_TECHNOLOGY</H4>
+<H4 ID="map-am_pbf_technology">5.1.14.29 AM_PBF_TECHNOLOGY</H4>
 </DIV>
 
 <table class="map">
@@ -22926,7 +23220,7 @@ action_method
 </table>
 
 
-<H5 ID="map-am_pbf_technology-beam_diameter">5.1.14.30.1 beam_diameter</H5>
+<H5 ID="map-am_pbf_technology-beam_diameter">5.1.14.29.1 beam_diameter</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -22959,7 +23253,7 @@ length_measure_with_unit
 </table>
 
 
-<H5 ID="map-am_pbf_technology-beam_power">5.1.14.30.2 beam_power</H5>
+<H5 ID="map-am_pbf_technology-beam_power">5.1.14.29.2 beam_power</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -22995,7 +23289,7 @@ numeric_measure }
 </table>
 
 
-<H5 ID="map-am_pbf_technology-beam_path_mode">5.1.14.30.3 beam_path_mode</H5>
+<H5 ID="map-am_pbf_technology-beam_path_mode">5.1.14.29.3 beam_path_mode</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -23030,7 +23324,7 @@ descriptive_representation_item.description
 </table>
 
 
-<H5 ID="map-am_pbf_technology-beam_power_mode">5.1.14.30.4 beam_power_mode</H5>
+<H5 ID="map-am_pbf_technology-beam_power_mode">5.1.14.29.4 beam_power_mode</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -23064,7 +23358,7 @@ descriptive_representation_item.description
 </table>
 
 
-<H5 ID="map-am_pbf_technology-scan_speed">5.1.14.30.5 scan_speed</H5>
+<H5 ID="map-am_pbf_technology-scan_speed">5.1.14.29.5 scan_speed</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -23106,7 +23400,7 @@ numeric_measure }
 <A HREF="clause4.htm#ao-am_region_intersection">AO</a>
 <A HREF="annexG.htm#am_region_intersection">ARM</a>
 </DIV>
-<H4 ID="map-am_region_intersection">5.1.14.31 AM_REGION_INTERSECTION</H4>
+<H4 ID="map-am_region_intersection">5.1.14.30 AM_REGION_INTERSECTION</H4>
 </DIV>
 
 <table class="map">
@@ -23128,7 +23422,7 @@ shape_aspect
 </table>
 
 
-<H5 ID="map-am_region_intersection-region_a">5.1.14.31.1 am_region_intersection to am_pbf_region (as region_a)</H5>
+<H5 ID="map-am_region_intersection-region_a">5.1.14.30.1 am_region_intersection to am_pbf_region (as region_a)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -23150,7 +23444,7 @@ closed_path_profile
 </table>
 
 
-<H5 ID="map-am_region_intersection-region_b">5.1.14.31.2 am_region_intersection to am_pbf_region (as region_b)</H5>
+<H5 ID="map-am_region_intersection-region_b">5.1.14.30.2 am_region_intersection to am_pbf_region (as region_b)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -23172,7 +23466,7 @@ closed_path_profile
 </table>
 
 
-<H5 ID="map-am_region_intersection-feature_boundary">5.1.14.31.3 feature_boundary</H5>
+<H5 ID="map-am_region_intersection-feature_boundary">5.1.14.30.3 feature_boundary</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -23220,7 +23514,7 @@ external_boundary_curve_segment
 <A HREF="clause4.htm#ao-am_spike_identification">AO</a>
 <A HREF="annexG.htm#am_spike_identification">ARM</a>
 </DIV>
-<H4 ID="map-am_spike_identification">5.1.14.32 AM_SPIKE_IDENTIFICATION</H4>
+<H4 ID="map-am_spike_identification">5.1.14.31 AM_SPIKE_IDENTIFICATION</H4>
 </DIV>
 
 <table class="map">
@@ -23241,7 +23535,7 @@ shape_aspect
 </table>
 
 
-<H5 ID="map-am_spike_identification-corner_angle">5.1.14.32.1 corner_angle</H5>
+<H5 ID="map-am_spike_identification-corner_angle">5.1.14.31.1 corner_angle</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -23276,7 +23570,7 @@ plane_angle_measure_with_unit
 </table>
 
 
-<H5 ID="map-am_spike_identification-radius_tip">5.1.14.32.2 radius_tip</H5>
+<H5 ID="map-am_spike_identification-radius_tip">5.1.14.31.2 radius_tip</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -23311,7 +23605,7 @@ length_measure_with_unit
 </table>
 
 
-<H5 ID="map-am_spike_identification-trim_filter">5.1.14.32.3 trim_filter</H5>
+<H5 ID="map-am_spike_identification-trim_filter">5.1.14.31.3 trim_filter</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -23346,7 +23640,7 @@ length_measure_with_unit
 </table>
 
 
-<H5 ID="map-am_spike_identification-line_extension">5.1.14.32.4 line_extension</H5>
+<H5 ID="map-am_spike_identification-line_extension">5.1.14.31.4 line_extension</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -23381,7 +23675,7 @@ length_measure_with_unit
 </table>
 
 
-<H5 ID="map-am_spike_identification-direction">5.1.14.32.5 direction</H5>
+<H5 ID="map-am_spike_identification-direction">5.1.14.31.5 direction</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -23423,7 +23717,7 @@ descriptive_representation_item.description
 <A HREF="clause4.htm#ao-am_spike_region">AO</a>
 <A HREF="annexG.htm#am_spike_region">ARM</a>
 </DIV>
-<H4 ID="map-am_spike_region">5.1.14.33 AM_SPIKE_REGION</H4>
+<H4 ID="map-am_spike_region">5.1.14.32 AM_SPIKE_REGION</H4>
 </DIV>
 
 <table class="map">
@@ -23450,7 +23744,7 @@ shape_aspect
 <A HREF="clause4.htm#ao-am_support_feature">AO</a>
 <A HREF="annexG.htm#am_support_feature">ARM</a>
 </DIV>
-<H4 ID="map-am_support_feature">5.1.14.34 AM_SUPPORT_FEATURE</H4>
+<H4 ID="map-am_support_feature">5.1.14.33 AM_SUPPORT_FEATURE</H4>
 </DIV>
 
 <table class="map">
@@ -23480,7 +23774,7 @@ characterized_object
 <A HREF="clause4.htm#ao-am_support_identification">AO</a>
 <A HREF="annexG.htm#am_support_identification">ARM</a>
 </DIV>
-<H4 ID="map-am_support_identification">5.1.14.35 AM_SUPPORT_IDENTIFICATION</H4>
+<H4 ID="map-am_support_identification">5.1.14.34 AM_SUPPORT_IDENTIFICATION</H4>
 </DIV>
 
 <table class="map">
@@ -23507,7 +23801,7 @@ shape_aspect
 <A HREF="clause4.htm#ao-am_support_region">AO</a>
 <A HREF="annexG.htm#am_support_region">ARM</a>
 </DIV>
-<H4 ID="map-am_support_region">5.1.14.36 AM_SUPPORT_REGION</H4>
+<H4 ID="map-am_support_region">5.1.14.35 AM_SUPPORT_REGION</H4>
 </DIV>
 
 <table class="map">
@@ -23534,7 +23828,7 @@ shape_aspect
 <A HREF="clause4.htm#ao-am_thin_wall_identification">AO</a>
 <A HREF="annexG.htm#am_thin_wall_identification">ARM</a>
 </DIV>
-<H4 ID="map-am_thin_wall_identification">5.1.14.37 AM_THIN_WALL_IDENTIFICATION</H4>
+<H4 ID="map-am_thin_wall_identification">5.1.14.36 AM_THIN_WALL_IDENTIFICATION</H4>
 </DIV>
 
 <table class="map">
@@ -23555,7 +23849,7 @@ shape_aspect
 </table>
 
 
-<H5 ID="map-am_thin_wall_identification-thinness_low">5.1.14.37.1 thinness_low</H5>
+<H5 ID="map-am_thin_wall_identification-thinness_low">5.1.14.36.1 thinness_low</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -23593,7 +23887,7 @@ count_measure
 </table>
 
 
-<H5 ID="map-am_thin_wall_identification-thinness_high">5.1.14.37.2 thinness_high</H5>
+<H5 ID="map-am_thin_wall_identification-thinness_high">5.1.14.36.2 thinness_high</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -23637,7 +23931,7 @@ count_measure
 <A HREF="clause4.htm#ao-am_thin_wall_region">AO</a>
 <A HREF="annexG.htm#am_thin_wall_region">ARM</a>
 </DIV>
-<H4 ID="map-am_thin_wall_region">5.1.14.38 AM_THIN_WALL_REGION</H4>
+<H4 ID="map-am_thin_wall_region">5.1.14.37 AM_THIN_WALL_REGION</H4>
 </DIV>
 
 <table class="map">
@@ -23664,7 +23958,7 @@ shape_aspect
 <A HREF="clause4.htm#ao-am_threed_pbf_operation">AO</a>
 <A HREF="annexG.htm#am_threed_pbf_operation">ARM</a>
 </DIV>
-<H4 ID="map-am_threed_pbf_operation">5.1.14.39 AM_THREED_PBF_OPERATION</H4>
+<H4 ID="map-am_threed_pbf_operation">5.1.14.38 AM_THREED_PBF_OPERATION</H4>
 </DIV>
 
 <table class="map">
@@ -23686,7 +23980,7 @@ action_method
 </table>
 
 
-<H5 ID="map-am_threed_pbf_operation-theta_interlayer_rotation">5.1.14.39.1 theta_interlayer_rotation</H5>
+<H5 ID="map-am_threed_pbf_operation-theta_interlayer_rotation">5.1.14.38.1 theta_interlayer_rotation</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -23720,7 +24014,7 @@ plane_angle_measure_with_unit
 </table>
 
 
-<H5 ID="map-am_threed_pbf_operation-theta_initial_layer_rotation">5.1.14.39.2 theta_initial_layer_rotation</H5>
+<H5 ID="map-am_threed_pbf_operation-theta_initial_layer_rotation">5.1.14.38.2 theta_initial_layer_rotation</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -23754,7 +24048,7 @@ plane_angle_measure_with_unit
 </table>
 
 
-<H5 ID="map-am_threed_pbf_operation-layer_thickness">5.1.14.39.3 layer_thickness</H5>
+<H5 ID="map-am_threed_pbf_operation-layer_thickness">5.1.14.38.3 layer_thickness</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -23788,7 +24082,7 @@ length_measure_with_unit
 </table>
 
 
-<H5 ID="map-am_threed_pbf_operation-its_twod_operations">5.1.14.39.4 am_threed_pbf_operation to am_twod_pbf_operation (as its_twod_operations)</H5>
+<H5 ID="map-am_threed_pbf_operation-its_twod_operations">5.1.14.38.4 am_threed_pbf_operation to am_twod_pbf_operation (as its_twod_operations)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -23811,7 +24105,7 @@ additive_type_operation
 </table>
 
 
-<H5 ID="map-am_threed_pbf_operation-region_management">5.1.14.39.5 am_threed_pbf_operation to am_pbf_region_management_strategy (as region_management)</H5>
+<H5 ID="map-am_threed_pbf_operation-region_management">5.1.14.38.5 am_threed_pbf_operation to am_pbf_region_management_strategy (as region_management)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -23836,7 +24130,7 @@ additive_type_strategy
 </table>
 
 
-<H5 ID="map-am_threed_pbf_operation-slice_management">5.1.14.39.6 am_threed_pbf_operation to am_pbf_infill_management_strategy (as slice_management)</H5>
+<H5 ID="map-am_threed_pbf_operation-slice_management">5.1.14.38.6 am_threed_pbf_operation to am_pbf_infill_management_strategy (as slice_management)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -23867,7 +24161,7 @@ additive_type_strategy
 <A HREF="clause4.htm#ao-am_twod_pbf_chess_operation">AO</a>
 <A HREF="annexG.htm#am_twod_pbf_chess_operation">ARM</a>
 </DIV>
-<H4 ID="map-am_twod_pbf_chess_operation">5.1.14.40 AM_TWOD_PBF_CHESS_OPERATION</H4>
+<H4 ID="map-am_twod_pbf_chess_operation">5.1.14.39 AM_TWOD_PBF_CHESS_OPERATION</H4>
 </DIV>
 
 <table class="map">
@@ -23889,7 +24183,7 @@ action_method
 </table>
 
 
-<H5 ID="map-am_twod_pbf_chess_operation-rectangle_length">5.1.14.40.1 rectangle_length</H5>
+<H5 ID="map-am_twod_pbf_chess_operation-rectangle_length">5.1.14.39.1 rectangle_length</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -23923,7 +24217,7 @@ length_measure_with_unit
 </table>
 
 
-<H5 ID="map-am_twod_pbf_chess_operation-rectangle_width">5.1.14.40.2 rectangle_width</H5>
+<H5 ID="map-am_twod_pbf_chess_operation-rectangle_width">5.1.14.39.2 rectangle_width</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -23957,7 +24251,7 @@ length_measure_with_unit
 </table>
 
 
-<H5 ID="map-am_twod_pbf_chess_operation-x_direction_increment">5.1.14.40.3 x_direction_increment</H5>
+<H5 ID="map-am_twod_pbf_chess_operation-x_direction_increment">5.1.14.39.3 x_direction_increment</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -23991,7 +24285,7 @@ plane_angle_measure_with_unit
 </table>
 
 
-<H5 ID="map-am_twod_pbf_chess_operation-y_direction_increment">5.1.14.40.4 y_direction_increment</H5>
+<H5 ID="map-am_twod_pbf_chess_operation-y_direction_increment">5.1.14.39.4 y_direction_increment</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -24025,7 +24319,7 @@ plane_angle_measure_with_unit
 </table>
 
 
-<H5 ID="map-am_twod_pbf_chess_operation-island_overlap">5.1.14.40.5 island_overlap</H5>
+<H5 ID="map-am_twod_pbf_chess_operation-island_overlap">5.1.14.39.5 island_overlap</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -24065,7 +24359,7 @@ length_measure_with_unit
 <A HREF="clause4.htm#ao-am_twod_pbf_meander_operation">AO</a>
 <A HREF="annexG.htm#am_twod_pbf_meander_operation">ARM</a>
 </DIV>
-<H4 ID="map-am_twod_pbf_meander_operation">5.1.14.41 AM_TWOD_PBF_MEANDER_OPERATION</H4>
+<H4 ID="map-am_twod_pbf_meander_operation">5.1.14.40 AM_TWOD_PBF_MEANDER_OPERATION</H4>
 </DIV>
 
 <table class="map">
@@ -24093,7 +24387,7 @@ action_method
 <A HREF="clause4.htm#ao-am_twod_pbf_operation">AO</a>
 <A HREF="annexG.htm#am_twod_pbf_operation">ARM</a>
 </DIV>
-<H4 ID="map-am_twod_pbf_operation">5.1.14.42 AM_TWOD_PBF_OPERATION</H4>
+<H4 ID="map-am_twod_pbf_operation">5.1.14.41 AM_TWOD_PBF_OPERATION</H4>
 </DIV>
 
 <table class="map">
@@ -24117,7 +24411,7 @@ action_method
 </table>
 
 
-<H5 ID="map-am_twod_pbf_operation-solution_for">5.1.14.42.1 am_twod_pbf_operation to am_pbf_identification (as solution_for)</H5>
+<H5 ID="map-am_twod_pbf_operation-solution_for">5.1.14.41.1 am_twod_pbf_operation to am_pbf_identification (as solution_for)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -24143,7 +24437,7 @@ shape_aspect
 </table>
 
 
-<H5 ID="map-am_twod_pbf_operation-its_oned_operations">5.1.14.42.2 am_twod_pbf_operation to am_oned_pbf_ operation (as its_oned_operations)</H5>
+<H5 ID="map-am_twod_pbf_operation-its_oned_operations">5.1.14.41.2 am_twod_pbf_operation to am_oned_pbf_ operation (as its_oned_operations)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -24170,7 +24464,7 @@ additive_type_operation
 </table>
 
 
-<H5 ID="map-am_twod_pbf_operation-region_overlap">5.1.14.42.3 region_overlap</H5>
+<H5 ID="map-am_twod_pbf_operation-region_overlap">5.1.14.41.3 region_overlap</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -24210,7 +24504,7 @@ length_measure_with_unit
 <A HREF="clause4.htm#ao-am_twod_pbf_stripe_operation">AO</a>
 <A HREF="annexG.htm#am_twod_pbf_stripe_operation">ARM</a>
 </DIV>
-<H4 ID="map-am_twod_pbf_stripe_operation">5.1.14.43 AM_TWOD_PBF_STRIPE_OPERATION</H4>
+<H4 ID="map-am_twod_pbf_stripe_operation">5.1.14.42 AM_TWOD_PBF_STRIPE_OPERATION</H4>
 </DIV>
 
 <table class="map">
@@ -24232,7 +24526,7 @@ action_method
 </table>
 
 
-<H5 ID="map-am_twod_pbf_stripe_operation-stripe_width">5.1.14.43.1 stripe_width</H5>
+<H5 ID="map-am_twod_pbf_stripe_operation-stripe_width">5.1.14.42.1 stripe_width</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -24266,7 +24560,7 @@ length_measure_with_unit
 </table>
 
 
-<H5 ID="map-am_twod_pbf_stripe_operation-stripe_overlap">5.1.14.43.2 stripe_overlap</H5>
+<H5 ID="map-am_twod_pbf_stripe_operation-stripe_overlap">5.1.14.42.2 stripe_overlap</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -24300,7 +24594,7 @@ length_measure_with_unit
 </table>
 
 
-<H5 ID="map-am_twod_pbf_stripe_operation-merge_short_vectors">5.1.14.43.3 merge_short_vectors</H5>
+<H5 ID="map-am_twod_pbf_stripe_operation-merge_short_vectors">5.1.14.42.3 merge_short_vectors</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -24340,7 +24634,7 @@ length_measure_with_unit
 <A HREF="clause4.htm#ao-am_upskin_feature">AO</a>
 <A HREF="annexG.htm#am_upskin_feature">ARM</a>
 </DIV>
-<H4 ID="map-am_upskin_feature">5.1.14.44 AM_UPSKIN_FEATURE</H4>
+<H4 ID="map-am_upskin_feature">5.1.14.43 AM_UPSKIN_FEATURE</H4>
 </DIV>
 
 <table class="map">
@@ -24370,7 +24664,7 @@ characterized_object
 <A HREF="clause4.htm#ao-am_upskin_identification">AO</a>
 <A HREF="annexG.htm#am_upskin_identification">ARM</a>
 </DIV>
-<H4 ID="map-am_upskin_identification">5.1.14.45 AM_UPSKIN_IDENTIFICATION</H4>
+<H4 ID="map-am_upskin_identification">5.1.14.44 AM_UPSKIN_IDENTIFICATION</H4>
 </DIV>
 
 <table class="map">
@@ -24391,7 +24685,7 @@ shape_aspect
 </table>
 
 
-<H5 ID="map-am_upskin_identification-upskin_angle">5.1.14.45.1 upskin_angle</H5>
+<H5 ID="map-am_upskin_identification-upskin_angle">5.1.14.44.1 upskin_angle</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -24426,7 +24720,7 @@ plane_angle_measure_with_unit
 </table>
 
 
-<H5 ID="map-am_upskin_identification-upskin_thickness">5.1.14.45.2 upskin_thickness</H5>
+<H5 ID="map-am_upskin_identification-upskin_thickness">5.1.14.44.2 upskin_thickness</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -24470,7 +24764,7 @@ count_measure
 <A HREF="clause4.htm#ao-am_upskin_region">AO</a>
 <A HREF="annexG.htm#am_upskin_region">ARM</a>
 </DIV>
-<H4 ID="map-am_upskin_region">5.1.14.46 AM_UPSKIN_REGION</H4>
+<H4 ID="map-am_upskin_region">5.1.14.45 AM_UPSKIN_REGION</H4>
 </DIV>
 
 <table class="map">
@@ -33231,7 +33525,14 @@ date_time_role
 6) This ARM attribute is defined as a list.  The mapping path shown in the table shows how to relate the elements of the list.  Ordering is handled by the sequence_position attribute on the relationship, which is inherited from the sequential_method supertype.  This attribute holds a number indicating the position within the list.   For exemple,  the fifth item in the list would have sequence_position=5.</P>
 
 <P ID="mapnote-7" CLASS="numbered-notes">
-7) The Toolpath_list application object is not mapped.  Instead, the mapping goes directly to the toolpath objects.  Ordering is handled by the sequence_position attribute on the relationship as described in <A href="#mapnote-6">NOTE 6</A></P>
+7) The Toolpath_list application object is not mapped.  Instead, the
+mapping goes directly to the list contents.  Ordering is handled by
+the sequence_position attribute on the relationship as described
+in <A href="#mapnote-6">NOTE 6</A>.  In the fourth edition of this
+document, the definition of machining_nc_function and
+machining_toolpath were changed to inherit from a common supertype so
+the mappings will work with both Toolpath and NC_Function
+concepts.</P>
 
 <P ID="mapnote-8" CLASS="numbered-notes">
 8) The ARM models Axis_trajectory as two parallel lists, where axis_list[1] contains the axis name corresponding to the curve in command[1].  Then, axis_list[2] contains the axis name for command[2] and so on.  In the AIM, parallel lists are not used.  Instead, the representation.items set contains one bounded curve for each axis to be moved by the trajectory and the axis name is kept in the representation_item.name attribute of each curve.</P>
