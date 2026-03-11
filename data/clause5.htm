@@ -35406,7 +35406,42 @@ twin_plan executable is used.</P>
 <H4 ID="aim-typedefs">5.2.3.1 Model based integrated manufacturing type definitions</H4>
 
 
-<H5 ID="aim-mbmfg_approval_item">5.2.3.1.1 mbmfg_approval_item</H5>
+<!-- ============================== -->
+<H5 ID="aim-mbmfg_action_method_items">5.2.3.1.1 mbmfg_action_method_items</H5>
+
+<P>The <B>mbmfg_action_method_items</B> type is an extension of
+the <b>action_method_items</b> type.  It adds the data
+types <b>action_resource</b>, <b>characterized_object</b>, <b>dimensional_location</b>,
+<b>dimensional_size</b>, <b>geometric_tolerance</b>, <B>machining_cutting_component</B>,
+<B>machining_execution_resource</B>, <B>machining_tool</B>, <B>product_definition</B>,
+<B>product_definition_formation</B>, and <b>shape_aspect</b> to which
+a referenced <B>action_method</B> can be assigned.</P>
+
+<H6 CLASS="section-underlined">EXPRESS specification:</H6>
+<PRE CLASS="code">
+*)
+TYPE mbmfg_action_method_items = SELECT BASED_ON action_method_items WITH (
+        action_resource,
+	characterized_object,		-- feature, old and new style
+	dimensional_location,
+	dimensional_size,
+	geometric_tolerance,
+	machining_cutting_component,
+	machining_execution_resource,
+	machining_tool,
+	product_definition,		-- workpiece, setup
+	product_definition_formation,	-- project
+	shape_aspect			-- feature, transitions
+	);
+END_TYPE;
+(*
+</PRE>
+
+
+
+
+<!-- ============================== -->
+<H5 ID="aim-mbmfg_approval_item">5.2.3.1.2 mbmfg_approval_item</H5>
 
 <P>The <B>mbmfg_approval_item</B> type is an extension of
 the <b>approval_item</b> type.  It adds the data
@@ -35426,7 +35461,8 @@ END_TYPE;
 (*
 </PRE>
 
-<H5 ID="aim-mbmfg_classification_item">5.2.3.1.2 mbmfg_classification_item</H5>
+<!-- ============================== -->
+<H5 ID="aim-mbmfg_classification_item">5.2.3.1.3 mbmfg_classification_item</H5>
 
 <P>The <B>mbmfg_classification_item</B> type is an extension of
 the <b>classification_item</b> type.  It adds the data
@@ -35445,31 +35481,43 @@ END_TYPE;
 
 
 
-<H5 ID="aim-mbmfg_date_and_time_item">5.2.3.1.3 mbmfg_date_and_time_item</H5>
+<!-- ============================== -->
+<H5 ID="aim-mbmfg_date_and_time_item">5.2.3.1.4 mbmfg_date_and_time_item</H5>
 
 <P>The <B>mbmfg_date_and_time_item</B> type is an extension of
 the <b>date_and_time_item</b> type.  It adds the data
-types <B>machining_operation</B>, <B>machining_process_executable</B>,
+types <B>action_method</B>, <B>action_property</B>, <b>approval_person_organization</b>,
+<b>characterized_object</b>, <B>machining_operation</B>, <B>machining_process_executable</B>,
 <B>machining_toolpath</B>, <B>product</B>, <B>product_definition</B>,
-and <B>product_definition_formation</B> to which a
+<B>product_definition_formation</B>, <b>property_definition</b>, and
+<b>security_classification</b> to which a
 referenced <B>date_and_time</B> can be assigned.</P>
 
 <H6 CLASS="section-underlined">EXPRESS specification:</H6>
 <PRE CLASS="code">
 *)
 TYPE mbmfg_date_and_time_item = SELECT BASED_ON date_and_time_item WITH (
-	machining_operation,
-	machining_process_executable,
-	machining_toolpath,
-        product,
-	product_definition,
-	product_definition_formation
+	action_method,
+	action_property,
+	approval_person_organization,
+	characterized_object,
+	machining_operation,		-- last modified timestamp
+	machining_process_executable,	-- last modified timestamp
+	machining_toolpath,		-- last modified timestamp
+        product,			-- workpiece
+	product_definition,		-- last modified timestamp
+	product_definition_formation,	-- project, last modified timestamp
+	property_definition,
+	security_classification
         );
 END_TYPE;
 (*
 </PRE>
 
-<H5 ID="aim-mbmfg_date_item">5.2.3.1.4 mbmfg_date_item</H5>
+
+
+<!-- ============================== -->
+<H5 ID="aim-mbmfg_date_item">5.2.3.1.5 mbmfg_date_item</H5>
 
 <P>The <B>mbmfg_date_item</B> type is an extension of
 the <b>date_item</b> type.  It adds the data
@@ -35491,7 +35539,8 @@ END_TYPE;
 
 
 
-<H5 ID="aim-mbmfg_organization_item">5.2.3.1.5 mbmfg_organization_item</H5>
+<!-- ============================== -->
+<H5 ID="aim-mbmfg_organization_item">5.2.3.1.6 mbmfg_organization_item</H5>
 
 <P>The <B>mbmfg_organization_item</B> type is an extension of
 the <b>organization_item</b> type.  It adds the data
@@ -35512,7 +35561,8 @@ END_TYPE;
 </PRE>
 
 
-<H5 ID="aim-mbmfg_person_and_organization_item">5.2.3.1.6 mbmfg_person_and_organization_item</H5>
+<!-- ============================== -->
+<H5 ID="aim-mbmfg_person_and_organization_item">5.2.3.1.7 mbmfg_person_and_organization_item</H5>
 
 <P>The <B>mbmfg_person_and_organization_item</B> type is an extension
 of the <b>person_and_organization_item</b> type.  It adds the data
@@ -35534,7 +35584,8 @@ END_TYPE;
 
 
 
-<H5 ID="aim-mbmfg_presented_item_select">5.2.3.1.7 mbmfg_presented_item_select</H5>
+<!-- ============================== -->
+<H5 ID="aim-mbmfg_presented_item_select">5.2.3.1.8 mbmfg_presented_item_select</H5>
 
 <P>The <B>mbmfg_presented_item_select</B> type is an extension of
 the <b>presented_item_select</b> type.  It adds the data
@@ -35563,7 +35614,30 @@ END_TYPE;
 </PRE>
 
 
-<H5 ID="aim-mbmfg_security_classification_item">5.2.3.1.8 mbmfg_security_classification_item</H5>
+
+
+<!-- ============================== -->
+<H5 ID="aim-mbmfg_generic_property_definition_select">5.2.3.1.9 mbmfg_generic_property_definition_select</H5>
+
+<p>The <b>mbmfg_generic_property_definition_select</b> type is an
+extension of the <b>generic_property_definition_select</b> type. It
+adds the data types <b>geometric_tolerance</b> to which
+a <b>generic_property_relationship</b> can be associated.</p>
+
+<H6 CLASS="section-underlined">EXPRESS specification:</H6>
+<PRE CLASS="code">
+*)
+TYPE mbmfg_generic_property_definition_select = SELECT BASED_ON generic_property_definition_select WITH (
+  geometric_tolerance
+  );
+END_TYPE;
+(*
+</PRE>
+
+
+
+<!-- ============================== -->
+<H5 ID="aim-mbmfg_security_classification_item">5.2.3.1.10 mbmfg_security_classification_item</H5>
 
 <P>The <B>mbmfg_security_classification_item</B> type is an extension
 of the <b>security_classification_item</b> type.  It adds the data
@@ -35587,35 +35661,6 @@ END_TYPE;
 </PRE>
 
 
-<H5 ID="aim-mbmfg_action_method_items">5.2.3.1.9 mbmfg_action_method_items</H5>
-
-<P>The <B>mbmfg_action_method_items</B> type is an extension of
-the <b>action_method_items</b> type.  It adds the data
-types <b>characterized_object</b>, <b>dimensional_location</b>,
-<b>dimensional_size</b>, <b>geometric_tolerance</b>, <B>machining_cutting_component</B>,
-<B>machining_execution_resource</B>, <B>machining_tool</B>, <B>product_definition</B>,
-<B>product_definition_formation</B>, and <b>shape_aspect</b> to which
-a referenced <B>action_method</B> can be assigned.</P>
-
-<H6 CLASS="section-underlined">EXPRESS specification:</H6>
-<PRE CLASS="code">
-*)
-TYPE mbmfg_action_method_items = SELECT BASED_ON action_method_items WITH (
-	characterized_object,		-- feature, old and new style
-	dimensional_location,
-	dimensional_size,
-	geometric_tolerance,
-	machining_cutting_component,
-	machining_execution_resource,
-	machining_tool,
-	product_definition,		-- workpiece, setup
-	product_definition_formation,	-- project
-	shape_aspect			-- feature, transitions
-	);
-END_TYPE;
-(*
-</PRE>
-
 
 
 <H3 ID="aim-entities">5.2.4 Model based integrated manufacturing entities</H3>
@@ -35625,8 +35670,8 @@ END_TYPE;
 
 
 
+<!-- ============================== -->
 <H5 ID="aim-additive_manufacturing_atom">5.2.4.1.1 additive_manufacturing_atom</H5>
-
 
 <P>An <B>additive_manufacturing_atom</B> is a type
 of <B>shape_aspect</B> that that identifies a material spatial
@@ -35645,8 +35690,8 @@ END_ENTITY;
 </PRE>
 
 
+<!-- ============================== -->
 <H5 ID="aim-additive_manufacturing_construction">5.2.4.1.2 additive_manufacturing_construction</H5>
-
 
 <P>An <B>additive_manufacturing_construction</B> is a type
 of <B>shape_aspect</B> that that describes material volumetric layout
@@ -35665,6 +35710,7 @@ END_ENTITY;
 
 
 
+<!-- ============================== -->
 <H5 ID="aim-additive_manufacturing_feature">5.2.4.1.3 additive_manufacturing_feature</H5>
 
 <P>An <B>additive_manufacturing_feature</B> is a type
@@ -35685,7 +35731,48 @@ END_ENTITY;
 
 
 
-<H5 ID="aim-additive_type_operation">5.2.4.1.4 additive_type_operation</H5>
+
+<!-- ============================== -->
+<H5 ID="aim-additive_part_process_aspect">5.2.4.1.4 additive_part_process_aspect</H5>
+
+<p>An <b>additive_part_process_aspect</b> is a type
+of <b>shape_aspect</b> that describes characteristics that apply to
+additive processes that create elements of a shape.</p>
+
+<H6 CLASS="section-underlined">EXPRESS specification:</H6>
+<PRE CLASS="code">
+*)
+ENTITY additive_part_process_aspect
+  SUBTYPE OF (shape_aspect);
+END_ENTITY;
+(*
+</PRE>
+
+
+
+<!-- ============================== -->
+<H5 ID="aim-additive_transition_feature">5.2.4.1.5 additive_transition_feature</H5>
+
+<p>An <b>additive_transition_feature</b> is a type
+of <b>transition_feature</b> that that identifies a the transition
+between two adjacent <b>additive_manufacturing_feature</b>
+instances. See the ARM definitions
+for <a href="clause4.htm#ao-am_pbf_transition_feature">Am_pbf_transition_feature</a>
+for more information.</p>
+
+<H6 CLASS="section-underlined">EXPRESS specification:</H6>
+<PRE CLASS="code">
+*)
+ENTITY additive_transition_feature
+   SUBTYPE OF (transition_feature);
+END_ENTITY;
+(*
+</PRE>
+
+
+
+<!-- ============================== -->
+<H5 ID="aim-additive_type_operation">5.2.4.1.6 additive_type_operation</H5>
 
 <P>An <B>additive_type_operation</B> is a type of <B>machining_operation</B> that represents the details of an additive manufacturing step of a machining process.  See the ARM definitions for Am_operation and subtypes in ISO 14649-17 for more information.</P>
 
@@ -35707,7 +35794,26 @@ END_ENTITY;
 
 
 
-<H5 ID="aim-back_boring_operation">5.2.4.1.5 back_boring_operation</H5>
+
+<!-- ============================== -->
+<H5 ID="aim-additive_type_strategy">5.2.4.1.7 additive_type_strategy</H5>
+
+<p>An <b>additive_type_strategy</b> is a type
+of <b>machining_strategy</b> that represents the details of an
+additive manufacturing strategy of a machining process.</p>
+
+<H6 CLASS="section-underlined">EXPRESS specification:</H6>
+<PRE CLASS="code">
+*)
+ENTITY additive_type_strategy
+  SUBTYPE OF (machining_strategy);
+END_ENTITY;
+(*
+</PRE>
+
+
+<!-- ============================== -->
+<H5 ID="aim-back_boring_operation">5.2.4.1.8 back_boring_operation</H5>
 
 <P>A <B>back_boring_operation</B> is a type of <B>drilling_type_operation</B> that represents the details of a machining step in which in a tool passes through an existing hole in the workpiece and enlarges the hole from the back of the workpiece.  See the ARM definition for Back_boring_operation in ISO 14649-11 for more information.</P>
 
@@ -35735,7 +35841,8 @@ END_ENTITY;
 
 
 
-<H5 ID="aim-block_shape_representation">5.2.4.1.6 block_shape_representation</H5>
+<!-- ============================== -->
+<H5 ID="aim-block_shape_representation">5.2.4.1.9 block_shape_representation</H5>
 
 <P>A <B>block_shape_representation</B> specifies the representation of a shape that is a rectangular volume defined as a rectangular area of a defined length. The enclosed area shall be as defined by four straight sides with opposite sides equal in length.</P>
 
@@ -35791,7 +35898,8 @@ END_ENTITY; -- block_shape_representation
 
 
 
-<H5 ID="aim-boring_operation">5.2.4.1.7 boring_operation</H5>
+<!-- ============================== -->
+<H5 ID="aim-boring_operation">5.2.4.1.10 boring_operation</H5>
 
 <P>A <B>boring_operation</B> is a type of <B>drilling_type_operation</B> that represents the details of a drilling step in which in an existing hole is enlarged.  See the ARM definitions for Boring_operation, Boring, and Reaming in ISO 14649-11 for more information.</P>
 
@@ -35830,7 +35938,8 @@ END_ENTITY;
 
 
 
-<H5 ID="aim-bottom_and_side_milling_operation">5.2.4.1.8 bottom_and_side_milling_operation</H5>
+<!-- ============================== -->
+<H5 ID="aim-bottom_and_side_milling_operation">5.2.4.1.11 bottom_and_side_milling_operation</H5>
 
 <P>A <B>bottom_and_side_milling_operation</B> is a <B>milling_type_operation</B> that represents a 2.5D milling step in which material is removed both parallel and perpendicular to the cutting tool axis.  See the ARM definitions for Bottom_and_side_milling_operation and subtypes in ISO 14649-11 for more information.</P>
 
@@ -35881,7 +35990,27 @@ END_ENTITY;
 
 
 
-<H5 ID="aim-contouring_turning_operation">5.2.4.1.9 contouring_turning_operation</H5>
+
+<!-- ============================== -->
+<H5 ID="aim-common_boundary_curve">5.2.4.1.12 common_boundary_curve</H5>
+
+<p>A <b>common_boundary_curve</b> is a type of <b>composite_curve</b>
+that describes a boundary which contains segments that are described
+by <b>internal_</b> and <b>external_boundary_curve_segment</b>
+instances.</p>
+
+<H6 CLASS="section-underlined">EXPRESS specification:</H6>
+<PRE CLASS="code">
+*)
+ENTITY common_boundary_curve
+  SUBTYPE OF (composite_curve);
+END_ENTITY;
+(*
+</PRE>
+
+
+<!-- ============================== -->
+<H5 ID="aim-contouring_turning_operation">5.2.4.1.13 contouring_turning_operation</H5>
 
 <P>A <B>contouring_turning_operation</B> is a <B>turning_type_operation</B>.  See the ARM definitions for Contouring and subtypes in ISO 14649-12 for more information.</P>
 
@@ -35915,7 +36044,8 @@ END_ENTITY;
 
 
 
-<H5 ID="aim-cylindrical_shape_representation">5.2.4.1.10 cylindrical_shape_representation</H5>
+<!-- ============================== -->
+<H5 ID="aim-cylindrical_shape_representation">5.2.4.1.14 cylindrical_shape_representation</H5>
 
 <P>A <B>cylindrical_shape_representation</B> specifies representation of a shape that is a cylindrical volume defined as a circular area of a defined length. The enclosed area shall be as defined by a circle with a specified radius.</P>
 <P CLASS="note">
@@ -35964,7 +36094,8 @@ END_ENTITY; -- cylindrical_shape_representation
 
 
 
-<H5 ID="aim-drilling_operation">5.2.4.1.11 drilling_operation</H5>
+<!-- ============================== -->
+<H5 ID="aim-drilling_operation">5.2.4.1.15 drilling_operation</H5>
 
 <P>A <B>drilling_operation</B> is a type of <B>drilling_type_operation</B> that represents the details of a machining step in which in which material is removed perpendicular to the cutting tool axis.  See the ARM definitions for Drilling_operation and subtypes in ISO 14649-11 for more information.</P>
 
@@ -36012,7 +36143,8 @@ END_ENTITY;
 
 
 
-<H5 ID="aim-drilling_type_operation">5.2.4.1.12 drilling_type_operation</H5>
+<!-- ============================== -->
+<H5 ID="aim-drilling_type_operation">5.2.4.1.16 drilling_type_operation</H5>
 
 <P>A <B>drilling_type_operation</B> is a type of <B>machining_operation</B> that represents the details of a machining step in which the machine axes are generally only moved parallel to the axis of rotation of the cutting tool.  See the ARM definitions for Drilling_type_operation and subtypes in ISO 14649-11 for more information.</P>
 
@@ -36070,7 +36202,8 @@ END_ENTITY;
 
 
 
-<H5 ID="aim-drilling_type_strategy">5.2.4.1.13 drilling_type_strategy</H5>
+<!-- ============================== -->
+<H5 ID="aim-drilling_type_strategy">5.2.4.1.17 drilling_type_strategy</H5>
 
 <P>A <B>drilling_type_strategy</B> is a type of <B>machining_strategy</B> that represents the approach used to determine the motion of the cutting tool during a drilling operation.  See the ARM definition for Drilling_type_strategy in ISO 14649-11 for more information.</P>
 
@@ -36146,7 +36279,8 @@ END_ENTITY;
 
 
 
-<H5 ID="aim-expression_representation_item">5.2.4.1.14 expression_representation_item</H5>
+<!-- ============================== -->
+<H5 ID="aim-expression_representation_item">5.2.4.1.18 expression_representation_item</H5>
 
 <P>An <B>expression_representation_item</B> is a <B>representation_item</B> and <B>generic_expression</B> where a particular expression value is represented.</P>
 <P CLASS="note">
@@ -36162,7 +36296,48 @@ END_ENTITY;
 </PRE>
 
 
-<H5 ID="aim-extended_type_operation">5.2.4.1.15 extended_type_operation</H5>
+
+<!-- ============================== -->
+<H5 ID="aim-external_boundary_curve_segment">5.2.4.1.19 external_boundary_curve_segment</H5>
+
+<p>An <b>external_boundary_curve_segment</b> is a type
+of <b>composite_curve_segment</b> that describes a curve segment that
+does not adjoin any curve segment of
+another <b>common_boundary_curve</b>.</p>
+
+<H6 CLASS="section-underlined">EXPRESS specification:</H6>
+<PRE CLASS="code">
+*)
+ENTITY external_boundary_curve_segment
+  SUBTYPE OF (composite_curve_segment);
+END_ENTITY;
+(*
+</PRE>
+
+
+
+<!-- ============================== -->
+<H5 ID="aim-external_type_operation">5.2.4.1.20 external_type_operation</H5>
+
+<p>An <b>external_type_operation</b> is a type
+of <b>machining_operation</b> that represents the details of an
+operation performed by an external system that is beyond the scope of
+the automation defined in this document. See the ARM definitions for
+<a href="clause4.htm#ao-external_operation">External_operation</a> and
+subtypes for more information.</p>
+
+<H6 CLASS="section-underlined">EXPRESS specification:</H6>
+<PRE CLASS="code">
+*)
+ENTITY external_type_operation
+  SUBTYPE OF (machining_operation);
+END_ENTITY;
+(*
+</PRE>
+
+
+<!-- ============================== -->
+<H5 ID="aim-extended_type_operation">5.2.4.1.21 extended_type_operation</H5>
 
 <P>An <B>extended_type_operation</B> is a type of <B>machining_operation</B> that represents the details of a manufacturing step of a machining process that is not described by other capabilities of this document.</P>
 
@@ -36182,7 +36357,8 @@ END_ENTITY;
 <P><B>WR1</B>: The <B>description</B> of the <B>extended_type_operation</B> shall have a value.</P>
 
 
-<H5 ID="aim-externally_defined_representation_with_parameters">5.2.4.1.16 externally_defined_representation_with_parameters</H5>
+<!-- ============================== -->
+<H5 ID="aim-externally_defined_representation_with_parameters">5.2.4.1.22 externally_defined_representation_with_parameters</H5>
 
 <P>An <B>externally_defined_representation_with_parameters</B> is a type of <B>representation</B> that defines placement and orientation for an external reference.</P>
 <P CLASS="note">
@@ -36212,7 +36388,8 @@ END_ENTITY;
 
 
 
-<H5 ID="aim-facing_turning_operation">5.2.4.1.17 facing_turning_operation</H5>
+<!-- ============================== -->
+<H5 ID="aim-facing_turning_operation">5.2.4.1.23 facing_turning_operation</H5>
 
 <P>A <B>facing_turning_operation</B> is a <B>turning_type_operation</B>.  See the ARM definitions for Facing and subtypes in ISO 14649-12 for more information.</P>
 
@@ -36246,7 +36423,50 @@ END_ENTITY;
 
 
 
-<H5 ID="aim-freeform_milling_operation">5.2.4.1.18 freeform_milling_operation</H5>
+<!-- ============================== -->
+<H5 ID="aim-filling_type_group">5.2.4.1.24 filling_type_group</H5>
+
+<p>A <b>filling_type_group</b> is a type of <b>machining_group</b>
+that collects manufacturing features within a process where holes are
+drilled and filled. See the ARM definitions
+for <a href="clause4.htm#ao-drill_and_fill_group">Drill_and_fill_group</a>
+and subtypes for more information.
+
+<H6 CLASS="section-underlined">EXPRESS specification:</H6>
+<PRE CLASS="code">
+*)
+ENTITY filling_type_group
+  SUBTYPE OF (machining_group);
+END_ENTITY;
+(*
+</PRE>
+
+
+
+<!-- ============================== -->
+<H5 ID="aim-filling_type_operation">5.2.4.1.25 filling_type_operation</H5>
+
+<p>A <b>filling_type_operation</b> is a type
+of <b>machining_operation</b> that represents the details of a
+machining step in which an existing hole or void is filled with a
+fastener. See the ARM definitions
+for <a href="clause4.htm#ao-filling_type_operation">Filling_type_operation</a>
+and subtypes for more information.
+
+<H6 CLASS="section-underlined">EXPRESS specification:</H6>
+<PRE CLASS="code">
+*)
+ENTITY filling_type_operation
+  SUBTYPE OF (machining_operation);
+END_ENTITY;
+(*
+</PRE>
+
+
+
+
+<!-- ============================== -->
+<H5 ID="aim-freeform_milling_operation">5.2.4.1.26 freeform_milling_operation</H5>
 
 <P>A <B>freeform_milling_operation</B> is a <B>milling_type_operation</B> that describes a milling step in which material is removed to create freeform surface geometry.  See the ARM definition for Freeform_milling_operation in ISO 14649-11 for more information.</P>
 
@@ -36273,7 +36493,8 @@ END_ENTITY;
 
 
 
-<H5 ID="aim-freeform_milling_strategy">5.2.4.1.19 freeform_milling_strategy</H5>
+<!-- ============================== -->
+<H5 ID="aim-freeform_milling_strategy">5.2.4.1.27 freeform_milling_strategy</H5>
 
 <P>A <B>freeform_milling_strategy</B> is a type of <B>milling_type_strategy</B> that represents the approach used to determine the motion of the cutting tool during a freeform milling operation.  See the ARM definitions for Freeform_strategy and subtypes in ISO 14649-11 for more information.</P>
 
@@ -36346,7 +36567,8 @@ END_ENTITY;
 
 
 
-<H5 ID="aim-freeform_milling_tolerance_representation">5.2.4.1.20 freeform_milling_tolerance_representation</H5>
+<!-- ============================== -->
+<H5 ID="aim-freeform_milling_tolerance_representation">5.2.4.1.28 freeform_milling_tolerance_representation</H5>
 
 <P>A <B>freeform_milling_tolerance_representation</B> is a type of <B>representation</B> that represents surface approximation tolerance parameters for freeform machining.  See the ARM definition for Tolerances in ISO 14649-11 for more information.</P>
 
@@ -36374,7 +36596,8 @@ END_ENTITY;
 
 
 
-<H5 ID="aim-grooving_turning_operation">5.2.4.1.21 grooving_turning_operation</H5>
+<!-- ============================== -->
+<H5 ID="aim-grooving_turning_operation">5.2.4.1.29 grooving_turning_operation</H5>
 
 <P>A <B>grooving_turning_operation</B> is a <B>turning_type_operation</B>.  See the ARM definitions for Grooving and subtypes in ISO 14649-12 for more information.</P>
 
@@ -36422,8 +36645,26 @@ END_ENTITY;
 <SPAN>NOTE</SPAN> This corresponds to local constraints <B>WR1</B> on the ARM entity  <B>Cutting_in</B>  in ISO 14649-12.</P>
 
 
+<!-- ============================== -->
+<H5 ID="aim-internal_boundary_curve_segment">5.2.4.1.30 internal_boundary_curve_segment</H5>
 
-<H5 ID="aim-knurling_turning_operation">5.2.4.1.22 knurling_turning_operation</H5>
+<p>An <b>internal_boundary_curve_segment</b> is a type
+of <b>composite_curve_segment</b> that describes a curve segment that
+adjoins a curve segment of another <b>common_boundary_curve</b>.
+
+<H6 CLASS="section-underlined">EXPRESS specification:</H6>
+<PRE CLASS="code">
+*)
+ENTITY internal_boundary_curve_segment
+  SUBTYPE OF (composite_curve_segment);
+END_ENTITY;
+(*
+</PRE>
+
+
+
+<!-- ============================== -->
+<H5 ID="aim-knurling_turning_operation">5.2.4.1.31 knurling_turning_operation</H5>
 
 <P>A <B>knurling_turning_operation</B> is a <B>turning_type_operation</B>.  See the ARM definitions for Knurling in ISO 14649-12 for more information.</P>
 
@@ -36438,7 +36679,8 @@ END_ENTITY;
 
 
 
-<H5 ID="aim-machining_adaptive_control_relationship">5.2.4.1.23 machining_adaptive_control_relationship</H5>
+<!-- ============================== -->
+<H5 ID="aim-machining_adaptive_control_relationship">5.2.4.1.32 machining_adaptive_control_relationship</H5>
 
 <P>A <B>machining_adaptive_control_relationship </B>is a type of <B>action_method_relationship</B> that represents the use of an Adaptive_control description in some context.  See the ARM definitions for the Technology subtypes in ISO 14649-11 and ISO 14649-12 for more information.</P>
 
@@ -36453,7 +36695,8 @@ END_ENTITY;
 
 
 
-<H5 ID="aim-machining_approach_retract_strategy">5.2.4.1.24 machining_approach_retract_strategy</H5>
+<!-- ============================== -->
+<H5 ID="aim-machining_approach_retract_strategy">5.2.4.1.33 machining_approach_retract_strategy</H5>
 
 <P>A <B>machining_approach_retract_strategy</B> is a type of <B>machining_strategy</B> that represents the manner in which a cutting tool approaches the workpiece at the beginning of a machining process step or retracts from the workpiece at the end of a machining process step.  See the ARM definitions for Approach_retract_strategy and subtypes in ISO 14649-11 for more information.</P>
 
@@ -36531,7 +36774,64 @@ END_ENTITY;
 
 
 
-<H5 ID="aim-machining_cutting_component">5.2.4.1.25 machining_cutting_component</H5>
+<!-- ============================== -->
+<H5 ID="aim-machining_broadcast_content">5.2.4.1.34 machining_broadcast_content</H5>
+
+<p>A <b>machining_broadcast_content</b> is a type
+of <b>action_method</b> that describes the contents of a broadcast
+action.</p>
+
+<H6 CLASS="section-underlined">EXPRESS specification:</H6>
+<PRE CLASS="code">
+*)
+ENTITY machining_broadcast_content
+  SUBTYPE OF (action_method);
+END_ENTITY;
+(*
+</PRE>
+
+
+
+<!-- ============================== -->
+<H5 ID="aim-machining_broadcast_content_relationship">5.2.4.1.35 machining_broadcast_content_relationship</H5>
+
+<p>A <b>machining_broadcast_content_relationship</b> is a type
+of <b>action_method_relationship</b> that relates a broadcast strategy
+with a broadcast content description that indicates what is to be
+emitted.</p>
+
+<H6 CLASS="section-underlined">EXPRESS specification:</H6>
+<PRE CLASS="code">
+*)
+ENTITY machining_broadcast_content_relationship
+  SUBTYPE OF (action_method_relationship);
+END_ENTITY;
+(*
+</PRE>
+
+
+
+
+<!-- ============================== -->
+<H5 ID="aim-machining_broadcast_strategy">5.2.4.1.36 machining_broadcast_strategy</H5>
+
+<p>A <b>machining_broadcast_strategy</b> is a type
+of <b>machining_strategy</b> that describes where and how to perform
+broadcast actions during process execution.</p>
+
+<H6 CLASS="section-underlined">EXPRESS specification:</H6>
+<PRE CLASS="code">
+*)
+ENTITY machining_broadcast_strategy
+  SUBTYPE OF (machining_strategy);
+END_ENTITY;
+(*
+</PRE>
+
+
+
+<!-- ============================== -->
+<H5 ID="aim-machining_cutting_component">5.2.4.1.37 machining_cutting_component</H5>
 
 <P>A <B>machining_cutting_component</B> is a type of <B>action_resource</B> and <B>characterized_object</B> that represents the cutting edge characteristics of a tool for machining.  See the ARM definitions for Cutting_component in ISO 14649-111 and Cutting_edge_properties in ISO 14649-121 for more information.</P>
 
@@ -36630,7 +36930,8 @@ END_ENTITY;
 
 
 
-<H5 ID="aim-machining_cutting_corner_representation">5.2.4.1.26 machining_cutting_corner_representation</H5>
+<!-- ============================== -->
+<H5 ID="aim-machining_cutting_corner_representation">5.2.4.1.38 machining_cutting_corner_representation</H5>
 
 <P>A <B>machining_cutting_corner_representation</B> is a type of <B>representation</B> that represents the corner transitions of a cutting edge of a tool for machining.  See the ARM definition for Corner_transition in ISO 14649-12 for more information.</P>
 
@@ -36700,7 +37001,8 @@ END_ENTITY;
 
 
 
-<H5 ID="aim-machining_dwell_time_representation">5.2.4.1.27 machining_dwell_time_representation</H5>
+<!-- ============================== -->
+<H5 ID="aim-machining_dwell_time_representation">5.2.4.1.39 machining_dwell_time_representation</H5>
 
 <P>A <B>machining_dwell_time_representation</B> is a type of <B>representation</B> that represents the duration of time that a machine tool perfoms some action. The dwell time is described as one of the following:</P>
 <UL>
@@ -36740,7 +37042,8 @@ END_ENTITY;
 
 
 
-<H5 ID="aim-machining_execution_resource">5.2.4.1.28 machining_execution_resource</H5>
+<!-- ============================== -->
+<H5 ID="aim-machining_execution_resource">5.2.4.1.40 machining_execution_resource</H5>
 
 <P>A <B>machining_execution_resource</B> is a type of <B>action_resource</B> that represents machine tool capability requirements for machining.  See the ARM definition for <a href="clause4.htm#ao-machine_parameters">Machine_parameters</a> for more information.</P>
 
@@ -36872,7 +37175,8 @@ END_ENTITY;
 
 
 
-<H5 ID="aim-machining_feature_process">5.2.4.1.29 machining_feature_process</H5>
+<!-- ============================== -->
+<H5 ID="aim-machining_feature_process">5.2.4.1.41 machining_feature_process</H5>
 
 <P>A <B>machining_feature_process</B> is a type of <B>machining_process_executable</B> that represents a set of steps in a machining process that result in a manufacturing feature.  See the ARM definition for Manufacturing_feature in ISO 14649-10 for more information.</P>
 
@@ -36901,7 +37205,8 @@ END_ENTITY;
 
 
 
-<H5 ID="aim-machining_feature_relationship">5.2.4.1.30 machining_feature_relationship</H5>
+<!-- ============================== -->
+<H5 ID="aim-machining_feature_relationship">5.2.4.1.42 machining_feature_relationship</H5>
 
 <P>A <B>machining_feature_relationship </B>is a type of <B>action_method_relationship</B> that represents use of a  feature as the manufacturing target of a workingstep.  See the ARM definitions for  Workingstep and Turning_workingstep in ISO 14649-10 and ISO 14649-12 for more information.</P>
 
@@ -36916,7 +37221,8 @@ END_ENTITY;
 
 
 
-<H5 ID="aim-machining_feature_sequence_relationship">5.2.4.1.31 machining_feature_sequence_relationship</H5>
+<!-- ============================== -->
+<H5 ID="aim-machining_feature_sequence_relationship">5.2.4.1.43 machining_feature_sequence_relationship</H5>
 
 <P>A <B>machining_feature_sequence_relationship </B>is a type of <B>machining_feature_relationship</B> and <B>sequential_method</B> that represents use of a  feature as an element of a sequence of manufacturing targets of a workingstep.  See the ARM definition for Turning_workingstep in ISO 14649-12 for more information.</P>
 
@@ -36931,7 +37237,8 @@ END_ENTITY;
 
 
 
-<H5 ID="aim-machining_feed_speed_representation">5.2.4.1.32 machining_feed_speed_representation</H5>
+<!-- ============================== -->
+<H5 ID="aim-machining_feed_speed_representation">5.2.4.1.44 machining_feed_speed_representation</H5>
 
 <P>A <B>machining_feed_speed_representation</B> is a type of <B>representation</B> that represents the speed at which a tool is moved through material.  The feed speed is described as one of the following:</P>
 
@@ -36995,7 +37302,8 @@ END_ENTITY;
 
 
 
-<H5 ID="aim-machining_final_feature_relationship">5.2.4.1.33 machining_final_feature_relationship</H5>
+<!-- ============================== -->
+<H5 ID="aim-machining_final_feature_relationship">5.2.4.1.45 machining_final_feature_relationship</H5>
 
 <P>A <B>machining_final_feature_relationship </B>is a type
 of <B>action_method_relationship</B> that represents a feature visible
@@ -37016,7 +37324,8 @@ END_ENTITY;
 
 
 
-<H5 ID="aim-machining_fixture_usage">5.2.4.1.34 machining_fixture_usage</H5>
+<!-- ============================== -->
+<H5 ID="aim-machining_fixture_usage">5.2.4.1.46 machining_fixture_usage</H5>
 
 <P>A <B>machining_fixture_usage</B> is a type of <B>action_method</B>
 that represents fixture usage to satisfy requirements for machining.
@@ -37061,7 +37370,8 @@ END_ENTITY;
 
 
 
-<H5 ID="aim-machining_functions">5.2.4.1.35 machining_functions</H5>
+<!-- ============================== -->
+<H5 ID="aim-machining_functions">5.2.4.1.47 machining_functions</H5>
 
 <P>A <B>machining_functions</B> instance is a type of <B>action_method</B> that represents settings on the machine tool which is to execute a machining process.  See the ARM definitions for Machine_functions in ISO 14649-10, Milling_machine_functions in ISO 14649-11, and Turning_machine_functions in ISO 14649-12 for more information.</P>
 
@@ -37205,7 +37515,8 @@ END_ENTITY;
 
 
 
-<H5 ID="aim-machining_functions_relationship">5.2.4.1.36 machining_functions_relationship</H5>
+<!-- ============================== -->
+<H5 ID="aim-machining_functions_relationship">5.2.4.1.48 machining_functions_relationship</H5>
 
 <P>A <B>machining_functions_relationship </B>is a type of <B>action_method_relationship</B> that represents use of a Machine_functions description in some context.  See the ARM definitions for Operation, Toolpath and their subtypes in ISO 14649-10, ISO 14649-11 and ISO 14649-12 for more information.</P>
 
@@ -37220,9 +37531,28 @@ END_ENTITY;
 
 
 
+<!-- ============================== -->
+<H5 ID="aim-machining_group">5.2.4.1.49 machining_group</H5>
+
+<p>A <b>machining_group</b> is a type of <b>group</b>
+and <b>characterized_object</b> that collects elements of a
+manufacturing description.</p>
+
+<H6 CLASS="section-underlined">EXPRESS specification:</H6>
+<PRE CLASS="code">
+*)
+ENTITY machining_group
+  SUBTYPE OF (group, characterized_object);
+END_ENTITY;
+(*
+</PRE>
 
 
-<H5 ID="aim-machining_machine_usage">5.2.4.1.37 machining_machine_usage</H5>
+
+
+
+<!-- ============================== -->
+<H5 ID="aim-machining_machine_usage">5.2.4.1.50 machining_machine_usage</H5>
 
 <P>A <B>machining_machine_usage</B> is a type of <B>action_method</B> that represents machine usage to satisfy requirements for machining.  See the ARM definition for <a href="clause4.htm#ao-machine_usage">Machine_usage</a> for more information.</P>
 
@@ -37251,15 +37581,25 @@ END_ENTITY;
 
 
 
-<H5 ID="aim-machining_nc_function">5.2.4.1.38 machining_nc_function</H5>
+<!-- ============================== -->
+<H5 ID="aim-machining_nc_function">5.2.4.1.51 machining_nc_function</H5>
 
-<P>A <B>machining_nc_function</B> is a type of <B>machining_process_executable</B> that represents a step in a machining process.  See the ARM definitions for NC_function and subtypes in ISO 14649-10 and ISO 14649-11 for more information.</P>
+<P>A <B>machining_nc_function</B> is a type
+of <B>machining_process_executable</B>
+and <b>machining_toolpath_element</b> that represents a step in a
+machining process.  See the ARM definitions for NC_function and
+subtypes in ISO 14649-10 and ISO 14649-11 for more information.</P>
+
+<P CLASS="note">
+<SPAN>NOTE</SPAN>This edition changes the supertype of
+maching_nc_function to add machining_toolpath_element.  The
+representation of an instance in ISO 10303-21 data set is unchanged.</P>
 
 <H6 CLASS="section-underlined">EXPRESS specification:</H6>
 <PRE CLASS="code">
 *)
 ENTITY machining_nc_function
-  SUBTYPE OF (machining_process_executable);
+  SUBTYPE OF (machining_process_executable,machining_toolpath_element);
   WHERE
   WR1:  (SELF.description IN ['display message',
         'optional stop', 'program stop', 'set mark', 'wait for mark',
@@ -37319,7 +37659,8 @@ END_ENTITY;
 
 
 
-<H5 ID="aim-machining_offset_vector_representation">5.2.4.1.39 machining_offset_vector_representation</H5>
+<!-- ============================== -->
+<H5 ID="aim-machining_offset_vector_representation">5.2.4.1.52 machining_offset_vector_representation</H5>
 
 <P>A <B>machining_offset_vector_representation</B> is a type of <B>representation</B> that identifies NC variables that will hold the translation and rotation of a machining workpiece.  See the ARM definitions for Offset_vector and NC_variable in ISO 14649-10 for more information.</P>
 
@@ -37367,7 +37708,8 @@ END_ENTITY;
 
 
 
-<H5 ID="aim-machining_operation">5.2.4.1.40 machining_operation</H5>
+<!-- ============================== -->
+<H5 ID="aim-machining_operation">5.2.4.1.53 machining_operation</H5>
 
 <P>A <B>machining_operation</B> is a type of <B>action_method</B> that represents the manufacturing details of a step of a machining process.  See the ARM definitions for Operation and subtypes in ISO 14649-10 and ISO 14649-11 for more information.</P>
 
@@ -37438,7 +37780,26 @@ END_ENTITY;
 
 
 
-<H5 ID="aim-machining_operation_relationship">5.2.4.1.41 machining_operation_relationship</H5>
+<!-- ============================== -->
+<H5 ID="aim-machining_operation_planning_relationship">5.2.4.1.54 machining_operation_planning_relationship</H5>
+
+<p>A <b>machining_operation_planning_relationship</b> is a type
+of <b>sequential_method</b> that relates an operation with a sequence
+of more detailed operations for planning purposes.</p>
+
+<H6 CLASS="section-underlined">EXPRESS specification:</H6>
+<PRE CLASS="code">
+*)
+ENTITY machining_operation_planning_relationship
+  SUBTYPE OF (sequential_method);
+END_ENTITY;
+(*
+</PRE>
+
+
+
+<!-- ============================== -->
+<H5 ID="aim-machining_operation_relationship">5.2.4.1.55 machining_operation_relationship</H5>
 
 <P>A <B>machining_operation_relationship </B>is a type of <B>action_method_relationship</B> that represents use of an Operation to describe the action performed by a workingstep.  See the ARM definitions for  Workingstep and Turning_workingstep in ISO 14649-10 and ISO 14649-12 for more information.</P>
 
@@ -37453,7 +37814,8 @@ END_ENTITY;
 
 
 
-<H5 ID="aim-machining_operator_instruction">5.2.4.1.42 machining_operator_instruction</H5>
+<!-- ============================== -->
+<H5 ID="aim-machining_operator_instruction">5.2.4.1.56 machining_operator_instruction</H5>
 
 <P>A <B>machining_operator_instruction</B> is a type of <B>action_method_with_associated_documents</B> that represents instructions to the human operator of a machining process.  See the ARM definition for Setup_instruction in ISO 14649-10 for more information.</P>
 
@@ -37477,7 +37839,8 @@ END_ENTITY;
 
 
 
-<H5 ID="aim-machining_operator_instruction_relationship">5.2.4.1.43 machining_operator_instruction_relationship</H5>
+<!-- ============================== -->
+<H5 ID="aim-machining_operator_instruction_relationship">5.2.4.1.57 machining_operator_instruction_relationship</H5>
 
 <P>A <B>machining_operator_instruction_relationship </B>is a type of <B>sequential_method</B> that represents use of a Setup_instruction as an element of a sequence of instructions in a Workpiece_setup.  See the ARM definitions for Workpiece_setup in ISO 14649-10 for more information.</P>
 
@@ -37492,7 +37855,8 @@ END_ENTITY;
 
 
 
-<H5 ID="aim-machining_process_body_relationship">5.2.4.1.44 machining_process_body_relationship</H5>
+<!-- ============================== -->
+<H5 ID="aim-machining_process_body_relationship">5.2.4.1.58 machining_process_body_relationship</H5>
 
 <P>A <B>machining_process_body_relationship </B>is a type of <B>action_method_relationship</B> that represents use of an Executable as an element in the control flow described by another Executable.  See the ARM definitions for the Executable subtypes in ISO 14649-10 for more information.</P>
 
@@ -37507,7 +37871,8 @@ END_ENTITY;
 
 
 
-<H5 ID="aim-machining_process_branch_relationship">5.2.4.1.45 machining_process_branch_relationship</H5>
+<!-- ============================== -->
+<H5 ID="aim-machining_process_branch_relationship">5.2.4.1.59 machining_process_branch_relationship</H5>
 
 <P>A <B>machining_process_branch_relationship </B>is a type of <B>machining_process_body_relationship</B> that represents use of an Executable as an element in the branching control flow described by another Executable.  See the ARM definitions for If_statement, Selective, and other Executable subtypes in ISO 14649-10 for more information.</P>
 
@@ -37522,7 +37887,8 @@ END_ENTITY;
 
 
 
-<H5 ID="aim-machining_process_concurrent_relationship">5.2.4.1.46 machining_process_concurrent_relationship</H5>
+<!-- ============================== -->
+<H5 ID="aim-machining_process_concurrent_relationship">5.2.4.1.60 machining_process_concurrent_relationship</H5>
 
 <P>A <B>machining_process_branch_relationship </B>is a type of <B>machining_process_body_relationship</B> and <B>concurrent_action_method</B> that represents use of an Executable as one of possibly several simultaneous elements in the control flow described by another Executable.  See the ARM definitions for Parallel and other Executable subtypes in ISO 14649-10 for more information.</P>
 
@@ -37537,7 +37903,24 @@ END_ENTITY;
 
 
 
-<H5 ID="aim-machining_process_executable">5.2.4.1.47 machining_process_executable</H5>
+<!-- ============================== -->
+<H5 ID="aim-machining_process_cost">5.2.4.1.61 machining_process_cost</H5>
+
+<p>A <b>machining_process_cost</b> is a type of <b>action_method</b>
+that describes the costs associated with a manufacturing process.</p>
+
+<H6 CLASS="section-underlined">EXPRESS specification:</H6>
+<PRE CLASS="code">
+*)
+ENTITY machining_process_cost
+  SUBTYPE OF (action_method);
+END_ENTITY;
+(*
+</PRE>
+
+
+<!-- ============================== -->
+<H5 ID="aim-machining_process_executable">5.2.4.1.62 machining_process_executable</H5>
 
 <P>A <B>machining_process_executable</B> is a type of <B>action_method</B> that represents an executable step in a machining process.  See the ARM definitions for Executable and subtypes in ISO 14649-10 for more information</P>
 
@@ -37723,7 +38106,62 @@ END_ENTITY;
 
 
 
-<H5 ID="aim-machining_process_model">5.2.4.1.48 machining_process_model</H5>
+
+<!-- ============================== -->
+<H5 ID="aim-machining_process_history">5.2.4.1.63 machining_process_history</H5>
+
+<p>A <b>machining_process_history</b> is a type
+of <b>action_method</b> that describes the history of execution
+associated with a manufacturing process.</p>
+
+<H6 CLASS="section-underlined">EXPRESS specification:</H6>
+<PRE CLASS="code">
+*)
+ENTITY machining_process_history
+  SUBTYPE OF (action_method);
+END_ENTITY;
+(*
+</PRE>
+
+
+
+<!-- ============================== -->
+<H5 ID="aim-machining_process_history_state">5.2.4.1.64 machining_process_history_state</H5>
+
+<p>A <b>machining_process_history_state</b> is a type
+of <b>action_method</b> that describes the state of execution of a
+manufacturing process at a point in time.</p>
+
+<H6 CLASS="section-underlined">EXPRESS specification:</H6>
+<PRE CLASS="code">
+*)
+ENTITY machining_process_history_state
+  SUBTYPE OF (action_method);
+END_ENTITY;
+(*
+</PRE>
+
+
+<!-- ============================== -->
+<H5 ID="aim-machining_process_list">5.2.4.1.65 machining_process_list</H5>
+
+<p>A <b>machining_process_list</b> is a type of <b>action_method</b>
+that describes an ordered collection of elements associated with a
+manufacturing process.</p>
+
+<H6 CLASS="section-underlined">EXPRESS specification:</H6>
+<PRE CLASS="code">
+*)
+ENTITY machining_process_list
+  SUBTYPE OF (action_method);
+END_ENTITY;
+(*
+</PRE>
+
+
+
+<!-- ============================== -->
+<H5 ID="aim-machining_process_model">5.2.4.1.66 machining_process_model</H5>
 
 <P>A <B>machining_process_model</B> is a type of <B>action_method</B> that represents process control settings on the machine tool which is to execute a machining process. See the ARM definition for Process_model in ISO 14649-11 for more information.</P>
 
@@ -37746,7 +38184,8 @@ END_ENTITY;
 
 
 
-<H5 ID="aim-machining_process_model_relationship">5.2.4.1.49 machining_process_model_relationship</H5>
+<!-- ============================== -->
+<H5 ID="aim-machining_process_model_relationship">5.2.4.1.67 machining_process_model_relationship</H5>
 
 <P>A <B>machining_process_model_relationship </B>is a type of <B>sequential_method</B> that represents use of a Process_model as an element of a sequence of models in a Machine_functions description.  See the ARM definitions for the Machine_functions subtypes in ISO 14649-11 and ISO 14649-12 for more information.</P>
 
@@ -37761,7 +38200,8 @@ END_ENTITY;
 
 
 
-<H5 ID="aim-machining_process_property">5.2.4.1.50 machining_process_property</H5>
+<!-- ============================== -->
+<H5 ID="aim-machining_process_property">5.2.4.1.68 machining_process_property</H5>
 
 <P>A <B>machining_process_property</B> is a type of <B>action_property</B> that describes supplemental information about an Executable or Operation application object.</P>
 
@@ -37776,7 +38216,8 @@ END_ENTITY;
 
 
 
-<H5 ID="aim-machining_process_sequence_relationship">5.2.4.1.51 machining_process_sequence_relationship</H5>
+<!-- ============================== -->
+<H5 ID="aim-machining_process_sequence_relationship">5.2.4.1.69 machining_process_sequence_relationship</H5>
 
 <P>A <B>machining_process_sequence_relationship </B>is a type of <B>machining_process_body_relationship</B> and <B>sequential_method</B> that represents use of an Executable as an element of a sequence in the control flow described by another Executable.  See the ARM definitions for Workplan and other Executable subtypes in ISO 14649-10 for more information.</P>
 
@@ -37790,8 +38231,27 @@ END_ENTITY;
 </PRE>
 
 
+<!-- ============================== -->
+<H5 ID="aim-machining_process_stage">5.2.4.1.70 machining_process_stage</H5>
 
-<H5 ID="aim-machining_project">5.2.4.1.52 machining_project</H5>
+<p>A <b>machining_process_stage</b> is a type of <b>action_method</b>
+that describes a subset of execution associated with a manufacturing
+process.</p>
+
+<H6 CLASS="section-underlined">EXPRESS specification:</H6>
+<PRE CLASS="code">
+*)
+ENTITY machining_process_stage
+  SUBTYPE OF (action_method);
+END_ENTITY;
+(*
+</PRE>
+
+
+
+
+<!-- ============================== -->
+<H5 ID="aim-machining_project">5.2.4.1.71 machining_project</H5>
 
 <P>A <B>machining_project</B> is a type of <B>product</B> that represents a Project.  See the ARM definitions for Project in ISO 14649-10 for more information.</P>
 
@@ -37856,7 +38316,8 @@ END_ENTITY;
 
 
 
-<H5 ID="aim-machining_project_workpiece_relationship">5.2.4.1.53 machining_project_workpiece_relationship</H5>
+<!-- ============================== -->
+<H5 ID="aim-machining_project_workpiece_relationship">5.2.4.1.72 machining_project_workpiece_relationship</H5>
 
 <P>A <B>machining_project_workpiece_relationship </B>is a type of <B>product_definition_relationship</B> that represents use of an Workpiece as an element of a Project.  See the ARM definitions for Project in ISO 14649-10 for more information.</P>
 
@@ -37871,7 +38332,8 @@ END_ENTITY;
 
 
 
-<H5 ID="aim-machining_rapid_movement">5.2.4.1.54 machining_rapid_movement</H5>
+<!-- ============================== -->
+<H5 ID="aim-machining_rapid_movement">5.2.4.1.73 machining_rapid_movement</H5>
 
 <P>A <B>machining_rapid_movement</B> is a type of <B>machining_operation</B> that represents a rapid motion of the machine axes in a machining process.  See the ARM definitions for Rapid_movement and subtypes in ISO 14649-10 for more information.</P>
 
@@ -37885,7 +38347,8 @@ END_ENTITY;
 </PRE>
 
 
-<H5 ID="aim-machining_setup">5.2.4.1.55 machining_setup</H5>
+<!-- ============================== -->
+<H5 ID="aim-machining_setup">5.2.4.1.74 machining_setup</H5>
 
 <P>A <B>machining_setup</B> is a type of <B>product</B> that represents a Setup.  See the ARM definitions for Setup in ISO 14649-10 for more information.</P>
 
@@ -37920,7 +38383,8 @@ END_ENTITY;
 
 
 
-<H5 ID="aim-machining_setup_workpiece_relationship">5.2.4.1.56 machining_setup_workpiece_relationship</H5>
+<!-- ============================== -->
+<H5 ID="aim-machining_setup_workpiece_relationship">5.2.4.1.75 machining_setup_workpiece_relationship</H5>
 
 <P>A <B>machining_setup_workpiece_relationship </B>is a type of <B>product_definition_relationship</B> that represents use of an Workpiece as an element of a Setup in a Workpiece_setup.  See the ARM definitions for Setup and Workpiece_setup in ISO 14649-10 for more information.</P>
 
@@ -37935,7 +38399,8 @@ END_ENTITY;
 
 
 
-<H5 ID="aim-machining_spindle_speed_representation">5.2.4.1.57 machining_spindle_speed_representation</H5>
+<!-- ============================== -->
+<H5 ID="aim-machining_spindle_speed_representation">5.2.4.1.76 machining_spindle_speed_representation</H5>
 
 <P>A <B>machining_spindle_speed_representation</B> is a type of <B>representation</B> that represents the speed at which a machine tool spindle rotates. The spindle speed is described as one of the following:</P>
 
@@ -37994,7 +38459,47 @@ END_ENTITY;
 
 
 
-<H5 ID="aim-machining_strategy">5.2.4.1.58 machining_strategy</H5>
+
+
+<!-- ============================== -->
+<H5 ID="aim-machining_stack">5.2.4.1.77 machining_stack</H5>
+
+<p>A <b>machining_stack</b> is a type of <b>action_method</b> that
+represents the ordering of elements in a drilling operation.</p>
+
+<H6 CLASS="section-underlined">EXPRESS specification:</H6>
+<PRE CLASS="code">
+*)
+ENTITY machining_stack
+  SUBTYPE OF (action_method);
+END_ENTITY;
+(*
+</PRE>
+
+
+
+
+
+<!-- ============================== -->
+<H5 ID="aim-machining_stack_element">5.2.4.1.78 machining_stack_element</H5>
+
+<p>A <b>machining_stack_element</b> is a type of <b>action_method</b>
+that represents one element in a drilling operation.</p>
+
+<H6 CLASS="section-underlined">EXPRESS specification:</H6>
+<PRE CLASS="code">
+*)
+ENTITY machining_stack_element
+  SUBTYPE OF (action_method);
+END_ENTITY;
+(*
+</PRE>
+
+
+
+
+<!-- ============================== -->
+<H5 ID="aim-machining_strategy">5.2.4.1.79 machining_strategy</H5>
 
 <P>A <B>machining_strategy</B> is a type of <B>action_method</B> that represents a particular approach used to perform some aspect of a step in a machining process.</P>
 
@@ -38009,7 +38514,8 @@ END_ENTITY;
 
 
 
-<H5 ID="aim-machining_strategy_relationship">5.2.4.1.59 machining_strategy_relationship</H5>
+<!-- ============================== -->
+<H5 ID="aim-machining_strategy_relationship">5.2.4.1.80 machining_strategy_relationship</H5>
 
 <P>A <B>machining_strategy_relationship </B>is a type of <B>action_method_relationship</B> that represents use of a Two5d_milling_strategy, Drilling_type_strategy, Freeform_strategy, Turning_machining_strategy, or Approach_retract_strategy description in some context.  See the ARM definitions for the Operation subtypes in ISO 14649-11 and ISO 14649-12 for more information.</P>
 
@@ -38024,7 +38530,8 @@ END_ENTITY;
 
 
 
-<H5 ID="aim-machining_technology">5.2.4.1.60 machining_technology</H5>
+<!-- ============================== -->
+<H5 ID="aim-machining_technology">5.2.4.1.81 machining_technology</H5>
 
 <P>A <B>machining_technology</B> is a type of <B>action_method</B> that represents technological parameters that govern a portion of a machining process.  See the ARM definitions for Technology in ISO 14649-10 Milling_technology in ISO 14649-11, and Turning_technology in ISO 14649-12 for more information.</P>
 
@@ -38164,7 +38671,8 @@ END_ENTITY;
 
 
 
-<H5 ID="aim-machining_technology_relationship">5.2.4.1.61 machining_technology_relationship</H5>
+<!-- ============================== -->
+<H5 ID="aim-machining_technology_relationship">5.2.4.1.82 machining_technology_relationship</H5>
 
 <P>A <B>machining_technology_relationship </B>is a type of <B>action_method_relationship</B> that represents use of a Technology description in some context.  See the ARM definitions for Operation, Toolpath and their subtypes in ISO 14649-10, ISO 14649-11 and ISO 14649-12 for more information.</P>
 
@@ -38179,7 +38687,8 @@ END_ENTITY;
 
 
 
-<H5 ID="aim-machining_tool">5.2.4.1.62 machining_tool</H5>
+<!-- ============================== -->
+<H5 ID="aim-machining_tool">5.2.4.1.83 machining_tool</H5>
 
 <P>A <B>machining_tool</B> is a type of <B>action_resource</B> that represents tool requirements for machining.  See the ARM definitions for Machining_tool in ISO 14649-10, Milling_machine_cutting_tool in ISO 14649-111, and Turning_machine_cutting_tool in ISO 14649-121 for more information.</P>
 <P CLASS="note">
@@ -38687,7 +39196,8 @@ END_ENTITY;
 
 
 
-<H5 ID="aim-machining_tool_body_representation">5.2.4.1.63 machining_tool_body_representation</H5>
+<!-- ============================== -->
+<H5 ID="aim-machining_tool_body_representation">5.2.4.1.84 machining_tool_body_representation</H5>
 
 <P>A <B>machining_tool_body_representation</B> is a type of <B>representation</B> that describes the body configuration parameters of a tool for machining.</P>
 
@@ -38702,7 +39212,8 @@ END_ENTITY;
 
 
 
-<H5 ID="aim-machining_tool_direction_representation">5.2.4.1.64 machining_tool_direction_representation</H5>
+<!-- ============================== -->
+<H5 ID="aim-machining_tool_direction_representation">5.2.4.1.85 machining_tool_direction_representation</H5>
 
 <P>A <B>machining_tool_direction_representation</B> is a type of <B>representation</B> that represents direction of the cutting tool for freeform machining.  See the ARM definition for Tool_direction in ISO 14649-10 for more information.</P>
 
@@ -38744,7 +39255,8 @@ END_ENTITY;
 
 
 
-<H5 ID="aim-machining_tool_usage">5.2.4.1.65 machining_tool_usage</H5>
+<!-- ============================== -->
+<H5 ID="aim-machining_tool_usage">5.2.4.1.86 machining_tool_usage</H5>
 
 <P>A <B>machining_tool_usage</B> is a type of <B>action_method</B> that represents tool usage to satisfy requirements for machining.  See the ARM definition for <a href="clause4.htm#ao-tool_usage">Tool_usage</a> for more information.</P>
 
@@ -38795,15 +39307,25 @@ END_ENTITY;
 <P><B>WR5</B>: The <b>machining_tool_usage</b> shall shall be the <b>definition</b> of at most one <b>action_property</b> with a <b>name</b> of 'tool end placement', and the <b>representation</b> used to describe the <b>action_property</b> shall contain a <b>representation_item</b> of type <b>axis2_placement_3d</b>.</P>
 
 
-<H5 ID="aim-machining_toolpath">5.2.4.1.66 machining_toolpath</H5>
+<!-- ============================== -->
+<H5 ID="aim-machining_toolpath">5.2.4.1.87 machining_toolpath</H5>
 
-<P>A <B>machining_toolpath</B> is a type of <B>action_method</B> that restricts a step in a machining process to use a specific movement of the machine axes.  See the ARM definitions for Toolpath and subtypes in ISO 14649-10 for more information.</P>
+<P>A <B>machining_toolpath</B> is a type
+of <B>machining_toolpath_element</B> that restricts a step in a
+machining process to use a specific movement of the machine axes.  See
+the ARM definitions for Toolpath and subtypes in ISO 14649-10 for more
+information.</P>
+
+<P CLASS="note">
+<SPAN>NOTE</SPAN>This edition changes supertype of maching_toolpath
+from action_method to machining_toolpath_element.  The representation
+of an instance in ISO 10303-21 data set is unchanged.</P>
 
 <H6 CLASS="section-underlined">EXPRESS specification:</H6>
 <PRE CLASS="code">
 *)
 ENTITY machining_toolpath
-  SUBTYPE OF (action_method);
+  SUBTYPE OF (machining_toolpath_element);
   WHERE
   WR1:  (SELF.description IN ['feedstop', 'axis trajectory',
         'cutter location trajectory', 'cutter contact trajectory',
@@ -39081,7 +39603,29 @@ END_ENTITY;
 
 
 
-<H5 ID="aim-machining_toolpath_sequence_relationship">5.2.4.1.67 machining_toolpath_sequence_relationship</H5>
+<!-- ============================== -->
+<H5 ID="aim-machining_toolpath_element">5.2.4.1.88 machining_toolpath_element</H5>
+
+<p>A <b>machining_toolpath_element</b> is a type
+of <b>action_method</b> that represents a portion of a toolpath
+description. See the ARM definitions for Toolpath_list in ISO 14649-10
+for more information.</p>
+
+<H6 CLASS="section-underlined">EXPRESS specification:</H6>
+<PRE CLASS="code">
+*)
+ENTITY machining_toolpath_element
+  SUBTYPE OF (action_method);
+END_ENTITY;
+(*
+</PRE>
+
+
+
+
+
+<!-- ============================== -->
+<H5 ID="aim-machining_toolpath_sequence_relationship">5.2.4.1.89 machining_toolpath_sequence_relationship</H5>
 
 <P>A <B>machining_toolpath_sequence_relationship </B>is a type of <B>sequential_method</B> that represents use of a Toolpath as an element of a sequence in an Operation or strategy.  See the ARM definitions for Workpiece_setup in ISO 14649-10 and Along_path in ISO 14649-11 for more information.</P>
 
@@ -39096,7 +39640,8 @@ END_ENTITY;
 
 
 
-<H5 ID="aim-machining_toolpath_speed_profile_representation">5.2.4.1.68 machining_toolpath_speed_profile_representation</H5>
+<!-- ============================== -->
+<H5 ID="aim-machining_toolpath_speed_profile_representation">5.2.4.1.90 machining_toolpath_speed_profile_representation</H5>
 
 <P>A <B>machining_toolpath_speed_profile_representation</B> is a type of <B>representation</B> that represents the variation of feedrate as the machine axes move through a tool path.  See the ARM definition for Toolpath_speedprofile in ISO 14649-10 for more information.</P>
 
@@ -39131,7 +39676,8 @@ END_ENTITY;
 
 
 
-<H5 ID="aim-machining_touch_probing">5.2.4.1.69 machining_touch_probing</H5>
+<!-- ============================== -->
+<H5 ID="aim-machining_touch_probing">5.2.4.1.91 machining_touch_probing</H5>
 
 <P>A <B>machining_touch_probing</B> is a type of <B>machining_operation</B> that represents a measurement step in a machining process.  See the ARM definitions for Touch_probing and subtypes in ISO 14649-10 for more information.</P>
 
@@ -39260,7 +39806,8 @@ END_ENTITY;
 
 
 
-<H5 ID="aim-machining_twin_relationship">5.2.4.1.70 machining_twin_relationship</H5>
+<!-- ============================== -->
+<H5 ID="aim-machining_twin_relationship">5.2.4.1.92 machining_twin_relationship</H5>
 
 <P>A <B>machining_twin_relationship </B>is a type
 of <B>action_method_relationship</B> that represents the association
@@ -39278,7 +39825,8 @@ END_ENTITY;
 </PRE>
 
 
-<H5 ID="aim-machining_usage_relationship">5.2.4.1.71 machining_usage_relationship</H5>
+<!-- ============================== -->
+<H5 ID="aim-machining_usage_relationship">5.2.4.1.93 machining_usage_relationship</H5>
 
 <P>A <B>machining_usage_relationship </B>is a type of <B>action_method_relationship</B> that represents the association of a Machine_usage with a Workplan.  See the <a href="clause4.htm#ao-workplan">Workplan.its_machine-usage</a> for more information.</P>
 
@@ -39292,7 +39840,8 @@ END_ENTITY;
 </PRE>
 
 
-<H5 ID="aim-machining_workingstep">5.2.4.1.72 machining_workingstep</H5>
+<!-- ============================== -->
+<H5 ID="aim-machining_workingstep">5.2.4.1.94 machining_workingstep</H5>
 
 <P>A <B>machining_workingstep</B> is a type of <B>machining_process_executable</B> that represents a step in a machining process.  See the ARM definition for Machining_workingstep in ISO 14649-10 and Turning_workingstep in ISO 14649-12 for more information.</P>
 
@@ -39373,7 +39922,8 @@ END_ENTITY;
 
 
 
-<H5 ID="aim-machining_workplan">5.2.4.1.73 machining_workplan</H5>
+<!-- ============================== -->
+<H5 ID="aim-machining_workplan">5.2.4.1.95 machining_workplan</H5>
 
 <P>A <B>machining_workplan</B> is a type of <B>machining_process_executable</B> that represents a sequence of steps in a machining process.  See the ARM definition for Manufacturing_feature in ISO 14649-10 for more information.</P>
 
@@ -39426,7 +39976,8 @@ END_ENTITY;
 
 
 
-<H5 ID="aim-milling_type_operation">5.2.4.1.74 milling_type_operation</H5>
+<!-- ============================== -->
+<H5 ID="aim-milling_type_operation">5.2.4.1.96 milling_type_operation</H5>
 
 <P>A <B>milling_type_operation</B> is a type of <B>machining_operation</B> that represents the details of a milling step of a machining process.  See the ARM definitions for Milling_type_operation and subtypes in ISO 14649-11 for more information.</P>
 
@@ -39476,7 +40027,8 @@ END_ENTITY;
 
 
 
-<H5 ID="aim-milling_type_strategy">5.2.4.1.75 milling_type_strategy</H5>
+<!-- ============================== -->
+<H5 ID="aim-milling_type_strategy">5.2.4.1.97 milling_type_strategy</H5>
 
 <P>A <B>milling_type_strategy</B> is a type of <B>machining_strategy</B> that represents the approach used to determine the motion of the cutting tool during a milling operation.  See the ARM definitions for Two5D_milling_strategy,  Freeform_strategy, and subtypes in ISO 14649-11 for more information.</P>
 
@@ -39586,7 +40138,8 @@ END_ENTITY;
 
 
 
-<H5 ID="aim-ngon_shape_representation">5.2.4.1.76 ngon_shape_representation</H5>
+<!-- ============================== -->
+<H5 ID="aim-ngon_shape_representation">5.2.4.1.98 ngon_shape_representation</H5>
 
 <P>An <B>ngon_shape_representation</B> specifies representation of a shape that is a volume defined as a ngon area of a defined length. The enclosed area shall be as defined by three or more straight sides. </P>
 <P CLASS="note">
@@ -39653,7 +40206,8 @@ END_ENTITY; -- ngon_shape_representation
 
 
 
-<H5 ID="aim-plane_milling_operation">5.2.4.1.77 plane_milling_operation</H5>
+<!-- ============================== -->
+<H5 ID="aim-plane_milling_operation">5.2.4.1.99 plane_milling_operation</H5>
 
 <P>A <B>plane_milling_operation</B> is a type of <B>milling_type_operation</B> that represents a 2.5D milling step in which material is removed perpendicular to the cutting tool axis.  See the ARM definitions for Plane_milling_operation and subtypes in ISO 14649-11 for more information.</P>
 
@@ -39691,8 +40245,27 @@ END_ENTITY;
 <SPAN>NOTE</SPAN> This corresponds to local constraint <B>WR1</B> on the ARM entity  Plane_rough_milling in ISO 14649-11.</P>
 
 
+<!-- ============================== -->
+<H5 ID="aim-sequential_group_assignment">5.2.4.1.100 sequential_group_assignment</H5>
 
-<H5 ID="aim-side_milling_operation">5.2.4.1.78 side_milling_operation</H5>
+<p>A <b>sequential_group_assignment</b> is a type
+of <b>applied_group_assignment</b> that that describes an ordering for
+a collection of group assignments.</p>
+
+<H6 CLASS="section-underlined">EXPRESS specification:</H6>
+<PRE CLASS="code">
+*)
+ENTITY sequential_group_assignment
+  SUBTYPE OF (applied_group_assignment, characterized_object);
+END_ENTITY;
+(*
+</PRE>
+
+
+
+
+<!-- ============================== -->
+<H5 ID="aim-side_milling_operation">5.2.4.1.101 side_milling_operation</H5>
 
 <P>A <B>side_milling_operation</B> is a <B>milling_type_operation</B> that represents a 2.5D milling step in which material is removed parallel to the cutting tool axis.  See the ARM definitions for Side_milling_operation and subtypes in ISO 14649-11 for more information.</P>
 
@@ -39737,7 +40310,8 @@ END_ENTITY;
 
 
 
-<H5 ID="aim-tapping_operation">5.2.4.1.79 tapping_operation</H5>
+<!-- ============================== -->
+<H5 ID="aim-tapping_operation">5.2.4.1.102 tapping_operation</H5>
 
 <P>A <B>tapping_operation</B> is a type of <B>drilling_type_operation</B> that represents the details of a drilling step in which in internal threads are cut.  See the ARM definitions for Tapping and Thread_drilling in ISO 14649-11 for more information.</P>
 
@@ -39776,7 +40350,8 @@ END_ENTITY;
 
 
 
-<H5 ID="aim-threading_turning_operation">5.2.4.1.80 threading_turning_operation</H5>
+<!-- ============================== -->
+<H5 ID="aim-threading_turning_operation">5.2.4.1.103 threading_turning_operation</H5>
 
 <P>A <B>threading_turning_operation</B> is a <B>turning_type_operation</B>.  See the ARM definitions for Threading and subtypes in ISO 14649-12 for more information.</P>
 
@@ -39810,7 +40385,8 @@ END_ENTITY;
 
 
 
-<H5 ID="aim-turning_type_operation">5.2.4.1.81 turning_type_operation</H5>
+<!-- ============================== -->
+<H5 ID="aim-turning_type_operation">5.2.4.1.104 turning_type_operation</H5>
 
 <P>A <B>turning_type_operation</B> is a type of <B>machining_operation</B> that represents the details of a turning step of a machining process.  See the ARM definitions for Turning_machining_operation and subtypes in ISO 14649-12 for more information.</P>
 
@@ -39856,7 +40432,8 @@ END_ENTITY;
 
 
 
-<H5 ID="aim-turning_type_strategy">5.2.4.1.82 turning_type_strategy</H5>
+<!-- ============================== -->
+<H5 ID="aim-turning_type_strategy">5.2.4.1.105 turning_type_strategy</H5>
 
 <P>A <B>turning_type_strategy</B> is a type of <B>machining_strategy</B> that represents the approach used to determine the motion of the cutting tool during a turning operation.  See the ARM definitions for Turning_machining_strategy and subtypes in ISO 14649-12 for more information.</P>
 
@@ -40087,7 +40664,111 @@ END_ENTITY;
 <P><B>WR11</B>: If the <B>description</B> of the <B>turning_type_strategy</B> is 'multistep grooving', the <B>turning_type_strategy</B> shall be the <B>definition</B> of at most one <B>action_property</B> with a <B>name</B> of 'retract distance', and the <B>representation</B> used to describe the <B>action_property</B> shall contain a <B>representation_item </B>of type <B>measure_representation_item</B> and <B>length_measure_with_unit</B>.</P>
 
 
-<H5 ID="aim-via_arc_point">5.2.4.1.83 via_arc_point</H5>
+
+<!-- ============================== -->
+<H5 ID="aim-twin_expected_property">5.2.4.1.106 twin_expected_property</H5>
+
+<p>A <b>twin_expected_property</b> is a type
+of <b>property_definition</b> that represents the expected as-measured
+result of a property on a digital twin. See the ARM definitions for
+<a href="clause4.htm#ao-expected_property">Expected_property</a> and
+subtypes for more information.</p>
+
+<H6 CLASS="section-underlined">EXPRESS specification:</H6>
+<PRE CLASS="code">
+*)
+ENTITY twin_expected_property
+  SUBTYPE OF (property_definition);
+END_ENTITY;
+(*
+</PRE>
+
+
+
+<!-- ============================== -->
+<H5 ID="aim-twin_feature">5.2.4.1.107 twin_feature</H5>
+
+<p>A <b>twin_feature</b> is a type of <b>instanced_feature</b> that
+represents the as-made result of a manufacturing operation on a
+digital twin. See the ARM definitions
+for <a href="clause4.htm#ao-manufacturing_feature_twin">Manufacturing_feature_twin</a>
+and subtypes for more information.</p>
+
+<H6 CLASS="section-underlined">EXPRESS specification:</H6>
+<PRE CLASS="code">
+*)
+ENTITY twin_feature
+  SUBTYPE OF (instanced_feature);
+END_ENTITY;
+(*
+</PRE>
+
+
+
+<!-- ============================== -->
+<H5 ID="aim-twin_measured_property">5.2.4.1.108 twin_measured_property</H5>
+
+<p>A <b>twin_measured_property</b> is a type
+of <b>property_definition</b> that represents the as-measured result
+of a property on a digital twin. See the ARM definitions
+for <a href="clause4.htm#ao-measured_property">Measured_property</a>
+and subtypes for more information.</p>
+
+<H6 CLASS="section-underlined">EXPRESS specification:</H6>
+<PRE CLASS="code">
+*)
+ENTITY twin_measured_property
+  SUBTYPE OF (property_definition);
+END_ENTITY;
+(*
+</PRE>
+
+
+
+<!-- ============================== -->
+<H5 ID="aim-twin_prototype_feature">5.2.4.1.109 twin_prototype_feature</H5>
+
+<p>A <b>twin_prototype_feature</b> is a type
+of <b>instanced_feature</b> that represents the expected as-made
+result of a manufacturing operation on a digital twin. See the ARM
+definitions
+for <a href="clause4.htm#ao-manufacturing_feature_prototype">Manufacturing_feature_prototype</a>
+and subtypes for more information.</p>
+
+<H6 CLASS="section-underlined">EXPRESS specification:</H6>
+<PRE CLASS="code">
+*)
+ENTITY twin_prototype_feature
+  SUBTYPE OF (instanced_feature);
+END_ENTITY;
+(*
+</PRE>
+
+
+
+<!-- ============================== -->
+<H5 ID="aim-twin_prototype_relationship">5.2.4.1.110 twin_prototype_relationship</H5>
+
+<p>A <b>twin_prototype_relationship</b> is a type
+of <b>property_definition_relationship</b> that associates the digital
+twin description of an as-made concept with its as-designed
+description. See the ARM definition
+for <a href="clause4.htm#ao-product_view_twin">Product_view_twin</a>
+for more information.</p>
+
+<H6 CLASS="section-underlined">EXPRESS specification:</H6>
+<PRE CLASS="code">
+*)
+ENTITY twin_prototype_relationship
+  SUBTYPE OF (property_definition_relationship);
+END_ENTITY;
+(*
+</PRE>
+
+
+
+<!-- ============================== -->
+<H5 ID="aim-via_arc_point">5.2.4.1.111 via_arc_point</H5>
 
 <P>A <b>via_arc_point</b> is a <b>cartesian_point</b>. When appearing in the <b>points</b> list of a <b>polyline</b>, the <b>via_arc_point</b> defines an arc starting at the previous point in the <b>polyline</b>, passing through the <b>via_arc_point</b>, and ending at the next point in the <b>polyline</b>. The arc defined by the <b>via_arc_point</b> shall be less than 2&pi;.</P>
 
@@ -40153,7 +40834,8 @@ END_ENTITY;
 <b>WR2</b>: The <b>via_arc_point</b> shall not appear as either the first or last element in the <b>points</b> list of any <b>polyline</b>.</p>
 
 
-<H5 ID="aim-via_helix_point">5.2.4.1.84 via_helix_point</H5>
+<!-- ============================== -->
+<H5 ID="aim-via_helix_point">5.2.4.1.112 via_helix_point</H5>
 
 <P>A <b>via_helix_point</b> is a <b>cartesian_point</b>.  When appearing in the <b>points</b> list of a <b>polyline</b>, the <b>via_helix_point</b> defines an helix starting at the previous point in the <b>polyline</b>, passing through the <b>via_helix_point</b>, and ending at the next point in the <b>polyline</b>.   As with <b>via_arc_point</b>, when projected to the plane, the arc defined by the <b>via_helix_point</b> shall be less than 2&pi;.</P>
 
@@ -40192,6 +40874,7 @@ END_ENTITY;
 <H4 ID="aim-import-entities">5.2.4.2 Model based integrated manufacturing imported entity modifications</H4>
 
 
+<!-- ============================== -->
 <H5 ID="aim-application_context">5.2.4.2.1 application_context</H5>
 
 <P>The base definition of the <B>application_context</B> entity shall be as given in ISO 10303-41. The following modifications apply to this document.</P>
@@ -40205,6 +40888,7 @@ END_ENTITY;
 
 
 
+<!-- ============================== -->
 <H5 ID="aim-application_protocol_definition">5.2.4.2.2 application_protocol_definition</H5>
 
 <P>The base definition of the <B>application_protocol_definition</B> entity shall be as given in ISO 10303-41. The following modifications apply to this document.</P>
@@ -40217,6 +40901,7 @@ END_ENTITY;
 </UL>
 
 
+<!-- ============================== -->
 <H5 ID="aim-derived_unit">5.2.4.2.3 derived_unit</H5>
 
 <P>The base definition of the <B>derived_unit</B> entity shall be as given in ISO 10303-41. The following modifications apply to this document.</P>
@@ -40230,6 +40915,7 @@ END_ENTITY;
 
 
 
+<!-- ============================== -->
 <H5 ID="aim-named_unit">5.2.4.2.4 named_unit</H5>
 
 <P>The base definition of the <B>named_unit</B> entity shall be as given in ISO 10303-41. The following modifications apply to this document.</P>
@@ -40243,6 +40929,7 @@ END_ENTITY;
 
 
 
+<!-- ============================== -->
 <H5 ID="aim-numeric_variable">5.2.4.2.5 numeric_variable</H5>
 
 <P>The base definition of the <B>numeric_variable</B> entity shall be as given in ISO 13584-20. The following modifications apply to this document.</P>
@@ -40256,6 +40943,7 @@ END_ENTITY;
 
 
 
+<!-- ============================== -->
 <H5 ID="aim-process_property_association">5.2.4.2.6 process_property_association</H5>
 
 <P>The base definition of the <B>process_property_association</B> entity shall be as given in ISO 10303-49. The following modifications apply to this document.</P>
@@ -40269,6 +40957,7 @@ END_ENTITY;
 
 
 
+<!-- ============================== -->
 <H5 ID="aim-product">5.2.4.2.7 product</H5>
 
 <P>The base definition of the <B>product</B> entity shall be as given in ISO 10303-41. The following modifications apply to this document.</P>
@@ -40282,6 +40971,7 @@ END_ENTITY;
 
 
 
+<!-- ============================== -->
 <H5 ID="aim-product_definition_formation">5.2.4.2.8 product_definition_formation</H5>
 
 <P>The base definition of the <B>product_definition_formation</B> entity shall be as given in ISO 10303-41. The following modifications apply to this document.</P>
@@ -40295,6 +40985,7 @@ END_ENTITY;
 
 
 
+<!-- ============================== -->
 <H5 ID="aim-representation_item_relationship">5.2.4.2.9 representation_item_relationship</H5>
 
 <P>The base definition of the <B>representation_item_relationship</B> entity shall be as given in ISO 10303-43. The following modifications apply to this document.</P>
@@ -40307,6 +40998,7 @@ END_ENTITY;
 </UL>
 
 
+<!-- ============================== -->
 <H5 ID="aim-shape_aspect">5.2.4.2.10 shape_aspect</H5>
 
 <P>The base definition of the <B>shape_aspect</B> entity shall be as given in ISO 10303-41. The following modifications apply to this document.</P>
