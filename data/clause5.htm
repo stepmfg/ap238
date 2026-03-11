@@ -1138,7 +1138,6 @@ specification below.
 </table>
 
 
-
 <H5 ID="map-manufacturing_feature-twin_history">5.1.5.1.1 manufacturing_feature to phase_history (as twin_history)</H5>
 
 <table class="map">
@@ -1185,6 +1184,32 @@ action_method_assignment.assigned_action_method -&gt;
 action_method =&gt;
 machining_strategy =&gt;
 machining_broadcast_strategy
+</td>
+</tr>
+</table>
+
+<!-- ============================== -->
+<DIV><DIV class=quick>
+<A HREF="clause4.htm#ao-toolpath_feature">AO</a>
+<A HREF="annexG.htm#toolpath_feature">ARM</a>
+</DIV>
+<H4 ID="map-toolpath_feature">5.1.5.2 TOOLPATH_FEATURE</H4>
+</DIV>
+
+<table class="map">
+<tr><th>AIM element:</th>
+<td>instanced_feature</td>
+</tr>
+
+<tr><th>Source:</th>
+<td>10303-47</td>
+</tr>
+
+<tr><th>Reference path:</th>
+<td class="path">instanced_feature &lt;=
+feature_definition &lt;=
+characterized_object
+{ characterized_object.description = 'toolpath' }
 </td>
 </tr>
 </table>
