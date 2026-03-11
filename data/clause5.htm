@@ -1051,6 +1051,62 @@ product_definition
 
 
 
+<!-- ============================== -->
+<DIV><DIV class=quick>
+<A HREF="clause4.htm#ao-material_workpiece">AO</a>
+<A HREF="annexG.htm#material_workpiece">ARM</a>
+</DIV>
+<H4 ID="map-material_workpiece">5.1.4.2 MATERIAL_WORKPIECE</H4>
+</DIV>
+
+<table class="map">
+<tr><th>AIM element:</th>
+<td>product_definition</td>
+</tr>
+
+<tr><th>Source:</th>
+<td>10303-41</td>
+</tr>
+
+<tr><th>Reference path:</th>
+<td class="path">product_definition
+product_definition.formation -&gt;
+product_definition_formation
+product_definition_formation.of_product -&gt;
+product 
+{ product &lt;- 
+product_related_product_category.products[i]
+product_related_product_category &lt;= 
+product_category
+product_category.name='material' }
+</td>
+</tr>
+</table>
+
+
+<H5 ID="map-material_workpiece-its_material_properties">5.1.4.2.1 material_workpiece to material_property (as its_material_properties)</H5>
+
+<table class="map">
+<tr><th>AIM element:</th>
+<td>PATH</td>
+</tr>
+
+<tr><th>Reference path:</th>
+<td class="path">product_definition
+characterized_product_definition = product_definition
+characterized_product_definition
+characterized_definition = characterized_product_definition
+characterized_definition &lt;-
+property_definition.definition
+property_definition =&gt;
+material_property
+</td>
+</tr>
+</table>
+
+
+
+
 <H3 ID="mapuof-feature">5.1.5 Mapping specification for manufacturing feature UoF</H3>
 
 <P>The mapping specification for the application objects in this UoF
@@ -3670,6 +3726,28 @@ action_method
 <tr><th>Reference path:</th>
 <td class="path">machining_process_executable &lt;=
 action_method
+</td>
+</tr>
+</table>
+
+<H5 ID="map-program_structure-planning_operation">5.1.6.24.1 program_structure to operation (as planning_operation)</H5>
+
+<table class="map">
+<tr><th>AIM element:</th>
+<td>PATH</td>
+</tr>
+
+<tr><th>Reference path:</th>
+<td class="path">machining_process_executable &lt;=
+action_method &lt;-
+action_method_relationship.relating_method
+action_method_relationship
+{ action_method_relationship =&gt;
+machining_operation_relationship }
+{ action_method_relationship.name = 'planning' }
+action_method_relationship.related_method -&gt;
+action_method =&gt;
+machining_operation
 </td>
 </tr>
 </table>
