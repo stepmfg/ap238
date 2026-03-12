@@ -1495,19 +1495,49 @@ END_ENTITY;
 <H3 ID="ao-adjust_placement_probing">4.3.3 Adjust_placement_probing</H3>
 </DIV>
 
-<P>An Adjust_placement_probing application object is a type of</P>
+<P>An Adjust_placement_probing application object is a type of
+Feature_complete_probing that adjusts the position of a product or
+process.</P>
+
+<P CLASS="note">
+<SPAN>EXAMPLE</SPAN>A Feature_complete_probing could adjust the
+position of a product such as a fastener, or a process such as a
+drilling operation.</P>
+
 
 <P>The data associated with a Adjust_placement_probing are the
 following:</P>
+
 <UL>
+<LI>adjusted_product;</LI>
+<LI>adjusted_process.</LI>
 </UL>
+
 
 <P CLASS="note">
 <SPAN>NOTE</SPAN> The EXPRESS description for the Adjust_placement_probing
 application object is shown below.</P>
 
 <PRE CLASS="note">
+ENTITY Adjust_placement_probing	-- ADDED BY 10303-238e4
+  SUBTYPE OF (Feature_complete_probing);
+  adjusted_product	: OPTIONAL Product_view_definition;
+  adjusted_process	: OPTIONAL Executable;
+END_ENTITY;
 </PRE>
+
+
+<H4 ID="ao-adjust_placement_probing-adjusted_product">5.15.1 adjust_placement_probing to product_view_definition (as adjusted_product)</H4>
+
+<p>The adjusted_product specifies the product to be adjusted.  The
+product shall be adjusted by changing its workpiece placement</p>
+
+
+
+<H4 ID="ao-adjust_placement_probing-adjusted_process">5.15.2 adjust_placement_probing to executable (as adjusted_process)</H4>
+
+<p>The adjusted_process specifies the process to be adjusted. The
+process shall be adjusted by changing its toolpath placement</p>
 
 
 
@@ -1542,11 +1572,16 @@ END_ENTITY;
 <H3 ID="ao-allowable_drill_group">4.3.5 Allowable_drill_group</H3>
 </DIV>
 
-<P>An Allowable_drill_group application object is a type of</P>
+<P>An Allowable_drill_group application object is a type of
+Drill_and_fill_group that specifies a drill that may be used to
+manufacture a collection of holes.</P>
 
 <P>The data associated with a Allowable_drill_group are the
 following:</P>
+
 <UL>
+<LI>allowed_drill;</LI>
+<LI>precedence.</LI>
 </UL>
 
 <P CLASS="note">
@@ -1554,7 +1589,23 @@ following:</P>
 application object is shown below.</P>
 
 <PRE CLASS="note">
+ENTITY Allowable_drill_group	-- ADDED BY 10303-238e4
+SUBTYPE OF (Drill_and_fill_group);
+  allowed_drill		: Identifier;
+  precedence 		: OPTIONAL NUMBER;
+END_ENTITY;
 </PRE>
+
+<H4 ID="ao-allowable_drill_group-allowed_drill">4.11.1 allowed_drill</H4>
+
+<p>The allowed_drill identifies a drill that may be used to manufacture holes.</p>
+
+
+<H4 ID="ao-allowable_drill_group-precedence">4.11.2 precedence</H4>
+
+<p>The precedence specifies a numeric value for the identified drill.
+When multiple drills are available, the one with the lowest precedence
+value shall be preferred.</p>
 
 
 
@@ -1566,20 +1617,43 @@ application object is shown below.</P>
 <H3 ID="ao-allowable_nose_group">4.3.6 Allowable_nose_group</H3>
 </DIV>
 
-<P>An Allowable_nose_group application object is a type of</P>
+<P>An Allowable_nose_group application object is a type of
+Drill_and_fill_group that specifies a robot end effector that may be
+used to perform drilling operations and insert fasteners for a
+collection of features.</P>
 
 <P>The data associated with a Allowable_nose_group are the
 following:</P>
+
 <UL>
+<LI>allowed_nose;</LI>
+<LI>precedence.</LI>
 </UL>
+
 
 <P CLASS="note">
 <SPAN>NOTE</SPAN> The EXPRESS description for the Allowable_nose_group
 application object is shown below.</P>
 
 <PRE CLASS="note">
+ENTITY Allowable_nose_group	-- ADDED BY 10303-238e4
+SUBTYPE OF (Drill_and_fill_group);
+  allowed_nose		: Identifier;
+  precedence 		: OPTIONAL NUMBER;
+END_ENTITY;
 </PRE>
 
+
+<H4 ID="ao-allowable_nose_group-allowed_nose">4.10.1 allowed_nose</H4>
+
+<p>The allowed_nose identifies an end effector that may be used to to
+perform drilling operations and insert fasteners.</p>
+
+<H4 ID="ao-allowable_nose_group-precedence">4.10.2 precedence</H4>
+
+<p>The precedence specifies a numeric value for the identified end
+effector.  When multiple end effectors are available, the one with the
+lowest precedence value shall be preferred.</p>
 
 
 <!-- ============================== -->
@@ -1590,11 +1664,16 @@ application object is shown below.</P>
 <H3 ID="ao-allowable_robot_group">4.3.7 Allowable_robot_group</H3>
 </DIV>
 
-<P>An Allowable_robot_group application object is a type of</P>
+<P>An Allowable_robot_group application object is a type of
+Drill_and_fill_group that specifies a robot that may be used to
+perform manufacturing operations for a collection of features.</P>
 
 <P>The data associated with a Allowable_robot_group are the
 following:</P>
+
 <UL>
+<LI>allowed_robot;</LI>
+<LI>precedence.</LI>
 </UL>
 
 <P CLASS="note">
@@ -1602,7 +1681,25 @@ following:</P>
 application object is shown below.</P>
 
 <PRE CLASS="note">
+ENTITY Allowable_robot_group	-- ADDED BY 10303-238e4
+SUBTYPE OF (Drill_and_fill_group);
+  allowed_robot		: Identifier;
+  precedence 		: OPTIONAL NUMBER;
+END_ENTITY;
 </PRE>
+
+
+<H4 ID="ao-allowable_robot_group-allowed_robot">4.9.1 allowed_robot</H4>
+
+<p>The allowed_robot specifies a robot that may be used to to
+perform manufacturing operations.</p>
+
+
+<H4 ID="ao-allowable_robot_group-precedence">4.9.2 precedence</H4>
+
+<p>The precedence specifies a numeric value for the identified robot.
+When multiple robots are available, the one with the lowest precedence
+value shall be preferred.</p>
 
 
 
@@ -3603,11 +3700,15 @@ END_ENTITY;
 <H3 ID="ao-best_fit_reference_frame_group">4.3.80 Best_fit_reference_frame_group</H3>
 </DIV>
 
-<P>A Best_fit_reference_frame_group application object is a type of</P>
+<P>A Best_fit_reference_frame_group application object is a type of
+Reference_frame_group that describes a reference frame that is
+computed from a set of guide features.</P>
 
 <P>The data associated with a Best_fit_reference_frame_group are the
 following:</P>
+
 <UL>
+<LI>guides.</LI>
 </UL>
 
 <P CLASS="note">
@@ -3615,7 +3716,24 @@ following:</P>
 application object is shown below.</P>
 
 <PRE CLASS="note">
+ENTITY Best_fit_reference_frame_group	-- ADDED BY 10303-238e4
+SUBTYPE OF (Reference_frame_group);
+  guides		: SET OF Drill_and_fill_twin;
+END_ENTITY;
 </PRE>
+
+
+
+<H4 ID="ao-best_fit_reference_frame_group-guides">4.5.1 best_fit_reference_frame_group to drill_and_fill_twin (as guides)</H4>
+
+<p>The guides specifies a collection of guide features used to compute the a reference frame.</p>
+
+<P CLASS="note">
+<SPAN>NOTE</SPAN> The best fit algorithm may use the guides to
+determine an optimal displacement to modify the position, orientation
+and rotation of the members of the group.</P>
+
+
 
 
 
@@ -4514,11 +4632,18 @@ END_ENTITY;
 <H3 ID="ao-check_dimensions_operation">4.3.100 Check_dimensions_operation</H3>
 </DIV>
 
-<P>A Check_dimensions_operation application object is a type of</P>
+<P>A Check_dimensions_operation application object is a type of
+Fill_type_operation that checks the dimension of a hole using a
+measurement device before a fastener is inserted.</P>
 
 <P>The data associated with a Check_dimensions_operation are the
 following:</P>
+
 <UL>
+<LI>check_location;</LI>
+<LI>check_size;</LI>
+<LI>check_orientation;</LI>
+<LI>check_form.</LI>
 </UL>
 
 <P CLASS="note">
@@ -4526,7 +4651,45 @@ following:</P>
 application object is shown below.</P>
 
 <PRE CLASS="note">
+ENTITY Check_dimensions_operation	-- ADDED BY 10303-238e4
+  SUBTYPE OF (Fill_type_operation);
+  check_location	: BOOLEAN;
+  check_size		: BOOLEAN;
+  check_orientation	: BOOLEAN;
+  check_form		: BOOLEAN;
+END_ENTITY;
 </PRE>
+
+<H4 ID="ao-check_dimensions_operation-check_location">5.14.1 check_location</H4>
+
+<p>The check_location specifies whether the measurement device shall
+check that the location of the hole is correct.  The check shall occur
+if check_location is true, and shall not if check_location is false or
+not specified.</p>
+
+
+<H4 ID="ao-check_dimensions_operation-check_size">5.14.2 check_size</H4>
+
+<p>The check_size specifies whether the measurement device shall check
+that the size of the hole is correct.  The check shall occur if
+check_size is true, and shall not if check_size is false or not
+specified.</p>
+
+
+<H4 ID="ao-check_dimensions_operation-check_orientation">5.14.3 check_orientation</H4>
+
+<p>The check_orientation specifies whether the measurement device
+shall check that the orientation of the hole is correct.  The check
+shall occur if check_orientation is true, and shall not if
+check_orientation is false or not specified.</p>
+
+
+<H4 ID="ao-check_dimensions_operation-check_form">5.14.4 check_form</H4>
+
+<p>The check_form specifies whether the measurement device shall check
+that the form of the hole is correct.  The check shall occur if
+check_form is true, and shall not if check_form is false or not
+specified.</p>
 
 
 
