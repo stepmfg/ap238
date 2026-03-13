@@ -4935,13 +4935,14 @@ third level enables moves to a safe point above the manufacturing. A
 fourth level safe point may exist for travel between different
 sides.</P>
 
-<FIGURE ID="fig-escape_connectors">
-<IMG SRC="../images/FIXME.svg" ALT="Escape Connectors">
+<FIGURE ID="fig-level3-escape">
+<IMG SRC="../images/connect-level3.svg" ALT="Level 3 Escape">
 <DIV class=key>
 <B>Key</B>
-<p>1&emsp;</p>
+<p>M&emsp;middle point</p>
+<p>AX&emsp;axis point</p>
 </DIV>
-<FIGCAPTION>Figure 1 &mdash; Escape Connectors</FIGCAPTION>
+<FIGCAPTION>Figure 1 &mdash; Four level escape from P1 to P600 via absolute points AX1, AX2 and AX3</FIGCAPTION>
 </FIGURE>
 
 
@@ -5021,13 +5022,14 @@ direction shall be used.</p>
 be moved from the middle point between two features.
 
 
-<FIGURE ID="fig-escape_connectors">
-<IMG SRC="../images/FIXME.svg" ALT="Escape Connectors">
+<FIGURE ID="fig-level2-escape">
+<IMG SRC="../images/connect-level2.svg" ALT="Level 2 Escape">
 <DIV class=key>
 <B>Key</B>
-<p>1&emsp;</p>
+<p>L1&emsp;Level 1 increment</p>
+<p>L2&emsp;Level 2 increment</p>
 </DIV>
-<FIGCAPTION>Figure 2 &mdash; Escape Connectors</FIGCAPTION>
+<FIGCAPTION>Figure 2 &mdash; Escape from P1 to P6 via middle points M1 and M2</FIGCAPTION>
 </FIGURE>
 
 
@@ -5106,13 +5108,13 @@ start the escape, or in the inverse to complete an entry.</p>
 <SPAN>NOTE</SPAN> An escape between two features connected by a vector
 at Level 1 will move out, move across, and move down again.</P>
 
-<FIGURE ID="fig-escape_connectors">
-<IMG SRC="../images/FIXME.svg" ALT="Escape Connectors">
+<FIGURE ID="fig-level1-escape">
+<IMG SRC="../images/connect-level1.svg" ALT="Level 1 Escape">
 <DIV class=key>
 <B>Key</B>
-<p>1&emsp;</p>
+<p>1&emsp;incremental distance</p>
 </DIV>
-<FIGCAPTION>Figure 3 &mdash; Escape Connectors</FIGCAPTION>
+<FIGCAPTION>Figure 3 &mdash; Level 1 escape from P1 to P4 when P2 and P3 are blocked</FIGCAPTION>
 </FIGURE>
 
 <!-- ============================== -->
@@ -6274,14 +6276,12 @@ computed by another inspection after the fastener is tightened.</P>
 
 <H4 ID="ao-drill_and_fill_stackup-feed">4.3.138.9 feed</H4>
 
-<p>The feed specifies FIXME FIXME FIXME 
-
+<p>The feed specifies the default drilling feedrate for all layers.</p>
 
 
 <H4 ID="ao-drill_and_fill_stackup-speed">4.3.138.10 speed</H4>
 
-<p>The speed specifies FIXME FIXME FIXME 
-
+<p>The speed specifies the default spindle speed for all layers.</p>
 
 
 <!-- ============================== -->
@@ -6656,8 +6656,24 @@ robots and features at more difficult locations.</P>
 may require additional escape moves between Levels 2 and 3 to move the
 nose sideways, and avoid a special fixture.</P>
 
+<FIGURE ID="fig-escape-feature-group">
+<IMG SRC="../images/escape-sequence-group.svg" ALT="Level 3 Escape Feature Group">
+<DIV class=key>
+<B>Key</B>
+<p>L&emsp;level</p>
+<p>FG&emsp;feature group</p>
+</DIV>
 
-<H4 ID="ao-escape_sequence_group-escape_move">4.3.146.3 escape_sequence_group to connector (as escape_move)</H4>
+<P CLASS="note">
+<SPAN>NOTE</SPAN> X1 can escape to X2 on Level 1 using Feature Group 1, but must
+go to Level 2 to reach X5 using Feature Group 4, and Level 3 to reach
+X7 using Feature Group 6.</p>
+<FIGCAPTION>Figure 5 &mdash; Escape sequence groups for a set of features across three levels.</FIGCAPTION>
+</FIGURE>
+
+
+<H4 ID="ao-escape_sequence_group-escape_move">4.3.146.3 4.3.146.3</H4>
+escape_sequence_group to connector (as escape_move)</H4>
 
 <p>The escape_move specifies the escape method for reaching the next level.</p>
 
@@ -12359,8 +12375,8 @@ Trajectory.</P>
 
 <P>Each point in the seven-dimensional curve shall describe the
 cross-section area parameters illustrated
-in <a href="#fig-cross_section">Figure 5</a>
-and <a href="#fig-cross_section_turn">Figure 6</a>. These parameters
+in <a href="#fig-cross_section">Figure 6</a>
+and <a href="#fig-cross_section_turn">Figure 7</a>. These parameters
 are as follows:
 
 <FIGURE ID="fig-cross_section">
@@ -12379,7 +12395,7 @@ are as follows:
 <p>9&emsp;X<small>CGofs</small></p>
 <p>10&emsp;center of gravity</p>
 </DIV>
-<FIGCAPTION>Figure 5 &mdash; Cross-section parameters for milling</FIGCAPTION>
+<FIGCAPTION>Figure 6 &mdash; Cross-section parameters for milling</FIGCAPTION>
 </FIGURE>
 
 <FIGURE ID="fig-cross_section_turn">
@@ -12398,14 +12414,14 @@ are as follows:
 <p>9&emsp;X<small>CGofs</small></p>
 <p>10&emsp;center of gravity</p>
 </DIV>
-<FIGCAPTION>Figure 6 &mdash; Cross-section parameters for turning</FIGCAPTION>
+<FIGCAPTION>Figure 7 &mdash; Cross-section parameters for turning</FIGCAPTION>
 </FIGURE>
 
 <UL>
 <LI>dimension 0 shall describe the maximum axial depth of the tool
 contact cross section, shown by ADmax
-in <a href="#fig-cross_section">Figure 5</a>
-and <a href="#fig-cross_section_turn">Figure 6</a>. The maximum axial
+in <a href="#fig-cross_section">Figure 6</a>
+and <a href="#fig-cross_section_turn">Figure 7</a>. The maximum axial
 depth for milling shall be measured parallel to the tool axis,
 regardless of whether the direction of feed is perpendicular to the
 tool axis. The maximum axial depth for turning shall be measured
@@ -12413,35 +12429,35 @@ parallel to the spindle axis;</LI>
 
 <LI>dimension 1 shall describe the maximum radial depth of the tool
 contact cross section, shown by RDmax
-in <a href="#fig-cross_section">Figure 5</a>
-and <a href="#fig-cross_section_turn">Figure 6</a>. The maximum radial
+in <a href="#fig-cross_section">Figure 6</a>
+and <a href="#fig-cross_section_turn">Figure 7</a>. The maximum radial
 depth shall be measured perpendicular to both the tool axis and the
 feed direction;</LI>
 
 <LI>dimension 2 shall describe the location along the X axis where the
 maximum radial depth measure is located, shown by Xmaxofs
-in <a href="#fig-cross_section">Figure 5</a>
-and <a href="#fig-cross_section_turn">Figure 6</a>;</LI>
+in <a href="#fig-cross_section">Figure 6</a>
+and <a href="#fig-cross_section_turn">Figure 7</a>;</LI>
 
 <LI>dimension 3 shall describe the location along the Y axis where the
 maximum axial depth measure is located, shown by Ymaxofs
-in <a href="#fig-cross_section">Figure 5</a>
-and <a href="#fig-cross_section_turn">Figure 6</a>;</LI>
+in <a href="#fig-cross_section">Figure 6</a>
+and <a href="#fig-cross_section_turn">Figure 7</a>;</LI>
 
 <LI>dimension 4 shall describe the total area of the tool contact
 cross section in the X-Y plane, shown by CSA
-in <a href="#fig-cross_section">Figure 5</a>
-and <a href="#fig-cross_section_turn">Figure 6</a>;</LI>
+in <a href="#fig-cross_section">Figure 6</a>
+and <a href="#fig-cross_section_turn">Figure 7</a>;</LI>
 
 <LI>dimension 5 shall describe the location along the X axis of the
 centre of gravity of the tool contact cross section, shown by XCGofs
-in <a href="#fig-cross_section">Figure 5</a>
-and <a href="#fig-cross_section_turn">Figure 6</a>;</LI>
+in <a href="#fig-cross_section">Figure 6</a>
+and <a href="#fig-cross_section_turn">Figure 7</a>;</LI>
 
 <LI>dimension 6 shall describe the location along the Y axis of the
 centre of gravity of the tool contact cross section, shown by YCGofs
-in <a href="#fig-cross_section">Figure 5</a>
-and <a href="#fig-cross_section_turn">Figure 6</a>.</LI>
+in <a href="#fig-cross_section">Figure 6</a>
+and <a href="#fig-cross_section_turn">Figure 7</a>.</LI>
 </UL>
 
 
@@ -12916,7 +12932,7 @@ known or lie outside of the set of milling tools described by ISO
 <p>7&emsp;taper_angle</p>
 <p>8&emsp;tool axis</p>
 </DIV>
-<FIGCAPTION>Figure 7 &mdash; User_defined_milling_tool parameters</FIGCAPTION>
+<FIGCAPTION>Figure 8 &mdash; User_defined_milling_tool parameters</FIGCAPTION>
 </FIGURE>
 
 <P CLASS="note">
@@ -12955,7 +12971,7 @@ END_ENTITY;
 <P>
 The corner_radius specifies the radius of the corner circle which
 describes the transition between the upper and lower line segments of
-the tool profile as shown in <a href="#fig-user_defined_tool">Figure 7</a>.</P>
+the tool profile as shown in <a href="#fig-user_defined_tool">Figure 8</a>.</P>
 
 
 <H4 ID="ao-user_defined_milling_tool-corner_radius_center_horizontal">4.3.333.2 corner_radius_center_horizontal</H4>
@@ -12984,7 +13000,7 @@ characterize the tool.</P>
 
 <P>The taper_angle specifies the angle between the upper line segment
 of the tool and the tool axis as shown
-in <a href="#fig-user_defined_tool">Figure 7</a>.</P>
+in <a href="#fig-user_defined_tool">Figure 8</a>.</P>
 
 <P CLASS="note">
 <SPAN>NOTE</SPAN> This angle will be positive when the tool diameter
@@ -12996,7 +13012,7 @@ when the tool diameter decreases when moving from tip to spindle.</P>
 
 <P>The tip_outer_angle specifies the angle between a radial line
 through the tool endpoint and the lower line segment of the tool as
-shown in <a href="#fig-user_defined_tool">Figure 7</a>.</P>
+shown in <a href="#fig-user_defined_tool">Figure 8</a>.</P>
 <P CLASS="note">
 <SPAN>NOTE</SPAN> This angle is always acute (less than 90 degrees)</P>
 
