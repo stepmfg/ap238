@@ -76,6 +76,12 @@ FIGURE {
     text-align: center;
 }
 
+FIGURE IMG {
+    max-width: 100%;
+    margin: auto; 
+    display: block;
+}
+
 FIGURE DIV.key {
     margin: 1em 3em;
     text-align: left;

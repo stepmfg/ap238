@@ -7687,19 +7687,39 @@ END_ENTITY;
 <H3 ID="ao-fasten_with_codes">4.3.170 Fasten_with_codes</H3>
 </DIV>
 
-<P>A Fasten_with_codes application object is a type of</P>
+<P>A Fasten_with_codes application object is a type of
+Fill_type_operation that uses machine-specific codes to achieve its
+effect.</P>
 
 <P>The data associated with a Fasten_with_codes are the
 following:</P>
+
 <UL>
+<LI>pass_thru_codes.</LI>
 </UL>
+
 
 <P CLASS="note">
 <SPAN>NOTE</SPAN> The EXPRESS description for the Fasten_with_codes
 application object is shown below.</P>
 
 <PRE CLASS="note">
+ENTITY	Fasten_with_codes	-- ADDED BY 10303-238e4
+  SUBTYPE OF (Fill_type_operation);
+  pass_thru_codes	: LIST[1:?] OF STRING; 
+END_ENTITY;
 </PRE>
+
+
+
+<H4 ID="ao-fasten_with_codes-pass_thru_codes">5.4.1 pass_thru_codes</H4>
+
+<p>The pass_thru_codes specifies 
+
+The Fasten_with_codes application object is a 
+the enterprise’s machine/process specific codes that are to be used to control the manufacturing.
+
+
 
 
 
