@@ -1527,14 +1527,14 @@ END_ENTITY;
 </PRE>
 
 
-<H4 ID="ao-adjust_placement_probing-adjusted_product">5.15.1 adjust_placement_probing to product_view_definition (as adjusted_product)</H4>
+<H4 ID="ao-adjust_placement_probing-adjusted_product">4.3.3.1 adjust_placement_probing to product_view_definition (as adjusted_product)</H4>
 
 <p>The adjusted_product specifies the product to be adjusted.  The
 product shall be adjusted by changing its workpiece placement</p>
 
 
 
-<H4 ID="ao-adjust_placement_probing-adjusted_process">5.15.2 adjust_placement_probing to executable (as adjusted_process)</H4>
+<H4 ID="ao-adjust_placement_probing-adjusted_process">4.3.3.2 adjust_placement_probing to executable (as adjusted_process)</H4>
 
 <p>The adjusted_process specifies the process to be adjusted. The
 process shall be adjusted by changing its toolpath placement</p>
@@ -1596,12 +1596,12 @@ SUBTYPE OF (Drill_and_fill_group);
 END_ENTITY;
 </PRE>
 
-<H4 ID="ao-allowable_drill_group-allowed_drill">4.11.1 allowed_drill</H4>
+<H4 ID="ao-allowable_drill_group-allowed_drill">4.3.5.1 allowed_drill</H4>
 
 <p>The allowed_drill identifies a drill that may be used to manufacture holes.</p>
 
 
-<H4 ID="ao-allowable_drill_group-precedence">4.11.2 precedence</H4>
+<H4 ID="ao-allowable_drill_group-precedence">4.3.5.2 precedence</H4>
 
 <p>The precedence specifies a numeric value for the identified drill.
 When multiple drills are available, the one with the lowest precedence
@@ -1644,12 +1644,12 @@ END_ENTITY;
 </PRE>
 
 
-<H4 ID="ao-allowable_nose_group-allowed_nose">4.10.1 allowed_nose</H4>
+<H4 ID="ao-allowable_nose_group-allowed_nose">4.3.6.1 allowed_nose</H4>
 
 <p>The allowed_nose identifies an end effector that may be used to to
 perform drilling operations and insert fasteners.</p>
 
-<H4 ID="ao-allowable_nose_group-precedence">4.10.2 precedence</H4>
+<H4 ID="ao-allowable_nose_group-precedence">4.3.6.2 precedence</H4>
 
 <p>The precedence specifies a numeric value for the identified end
 effector.  When multiple end effectors are available, the one with the
@@ -1689,13 +1689,13 @@ END_ENTITY;
 </PRE>
 
 
-<H4 ID="ao-allowable_robot_group-allowed_robot">4.9.1 allowed_robot</H4>
+<H4 ID="ao-allowable_robot_group-allowed_robot">4.3.7.1 allowed_robot</H4>
 
 <p>The allowed_robot specifies a robot that may be used to to
 perform manufacturing operations.</p>
 
 
-<H4 ID="ao-allowable_robot_group-precedence">4.9.2 precedence</H4>
+<H4 ID="ao-allowable_robot_group-precedence">4.3.7.2 precedence</H4>
 
 <p>The precedence specifies a numeric value for the identified robot.
 When multiple robots are available, the one with the lowest precedence
@@ -3724,7 +3724,7 @@ END_ENTITY;
 
 
 
-<H4 ID="ao-best_fit_reference_frame_group-guides">4.5.1 best_fit_reference_frame_group to drill_and_fill_twin (as guides)</H4>
+<H4 ID="ao-best_fit_reference_frame_group-guides">4.3.80.1 best_fit_reference_frame_group to drill_and_fill_twin (as guides)</H4>
 
 <p>The guides specifies a collection of guide features used to compute the a reference frame.</p>
 
@@ -4660,7 +4660,7 @@ ENTITY Check_dimensions_operation	-- ADDED BY 10303-238e4
 END_ENTITY;
 </PRE>
 
-<H4 ID="ao-check_dimensions_operation-check_location">5.14.1 check_location</H4>
+<H4 ID="ao-check_dimensions_operation-check_location">4.3.100.1 check_location</H4>
 
 <p>The check_location specifies whether the measurement device shall
 check that the location of the hole is correct.  The check shall occur
@@ -4668,7 +4668,7 @@ if check_location is true, and shall not if check_location is false or
 not specified.</p>
 
 
-<H4 ID="ao-check_dimensions_operation-check_size">5.14.2 check_size</H4>
+<H4 ID="ao-check_dimensions_operation-check_size">4.3.100.2 check_size</H4>
 
 <p>The check_size specifies whether the measurement device shall check
 that the size of the hole is correct.  The check shall occur if
@@ -4676,7 +4676,7 @@ check_size is true, and shall not if check_size is false or not
 specified.</p>
 
 
-<H4 ID="ao-check_dimensions_operation-check_orientation">5.14.3 check_orientation</H4>
+<H4 ID="ao-check_dimensions_operation-check_orientation">4.3.100.3 check_orientation</H4>
 
 <p>The check_orientation specifies whether the measurement device
 shall check that the orientation of the hole is correct.  The check
@@ -4684,7 +4684,7 @@ shall occur if check_orientation is true, and shall not if
 check_orientation is false or not specified.</p>
 
 
-<H4 ID="ao-check_dimensions_operation-check_form">5.14.4 check_form</H4>
+<H4 ID="ao-check_dimensions_operation-check_form">4.3.100.4 check_form</H4>
 
 <p>The check_form specifies whether the measurement device shall check
 that the form of the hole is correct.  The check shall occur if
@@ -4701,20 +4701,49 @@ specified.</p>
 <H3 ID="ao-clamp_product_operation">4.3.101 Clamp_product_operation</H3>
 </DIV>
 
-<P>A Clamp_product_operation application object is a type of</P>
+<P>A Clamp_product_operation application object is a type of
+Fill_type_operation that clamps a structure during manufacturing.</P>
 
 <P>The data associated with a Clamp_product_operation are the
 following:</P>
+
+
 <UL>
+<LI>clamped_item;</LI>
+<LI>force;</LI>
+<LI>high_speed.</LI>
 </UL>
+
 
 <P CLASS="note">
 <SPAN>NOTE</SPAN> The EXPRESS description for the Clamp_product_operation
 application object is shown below.</P>
 
 <PRE CLASS="note">
+ENTITY Clamp_product_operation	-- ADDED BY 10303-238e4
+  SUBTYPE OF (Fill_type_operation);
+  clamped_item		: Product_view_definition;
+  force			: OPTIONAL Force_data_element;
+  high_speed		: BOOLEAN;
+END_ENTITY;
 </PRE>
 
+<H4 ID="ao-clamp_product_operation-clamped_item">4.3.101.1 clamp_product_operation to product_view_definition (as clamped_item)</H4>
+
+<p>The clamped_item specifies the product that shall be clamped.
+
+
+<H4 ID="ao-clamp_product_operation-force">4.3.101.2 force</H4>
+
+<p>The force specifies the force that shall be applied during clamping.
+
+
+<H4 ID="ao-clamp_product_operation-high_speed">4.3.101.3 high_speed</H4>
+
+<p>The high_speed specifies whether the clamping shall be performed at
+high speed.  The clamping shall be performed at high speed if
+high_speed is true, and may not if high_speed is false or not
+specified.</p>
 
 
 <!-- ============================== -->
@@ -4725,11 +4754,16 @@ application object is shown below.</P>
 <H3 ID="ao-collar_prototype">4.3.102 Collar_prototype</H3>
 </DIV>
 
-<P>A Collar_prototype application object is a type of</P>
+<P>A Collar_prototype application object is a type of
+Product_view_prototype that describes expected properties for a collar
+that holds a fastener.</P>
 
 <P>The data associated with a Collar_prototype are the
 following:</P>
+
 <UL>
+<LI>allowed_for;</LI>
+<LI>required_torque.</LI>
 </UL>
 
 <P CLASS="note">
@@ -4737,8 +4771,28 @@ following:</P>
 application object is shown below.</P>
 
 <PRE CLASS="note">
+ENTITY Collar_prototype		-- ADDED BY 10303-238e4
+  SUBTYPE OF (Product_view_prototype);
+  allowed_for: 		SET [0:?] OF Fastener_prototype;
+  required_torque: 	OPTIONAL Expected_property;
+END_ENTITY;
 </PRE>
 
+
+<H4 ID="ao-collar_prototype-allowed_for">4.3.102.1 collar_prototype to fastener_prototype (as allowed_for)</H4>
+
+<p>The allowed_for specifies the collection of fasteners that can be held by the collar.</p>
+
+
+
+<H4 ID="ao-collar_prototype-required_torque">4.3.102.2 collar_prototype to expected_property (as required_torque)</H4>
+
+<p>The required_torque specifies the torque that shall be applied to
+hold this type of collar on a fastener instance.</p>
+
+<P CLASS="note">
+<SPAN>NOTE</SPAN>Different torques may be defined by making additional
+collar prototypes.</P>
 
 
 <!-- ============================== -->
@@ -4749,11 +4803,16 @@ application object is shown below.</P>
 <H3 ID="ao-collar_twin">4.3.103 Collar_twin</H3>
 </DIV>
 
-<P>A Collar_twin application object is a type of</P>
+<P>A Collar_twin application object is a type of Product_view_twin
+that describes key properties of collar that has been installed to
+hold a fastener.</P>
 
 <P>The data associated with a Collar_twin are the
 following:</P>
+
 <UL>
+<LI>holds;</LI>
+<LI>applied_torque.</LI>
 </UL>
 
 <P CLASS="note">
@@ -4761,7 +4820,28 @@ following:</P>
 application object is shown below.</P>
 
 <PRE CLASS="note">
+ENTITY Collar_twin	-- ADDED BY 10303-238e4
+  SUBTYPE OF (Product_view_twin);
+  SELF\Product_view_twin.manufacturing_prototype: Collar_prototype;
+  SELF\Product_view_twin.supplier_prototype:      OPTIONAL Collar_prototype;
+  holds: 			Fastener_twin;
+  applied_torque: 		OPTIONAL Measured_property;
+END_ENTITY;
 </PRE>
+
+
+
+<H4 ID="ao-collar_twin-holds">4.3.103.1 collar_twin to fastener_twin (as holds)</H4>
+
+<p>The holds specifies the installed fastener held by this installed collar.</p>
+
+
+<H4 ID="ao-collar_twin-applied_torque">4.3.103.2 collar_twin to measured_property (as applied_torque)</H4>
+
+<p>The applied_torque specifies the torque applied to hold the collar
+on the fastener.</p>
+
+
 
 
 
@@ -4821,11 +4901,14 @@ END_ENTITY;
 <H3 ID="ao-connect_absolute">4.3.106 Connect_absolute</H3>
 </DIV>
 
-<P>A Connect_absolute application object is a type of</P>
+<P>A Connect_absolute application object is a type of Connector that
+describes an absolute point for connecting features.</P>
 
 <P>The data associated with a Connect_absolute are the
 following:</P>
+
 <UL>
+<LI>location.</LI>
 </UL>
 
 <P CLASS="note">
@@ -4833,7 +4916,33 @@ following:</P>
 application object is shown below.</P>
 
 <PRE CLASS="note">
+ENTITY Connect_absolute		-- ADDED BY 10303-238e4
+  SUBTYPE OF (Connector);
+  location		: Axis_placement_3d;
+END_ENTITY;
 </PRE>
+
+<H4 ID="ao-connect_absolute-location">4.3.106.1 location</H4>
+
+<p>The location specifies the exit point or entry point of an escape
+move.
+
+<P CLASS="note">
+<SPAN>NOTE</SPAN>For an airframe, the first level escape enables fast
+moves between features on the same toolpath, the second level enables
+safer moves between different toolpaths that are close together, the
+third level enables moves to a safe point above the manufacturing. A
+fourth level safe point may exist for travel between different
+sides.</P>
+
+<FIGURE ID="fig-escape_connectors">
+<IMG SRC="../images/FIXME.svg" ALT="Escape Connectors">
+<DIV class=key>
+<B>Key</B>
+<p>1&emsp;</p>
+</DIV>
+<FIGCAPTION>Figure 1 &mdash; Escape Connectors</FIGCAPTION>
+</FIGURE>
 
 
 <!-- ============================== -->
@@ -4867,19 +4976,59 @@ END_ENTITY;
 <H3 ID="ao-connect_middle">4.3.108 Connect_middle</H3>
 </DIV>
 
-<P>A Connect_middle application object is a type of</P>
+<P>A Connect_middle application object is a type of Connector that
+connects two feature sets using a point that is the mean of the
+connect points in the lower-level group.</P>
 
 <P>The data associated with a Connect_middle are the
 following:</P>
+
 <UL>
+<LI>increment_direction;</LI>
+<LI>increment_distance.</LI>
 </UL>
 
 <P CLASS="note">
-<SPAN>NOTE</SPAN> The EXPRESS description for the Connect_middle
+<SPAN>NOTE 1</SPAN> The EXPRESS description for the Connect_middle
 application object is shown below.</P>
 
 <PRE CLASS="note">
+ENTITY Connect_middle		-- ADDED BY 10303-238e4
+  SUBTYPE OF (Connector);
+  increment_direction		: OPTIONAL direction;
+  increment_distance		: Length_data_element;
+END_ENTITY;
 </PRE>
+
+<P CLASS="note">
+<SPAN>NOTE 2</SPAN>A typical Level 2 escape uses a Level 1 to move
+away from the feature, and then moves farther way for the Level 2. The
+escape then moves to a point that is in the middle of all the computed
+points for the Level 1 features. The inverse is then computed for the
+destination feature. Lastly the system computes a linear move between
+the two middle points.</P>
+
+<H4 ID="ao-connect_middle-increment_direction">4.3.108.1 increment_direction</H4>
+
+<p>The increment_direction specifies the direction that an additional
+increment_distance shall be moved from the middle point between two
+features.  If the increment_direction is not given, the Z axis
+direction shall be used.</p>
+
+<H4 ID="ao-connect_middle-increment_distance">4.3.108.2 increment_distance</H4>
+
+<p>The increment_distance specifies an additional distance that shall
+be moved from the middle point between two features.
+
+
+<FIGURE ID="fig-escape_connectors">
+<IMG SRC="../images/FIXME.svg" ALT="Escape Connectors">
+<DIV class=key>
+<B>Key</B>
+<p>1&emsp;</p>
+</DIV>
+<FIGCAPTION>Figure 2 &mdash; Escape Connectors</FIGCAPTION>
+</FIGURE>
 
 
 <!-- ============================== -->
@@ -4915,21 +5064,56 @@ END_ENTITY;
 <H3 ID="ao-connect_vector">4.3.110 Connect_vector</H3>
 </DIV>
 
-<P>A Connect_vector application object is a type of</P>
+<P>A Connect_vector application object is a type of Connector that
+moves a distance in a direction.</P>
 
 <P>The data associated with a Connect_vector are the
 following:</P>
+
 <UL>
+<LI>direction;</LI>
+<LI>distance.</LI>
 </UL>
+
 
 <P CLASS="note">
 <SPAN>NOTE</SPAN> The EXPRESS description for the Connect_vector
 application object is shown below.</P>
 
 <PRE CLASS="note">
+ENTITY Connect_vector	-- ADDED BY 10303-238e4
+  SUBTYPE OF (Connector);
+  direction		: OPTIONAL direction;
+  distance	 	: Length_data_element;
+END_ENTITY;
 </PRE>
 
 
+
+<H4 ID="ao-connect_vector-direction">4.3.110.1 direction</H4>
+
+<p>The direction specifies specifies the direction of the motion.  If
+the direction is not given, the Z axis direction of the current
+feature shall be used.</p>
+
+
+<H4 ID="ao-connect_vector-distance">4.3.110.2 distance</H4>
+
+<p>The distance specifies the distance to move in the direction to
+start the escape, or in the inverse to complete an entry.</p>
+
+<P CLASS="note">
+<SPAN>NOTE</SPAN> An escape between two features connected by a vector
+at Level 1 will move out, move across, and move down again.</P>
+
+<FIGURE ID="fig-escape_connectors">
+<IMG SRC="../images/FIXME.svg" ALT="Escape Connectors">
+<DIV class=key>
+<B>Key</B>
+<p>1&emsp;</p>
+</DIV>
+<FIGCAPTION>Figure 3 &mdash; Escape Connectors</FIGCAPTION>
+</FIGURE>
 
 <!-- ============================== -->
 <DIV><DIV class=quick>
@@ -5392,7 +5576,7 @@ tool_axis_maximum_deviation may not be specified for a particular
 Cutter_contact_trajectory. </P>
 
 <P CLASS="note">
-<SPAN>NOTE</SPAN> <A href="#fig-toolpath_tolerance">Figure 1</A>
+<SPAN>NOTE</SPAN> <A href="#fig-toolpath_tolerance">Figure 4</A>
 illustrates the range of deviations described by the
 tool_direction_maximum_deviation and path_maximim_deviation
 parameters.  It is expected than an NC controller will adjust
@@ -5410,7 +5594,7 @@ within the allowed deviations.</P>
 <p>4&emsp;tool_direction_maximum_deviation</p>
 <p>5&emsp;path_maximim_deviation</p>
 </DIV>
-<FIGCAPTION>Figure 1 &mdash; Toolpath deviation parameters</FIGCAPTION>
+<FIGCAPTION>Figure 4 &mdash; Toolpath deviation parameters</FIGCAPTION>
 </FIGURE>
 
 
@@ -5496,7 +5680,7 @@ tool_axis_maximum_deviation may not be specified for a particular
 Cutter_location_trajectory. </P>
 
 <P CLASS="note">
-<SPAN>NOTE</SPAN> <A href="#fig-toolpath_tolerance">Figure 1</A>
+<SPAN>NOTE</SPAN> <A href="#fig-toolpath_tolerance">Figure 4</A>
 illustrates the range of deviations described by the
 tool_direction_maximum_deviation and path_maximim_deviation
 parameters.</P>
@@ -5650,20 +5834,47 @@ END_ENTITY;
 <H3 ID="ao-cutting_tool_prototype">4.3.131 Cutting_tool_prototype</H3>
 </DIV>
 
-<P>A Cutting_tool_prototype application object is a type of</P>
+<P>A Cutting_tool_prototype application object is a type of
+Product_view_prototype that describes manufacturing requirements for a
+cutting tool that will be used to drill material stackups for
+fasteners.</P>
 
 <P>The data associated with a Cutting_tool_prototype are the
 following:</P>
+
 <UL>
+<LI>tool_life;</LI>
+<LI>tool_life_estimates.</LI>
 </UL>
+
 
 <P CLASS="note">
 <SPAN>NOTE</SPAN> The EXPRESS description for the Cutting_tool_prototype
 application object is shown below.</P>
 
 <PRE CLASS="note">
+ENTITY Cutting_tool_prototype	-- ADDED BY 10303-238e4
+  SUBTYPE OF (Product_view_prototype);
+  tool_life:			OPTIONAL Duration;
+  tool_life_estimates:		SET [0:?] OF Tool_life_estimate;
+END_ENTITY;
 </PRE>
 
+
+<H4 ID="ao-cutting_tool_prototype-tool_life">4.3.131.1 tool_life</H4>
+
+<p>The tool_life specifies the expected usable duration of tools that use this prototype.
+
+<P CLASS="note">
+<SPAN>NOTE</SPAN> The actual life of the tool will vary. This is an
+estimate based on an expected mix of tasks and enables predictions of
+the remaining tool life to be given which may be more or less accurate
+depending on the tasks actually given to the tool.</P>
+
+<H4 ID="ao-cutting_tool_prototype-tool_life_estimates">4.3.131.2 cutting_tool_prototype to tool_life_estimate (as tool_life_estimates)</H4>
+
+<p>The tool_life_estimates specifies a collection of estimates of the
+amount of tool life removed by a set of tasks.</p>
 
 
 <!-- ============================== -->
@@ -5674,11 +5885,15 @@ application object is shown below.</P>
 <H3 ID="ao-cutting_tool_twin">4.3.132 Cutting_tool_twin</H3>
 </DIV>
 
-<P>A Cutting_tool_twin application object is a type of</P>
+<P>A Cutting_tool_twin application object is a type of
+Product_view_twin that describes key properties of a cutting tool that
+has been used to execute manufacturing operations.</P>
 
 <P>The data associated with a Cutting_tool_twin are the
 following:</P>
+
 <UL>
+<LI>life_used.</LI>
 </UL>
 
 <P CLASS="note">
@@ -5686,7 +5901,31 @@ following:</P>
 application object is shown below.</P>
 
 <PRE CLASS="note">
+ENTITY Cutting_tool_twin	-- ADDED BY 10303-238e4
+  SUBTYPE OF (Product_view_twin);
+  SELF\Product_view_twin.manufacturing_prototype: Cutting_tool_prototype;
+  SELF\Product_view_twin.supplier_prototype:      OPTIONAL Cutting_tool_prototype;
+  life_used:		Ratio_data_element;
+
+  --  life remaining is prototype.tool_life * (1-life_used)
+END_ENTITY;
 </PRE>
+
+
+
+<H4 ID="ao-cutting_tool_twin-life_used">4.3.132.1 life_used</H4>
+
+<p>The life_used specifies the ratio of tool life consumed for this
+physical tool to the tool life specified by the
+manufacturing_prototype.</p>
+
+<P CLASS="note">
+<SPAN>NOTE</SPAN> The life_used ratio can be converted into a time
+remaining using the tool_life of the prototype. Sometimes a tool may
+be used for longer than its tool_life in which case the life_used will
+exceed 100%.</P>
+
+
 
 
 
@@ -5698,18 +5937,18 @@ application object is shown below.</P>
 <H3 ID="ao-disabled_group">4.3.133 Disabled_group</H3>
 </DIV>
 
-<P>A Disabled_group application object is a type of</P>
-
-<P>The data associated with a Disabled_group are the
-following:</P>
-<UL>
-</UL>
+<P>A Disabled_group application object is a type of
+Drill_and_fill_group that describes a collection of features that will
+not participate in the applicable_phases of the manufacturing.</P>
 
 <P CLASS="note">
 <SPAN>NOTE</SPAN> The EXPRESS description for the Disabled_group
 application object is shown below.</P>
 
 <PRE CLASS="note">
+ENTITY Disabled_group	-- ADDED BY 10303-238e4
+  SUBTYPE OF (Drill_and_fill_group);
+END_ENTITY;
 </PRE>
 
 
@@ -5769,11 +6008,15 @@ END_ENTITY;
 <H3 ID="ao-drill_and_fill_group">4.3.136 Drill_and_fill_group</H3>
 </DIV>
 
-<P>A Drill_and_fill_group application object is a type of</P>
+<P>A Drill_and_fill_group application object is a type of
+Manufacturing_feature_group that describes planning information for a
+group of drill and fill features.</P>
 
 <P>The data associated with a Drill_and_fill_group are the
 following:</P>
+
 <UL>
+<LI>applicable_phases.</LI>
 </UL>
 
 <P CLASS="note">
@@ -5781,8 +6024,19 @@ following:</P>
 application object is shown below.</P>
 
 <PRE CLASS="note">
+ENTITY Drill_and_fill_group	-- ADDED BY 10303-238e4
+ABSTRACT SUPERTYPE
+SUBTYPE OF (Manufacturing_feature_group);
+  applicable_phases	: SET [0:?] OF Phase_stage;
+END_ENTITY;
 </PRE>
 
+
+<H4 ID="ao-drill_and_fill_group-applicable_phases">4.3.136.1 drill_and_fill_group to phase_stage (as applicable_phases)</H4>
+
+<p>The applicable_phases specifies the manufacturing stages when this
+group contains relevant planning information. If the collection is
+empty the group shall apply to all phases.</p>
 
 
 <!-- ============================== -->
@@ -5793,19 +6047,109 @@ application object is shown below.</P>
 <H3 ID="ao-drill_and_fill_prototype">4.3.137 Drill_and_fill_prototype</H3>
 </DIV>
 
-<P>A Drill_and_fill_prototype application object is a type of</P>
+<P>A Drill_and_fill_prototype application object is a type of
+Manufacturing_feature_prototype that describes the engineering
+requirements that shall be met by a drill and fill twin.</P>
 
 <P>The data associated with a Drill_and_fill_prototype are the
 following:</P>
+
 <UL>
+<LI>prototype_stackup;</LI>
+<LI>prototype_assembly;</LI>
+<LI>engineering_fit;</LI>
+<LI>iso_fit;</LI>
+<LI>not_normal_to_top;</LI>
+<LI>potential_replacements.</LI>
 </UL>
+
 
 <P CLASS="note">
 <SPAN>NOTE</SPAN> The EXPRESS description for the Drill_and_fill_prototype
 application object is shown below.</P>
 
 <PRE CLASS="note">
+ENTITY Drill_and_fill_prototype		-- ADDED BY 10303-238e4
+SUBTYPE OF (Manufacturing_feature_prototype);
+  prototype_stackup		: OPTIONAL Drill_and_fill_stackup;	
+  prototype_assembly		: OPTIONAL Product_view_definition;
+  engineering_fit		: OPTIONAL Hole_class;
+  iso_fit			: OPTIONAL Iso_286_hole_class;
+  not_normal_to_top		: OPTIONAL BOOLEAN;
+  potential_replacements	: SET [0:?] OF Drill_and_fill_prototype;
+END_ENTITY;
+
+-- ADDED BY 10303-238e4
+TYPE Hole_class = ENUMERATION OF (
+  loose_fit, free_running, easy_running, sliding_fit, close_clearance,
+  location_clearance, slight_interference, transition, press_fit,
+  medium_fit, force_fit
+  );
+END_TYPE; 
+
+TYPE Iso_286_hole_class = ENUMERATION OF (
+  clearance_fit, interference_fit, transition_fit
+  );
+END_TYPE; 
 </PRE>
+
+
+
+<H4 ID="ao-drill_and_fill_prototype-prototype_stackup">4.3.137.1 drill_and_fill_prototype to drill_and_fill_stackup (as prototype_stackup)</H4>
+
+<p>The prototype_stackup specifies the expected dimensions of the
+sequence of material layers in a feature.</p>
+
+<P CLASS="note">
+<SPAN>NOTE 1</SPAN> The stackup dimensions may be computed from the design geometry.</P>
+
+<P CLASS="note">
+<SPAN>NOTE 2</SPAN> The layers of the prototype stackup may include
+optimal speeds and feeds for drilling each material layer in the
+stackup.</P>
+
+
+
+<H4 ID="ao-drill_and_fill_prototype-prototype_assembly">4.3.137.2 drill_and_fill_prototype to product_view_definition (as prototype_assembly)</H4>
+
+<p>The prototype_assembly specifies a prototype of the final assembly
+configuration of the fastener.</p>
+
+
+
+<H4 ID="ao-drill_and_fill_prototype-engineering_fit">4.3.137.3 engineering_fit</H4>
+
+<p>The engineering_fit specifies the nature of the intersection
+between the fastener and the hole.</p>
+
+<P CLASS="note">
+<SPAN>NOTE</SPAN> If the hole is a “tight_fit” then force will be
+necessary to insert the fastener, and if the hole is a “loose_fit”
+then the fastener will drop into place.</P>
+
+
+<H4 ID="ao-drill_and_fill_prototype-iso_fit">4.3.137.4 iso_fit</H4>
+
+<p>The iso_fit specifies the ISO 286-1 classification of the engineering fit.</p>
+
+
+<H4 ID="ao-drill_and_fill_prototype-not_normal_to_top">4.3.137.5 not_normal_to_top</H4>
+
+<p>The not_normal_to_top specifies whether the fastener hole is not
+normal to the top surface of the assembly.  The fastener hole is not
+normal if not_normal_to_top is true.  It is normal if
+not_normal_to_top is false or not specified.</p>
+
+<P CLASS="note">
+<SPAN>NOTE</SPAN> A hole that is not normal stops automatic
+normalization of a drilling / fastening process.</P>
+
+
+<H4 ID="ao-drill_and_fill_prototype-potential_replacements">4.3.137.6 drill_and_fill_prototype to drill_and_fill_prototype (as potential_replacements)</H4>
+
+<p>The potential_replacements specifies prototypes of the drill and
+fill twins that may replace this prototype if an issue is found during
+manufacturing.</p>
 
 
 
@@ -5817,19 +6161,126 @@ application object is shown below.</P>
 <H3 ID="ao-drill_and_fill_stackup">4.3.138 Drill_and_fill_stackup</H3>
 </DIV>
 
-<P>A Drill_and_fill_stackup application object is a type of</P>
+<P>A Drill_and_fill_stackup application object describes the material
+layers in a feature.</P>
 
 <P>The data associated with a Drill_and_fill_stackup are the
 following:</P>
+
 <UL>
+<LI>measurement_state;</LI>
+<LI>outer_part;</LI>
+<LI>measurement_direction;</LI>
+<LI>measurement_diameter;</LI>
+<LI>measurement_location;</LI>
+<LI>layers;</LI>
+<LI>computed_depth;</LI>
+<LI>when_computed;</LI>
+<LI>feed;</LI>
+<LI>speed.</LI>
 </UL>
+
 
 <P CLASS="note">
 <SPAN>NOTE</SPAN> The EXPRESS description for the Drill_and_fill_stackup
 application object is shown below.</P>
 
 <PRE CLASS="note">
+ENTITY Drill_and_fill_stackup;	-- ADDED BY 10303-238e4
+  measurement_state	: Measurement_condition;
+  outer_part		: Product_view_definition;
+  measurement_direction	: OPTIONAL direction; 
+  measurement_diameter	: OPTIONAL Length_data_element; 
+  measurement_location	: OPTIONAL cartesian_point;
+  layers		: OPTIONAL LIST [0:?] OF Stack_layer;
+  computed_depth	: OPTIONAL Length_data_element;
+  when_computed		: OPTIONAL Date_time;
+  feed			: OPTIONAL Velocity_data_element;
+  speed			: OPTIONAL Frequency_data_element;
+END_ENTITY;
+
+TYPE Measurement_condition = ENUMERATION OF (
+  as_designed, as_planned, as_clamped, as_fastened
+  );
+END_TYPE;
 </PRE>
+
+
+
+<H4 ID="ao-drill_and_fill_stackup-measurement_state">4.3.138.1 measurement_state</H4>
+
+<p>The measurement_state specifies the state of the twin when the
+stackup was measured</p>
+
+<UL>
+<LI>as-designed, the stackup as designed in a CAD system;</LI>
+<LI>as-planned, the stackup as predicted with the as-built dimensions for all components;</LI>
+<LI>as-clamped, the stackup as measured on the assembled airframe after clamping;</LI>
+<LI>as-fastened, the stackup as measured on the assembled airframe after fastening.</LI>
+</UL>
+
+
+<H4 ID="ao-drill_and_fill_stackup-outer_part">4.3.138.2 drill_and_fill_stackup to product_view_definition (as outer_part)</H4>
+
+<p>The outer_part specifies the part in an assembly where drilling operations begin.</p>
+
+<P CLASS="note">
+<SPAN>NOTE</SPAN> Aerospace typically defines the hole origin at the
+bottom or end of the last part fastened. The hole top or start is on
+the outer part.</P>
+
+
+
+<H4 ID="ao-drill_and_fill_stackup-measurement_direction">4.3.138.3 measurement_direction</H4>
+
+<p>The measurement_direction specifies the as-measured direction of the material removal.
+
+<H4 ID="ao-drill_and_fill_stackup-measurement_diameter">4.3.138.4 measurement_diameter</H4>
+
+<p>The measurement_diameter specifies the as-measured diameter of the material removal.
+
+
+<H4 ID="ao-drill_and_fill_stackup-measurement_location">4.3.138.5 measurement_location</H4>
+
+<p>The measurement_location specifies the as-measured origin of the material removal.
+
+
+<H4 ID="ao-drill_and_fill_stackup-layers">4.3.138.6 drill_and_fill_stackup to stack_layer (as layers)</H4>
+
+<p>The layers specifies a sequence of layer depths in the stackup,
+starting with the outer part.</p>
+
+<P CLASS="note">
+<SPAN>NOTE</SPAN> There may be zero layers if they have not been
+computed or cannot be shared.</P>
+
+
+<H4 ID="ao-drill_and_fill_stackup-computed_depth">4.3.138.7 computed_depth </H4>
+
+<p>The computed_depth specifies the computed depth of the stackup.</p>
+
+<P CLASS="note">
+<SPAN>NOTE</SPAN> The computed_depth may be computed from the design
+geometry as the sum of the depths of the layers, or it may be computed
+by inspection after the assembly has been clamped, or it may be
+computed by another inspection after the fastener is tightened.</P>
+
+
+
+<H4 ID="ao-drill_and_fill_stackup-when_computed">4.3.138.8 when_computed</H4>
+
+<p>The when_computed specifies the date and time when the measurement was computed.</p>
+
+
+<H4 ID="ao-drill_and_fill_stackup-feed">4.3.138.9 feed</H4>
+
+<p>The feed specifies FIXME FIXME FIXME 
+
+
+
+<H4 ID="ao-drill_and_fill_stackup-speed">4.3.138.10 speed</H4>
+
+<p>The speed specifies FIXME FIXME FIXME 
 
 
 
@@ -5841,11 +6292,22 @@ application object is shown below.</P>
 <H3 ID="ao-drill_and_fill_twin">4.3.139 Drill_and_fill_twin</H3>
 </DIV>
 
-<P>A Drill_and_fill_twin application object is a type of</P>
+<P>A Drill_and_fill_twin application object is a type of
+Manufacturing_feature_twin that describes how a stack of materials is
+drilled and fastened.</P>
 
 <P>The data associated with a Drill_and_fill_twin are the
 following:</P>
+
 <UL>
+<LI>ordered_stackup;</LI>
+<LI>fastener_in_place;</LI>
+<LI>collar_in_place;</LI>
+<LI>washers_in_place;</LI>
+<LI>sealants_in_place;</LI>
+<LI>disposition;</LI>
+<LI>replacement;</LI>
+<LI>fasten_state.</LI>
 </UL>
 
 <P CLASS="note">
@@ -5853,8 +6315,118 @@ following:</P>
 application object is shown below.</P>
 
 <PRE CLASS="note">
+ENTITY Drill_and_fill_twin	-- ADDED BY 10303-238e4
+SUBTYPE OF (Manufacturing_feature_twin);
+  SELF\Manufacturing_feature_twin.prototype : OPTIONAL Drill_and_fill_prototype;
+  
+  ordered_stackup	: OPTIONAL Drill_and_fill_stackup;
+  fastener_in_place	: OPTIONAL Fastener_twin;
+  collar_in_place	: OPTIONAL Collar_twin;
+  washers_in_place	: LIST [0:?] OF Washer_twin;
+  sealants_in_place	: LIST [0:?] OF Sealant_twin;
+  disposition		: OPTIONAL Drill_and_fill_condition;
+  replacement		: OPTIONAL Drill_and_fill_twin;
+  fasten_state		: OPTIONAL Fasten_state_condition;
+END_ENTITY;
+
+TYPE Drill_and_fill_condition = ENUMERATION OF (
+  pending, active, exception, hold, completed, replaced
+  );
+END_TYPE;
+
+TYPE Fasten_state_condition = ENUMERATION OF (
+  planned, piloted, tacked, full_sized, installed, sealed, inspected
+  );
+END_TYPE;
 </PRE>
 
+
+
+<H4 ID="ao-drill_and_fill_twin-ordered_stackup">4.3.139.1 drill_and_fill_twin to drill_and_fill_stackup (as ordered_stackup)</H4>
+
+<p>The ordered_stackup specifies a stackup that describes the
+dimensions of the material layers in the feature.</p>
+
+<P CLASS="note">
+<SPAN>EXAMPLE</SPAN> In aerospace the material layers may describe the
+thickness of the composite skin, titanium frame and filler shims.</P>
+
+<P CLASS="note">
+<SPAN>NOTE</SPAN> Different stackups can be measured for different
+phases. There may be twin stackups for as-designed, as-assembled,
+as_clamped and as-inspected stages of the twin.</P>
+
+
+
+<H4 ID="ao-drill_and_fill_twin-fastener_in_place">4.3.139.2 drill_and_fill_twin to fastener_twin (as fastener_in_place)</H4>
+
+<p>The fastener_in_place specifies the twin model of the fastener that
+has been placed in the hole.</p>
+
+<P CLASS="note">
+<SPAN>NOTE</SPAN> This fastener may be a tack in the first phase of
+manufacturing, and the final fastener in the last phase.</P>
+
+
+
+<H4 ID="ao-drill_and_fill_twin-collar_in_place">4.3.139.3 drill_and_fill_twin to collar_twin (as collar_in_place)</H4>
+
+<p>The collar_in_place specifies the twin model of the collar that has
+been placed on the fastener.</p>
+
+
+<H4 ID="ao-drill_and_fill_twin-washers_in_place">4.3.139.4 drill_and_fill_twin to washer_twin (as washers_in_place)</H4>
+
+<p>The washers_in_place specifies a sequence of twin models of the
+washers that have been added to mate the fastener and collar.</p>
+
+<H4 ID="ao-drill_and_fill_twin-sealants_in_place">4.3.139.5 drill_and_fill_twin to sealant_twin (as sealants_in_place)</H4>
+
+<p>The sealants_in_place specifies a sequence of twin models of the
+sealants that have been applied to seal the fastener.
+
+<P CLASS="note">
+<SPAN>NOTE</SPAN> There may be fastener, fay, cap and special
+sealants.</P>
+
+
+<H4 ID="ao-drill_and_fill_twin-disposition">4.3.139.6 disposition</H4>
+
+<p>The disposition specifies the current manufacturing condition</p>
+<UL>
+<LI>pending, if no work has been performed;</LI>
+<LI>active, if work is currently being performed;</LI>
+<LI>completed, if all the planned work has been completed;</LI>
+<LI>rejection_tag, if there is an issue that awaits resolution;</LI>
+<LI>replaced, if repeated, for example with a bigger hole and fastener.</LI>
+</UL>
+
+
+<H4 ID="ao-drill_and_fill_twin-replacement">4.3.139.7 drill_and_fill_twin to drill_and_fill_twin (as replacement)</H4>
+
+<p>If the physical twin had to replaced because of a manufacturing
+issue, the replacement specifies the digital twin of the
+replacement</p>
+
+<P CLASS="note">
+<SPAN>EXAMPLE</SPAN> If the original fastener would not fit because of
+drilling issues, then the hole and fastener may be replaced by a
+larger one.</P>
+
+
+<H4 ID="ao-drill_and_fill_twin-fasten_state">4.3.139.8 fasten_state</H4>
+
+<p>The fasten_state specifies the current state of the fastener after
+the last completed workingstep</p>
+<UL>
+<LI>planned, but work has not yet started;</LI>
+<LI>piloted, a hole has been drilled but it is not full size;</LI>
+<LI>tacked, a fastener has been placed by a Place_tack operation;</LI>
+<LI>full_size, a full-sized hole has been drilled;</LI>
+<LI>installed, the fastener has been installed;</LI>
+<LI>sealed, the fastener has been sealed;</LI>
+<LI>inspected, the fastener has been checked.</LI>
+</UL>
 
 
 <!-- ============================== -->
@@ -6019,19 +6591,99 @@ END_ENTITY;
 <H3 ID="ao-escape_sequence_group">4.3.146 Escape_sequence_group</H3>
 </DIV>
 
-<P>An Escape_sequence_group application object is a type of</P>
+<P>An Escape_sequence_group application object is a type of
+Drill_and_fill_group that describes how to plan safe escape and entry
+sequences for groups of features when the paths programmed in
+workingsteps are interrupted.</P>
+
+<P CLASS="note">
+<SPAN>NOTE 1</SPAN> To plan a move between two features, use Level 1
+escape sequence to move away from Feature A.  If Feature B is in the
+same group, then move to a similarly computed escape point for Feature
+B, and then move into Feature B by following the inverse of Feature
+B’s escape path.  If A and B do not share a Level 1 escape sequence,
+then repeat for the next level until a common escape sequence is
+found. Stop at the highest level available for Feature A if there is
+no shared sequence with Feature B.</P>
 
 <P>The data associated with a Escape_sequence_group are the
 following:</P>
+
 <UL>
+<LI>robots;</LI>
+<LI>level;</LI>
+<LI>escape_move;</LI>
+<LI>pose_constraints;</LI>
+<LI>pose_description.</LI>
 </UL>
 
 <P CLASS="note">
-<SPAN>NOTE</SPAN> The EXPRESS description for the Escape_sequence_group
+<SPAN>NOTE 2</SPAN> The EXPRESS description for the Escape_sequence_group
 application object is shown below.</P>
 
 <PRE CLASS="note">
+ENTITY Escape_sequence_group	-- ADDED BY 10303-238e4
+  SUBTYPE OF (Drill_and_fill_group);
+  robots		: SET [0:?] OF Identifier;
+  level			: NUMBER;
+  escape_move		: Connector;
+  pose_constraints	: SET [0:?] OF Machine_axis_constraint;
+  pose_description	: OPTIONAL Text;
+END_ENTITY;
 </PRE>
+
+
+<H4 ID="ao-escape_sequence_group-robots">4.3.146.1 robots</H4>
+
+<p>The robots specifies a collection that identifies the robots that
+use this escape sequence.  The escape sequence group shall apply to
+all robots if robots is not set.</p>
+
+<H4 ID="ao-escape_sequence_group-level">4.3.146.2 level</H4>
+
+<p>The level specifies the level of the escape in ascending order.
+When an escape occurs, the lowest level shall be executed first and
+the rest shall follow in sequence. When an entry occurs, the sequence
+shall be executed in reverse.</p>
+
+<P CLASS="note">
+<SPAN>NOTE</SPAN> Many features share the same escape sequences. The
+level is a NUMBER so that additional levels can be inserted for some
+robots and features at more difficult locations.</P>
+
+<P CLASS="note">
+<SPAN>EXAMPLE</SPAN> In a three-level escape sequence some features
+may require additional escape moves between Levels 2 and 3 to move the
+nose sideways, and avoid a special fixture.</P>
+
+
+<H4 ID="ao-escape_sequence_group-escape_move">4.3.146.3 escape_sequence_group to connector (as escape_move)</H4>
+
+<p>The escape_move specifies the escape method for reaching the next level.</p>
+
+<P CLASS="note">
+<SPAN>NOTE</SPAN> A vector and distance is the typical escape move for
+a Level 1 group. A computed middle point is the typical escape move
+for a Level 2 group.  An absolute point in space is the typical escape
+move for a Level 3 group.</P>
+
+
+<H4 ID="ao-escape_sequence_group-pose_constraints">4.3.146.4 pose_constraints</H4>
+
+<p>The pose_constraints specifies axis constraints that shall be met
+when the robot reaches the escape point to avoid potential collisions.</p>
+
+<P CLASS="note">
+<SPAN>EXAMPLE</SPAN> The backside of a robot may need to point away from a fixture.</P>
+
+
+<H4 ID="ao-escape_sequence_group-pose_description">4.3.146.5 pose_description</H4>
+
+<p>The pose_description specifies a human readable summary of the
+robot configuration at this point in the escape sequence.
+
+<P CLASS="note">
+<SPAN>EXAMPLE</SPAN> Possible descriptions include elbow_up, bottom_out and neck_down.</P>
 
 
 
@@ -6308,11 +6960,23 @@ collar or washer.</P>
 <H3 ID="ao-expected_property">4.3.149 Expected_property</H3>
 </DIV>
 
-<P>An Expected_property application object is a type of</P>
+<P>An Expected_property application object describes a requirement on
+a digital twin prototype that can be measured on digital twin
+instances during manufacturing.</P>
 
 <P>The data associated with a Expected_property are the
 following:</P>
+
 <UL>
+<LI>applicable_phases;</LI>
+<LI>definition;</LI>
+<LI>external_definition;</LI>
+<LI>nominal_value;</LI>
+<LI>property_name;</LI>
+<LI>name_standard;</LI>
+<LI>lower_limit;</LI>
+<LI>upper_limit;</LI>
+<LI>notifiable_tasks.</LI>
 </UL>
 
 <P CLASS="note">
@@ -6320,7 +6984,91 @@ following:</P>
 application object is shown below.</P>
 
 <PRE CLASS="note">
+ENTITY Expected_property;	-- ADDED BY 10303-238e4
+  applicable_phases	: SET [0:?] OF Manufacturing_stage;
+  definition		: OPTIONAL Denoted_specification_select;
+  external_definition 	: OPTIONAL Identifier;
+  nominal_value		: Value_with_unit;
+  property_name		: OPTIONAL Identifier;
+  name_standard		: OPTIONAL Text;
+  lower_limit		: OPTIONAL Value_with_unit;
+  upper_limit		: OPTIONAL Value_with_unit;
+  notifiable_task	: OPTIONAL Executable;
+END_ENTITY;
+
+TYPE Denoted_specification_select = SELECT (
+   Geometric_tolerance,
+   Geometric_dimension
+   );
+END_TYPE;
 </PRE>
+
+
+<H4 ID="ao-expected_property-applicable_phases">4.3.149.1 expected_property to manufacturing_stage (as applicable_phases)</H4>
+
+<p>The applicable_phases specifies a collection of manufacturing
+phases where a measured model using this prototype is expected to have
+this property.  If applicable_phases is not specified, the property
+applies to all phases.</p>
+
+
+<H4 ID="ao-expected_property-definition">4.3.149.2 definition</H4>
+
+<p>The definition specifies a dimension on a product model that
+describes this property.</p>
+
+<P CLASS="note">
+<SPAN>NOTE</SPAN> A visualization system may show the property as
+GD&amp;T on a model.</P>
+
+<H4 ID="ao-expected_property-external_definition">4.3.149.3 external_definition</H4>
+
+<p>The external_definition identifies a dimension on an external model
+that describes this property.</p>
+
+<H4 ID="ao-expected_property-nominal_value">4.3.149.4 nominal_value</H4>
+
+<p>The nominal_value specifies the design value of the property with
+a unit of measurement.
+
+
+<H4 ID="ao-expected_property-property_name">4.3.149.5 property_name </H4>
+
+<p>The property_name specifies the name of the property as defined by
+a standard.
+
+<P CLASS="note">
+<SPAN>EXAMPLE</SPAN> ISO 13399 gives standard names to properties
+defined for a cutter.</P>
+
+<H4 ID="ao-expected_property-name_standard">4.3.149.6 name_standard</H4>
+
+<p>The name_standard identifies the standard that defines the property.
+
+
+<H4 ID="ao-expected_property-lower_limit">4.3.149.7 lower_limit</H4>
+
+<p>The lower_limit specifies the minimum acceptable value for an
+instance of the property.</p>
+
+
+<H4 ID="ao-expected_property-upper_limit">4.3.149.8 upper_limit</H4>
+
+<p>The upper_limit specifies the maximum acceptable value for an
+instance of the property.</p>
+
+
+<H4 ID="ao-expected_property-notifiable_tasks">4.3.149.9 expected_property to executable (as notifiable_tasks)</H4>
+
+<p>The notifiable_tasks specifies the manufacturing task that may be
+executed if a measured property using this expected property is not
+within limits.</p>
+
+<P CLASS="note">
+<SPAN>EXAMPLE</SPAN> A robot may escape from the drilling task to a resting place.</P>
+
+
+
 
 
 
@@ -6491,18 +7239,22 @@ to Machining_tool</a> for the application assertion.</P>
 <H3 ID="ao-external_check_burr_operation">4.3.154 External_check_burr_operation</H3>
 </DIV>
 
-<P>An External_check_burr_operation application object is a type of</P>
-
-<P>The data associated with a External_check_burr_operation are the
-following:</P>
-<UL>
-</UL>
+<P>An External_check_burr_operation application object is a type of
+External_operation that documents that a feature has been checked for
+burrs.</P>
 
 <P CLASS="note">
-<SPAN>NOTE</SPAN> The EXPRESS description for the External_check_burr_operation
+<SPAN>NOTE 1</SPAN> A burr is material at the edge of a hole caused by
+the entry or exit of the drill.</P>
+
+<P CLASS="note">
+<SPAN>NOTE 2</SPAN> The EXPRESS description for the External_check_burr_operation
 application object is shown below.</P>
 
 <PRE CLASS="note">
+ENTITY External_check_burr_operation	-- ADDED BY 10303-238e4
+  SUBTYPE OF (External_operation);
+END_ENTITY;
 </PRE>
 
 
@@ -6515,18 +7267,18 @@ application object is shown below.</P>
 <H3 ID="ao-external_check_operation">4.3.155 External_check_operation</H3>
 </DIV>
 
-<P>An External_check_operation application object is a type of</P>
-
-<P>The data associated with a External_check_operation are the
-following:</P>
-<UL>
-</UL>
+<P>An External_check_operation application object is a type of
+External_operation that documents that an operation has checked the
+part.</P>
 
 <P CLASS="note">
 <SPAN>NOTE</SPAN> The EXPRESS description for the External_check_operation
 application object is shown below.</P>
 
 <PRE CLASS="note">
+ENTITY External_check_operation		-- ADDED BY 10303-238e4
+  SUBTYPE OF (External_operation);
+END_ENTITY;
 </PRE>
 
 
@@ -6539,18 +7291,23 @@ application object is shown below.</P>
 <H3 ID="ao-external_check_spiral_operation">4.3.156 External_check_spiral_operation</H3>
 </DIV>
 
-<P>An External_check_spiral_operation application object is a type of</P>
-
-<P>The data associated with a External_check_spiral_operation are the
-following:</P>
-<UL>
-</UL>
+<P>An External_check_spiral_operation application object is a type of
+External_operation that documents that a hole has been checked for
+sprials.</P>
 
 <P CLASS="note">
-<SPAN>NOTE</SPAN> The EXPRESS description for the External_check_spiral_operation
+<SPAN>NOTE 1</SPAN> A spiral is a surface defect in the interior
+surface of the hole and requires different inspection technology than
+a burr.</P>
+
+<P CLASS="note">
+<SPAN>NOTE 2</SPAN> The EXPRESS description for the External_check_spiral_operation
 application object is shown below.</P>
 
 <PRE CLASS="note">
+ENTITY External_check_spiral_operation	-- ADDED BY 10303-238e4
+  SUBTYPE OF (External_operation);
+END_ENTITY;
 </PRE>
 
 
@@ -6563,18 +7320,19 @@ application object is shown below.</P>
 <H3 ID="ao-external_coating_operation">4.3.157 External_coating_operation</H3>
 </DIV>
 
-<P>An External_coating_operation application object is a type of</P>
+<P>An External_coating_operation application object is a type of
+External_operation that documents that an operation has coated the
+part.</P>
 
-<P>The data associated with a External_coating_operation are the
-following:</P>
-<UL>
-</UL>
 
 <P CLASS="note">
 <SPAN>NOTE</SPAN> The EXPRESS description for the External_coating_operation
 application object is shown below.</P>
 
 <PRE CLASS="note">
+ENTITY External_coating_operation	-- ADDED BY 10303-238e4
+  SUBTYPE OF (External_operation);
+END_ENTITY;
 </PRE>
 
 
@@ -6587,18 +7345,19 @@ application object is shown below.</P>
 <H3 ID="ao-external_fastening_operation">4.3.158 External_fastening_operation</H3>
 </DIV>
 
-<P>An External_fastening_operation application object is a type of</P>
+<P>An External_fastening_operation application object is a type of
+External_operation that documents that an operation has fastened the
+part.</P>
 
-<P>The data associated with a External_fastening_operation are the
-following:</P>
-<UL>
-</UL>
 
 <P CLASS="note">
 <SPAN>NOTE</SPAN> The EXPRESS description for the External_fastening_operation
 application object is shown below.</P>
 
 <PRE CLASS="note">
+ENTITY External_fastening_operation	-- ADDED BY 10303-238e4
+  SUBTYPE OF (External_operation);
+END_ENTITY;
 </PRE>
 
 
@@ -6611,18 +7370,19 @@ application object is shown below.</P>
 <H3 ID="ao-external_fixturing_operation">4.3.159 External_fixturing_operation</H3>
 </DIV>
 
-<P>An External_fixturing_operation application object is a type of</P>
+<P>An External_fixturing_operation application object is a type of
+External_operation that documents that an operation has fixtured the
+part.</P>
 
-<P>The data associated with a External_fixturing_operation are the
-following:</P>
-<UL>
-</UL>
 
 <P CLASS="note">
 <SPAN>NOTE</SPAN> The EXPRESS description for the External_fixturing_operation
 application object is shown below.</P>
 
 <PRE CLASS="note">
+ENTITY External_fixturing_operation	-- ADDED BY 10303-238e4
+  SUBTYPE OF (External_operation);
+END_ENTITY;
 </PRE>
 
 
@@ -6635,18 +7395,19 @@ application object is shown below.</P>
 <H3 ID="ao-external_heating_operation">4.3.160 External_heating_operation</H3>
 </DIV>
 
-<P>An External_heating_operation application object is a type of</P>
+<P>An External_heating_operation application object is a type of
+External_operation that documents that an operation has heated the
+part.</P>
 
-<P>The data associated with a External_heating_operation are the
-following:</P>
-<UL>
-</UL>
 
 <P CLASS="note">
 <SPAN>NOTE</SPAN> The EXPRESS description for the External_heating_operation
 application object is shown below.</P>
 
 <PRE CLASS="note">
+ENTITY External_heating_operation	-- ADDED BY 10303-238e4
+  SUBTYPE OF (External_operation);
+END_ENTITY;
 </PRE>
 
 
@@ -6659,18 +7420,19 @@ application object is shown below.</P>
 <H3 ID="ao-external_marking_operation">4.3.161 External_marking_operation</H3>
 </DIV>
 
-<P>An External_marking_operation application object is a type of</P>
+<P>An External_marking_operation application object is a type of
+External_operation that documents that an operation has marked the
+part.</P>
 
-<P>The data associated with a External_marking_operation are the
-following:</P>
-<UL>
-</UL>
 
 <P CLASS="note">
-<SPAN>NOTE</SPAN> The EXPRESS description for the External_marking_operation
-application object is shown below.</P>
+<SPAN>NOTE</SPAN> The EXPRESS description for the
+External_marking_operation application object is shown below.</P>
 
 <PRE CLASS="note">
+ENTITY External_marking_operation	-- ADDED BY 10303-238e4
+  SUBTYPE OF (External_operation);
+END_ENTITY;
 </PRE>
 
 
@@ -6683,11 +7445,17 @@ application object is shown below.</P>
 <H3 ID="ao-external_operation">4.3.162 External_operation</H3>
 </DIV>
 
-<P>An External_operation application object is a type of</P>
+<P>An External_operation application object is a type of Operation
+that is performed by an external system that is beyond the scope of
+the automation defined in this document but whose completion needs to
+be recorded in the digital twin.</P>
 
 <P>The data associated with a External_operation are the
 following:</P>
+
 <UL>
+<LI>mode;</LI>
+<LI>additional_information.</LI>
 </UL>
 
 <P CLASS="note">
@@ -6695,8 +7463,29 @@ following:</P>
 application object is shown below.</P>
 
 <PRE CLASS="note">
+ENTITY External_operation	-- ADDED BY 10303-238e4
+  SUBTYPE OF (Operation);
+  mode				: Manual_or_automated;
+  additional_information 	: OPTIONAL Text;
+END_ENTITY;
+
+TYPE Manual_or_automated = ENUMERATION OF (
+  manual, automated
+  );
+END_TYPE; 
 </PRE>
 
+
+<H4 ID="ao-external_operation-mode">4.3.162.1 mode</H4>
+
+<p>The mode specifies whether the operation is manual or automated.
+
+<H4 ID="ao-external_operation-additional_information">4.3.162.2 additional_information</H4>
+
+<p>The additional_information specifies additional information about the operation.
+
+<P CLASS="note">
+<SPAN>EXAMPLE</SPAN> The additional information may be “cooling” or “laser heating”.
 
 
 <!-- ============================== -->
@@ -6707,18 +7496,19 @@ application object is shown below.</P>
 <H3 ID="ao-external_packaging_operation">4.3.163 External_packaging_operation</H3>
 </DIV>
 
-<P>An External_packaging_operation application object is a type of</P>
+<P>An External_packaging_operation application object is a type of
+External_operation that documents that an operation has packaged the
+part.</P>
 
-<P>The data associated with a External_packaging_operation are the
-following:</P>
-<UL>
-</UL>
 
 <P CLASS="note">
 <SPAN>NOTE</SPAN> The EXPRESS description for the External_packaging_operation
 application object is shown below.</P>
 
 <PRE CLASS="note">
+ENTITY External_packaging_operation	-- ADDED BY 10303-238e4
+  SUBTYPE OF (External_operation);
+END_ENTITY;
 </PRE>
 
 
@@ -6731,18 +7521,19 @@ application object is shown below.</P>
 <H3 ID="ao-external_preparation_operation">4.3.164 External_preparation_operation</H3>
 </DIV>
 
-<P>An External_preparation_operation application object is a type of</P>
+<P>An External_preparation_operation application object is a type of
+External_operation that documents that an operation has prepared the
+part.</P>
 
-<P>The data associated with a External_preparation_operation are the
-following:</P>
-<UL>
-</UL>
 
 <P CLASS="note">
 <SPAN>NOTE</SPAN> The EXPRESS description for the External_preparation_operation
 application object is shown below.</P>
 
 <PRE CLASS="note">
+ENTITY External_preparation_operation	-- ADDED BY 10303-238e4
+  SUBTYPE OF (External_operation);
+END_ENTITY;
 </PRE>
 
 
@@ -6755,18 +7546,23 @@ application object is shown below.</P>
 <H3 ID="ao-external_removal_operation">4.3.165 External_removal_operation</H3>
 </DIV>
 
-<P>An External_removal_operation application object is a type of</P>
-
-<P>The data associated with a External_removal_operation are the
-following:</P>
-<UL>
-</UL>
+<P>An External_removal_operation application object is a type of
+External_operation that documents that an operation has removed
+material from the part.</P>
 
 <P CLASS="note">
-<SPAN>NOTE</SPAN> The EXPRESS description for the External_removal_operation
+<SPAN>NOTE 1</SPAN> The before and after state of the part may be
+documented using as_is and to_be workpieces attached to the
+workingstep that contains the operation.
+
+<P CLASS="note">
+<SPAN>NOTE 2</SPAN> The EXPRESS description for the External_removal_operation
 application object is shown below.</P>
 
 <PRE CLASS="note">
+ENTITY External_removal_operation	-- ADDED BY 10303-238e4
+  SUBTYPE OF (External_operation);
+END_ENTITY;
 </PRE>
 
 
@@ -11563,8 +12359,8 @@ Trajectory.</P>
 
 <P>Each point in the seven-dimensional curve shall describe the
 cross-section area parameters illustrated
-in <a href="#fig-cross_section">Figure 2</a>
-and <a href="#fig-cross_section_turn">Figure 3</a>. These parameters
+in <a href="#fig-cross_section">Figure 5</a>
+and <a href="#fig-cross_section_turn">Figure 6</a>. These parameters
 are as follows:
 
 <FIGURE ID="fig-cross_section">
@@ -11583,7 +12379,7 @@ are as follows:
 <p>9&emsp;X<small>CGofs</small></p>
 <p>10&emsp;center of gravity</p>
 </DIV>
-<FIGCAPTION>Figure 2 &mdash; Cross-section parameters for milling</FIGCAPTION>
+<FIGCAPTION>Figure 5 &mdash; Cross-section parameters for milling</FIGCAPTION>
 </FIGURE>
 
 <FIGURE ID="fig-cross_section_turn">
@@ -11602,14 +12398,14 @@ are as follows:
 <p>9&emsp;X<small>CGofs</small></p>
 <p>10&emsp;center of gravity</p>
 </DIV>
-<FIGCAPTION>Figure 3 &mdash; Cross-section parameters for turning</FIGCAPTION>
+<FIGCAPTION>Figure 6 &mdash; Cross-section parameters for turning</FIGCAPTION>
 </FIGURE>
 
 <UL>
 <LI>dimension 0 shall describe the maximum axial depth of the tool
 contact cross section, shown by ADmax
-in <a href="#fig-cross_section">Figure 2</a>
-and <a href="#fig-cross_section_turn">Figure 3</a>. The maximum axial
+in <a href="#fig-cross_section">Figure 5</a>
+and <a href="#fig-cross_section_turn">Figure 6</a>. The maximum axial
 depth for milling shall be measured parallel to the tool axis,
 regardless of whether the direction of feed is perpendicular to the
 tool axis. The maximum axial depth for turning shall be measured
@@ -11617,35 +12413,35 @@ parallel to the spindle axis;</LI>
 
 <LI>dimension 1 shall describe the maximum radial depth of the tool
 contact cross section, shown by RDmax
-in <a href="#fig-cross_section">Figure 2</a>
-and <a href="#fig-cross_section_turn">Figure 3</a>. The maximum radial
+in <a href="#fig-cross_section">Figure 5</a>
+and <a href="#fig-cross_section_turn">Figure 6</a>. The maximum radial
 depth shall be measured perpendicular to both the tool axis and the
 feed direction;</LI>
 
 <LI>dimension 2 shall describe the location along the X axis where the
 maximum radial depth measure is located, shown by Xmaxofs
-in <a href="#fig-cross_section">Figure 2</a>
-and <a href="#fig-cross_section_turn">Figure 3</a>;</LI>
+in <a href="#fig-cross_section">Figure 5</a>
+and <a href="#fig-cross_section_turn">Figure 6</a>;</LI>
 
 <LI>dimension 3 shall describe the location along the Y axis where the
 maximum axial depth measure is located, shown by Ymaxofs
-in <a href="#fig-cross_section">Figure 2</a>
-and <a href="#fig-cross_section_turn">Figure 3</a>;</LI>
+in <a href="#fig-cross_section">Figure 5</a>
+and <a href="#fig-cross_section_turn">Figure 6</a>;</LI>
 
 <LI>dimension 4 shall describe the total area of the tool contact
 cross section in the X-Y plane, shown by CSA
-in <a href="#fig-cross_section">Figure 2</a>
-and <a href="#fig-cross_section_turn">Figure 3</a>;</LI>
+in <a href="#fig-cross_section">Figure 5</a>
+and <a href="#fig-cross_section_turn">Figure 6</a>;</LI>
 
 <LI>dimension 5 shall describe the location along the X axis of the
 centre of gravity of the tool contact cross section, shown by XCGofs
-in <a href="#fig-cross_section">Figure 2</a>
-and <a href="#fig-cross_section_turn">Figure 3</a>;</LI>
+in <a href="#fig-cross_section">Figure 5</a>
+and <a href="#fig-cross_section_turn">Figure 6</a>;</LI>
 
 <LI>dimension 6 shall describe the location along the Y axis of the
 centre of gravity of the tool contact cross section, shown by YCGofs
-in <a href="#fig-cross_section">Figure 2</a>
-and <a href="#fig-cross_section_turn">Figure 3</a>.</LI>
+in <a href="#fig-cross_section">Figure 5</a>
+and <a href="#fig-cross_section_turn">Figure 6</a>.</LI>
 </UL>
 
 
@@ -12120,7 +12916,7 @@ known or lie outside of the set of milling tools described by ISO
 <p>7&emsp;taper_angle</p>
 <p>8&emsp;tool axis</p>
 </DIV>
-<FIGCAPTION>Figure 4 &mdash; User_defined_milling_tool parameters</FIGCAPTION>
+<FIGCAPTION>Figure 7 &mdash; User_defined_milling_tool parameters</FIGCAPTION>
 </FIGURE>
 
 <P CLASS="note">
@@ -12159,7 +12955,7 @@ END_ENTITY;
 <P>
 The corner_radius specifies the radius of the corner circle which
 describes the transition between the upper and lower line segments of
-the tool profile as shown in <a href="#fig-user_defined_tool">Figure 4</a>.</P>
+the tool profile as shown in <a href="#fig-user_defined_tool">Figure 7</a>.</P>
 
 
 <H4 ID="ao-user_defined_milling_tool-corner_radius_center_horizontal">4.3.333.2 corner_radius_center_horizontal</H4>
@@ -12188,7 +12984,7 @@ characterize the tool.</P>
 
 <P>The taper_angle specifies the angle between the upper line segment
 of the tool and the tool axis as shown
-in <a href="#fig-user_defined_tool">Figure 4</a>.</P>
+in <a href="#fig-user_defined_tool">Figure 7</a>.</P>
 
 <P CLASS="note">
 <SPAN>NOTE</SPAN> This angle will be positive when the tool diameter
@@ -12200,7 +12996,7 @@ when the tool diameter decreases when moving from tip to spindle.</P>
 
 <P>The tip_outer_angle specifies the angle between a radial line
 through the tool endpoint and the lower line segment of the tool as
-shown in <a href="#fig-user_defined_tool">Figure 4</a>.</P>
+shown in <a href="#fig-user_defined_tool">Figure 7</a>.</P>
 <P CLASS="note">
 <SPAN>NOTE</SPAN> This angle is always acute (less than 90 degrees)</P>
 
