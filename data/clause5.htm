@@ -30972,34 +30972,6 @@ twin_measured_property
 </table>
 
 
-<H5 ID="map-product_view_twin-when">5.1.15.55.8 when</H5>
-
-<table class="map">
-<tr><th>AIM element:</th>
-<td>date_and_time</td>
-</tr>
-
-<tr><th>Source:</th>
-<td>10303-41</td>
-</tr>
-
-<tr><th>Reference path:</th>
-<td class="path">product_definition
-date_and_time_item = product_definition
-date_and_time_item &lt;-
-applied_date_and_time_assignment.items[i]
-applied_date_and_time_assignment &lt;=
-date_and_time_assignment
-{ date_and_time_assignment.role -&gt;
-date_time_role
-date_time_role.name = 'measured' }
-date_and_time_assignment.assigned_date_and_time -&gt;
-date_and_time
-</td>
-</tr>
-</table>
-
-
 <H5 ID="map-product_view_twin-role">5.1.15.55.9 role</H5>
 
 <table class="map">

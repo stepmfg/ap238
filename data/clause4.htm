@@ -7711,15 +7711,10 @@ END_ENTITY;
 </PRE>
 
 
-
 <H4 ID="ao-fasten_with_codes-pass_thru_codes">5.4.1 pass_thru_codes</H4>
 
-<p>The pass_thru_codes specifies 
-
-The Fasten_with_codes application object is a 
-the enterprise’s machine/process specific codes that are to be used to control the manufacturing.
-
-
+<p>The pass_thru_codes specifies a sequence of machine-specific codes
+that shall be used to control the manufacturing.</p>
 
 
 
@@ -7731,11 +7726,20 @@ the enterprise’s machine/process specific codes that are to be used to control
 <H3 ID="ao-fastener_group">4.3.171 Fastener_group</H3>
 </DIV>
 
-<P>A Fastener_group application object is a type of</P>
+<P>A Fastener_group application object is a type of
+Drill_and_fill_group that describes a fastener configuration that may
+be used for a group of fastener locations.</P>
 
 <P>The data associated with a Fastener_group are the
 following:</P>
+
 <UL>
+<LI>fastener;</LI>
+<LI>collar;</LI>
+<LI>washers;</LI>
+<LI>fastener_sealant;</LI>
+<LI>fay_sealant;</LI>
+<LI>cap_sealant.</LI>
 </UL>
 
 <P CLASS="note">
@@ -7743,7 +7747,58 @@ following:</P>
 application object is shown below.</P>
 
 <PRE CLASS="note">
+ENTITY Fastener_group		-- ADDED BY 10303-238e4
+SUBTYPE OF (Drill_and_fill_group);
+  fastener			: OPTIONAL Product_view_definition;
+  collar			: OPTIONAL Product_view_definition;
+  washers			: LIST [0:?] OF Product_view_definition; 
+  fastener_sealant		: OPTIONAL Product_view_definition;
+  fay_sealant			: OPTIONAL Product_view_definition;
+  cap_sealant			: OPTIONAL Product_view_definition;
+END_ENTITY;
 </PRE>
+
+<H4 ID="ao-fastener_group-fastener">4.6.1 fastener_group to product_view_definition (as fastener)</H4>
+
+<p>The fastener specifies fastener that shall be added with this
+configuration to the fasteners positions in this group.</p>
+
+<P CLASS="note">
+<SPAN>NOTE</SPAN> In early phases, the recommended fastener may be a tack.</P>
+
+<H4 ID="ao-fastener_group-collar">4.6.2 fastener_group to product_view_definition (as collar)</H4>
+
+<p>The collar specifies the collar that shall be added with this
+configuration to the fasteners positions in this group.</p>
+
+<H4 ID="ao-fastener_group-washers">4.6.3 fastener_group to product_view_definition (as washers)</H4>
+
+<p>The washers specifies a sequence of washers that shall be added
+with this configuration to the fasteners positions in this group.  The
+washer order shall match the order of the washers in the fastener
+assembly beginning with the washer closest to the top surface.</p>
+
+<P CLASS="note">
+<SPAN>NOTE</SPAN> Washers may be flat, concave and convex, thick or thin.</P>
+
+<H4 ID="ao-fastener_group-fastener_sealant">4.6.4 fastener_group to product_view_definition (as fastener_sealant)</H4>
+
+<p>The fastener_sealant specifies the sealant that shall be applied
+with this configuration to the fastener before insertion into the
+fasteners positions in this group.</p>
+
+<H4 ID="ao-fastener_group-fay_sealant">4.6.5 fastener_group to product_view_definition (as fay_sealant)</H4>
+
+<p>The fay_sealant specifies the sealant that shall be applied with
+this configuration to the mating surface of the fasteners positions in
+this group.</p>
+
+
+<H4 ID="ao-fastener_group-cap_sealant">4.6.6 fastener_group to product_view_definition (as cap_sealant)</H4>
+    
+<p>The cap_sealant specifies the sealant that shall be applied with
+this configuration to the collar of the fasteners positions in this
+group.</p>
 
 
 
@@ -7755,20 +7810,87 @@ application object is shown below.</P>
 <H3 ID="ao-fastener_prototype">4.3.172 Fastener_prototype</H3>
 </DIV>
 
-<P>A Fastener_prototype application object is a type of</P>
+<P>A Fastener_prototype application object is a type of
+Product_view_prototype that describes requirements for one or more
+fasteners that hold the material layers in a stackup.</P>
 
 <P>The data associated with a Fastener_prototype are the
 following:</P>
+
 <UL>
+<LI>grip_length;</LI>
+<LI>fastener_diameter;</LI>
+<LI>hole_diameter_limits;</LI>
+<LI>button_height;</LI>
+<LI>button_diameter;</LI>
+<LI>required_squeeze;</LI>
+<LI>code;</LI>
+<LI>time_limit.</LI>
 </UL>
+
 
 <P CLASS="note">
 <SPAN>NOTE</SPAN> The EXPRESS description for the Fastener_prototype
 application object is shown below.</P>
 
 <PRE CLASS="note">
+ENTITY Fastener_prototype	-- ADDED BY 10303-238e4
+  SUBTYPE OF (Product_view_prototype);
+  grip_length		: OPTIONAL Expected_property;
+  fastener_diameter	: OPTIONAL Expected_property;
+  hole_diameter_limits	: OPTIONAL Diameter_size;
+  button_height		: OPTIONAL Expected_property;
+  button_diameter	: OPTIONAL Expected_property;
+  required_squeeze	: OPTIONAL Expected_property;
+  code			: OPTIONAL Text;
+  time_limit		: OPTIONAL Expected_property;
+END_ENTITY;
 </PRE>
 
+<H4 ID="ao-fastener_prototype-grip_length">3.4.1 fastener_prototype to expected_property (as grip_length)</H4>
+
+<p>The grip_length specifies the upper and lower limits for the grip
+length for this type of fastener.</p>
+
+
+<H4 ID="ao-fastener_prototype-fastener_diameter">3.4.2 fastener_prototype to expected_property (as fastener_diameter)</H4>
+
+<p>The fastener_diameter specifies the upper and lower limits for the
+fastener diameter.</p>
+
+<H4 ID="ao-fastener_prototype-hole_diameter_limits">3.4.3 fastener_prototype to diameter_size_tolerance (as hole_diameter_limits)</H4>
+
+<p>The hole_diameter_limits specifies the tolerance limits of the hole
+diameter for this fastener.</p>
+
+<P CLASS="note">
+<SPAN>NOTE</SPAN> These are the limits on the fastened hole as defined
+by engineering.</P>
+
+<H4 ID="ao-fastener_prototype-button_height">3.4.4 fastener_prototype to expected_property (as button_height)</H4>
+
+<p>The button_height specifies the upper and lower limits for the
+button height.</p>
+
+<H4 ID="ao-fastener_prototype-button_diameter">3.4.5 fastener_prototype to expected_property (as button_diameter)</H4>
+
+<p>The button_diameter specifies the upper and lower limits for the
+button diameter.</p>
+
+<H4 ID="ao-fastener_prototype-required_squeeze">3.4.6 fastener_prototype to expected_property (as required_squeeze)</H4>
+
+<p>The required_squeeze specifies the upper and lower limits for the
+force required to squeeze the fastener into place.</p>
+
+<H4 ID="ao-fastener_prototype-code">3.4.7 code</H4>
+
+<p>The code specifies an organization specific code for the type of
+the fastener.</p>
+
+<H4 ID="ao-fastener_prototype-time_limit">3.4.8 fastener_prototype to expected_property (as time_limit)</H4>
+
+<p>The time_limit specifies the upper limit for the time a tack may be
+in place before additional measurements are required.</p>
 
 
 <!-- ============================== -->
@@ -7779,21 +7901,116 @@ application object is shown below.</P>
 <H3 ID="ao-fastener_twin">4.3.173 Fastener_twin</H3>
 </DIV>
 
-<P>A Fastener_twin application object is a type of</P>
+<P>A Fastener_twin application object is a type of Product_view_twin
+that describes key properties of a physical instance that fastens the
+material layers in a drilled hole.
 
 <P>The data associated with a Fastener_twin are the
 following:</P>
+
 <UL>
+<LI>fastens;</LI>
+<LI>is_temporary;</LI>
+<LI>grip_length;</LI>
+<LI>diameter;</LI>
+<LI>applied_squeeze;</LI>
+<LI>button_diameter;</LI>
+<LI>button_height;</LI>
+<LI>when_placed;</LI>
+<LI>when_removed.</LI>
 </UL>
+
 
 <P CLASS="note">
 <SPAN>NOTE</SPAN> The EXPRESS description for the Fastener_twin
 application object is shown below.</P>
 
 <PRE CLASS="note">
+ENTITY Fastener_twin	-- ADDED BY 10303-238e4
+  SUBTYPE OF (Product_view_twin);
+  SELF\Product_view_twin.manufacturing_prototype:	Fastener_prototype;
+  SELF\Product_view_twin.supplier_prototype:		OPTIONAL Fastener_prototype;
+
+  fastens		: Drill_and_fill_twin;
+  is_temporary 		: OPTIONAL BOOLEAN;
+  grip_length		: OPTIONAL Measured_property;
+  diameter		: OPTIONAL Measured_property;
+  applied_squeeze	: OPTIONAL Measured_property;
+  button_height 	: OPTIONAL Measured_property;
+  button_diameter	: OPTIONAL Measured_property;
+  when_placed 		: OPTIONAL Date_time;
+  when_removed 		: OPTIONAL Date_time;
+END_ENTITY;
 </PRE>
 
 
+<H4 ID="ao-fastener_twin-fastens">3.3.1 fastener_twin to drill_and_fill_twin (as fastens)</H4>
+
+<p>The fastens specifies the hole feature fastened by this fastener.</p>
+
+<H4 ID="ao-fastener_twin-is_temporary">3.3.2 is_temporary</H4>
+
+<p>The is_temporary specifies whether this fastener is a temporary
+tack placed by a Place_tack_operation.  The fastener is a temporary
+tack if is_temporary is true, and is a permanent fastener if
+is_temporary is false or not specified.</p>
+
+
+<H4 ID="ao-fastener_twin-grip_length">3.3.3 fastener_twin to measured_property (as grip_length)</H4>
+
+<p>The grip_length specifies the measured grip length of the fastener.</p>
+
+<P CLASS="note">
+<SPAN>NOTE</SPAN> The value may come from a catalog.</P>
+
+
+<H4 ID="ao-fastener_twin-diameter">3.3.4 fastener_twin to measured_property (as diameter)</H4>
+
+<p>The diameter specifies the measured grip diameter of the fastener.</p>
+
+<P CLASS="note">
+<SPAN>NOTE</SPAN> The value may come from a catalog.</P>
+
+
+<H4 ID="ao-fastener_twin-applied_squeeze">3.3.5 fastener_twin to measured_property (as applied_squeeze)</H4>
+
+<p>The applied_squeeze specifies the measured force applied to a
+squeeze a fastener into place.</p>
+
+
+<H4 ID="ao-fastener_twin-button_diameter">3.3.6 fastener_twin to measured_property (as button_diameter)</H4>
+
+<p>The button_diameter specifies the measured button diameter of a
+fastener that has been squeezed into place.</p>
+
+<P CLASS="note">
+<SPAN>NOTE</SPAN> The value may come from a catalog.</P>
+
+
+<H4 ID="ao-fastener_twin-button_height">3.3.7 fastener_twin to measured_property (as button_height)</H4>
+
+<p>The button_height specifies the measured button height of a
+fastener that has been squeezed into place.</p>
+
+<P CLASS="note">
+<SPAN>NOTE</SPAN> The value may come from a catalog.</P>
+
+
+<H4 ID="ao-fastener_twin-when_placed">3.3.8 when_placed</H4>
+
+<p>The when_placed specifies the date and time when the fastener was
+placed.</p>
+
+<H4 ID="ao-fastener_twin-when_removed">3.3.9 when_removed</H4>
+
+<p>The when_removed specifies the date and time when the fastener was
+removed.
+
+<P CLASS="note">
+<SPAN>NOTE</SPAN> A fastener is always be removed if it is a temporary
+tack, and sometime removed if had to be replaced.  If replaced, the
+replacement attribute of its Drill_and_fill_twin will be set and
+when_removed will give the time of replacement.</P>
 
 
 
@@ -7919,7 +8136,8 @@ was identified in AP238 testing.</P>
 <H3 ID="ao-fill_type_operation">4.3.176 Fill_type_operation</H3>
 </DIV>
 
-<P>A Fill_type_operation application object is a type of</P>
+<P>A Fill_type_operation application object is a type of
+Machining_operation that adds a product to the as_is model.</P>
 
 <P>The data associated with a Fill_type_operation are the
 following:</P>
@@ -7931,6 +8149,9 @@ following:</P>
 application object is shown below.</P>
 
 <PRE CLASS="note">
+ENTITY Fill_type_operation	-- ADDED BY 10303-238e4
+  SUBTYPE OF (Machining_operation);
+END_ENTITY;
 </PRE>
 
 
@@ -9205,12 +9426,17 @@ where the final fastener is installed.</P>
 <H3 ID="ao-manufacturing_feature_prototype">4.3.208 Manufacturing_feature_prototype</H3>
 </DIV>
 
-<P>A Manufacturing_feature_prototype application object is a type of</P>
+<P>A Manufacturing_feature_prototype application object is a type of
+Manufacturing_feature that describes expected properties, derived from
+design requirements, of manufacturing feature twins.
 
 <P>The data associated with a Manufacturing_feature_prototype are the
 following:</P>
-<UL>
 
+<UL>
+<LI>engineering_design;</LI>
+<LI>external_engineering_design;</LI>
+<LI>expected_pmi.</LI>
 </UL>
 
 <P CLASS="note">
@@ -9218,12 +9444,29 @@ following:</P>
 Manufacturing_feature_prototype application object is shown below.</P>
 
 <PRE CLASS="note">
+ENTITY Manufacturing_feature_prototype	-- ADDED BY 10303-238e4
+SUBTYPE OF (Manufacturing_feature); 
+  engineering_design		: OPTIONAL Manufacturing_feature;
+  external_engineering_design	: OPTIONAL Identifier;
+  expected_pmi: 		SET [0:?] OF Expected_property;
+END_ENTITY;
 </PRE>
 
 
+<H4 ID="ao-manufacturing_feature_prototype-engineering_design">2.6.1 manufacturing_feature_prototype to manufacturing_feature (as engineering_design)</H4>
+
+<p>The engineering_design specifies the design definition of the feature.</p>
+
+<H4 ID="ao-manufacturing_feature_prototype-external_engineering_design">2.6.2 external_engineering_design</H4>
+
+<p>The external_engineering_design specifies the design definition of
+the feature if it exists in an external model.</p>
 
 
+<H4 ID="ao-manufacturing_feature_prototype-expected_pmi">2.6.3 manufacturing_feature_prototype to expected_property (as expected_pmi)</H4>
 
+<p>The expected_pmi specifies a collection of expected properties,
+relevant to manufacturing, of the feature.</p>
 
 
 <!-- ============================== -->
@@ -9234,20 +9477,54 @@ Manufacturing_feature_prototype application object is shown below.</P>
 <H3 ID="ao-manufacturing_feature_twin">4.3.209 Manufacturing_feature_twin</H3>
 </DIV>
 
-<P>A Manufacturing_feature_twin application object is a type of</P>
+<P>A Manufacturing_feature_twin application object is a type of
+Manufacturing_feature that describes a digital twin of a physical
+feature as it is manufactured.</P>
 
 <P>The data associated with a Manufacturing_feature_twin are the
 following:</P>
+
 <UL>
+<LI>manufacturing_prototype;</LI>
+<LI>place;</LI>
+<LI>measured_pmi.</LI>
 </UL>
+
 
 <P CLASS="note">
 <SPAN>NOTE</SPAN> The EXPRESS description for the Manufacturing_feature_twin
 application object is shown below.</P>
 
 <PRE CLASS="note">
+ENTITY Manufacturing_feature_twin	-- ADDED BY 10303-238e4
+SUBTYPE OF (Manufacturing_feature); 
+  manufacturing_prototype	: Manufacturing_feature_prototype;
+  place			: OPTIONAL Bounding_geometry_select;
+  measured_pmi		: SET [0:?] OF Measured_property;
+END_ENTITY;
 </PRE>
 
+
+<H4 ID="ao-manufacturing_feature_twin-manufacturing_prototype">2.5.1 manufacturing_feature_twin to manufacturing_feature_prototype (as manufacturing_prototype)</H4>
+
+<p>The manufacturing_prototype specifies the manufacturing
+requirements for the twin.</p>
+
+<P CLASS="note">
+<SPAN>NOTE</SPAN> Twins share the same requirements by sharing the
+same prototypes.</P>
+
+
+<H4 ID="ao-manufacturing_feature_twin-place">2.5.2 place</H4>
+
+<p>The place specifies a volume in world coordinates containing the
+physical twin.</p>
+
+
+<H4 ID="ao-manufacturing_feature_twin-measured_pmi">2.5.3 manufacturing_feature_twin to measured_property (as measured_pmi)</H4>
+
+<p>The measured_pmi specifies a collection of properties, relevant to
+manufacturing, that have been measured on the twin. </p>
 
 
 
@@ -9324,20 +9601,64 @@ allow any type of Product_view_definition.
 <H3 ID="ao-manufacturing_stage">4.3.211 Manufacturing_stage</H3>
 </DIV>
 
-<P>A Manufacturing_stage application object is a type of</P>
+<P>A Manufacturing_stage application object describes a phase of a
+manufacturing project.</P>
 
 <P>The data associated with a Manufacturing_stage are the
 following:</P>
+
 <UL>
+<LI>name;</LI>
+<LI>purpose;</LI>
+<LI>nested_in;</LI>
+<LI>continue_on_entry.</LI>
 </UL>
+
 
 <P CLASS="note">
 <SPAN>NOTE</SPAN> The EXPRESS description for the Manufacturing_stage
 application object is shown below.</P>
 
 <PRE CLASS="note">
+ENTITY Manufacturing_stage;	-- ADDED BY 10303-238e4
+  name		: Identifier;	-- phase 1, phase 2 etc.
+  purpose 	: OPTIONAL Text;
+  nested_in	: OPTIONAL Manufacturing_stage;
+  continue_on_entry : OPTIONAL Boolean;
+END_ENTITY;
 </PRE>
 
+<H4 ID="ao-manufacturing_stage-name">2.3.1 name</H4>
+
+<p>The name specifies a word or group of words which identify the
+Manufacturing_stage.</P>
+
+
+<H4 ID="ao-manufacturing_stage-purpose">2.3.2 purpose</H4>
+
+<p>The purpose specifies additional details about the Manufacturing_stage.</p>
+
+<H4 ID="ao-manufacturing_stage-nested_in">2.3.3 manufacturing_stage to manufacturing_stage (as nested_in)</H4>
+
+<p>The nested_in specifies an enclosing Manufacturing_stage.  Stages
+may be organized hierarchically.
+
+<P CLASS="note">
+<SPAN>NOTE</SPAN> If a manufacturing stage is nested then the parent
+is suspended while the twin is in this nested stage, and re-started
+when the twin finishes the nested stage.</P>
+
+
+<H4 ID="ao-manufacturing_stage-continue_on_entry">2.3.4 continue_on_entry</H4>
+
+<p>The continue_on_entry specifies whether entry into the stage shall
+create a new twin or shall continue operation on an existing twin.
+Operation shall operation on an existing twin if true.  A new twin
+shall be created if continue_on_entry is false or not specified.</p>
+
+<P CLASS="note">
+<SPAN>NOTE</SPAN> If a new twin is made, the old twin is be accessible
+via the twin history of the feature.</P>
 
 
 <!-- ============================== -->
@@ -9391,20 +9712,66 @@ properties specific to an instance of the material.</P>
 <H3 ID="ao-measured_property">4.3.213 Measured_property</H3>
 </DIV>
 
-<P>A Measured_property application object is a type of</P>
+<P>A Measured_property application object describes a property that is
+measured on a digital twin instance during manufacturing.</P>
+
+<P CLASS="note">
+<SPAN>NOTE 1</SPAN> Many properties can be measured on a twin. A subset
+is called out as properties that may be useful for a specific type of
+twins.</P>
 
 <P>The data associated with a Measured_property are the
 following:</P>
+
 <UL>
+<LI>prototype;</LI>
+<LI>measured_value;</LI>
+<LI>measurement_process;</LI>
+<LI>when.</LI>
 </UL>
 
+
 <P CLASS="note">
-<SPAN>NOTE</SPAN> The EXPRESS description for the Measured_property
+<SPAN>NOTE 2</SPAN> The EXPRESS description for the Measured_property
 application object is shown below.</P>
 
 <PRE CLASS="note">
+ENTITY Measured_property;	-- ADDED BY 10303-238e4
+  prototype		: Expected_property;
+  measured_value	: Value_with_unit;
+  measurement_process	: OPTIONAL Executable;
+  when			: OPTIONAL Date_time;
+END_ENTITY;
 </PRE>
 
+
+<H4 ID="ao-measured_property-prototype">3.16.1 measured_property to expected_property (as prototype)</H4>
+
+<p>The prototype specifies the required value for this property.</p>
+
+<P CLASS="note">
+<SPAN>NOTE</SPAN> A monitoring system may use the prototype to
+determine if the value is within tolerance.</P>
+
+<H4 ID="ao-measured_property-measured_value">3.16.2 measured_value</H4>
+
+<p>The measured_value specifies the as-measured value of the property
+with the unit of measurement.</p>
+
+
+<P CLASS="note">
+<SPAN>NOTE</SPAN> A Measured_Property is considered valid if the
+measured value is between the lower_limit and upper_limit of the
+prototype.</P>
+
+<H4 ID="ao-measured_property-measurement_process">3.16.3 measured_property to executable (as measurement_process)</H4>
+
+<p>The measurement_process specifies the Executable used to measure
+the value of the property.</p>
+
+<H4 ID="ao-measured_property-when">3.16.4 when</H4>
+
+<p>The when specifies the date and time the measurement was made.</p>
 
 
 <!-- ============================== -->
@@ -9792,11 +10159,20 @@ END_ENTITY;
 <H3 ID="ao-nose_prototype">4.3.226 Nose_prototype</H3>
 </DIV>
 
-<P>A Nose_prototype application object is a type of</P>
+<P>A Nose_prototype application object is a type of
+Product_view_prototype that describes key capabilities of a robot end
+effector that is used to perform drilling operations and insert
+fasteners</P>
 
 <P>The data associated with a Nose_prototype are the
 following:</P>
+
 <UL>
+<LI>allowed_cutters;</LI>
+<LI>allowed_fasteners;</LI>
+<LI>allowed_collars;</LI>
+<LI>allowed_washers;</LI>
+<LI>allowed_sealants.</LI>
 </UL>
 
 <P CLASS="note">
@@ -9804,7 +10180,40 @@ following:</P>
 application object is shown below.</P>
 
 <PRE CLASS="note">
+ENTITY Nose_prototype	-- ADDED BY 10303-238e4
+  SUBTYPE OF (Product_view_prototype);
+  allowed_cutters: 	SET [0:?] OF Cutting_tool_twin;
+  allowed_fasteners: 	SET [0:?] OF Fastener_prototype;
+  allowed_collars: 	SET [0:?] OF Collar_prototype;
+  allowed_washers: 	SET [0:?] OF Washer_prototype;
+  allowed_sealants: 	SET [0:?] OF Sealant_prototype;
+END_ENTITY;
 </PRE>
+
+<H4 ID="ao-nose_prototype-allowed_cutters">3.12.1 nose_prototype to cutting_tool_twin (as allowed_cutters)</H4>
+
+<p>The allowed_cutters specifies a collection of cutter types that can be loaded into the nose.
+
+<H4 ID="ao-nose_prototype-allowed_fasteners">3.12.2 nose_prototype to fastener_prototype (as allowed_fasteners)</H4>
+
+<p>The allowed_fasteners specifies a collection of fastener types that can be loaded into the nose.
+
+
+<H4 ID="ao-nose_prototype-allowed_collars">3.12.3 nose_prototype to collar_prototype (as allowed_collars)</H4>
+
+<p>The allowed_collars specifies a collection of collar types that can be loaded into the nose.
+
+
+<H4 ID="ao-nose_prototype-allowed_washers">3.12.4 nose_prototype to washer_prototype (as allowed_washers)</H4>
+
+<p>The allowed_washers specifies a collection of washer types that can be loaded into the nose.
+
+
+<H4 ID="ao-nose_prototype-allowed_sealants">3.12.5 nose_prototype to sealant_prototype (as allowed_sealants)</H4>
+
+<p>The allowed_sealants specifies a collection of sealant types that can be loaded into the nose.
+
+
 
 
 
@@ -9816,11 +10225,15 @@ application object is shown below.</P>
 <H3 ID="ao-nose_twin">4.3.227 Nose_twin</H3>
 </DIV>
 
-<P>A Nose_twin application object is a type of</P>
+<P>A Nose_twin application object is a type of Product_view_twin that
+describes the end effector being used to drill and fill holes.</P>
 
 <P>The data associated with a Nose_twin are the
 following:</P>
+
 <UL>
+<LI>loaded_cutter;</LI>
+<LI>robot.</LI>
 </UL>
 
 <P CLASS="note">
@@ -9828,8 +10241,25 @@ following:</P>
 application object is shown below.</P>
 
 <PRE CLASS="note">
+ENTITY Nose_twin	-- ADDED BY 10303-238e4
+  SUBTYPE OF (Product_view_twin);
+  SELF\Product_view_twin.manufacturing_prototype: Nose_prototype;
+  SELF\Product_view_twin.supplier_prototype: 	  OPTIONAL Nose_prototype;
+
+  loaded_cutter: 	Cutting_tool_twin;
+  robot:		Identifier;
+END_ENTITY;
 </PRE>
 
+
+<H4 ID="ao-nose_twin-loaded_cutter">3.11.1 nose_twin to cutting_tool_twin (as loaded_cutter)</H4>
+
+<p>The loaded_cutter specifies the cutter loaded into the end effector.</p>
+
+
+<H4 ID="ao-nose_twin-robot">3.11.2 robot</H4>
+
+<p>The robot identifies the robot that is using this end effector.</p>
 
 
 <!-- ============================== -->
@@ -9867,20 +10297,44 @@ END_ENTITY;
 <H3 ID="ao-oneup_assembly_group">4.3.229 Oneup_assembly_group</H3>
 </DIV>
 
-<P>An Oneup_assembly_group application object is a type of</P>
+<P>An Oneup_assembly_group application object is a type of
+Drill_and_fill_group that describes a collection of operations that
+shall be completed before work begins on the holes in the group.</P>
+
+<P CLASS="note">
+<SPAN>NOTE 1</SPAN> This enables flexible ordering of manufacturing
+operations</P>
 
 <P>The data associated with a Oneup_assembly_group are the
 following:</P>
+
 <UL>
+<LI>must_follow.</LI>
 </UL>
 
 <P CLASS="note">
-<SPAN>NOTE</SPAN> The EXPRESS description for the Oneup_assembly_group
+<SPAN>NOTE 2</SPAN> The EXPRESS description for the Oneup_assembly_group
 application object is shown below.</P>
 
 <PRE CLASS="note">
+ENTITY Oneup_assembly_group	-- ADDED BY 10303-238e4
+SUBTYPE OF (Drill_and_fill_group);
+  must_follow: 		SET [1:?] OF Executable;
+END_ENTITY;
 </PRE>
 
+
+<H4 ID="ao-oneup_assembly_group-must_follow">4.8.1 oneup_assembly_group to executable (as must_follow)</H4>
+
+<p>The must_follow specifies a collection of Executable objects.  At
+least one Executable must finish before work on this group begins.</p>
+
+<P CLASS="note">
+<SPAN>NOTE</SPAN> The collection will often contain a single
+Executable.  At times, there may be many Executables at least one of
+which must finish before work begins. In the most complex case an
+Executable in the set can be a Workplan that describes multiple things
+that must be completed before beginning the oneup assembly group.</P>
 
 
 <!-- ============================== -->
@@ -10020,11 +10474,18 @@ END_ENTITY;
 <H3 ID="ao-phase_history">4.3.234 Phase_history</H3>
 </DIV>
 
-<P>A Phase_history application object is a type of</P>
+<P>A Phase_history application object is a record of the twin that
+modeled a feature during each phase of its manufacturing.</P>
 
 <P>The data associated with a Phase_history are the
 following:</P>
+
 <UL>
+<LI>phase;</LI>
+<LI>twin;</LI>
+<LI>manufacturing_goal;</LI>
+<LI>completed;</LI>
+<LI>recorded_states.</LI>
 </UL>
 
 <P CLASS="note">
@@ -10032,7 +10493,60 @@ following:</P>
 application object is shown below.</P>
 
 <PRE CLASS="note">
+ENTITY Phase_history;	-- ADDED BY 10303-238e4
+  phase			: Manufacturing_stage;
+  twin			: Manufacturing_feature_twin;
+  manufacturing_goal	: Text;
+  completed		: LIST [0:?] OF Machining_workingstep;
+  recorded_states	: LIST [0:?] OF State_condition;
+END_ENTITY;
 </PRE>
+
+
+<H4 ID="ao-phase_history-phase">2.2.1 phase_history to manufacturing_stage (as phase)</H4>
+
+<p>The phase specifies the phase of the project in which the feature
+was active.</p>
+
+<P CLASS="note">
+<SPAN>NOTE</SPAN> A feature is active in a phase if it is being
+machined or measured.</P>
+
+
+
+<H4 ID="ao-phase_history-twin">2.2.2 phase_history to manufacturing_feature_twin (as twin)</H4>
+
+<p>The twin specifies the twin that modeled the feature in the phase. </p>
+
+<P CLASS="note">
+<SPAN>NOTE</SPAN> Each phase is typically modeled using a different
+twin, but applications may use the same twin for multiple phases, or
+all phases. Nested phases are also possible.</P>
+
+
+<H4 ID="ao-phase_history-manufacturing_goal">2.2.3 manufacturing_goal</H4>
+
+<p>The manufacturing_goal specifies the description of the
+manufacturing goal for this twin in this phase. </p>
+
+<H4 ID="ao-phase_history-completed">2.2.4 phase_history to machining_workingstep (as completed)</H4>
+
+<p>The completed specifies a sequence of workingsteps already applied
+to this twin in this phase.</p>
+
+<P CLASS="note">
+<SPAN>NOTE 1</SPAN> Each completed workingstep can have start and
+finish timestamps.</P>
+<P CLASS="note">
+<SPAN>NOTE 2</SPAN> The current phase of a twin is the phase of its
+most recently completed workingstep. The current phase of a feature is
+the phase of the twin of its most recent twin.</P>
+
+
+<H4 ID="ao-phase_history-recorded_states">2.2.5 phase_history to state_condition (as recorded_states)</H4>
+
+<p>The recorded_states specifies a sequence of the notable changes
+applied to the twin during this phase.</p>
 
 
 
@@ -10045,10 +10559,14 @@ application object is shown below.</P>
 </DIV>
 
 <P>A Phase_stage application object is a type of</P>
+The Phase_stage application object determines if a group holds the primary or alternate information for a manufacturing stage.
 
 <P>The data associated with a Phase_stage are the
 following:</P>
+
 <UL>
+<LI>stage;</LI>
+<LI>primary.</LI>
 </UL>
 
 <P CLASS="note">
@@ -10056,8 +10574,26 @@ following:</P>
 application object is shown below.</P>
 
 <PRE CLASS="note">
+ENTITY Phase_stage;	-- ADDED BY 10303-238e4
+  stage		: Manufacturing_stage;	-- phase 1 etc.
+  primary	: BOOLEAN;
+END_ENTITY;
 </PRE>
 
+
+<H4 ID="ao-phase_stage-stage">4.2.1 phase_stage to manufacturing_stage (as stage)</H4>
+
+<p>The stage specifies a manufacturing stage where the information
+described by a group applies.  stage is not specified a referencing
+Drill_and_fill_group applies to all stages.</p>
+
+<H4 ID="ao-phase_stage-primary">4.2.2 primary</H4>
+
+<p>The primary specifies whether a referencing Drill_and_fill_group
+shall be preferred if a twin is in multiple groups of the same type.
+If primary is true then a referencing Drill_and_fill_group shall be
+preferred.  If primary is false or not specified, a referencing
+Drill_and_fill_group may not be preferred.</p>
 
 
 <!-- ============================== -->
@@ -10068,7 +10604,8 @@ application object is shown below.</P>
 <H3 ID="ao-place_collar_operation">4.3.236 Place_collar_operation</H3>
 </DIV>
 
-<P>A Place_collar_operation application object is a type of</P>
+<P>A Place_collar_operation application object is a type of
+Place_item_operation that places a collar.</P>
 
 <P>The data associated with a Place_collar_operation are the
 following:</P>
@@ -10080,6 +10617,9 @@ following:</P>
 application object is shown below.</P>
 
 <PRE CLASS="note">
+ENTITY Place_collar_operation	-- ADDED BY 10303-238e4
+  SUBTYPE OF (Place_item_operation);
+END_ENTITY;
 </PRE>
 
 
@@ -10092,19 +10632,99 @@ application object is shown below.</P>
 <H3 ID="ao-place_fastener_operation">4.3.237 Place_fastener_operation</H3>
 </DIV>
 
-<P>A Place_fastener_operation application object is a type of</P>
+<P>A Place_fastener_operation application object is a type of
+Place_type_operation that places a fastener.</P>
 
 <P>The data associated with a Place_fastener_operation are the
 following:</P>
+
 <UL>
+<LI>grip_length;</LI>
+<LI>squeeze;</LI>
+<LI>button_height;</LI>
+<LI>button_diameter;</LI>
+<LI>verify_button;</LI>
+<LI>verify_squeeze;</LI>
+<LI>verify_material;</LI>
+<LI>verify_grip.</LI>
 </UL>
+
 
 <P CLASS="note">
 <SPAN>NOTE</SPAN> The EXPRESS description for the Place_fastener_operation
 application object is shown below.</P>
 
 <PRE CLASS="note">
+ENTITY Place_fastener_operation		-- ADDED BY 10303-238e4
+  SUBTYPE OF (Place_item_operation);
+  grip_length		: OPTIONAL Length_data_element;
+  squeeze		: OPTIONAL Pressure_data_element;
+  button_height		: OPTIONAL Length_data_element;
+  button_diameter	: OPTIONAL Length_data_element;
+  verify_button		: OPTIONAL BOOLEAN;
+  verify_squeeze	: OPTIONAL BOOLEAN;
+  verify_material	: OPTIONAL BOOLEAN;
+  verify_grip		: OPTIONAL BOOLEAN;
+END_ENTITY;
 </PRE>
+
+<H4 ID="ao-place_fastener_operation-grip_length">5.6.1 grip_length</H4>
+
+<p>The grip_length specifies the expected grip length for the placed
+item.</p>
+
+
+<H4 ID="ao-place_fastener_operation-squeeze">5.6.2 squeeze</H4>
+
+<p>The squeeze specifies the pressure to force a fastener into the
+fastener hole.</p>
+
+<P CLASS="note">
+<SPAN>EXAMPLE</SPAN> A rivet is a squeezed fastener.</P>
+
+
+<H4 ID="ao-place_fastener_operation-button_height">5.6.3 button_height</H4>
+
+<p>The button_height specifies the button height for a squeezed fastener.</p>
+
+
+<H4 ID="ao-place_fastener_operation-button_diameter">5.6.4 button_diameter</H4>
+
+<p>The button_diameter specifies the button diameter for a squeezed
+fastener.</p>
+
+
+<H4 ID="ao-place_fastener_operation-verify_button">5.6.5 verify_button</H4>
+
+<p>The verify_button specifies whether verification is performed that
+the delivered button meets the requirements of the fastener location.
+Verification is performed if verify_button is true.  Verification is
+not performed if verify_button is false or unspecified.</p>
+
+<H4 ID="ao-place_fastener_operation-verify_squeeze">5.6.6 verify_squeeze</H4>
+
+<p>The verify_squeeze specifies whether verification is performed that
+the squeeze pressure meets the requirements of the fastener location.
+Verification is performed if verify_squeeze is true.  Verification is
+not performed if verify_squeeze is false or unspecified.</p>
+
+<H4 ID="ao-place_fastener_operation-verify_material">5.6.7 verify_material</H4>
+
+<p>The verify_material specifies whether verification is performed
+that the material of the fastener meets the requirements of the
+fastener location.  Verification is performed if verify_material is
+true.  Verification is not performed if verify_material is false or
+unspecified.</p>
+
+<P CLASS="note">
+<SPAN>EXAMPLE</SPAN> A camera may be used to inspect the color.</P>
+
+<H4 ID="ao-place_fastener_operation-verify_grip">5.6.8 verify_grip</H4>
+
+<p>The verify_grip specifies whether verification is performed that
+the grip length is sufficient for the depth of the hole stack.
+Verification is performed if verify_grip is true.  Verification is not
+performed if verify_grip is false or unspecified.</p>
 
 
 
@@ -10116,11 +10736,20 @@ application object is shown below.</P>
 <H3 ID="ao-place_item_operation">4.3.238 Place_item_operation</H3>
 </DIV>
 
-<P>A Place_item_operation application object is a type of</P>
+<P>A Place_item_operation application object is a type of
+Fill_type_operation that places an item into a feature.</P>
 
 <P>The data associated with a Place_item_operation are the
 following:</P>
+
 <UL>
+<LI>placed_item;</LI>
+<LI>depth;</LI>
+<LI>allowable_minimum_force;</LI>
+<LI>allowable_maximum_force;</LI>
+<LI>allowable_position_deviation;</LI>
+<LI>allowable_normal_deviation;</LI>
+<LI>allowable_depth_deviation.</LI>
 </UL>
 
 <P CLASS="note">
@@ -10128,8 +10757,75 @@ following:</P>
 application object is shown below.</P>
 
 <PRE CLASS="note">
+ENTITY Place_item_operation	-- ADDED BY 10303-238e4
+  SUBTYPE OF (Fill_type_operation);
+  placed_item			: Product_view_definition;    
+  depth				: OPTIONAL Length_data_element;
+  allowable_minimum_force	: OPTIONAL Force_data_element;
+  allowable_maximum_force	: OPTIONAL Force_data_element;
+  allowable_position_deviation	: OPTIONAL Length_data_element;
+  allowable_normal_deviation	: OPTIONAL Angle_data_element;
+  allowable_depth_deviation	: OPTIONAL Length_data_element;
+END_ENTITY;
 </PRE>
 
+<H4 ID="ao-place_item_operation-placed_item">5.5.1 place_item_operation to product_view_definition (as placed_item)</H4>
+
+<p>The placed_item specifies the definition of the item to be placed
+into the feature. The digital twin selected shall use this product as
+the engineering definition of its prototype.</p>
+
+<H4 ID="ao-place_item_operation-depth">5.5.2 depth</H4>
+
+<p>The depth specifies the distance from the top of the feature, in
+the direction of the axis of the feature, where the item is to be
+placed.</p>
+
+<H4 ID="ao-place_item_operation-allowable_minimum_force">5.5.3 allowable_minimum_force</H4>
+
+<p>The allowable_minimum_force specifies the minimum force necessary
+to place the fastener, or insert a rivet, into the feature.</p>
+
+<P CLASS="note">
+<SPAN>NOTE</SPAN> The manufacturing system may indicate an exception
+condition if this minimum is not met.</P>
+
+<H4 ID="ao-place_item_operation-allowable_maximum_force">5.5.4 allowable_maximum_force</H4>
+
+<p>The allowable_maximum_force specifies the maximum force necessary
+to place the fastener, or insert a rivet, into the feature.</p>
+
+<P CLASS="note">
+<SPAN>NOTE</SPAN> The manufacturing system may indicate an exception
+condition if this maximum is exceeded.</P>
+
+<H4 ID="ao-place_item_operation-allowable_position_deviation">5.5.5 allowable_position_deviation</H4>
+
+<p>The allowable_position_deviation specifies the maximum deviation
+allowed for the position of the item.</p>
+
+<P CLASS="note">
+<SPAN>NOTE</SPAN> The manufacturing system may indicate an exception
+condition if this deviation is exceeded</P>
+
+<H4 ID="ao-place_item_operation-allowable_normal_deviation">5.5.6 allowable_normal_deviation</H4>
+
+<p>The allowable_normal_deviation specifies the maximum deviation
+allowed for the direction of the normal.</p>
+
+<P CLASS="note">
+<SPAN>NOTE</SPAN> The manufacturing system may indicate an exception
+condition if an angular deviation is exceeded</P>
+
+
+<H4 ID="ao-place_item_operation-allowable_depth_deviation">5.5.7 allowable_depth_deviation</H4>
+
+<p>The allowable_depth_deviation specifies the maximum deviation
+allowed for the depth of the hole.</p>
+
+<P CLASS="note">
+<SPAN>NOTE</SPAN> The manufacturing system may indicate an exception
+condition if the depth is exceeded.</P>
 
 
 <!-- ============================== -->
@@ -10140,18 +10836,22 @@ application object is shown below.</P>
 <H3 ID="ao-place_tack_operation">4.3.239 Place_tack_operation</H3>
 </DIV>
 
-<P>A Place_tack_operation application object is a type of</P>
-
-<P>The data associated with a Place_tack_operation are the
-following:</P>
-<UL>
-</UL>
+<P>A Place_tack_operation application object is a type of
+Place_fastener_operation that places fasteners as tacks that shall be
+removed before manufacturing is completed.</P>
 
 <P CLASS="note">
-<SPAN>NOTE</SPAN> The EXPRESS description for the Place_tack_operation
+<SPAN>NOTE 1</SPAN> The Drill_and_fill_twin that holds the tack will
+have its temporary attribute set to true.</P>
+
+<P CLASS="note">
+<SPAN>NOTE 2</SPAN> The EXPRESS description for the Place_tack_operation
 application object is shown below.</P>
 
 <PRE CLASS="note">
+ENTITY Place_tack_operation	-- ADDED BY 10303-238e4
+  SUBTYPE OF (Place_fastener_operation);
+END_ENTITY;
 </PRE>
 
 
@@ -10164,18 +10864,17 @@ application object is shown below.</P>
 <H3 ID="ao-place_washer_operation">4.3.240 Place_washer_operation</H3>
 </DIV>
 
-<P>A Place_washer_operation application object is a type of</P>
-
-<P>The data associated with a Place_washer_operation are the
-following:</P>
-<UL>
-</UL>
+<P>A Place_washer_operation application object is a type of
+Fill_type_operation that places a washer.</P>
 
 <P CLASS="note">
 <SPAN>NOTE</SPAN> The EXPRESS description for the Place_washer_operation
 application object is shown below.</P>
 
 <PRE CLASS="note">
+ENTITY Place_washer_operation	-- ADDED BY 10303-238e4
+  SUBTYPE OF (Place_item_operation);
+END_ENTITY;
 </PRE>
 
 
@@ -10422,11 +11121,15 @@ END_ENTITY;
 <H3 ID="ao-precedence_group">4.3.251 Precedence_group</H3>
 </DIV>
 
-<P>A Precedence_group application object is a type of</P>
+<P>A Precedence_group application object is a type of
+Drill_and_fill_group that describes a group of fastener locations that
+must be completed before the members of this group.</P>
 
 <P>The data associated with a Precedence_group are the
 following:</P>
+
 <UL>
+<LI>pre_conditions.</LI>
 </UL>
 
 <P CLASS="note">
@@ -10434,8 +11137,21 @@ following:</P>
 application object is shown below.</P>
 
 <PRE CLASS="note">
+ENTITY Precedence_group		-- ADDED BY 10303-238e4
+SUBTYPE OF (Drill_and_fill_group);
+  pre_conditions		: SET OF Drill_and_fill_group;
+END_ENTITY;
 </PRE>
 
+<H4 ID="ao-precedence_group-pre_conditions">4.13.1 precedence_group to drill_and_fill_group (as pre_conditions)</H4>
+
+<p>The pre_conditions specifies a collection of holes that must
+complete work in all groups before work begins on the members of this
+group.</p>
+
+<P CLASS="note">
+<SPAN>NOTE</SPAN> In the precedence group all must complete, and in
+the same_assembly group only one must complete.</P>
 
 
 
@@ -10530,11 +11246,18 @@ Process_property.
 <H3 ID="ao-product_view_prototype">4.3.255 Product_view_prototype</H3>
 </DIV>
 
-<P>A Product_view_prototype application object is a type of</P>
+<P>A Product_view_prototype application object is a type of
+Product_view_definition that specifies the manufacturing properties
+required for a product. These properties are derived from design
+requirements.</P>
 
 <P>The data associated with a Product_view_prototype are the
 following:</P>
+
 <UL>
+<LI>engineering_design;</LI>
+<LI>external_engineering_design;</LI>
+<LI>expected_properties.</LI>
 </UL>
 
 <P CLASS="note">
@@ -10542,8 +11265,32 @@ following:</P>
 application object is shown below.</P>
 
 <PRE CLASS="note">
+ENTITY Product_view_prototype	-- ADDED BY 10303-238e4
+  SUBTYPE OF (Product_view_definition);
+  engineering_design		: OPTIONAL Product_view_definition;
+  external_engineering_design	: OPTIONAL Identifier;
+  expected_properties		: SET [0:?] OF Expected_property;
+END_ENTITY;
 </PRE>
 
+<H4 ID="ao-product_view_prototype-engineering_design">3.2.1 product_view_prototype to product_view_definition (as engineering_design)</H4>
+
+<p>The engineering_design specifies the design data of the product
+prototype.</p>
+
+<H4 ID="ao-product_view_prototype-external_engineering_design">3.2.2 external_engineering_design</H4>
+
+<p>The external_engineering_design identifies the design data of the
+product prototype in an external model.</p>
+
+
+<H4 ID="ao-product_view_prototype-expected_properties">3.2.3 product_view_prototype to expected_property (as expected_properties)</H4>
+
+<p>The expected_properties specifies the expected properties of this
+product with upper and lower limits defined as necessary.</p>
+
+<P CLASS="note">
+<SPAN>EXAMPLE</SPAN> The prototype of a cutter may have expected dimensions for its diameter.
 
 
 <!-- ============================== -->
@@ -10554,11 +11301,29 @@ application object is shown below.</P>
 <H3 ID="ao-product_view_twin">4.3.256 Product_view_twin</H3>
 </DIV>
 
-<P>A Product_view_twin application object is a type of</P>
+<P>A Product_view_twin application object is a type of
+Product_view_definition that defines a digital twin describing the
+as-built data for a product instance.  If there are many digital
+instances of the product, then each is distinguished from the others
+by a serial number and/or an envelope.</P>
+
+<P CLASS="note">
+<SPAN>EXAMPLE</SPAN> There may be many instances of fasteners on a
+structure.</P>
 
 <P>The data associated with a Product_view_twin are the
 following:</P>
+
 <UL>
+<LI>manufacturing_prototype;</LI>
+<LI>supplier_prototype;</LI>
+<LI>work_order;</LI>
+<LI>user_serial_number;</LI>
+<LI>envelope;</LI>
+<LI>system_serial_number;</LI>
+<LI>measured_properties;</LI>
+<LI>when;</LI>
+<LI>role.</LI>
 </UL>
 
 <P CLASS="note">
@@ -10566,9 +11331,80 @@ following:</P>
 application object is shown below.</P>
 
 <PRE CLASS="note">
+ENTITY Product_view_twin	-- ADDED BY 10303-238e4
+  SUBTYPE OF (Product_view_definition);
+  manufacturing_prototype	: Product_view_prototype;
+  supplier_prototype		: OPTIONAL Product_view_prototype;
+  work_order			: OPTIONAL Identifier;
+  user_serial_number		: OPTIONAL Identifier;
+  envelope			: OPTIONAL Bounding_geometry_select;
+  system_serial_number		: OPTIONAL Identifier;
+  measured_properties		: OPTIONAL SET [0:?] OF Measured_property;
+  role				: OPTIONAL Text;
+END_ENTITY;
 </PRE>
 
 
+<H4 ID="ao-product_view_twin-manufacturing_prototype">3.1.1 product_view_twin to product_view_definition (as manufacturing_prototype)</H4>
+
+<p>The manufacturing_prototype specifies the manufacturing
+requirements that shall be met by the product.</p>
+
+<H4 ID="ao-product_view_twin-supplier_prototype">3.1.2 product_view_twin to product_view_definition (as supplier_prototype)</H4>
+
+<p>The supplier_prototype specifies the properties promised by the
+supplier of the product. </p>
+
+<H4 ID="ao-product_view_twin-work_order">3.1.3 work_order</H4>
+
+<p>The work_order specifies the order that enabled production of this
+digital twin instance.</p>
+
+<H4 ID="ao-product_view_twin-user_serial_number">3.1.4 user_serial_number</H4>
+
+<p>The user_serial_number specifies an identifier that is unique to
+this digital twin instance. The user_serial_number shall be unique
+within the context of the digital twin prototype.</p>
+
+<H4 ID="ao-product_view_twin-envelope">3.1.5 envelope</H4>
+
+<p>The envelope specifies the world coordinates of the twin on the
+product. </p>
+
+<P CLASS="note">
+<SPAN>NOTE</SPAN> A product such as a fastener will be inserted
+into many locations on a structure. The envelope determines the
+location of each fastener instance.</P>
+
+<H4 ID="ao-product_view_twin-system_serial_number">3.1.6 system_serial_number</H4>
+
+<p>The system_serial_number specifies an identifier that is unique to
+this digital twin instance with respect to the processing system.</p>
+
+<P CLASS="note">
+<SPAN>EXAMPLE</SPAN> The system serial number enables rapid location
+of the digital twin by an information processing system.</P>
+
+
+<H4 ID="ao-product_view_twin-measured_properties">3.1.7 product_view_twin to measured_property (as measured_properties)</H4>
+
+<p>The measured_properties specifies the as-measured properties of the twin.</p>
+
+<P CLASS="note">
+<SPAN>EXAMPLE</SPAN> A cutter twin may have measured properties for
+its diameter, corner radius and functional length.</P>
+
+
+<H4 ID="ao-product_view_twin-role">3.1.9 role</H4>
+
+<p>The role specifies the role of the twin on the product. The role
+may be used for products that have a defined role in the assembly, but
+no specific requirements for the manufacturing.</p>
+
+<P CLASS="note">
+<SPAN>EXAMPLE</SPAN> Fasteners have manufacturing specific
+functionality. Ribs and spars are given a role to indicate their
+product functionality.</P>
 
 
 <!-- ============================== -->
@@ -10773,11 +11609,20 @@ END_ENTITY;
 <H3 ID="ao-reference_frame_group">4.3.264 Reference_frame_group</H3>
 </DIV>
 
-<P>A Reference_frame_group application object is a type of</P>
+<P>A Reference_frame_group application object is a type of
+Drill_and_fill_group that describes a reference frame that may be used
+to adjust the coordinate location and axis orientation of a group of
+fastener locations.</P>
 
 <P>The data associated with a Reference_frame_group are the
 following:</P>
+
 <UL>
+<LI>guide_verified;</LI>
+<LI>basis;</LI>
+<LI>modification;</LI>
+<LI>verification_time;</LI>
+<LI>valid_for.</LI>
 </UL>
 
 <P CLASS="note">
@@ -10785,8 +11630,57 @@ following:</P>
 application object is shown below.</P>
 
 <PRE CLASS="note">
+ENTITY Reference_frame_group	-- ADDED BY 10303-238e4
+SUBTYPE OF (Drill_and_fill_group);
+  guide_verified	: BOOLEAN; 
+  basis			: OPTIONAL Reference_frame_group;
+  modification		: OPTIONAL Axis_placement_3d;
+  verification_time	: Date_time; -- because stale after 12 hours
+  valid_for		: SET [0:?] OF Robot_identifier;
+END_ENTITY;
+
+TYPE Robot_identifier = Identifier; END_TYPE;
 </PRE>
 
+<H4 ID="ao-reference_frame_group-guide_verified">4.3.1 guide_verified</H4>
+
+<p>The guide_verified specifies whether the guide has been checked.
+If guide_verified is true, the guide has been checked.  If
+guide_verified is false or unspecified, the guide has not been
+checked.</p>
+
+
+<H4 ID="ao-reference_frame_group-basis">4.3.2 reference_frame_group to reference_frame_group (as basis)</H4>
+
+<p>The basis specifies an origin to use when computing the
+modification for this reference frame group.  If the basis is not
+specified then the global coordinate system shall be used as the base.</p>
+
+<H4 ID="ao-reference_frame_group-modification">4.3.3 modification</H4>
+
+<p>The modification specifies the new origin with respect to the basis
+that shall correctly position and orient any drilling operations
+generated to make holes for the members of this group.</p>
+
+
+<H4 ID="ao-reference_frame_group-verification_time">4.3.4 verification_time</H4>
+
+<p>The verification_time specifies the date and time when the guides
+were last checked.</p>
+
+<P CLASS="note">
+<SPAN>EXAMPLE</SPAN> In some applications a guide is considered stale
+after 12 hours and must be computed again.</P>
+
+<H4 ID="ao-reference_frame_group-valid_for">4.3.5 valid_for</H4>
+
+<p>The valid_for identifies a collection of robots that the reference
+frame group is only valid for.</p>
+
+<P CLASS="note">
+<SPAN>EXAMPLE</SPAN> A reference frame may be valid for a robot called
+Kenny, but not Cartman, because Cartman is insufficiently
+accurate.</P>
 
 
 <!-- ============================== -->
@@ -10797,21 +11691,18 @@ application object is shown below.</P>
 <H3 ID="ao-remove_tack_operation">4.3.265 Remove_tack_operation</H3>
 </DIV>
 
-<P>A Remove_tack_operation application object is a type of</P>
-
-<P>The data associated with a Remove_tack_operation are the
-following:</P>
-<UL>
-</UL>
+<P>A Remove_tack_operation application object is a type of
+Fill_type_operation that removes a temporary fastener from a feature.</P>
 
 <P CLASS="note">
 <SPAN>NOTE</SPAN> The EXPRESS description for the Remove_tack_operation
 application object is shown below.</P>
 
 <PRE CLASS="note">
+ENTITY Remove_tack_operation	-- ADDED BY 10303-238e4
+  SUBTYPE OF (Fill_type_operation);
+END_ENTITY;
 </PRE>
-
-
 
 
 
@@ -10889,11 +11780,15 @@ END_ENTITY;
 <H3 ID="ao-same_assembly_group">4.3.269 Same_assembly_group</H3>
 </DIV>
 
-<P>A Same_assembly_group application object is a type of</P>
+<P>A Same_assembly_group application object is a type of
+Drill_and_fill_group that describes fastener locations that join the
+same components.</P>
 
 <P>The data associated with a Same_assembly_group are the
 following:</P>
+
 <UL>
+<LI>parts_joined.</LI>
 </UL>
 
 <P CLASS="note">
@@ -10901,7 +11796,21 @@ following:</P>
 application object is shown below.</P>
 
 <PRE CLASS="note">
+
+ENTITY Same_assembly_group	-- ADDED BY 10303-238e4
+SUBTYPE OF (Drill_and_fill_group);
+  parts_joined		: SET OF Product_view_twin;
+END_ENTITY;
 </PRE>
+
+<H4 ID="ao-same_assembly_group-parts_joined">4.7.1 same_assembly_group to product_view_twin (as parts_joined)</H4>
+
+<p>The parts_joined specifies the collection of products pierced by
+the fasteners in this group. </p>
+
+<P CLASS="note">
+<SPAN>NOTE</SPAN> Some systems may be able to compute this list using
+the assembly of the product.</P>
 
 
 
@@ -10913,20 +11822,57 @@ application object is shown below.</P>
 <H3 ID="ao-seal_fastener_operation">4.3.270 Seal_fastener_operation</H3>
 </DIV>
 
-<P>A Seal_fastener_operation application object is a type of</P>
+<P>A Seal_fastener_operation application object is a type of
+Fill_type_operation that seals the fastener in a feature.</P>
 
 <P>The data associated with a Seal_fastener_operation are the
 following:</P>
+
 <UL>
+<LI>quantity;</LI>
+<LI>sealant;</LI>
+<LI>seal_type;</LI>
+<LI>seal_check.</LI>
 </UL>
+
 
 <P CLASS="note">
 <SPAN>NOTE</SPAN> The EXPRESS description for the Seal_fastener_operation
 application object is shown below.</P>
 
 <PRE CLASS="note">
+ENTITY Seal_fastener_operation	-- ADDED BY 10303-238e4
+  SUBTYPE OF (Fill_type_operation);
+  quantity		: OPTIONAL Volume_data_element;
+  sealant		: OPTIONAL Material_identification;
+  seal_type		: OPTIONAL Sealant_type;
+  seal_check		: OPTIONAL BOOLEAN;
+END_ENTITY;
 </PRE>
 
+
+<H4 ID="ao-seal_fastener_operation-quantity">5.11.1 quantity</H4>
+
+<p>The quantity specifies the volume of sealant to be applied.</p>
+
+<H4 ID="ao-seal_fastener_operation-sealant">5.11.2 seal_product_operation to material (as sealant)</H4>
+
+<p>The sealant specifies the sealant material definition.</p>
+
+<H4 ID="ao-seal_fastener_operation-seal_type">5.11.3 seal_type</H4>
+
+<p>The seal_type specifies the type of sealant.</p>
+
+<P CLASS="note">
+<SPAN>NOTE</SPAN> Fay, cap, fastener and special are supported.</P>
+
+
+<H4 ID="ao-seal_fastener_operation-seal_check">5.11.4 seal_check</H4>
+
+<p>The seal_check specifies whether to check the sealant after
+installation.  If seal_check is true, the sealant shall be checked.
+If seal_check is false or unspecified, the sealant may not be
+checked.</p>
 
 
 <!-- ============================== -->
