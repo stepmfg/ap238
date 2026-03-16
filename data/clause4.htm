@@ -1734,18 +1734,24 @@ END_ENTITY;
 <H3 ID="ao-am_application_feature">4.3.9 Am_application_feature</H3>
 </DIV>
 
-<P>An Am_application_feature application object is a type of</P>
-
-<P>The data associated with a Am_application_feature are the
-following:</P>
-<UL>
-</UL>
+<P>An Am_application_feature application object is a type of
+Am_pbf_region that describes a volume for application defined
+processing.</P>
 
 <P CLASS="note">
-<SPAN>NOTE</SPAN> The EXPRESS description for the Am_application_feature
+<SPAN>NOTE 1</SPAN> A CAD system defines a feature on the model. An AM
+planning system then projects the volume onto the slices to create
+regions. The Am_twod_operation selected by the identification of the
+region is then used to contour and fill that region.</P>
+
+<P CLASS="note">
+<SPAN>NOTE 2</SPAN> The EXPRESS description for the Am_application_feature
 application object is shown below.</P>
 
 <PRE CLASS="note">
+ENTITY Am_application_region 	-- ADDED BY 10303-238e4
+  SUBTYPE OF (Am_pbf_region);
+END_ENTITY;
 </PRE>
 
 
@@ -1758,18 +1764,18 @@ application object is shown below.</P>
 <H3 ID="ao-am_application_identification">4.3.10 Am_application_identification</H3>
 </DIV>
 
-<P>An Am_application_identification application object is a type of</P>
-
-<P>The data associated with a Am_application_identification are the
-following:</P>
-<UL>
-</UL>
+<P>An Am_application_identification application object is a type of
+Am_pbf_identification that identifies a feature or region for
+application defined processing.</P>
 
 <P CLASS="note">
 <SPAN>NOTE</SPAN> The EXPRESS description for the Am_application_identification
 application object is shown below.</P>
 
 <PRE CLASS="note">
+ENTITY Am_application_identification 	-- ADDED BY 10303-238e4
+  SUBTYPE OF (Am_pbf_identification);
+END_ENTITY;
 </PRE>
 
 
@@ -1782,18 +1788,18 @@ application object is shown below.</P>
 <H3 ID="ao-am_application_region">4.3.11 Am_application_region</H3>
 </DIV>
 
-<P>An Am_application_region application object is a type of</P>
-
-<P>The data associated with a Am_application_region are the
-following:</P>
-<UL>
-</UL>
+<P>An Am_application_region application object is a type of
+Am_pbf_region that describes an area that has been selected for
+application defined processing.</P>
 
 <P CLASS="note">
 <SPAN>NOTE</SPAN> The EXPRESS description for the Am_application_region
 application object is shown below.</P>
 
 <PRE CLASS="note">
+ENTITY Am_application_region 	-- ADDED BY 10303-238e4
+  SUBTYPE OF (Am_pbf_region);
+END_ENTITY;
 </PRE>
 
 
@@ -1806,18 +1812,18 @@ application object is shown below.</P>
 <H3 ID="ao-am_composite_curve">4.3.12 Am_composite_curve</H3>
 </DIV>
 
-<P>An Am_composite_curve application object is a type of</P>
-
-<P>The data associated with a Am_composite_curve are the
-following:</P>
-<UL>
-</UL>
+<P>An Am_composite_curve application object is a type of
+Composite_curve that describes a boundary which is described by
+Am_internal_ or Am_external_composite_curve_segments.</P>
 
 <P CLASS="note">
 <SPAN>NOTE</SPAN> The EXPRESS description for the Am_composite_curve
 application object is shown below.</P>
 
 <PRE CLASS="note">
+ENTITY Am_composite_curve	-- ADDED BY 10303-238e4
+  SUBTYPE OF (composite_curve);
+END_ENTITY;
 </PRE>
 
 
@@ -1878,18 +1884,18 @@ END_ENTITY;
 <H3 ID="ao-am_core_feature">4.3.15 Am_core_feature</H3>
 </DIV>
 
-<P>An Am_core_feature application object is a type of</P>
-
-<P>The data associated with a Am_core_feature are the
-following:</P>
-<UL>
-</UL>
+<P>An Am_core_feature application object is a type of Am_pbf_feature
+that describes a volume where the core, or main manufacturing process
+is to be applied.</P>
 
 <P CLASS="note">
 <SPAN>NOTE</SPAN> The EXPRESS description for the Am_core_feature
 application object is shown below.</P>
 
 <PRE CLASS="note">
+ENTITY Am_core_feature 	-- ADDED BY 10303-238e4
+  SUBTYPE OF (Am_pbf_feature);
+END_ENTITY;
 </PRE>
 
 
@@ -1902,18 +1908,18 @@ application object is shown below.</P>
 <H3 ID="ao-am_core_identification">4.3.16 Am_core_identification</H3>
 </DIV>
 
-<P>An Am_core_identification application object is a type of</P>
-
-<P>The data associated with a Am_core_identification are the
-following:</P>
-<UL>
-</UL>
+<P>An Am_core_identification application object is a type of
+Am_pbf_identification that identifies a feature or region where the
+core, or main manufacturing process is to be applied.</P>
 
 <P CLASS="note">
 <SPAN>NOTE</SPAN> The EXPRESS description for the Am_core_identification
 application object is shown below.</P>
 
 <PRE CLASS="note">
+ENTITY Am_core_identification 	-- ADDED BY 10303-238e4
+  SUBTYPE OF (Am_pbf_identification);
+END_ENTITY;
 </PRE>
 
 
@@ -1926,18 +1932,18 @@ application object is shown below.</P>
 <H3 ID="ao-am_core_region">4.3.17 Am_core_region</H3>
 </DIV>
 
-<P>An Am_core_region application object is a type of</P>
-
-<P>The data associated with a Am_core_region are the
-following:</P>
-<UL>
-</UL>
+<P>An Am_core_region application object is a type of Am_pbf_region
+that describes an area where the core, or main manufacturing process
+is to be applied.</P>
 
 <P CLASS="note">
 <SPAN>NOTE</SPAN> The EXPRESS description for the Am_core_region
 application object is shown below.</P>
 
 <PRE CLASS="note">
+ENTITY Am_core_region 	-- ADDED BY 10303-238e4
+  SUBTYPE OF (Am_pbf_region);
+END_ENTITY;
 </PRE>
 
 
@@ -1950,18 +1956,18 @@ application object is shown below.</P>
 <H3 ID="ao-am_downskin_feature">4.3.18 Am_downskin_feature</H3>
 </DIV>
 
-<P>An Am_downskin_feature application object is a type of</P>
-
-<P>The data associated with a Am_downskin_feature are the
-following:</P>
-<UL>
-</UL>
+<P>An Am_downskin_feature application object is a type of
+Am_pbf_feature that describes a volume where melting to the material
+must be limited because of a void below the skin.</P>
 
 <P CLASS="note">
 <SPAN>NOTE</SPAN> The EXPRESS description for the Am_downskin_feature
 application object is shown below.</P>
 
 <PRE CLASS="note">
+ENTITY Am_downskin_feature 	-- ADDED BY 10303-238e4
+  SUBTYPE OF (Am_pbf_feature);
+END_ENTITY;
 </PRE>
 
 
@@ -1974,11 +1980,19 @@ application object is shown below.</P>
 <H3 ID="ao-am_downskin_identification">4.3.19 Am_downskin_identification</H3>
 </DIV>
 
-<P>An Am_downskin_identification application object is a type of</P>
+<P>An Am_downskin_identification application object is a type of
+Am_pbf_identification that identifies a feature where melting to the
+material must be limited because of a void below the skin. The
+geometric parameters require that if the dot product of the face
+normal at a surface point, and the Z axis, exceeds a given angle then
+the surface point is in the region.</P>
 
 <P>The data associated with a Am_downskin_identification are the
 following:</P>
+
 <UL>
+<LI>downskin_angle;</LI>
+<LI>downskin_thickness.</LI>
 </UL>
 
 <P CLASS="note">
@@ -1986,7 +2000,36 @@ following:</P>
 application object is shown below.</P>
 
 <PRE CLASS="note">
+ENTITY Am_downskin_identification 	-- ADDED BY 10303-238e4
+SUBTYPE OF (Am_pbf_identification);
+  downskin_angle	 : Angle_data_element;   
+  downskin_thickness 	 : Layer_count;
+END_ENTITY;
+
+TYPE Layer_count = INTEGER; END_TYPE;
 </PRE>
+
+<H4 ID="ao-am_downskin_identification-downskin_angle">4.3.19.1 downskin_angle</H4>
+
+<p>The downskin_angle specifies the high-value limit angle for any
+slope classified as this type of skin.</p>
+
+<H4 ID="ao-am_downskin_identification-downskin_thickness">4.3.19.2 downskin_thickness</H4>
+
+<p>The downskin_thickness specifies the the number of layers above the
+surface where this strategy shall apply.
+
+
+<FIGURE ID="fig-downskin-thickness">
+<IMG SRC="../images/am-downskin-thickness.svg" ALT="Downskin Thickness">
+<DIV class=key>
+<B>Key</B>
+<p>1&emsp;Area to be scanned as downskin</p>
+<p>2&emsp;Number of layers given by downskin_thickness</p>
+<p>3&emsp;No downskin feature present</p>
+</DIV>
+<FIGCAPTION>Figure 1 &mdash; Downskin Angle and Thickness</FIGCAPTION>
+</FIGURE>
 
 
 
@@ -1998,18 +2041,18 @@ application object is shown below.</P>
 <H3 ID="ao-am_downskin_region">4.3.20 Am_downskin_region</H3>
 </DIV>
 
-<P>An Am_downskin_region application object is a type of</P>
-
-<P>The data associated with a Am_downskin_region are the
-following:</P>
-<UL>
-</UL>
+<P>An Am_downskin_region application object is a type of Am_pbf_region
+that describes an area where melting to the material is to be reduced
+because of a void below the skin.</P>
 
 <P CLASS="note">
 <SPAN>NOTE</SPAN> The EXPRESS description for the Am_downskin_region
 application object is shown below.</P>
 
 <PRE CLASS="note">
+ENTITY Am_downskin_region 	-- ADDED BY 10303-238e4
+  SUBTYPE OF (Am_pbf_region);
+END_ENTITY;
 </PRE>
 
 
@@ -2022,18 +2065,20 @@ application object is shown below.</P>
 <H3 ID="ao-am_external_composite_curve_segment">4.3.21 Am_external_composite_curve_segment</H3>
 </DIV>
 
-<P>An Am_external_composite_curve_segment application object is a type of</P>
-
-<P>The data associated with a Am_external_composite_curve_segment are the
-following:</P>
-<UL>
-</UL>
+<P>An Am_external_composite_curve_segment application object is a type
+of Composite_curve_segment that describes a curve segment that does
+not adjoin any curve segment of another Am_composite_curve.</P>
 
 <P CLASS="note">
 <SPAN>NOTE</SPAN> The EXPRESS description for the Am_external_composite_curve_segment
 application object is shown below.</P>
 
 <PRE CLASS="note">
+
+ENTITY Am_external_composite_curve_segment	-- ADDED BY 10303-238e4
+  SUBTYPE OF (Composite_curve_segment);
+  --An external segment is on the outer boundary of the slice
+END_ENTITY;
 </PRE>
 
 
@@ -2096,11 +2141,25 @@ Am_feature.</P>
 <H3 ID="ao-am_feature_intersection">4.3.23 Am_feature_intersection</H3>
 </DIV>
 
-<P>An Am_feature_intersection application object is a type of</P>
+<P>An Am_feature_intersection application object is a type of
+Transition_feature that describes a boundary between two
+features. Multiple boundaries may exist. Each one is described by a
+different feature intersection.
+
+<P CLASS="note">
+<SPAN>EXAMPLE</SPAN> An AM_feature_intersection may define the
+boundary where the technology of a path changes from a downskin or low
+heat region, to a core or regular heat region.</P>
 
 <P>The data associated with a Am_feature_intersection are the
 following:</P>
+
 <UL>
+<LI>feature_a;</LI>
+<LI>face_a;</LI>
+<LI>feature_b;</LI>
+<LI>face_b;</LI>
+<LI>intersection_curve.</LI>
 </UL>
 
 <P CLASS="note">
@@ -2108,8 +2167,63 @@ following:</P>
 application object is shown below.</P>
 
 <PRE CLASS="note">
+
+ENTITY Am_feature_intersection	-- ADDED BY 10303-238e4
+  SUBTYPE OF (transition_feature);
+  feature_a		: Am_pbf_feature;
+  face_a		: advanced_face;
+  feature_b		: Am_pbf_feature;
+  face_b		: advanced_face;
+  intersection_curve	: SET [1:?] OF composite_curve;
+
+  --face_a shall belong to region_a, and face_b shall belong to region_b
+  --intersection_curve shall be on face_a and face_b
+END_ENTITY;
 </PRE>
 
+<H4 ID="ao-am_feature_intersection-feature_a">4.3.23.1 am_feature_intersection to am_pbf_feature (as feature_a)</H4>
+
+<p>The feature_a specifies the closed shell describing the first
+feature.</p>
+
+<H4 ID="ao-am_feature_intersection-face_a">4.3.23.2 face_a</H4>
+
+<p>The face_a specifies a face in the boundary of the first closed
+shell that shares an area with a face in the boundary of the second
+shell.</p>
+
+
+<H4 ID="ao-am_feature_intersection-feature_b">4.3.23.3 am_feature_intersection to am_pbf_feature (as feature_b)</H4>
+
+<p>The feature_b specifies the closed shell describing the second
+feature.</p>
+
+<H4 ID="ao-am_feature_intersection-face_b">4.3.23.4 face_b</H4>
+
+<p>The face_b specifies a face in the boundary of the second closed
+shell that shares an area with a face in the boundary of the first
+shell.</p>
+
+
+<H4 ID="ao-am_feature_intersection-intersection_curve">4.3.23.5 intersection_curve</H4>
+
+<p>The intersection_curve specifies a composite curve around the
+boundary of the shared area with counter clockwise curves describing
+outer boundaries and clockwise curves for inner boundaries.</p>
+ 
+
+
+<FIGURE ID="fig-downskin-thickness">
+<IMG SRC="../images/am-feature-intersection.svg" ALT="Feature Intersection">
+<DIV class=key>
+<B>Key</B>
+<p>1&emsp;Feature A</p>
+<p>2&emsp;Feature B</p>
+<p>3&emsp;Intersection curve on feature A</p>
+<p>4&emsp;Intersection curve on feature B</p>
+</DIV>
+<FIGCAPTION>Figure 2 &mdash; Additive Manufacturing Feature Intersection</FIGCAPTION>
+</FIGURE>
 
 
 <!-- ============================== -->
@@ -2299,18 +2413,19 @@ END_TYPE;
 <H3 ID="ao-am_internal_composite_curve_segment">4.3.28 Am_internal_composite_curve_segment</H3>
 </DIV>
 
-<P>An Am_internal_composite_curve_segment application object is a type of</P>
-
-<P>The data associated with a Am_internal_composite_curve_segment are the
-following:</P>
-<UL>
-</UL>
+<P>An Am_internal_composite_curve_segment application object is a type 
+of Composite_curve_segment that describes a curve segment that does
+adjoins a curve segment of another Am_composite_curve.</P>
 
 <P CLASS="note">
 <SPAN>NOTE</SPAN> The EXPRESS description for the Am_internal_composite_curve_segment
 application object is shown below.</P>
 
 <PRE CLASS="note">
+ENTITY Am_internal_composite_curve_segment	-- ADDED BY 10303-238e4
+  SUBTYPE OF (composite_curve_segment);
+  --An internal segment is shared by two features on the same slice.
+END_ENTITY;
 </PRE>
 
 
@@ -2364,18 +2479,27 @@ application object.
 <H3 ID="ao-am_machining_feature">4.3.30 Am_machining_feature</H3>
 </DIV>
 
-<P>An Am_machining_feature application object is a type of</P>
-
-<P>The data associated with a Am_machining_feature are the
-following:</P>
-<UL>
-</UL>
+<P>An Am_machining_feature application object is a type of
+Am_pbf_feature that describes a feature that will be removed by a
+subsequent machining operation.</P>
 
 <P CLASS="note">
-<SPAN>NOTE</SPAN> The EXPRESS description for the Am_machining_feature
+<SPAN>EXAMPLE</SPAN> A drill hole.</P>
+
+<P CLASS="note">
+<SPAN>NOTE 1</SPAN> A CAD system defines a feature on the model. An AM
+planning system then projects the volume onto the slices to create
+regions. The Am_twod_operation selected by the identification of the
+region is then used to contour and fill that region.</P>
+
+<P CLASS="note">
+<SPAN>NOTE 2</SPAN> The EXPRESS description for the Am_machining_feature
 application object is shown below.</P>
 
 <PRE CLASS="note">
+ENTITY Am_machining_feature 	-- ADDED BY 10303-238e4
+  SUBTYPE OF (Am_pbf_feature);
+END_ENTITY;
 </PRE>
 
 
@@ -2388,18 +2512,22 @@ application object is shown below.</P>
 <H3 ID="ao-am_machining_identification">4.3.31 Am_machining_identification</H3>
 </DIV>
 
-<P>An Am_machining_identification application object is a type of</P>
-
-<P>The data associated with a Am_machining_identification are the
-following:</P>
-<UL>
-</UL>
+<P>An Am_machining_identification application object is a type of
+Am_pbf_identification that identifies a feature that will be removed
+by a subsequent machining operation, for example, a drill hole.</P>
 
 <P CLASS="note">
-<SPAN>NOTE</SPAN> The EXPRESS description for the Am_machining_identification
+<SPAN>NOTE 1</SPAN> Removal volumes may be fused more lightly to speed
+the manufacturing.</P>
+
+<P CLASS="note">
+<SPAN>NOTE 2</SPAN> The EXPRESS description for the Am_machining_identification
 application object is shown below.</P>
 
 <PRE CLASS="note">
+ENTITY Am_machining_identification 	-- ADDED BY 10303-238e4
+  SUBTYPE OF (Am_pbf_identification);
+END_ENTITY;
 </PRE>
 
 
@@ -2412,18 +2540,21 @@ application object is shown below.</P>
 <H3 ID="ao-am_machining_region">4.3.32 Am_machining_region</H3>
 </DIV>
 
-<P>An Am_machining_region application object is a type of</P>
+<P>An Am_machining_region application object is a type of
+Am_pbf_region that describes a feature that will be removed by a
+subsequent machining operation.</P>
 
-<P>The data associated with a Am_machining_region are the
-following:</P>
-<UL>
-</UL>
+<P CLASS="note">
+<SPAN>EXAMPLE</SPAN> A drill hole.</P>
 
 <P CLASS="note">
 <SPAN>NOTE</SPAN> The EXPRESS description for the Am_machining_region
 application object is shown below.</P>
 
 <PRE CLASS="note">
+ENTITY Am_machining_region 	-- ADDED BY 10303-238e4
+  SUBTYPE OF (Am_pbf_region);
+END_ENTITY;
 </PRE>
 
 
@@ -2462,20 +2593,65 @@ END_ENTITY;
 <H3 ID="ao-am_oned_pbf_contour_operation">4.3.34 Am_oned_pbf_contour_operation</H3>
 </DIV>
 
-<P>An Am_oned_pbf_contour_operation application object is a type of</P>
+<P>An Am_oned_pbf_contour_operation application object is a type of
+Am_oned_pbf_operation that defines a boundary contour path for the
+laser. A contour path fuses a border on an edge of the part.</P>
 
 <P>The data associated with a Am_oned_pbf_contour_operation are the
 following:</P>
+
 <UL>
+<LI>contour_offset;</LI>
+<LI>contour_direction.</LI>
 </UL>
 
 <P CLASS="note">
-<SPAN>NOTE</SPAN> The EXPRESS description for the Am_oned_pbf_contour_operation
+<SPAN>NOTE 1</SPAN> The EXPRESS description for the Am_oned_pbf_contour_operation
 application object is shown below.</P>
 
 <PRE CLASS="note">
+ENTITY Am_oned_pbf_contour_operation	-- ADDED BY 10303-238e4
+  SUBTYPE OF (Am_oned_pbf_operation);
+  contour_offset	: Length_data_element;
+  contour_direction	: OPTIONAL Contour_polarity;
+   (*
+DERIVE
+  master		: OPTIONAL Am_oned_pbf_contour_operation;
+  discontinuous	: OPTIONAL BOOLEAN;
+  contour_path: toolpath_list := SELF\Operation.its_toolpath;
+WHERE 
+   WR1: NOT EXISTS (master) OR contour_offset = master.contour_offset;
+   WR2: NOT EXISTS (master) OR contour_direction = master.contour_direction;
+   *)
+END_ENTITY;
+
+TYPE Contour_polarity = ENUMERATION OF (
+  alternate, clockwise, counter_clockwise
+  );
+END_TYPE;
 </PRE>
 
+<P CLASS="note">
+<SPAN>NOTE 2</SPAN> A contour will be discontinuous if it is not
+included in other regions that are also on the part boundary.</P>
+
+<P CLASS="note">
+<SPAN>NOTE 3</SPAN> The master of a region is determined by the
+identification of the region.  If one exists, then this contour
+describes process information that shall be applied to the paths of
+this parent while they are in this region.</P>
+
+<H4 ID="ao-am_oned_pbf_contour_operation-contour_offset">4.3.34.1 contour_offset</H4>
+
+<p>The contour_offset specifies the offset of the contour from the
+boundary of the part. If the offset is negative then the contour is
+outside the part boundary.</p>
+
+<H4 ID="ao-am_oned_pbf_contour_operation-contour_direction">4.3.34.2 contour_direction</H4>
+
+<p>The contour_direction specifies the direction in which the contour
+is to be scanned. The contour shall alternate directions between
+layers unless a value of clockwise or counter clockwise is given.</p>
 
 
 <!-- ============================== -->
@@ -4942,7 +5118,7 @@ sides.</P>
 <p>M&emsp;middle point</p>
 <p>AX&emsp;axis point</p>
 </DIV>
-<FIGCAPTION>Figure 1 &mdash; Four level escape from P1 to P600 via absolute points AX1, AX2 and AX3</FIGCAPTION>
+<FIGCAPTION>Figure 3 &mdash; Four level escape from P1 to P600 via absolute points AX1, AX2 and AX3</FIGCAPTION>
 </FIGURE>
 
 
@@ -5029,7 +5205,7 @@ be moved from the middle point between two features.
 <p>L1&emsp;Level 1 increment</p>
 <p>L2&emsp;Level 2 increment</p>
 </DIV>
-<FIGCAPTION>Figure 2 &mdash; Escape from P1 to P6 via middle points M1 and M2</FIGCAPTION>
+<FIGCAPTION>Figure 4 &mdash; Escape from P1 to P6 via middle points M1 and M2</FIGCAPTION>
 </FIGURE>
 
 
@@ -5114,7 +5290,7 @@ at Level 1 will move out, move across, and move down again.</P>
 <B>Key</B>
 <p>1&emsp;incremental distance</p>
 </DIV>
-<FIGCAPTION>Figure 3 &mdash; Level 1 escape from P1 to P4 when P2 and P3 are blocked</FIGCAPTION>
+<FIGCAPTION>Figure 5 &mdash; Level 1 escape from P1 to P4 when P2 and P3 are blocked</FIGCAPTION>
 </FIGURE>
 
 <!-- ============================== -->
@@ -5578,7 +5754,7 @@ tool_axis_maximum_deviation may not be specified for a particular
 Cutter_contact_trajectory. </P>
 
 <P CLASS="note">
-<SPAN>NOTE</SPAN> <A href="#fig-toolpath_tolerance">Figure 4</A>
+<SPAN>NOTE</SPAN> <A href="#fig-toolpath_tolerance">Figure 6</A>
 illustrates the range of deviations described by the
 tool_direction_maximum_deviation and path_maximim_deviation
 parameters.  It is expected than an NC controller will adjust
@@ -5596,7 +5772,7 @@ within the allowed deviations.</P>
 <p>4&emsp;tool_direction_maximum_deviation</p>
 <p>5&emsp;path_maximim_deviation</p>
 </DIV>
-<FIGCAPTION>Figure 4 &mdash; Toolpath deviation parameters</FIGCAPTION>
+<FIGCAPTION>Figure 6 &mdash; Toolpath deviation parameters</FIGCAPTION>
 </FIGURE>
 
 
@@ -5682,7 +5858,7 @@ tool_axis_maximum_deviation may not be specified for a particular
 Cutter_location_trajectory. </P>
 
 <P CLASS="note">
-<SPAN>NOTE</SPAN> <A href="#fig-toolpath_tolerance">Figure 4</A>
+<SPAN>NOTE</SPAN> <A href="#fig-toolpath_tolerance">Figure 6</A>
 illustrates the range of deviations described by the
 tool_direction_maximum_deviation and path_maximim_deviation
 parameters.</P>
@@ -6668,7 +6844,7 @@ nose sideways, and avoid a special fixture.</P>
 <SPAN>NOTE</SPAN> X1 may escape to X2 on Level 1 using Feature Group
 1, but must go to Level 2 to reach X5 using Feature Group 4, and Level
 3 to reach X7 using Feature Group 6.</p>
-<FIGCAPTION>Figure 5 &mdash; Escape sequence groups for a set of features across three levels.</FIGCAPTION>
+<FIGCAPTION>Figure 7 &mdash; Escape sequence groups for a set of features across three levels.</FIGCAPTION>
 </FIGURE>
 
 
@@ -13619,8 +13795,8 @@ Trajectory.</P>
 
 <P>Each point in the seven-dimensional curve shall describe the
 cross-section area parameters illustrated
-in <a href="#fig-cross_section">Figure 6</a>
-and <a href="#fig-cross_section_turn">Figure 7</a>. These parameters
+in <a href="#fig-cross_section">Figure 8</a>
+and <a href="#fig-cross_section_turn">Figure 9</a>. These parameters
 are as follows:
 
 <FIGURE ID="fig-cross_section">
@@ -13639,7 +13815,7 @@ are as follows:
 <p>9&emsp;X<small>CGofs</small></p>
 <p>10&emsp;center of gravity</p>
 </DIV>
-<FIGCAPTION>Figure 6 &mdash; Cross-section parameters for milling</FIGCAPTION>
+<FIGCAPTION>Figure 8 &mdash; Cross-section parameters for milling</FIGCAPTION>
 </FIGURE>
 
 <FIGURE ID="fig-cross_section_turn">
@@ -13658,14 +13834,14 @@ are as follows:
 <p>9&emsp;X<small>CGofs</small></p>
 <p>10&emsp;center of gravity</p>
 </DIV>
-<FIGCAPTION>Figure 7 &mdash; Cross-section parameters for turning</FIGCAPTION>
+<FIGCAPTION>Figure 9 &mdash; Cross-section parameters for turning</FIGCAPTION>
 </FIGURE>
 
 <UL>
 <LI>dimension 0 shall describe the maximum axial depth of the tool
 contact cross section, shown by ADmax
-in <a href="#fig-cross_section">Figure 6</a>
-and <a href="#fig-cross_section_turn">Figure 7</a>. The maximum axial
+in <a href="#fig-cross_section">Figure 8</a>
+and <a href="#fig-cross_section_turn">Figure 9</a>. The maximum axial
 depth for milling shall be measured parallel to the tool axis,
 regardless of whether the direction of feed is perpendicular to the
 tool axis. The maximum axial depth for turning shall be measured
@@ -13673,35 +13849,35 @@ parallel to the spindle axis;</LI>
 
 <LI>dimension 1 shall describe the maximum radial depth of the tool
 contact cross section, shown by RDmax
-in <a href="#fig-cross_section">Figure 6</a>
-and <a href="#fig-cross_section_turn">Figure 7</a>. The maximum radial
+in <a href="#fig-cross_section">Figure 8</a>
+and <a href="#fig-cross_section_turn">Figure 9</a>. The maximum radial
 depth shall be measured perpendicular to both the tool axis and the
 feed direction;</LI>
 
 <LI>dimension 2 shall describe the location along the X axis where the
 maximum radial depth measure is located, shown by Xmaxofs
-in <a href="#fig-cross_section">Figure 6</a>
-and <a href="#fig-cross_section_turn">Figure 7</a>;</LI>
+in <a href="#fig-cross_section">Figure 8</a>
+and <a href="#fig-cross_section_turn">Figure 9</a>;</LI>
 
 <LI>dimension 3 shall describe the location along the Y axis where the
 maximum axial depth measure is located, shown by Ymaxofs
-in <a href="#fig-cross_section">Figure 6</a>
-and <a href="#fig-cross_section_turn">Figure 7</a>;</LI>
+in <a href="#fig-cross_section">Figure 8</a>
+and <a href="#fig-cross_section_turn">Figure 9</a>;</LI>
 
 <LI>dimension 4 shall describe the total area of the tool contact
 cross section in the X-Y plane, shown by CSA
-in <a href="#fig-cross_section">Figure 6</a>
-and <a href="#fig-cross_section_turn">Figure 7</a>;</LI>
+in <a href="#fig-cross_section">Figure 8</a>
+and <a href="#fig-cross_section_turn">Figure 9</a>;</LI>
 
 <LI>dimension 5 shall describe the location along the X axis of the
 centre of gravity of the tool contact cross section, shown by XCGofs
-in <a href="#fig-cross_section">Figure 6</a>
-and <a href="#fig-cross_section_turn">Figure 7</a>;</LI>
+in <a href="#fig-cross_section">Figure 8</a>
+and <a href="#fig-cross_section_turn">Figure 9</a>;</LI>
 
 <LI>dimension 6 shall describe the location along the Y axis of the
 centre of gravity of the tool contact cross section, shown by YCGofs
-in <a href="#fig-cross_section">Figure 6</a>
-and <a href="#fig-cross_section_turn">Figure 7</a>.</LI>
+in <a href="#fig-cross_section">Figure 8</a>
+and <a href="#fig-cross_section_turn">Figure 9</a>.</LI>
 </UL>
 
 
@@ -14176,7 +14352,7 @@ known or lie outside of the set of milling tools described by ISO
 <p>7&emsp;taper_angle</p>
 <p>8&emsp;tool axis</p>
 </DIV>
-<FIGCAPTION>Figure 8 &mdash; User_defined_milling_tool parameters</FIGCAPTION>
+<FIGCAPTION>Figure 10 &mdash; User_defined_milling_tool parameters</FIGCAPTION>
 </FIGURE>
 
 <P CLASS="note">
@@ -14215,7 +14391,7 @@ END_ENTITY;
 <P>
 The corner_radius specifies the radius of the corner circle which
 describes the transition between the upper and lower line segments of
-the tool profile as shown in <a href="#fig-user_defined_tool">Figure 8</a>.</P>
+the tool profile as shown in <a href="#fig-user_defined_tool">Figure 10</a>.</P>
 
 
 <H4 ID="ao-user_defined_milling_tool-corner_radius_center_horizontal">4.3.333.2 corner_radius_center_horizontal</H4>
@@ -14244,7 +14420,7 @@ characterize the tool.</P>
 
 <P>The taper_angle specifies the angle between the upper line segment
 of the tool and the tool axis as shown
-in <a href="#fig-user_defined_tool">Figure 8</a>.</P>
+in <a href="#fig-user_defined_tool">Figure 10</a>.</P>
 
 <P CLASS="note">
 <SPAN>NOTE</SPAN> This angle will be positive when the tool diameter
@@ -14256,7 +14432,7 @@ when the tool diameter decreases when moving from tip to spindle.</P>
 
 <P>The tip_outer_angle specifies the angle between a radial line
 through the tool endpoint and the lower line segment of the tool as
-shown in <a href="#fig-user_defined_tool">Figure 8</a>.</P>
+shown in <a href="#fig-user_defined_tool">Figure 10</a>.</P>
 <P CLASS="note">
 <SPAN>NOTE</SPAN> This angle is always acute (less than 90 degrees)</P>
 

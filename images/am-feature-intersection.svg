@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="541.79791"
+   height="213.40768"
+   viewBox="0 0 541.79791 213.40768"
+   version="1.1"
+   id="svg7"
+   sodipodi:docname="am-feature-intersection.svg"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <defs
+     id="defs7">
+    <marker
+       style="overflow:visible"
+       id="ConcaveTriangle"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Concave triangle arrow"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.7)"
+         d="M -2,-4 9,0 -2,4 c 2,-2.33 2,-5.66 0,-8 z"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:none"
+         id="path8" />
+    </marker>
+  </defs>
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="1.0871212"
+     inkscape:cx="279.63763"
+     inkscape:cy="241.46341"
+     inkscape:window-width="1920"
+     inkscape:window-height="1057"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg7" />
+  <title
+     id="title1">Figure 10 </title>
+  <g
+     id="Group-8"
+     transform="matrix(0.75,0,0,0.75,28.099632,39.336449)"
+     stroke="#000000"
+     stroke-width="2"
+     style="fill:none;fill-rule:evenodd">
+    <path
+       d="m 76.856153,143.89783 12.921236,3.11177 c 7.452745,1.79482 15.317711,0.20929 21.492961,-4.33286 L 255.60053,36.515995 c 3.55917,-2.617915 4.32221,-7.625434 1.7043,-11.184605 -1.04572,-1.421697 -2.53221,-2.457698 -4.22798,-2.946668 L 178.97595,1.0179965 C 171.36222,-1.1773944 163.16293,0.21907681 156.7052,4.8110618 120.34639,30.665212 94.739818,48.873627 79.885476,59.436305 M 15.103407,105.50177 c -2.309366,1.64215 -5.7734152,4.10538 -10.3921477,7.38969 -3.6007461,2.56043 -4.44408772,7.55505 -1.8836564,11.15579 1.1189955,1.57365 2.7693986,2.68947 4.6466651,3.14157 2.150302,0.62943 5.942253,1.87305 6.98667,2.14801"
+       id="Shape" />
+    <path
+       d="m 1.3448357,172.04093 c 0,2.41821 -0.075628,4.81475 1.4827672,7.00632 1.1189955,1.57365 2.7693986,2.68947 4.6466651,3.14157 l 82.303121,19.82078 c 7.452745,1.79482 15.317711,0.20929 21.492961,-4.33286 L 255.60053,91.515995 c 2.19333,-1.613284 3.3248,-4.134046 3.25754,-6.664103"
+       id="Path" />
+    <line
+       x1="258.8609"
+       y1="84.851891"
+       x2="258.8609"
+       y2="30.846107"
+       id="Line-17"
+       stroke-linecap="square" />
+    <line
+       x1="1.3466945"
+       y1="172.04094"
+       x2="1.5"
+       y2="119.00431"
+       id="Line-17-Copy"
+       stroke-linecap="square" />
+    <path
+       d="m 16.087406,131.64245 c -0.843455,1.54357 -1.295414,3.17484 -1.295414,4.86186 0,9.66498 14.834066,17.5 33.132813,17.5 18.298747,0 33.132812,-7.83502 33.132812,-17.5 0,-0.42971 -0.02932,-0.85581 -0.08697,-1.27777"
+       id="path1" />
+    <path
+       d="m 81.057617,136.50431 c 0,-0.42971 -0.02932,-0.85581 -0.08697,-1.27777 -1.238953,-9.06843 -15.560675,-16.22223 -33.04584,-16.22223 -15.104704,0 -27.848684,5.33853 -31.837399,12.63814 -0.843455,1.54357 -1.295414,3.17484 -1.295414,4.86186"
+       id="path2"
+       stroke-dasharray="6" />
+    <ellipse
+       id="Oval-Copy-11"
+       cx="48"
+       cy="63.504311"
+       rx="33"
+       ry="16.5" />
+    <line
+       x1="14.791992"
+       y1="63.504311"
+       x2="14.791992"
+       y2="135.17693"
+       id="Line-18"
+       stroke-linecap="square" />
+    <line
+       x1="81.057617"
+       y1="63.504311"
+       x2="81.057617"
+       y2="136.50432"
+       id="Line-18-Copy"
+       stroke-linecap="square" />
+  </g>
+  <path
+     d="m 495.44416,127.20784 c -11.48877,0 -20.80225,9.31349 -20.80225,20.80225 0,11.48876 9.31348,20.80225 20.80225,20.80225"
+     id="path3"
+     stroke="#000000"
+     stroke-width="1.5"
+     style="fill:none;fill-rule:evenodd" />
+  <path
+     d="m 495.44416,168.81234 c 11.48876,0 20.80224,-9.31349 20.80224,-20.80225 0,-11.48876 -9.31348,-20.80225 -20.80224,-20.80225 z"
+     id="Path-Copy-38"
+     stroke="#000000"
+     stroke-width="1.5"
+     stroke-dasharray="4"
+     style="fill:none;fill-rule:evenodd" />
+  <path
+     d="m 250.46596,141.74385 c -5.6819,1.99698 -12.50076,12.72302 -18.73176,28.60556"
+     id="Path-Copy-27"
+     stroke="#000000"
+     style="fill:none;fill-rule:evenodd;stroke-width:2;stroke-dasharray:none;marker-start:url(#ConcaveTriangle)" />
+  <path
+     d="m 140.43825,65.414479 c 0.0956,-13.04359 -7.34109,-25.90296 -19.6499,-35.61369"
+     id="Path-Copy-29"
+     stroke="#000000"
+     style="fill:none;fill-rule:evenodd;stroke-width:2;stroke-dasharray:none;marker-start:url(#ConcaveTriangle)" />
+  <path
+     d="m 62.956343,81.221329 c 0.0956,-13.0436 -7.34109,-25.90296 -19.649891,-35.61369"
+     id="Path-Copy-30"
+     stroke="#000000"
+     style="fill:none;fill-rule:evenodd;stroke-width:2;stroke-dasharray:none;marker-start:url(#ConcaveTriangle)" />
+  <path
+     d="m 508.99547,116.82294 c 0.19846,-8.56088 -4.18412,-16.919831 -11.56242,-23.160061"
+     id="Path-Copy-28"
+     stroke="#000000"
+     style="fill:none;fill-rule:evenodd;stroke-width:2;stroke-dasharray:none;marker-start:url(#ConcaveTriangle)" />
+  <text
+     id="3"
+     font-family="Roboto-Bold, Roboto"
+     font-size="9px"
+     font-weight="bold"
+     fill="#000000"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill-rule:evenodd;stroke:none;stroke-width:0.75"
+     x="153.82941"
+     y="-216.52341"><tspan
+       x="225.07941"
+       y="185.83286"
+       id="tspan3"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.75">3</tspan></text>
+  <text
+     id="1"
+     font-family="Roboto-Bold, Roboto"
+     font-size="9px"
+     font-weight="bold"
+     fill="#000000"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill-rule:evenodd;stroke:none;stroke-width:0.75"
+     x="-110.08787"
+     y="-94.163551"><tspan
+       x="105.91213"
+       y="30.336441"
+       id="tspan4"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.75">1</tspan></text>
+  <text
+     id="2"
+     font-family="Roboto-Bold, Roboto"
+     font-size="9px"
+     font-weight="bold"
+     fill="#000000"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill-rule:evenodd;stroke:none;stroke-width:0.75"
+     x="-110.08787"
+     y="-92.163551"><tspan
+       x="30.91317"
+       y="47.607635"
+       id="tspan5"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.75">2</tspan></text>
+  <text
+     id="4"
+     font-family="Roboto-Bold, Roboto"
+     font-size="9px"
+     font-weight="bold"
+     fill="#000000"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill-rule:evenodd;stroke:none;stroke-width:0.75"
+     x="138.74927"
+     y="-285.44327"><tspan
+       x="483.26514"
+       y="94.743011"
+       id="tspan6"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.75">4</tspan></text>
+  <path
+     d="m 264.80329,124.47562 v -8.56275 c 0,-4.55634 3.69364,-8.24999 8.25,-8.24999 h 160.125 c 4.55635,0 8.25,3.69365 8.25,8.24999 v 57 c 0,4.55636 -3.69365,8.25 -8.25,8.25 h -160.125 c -4.55636,0 -8.25,-3.69364 -8.25,-8.25 v -6.96496"
+     id="path6"
+     stroke="#000000"
+     stroke-width="1.5"
+     style="fill:none;fill-rule:evenodd" />
+  <path
+     d="m 264.80329,166.71512 c 11.48876,0 20.80224,-9.31348 20.80224,-20.80225 0,-11.48876 -9.31348,-20.80224 -20.80224,-20.80224 z"
+     id="path7"
+     stroke="#000000"
+     stroke-width="1.5"
+     stroke-dasharray="4"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="39.912132"
+     y1="136.83646"
+     x2="86.787132"
+     y2="146.96146"
+     id="Line-14"
+     stroke="#000000"
+     stroke-width="1.5"
+     stroke-linecap="square"
+     stroke-dasharray="5"
+     style="fill:none;fill-rule:evenodd" />
+  <rect
+     style="fill:none;stroke-width:2;stroke-dasharray:none"
+     id="rect8"
+     width="541.79791"
+     height="213.40768"
+     x="0"
+     y="0" />
+  <metadata
+     id="metadata8">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:title>Figure 10 </dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+</svg>
