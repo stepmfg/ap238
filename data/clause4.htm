@@ -192,7 +192,7 @@ Person_in_organization application object definition.</P>
 <H3 ID="uof-workpiece">4.2.4 Workpiece</H3>
 
 <P>The workpiece UoF specifies the mechanical product that is to be
-produced by a machining program.  This description can include
+produced by a machining program.  This description may include
 material, surface condition, features, and the AS-IS and TO-BE shape
 of the product.</P>
 
@@ -546,7 +546,7 @@ feature UoF, and shall be as defined by ISO 14649-10.</P>
 
 <P>The executable UoF specifies the information necessary to describe
 control flow of a machining program as well as the non-machining
-actions that can be performed by a numerical control. This includes
+actions that may be performed by a numerical control. This includes
 sequential, parallel, and conditional control flow, as well as the
 logical expressions and variable elements necessary to describe the
 conditions for conditional control flow.  This UoF also specifies the
@@ -663,7 +663,7 @@ this information is unchanged from previous edition of this document.
 <H3 ID="uof-operation">4.2.7 Operation</H3>
 
 <P>The operation UoF specifies the information necessary to describe
-the technology-independent aspects of machining actions that can be
+the technology-independent aspects of machining actions that may be
 performed by a numerical control.</P>
 
 <P CLASS="note">
@@ -709,7 +709,7 @@ operation UoF, and shall be as defined by this document:</P>
 
 <P>The toolpath UoF specifies the information necessary to describe
 the motion of a cutting tool as either a precalculated movement
-trajectory or as a set of motion parameters that can be converted to
+trajectory or as a set of motion parameters that may be converted to
 an exact movement by a numerical control.  This includes the
 information necessary to describe movement trajectories relative to
 the tip of the cutting tool, the contact point of the cutting tool, or
@@ -756,7 +756,7 @@ additional information requirements beyond those specified by ISO
 
 <P>The process data for milling UoF specifies the information
 necessary to describe the milling and drilling-specific aspects of
-machining actions that can be performed by a numerical control.  This
+machining actions that may be performed by a numerical control.  This
 includes the information necessary to describe strategies and process
 parameters for milling and drilling.</P>
 
@@ -895,7 +895,7 @@ cutting tools for milling UoF, and shall be as defined by this document:</P>
 
 <P>The process data for turning UoF specifies the information
 necessary to describe the turning-specific aspects of machining
-actions that can be performed by a numerical control.  This includes
+actions that may be performed by a numerical control.  This includes
 the information necessary to describe strategies and process
 parameters for turning.</P>
 
@@ -969,7 +969,7 @@ turning UoF, and shall be as defined by ISO 14649-121.</P>
 
 <P>The process data for additive manufacturing UoF specifies the
 information necessary to describe the additive manufacturing-specific
-aspects of machining actions that can be performed by a numerical
+aspects of machining actions that may be performed by a numerical
 control.  This includes the information necessary to describe
 strategies and process parameters for additive manufacturing.</P>
 
@@ -1304,7 +1304,7 @@ dimensioning and tolerancing UoF, and shall be as defined by ISO
 <H3 ID="uof-library_reference">4.2.18 Library reference</H3>
 
 <P>The library reference UoF provides the capability and mechanisms by
-which references can be made to information in external libraries.</P>
+which references may be made to information in external libraries.</P>
 
 <P>The following application object is used by the library reference
 UoF, and shall be as defined by ISO 10303-1129.</P>
@@ -4279,9 +4279,9 @@ protocols are more suited to project and tool state changes.</P>
 technology-specific.</P>
 
 <P CLASS="note">
-<SPAN>NOTE 3</SPAN> Values that are unavailable for a technology can
+<SPAN>NOTE 3</SPAN> Values that are unavailable for a technology may
 be written as “UNAVAILABLE”.  Values that are available for a
-technology but not defined in the current context can be written as
+technology but not defined in the current context may be written as
 “UNDEFINED”.</P>
 
 <H4 ID="ao-broadcast_content-export_stream">4.3.90.10 export_stream</H4>
@@ -4781,7 +4781,7 @@ END_ENTITY;
 
 <H4 ID="ao-collar_prototype-allowed_for">4.3.102.1 collar_prototype to fastener_prototype (as allowed_for)</H4>
 
-<p>The allowed_for specifies the collection of fasteners that can be held by the collar.</p>
+<p>The allowed_for specifies the collection of fasteners that may be held by the collar.</p>
 
 
 
@@ -5922,7 +5922,7 @@ physical tool to the tool life specified by the
 manufacturing_prototype.</p>
 
 <P CLASS="note">
-<SPAN>NOTE</SPAN> The life_used ratio can be converted into a time
+<SPAN>NOTE</SPAN> The life_used ratio may be converted into a time
 remaining using the tool_life of the prototype. Sometimes a tool may
 be used for longer than its tool_life in which case the life_used will
 exceed 100%.</P>
@@ -6352,7 +6352,7 @@ dimensions of the material layers in the feature.</p>
 thickness of the composite skin, titanium frame and filler shims.</P>
 
 <P CLASS="note">
-<SPAN>NOTE</SPAN> Different stackups can be measured for different
+<SPAN>NOTE</SPAN> Different stackups may be measured for different
 phases. There may be twin stackups for as-designed, as-assembled,
 as_clamped and as-inspected stages of the twin.</P>
 
@@ -6648,7 +6648,7 @@ shall be executed in reverse.</p>
 
 <P CLASS="note">
 <SPAN>NOTE</SPAN> Many features share the same escape sequences. The
-level is a NUMBER so that additional levels can be inserted for some
+level is a NUMBER so that additional levels may be inserted for some
 robots and features at more difficult locations.</P>
 
 <P CLASS="note">
@@ -6665,9 +6665,9 @@ nose sideways, and avoid a special fixture.</P>
 </DIV>
 
 <P CLASS="note">
-<SPAN>NOTE</SPAN> X1 can escape to X2 on Level 1 using Feature Group 1, but must
-go to Level 2 to reach X5 using Feature Group 4, and Level 3 to reach
-X7 using Feature Group 6.</p>
+<SPAN>NOTE</SPAN> X1 may escape to X2 on Level 1 using Feature Group
+1, but must go to Level 2 to reach X5 using Feature Group 4, and Level
+3 to reach X7 using Feature Group 6.</p>
 <FIGCAPTION>Figure 5 &mdash; Escape sequence groups for a set of features across three levels.</FIGCAPTION>
 </FIGURE>
 
@@ -6768,7 +6768,7 @@ as adapted by this document, is shown below. Refer to ISO
 <P CLASS="note">The shapes from the ISO 14649 In_process_geometry
 concept are replaced by complete product descriptions. The
 product_view_definition.primary_shape_representation gives the shape
-representation, which can be described by an edge-based wireframe (ISO
+representation, which may be described by an edge-based wireframe (ISO
 10303-1501), shell-based wireframe (ISO 10303-1502),
 geometrically-bounded surfaces (ISO 10303-1507), non-manifold surfaces
 (ISO 10303-1324), manifold surfaces (ISO 10303-1509),
@@ -6849,15 +6849,15 @@ Machine_usage</a> for the application assertion.</P>
 <H4 ID="ao-executable-process_properties">4.3.148.5 process_properties</H4>
 
 <P>The process_properties describe characteristics of an Executable
-that can not be conveyed using other capabilities of this document.
+that may not be conveyed using other capabilities of this document.
 The process_properties shall be represented by the set of
 Process_property application objects with an described_element
 parameter that contains the Executable.</P>
 
 <P CLASS="note">
 <SPAN>EXAMPLE</SPAN> An Executable that describes a planned process
-can describe parameters extracted from CAM.  An Executable that
-describes a digital twin can describe result properties from machining
+may describe parameters extracted from CAM.  An Executable that
+describes a digital twin may describe result properties from machining
 or simulation.</P>
 
 
@@ -6977,7 +6977,7 @@ collar or washer.</P>
 </DIV>
 
 <P>An Expected_property application object describes a requirement on
-a digital twin prototype that can be measured on digital twin
+a digital twin prototype that may be measured on digital twin
 instances during manufacturing.</P>
 
 <P>The data associated with a Expected_property are the
@@ -7145,7 +7145,7 @@ END_ENTITY;
 manufacturing or handling operation which does not involve the
 interpolation of axes and for which no other more specific type of
 NC_function exists.  This shall not be used if equivalent machine
-behavior can be achieved using other capabilities of this document.</P>
+behavior may be achieved using other capabilities of this document.</P>
 
 <P>The data associated with an Extended_NC_function are the
 following:</P>
@@ -7189,7 +7189,7 @@ representation of this information is unchanged.</P>
 <P>An Extended_operation is a type of Operation which specifies a
 manufacturing or handling operation for which no other more specific
 type of Operation exists.  This shall not be used if equivalent
-behavior can be achieved using other capabilities of this document.</P>
+behavior may be achieved using other capabilities of this document.</P>
 
 <P>The data associated with an Extended_operation are the
 following:</P>
@@ -7691,6 +7691,10 @@ END_ENTITY;
 Fill_type_operation that uses machine-specific codes to achieve its
 effect.</P>
 
+<P CLASS="note">
+<SPAN>NOTE 1</SPAN> Pass_thru_codes are inherently non-portable and
+their use is discouraged</P>
+
 <P>The data associated with a Fasten_with_codes are the
 following:</P>
 
@@ -7700,7 +7704,7 @@ following:</P>
 
 
 <P CLASS="note">
-<SPAN>NOTE</SPAN> The EXPRESS description for the Fasten_with_codes
+<SPAN>NOTE 2</SPAN> The EXPRESS description for the Fasten_with_codes
 application object is shown below.</P>
 
 <PRE CLASS="note">
@@ -7711,7 +7715,7 @@ END_ENTITY;
 </PRE>
 
 
-<H4 ID="ao-fasten_with_codes-pass_thru_codes">5.4.1 pass_thru_codes</H4>
+<H4 ID="ao-fasten_with_codes-pass_thru_codes">4.3.170.1 pass_thru_codes</H4>
 
 <p>The pass_thru_codes specifies a sequence of machine-specific codes
 that shall be used to control the manufacturing.</p>
@@ -7758,7 +7762,7 @@ SUBTYPE OF (Drill_and_fill_group);
 END_ENTITY;
 </PRE>
 
-<H4 ID="ao-fastener_group-fastener">4.6.1 fastener_group to product_view_definition (as fastener)</H4>
+<H4 ID="ao-fastener_group-fastener">4.3.171.1 fastener_group to product_view_definition (as fastener)</H4>
 
 <p>The fastener specifies fastener that shall be added with this
 configuration to the fasteners positions in this group.</p>
@@ -7766,12 +7770,12 @@ configuration to the fasteners positions in this group.</p>
 <P CLASS="note">
 <SPAN>NOTE</SPAN> In early phases, the recommended fastener may be a tack.</P>
 
-<H4 ID="ao-fastener_group-collar">4.6.2 fastener_group to product_view_definition (as collar)</H4>
+<H4 ID="ao-fastener_group-collar">4.3.171.2 fastener_group to product_view_definition (as collar)</H4>
 
 <p>The collar specifies the collar that shall be added with this
 configuration to the fasteners positions in this group.</p>
 
-<H4 ID="ao-fastener_group-washers">4.6.3 fastener_group to product_view_definition (as washers)</H4>
+<H4 ID="ao-fastener_group-washers">4.3.171.3 fastener_group to product_view_definition (as washers)</H4>
 
 <p>The washers specifies a sequence of washers that shall be added
 with this configuration to the fasteners positions in this group.  The
@@ -7781,20 +7785,20 @@ assembly beginning with the washer closest to the top surface.</p>
 <P CLASS="note">
 <SPAN>NOTE</SPAN> Washers may be flat, concave and convex, thick or thin.</P>
 
-<H4 ID="ao-fastener_group-fastener_sealant">4.6.4 fastener_group to product_view_definition (as fastener_sealant)</H4>
+<H4 ID="ao-fastener_group-fastener_sealant">4.3.171.4 fastener_group to product_view_definition (as fastener_sealant)</H4>
 
 <p>The fastener_sealant specifies the sealant that shall be applied
 with this configuration to the fastener before insertion into the
 fasteners positions in this group.</p>
 
-<H4 ID="ao-fastener_group-fay_sealant">4.6.5 fastener_group to product_view_definition (as fay_sealant)</H4>
+<H4 ID="ao-fastener_group-fay_sealant">4.3.171.5 fastener_group to product_view_definition (as fay_sealant)</H4>
 
 <p>The fay_sealant specifies the sealant that shall be applied with
 this configuration to the mating surface of the fasteners positions in
 this group.</p>
 
 
-<H4 ID="ao-fastener_group-cap_sealant">4.6.6 fastener_group to product_view_definition (as cap_sealant)</H4>
+<H4 ID="ao-fastener_group-cap_sealant">4.3.171.6 fastener_group to product_view_definition (as cap_sealant)</H4>
     
 <p>The cap_sealant specifies the sealant that shall be applied with
 this configuration to the collar of the fasteners positions in this
@@ -7847,18 +7851,18 @@ ENTITY Fastener_prototype	-- ADDED BY 10303-238e4
 END_ENTITY;
 </PRE>
 
-<H4 ID="ao-fastener_prototype-grip_length">3.4.1 fastener_prototype to expected_property (as grip_length)</H4>
+<H4 ID="ao-fastener_prototype-grip_length">4.3.172.1 fastener_prototype to expected_property (as grip_length)</H4>
 
 <p>The grip_length specifies the upper and lower limits for the grip
 length for this type of fastener.</p>
 
 
-<H4 ID="ao-fastener_prototype-fastener_diameter">3.4.2 fastener_prototype to expected_property (as fastener_diameter)</H4>
+<H4 ID="ao-fastener_prototype-fastener_diameter">4.3.172.2 fastener_prototype to expected_property (as fastener_diameter)</H4>
 
 <p>The fastener_diameter specifies the upper and lower limits for the
 fastener diameter.</p>
 
-<H4 ID="ao-fastener_prototype-hole_diameter_limits">3.4.3 fastener_prototype to diameter_size_tolerance (as hole_diameter_limits)</H4>
+<H4 ID="ao-fastener_prototype-hole_diameter_limits">4.3.172.3 fastener_prototype to diameter_size_tolerance (as hole_diameter_limits)</H4>
 
 <p>The hole_diameter_limits specifies the tolerance limits of the hole
 diameter for this fastener.</p>
@@ -7867,27 +7871,27 @@ diameter for this fastener.</p>
 <SPAN>NOTE</SPAN> These are the limits on the fastened hole as defined
 by engineering.</P>
 
-<H4 ID="ao-fastener_prototype-button_height">3.4.4 fastener_prototype to expected_property (as button_height)</H4>
+<H4 ID="ao-fastener_prototype-button_height">4.3.172.4 fastener_prototype to expected_property (as button_height)</H4>
 
 <p>The button_height specifies the upper and lower limits for the
 button height.</p>
 
-<H4 ID="ao-fastener_prototype-button_diameter">3.4.5 fastener_prototype to expected_property (as button_diameter)</H4>
+<H4 ID="ao-fastener_prototype-button_diameter">4.3.172.5 fastener_prototype to expected_property (as button_diameter)</H4>
 
 <p>The button_diameter specifies the upper and lower limits for the
 button diameter.</p>
 
-<H4 ID="ao-fastener_prototype-required_squeeze">3.4.6 fastener_prototype to expected_property (as required_squeeze)</H4>
+<H4 ID="ao-fastener_prototype-required_squeeze">4.3.172.6 fastener_prototype to expected_property (as required_squeeze)</H4>
 
 <p>The required_squeeze specifies the upper and lower limits for the
 force required to squeeze the fastener into place.</p>
 
-<H4 ID="ao-fastener_prototype-code">3.4.7 code</H4>
+<H4 ID="ao-fastener_prototype-code">4.3.172.7 code</H4>
 
 <p>The code specifies an organization specific code for the type of
 the fastener.</p>
 
-<H4 ID="ao-fastener_prototype-time_limit">3.4.8 fastener_prototype to expected_property (as time_limit)</H4>
+<H4 ID="ao-fastener_prototype-time_limit">4.3.172.8 fastener_prototype to expected_property (as time_limit)</H4>
 
 <p>The time_limit specifies the upper limit for the time a tack may be
 in place before additional measurements are required.</p>
@@ -7944,11 +7948,11 @@ END_ENTITY;
 </PRE>
 
 
-<H4 ID="ao-fastener_twin-fastens">3.3.1 fastener_twin to drill_and_fill_twin (as fastens)</H4>
+<H4 ID="ao-fastener_twin-fastens">4.3.173.1 fastener_twin to drill_and_fill_twin (as fastens)</H4>
 
 <p>The fastens specifies the hole feature fastened by this fastener.</p>
 
-<H4 ID="ao-fastener_twin-is_temporary">3.3.2 is_temporary</H4>
+<H4 ID="ao-fastener_twin-is_temporary">4.3.173.2 is_temporary</H4>
 
 <p>The is_temporary specifies whether this fastener is a temporary
 tack placed by a Place_tack_operation.  The fastener is a temporary
@@ -7956,7 +7960,7 @@ tack if is_temporary is true, and is a permanent fastener if
 is_temporary is false or not specified.</p>
 
 
-<H4 ID="ao-fastener_twin-grip_length">3.3.3 fastener_twin to measured_property (as grip_length)</H4>
+<H4 ID="ao-fastener_twin-grip_length">4.3.173.3 fastener_twin to measured_property (as grip_length)</H4>
 
 <p>The grip_length specifies the measured grip length of the fastener.</p>
 
@@ -7964,7 +7968,7 @@ is_temporary is false or not specified.</p>
 <SPAN>NOTE</SPAN> The value may come from a catalog.</P>
 
 
-<H4 ID="ao-fastener_twin-diameter">3.3.4 fastener_twin to measured_property (as diameter)</H4>
+<H4 ID="ao-fastener_twin-diameter">4.3.173.4 fastener_twin to measured_property (as diameter)</H4>
 
 <p>The diameter specifies the measured grip diameter of the fastener.</p>
 
@@ -7972,13 +7976,13 @@ is_temporary is false or not specified.</p>
 <SPAN>NOTE</SPAN> The value may come from a catalog.</P>
 
 
-<H4 ID="ao-fastener_twin-applied_squeeze">3.3.5 fastener_twin to measured_property (as applied_squeeze)</H4>
+<H4 ID="ao-fastener_twin-applied_squeeze">4.3.173.5 fastener_twin to measured_property (as applied_squeeze)</H4>
 
 <p>The applied_squeeze specifies the measured force applied to a
 squeeze a fastener into place.</p>
 
 
-<H4 ID="ao-fastener_twin-button_diameter">3.3.6 fastener_twin to measured_property (as button_diameter)</H4>
+<H4 ID="ao-fastener_twin-button_diameter">4.3.173.6 fastener_twin to measured_property (as button_diameter)</H4>
 
 <p>The button_diameter specifies the measured button diameter of a
 fastener that has been squeezed into place.</p>
@@ -7987,7 +7991,7 @@ fastener that has been squeezed into place.</p>
 <SPAN>NOTE</SPAN> The value may come from a catalog.</P>
 
 
-<H4 ID="ao-fastener_twin-button_height">3.3.7 fastener_twin to measured_property (as button_height)</H4>
+<H4 ID="ao-fastener_twin-button_height">4.3.173.7 fastener_twin to measured_property (as button_height)</H4>
 
 <p>The button_height specifies the measured button height of a
 fastener that has been squeezed into place.</p>
@@ -7996,12 +8000,12 @@ fastener that has been squeezed into place.</p>
 <SPAN>NOTE</SPAN> The value may come from a catalog.</P>
 
 
-<H4 ID="ao-fastener_twin-when_placed">3.3.8 when_placed</H4>
+<H4 ID="ao-fastener_twin-when_placed">4.3.173.8 when_placed</H4>
 
 <p>The when_placed specifies the date and time when the fastener was
 placed.</p>
 
-<H4 ID="ao-fastener_twin-when_removed">3.3.9 when_removed</H4>
+<H4 ID="ao-fastener_twin-when_removed">4.3.173.9 when_removed</H4>
 
 <p>The when_removed specifies the date and time when the fastener was
 removed.
@@ -8052,7 +8056,7 @@ END_ENTITY;
 
 <P CLASS="note">
 <SPAN>NOTE 2</SPAN> Upon execution, the measurement cycle will result in
-a constructed feature.  This resulting feature can be associated with
+a constructed feature.  This resulting feature may be associated with
 the planned measurement process using
 a <A href="clause5.htm#funcon-twin-process">digital twin process</A>.</P>
 
@@ -8293,9 +8297,9 @@ specifies a finishing operation.</P>
 <P CLASS="note">
 <SPAN>NOTE 1</SPAN> When specifying a freeform milling operation,
 particularly with an associated toolpath, the Freeform_rough_milling
-and Freeform_finish_milling subtypes can be used to indicate whether
+and Freeform_finish_milling subtypes may be used to indicate whether
 the operation is used for roughing or finishing.  Some CNC controls
-can provide important efficiency gains when provided with this
+may provide important efficiency gains when provided with this
 information.</P>
 
 <P CLASS="note">
@@ -8754,7 +8758,7 @@ END_ENTITY;
 </DIV>
 
 <P>A Machine_axis_constraint identifies the range of motion that a
-machine axis can traverse.</P>
+machine axis may traverse.</P>
 
 <P CLASS="note">
 <SPAN>NOTE 1</SPAN> It is advisable to avoid use of this information
@@ -8767,7 +8771,7 @@ axes to be considered as part of the solution.</P>
 
 <P CLASS="note">
 <SPAN>EXAMPLE</SPAN> When a rotary C table is mounted on a rotary B
-table, there can be two combinations of C and B angles that give the
+table, there may be two combinations of C and B angles that give the
 same tool axis direction.  Also, when drilling on a machine with
 redundant (not necessarily parallel) linear axes, such as a machine
 with a movable quill (W axis), either the W or other axes could be
@@ -8817,7 +8821,7 @@ and lower measure values permitted for that axis.</P>
 </DIV>
 
 <P>A Machine_axis_travel identifies the distance that a machine axis
-can traverse. </P>
+may traverse. </P>
 
 <P>The data associated with a Machine_axis_travel are the following:</P>
 <UL>
@@ -8849,11 +8853,11 @@ names.</P>
 <H4 ID="ao-machine_axis_travel-travel_distance">4.3.199.2 travel_distance</H4>
 
 <P>The travel_distance specifies a measure value that describes the
-distance that the identified axis can traverse.</P>
+distance that the identified axis may traverse.</P>
 
 <P CLASS="note">
-<SPAN>NOTE</SPAN> A length measure value can be used to describe the
-traversal of linear axes, while a plane angle measure value can be
+<SPAN>NOTE</SPAN> A length measure value may be used to describe the
+traversal of linear axes, while a plane angle measure value may be
 used to describe the traversal of tilt tables and other angular
 axes. </P>
 
@@ -8903,7 +8907,7 @@ and the required state shall be described by the value of the
 Representation_item.  If conditions must be applied sequentially, the
 Representation_items shall be nested, in the required order, within a
 List_representation_item.  The other_functions shall not be used if a
-condition can be specified using other capabilities of this
+condition may be specified using other capabilities of this
 document.</P>
 
 <P CLASS="note">
@@ -8920,11 +8924,11 @@ integrated representation of this information is unchanged from
 previous edition of this document.</P>
 
 <P CLASS="note">
-<SPAN>EXAMPLE</SPAN> A condition that has several possible states can
+<SPAN>EXAMPLE</SPAN> A condition that has several possible states may
 be described by a String_representation_item subtype with a value such
 as "<em>condition-name</em> on" or "<em>condition-name</em> off".  A
 condition that has a state defined by a measured value, such as
-pressure, can be described by a Numerical_item_with_unit subtype with
+pressure, may be described by a Numerical_item_with_unit subtype with
 a value such as 150Pa.</P>
 
 
@@ -8991,7 +8995,7 @@ END_ENTITY;
 <H4 ID="ao-machine_parameters-axis_travel">4.3.201.1 axis_travel</H4>
 
 <P>The axis_travel specifies zero or more Machine_axis_travel objects
-which describe the distance that the machine tool can move its cutting
+which describe the distance that the machine tool may move its cutting
 tool along specified axes. The axis_travel may not be specified for a
 particular Machine_parameters and the axis_travel shall not be
 specified if work_volume_length, work_volume_width, or
@@ -9003,14 +9007,14 @@ to Machine_axis_travel</a> for the application assertion.</P>
 <H4 ID="ao-machine_parameters-feedrate">4.3.201.2 feedrate</H4>
 
 <P>The feedrate specifies the linear velocity at which a machine tool
-can move its cutting tool.  The feedrate may not be specified for a
+may move its cutting tool.  The feedrate may not be specified for a
 particular Machine_parameters.</P>
 
 
 <H4 ID="ao-machine_parameters-number_of_control_axis">4.3.201.3 number_of_control_axis</H4>
 
 <P>The number_of_control_axis specifies number of machine tool axes
-that can be controlled by a numerical controller.  The
+that may be controlled by a numerical controller.  The
 number_of_control_axis may not be specified for a particular
 Machine_parameters.</P>
 
@@ -9018,7 +9022,7 @@ Machine_parameters.</P>
 <H4 ID="ao-machine_parameters-number_of_simultaneous_axis">4.3.201.4 number_of_simultaneous_axis</H4>
 
 <P>The number_of_simultaneous_axis specifies number of machine tool
-axes that can be controlled simultaneously by a numerical controller.
+axes that may be controlled simultaneously by a numerical controller.
 The number_of_simultaneous_axis may not be specified for a particular
 Machine_parameters.</P>
 
@@ -9033,7 +9037,7 @@ Machine_parameters.</P>
 
 <H4 ID="ao-machine_parameters-spindle_power">4.3.201.6 spindle_power</H4>
 
-<P>The spindle_power specifies the power which a machine tool can
+<P>The spindle_power specifies the power which a machine tool may
 apply to turn its spindle.  The spindle_power may not be specified
 for a particular Machine_parameters.</P>
 
@@ -9043,7 +9047,7 @@ for a particular Machine_parameters.</P>
 
 <H4 ID="ao-machine_parameters-spindle_torque">4.3.201.7 spindle_torque</H4>
 
-<P>The spindle_torque specifies the torque which a machine tool can
+<P>The spindle_torque specifies the torque which a machine tool may
 apply to turn its spindle.  The spindle_torque may not be specified
 for a particular Machine_parameters.</P>
 
@@ -9055,7 +9059,7 @@ Meters (for SI usage) or Foot Pounds (for English usage).</P>
 <H4 ID="ao-machine_parameters-spindle_speed">4.3.201.8 spindle_speed</H4>
 
 <P>The spindle_speed specifies the rotational velocity at which a
-machine tool can move its spindle.  The spindle_speed may not be
+machine tool may move its spindle.  The spindle_speed may not be
 specified for a particular Machine_parameters.</P>
 
 
@@ -9082,7 +9086,7 @@ Machine_parameters.</P>
 <H4 ID="ao-machine_parameters-work_volume_height">4.3.201.12 work_volume_height</H4>
 
 <P>The work_volume_height specifies height of the volume in which the
-machine tool can move its cutting tool. The volume is aligned so that
+machine tool may move its cutting tool. The volume is aligned so that
 the height component lies along the Z axis of the machine. The
 work_volume_height may not be specified for a particular
 Machine_parameters and the work_volume_height shall not be specified
@@ -9092,7 +9096,7 @@ if axis_travel is specified.</P>
 <H4 ID="ao-machine_parameters-work_volume_length">4.3.201.13 work_volume_length</H4>
 
 <P>The work_volume_length specifies length of the volume in which the
-machine tool can move its cutting tool. The volume is aligned so that
+machine tool may move its cutting tool. The volume is aligned so that
 the length component lies along the X axis of the machine. The
 work_volume_length may not be specified for a particular
 Machine_parameters and the work_volume_length shall not be specified
@@ -9102,7 +9106,7 @@ if axis_travel is specified.</P>
 <H4 ID="ao-machine_parameters-work_volume_width">4.3.201.14 work_volume_width</H4>
 
 <P>The work_volume_width specifies width of the volume in which the
-machine tool can move its cutting tool. The volume is aligned so that
+machine tool may move its cutting tool. The volume is aligned so that
 the width component lies along the Y axis of the machine. The
 work_volume_width may not be specified for a particular
 Machine_parameters and the work_volume_width shall not be specified if
@@ -9453,17 +9457,17 @@ END_ENTITY;
 </PRE>
 
 
-<H4 ID="ao-manufacturing_feature_prototype-engineering_design">2.6.1 manufacturing_feature_prototype to manufacturing_feature (as engineering_design)</H4>
+<H4 ID="ao-manufacturing_feature_prototype-engineering_design">4.3.208.1 manufacturing_feature_prototype to manufacturing_feature (as engineering_design)</H4>
 
 <p>The engineering_design specifies the design definition of the feature.</p>
 
-<H4 ID="ao-manufacturing_feature_prototype-external_engineering_design">2.6.2 external_engineering_design</H4>
+<H4 ID="ao-manufacturing_feature_prototype-external_engineering_design">4.3.208.2 external_engineering_design</H4>
 
 <p>The external_engineering_design specifies the design definition of
 the feature if it exists in an external model.</p>
 
 
-<H4 ID="ao-manufacturing_feature_prototype-expected_pmi">2.6.3 manufacturing_feature_prototype to expected_property (as expected_pmi)</H4>
+<H4 ID="ao-manufacturing_feature_prototype-expected_pmi">4.3.208.3 manufacturing_feature_prototype to expected_property (as expected_pmi)</H4>
 
 <p>The expected_pmi specifies a collection of expected properties,
 relevant to manufacturing, of the feature.</p>
@@ -9505,7 +9509,7 @@ END_ENTITY;
 </PRE>
 
 
-<H4 ID="ao-manufacturing_feature_twin-manufacturing_prototype">2.5.1 manufacturing_feature_twin to manufacturing_feature_prototype (as manufacturing_prototype)</H4>
+<H4 ID="ao-manufacturing_feature_twin-manufacturing_prototype">4.3.209.1 manufacturing_feature_twin to manufacturing_feature_prototype (as manufacturing_prototype)</H4>
 
 <p>The manufacturing_prototype specifies the manufacturing
 requirements for the twin.</p>
@@ -9515,13 +9519,13 @@ requirements for the twin.</p>
 same prototypes.</P>
 
 
-<H4 ID="ao-manufacturing_feature_twin-place">2.5.2 place</H4>
+<H4 ID="ao-manufacturing_feature_twin-place">4.3.209.2 place</H4>
 
 <p>The place specifies a volume in world coordinates containing the
 physical twin.</p>
 
 
-<H4 ID="ao-manufacturing_feature_twin-measured_pmi">2.5.3 manufacturing_feature_twin to measured_property (as measured_pmi)</H4>
+<H4 ID="ao-manufacturing_feature_twin-measured_pmi">4.3.209.3 manufacturing_feature_twin to measured_property (as measured_pmi)</H4>
 
 <p>The measured_pmi specifies a collection of properties, relevant to
 manufacturing, that have been measured on the twin. </p>
@@ -9628,17 +9632,17 @@ ENTITY Manufacturing_stage;	-- ADDED BY 10303-238e4
 END_ENTITY;
 </PRE>
 
-<H4 ID="ao-manufacturing_stage-name">2.3.1 name</H4>
+<H4 ID="ao-manufacturing_stage-name">4.3.211.1 name</H4>
 
 <p>The name specifies a word or group of words which identify the
 Manufacturing_stage.</P>
 
 
-<H4 ID="ao-manufacturing_stage-purpose">2.3.2 purpose</H4>
+<H4 ID="ao-manufacturing_stage-purpose">4.3.211.2 purpose</H4>
 
 <p>The purpose specifies additional details about the Manufacturing_stage.</p>
 
-<H4 ID="ao-manufacturing_stage-nested_in">2.3.3 manufacturing_stage to manufacturing_stage (as nested_in)</H4>
+<H4 ID="ao-manufacturing_stage-nested_in">4.3.211.3 manufacturing_stage to manufacturing_stage (as nested_in)</H4>
 
 <p>The nested_in specifies an enclosing Manufacturing_stage.  Stages
 may be organized hierarchically.
@@ -9649,7 +9653,7 @@ is suspended while the twin is in this nested stage, and re-started
 when the twin finishes the nested stage.</P>
 
 
-<H4 ID="ao-manufacturing_stage-continue_on_entry">2.3.4 continue_on_entry</H4>
+<H4 ID="ao-manufacturing_stage-continue_on_entry">4.3.211.4 continue_on_entry</H4>
 
 <p>The continue_on_entry specifies whether entry into the stage shall
 create a new twin or shall continue operation on an existing twin.
@@ -9716,7 +9720,7 @@ properties specific to an instance of the material.</P>
 measured on a digital twin instance during manufacturing.</P>
 
 <P CLASS="note">
-<SPAN>NOTE 1</SPAN> Many properties can be measured on a twin. A subset
+<SPAN>NOTE 1</SPAN> Many properties may be measured on a twin. A subset
 is called out as properties that may be useful for a specific type of
 twins.</P>
 
@@ -9745,7 +9749,7 @@ END_ENTITY;
 </PRE>
 
 
-<H4 ID="ao-measured_property-prototype">3.16.1 measured_property to expected_property (as prototype)</H4>
+<H4 ID="ao-measured_property-prototype">4.3.213.1 measured_property to expected_property (as prototype)</H4>
 
 <p>The prototype specifies the required value for this property.</p>
 
@@ -9753,7 +9757,7 @@ END_ENTITY;
 <SPAN>NOTE</SPAN> A monitoring system may use the prototype to
 determine if the value is within tolerance.</P>
 
-<H4 ID="ao-measured_property-measured_value">3.16.2 measured_value</H4>
+<H4 ID="ao-measured_property-measured_value">4.3.213.2 measured_value</H4>
 
 <p>The measured_value specifies the as-measured value of the property
 with the unit of measurement.</p>
@@ -9764,12 +9768,12 @@ with the unit of measurement.</p>
 measured value is between the lower_limit and upper_limit of the
 prototype.</P>
 
-<H4 ID="ao-measured_property-measurement_process">3.16.3 measured_property to executable (as measurement_process)</H4>
+<H4 ID="ao-measured_property-measurement_process">4.3.213.3 measured_property to executable (as measurement_process)</H4>
 
 <p>The measurement_process specifies the Executable used to measure
 the value of the property.</p>
 
-<H4 ID="ao-measured_property-when">3.16.4 when</H4>
+<H4 ID="ao-measured_property-when">4.3.213.4 when</H4>
 
 <p>The when specifies the date and time the measurement was made.</p>
 
@@ -10190,28 +10194,28 @@ ENTITY Nose_prototype	-- ADDED BY 10303-238e4
 END_ENTITY;
 </PRE>
 
-<H4 ID="ao-nose_prototype-allowed_cutters">3.12.1 nose_prototype to cutting_tool_twin (as allowed_cutters)</H4>
+<H4 ID="ao-nose_prototype-allowed_cutters">4.3.226.1 nose_prototype to cutting_tool_twin (as allowed_cutters)</H4>
 
-<p>The allowed_cutters specifies a collection of cutter types that can be loaded into the nose.
+<p>The allowed_cutters specifies a collection of cutter types that may be loaded into the nose.
 
-<H4 ID="ao-nose_prototype-allowed_fasteners">3.12.2 nose_prototype to fastener_prototype (as allowed_fasteners)</H4>
+<H4 ID="ao-nose_prototype-allowed_fasteners">4.3.226.2 nose_prototype to fastener_prototype (as allowed_fasteners)</H4>
 
-<p>The allowed_fasteners specifies a collection of fastener types that can be loaded into the nose.
-
-
-<H4 ID="ao-nose_prototype-allowed_collars">3.12.3 nose_prototype to collar_prototype (as allowed_collars)</H4>
-
-<p>The allowed_collars specifies a collection of collar types that can be loaded into the nose.
+<p>The allowed_fasteners specifies a collection of fastener types that may be loaded into the nose.
 
 
-<H4 ID="ao-nose_prototype-allowed_washers">3.12.4 nose_prototype to washer_prototype (as allowed_washers)</H4>
+<H4 ID="ao-nose_prototype-allowed_collars">4.3.226.3 nose_prototype to collar_prototype (as allowed_collars)</H4>
 
-<p>The allowed_washers specifies a collection of washer types that can be loaded into the nose.
+<p>The allowed_collars specifies a collection of collar types that may be loaded into the nose.
 
 
-<H4 ID="ao-nose_prototype-allowed_sealants">3.12.5 nose_prototype to sealant_prototype (as allowed_sealants)</H4>
+<H4 ID="ao-nose_prototype-allowed_washers">4.3.226.4 nose_prototype to washer_prototype (as allowed_washers)</H4>
 
-<p>The allowed_sealants specifies a collection of sealant types that can be loaded into the nose.
+<p>The allowed_washers specifies a collection of washer types that may be loaded into the nose.
+
+
+<H4 ID="ao-nose_prototype-allowed_sealants">4.3.226.5 nose_prototype to sealant_prototype (as allowed_sealants)</H4>
+
+<p>The allowed_sealants specifies a collection of sealant types that may be loaded into the nose.
 
 
 
@@ -10252,12 +10256,12 @@ END_ENTITY;
 </PRE>
 
 
-<H4 ID="ao-nose_twin-loaded_cutter">3.11.1 nose_twin to cutting_tool_twin (as loaded_cutter)</H4>
+<H4 ID="ao-nose_twin-loaded_cutter">4.3.227.1 nose_twin to cutting_tool_twin (as loaded_cutter)</H4>
 
 <p>The loaded_cutter specifies the cutter loaded into the end effector.</p>
 
 
-<H4 ID="ao-nose_twin-robot">3.11.2 robot</H4>
+<H4 ID="ao-nose_twin-robot">4.3.227.2 robot</H4>
 
 <p>The robot identifies the robot that is using this end effector.</p>
 
@@ -10324,7 +10328,7 @@ END_ENTITY;
 </PRE>
 
 
-<H4 ID="ao-oneup_assembly_group-must_follow">4.8.1 oneup_assembly_group to executable (as must_follow)</H4>
+<H4 ID="ao-oneup_assembly_group-must_follow">4.3.229.1 oneup_assembly_group to executable (as must_follow)</H4>
 
 <p>The must_follow specifies a collection of Executable objects.  At
 least one Executable must finish before work on this group begins.</p>
@@ -10333,7 +10337,7 @@ least one Executable must finish before work on this group begins.</p>
 <SPAN>NOTE</SPAN> The collection will often contain a single
 Executable.  At times, there may be many Executables at least one of
 which must finish before work begins. In the most complex case an
-Executable in the set can be a Workplan that describes multiple things
+Executable in the set may be a Workplan that describes multiple things
 that must be completed before beginning the oneup assembly group.</P>
 
 
@@ -10503,7 +10507,7 @@ END_ENTITY;
 </PRE>
 
 
-<H4 ID="ao-phase_history-phase">2.2.1 phase_history to manufacturing_stage (as phase)</H4>
+<H4 ID="ao-phase_history-phase">4.3.234.1 phase_history to manufacturing_stage (as phase)</H4>
 
 <p>The phase specifies the phase of the project in which the feature
 was active.</p>
@@ -10514,7 +10518,7 @@ machined or measured.</P>
 
 
 
-<H4 ID="ao-phase_history-twin">2.2.2 phase_history to manufacturing_feature_twin (as twin)</H4>
+<H4 ID="ao-phase_history-twin">4.3.234.2 phase_history to manufacturing_feature_twin (as twin)</H4>
 
 <p>The twin specifies the twin that modeled the feature in the phase. </p>
 
@@ -10524,18 +10528,18 @@ twin, but applications may use the same twin for multiple phases, or
 all phases. Nested phases are also possible.</P>
 
 
-<H4 ID="ao-phase_history-manufacturing_goal">2.2.3 manufacturing_goal</H4>
+<H4 ID="ao-phase_history-manufacturing_goal">4.3.234.3 manufacturing_goal</H4>
 
 <p>The manufacturing_goal specifies the description of the
 manufacturing goal for this twin in this phase. </p>
 
-<H4 ID="ao-phase_history-completed">2.2.4 phase_history to machining_workingstep (as completed)</H4>
+<H4 ID="ao-phase_history-completed">4.3.234.4 phase_history to machining_workingstep (as completed)</H4>
 
 <p>The completed specifies a sequence of workingsteps already applied
 to this twin in this phase.</p>
 
 <P CLASS="note">
-<SPAN>NOTE 1</SPAN> Each completed workingstep can have start and
+<SPAN>NOTE 1</SPAN> Each completed workingstep may have start and
 finish timestamps.</P>
 <P CLASS="note">
 <SPAN>NOTE 2</SPAN> The current phase of a twin is the phase of its
@@ -10543,7 +10547,7 @@ most recently completed workingstep. The current phase of a feature is
 the phase of the twin of its most recent twin.</P>
 
 
-<H4 ID="ao-phase_history-recorded_states">2.2.5 phase_history to state_condition (as recorded_states)</H4>
+<H4 ID="ao-phase_history-recorded_states">4.3.234.5 phase_history to state_condition (as recorded_states)</H4>
 
 <p>The recorded_states specifies a sequence of the notable changes
 applied to the twin during this phase.</p>
@@ -10558,8 +10562,8 @@ applied to the twin during this phase.</p>
 <H3 ID="ao-phase_stage">4.3.235 Phase_stage</H3>
 </DIV>
 
-<P>A Phase_stage application object is a type of</P>
-The Phase_stage application object determines if a group holds the primary or alternate information for a manufacturing stage.
+<P>A Phase_stage application object determines if a group holds the
+primary or alternate information for a manufacturing stage.</P>
 
 <P>The data associated with a Phase_stage are the
 following:</P>
@@ -10581,13 +10585,13 @@ END_ENTITY;
 </PRE>
 
 
-<H4 ID="ao-phase_stage-stage">4.2.1 phase_stage to manufacturing_stage (as stage)</H4>
+<H4 ID="ao-phase_stage-stage">4.3.235.1 phase_stage to manufacturing_stage (as stage)</H4>
 
 <p>The stage specifies a manufacturing stage where the information
 described by a group applies.  stage is not specified a referencing
 Drill_and_fill_group applies to all stages.</p>
 
-<H4 ID="ao-phase_stage-primary">4.2.2 primary</H4>
+<H4 ID="ao-phase_stage-primary">4.3.235.2 primary</H4>
 
 <p>The primary specifies whether a referencing Drill_and_fill_group
 shall be preferred if a twin is in multiple groups of the same type.
@@ -10668,13 +10672,13 @@ ENTITY Place_fastener_operation		-- ADDED BY 10303-238e4
 END_ENTITY;
 </PRE>
 
-<H4 ID="ao-place_fastener_operation-grip_length">5.6.1 grip_length</H4>
+<H4 ID="ao-place_fastener_operation-grip_length">4.3.237.1 grip_length</H4>
 
 <p>The grip_length specifies the expected grip length for the placed
 item.</p>
 
 
-<H4 ID="ao-place_fastener_operation-squeeze">5.6.2 squeeze</H4>
+<H4 ID="ao-place_fastener_operation-squeeze">4.3.237.2 squeeze</H4>
 
 <p>The squeeze specifies the pressure to force a fastener into the
 fastener hole.</p>
@@ -10683,32 +10687,32 @@ fastener hole.</p>
 <SPAN>EXAMPLE</SPAN> A rivet is a squeezed fastener.</P>
 
 
-<H4 ID="ao-place_fastener_operation-button_height">5.6.3 button_height</H4>
+<H4 ID="ao-place_fastener_operation-button_height">4.3.237.3 button_height</H4>
 
 <p>The button_height specifies the button height for a squeezed fastener.</p>
 
 
-<H4 ID="ao-place_fastener_operation-button_diameter">5.6.4 button_diameter</H4>
+<H4 ID="ao-place_fastener_operation-button_diameter">4.3.237.4 button_diameter</H4>
 
 <p>The button_diameter specifies the button diameter for a squeezed
 fastener.</p>
 
 
-<H4 ID="ao-place_fastener_operation-verify_button">5.6.5 verify_button</H4>
+<H4 ID="ao-place_fastener_operation-verify_button">4.3.237.5 verify_button</H4>
 
 <p>The verify_button specifies whether verification is performed that
 the delivered button meets the requirements of the fastener location.
 Verification is performed if verify_button is true.  Verification is
 not performed if verify_button is false or unspecified.</p>
 
-<H4 ID="ao-place_fastener_operation-verify_squeeze">5.6.6 verify_squeeze</H4>
+<H4 ID="ao-place_fastener_operation-verify_squeeze">4.3.237.6 verify_squeeze</H4>
 
 <p>The verify_squeeze specifies whether verification is performed that
 the squeeze pressure meets the requirements of the fastener location.
 Verification is performed if verify_squeeze is true.  Verification is
 not performed if verify_squeeze is false or unspecified.</p>
 
-<H4 ID="ao-place_fastener_operation-verify_material">5.6.7 verify_material</H4>
+<H4 ID="ao-place_fastener_operation-verify_material">4.3.237.7 verify_material</H4>
 
 <p>The verify_material specifies whether verification is performed
 that the material of the fastener meets the requirements of the
@@ -10719,7 +10723,7 @@ unspecified.</p>
 <P CLASS="note">
 <SPAN>EXAMPLE</SPAN> A camera may be used to inspect the color.</P>
 
-<H4 ID="ao-place_fastener_operation-verify_grip">5.6.8 verify_grip</H4>
+<H4 ID="ao-place_fastener_operation-verify_grip">4.3.237.8 verify_grip</H4>
 
 <p>The verify_grip specifies whether verification is performed that
 the grip length is sufficient for the depth of the hole stack.
@@ -10769,19 +10773,19 @@ ENTITY Place_item_operation	-- ADDED BY 10303-238e4
 END_ENTITY;
 </PRE>
 
-<H4 ID="ao-place_item_operation-placed_item">5.5.1 place_item_operation to product_view_definition (as placed_item)</H4>
+<H4 ID="ao-place_item_operation-placed_item">4.3.238.1 place_item_operation to product_view_definition (as placed_item)</H4>
 
 <p>The placed_item specifies the definition of the item to be placed
 into the feature. The digital twin selected shall use this product as
 the engineering definition of its prototype.</p>
 
-<H4 ID="ao-place_item_operation-depth">5.5.2 depth</H4>
+<H4 ID="ao-place_item_operation-depth">4.3.238.2 depth</H4>
 
 <p>The depth specifies the distance from the top of the feature, in
 the direction of the axis of the feature, where the item is to be
 placed.</p>
 
-<H4 ID="ao-place_item_operation-allowable_minimum_force">5.5.3 allowable_minimum_force</H4>
+<H4 ID="ao-place_item_operation-allowable_minimum_force">4.3.238.3 allowable_minimum_force</H4>
 
 <p>The allowable_minimum_force specifies the minimum force necessary
 to place the fastener, or insert a rivet, into the feature.</p>
@@ -10790,7 +10794,7 @@ to place the fastener, or insert a rivet, into the feature.</p>
 <SPAN>NOTE</SPAN> The manufacturing system may indicate an exception
 condition if this minimum is not met.</P>
 
-<H4 ID="ao-place_item_operation-allowable_maximum_force">5.5.4 allowable_maximum_force</H4>
+<H4 ID="ao-place_item_operation-allowable_maximum_force">4.3.238.4 allowable_maximum_force</H4>
 
 <p>The allowable_maximum_force specifies the maximum force necessary
 to place the fastener, or insert a rivet, into the feature.</p>
@@ -10799,7 +10803,7 @@ to place the fastener, or insert a rivet, into the feature.</p>
 <SPAN>NOTE</SPAN> The manufacturing system may indicate an exception
 condition if this maximum is exceeded.</P>
 
-<H4 ID="ao-place_item_operation-allowable_position_deviation">5.5.5 allowable_position_deviation</H4>
+<H4 ID="ao-place_item_operation-allowable_position_deviation">4.3.238.5 allowable_position_deviation</H4>
 
 <p>The allowable_position_deviation specifies the maximum deviation
 allowed for the position of the item.</p>
@@ -10808,7 +10812,7 @@ allowed for the position of the item.</p>
 <SPAN>NOTE</SPAN> The manufacturing system may indicate an exception
 condition if this deviation is exceeded</P>
 
-<H4 ID="ao-place_item_operation-allowable_normal_deviation">5.5.6 allowable_normal_deviation</H4>
+<H4 ID="ao-place_item_operation-allowable_normal_deviation">4.3.238.6 allowable_normal_deviation</H4>
 
 <p>The allowable_normal_deviation specifies the maximum deviation
 allowed for the direction of the normal.</p>
@@ -10818,7 +10822,7 @@ allowed for the direction of the normal.</p>
 condition if an angular deviation is exceeded</P>
 
 
-<H4 ID="ao-place_item_operation-allowable_depth_deviation">5.5.7 allowable_depth_deviation</H4>
+<H4 ID="ao-place_item_operation-allowable_depth_deviation">4.3.238.7 allowable_depth_deviation</H4>
 
 <p>The allowable_depth_deviation specifies the maximum deviation
 allowed for the depth of the hole.</p>
@@ -11143,7 +11147,7 @@ SUBTYPE OF (Drill_and_fill_group);
 END_ENTITY;
 </PRE>
 
-<H4 ID="ao-precedence_group-pre_conditions">4.13.1 precedence_group to drill_and_fill_group (as pre_conditions)</H4>
+<H4 ID="ao-precedence_group-pre_conditions">4.3.251.1 precedence_group to drill_and_fill_group (as pre_conditions)</H4>
 
 <p>The pre_conditions specifies a collection of holes that must
 complete work in all groups before work begins on the members of this
@@ -11210,7 +11214,7 @@ END_ENTITY;
 
 <P>A Process_property is a type of Activity_property which specifies
 supplemental information about a process description.  This shall not
-be used if equivalent information can be conveyed using other
+be used if equivalent information may be conveyed using other
 capabilities of this document.</P>
 
 <P>The data associated with a Process_property are the following:</P>
@@ -11273,18 +11277,18 @@ ENTITY Product_view_prototype	-- ADDED BY 10303-238e4
 END_ENTITY;
 </PRE>
 
-<H4 ID="ao-product_view_prototype-engineering_design">3.2.1 product_view_prototype to product_view_definition (as engineering_design)</H4>
+<H4 ID="ao-product_view_prototype-engineering_design">4.3.255.1 product_view_prototype to product_view_definition (as engineering_design)</H4>
 
 <p>The engineering_design specifies the design data of the product
 prototype.</p>
 
-<H4 ID="ao-product_view_prototype-external_engineering_design">3.2.2 external_engineering_design</H4>
+<H4 ID="ao-product_view_prototype-external_engineering_design">4.3.255.2 external_engineering_design</H4>
 
 <p>The external_engineering_design identifies the design data of the
 product prototype in an external model.</p>
 
 
-<H4 ID="ao-product_view_prototype-expected_properties">3.2.3 product_view_prototype to expected_property (as expected_properties)</H4>
+<H4 ID="ao-product_view_prototype-expected_properties">4.3.255.3 product_view_prototype to expected_property (as expected_properties)</H4>
 
 <p>The expected_properties specifies the expected properties of this
 product with upper and lower limits defined as necessary.</p>
@@ -11345,28 +11349,28 @@ END_ENTITY;
 </PRE>
 
 
-<H4 ID="ao-product_view_twin-manufacturing_prototype">3.1.1 product_view_twin to product_view_definition (as manufacturing_prototype)</H4>
+<H4 ID="ao-product_view_twin-manufacturing_prototype">4.3.256.1 product_view_twin to product_view_definition (as manufacturing_prototype)</H4>
 
 <p>The manufacturing_prototype specifies the manufacturing
 requirements that shall be met by the product.</p>
 
-<H4 ID="ao-product_view_twin-supplier_prototype">3.1.2 product_view_twin to product_view_definition (as supplier_prototype)</H4>
+<H4 ID="ao-product_view_twin-supplier_prototype">4.3.256.2 product_view_twin to product_view_definition (as supplier_prototype)</H4>
 
 <p>The supplier_prototype specifies the properties promised by the
 supplier of the product. </p>
 
-<H4 ID="ao-product_view_twin-work_order">3.1.3 work_order</H4>
+<H4 ID="ao-product_view_twin-work_order">4.3.256.3 work_order</H4>
 
 <p>The work_order specifies the order that enabled production of this
 digital twin instance.</p>
 
-<H4 ID="ao-product_view_twin-user_serial_number">3.1.4 user_serial_number</H4>
+<H4 ID="ao-product_view_twin-user_serial_number">4.3.256.4 user_serial_number</H4>
 
 <p>The user_serial_number specifies an identifier that is unique to
 this digital twin instance. The user_serial_number shall be unique
 within the context of the digital twin prototype.</p>
 
-<H4 ID="ao-product_view_twin-envelope">3.1.5 envelope</H4>
+<H4 ID="ao-product_view_twin-envelope">4.3.256.5 envelope</H4>
 
 <p>The envelope specifies the world coordinates of the twin on the
 product. </p>
@@ -11376,7 +11380,7 @@ product. </p>
 into many locations on a structure. The envelope determines the
 location of each fastener instance.</P>
 
-<H4 ID="ao-product_view_twin-system_serial_number">3.1.6 system_serial_number</H4>
+<H4 ID="ao-product_view_twin-system_serial_number">4.3.256.6 system_serial_number</H4>
 
 <p>The system_serial_number specifies an identifier that is unique to
 this digital twin instance with respect to the processing system.</p>
@@ -11386,7 +11390,7 @@ this digital twin instance with respect to the processing system.</p>
 of the digital twin by an information processing system.</P>
 
 
-<H4 ID="ao-product_view_twin-measured_properties">3.1.7 product_view_twin to measured_property (as measured_properties)</H4>
+<H4 ID="ao-product_view_twin-measured_properties">4.3.256.7 product_view_twin to measured_property (as measured_properties)</H4>
 
 <p>The measured_properties specifies the as-measured properties of the twin.</p>
 
@@ -11395,7 +11399,7 @@ of the digital twin by an information processing system.</P>
 its diameter, corner radius and functional length.</P>
 
 
-<H4 ID="ao-product_view_twin-role">3.1.9 role</H4>
+<H4 ID="ao-product_view_twin-role">4.3.256.8 role</H4>
 
 <p>The role specifies the role of the twin on the product. The role
 may be used for products that have a defined role in the assembly, but
@@ -11642,7 +11646,7 @@ END_ENTITY;
 TYPE Robot_identifier = Identifier; END_TYPE;
 </PRE>
 
-<H4 ID="ao-reference_frame_group-guide_verified">4.3.1 guide_verified</H4>
+<H4 ID="ao-reference_frame_group-guide_verified">4.3.264.1 guide_verified</H4>
 
 <p>The guide_verified specifies whether the guide has been checked.
 If guide_verified is true, the guide has been checked.  If
@@ -11650,20 +11654,20 @@ guide_verified is false or unspecified, the guide has not been
 checked.</p>
 
 
-<H4 ID="ao-reference_frame_group-basis">4.3.2 reference_frame_group to reference_frame_group (as basis)</H4>
+<H4 ID="ao-reference_frame_group-basis">4.3.264.2 reference_frame_group to reference_frame_group (as basis)</H4>
 
 <p>The basis specifies an origin to use when computing the
 modification for this reference frame group.  If the basis is not
 specified then the global coordinate system shall be used as the base.</p>
 
-<H4 ID="ao-reference_frame_group-modification">4.3.3 modification</H4>
+<H4 ID="ao-reference_frame_group-modification">4.3.264.3 modification</H4>
 
 <p>The modification specifies the new origin with respect to the basis
 that shall correctly position and orient any drilling operations
 generated to make holes for the members of this group.</p>
 
 
-<H4 ID="ao-reference_frame_group-verification_time">4.3.4 verification_time</H4>
+<H4 ID="ao-reference_frame_group-verification_time">4.3.264.4 verification_time</H4>
 
 <p>The verification_time specifies the date and time when the guides
 were last checked.</p>
@@ -11672,7 +11676,7 @@ were last checked.</p>
 <SPAN>EXAMPLE</SPAN> In some applications a guide is considered stale
 after 12 hours and must be computed again.</P>
 
-<H4 ID="ao-reference_frame_group-valid_for">4.3.5 valid_for</H4>
+<H4 ID="ao-reference_frame_group-valid_for">4.3.264.5 valid_for</H4>
 
 <p>The valid_for identifies a collection of robots that the reference
 frame group is only valid for.</p>
@@ -11803,7 +11807,7 @@ SUBTYPE OF (Drill_and_fill_group);
 END_ENTITY;
 </PRE>
 
-<H4 ID="ao-same_assembly_group-parts_joined">4.7.1 same_assembly_group to product_view_twin (as parts_joined)</H4>
+<H4 ID="ao-same_assembly_group-parts_joined">4.3.269.1 same_assembly_group to product_view_twin (as parts_joined)</H4>
 
 <p>The parts_joined specifies the collection of products pierced by
 the fasteners in this group. </p>
@@ -11851,15 +11855,15 @@ END_ENTITY;
 </PRE>
 
 
-<H4 ID="ao-seal_fastener_operation-quantity">5.11.1 quantity</H4>
+<H4 ID="ao-seal_fastener_operation-quantity">4.3.270.1 quantity</H4>
 
 <p>The quantity specifies the volume of sealant to be applied.</p>
 
-<H4 ID="ao-seal_fastener_operation-sealant">5.11.2 seal_product_operation to material (as sealant)</H4>
+<H4 ID="ao-seal_fastener_operation-sealant">4.3.270.2 seal_product_operation to material (as sealant)</H4>
 
 <p>The sealant specifies the sealant material definition.</p>
 
-<H4 ID="ao-seal_fastener_operation-seal_type">5.11.3 seal_type</H4>
+<H4 ID="ao-seal_fastener_operation-seal_type">4.3.270.3 seal_type</H4>
 
 <p>The seal_type specifies the type of sealant.</p>
 
@@ -11867,7 +11871,7 @@ END_ENTITY;
 <SPAN>NOTE</SPAN> Fay, cap, fastener and special are supported.</P>
 
 
-<H4 ID="ao-seal_fastener_operation-seal_check">5.11.4 seal_check</H4>
+<H4 ID="ao-seal_fastener_operation-seal_check">4.3.270.4 seal_check</H4>
 
 <p>The seal_check specifies whether to check the sealant after
 installation.  If seal_check is true, the sealant shall be checked.
@@ -11883,19 +11887,54 @@ checked.</p>
 <H3 ID="ao-sealant_prototype">4.3.271 Sealant_prototype</H3>
 </DIV>
 
-<P>A Sealant_prototype application object is a type of</P>
+<P>A Sealant_prototype application object is a type of
+Product_view_prototype that describes expected properties for a
+sealant that seals a fastener.</P>
 
 <P>The data associated with a Sealant_prototype are the
 following:</P>
+
 <UL>
+<LI>allowed_for;</LI>
+<LI>sealant_function;</LI>
+<LI>quantity.</LI>
 </UL>
+
 
 <P CLASS="note">
 <SPAN>NOTE</SPAN> The EXPRESS description for the Sealant_prototype
 application object is shown below.</P>
 
 <PRE CLASS="note">
+ENTITY Sealant_prototype	-- ADDED BY 10303-238e4
+  SUBTYPE OF (Product_view_prototype);
+  allowed_for: 		SET [0:?] OF Fastener_prototype;
+  sealant_function:	Sealant_type;
+  quantity: 		OPTIONAL Expected_property;
+END_ENTITY;
+
+TYPE Sealant_type = ENUMERATION OF (fastener, fay, cap, special); END_TYPE;
 </PRE>
+
+
+<H4 ID="ao-sealant_prototype-allowed_for">4.3.271.1 sealant_prototype to fastener_prototype (as allowed_for)</H4>
+
+<p>The allowed_for specifies a collection of fasteners that may be
+sealed by instances of this prototype.</p>
+
+<H4 ID="ao-sealant_prototype-sealant_function">4.3.271.2 sealant_function</H4>
+
+<p>The sealant_function specifies the role of this sealant.</p>
+
+<H4 ID="ao-sealant_prototype-quantity">4.3.271.3 sealant_prototype to expected_property (as quantity)</H4>
+
+<p>The quantity specifies the volume of sealant that shall be applied
+to the allowed fasteners.</p>
+
+<P CLASS="note">
+<SPAN>NOTE</SPAN> If different sealant requirements exist for
+different fasteners then each may have a different sealant
+prototype.</P>
 
 
 
@@ -11907,11 +11946,15 @@ application object is shown below.</P>
 <H3 ID="ao-sealant_twin">4.3.272 Sealant_twin</H3>
 </DIV>
 
-<P>A Sealant_twin application object is a type of</P>
+<P>A Sealant_twin application object is a type of Product_view_twin
+that describes the sealant applied to a fastener.</P>
 
 <P>The data associated with a Sealant_twin are the
 following:</P>
+
 <UL>
+<LI>seals;</LI>
+<LI>quantity.</LI>
 </UL>
 
 <P CLASS="note">
@@ -11919,7 +11962,26 @@ following:</P>
 application object is shown below.</P>
 
 <PRE CLASS="note">
+ENTITY Sealant_twin	-- ADDED BY 10303-238e4
+  SUBTYPE OF (Product_view_twin);
+  SELF\Product_view_twin.manufacturing_prototype: Sealant_prototype;
+  SELF\Product_view_twin.supplier_prototype:      OPTIONAL Sealant_prototype;
+
+  seals: 		Fastener_twin;
+  quantity: 		OPTIONAL Measured_property;
+END_ENTITY;
 </PRE>
+
+
+<H4 ID="ao-sealant_twin-seals">4.3.272.1 sealant_twin to fastener_twin (as seals)</H4>
+
+<p>The seals specifies the fastener twin sealed by this sealant.</p>
+
+
+
+<H4 ID="ao-sealant_twin-quantity">4.3.272.2 sealant_twin to measured_property (as quantity)</H4>
+
+<p>The quantity specifies the quantity of sealant applied.</p>
 
 
 
@@ -12045,22 +12107,37 @@ END_ENTITY;
 <H3 ID="ao-shave_fastener_operation">4.3.277 Shave_fastener_operation</H3>
 </DIV>
 
-<P>A Shave_fastener_operation application object is a type of</P>
+<P>A Shave_fastener_operation application object is a type of
+Fill_type_operation that removes material from the head of the
+fastener so that it more closely aligns with the outside skin
+surface.</P>
+
+<P CLASS="note">
+<SPAN>NOTE 1</SPAN> In an airframe, shaving fasteners improves fuel
+efficiency by reducing drag.</P>
 
 <P>The data associated with a Shave_fastener_operation are the
 following:</P>
+
 <UL>
+<LI>remaining.</LI>
 </UL>
 
 <P CLASS="note">
-<SPAN>NOTE</SPAN> The EXPRESS description for the Shave_fastener_operation
+<SPAN>NOTE 2</SPAN> The EXPRESS description for the Shave_fastener_operation
 application object is shown below.</P>
 
 <PRE CLASS="note">
+ENTITY Shave_fastener_operation		-- ADDED BY 10303-238e4
+  SUBTYPE OF (Fill_type_operation);
+  remaining	: OPTIONAL Length_data_element;
+END_ENTITY;
 </PRE>
 
+<H4 ID="ao-shave_fastener_operation-remaining">4.3.277.1 remaining</H4>
 
-
+<p>The remaining specifies the length of material above the skin to
+remain after shaving.</p>
 
 
 <!-- ============================== -->
@@ -12232,11 +12309,20 @@ END_ENTITY;
 <H3 ID="ao-stack_layer">4.3.285 Stack_layer</H3>
 </DIV>
 
-<P>A Stack_layer application object is a type of</P>
+<P>A Stack_layer application object describes the starting and ending
+distance from the top of a feature for a path through each layer of an
+assembly.</P>
 
 <P>The data associated with a Stack_layer are the
 following:</P>
+
 <UL>
+<LI>usage;</LI>
+<LI>start_dist;</LI>
+<LI>end_dist;</LI>
+<LI>layer_feature;</LI>
+<LI>feed;</LI>
+<LI>speed.</LI>
 </UL>
 
 <P CLASS="note">
@@ -12244,7 +12330,49 @@ following:</P>
 application object is shown below.</P>
 
 <PRE CLASS="note">
+ENTITY Stack_layer;	-- ADDED BY 10303-238e4
+  usage		: Product_view_definition;
+  start_dist	: Length_data_element;
+  end_dist	: Length_data_element;
+  layer_feature	: OPTIONAL Manufacturing_feature;
+  feed		: OPTIONAL Velocity_data_element;
+  speed		: OPTIONAL Frequency_data_element;
+END_ENTITY;
 </PRE>
+
+
+<H4 ID="ao-stack_layer-usage">4.3.285.1 stack_layer to product_view_definition (as usage)</H4>
+
+<p>The usage specifies the product that defines this material layer of
+the stackup.</p>
+
+<H4 ID="ao-stack_layer-start_dist">4.3.285.2 start_dist</H4>
+
+<p>The start_dist specifies distance of the feature drill path from
+the top of the hole to the start of this layer.</p>
+
+<H4 ID="ao-stack_layer-end_dist">4.3.285.3 end_dist</H4>
+
+<p>The end_dist specifies distance of the feature drill path from the
+top of the hole to the end of this layer.</p>
+
+<H4 ID="ao-stack_layer-layer_feature">4.3.285.4 stack_layer to manufacturing_feature (as layer_feature)</H4>
+
+<p>The layer_feature specifies a feature description of the volume
+removed on this layer.</p>
+
+<P CLASS="note">
+<SPAN>EXAMPLE</SPAN> Each layer of a drill hole may be described by a
+round hole feature for that layer.</P>
+
+<H4 ID="ao-stack_layer-feed">4.3.285.5 feed</H4>
+
+<p>The feed specifies the recommended drilling feedrate for this
+layer.</p>
+
+<H4 ID="ao-stack_layer-speed">4.3.285.6 speed</H4>
+
+<p>The speed specifies the recommended spindle speed for this layer.</p>
 
 
 
@@ -12256,20 +12384,75 @@ application object is shown below.</P>
 <H3 ID="ao-state_condition">4.3.286 State_condition</H3>
 </DIV>
 
-<P>A State_condition application object is a type of</P>
+<P>A State_condition application object describes the progress of a
+twin as it moves through a manufacturing phase.</P>
 
 <P>The data associated with a State_condition are the
 following:</P>
+
 <UL>
+<LI>time;</LI>
+<LI>condition;</LI>
+<LI>explanation.</LI>
 </UL>
+
 
 <P CLASS="note">
 <SPAN>NOTE</SPAN> The EXPRESS description for the State_condition
 application object is shown below.</P>
 
 <PRE CLASS="note">
+ENTITY State_condition;	-- ADDED BY 10303-238e4
+  time			: Date_time;
+  condition		: State_condition_type;
+  explanation		: OPTIONAL Text;
+END_ENTITY;
+
+-- Status of a twin with respect to progress
+TYPE State_condition_type = ENUMERATION OF (
+  ready,	-- twin is ready for processing;
+  started,	-- twin processing has started
+  blocked,	-- twin is waiting for something
+  rabbit,	-- twin is in a nested stage (down the rabbit hole)
+  flushed,	-- twin has returned from the nested stage
+  twisted,    	-- twin has been machined in an unplanned order
+  boogered,	-- twin is not making progress
+  revived,	-- twin started again after boogering
+  replaced,	-- twin had to be replaced
+  finished,	-- twin has finished the phase
+  graduated);	-- twin has finished and passed a test
+END_TYPE;
 </PRE>
 
+
+<H4 ID="ao-state_condition-time">4.3.286.1 time</H4>
+
+<p>The time specifies the date and time when the condition was recorded.</p>
+
+
+<H4 ID="ao-state_condition-condition">4.3.286.2 condition</H4>
+
+<p>The condition specifies the condition of the twin.</p>
+
+<UL>
+<LI>ready, twin is ready for processing;</LI>
+<LI>started, twin processing has started;</LI>
+<LI>blocked, twin is waiting for something;</LI>
+<LI>rabbit, twin is in a nested stage (down the rabbit hole);</LI>
+<LI>flushed, twin has returned from the nested stage;</LI>
+<LI>twisted, twin has been machined in an unplanned order;</LI>
+<LI>boogered, twin has an unknown issue blocking progress;</LI>
+<LI>revived, twin started again after being blocked or boogered;</LI>
+<LI>replaced, twin had to be replaced;</LI>
+<LI>finished, twin has finished the phase;</LI>
+<LI>graduated, twin has finished and passed a test.</LI>
+</UL>
+
+
+<H4 ID="ao-state_condition-explanation">4.3.286.3 explanation</H4>
+
+<p>The explanation specifies a more detailed explanation of the
+condition of the twin.</p>
 
 
 <!-- ============================== -->
@@ -12647,11 +12830,17 @@ END_ENTITY;
 <H3 ID="ao-three_twin_reference_frame_group">4.3.302 Three_twin_reference_frame_group</H3>
 </DIV>
 
-<P>A Three_twin_reference_frame_group application object is a type of</P>
+<P>A Three_twin_reference_frame_group application object is a type of
+Reference_frame_group that describes a reference frame that is
+computed using three guides.</P>
 
 <P>The data associated with a Three_twin_reference_frame_group are the
 following:</P>
+
 <UL>
+<LI>guide_primary;</LI>
+<LI>guide_secondary;</LI>
+<LI>guide_tertiary.</LI>
 </UL>
 
 <P CLASS="note">
@@ -12659,7 +12848,40 @@ following:</P>
 application object is shown below.</P>
 
 <PRE CLASS="note">
+ENTITY Three_twin_reference_frame_group		-- ADDED BY 10303-238e4
+SUBTYPE OF (Reference_frame_group);
+  guide_primary		: Drill_and_fill_twin;
+  guide_secondary	: OPTIONAL Drill_and_fill_twin;
+  guide_tertiary	: OPTIONAL Drill_and_fill_twin;
+END_ENTITY;
 </PRE>
+
+
+<H4 ID="ao-three_twin_reference_frame_group-guide_primary">4.3.302.1 three_twin_reference_frame_group to drill_and_fill_twin (as guide_primary)</H4>
+
+<p>The guide_primary specifies the primary reference point for the
+guide. This point shall be given and defines the displacement required
+to correctly position the group.</p>
+
+<H4 ID="ao-three_twin_reference_frame_group-guide_secondary">4.3.302.2 three_twin_reference_frame_group to drill_and_fill_twin (as guide_secondary)</H4>
+
+<p>The guide_secondary specifies the secondary reference point for the
+guide. If specified, this point determines the axis of the guide.</p>
+
+<P CLASS="note">
+<SPAN>NOTE</SPAN> This guide enables the direction of a feature to be
+correctly oriented.</P>
+
+<H4 ID="ao-three_twin_reference_frame_group-guide_tertiary">4.3.302.3 three_twin_reference_frame_group to drill_and_fill_twin (as guide_tertiary)</H4>
+
+<p>The guide_tertiary specifies the tertiary reference point for the
+guide. If specified, this point determines the reference axis of the
+guide.</p>
+
+
+<P CLASS="note">
+<SPAN>NOTE</SPAN> This guide allows non-symmetric features to be
+rotated around the feature axis.</P>
 
 
 
@@ -12671,11 +12893,18 @@ application object is shown below.</P>
 <H3 ID="ao-tighten_collar_operation">4.3.303 Tighten_collar_operation</H3>
 </DIV>
 
-<P>A Tighten_collar_operation application object is a type of</P>
+<P>A Tighten_collar_operation application object is a type of
+Fill_type_operation that tightens the collar on a fastener in a
+feature.</P>
 
 <P>The data associated with a Tighten_collar_operation are the
 following:</P>
+
 <UL>
+<LI>torque;</LI>
+<LI>squeeze;</LI>
+<LI>swage;</LI>
+<LI>pull.</LI>
 </UL>
 
 <P CLASS="note">
@@ -12683,9 +12912,34 @@ following:</P>
 application object is shown below.</P>
 
 <PRE CLASS="note">
+ENTITY Tighten_collar_operation 	-- ADDED BY 10303-238e4
+  SUBTYPE OF (Fill_type_operation);
+  torque		: OPTIONAL Value_with_unit;
+  squeeze		: OPTIONAL Force_data_element;
+  swage			: OPTIONAL Force_data_element;
+  pull			: OPTIONAL Force_data_element;
+END_ENTITY;
 </PRE>
 
+<H4 ID="ao-tighten_collar_operation-torque">4.3.303.1 torque</H4>
 
+<p>The torque specifies the torque to be applied to tighten the
+collar.</p>
+
+<H4 ID="ao-tighten_collar_operation-squeeze">4.3.303.2 squeeze</H4>
+
+<p>The squeeze specifies the force to be applied to the fastener 
+that is sufficient to achieve fastening requirements</p>
+
+<H4 ID="ao-tighten_collar_operation-swage">4.3.303.3 swage</H4>
+
+<p>The swage specifies the force to be applied to form the collar
+around the fastener.</p>
+
+<H4 ID="ao-tighten_collar_operation-pull">4.3.303.4 pull</H4>
+
+<p>The pull specifies the force to be applied to pull a fastener,
+swage a collar, or break a pintail.</p>
 
 <!-- ============================== -->
 <DIV><DIV class=quick>
@@ -12787,11 +13041,15 @@ END_ENTITY;
 <H3 ID="ao-tool_life_estimate">4.3.308 Tool_life_estimate</H3>
 </DIV>
 
-<P>A Tool_life_estimate application object is a type of</P>
+<P>A Tool_life_estimate application object specifies the estimates of
+the expected tool wear when a cutter performs a selected task.</P>
 
 <P>The data associated with a Tool_life_estimate are the
 following:</P>
+
 <UL>
+<LI>task;</LI>
+<LI>added_cost.</LI>
 </UL>
 
 <P CLASS="note">
@@ -12799,8 +13057,28 @@ following:</P>
 application object is shown below.</P>
 
 <PRE CLASS="note">
+ENTITY Tool_life_estimate;	-- ADDED BY 10303-238e4
+  task: 		Executable;
+  added_cost: 		Ratio_data_element;
+END_ENTITY;
 </PRE>
 
+
+<H4 ID="ao-tool_life_estimate-task">4.3.308.1 tool_life_estimate to executable (as task)</H4>
+
+<p>The task specifies a machining executable whose life cycle cost for
+this tool has been estimated.</p>
+
+<H4 ID="ao-tool_life_estimate-added_cost">4.3.308.2 added_cost</H4>
+
+<p>The added_cost specifies the portion of the total tool life that
+will be removed when a cutting tool twin with this cutting tool
+prototype is applied to this task.</p>
+
+<P CLASS="note">
+<SPAN>NOTE</SPAN> The estimates can be for one tool instance only,
+every instance of a tool product as supplied by a supplier, or a
+family of similar tools as identified by an OEM.</P>
 
 
 <!-- ============================== -->
@@ -13179,7 +13457,7 @@ This document adds the following information requirements.</P>
 <P CLASS="note">
 <SPAN>NOTE</SPAN> This document modifies the definition of Touch_probe
 in ISO 14649-10 to be a type of Machining_tool so that Tool_usage
-information can be associated with it. The EXPRESS description for
+information may be associated with it. The EXPRESS description for
 Touch_probe, as adapted by this document, is shown below.</P>
 
 <PRE CLASS="note">
@@ -13291,7 +13569,7 @@ END_TYPE;
 
 <P>The its_material_removal_depth specifies the length of material
 removed at each point of the Trajectory as measured along the axis of
-the cutting tool.  This can be specified as a either a constant depth
+the cutting tool.  This may be specified as a either a constant depth
 or as a one-dimensional curve specifying the depth at each point along
 the toolpath.  The curve shall obey the same parameterization
 constraints as the &quot;its_speed&quot; data associated with
@@ -13301,9 +13579,9 @@ may not be specified for a particular Trajectory.</P>
 <P CLASS="note">
 <SPAN>NOTE</SPAN> Machining strategies have cutting depth fields used
 as input to the toolpath generation process.  The
-its_material_removal_depth and its_material_removal_overcut fields can
+its_material_removal_depth and its_material_removal_overcut fields may
 describe how much material will be actually removed by each of the
-generated toolpaths so that adaptive controls can adjust feed and
+generated toolpaths so that adaptive controls may adjust feed and
 speed.</P>
 
 
@@ -13311,7 +13589,7 @@ speed.</P>
 
 <P>The its_material_removal_overcut specifies the length of material
 removed at each point of the Trajectory as measured perpendicular to
-the axis of the cutting tool.  This can be specified as a either a
+the axis of the cutting tool.  This may be specified as a either a
 constant overcut or as a one-dimensional curve specifying the overcut
 at each point along the toolpath.  The curve shall obey the same
 parameterization constraints as the &quot;its_speed&quot; data
@@ -14062,11 +14340,17 @@ END_ENTITY;
 <H3 ID="ao-washer_prototype">4.3.337 Washer_prototype</H3>
 </DIV>
 
-<P>A Washer_prototype application object is a type of</P>
+<P>A Washer_prototype application object is a type of
+Product_view_prototype that describes expected properties for the
+washers selected to hold a fastener.</P>
 
 <P>The data associated with a Washer_prototype are the
 following:</P>
+
 <UL>
+<LI>allowed_for;</LI>
+<LI>thickness;</LI>
+<LI>form.</LI>
 </UL>
 
 <P CLASS="note">
@@ -14074,9 +14358,31 @@ following:</P>
 application object is shown below.</P>
 
 <PRE CLASS="note">
+ENTITY Washer_prototype	-- ADDED BY 10303-238e4
+  SUBTYPE OF (Product_view_prototype);
+  allowed_for: 		SET [0:?] OF Fastener_prototype;
+  thickness:		Expected_property;
+  form:			OPTIONAL Washer_form;
+END_ENTITY;
+
+TYPE Washer_form = ENUMERATION OF (flat, concave, convex); END_TYPE;
 </PRE>
 
 
+<H4 ID="ao-washer_prototype-allowed_for">4.3.337.1 washer_prototype to fastener_prototype (as allowed_for)</H4>
+
+<p>The allowed_for specifies the set of fasteners that may be combined
+with this prototype.</p>
+
+<H4 ID="ao-washer_prototype-thickness">4.3.337.2 washer_prototype to expected_property (as thickness)</H4>
+
+<p>The thickness specifies the length of the fastener assembly used by
+this type of washer.</p>
+
+<H4 ID="ao-washer_prototype-form">4.3.337.3 form</H4>
+
+<p>The form specifies a form of flat, concave or convex. If form is
+not specified, the washer is flat.</p>
 
 <!-- ============================== -->
 <DIV><DIV class=quick>
@@ -14086,11 +14392,14 @@ application object is shown below.</P>
 <H3 ID="ao-washer_twin">4.3.338 Washer_twin</H3>
 </DIV>
 
-<P>A Washer_twin application object is a type of</P>
+<P>A Washer_twin application object is a type of Product_view_twin
+that describes a washer that has been added to a fastener.</P>
 
 <P>The data associated with a Washer_twin are the
 following:</P>
+
 <UL>
+<LI>holds.</LI>
 </UL>
 
 <P CLASS="note">
@@ -14098,8 +14407,19 @@ following:</P>
 application object is shown below.</P>
 
 <PRE CLASS="note">
+ENTITY Washer_twin	-- ADDED BY 10303-238e4
+  SUBTYPE OF (Product_view_twin);
+  SELF\Product_view_twin.manufacturing_prototype: Washer_prototype;
+  SELF\Product_view_twin.supplier_prototype:      OPTIONAL Washer_prototype;
+
+  holds: 		Fastener_twin;
+END_ENTITY;
 </PRE>
 
+<H4 ID="ao-washer_twin-holds">4.3.338.1 washer_twin to fastener_twin (as holds)</H4>
+
+<p>The holds specifies the fastener instance that is combined with
+this washer instance.</p>
 
 
 <!-- ============================== -->
@@ -14176,7 +14496,7 @@ END_ENTITY;
 Manufacturing_feature objects visible on the final form of the
 workpiece that the workingstep contributes to.  If a workingstep calls
 out a process-specific feature consumed or obscured by further
-activities in a process, final_features can be used for traceability
+activities in a process, final_features may be used for traceability
 to features on the final form of the workpiece.  It is not required
 that final_features be specified for a particular Workingstep.
 See <a href="#aa-workingstep-to-manufacturing_feature-as-final_features">Workingstep
@@ -14205,7 +14525,7 @@ critical areas of interest in the micro and macro process-plans.</P>
 <SPAN>EXAMPLE</SPAN> A workingstep drills a hole which is later used
 as the entry point for a pocketing operation.  The hole is consumed by
 pocketing operation and not visible on the final form of the
-workpiece.  The final_features of the drilling workingstep can
+workpiece.  The final_features of the drilling workingstep may
 reference the pocket to indicate participation in the creation of that
 feature.</P>
 
@@ -14421,7 +14741,7 @@ brep) descriptions.</P>
 <P>The its_bounding_geometry parameter shall be as defined by ISO
 14649-10 to be of type block, right_circular_cylinder, or
 advanced_brep_shape_representation, but this document relaxes this
-requirement so that its_bounding_geometry can also be an edge-based
+requirement so that its_bounding_geometry may also be an edge-based
 wireframe shape, faceted brep shape, geometrically-bounded surface
 shape, geometrically-bounded wireframe shape, manifold surface shape,
 non-manifold surface shape, or shell-based wireframe shape.</P>
@@ -14454,7 +14774,7 @@ be specified for a particular Workpiece. Where applicable, the
 following values shall be used:</P>
 
 <P CLASS="note">
-<SPAN>NOTE</SPAN> A Workpiece object categorized as a tool can
+<SPAN>NOTE</SPAN> A Workpiece object categorized as a tool may
 describe a specific tool chosen to fullfill the tool requirements
 called out by a Machining_tool application object</P>
 
