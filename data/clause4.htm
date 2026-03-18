@@ -3190,7 +3190,8 @@ following:</P>
 <LI>gas_rate;</LI>
 <LI>gas_direction;</LI>
 <LI>gas_type;</LI>
-<LI>feedstock_definition.</LI>
+<LI>feedstock_definition;</LI>
+<LI>recoater_blade_definition.</LI>
 </UL>
 
 <P CLASS="note">
@@ -4201,11 +4202,11 @@ tiles. A length and width are specified for each tile.</P>
 <DIV class=key>
 <B>Key</B>
 <p>1&emsp;Layer i</p>
-<p>2&emsp;Layer i +1</p>
-<p>3&emsp;Rectangle Width</p>
-<p>4&emsp;Rectangle Length</p>
+<p>2&emsp;Layer i+1</p>
+<p>3&emsp;Rectangle width</p>
+<p>4&emsp;Rectangle length</p>
 <p>5&emsp;Tile</p>
-<p>6&emsp;Theta Interlayer Rotation</p>
+<p>6&emsp;Theta interlayer rotation</p>
 </DIV>
 <FIGCAPTION>Figure 11 &mdash; Additive manufacturing twod chess</FIGCAPTION>
 </FIGURE>
@@ -4397,8 +4398,8 @@ by the interlayer_rotation in the 3D slicing operation.</P>
 <IMG SRC="../images/am-pbf-twod-stripe.svg" ALT="PBF Twod Stripe Operation">
 <DIV class=key>
 <B>Key</B>
-<p>1&emsp;Scan Path</p>
-<p>2&emsp;Stripe Width</p>
+<p>1&emsp;Scan path</p>
+<p>2&emsp;Stripe width</p>
 <p>3&emsp;Stripe</p>
 </DIV>
 <FIGCAPTION>Figure 12 &mdash; Additive manufacturing twod stripe</FIGCAPTION>
@@ -4452,12 +4453,12 @@ stripe overlap applies to for stripes within the same parent.</P>
 <IMG SRC="../images/am-pbf-twod-stripe-overlap.svg" ALT="PBF Twod Stripe Overlap">
 <DIV class=key>
 <B>Key</B>
-<p>1&emsp;Gas Flow (A)</p>
-<p>2&emsp;Stripe Direction (B)</p>
-<p>3&emsp;Infill Direction (B-90)</p>
-<p>4&emsp;Individual Vector Direction (B+90) = C</p>
+<p>1&emsp;Gas flow direction</p>
+<p>2&emsp;Stripe direction</p>
+<p>3&emsp;Infill direction</p>
+<p>4&emsp;Initial individual vector direction</p>
 </DIV>
-<FIGCAPTION>Figure 13 &mdash; Additive manufacturing twod stripe overlap</FIGCAPTION>
+<FIGCAPTION>Figure 13 &mdash; Additive manufacturing scan directions</FIGCAPTION>
 </FIGURE>
 
 <H4 ID="ao-am_twod_pbf_stripe_operation-merge_short_vectors">4.3.64.3 merge_short_vectors</H4>
@@ -4471,13 +4472,13 @@ the left if one exists, and to the right otherwise.</p>
 <IMG SRC="../images/am-pbf-paths.svg" ALT="PBF Paths">
 <DIV class=key>
 <B>Key</B>
-<p>1&emsp;Stripe Overlap</p>
+<p>1&emsp;Stripe overlap</p>
 <p>2&emsp;Contours</p>
-<p>3&emsp;Downskin Contours</p>
-<p>4&emsp;Downskin Region</p>
-<p>5&emsp;Merge Short Vectors</p>
+<p>3&emsp;Downskin contours</p>
+<p>4&emsp;Downskin region</p>
+<p>5&emsp;Merge short vectors</p>
 </DIV>
-<FIGCAPTION>Figure 14 &mdash; Additive manufacturing PBF paths</FIGCAPTION>
+<FIGCAPTION>Figure 14 &mdash; Infills and contours for regions on a layer</FIGCAPTION>
 </FIGURE>
 
 <!-- ============================== -->
