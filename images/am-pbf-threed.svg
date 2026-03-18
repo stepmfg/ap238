@@ -1,0 +1,457 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="375.30313"
+   height="281.47736"
+   viewBox="0 0 375.30313 281.47736"
+   version="1.1"
+   id="svg14"
+   sodipodi:docname="am-pbf-threed.svg"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs14" />
+  <sodipodi:namedview
+     id="namedview14"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="1.0871212"
+     inkscape:cx="183.5122"
+     inkscape:cy="165.11498"
+     inkscape:window-width="1920"
+     inkscape:window-height="1057"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg14" />
+  <title
+     id="title1">Figure 1 Color</title>
+  <path
+     d="m 163.15172,68.364835 c 5.14215,-3.21419 11.28604,-4.42697 17.26384,-3.40783 v 0 l 93.72004,15.97816 c 1.49595,0.25504 2.7469,1.09229 3.56011,2.23977 0.8132,1.14748 1.18866,2.60518 0.93362,4.10113 -0.25683,1.50643 -1.12932,2.83788 -2.40799,3.6747 v 0 l -56.73551,37.130305 c -6.35981,4.16214 -14.05428,5.77539 -21.5503,4.5183 v 0 l -90.58294,-15.19088 c -1.8708,-0.31374 -3.43732,-1.35606 -4.4577,-2.78765 -1.02039,-1.43159 -1.49465,-3.25244 -1.18091,-5.12323 0.32525,-1.93947 1.46613,-3.64654 3.13371,-4.68889 v 0 z"
+     id="Rectangle"
+     stroke="#a70000"
+     stroke-width="1.37387"
+     fill="#fffefe"
+     style="fill-rule:evenodd" />
+  <polygon
+     id="Path-2"
+     fill="#dbb748"
+     points="405.6673,258.42237 405.38076,261.32985 413.37654,258.84952 406.27046,254.38406 405.96664,256.80895 246.13246,229.99488 244.12445,231.24074 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1"
+     transform="matrix(0.68693498,0,0,0.68693498,-33.637666,-71.209405)" />
+  <polygon
+     id="Path-2-Copy-2"
+     fill="#dbb748"
+     points="361.34454,286.5159 361.05799,289.42338 369.80564,287.31476 361.9477,282.4776 361.64387,284.90248 200.22209,258.6223 198.15475,259.96731 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1"
+     transform="matrix(0.68693498,0,0,0.68693498,-33.637666,-71.209405)" />
+  <polygon
+     id="Path-2-Copy-3"
+     fill="#dbb748"
+     transform="matrix(-0.68693498,0,0,0.68693498,388.14982,-71.209405)"
+     points="384.28085,246.52396 384.80801,249.36528 391.36068,244.66509 383.65075,242.41656 383.98981,245.15097 222.65301,273.2996 224.22999,274.66534 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Path-2-Copy"
+     fill="#dbb748"
+     transform="matrix(0.68683036,0.01198867,-0.01198867,0.68683036,-30.961261,-75.598635)"
+     points="445.55156,231.8838 445.26501,234.79128 452.22962,232.29229 446.15471,227.84549 445.85089,230.27037 286.9692,205.27432 283.83977,206.78082 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <path
+     id="Path-4"
+     d="m 45.205179,91.004555 4.80855,9.617085 -4.12218,-4.5e-4 5.7e-4,26.71137 h -1.37387 l -5.7e-4,-26.71137 -4.12104,4.5e-4 z"
+     fill="#000000"
+     fill-rule="nonzero"
+     style="stroke:none;stroke-width:0.686935" />
+  <path
+     id="Path-4-Copy-3"
+     d="m 44.704079,205.1171 4.80855,9.61709 -4.12186,-5e-5 2.5e-4,26.71098 h -1.37387 l -2.5e-4,-26.71098 -4.12136,5e-5 z"
+     fill="#000000"
+     fill-rule="nonzero"
+     style="stroke:none;stroke-width:0.686935" />
+  <path
+     id="Path-4-Copy"
+     d="m 81.314409,103.42669 -5.41765,9.2876 -2.25579,-3.45008 -28.05986,18.3478 -0.75185,-1.14988 28.05952,-18.34785 -2.25505,-3.44915 z"
+     fill="#000000"
+     fill-rule="nonzero"
+     style="stroke:none;stroke-width:0.686935" />
+  <path
+     id="Path-4-Copy-4"
+     d="m 80.220739,217.88389 -5.41765,9.2876 -2.25572,-3.45017 -28.05992,18.34788 -0.75186,-1.14987 28.05959,-18.34794 -2.25511,-3.44906 z"
+     fill="#000000"
+     fill-rule="nonzero"
+     style="stroke:none;stroke-width:0.686935" />
+  <path
+     id="Path-4-Copy-5"
+     d="m 44.228499,240.81736 35.24317,6.09076 0.70249,-4.06159 8.65778,6.376 -10.29547,3.10063 0.70165,-4.06247 -35.24358,-6.08952 z"
+     fill="#000000"
+     fill-rule="nonzero"
+     style="stroke:none;stroke-width:0.686935" />
+  <line
+     x1="304.98993"
+     y1="190.29057"
+     x2="264.77338"
+     y2="216.7155"
+     id="Path-6-Copy"
+     stroke="#000000"
+     stroke-width="1.37387"
+     style="fill:none;fill-rule:evenodd" />
+  <path
+     id="Path-6-Copy-3"
+     d="m 322.70285,213.49952 0.0265,6.8693 -1.37386,0.005 -0.0265,-6.8693 z m -0.053,-13.73859 0.0265,6.86929 -1.37386,0.006 -0.0265,-6.8693 z m -0.053,-13.7386 0.0265,6.8693 -1.37385,0.005 -0.0265,-6.8693 z m -0.053,-13.7386 0.0265,6.8693 -1.37386,0.005 -0.0265,-6.8693 z m -0.053,-13.73859 0.0265,6.86929 -1.37386,0.005 -0.0265,-6.8693 z m -0.053,-13.73861 0.0265,6.86931 -1.37386,0.005 -0.0265,-6.8693 z m -0.053,-13.73859 0.0265,6.8693 -1.37387,0.005 -0.0265,-6.86929 z m -0.0531,-13.7386 0.0265,6.8693 -1.37386,0.006 -0.0265,-6.8693 z m -0.053,-13.7386 0.0265,6.86931 -1.37387,0.005 -0.0265,-6.86929 z m -0.053,-13.738585 0.0265,6.8693 -1.37386,0.005 -0.0265,-6.86929 z m -0.0531,-13.7386 0.0265,6.8693 -1.37385,0.005 -0.0265,-6.8693 z m -0.053,-13.7386 0.0265,6.86931 -1.37385,0.005 -0.0265,-6.8693 z m -0.0531,-13.73859 0.0265,6.86929 -1.37386,0.006 -0.0265,-6.8693 z m -0.77446,-22.66156 4.84565,9.59845 -4.12194,0.0158 0.0242,6.178 -1.37385,0.006 -0.0242,-6.1785 -4.12122,0.0165 z"
+     fill="#000000"
+     fill-rule="nonzero"
+     style="stroke:none;stroke-width:0.686935" />
+  <path
+     d="m 161.86263,182.17342 c 5.16716,-3.30113 11.37645,-4.56493 17.42285,-3.54612 v 0 l 95.27241,16.05316 c 1.49644,0.25215 2.74901,1.08697 3.56443,2.23287 0.81543,1.14591 1.1937,2.60288 0.94156,4.09932 -0.25453,1.51057 -1.128,2.84634 -2.40977,3.68518 v 0 l -56.69795,37.10574 c -6.35981,4.16214 -14.05428,5.77539 -21.5503,4.5183 v 0 l -90.87159,-15.2393 c -1.8708,-0.31373 -3.43732,-1.35606 -4.45771,-2.78764 -1.02039,-1.43159 -1.49464,-3.25244 -1.1809,-5.12324 0.32134,-1.91618 1.43911,-3.60665 3.07644,-4.65269 v 0 z"
+     id="Rectangle-Copy"
+     stroke="#a70000"
+     stroke-width="1.37387"
+     fill="#fffefe"
+     style="fill-rule:evenodd" />
+  <polygon
+     id="Path-2-Copy-7"
+     fill="#dbb748"
+     transform="matrix(-0.63232698,0.26840688,0.26840688,0.63232698,366.84571,-152.68867)"
+     points="446.27737,434.28743 445.99554,437.19491 454.59895,435.08629 446.87058,430.24912 446.57177,432.67401 327.49261,410.70148 325.03997,412.25089 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Path-2-Copy-9"
+     fill="#dbb748"
+     transform="matrix(-0.63232698,0.26840688,0.26840688,0.63232698,200.79244,-118.90475)"
+     points="316.6838,410.87595 316.40454,413.78343 324.92966,411.6748 317.27161,406.83764 316.97551,409.26253 195.78459,389.64729 193.926,391.04262 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Path-2-Copy-5"
+     fill="#dbb748"
+     transform="matrix(0.50239244,-0.46848853,0.46848853,0.50239244,-171.51549,139.5315)"
+     points="346.12052,418.27185 345.83493,421.17932 354.5533,419.0707 346.72166,414.23354 346.41885,416.65842 223.54965,395.14853 224.63745,396.87035 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Path-2-Copy-6"
+     fill="#dbb748"
+     transform="matrix(0.50239244,-0.46848853,0.46848853,0.50239244,-164.60383,172.54094)"
+     points="412.59584,429.62809 412.30981,432.53557 421.04152,430.42695 413.1979,425.58979 412.89463,428.01467 289.11325,406.30266 290.20272,408.02448 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Path-2-Copy-8"
+     fill="#dbb748"
+     transform="matrix(-0.63232698,0.26840688,0.26840688,0.63232698,284.80261,-135.99681)"
+     points="381.83339,423.53356 381.54988,426.44104 390.2045,424.33242 382.43013,419.49526 382.12953,421.92014 263.22022,399.77159 260.64553,401.41832 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <line
+     x1="320.84308"
+     y1="25.95546"
+     x2="224.25424"
+     y2="88.900162"
+     id="Path-6"
+     stroke="#000000"
+     stroke-width="1.37387"
+     style="fill:none;fill-rule:evenodd" />
+  <path
+     d="m 231.51411,91.787505 c 0.15631,-1.03815 0.0468,-2.08701 -0.37001,-3.06887 -1.44203,-3.39721 -6.10895,-4.80896 -10.30914,-3.02609 -2.28042,0.96799 -3.65112,2.08059 -4.49923,3.95807"
+     id="Path"
+     stroke="#000000"
+     style="fill:none;fill-rule:evenodd;stroke-width:0.686935" />
+  <polygon
+     id="Path-8"
+     fill="#000000"
+     points="371.68304,234.21863 378.71555,235.38977 381.11019,233.51341 374.98362,232.17881 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1"
+     transform="matrix(0.68693498,0,0,0.68693498,-33.637666,-71.209405)" />
+  <polygon
+     id="Path-2-Copy-4"
+     fill="#dbb748"
+     transform="matrix(-0.68693498,0,0,0.68693498,448.42239,-71.209405)"
+     points="428.09287,219.11148 428.35265,221.81324 435.12502,217.20391 427.56381,214.78351 427.84726,217.20391 266.62998,244.7537 268.3524,245.95984 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <path
+     id="path1"
+     d="m 293.03798,200.50644 6.89587,0.47405 -1.41372,2.39999 0.007,0.006 c 4.34895,3.33683 6.8062,7.65391 6.8062,12.24543 0,2.38601 -0.66199,4.70759 -1.93074,6.86901 l -0.17677,0.29374 -0.5847,-0.36058 c 1.31876,-2.13849 2.00527,-4.43847 2.00527,-6.80217 0,-4.34027 -2.32527,-8.44637 -6.47741,-11.65424 l -1.37279,2.32994 z"
+     fill="#000000"
+     fill-rule="nonzero"
+     style="stroke:none;stroke-width:0.686935" />
+  <path
+     d="m 295.78152,236.0536 c 0.17222,-7.8458 -3.50635,-15.36334 -9.70431,-20.84697"
+     id="path2"
+     stroke="#000000"
+     style="fill:none;fill-rule:evenodd;stroke-width:1.33333;stroke-dasharray:none" />
+  <path
+     d="m 123.17528,75.166955 c 0.0887,-10.01553 -5.09137,-19.68416 -13.68444,-26.80282"
+     id="Path-Copy-2"
+     stroke="#000000"
+     style="fill:none;fill-rule:evenodd;stroke-width:1.33333;stroke-dasharray:none" />
+  <path
+     d="m 192.21052,67.836935 c 1.8e-4,-16.28512 8.95612,-32.08558 23.67834,-43.79097"
+     id="Path-Copy-3"
+     stroke="#000000"
+     style="fill:none;fill-rule:evenodd;stroke-width:1.33333;stroke-dasharray:none" />
+  <path
+     d="m 217.61753,79.584055 c 1.8e-4,-16.28512 8.95611,-32.08557 23.67833,-43.79097"
+     id="Path-Copy-5"
+     stroke="#000000"
+     style="fill:none;fill-rule:evenodd;stroke-width:1.33333;stroke-dasharray:none" />
+  <path
+     d="m 123.00737,190.15693 c 0.0887,-10.01553 -5.09137,-19.68416 -13.68444,-26.80282"
+     id="Path-Copy-4"
+     stroke="#000000"
+     style="fill:none;fill-rule:evenodd;stroke-width:1.33333;stroke-dasharray:none" />
+  <line
+     x1="322.06653"
+     y1="225.85707"
+     x2="220.24478"
+     y2="209.91255"
+     id="Path-6-Copy-2"
+     stroke="#000000"
+     stroke-width="1.37387"
+     style="fill:none;fill-rule:evenodd" />
+  <polygon
+     id="Path-9"
+     fill="#000000"
+     points="369.90082,409.77075 366.88089,411.49316 369.90082,412.17957 372.57201,410.19963 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1"
+     transform="matrix(0.68693498,0,0,0.68693498,-33.637666,-71.209405)" />
+  <path
+     d="m 215.58205,213.02668 c 1.19814,0.60963 2.79115,0.98132 4.53958,0.98132 3.72415,0 6.74316,-1.6863 6.74316,-3.76645 0,-1.18483 -0.97945,-2.24188 -2.51078,-2.93231"
+     id="path3"
+     stroke="#000000"
+     style="fill:none;fill-rule:evenodd;stroke-width:0.686935" />
+  <text
+     id="1"
+     font-family="Roboto-Bold, Roboto"
+     font-size="8.24322px"
+     font-weight="bold"
+     fill="#000000"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.3333px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill-rule:evenodd;stroke:none;stroke-width:0.686935"
+     x="-35.637665"
+     y="-69.209412"><tspan
+       x="100.48177"
+       y="46.489365"
+       id="tspan3"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.3333px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.686935">1</tspan></text>
+  <text
+     id="2"
+     font-family="Roboto-Bold, Roboto"
+     font-size="8.24322px"
+     font-weight="bold"
+     fill="#000000"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.3333px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill-rule:evenodd;stroke:none;stroke-width:0.686935"
+     x="-31.637665"
+     y="-71.209412"><tspan
+       x="218.21732"
+       y="22.875244"
+       id="tspan4"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.3333px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.686935">2</tspan></text>
+  <text
+     id="3"
+     font-family="Roboto-Bold, Roboto"
+     font-size="8.24322px"
+     font-weight="bold"
+     fill="#000000"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.3333px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill-rule:evenodd;stroke:none;stroke-width:0.686935"
+     x="-33.637665"
+     y="-71.209412"><tspan
+       x="245.69574"
+       y="36.365402"
+       id="tspan5"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.3333px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.686935">3</tspan></text>
+  <text
+     id="5"
+     font-family="Roboto-Bold, Roboto"
+     font-size="8.24322px"
+     font-weight="bold"
+     fill="#000000"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.3333px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill-rule:evenodd;stroke:none;stroke-width:0.686935"
+     x="-37.637665"
+     y="-71.209412"><tspan
+       x="101.68556"
+       y="160.27391"
+       id="tspan6"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.3333px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.686935">5</tspan></text>
+  <text
+     id="4"
+     font-family="Roboto-Bold, Roboto"
+     font-size="8.24322px"
+     font-weight="bold"
+     fill="#000000"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.3333px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill-rule:evenodd;stroke:none;stroke-width:0.686935"
+     x="-33.637665"
+     y="-65.209412"><tspan
+       x="293.33392"
+       y="250.2704"
+       id="tspan7"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.3333px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.686935">4</tspan></text>
+  <g
+     id="Group"
+     transform="matrix(0.68693498,0,0,0.68693498,280.12432,207.30924)"
+     style="fill:none;fill-rule:evenodd;stroke:none;stroke-width:1">
+    <text
+       id="0"
+       font-family="Roboto-Italic, Roboto"
+       font-size="12px"
+       font-style="italic"
+       font-weight="normal"
+       fill="#000000"><tspan
+         x="0"
+         y="11.9257"
+         id="tspan8">0</tspan></text>
+    <ellipse
+       id="Oval"
+       stroke="#000000"
+       stroke-width="0.7"
+       cx="7.4009032"
+       cy="1.4182057"
+       rx="1.0265343"
+       ry="1.0682057" />
+    <rect
+       id="rect8"
+       stroke="#000000"
+       x="1.493816"
+       y="7.4510512"
+       width="4.0305529"
+       height="1" />
+  </g>
+  <text
+     id="Z-Copy"
+     font-family="Roboto-Bold, Roboto"
+     font-size="8.24322px"
+     font-weight="bold"
+     fill="#000000"
+     style="fill-rule:evenodd;stroke:none;stroke-width:0.686935"
+     x="-33.637665"
+     y="-71.209412"><tspan
+       x="42.730011"
+       y="88.1241"
+       id="tspan9"
+       style="stroke-width:0.686935">Z</tspan></text>
+  <text
+     id="Z-Copy-2"
+     font-family="Roboto-Bold, Roboto"
+     font-size="8.24322px"
+     font-weight="bold"
+     fill="#000000"
+     style="fill-rule:evenodd;stroke:none;stroke-width:0.686935"
+     x="-33.637665"
+     y="-71.209412"><tspan
+       x="42.730011"
+       y="202.58128"
+       id="tspan10"
+       style="stroke-width:0.686935">Z</tspan></text>
+  <g
+     id="Group-2"
+     transform="matrix(0.68693498,0,0,0.68693498,90.411599,130.3718)"
+     style="fill:none;fill-rule:evenodd;stroke:none;stroke-width:1">
+    <rect
+       id="rect10"
+       fill="#ffffff"
+       x="0"
+       y="0"
+       width="12"
+       height="14" />
+    <text
+       id="X-Copy"
+       font-family="Roboto-Bold, Roboto"
+       font-size="12px"
+       font-weight="bold"
+       fill="#000000"><tspan
+         x="2.1916504"
+         y="11"
+         id="tspan11">X</tspan></text>
+  </g>
+  <g
+     id="Group-2-Copy"
+     transform="matrix(0.68693498,0,0,0.68693498,88.831939,243.776)"
+     style="fill:none;fill-rule:evenodd;stroke:none;stroke-width:1">
+    <rect
+       id="rect11"
+       fill="#ffffff"
+       x="0"
+       y="0"
+       width="12"
+       height="14" />
+    <text
+       id="text12"
+       font-family="Roboto-Bold, Roboto"
+       font-size="12px"
+       font-weight="bold"
+       fill="#000000"><tspan
+         x="2.1916504"
+         y="11"
+         id="tspan12">X</tspan></text>
+  </g>
+  <g
+     id="Group-3"
+     transform="matrix(0.68693498,0,0,0.68693498,81.682389,96.741805)"
+     style="fill:none;fill-rule:evenodd;stroke:none;stroke-width:1">
+    <rect
+       id="Rectangle-Copy-2"
+       fill="#ffffff"
+       x="0"
+       y="0"
+       width="12"
+       height="14" />
+    <text
+       id="Y"
+       font-family="Roboto-Bold, Roboto"
+       font-size="12px"
+       font-weight="bold"
+       fill="#000000"><tspan
+         x="2.1916504"
+         y="11"
+         id="tspan13">Y</tspan></text>
+  </g>
+  <g
+     id="Group-3-Copy"
+     transform="matrix(0.68693498,0,0,0.68693498,80.588719,211.10161)"
+     style="fill:none;fill-rule:evenodd;stroke:none;stroke-width:1">
+    <rect
+       id="rect13"
+       fill="#ffffff"
+       x="0"
+       y="0"
+       width="12"
+       height="14" />
+    <text
+       id="text14"
+       font-family="Roboto-Bold, Roboto"
+       font-size="12px"
+       font-weight="bold"
+       fill="#000000"><tspan
+         x="2.1916504"
+         y="11"
+         id="tspan14">Y</tspan></text>
+  </g>
+  <path
+     id="Path-4-Copy-2"
+     d="m 44.820169,126.13794 36.88542,6.32475 0.69717,-4.06209 8.66607,6.36472 -10.29142,3.11402 0.69599,-4.0627 -36.88542,-6.3246 z"
+     fill="#000000"
+     fill-rule="nonzero"
+     style="stroke:none;stroke-width:0.686935" />
+  <path
+     d="M 97.075159,250.53376 201.70552,268.0734 c 5.50716,0.92319 11.15926,-0.28411 15.80864,-3.37675 l 108.56235,-72.21268 c 1.8953,-1.2607 2.40975,-3.81915 1.14904,-5.71446 -0.62745,-0.94329 -1.61552,-1.58672 -2.73199,-1.77907 L 179.28044,159.97338 c -5.3251,-0.9174 -10.79982,0.22388 -15.31481,3.19257 l -75.133691,49.40182 v 0"
+     id="Path-5"
+     stroke="#000000"
+     stroke-width="1.37387"
+     style="fill:none;fill-rule:evenodd" />
+  <path
+     d="m 98.536809,136.47754 104.630351,17.53964 c 5.50717,0.92319 11.15927,-0.2841 15.80865,-3.37675 L 327.53816,78.427755 c 1.8953,-1.2607 2.40974,-3.81915 1.14904,-5.71446 -0.62745,-0.94329 -1.61553,-1.58672 -2.732,-1.77906 L 180.74208,45.917165 c -5.3251,-0.91739 -10.79982,0.22388 -15.31481,3.19257 l -75.133681,49.40182 v 0"
+     id="Path-5-Copy"
+     stroke="#000000"
+     stroke-width="1.37387"
+     style="fill:none;fill-rule:evenodd" />
+  <rect
+     style="fill:none;stroke-width:1.33333;stroke-dasharray:none"
+     id="rect14"
+     width="375.30313"
+     height="281.47736"
+     x="0"
+     y="0" />
+</svg>

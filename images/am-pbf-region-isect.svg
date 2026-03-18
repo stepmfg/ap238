@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="522.48083"
+   height="182.13239"
+   viewBox="0 0 522.48083 182.13239"
+   version="1.1"
+   id="svg13"
+   sodipodi:docname="am-region-isect.svg"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview13"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="1.0871212"
+     inkscape:cx="281.01742"
+     inkscape:cy="110.84321"
+     inkscape:window-width="1920"
+     inkscape:window-height="1057"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg13" />
+  <title
+     id="title1">Figure 11  </title>
+  <defs
+     id="defs2">
+    <path
+       d="m 86,1.521485 c 22.63102,0 43.11957,9.164482 57.95036,23.981445 14.83079,14.816963 24.00383,35.286407 24.00383,57.89633 0,22.60992 -9.17304,43.07937 -24.00383,57.89633 -14.83079,14.81696 -35.31934,23.98145 -57.95036,23.98145 -22.631025,0 -43.119572,-9.16449 -57.950364,-23.98145 C 13.218845,126.47863 4.04581,106.00918 4.04581,83.39926 4.04581,60.789337 13.218845,40.319893 28.049636,25.50293 42.880428,10.685967 63.368975,1.521485 86,1.521485 Z"
+       id="path-1" />
+    <mask
+       id="mask-2"
+       maskContentUnits="userSpaceOnUse"
+       maskUnits="objectBoundingBox"
+       x="0"
+       y="0"
+       width="163.90838"
+       height="163.755551"
+       fill="#ffffff">
+      <use
+         xlink:href="#path-1"
+         id="use1" />
+    </mask>
+    <ellipse
+       id="path-3"
+       cx="39.535576"
+       cy="37.5"
+       rx="37.5"
+       ry="35.569229" />
+    <mask
+       id="mask-4"
+       maskContentUnits="userSpaceOnUse"
+       maskUnits="objectBoundingBox"
+       x="0"
+       y="0"
+       width="75"
+       height="71.1384596"
+       fill="#ffffff">
+      <use
+         xlink:href="#path-3"
+         id="use2" />
+    </mask>
+  </defs>
+  <path
+     d="m 136.94103,141.69946 c 44.38061,0 80.35819,-21.27142 80.35819,-47.511039 0,-26.23963 -35.97758,-47.51105 -80.35819,-47.51105"
+     id="Path"
+     stroke="#000000"
+     stroke-width="1.12651"
+     fill="#db7900"
+     style="fill-rule:evenodd" />
+  <path
+     d="m 136.94103,46.677371 c -44.380597,0 -80.358182,21.27142 -80.358182,47.51105 0,26.239619 35.977585,47.511039 80.358182,47.511039"
+     id="path2"
+     stroke="#000000"
+     stroke-width="1.12651"
+     fill="#dbb748"
+     style="fill-rule:evenodd" />
+  <path
+     d="M 78.147433,82.275881 C 74.695866,68.410331 67.187994,57.981551 57.870197,52.986541"
+     id="Path-Copy-25"
+     stroke="#000000"
+     style="fill:none;fill-rule:evenodd;stroke-width:1.33333;stroke-dasharray:none" />
+  <path
+     d="m 198.17516,82.275881 c 3.45156,-13.86555 10.95944,-24.29433 20.27724,-29.28934"
+     id="Path-Copy-26"
+     stroke="#000000"
+     style="fill:none;fill-rule:evenodd;stroke-width:1.33333;stroke-dasharray:none" />
+  <path
+     d="m 139.33635,142.10662 c -5.25544,8.35937 -16.68712,14.64675 -30.87461,17.65818"
+     id="Path-Copy-30"
+     stroke="#000000"
+     style="fill:none;fill-rule:evenodd;stroke-width:1.33333;stroke-dasharray:none" />
+  <path
+     d="m 179.84266,134.20884 c 4.31446,10.53248 13.69931,18.45435 25.34655,22.24864"
+     id="Path-Copy-32"
+     stroke="#000000"
+     style="fill:none;fill-rule:evenodd;stroke-width:1.33333;stroke-dasharray:none" />
+  <path
+     d="M 139.35081,46.347331 C 135.03635,35.814851 125.6515,27.892981 114.00426,24.098701"
+     id="Path-Copy-34"
+     stroke="#000000"
+     style="fill:none;fill-rule:evenodd;stroke-width:1.33333;stroke-dasharray:none" />
+  <text
+     id="5"
+     font-family="Roboto-Bold, Roboto"
+     font-size="6.75908px"
+     font-weight="bold"
+     fill="#000000"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.3333px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill-rule:evenodd;stroke:none;stroke-width:0.563257"
+     x="20.175882"
+     y="19.874268"><tspan
+       x="50.266235"
+       y="54.957947"
+       id="tspan2"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.3333px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.563257">5</tspan></text>
+  <text
+     id="9"
+     font-family="Roboto-Bold, Roboto"
+     font-size="6.75908px"
+     font-weight="bold"
+     fill="#000000"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.3333px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill-rule:evenodd;stroke:none;stroke-width:0.563257"
+     x="22.935465"
+     y="20.794128"><tspan
+       x="209.95955"
+       y="160.33444"
+       id="tspan3"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.3333px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.563257">9</tspan></text>
+  <text
+     id="4"
+     font-family="Roboto-Bold, Roboto"
+     font-size="6.75908px"
+     font-weight="bold"
+     fill="#000000"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.3333px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill-rule:evenodd;stroke:none;stroke-width:0.563257"
+     x="8.2176952"
+     y="15.274963"><tspan
+       x="95.707237"
+       y="162.96411"
+       id="tspan4"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.3333px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.563257">4</tspan></text>
+  <text
+     id="1"
+     font-family="Roboto-Bold, Roboto"
+     font-size="6.75908px"
+     font-weight="bold"
+     fill="#000000"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.3333px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill-rule:evenodd;stroke:none;stroke-width:0.563257"
+     x="13.736856"
+     y="20.794128"><tspan
+       x="103.18406"
+       y="26.98996"
+       id="tspan5"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.3333px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.563257">1</tspan></text>
+  <text
+     id="2"
+     font-family="Roboto-Bold, Roboto"
+     font-size="6.75908px"
+     font-weight="bold"
+     fill="#000000"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.3333px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill-rule:evenodd;stroke:none;stroke-width:0.563257"
+     x="20.175882"
+     y="19.874268"><tspan
+       x="211.33751"
+       y="37.356171"
+       id="tspan6"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.3333px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.563257">2</tspan></text>
+  <text
+     id="3"
+     font-family="Roboto-Bold, Roboto"
+     font-size="6.75908px"
+     font-weight="bold"
+     fill="#000000"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.3333px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill-rule:evenodd;stroke:none;stroke-width:0.563257"
+     x="20.175882"
+     y="19.874268"><tspan
+       x="221.18903"
+       y="54.396027"
+       id="tspan7"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.3333px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.563257">3</tspan></text>
+  <path
+     id="Line-2-Copy-4"
+     d="m 21.865652,128.27353 3.942797,7.88559 -3.380104,-5.1e-4 5.64e-4,13.13852 h -1.126514 l -5.63e-4,-13.13852 -3.378977,5.1e-4 z"
+     fill="#000000"
+     fill-rule="nonzero"
+     style="stroke:none;stroke-width:0.563257" />
+  <path
+     id="Line-2-Copy-10"
+     d="m 32.317668,145.11103 7.770565,4.16492 -7.994274,3.71751 0.09562,-3.37865 -10.339911,-0.293 -0.56303,-0.016 0.03196,-1.12606 0.56303,0.016 10.340058,0.29311 z"
+     fill="#000000"
+     fill-rule="nonzero"
+     style="stroke:none;stroke-width:0.563257" />
+  <text
+     id="Y-Copy-3"
+     font-family="Roboto-Bold, Roboto"
+     font-size="6.75908px"
+     font-weight="bold"
+     fill="#000000"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill-rule:evenodd;stroke:none;stroke-width:0.563257"
+     x="20.175882"
+     y="19.874268"><tspan
+       x="20.175882"
+       y="125.00726"
+       id="tspan8"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.563257">Y</tspan></text>
+  <text
+     id="X-Copy-3"
+     font-family="Roboto-Bold, Roboto"
+     font-size="6.75908px"
+     font-weight="bold"
+     fill="#000000"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill-rule:evenodd;stroke:none;stroke-width:0.563257"
+     x="20.175882"
+     y="19.874268"><tspan
+       x="42.099014"
+       y="151.52899"
+       id="tspan9"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.563257">X</tspan></text>
+  <path
+     d="m 138.39577,140.23106 c -44.380597,0 -80.358179,-20.59946 -80.358179,-46.010179 0,-25.41072 35.977582,-46.01017 80.358179,-46.01017"
+     id="Path-Copy-3"
+     stroke="#000000"
+     stroke-width="1.12651"
+     stroke-dasharray="4"
+     style="fill:none;fill-rule:evenodd" />
+  <path
+     d="m 135.50585,140.23106 c 44.38061,0 80.35819,-20.60181 80.35819,-46.015429 0,-25.41362 -35.97758,-46.01543 -80.35819,-46.01543"
+     id="Path-Copy-4"
+     stroke="#000000"
+     stroke-width="1.12651"
+     stroke-dasharray="4"
+     style="fill:none;fill-rule:evenodd" />
+  <ellipse
+     id="Oval"
+     stroke="#a70000"
+     fill="#a70000"
+     cx="136.95477"
+     cy="94.051971"
+     rx="46.737404"
+     ry="46.693562"
+     style="fill-rule:evenodd;stroke-width:0.563257" />
+  <path
+     d="m 156.63657,49.818671 c 5.46538,2.43095 10.39697,5.84327 14.57051,10.01292 8.76593,8.75776 14.18777,20.85648 14.18777,34.22037 0,13.363879 -5.42184,25.462609 -14.18777,34.220369 -4.08897,4.08515 -8.90556,7.44336 -14.2389,9.86393 m -38.78611,0.54221 c -5.82821,-2.45009 -11.07588,-6.00653 -15.4796,-10.40614 -8.765927,-8.75776 -14.187767,-20.85649 -14.187767,-34.220369 0,-13.36389 5.42184,-25.46261 14.187767,-34.22037 4.38881,-4.38472 9.61588,-7.93197 15.42044,-10.38122"
+     id="Shape"
+     stroke="#000000"
+     stroke-width="1.12651"
+     stroke-dasharray="4"
+     style="fill:none;fill-rule:evenodd" />
+  <use
+     id="Oval-Copy-12"
+     stroke="#000000"
+     mask="url(#mask-2)"
+     stroke-width="4"
+     stroke-dasharray="4"
+     xlink:href="#path-1"
+     transform="matrix(0.56325667,0,0,0.56325667,88.514703,47.076771)"
+     style="fill:none;fill-rule:evenodd" />
+  <path
+     d="m 161.20767,74.812731 c 7.76603,-17.73191 24.65875,-31.06872 45.62379,-37.45657"
+     id="Path-Copy-27"
+     stroke="#000000"
+     style="fill:none;fill-rule:evenodd;stroke-width:1.33333;stroke-dasharray:none" />
+  <path
+     d="m 307.79983,62.391601 c -4.17639,-17.4226 -13.26088,-30.52676 -24.53536,-36.80318"
+     id="Path-Copy-31"
+     stroke="#000000"
+     style="fill:none;fill-rule:evenodd;stroke-width:1.33333;stroke-dasharray:none" />
+  <path
+     d="m 388.64946,55.874151 c -6.45787,-16.38011 -20.50507,-28.70018 -37.93863,-34.60104"
+     id="Path-Copy-33"
+     stroke="#000000"
+     style="fill:none;fill-rule:evenodd;stroke-width:1.33333;stroke-dasharray:none" />
+  <path
+     d="m 459.75733,63.430171 c 3.97977,-15.56722 12.63659,-27.2759 23.38032,-32.88393"
+     id="Path-Copy-35"
+     stroke="#000000"
+     style="fill:none;fill-rule:evenodd;stroke-width:1.33333;stroke-dasharray:none" />
+  <text
+     id="6"
+     font-family="Roboto-Bold, Roboto"
+     font-size="12px"
+     font-weight="bold"
+     fill="#000000"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.3333px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill-rule:evenodd;stroke:none;stroke-width:1"
+     x="271.66473"
+     y="17.545258"><tspan
+       x="271.66473"
+       y="28.545258"
+       id="tspan11"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.3333px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">6</tspan></text>
+  <text
+     id="7"
+     font-family="Roboto-Bold, Roboto"
+     font-size="12px"
+     font-weight="bold"
+     fill="#000000"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.3333px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill-rule:evenodd;stroke:none;stroke-width:1"
+     x="260.6264"
+     y="13.865814"><tspan
+       x="339.10672"
+       y="24.865814"
+       id="tspan12"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.3333px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">7</tspan></text>
+  <text
+     id="8"
+     font-family="Roboto-Bold, Roboto"
+     font-size="12px"
+     font-weight="bold"
+     fill="#000000"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.3333px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill-rule:evenodd;stroke:none;stroke-width:1"
+     x="253.26752"
+     y="19.384979"><tspan
+       x="488.57129"
+       y="33.884979"
+       id="tspan13"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.3333px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">8</tspan></text>
+  <ellipse
+     id="Oval-Copy-6"
+     fill="#a70000"
+     cx="389.09674"
+     cy="93.388458"
+     rx="39.035576"
+     ry="37"
+     style="fill-rule:evenodd;stroke:#000000;stroke-width:1" />
+  <use
+     id="Oval-Copy-7"
+     mask="url(#mask-4)"
+     stroke-width="2"
+     stroke-dasharray="4"
+     xlink:href="#path-3"
+     transform="translate(349.56117,55.888471)"
+     style="fill:none;fill-rule:evenodd;stroke:#000000" />
+  <path
+     d="m 462.00167,93.588141 c 0,16.858139 -11.39906,31.053899 -26.90988,35.299979 30.95413,-1.4702 55.29998,-16.78835 55.29998,-35.468469 0,-19.0008 -25.18893,-34.52321 -56.90086,-35.53118 16.32086,3.68051 28.51076,18.26654 28.51076,35.69967 z"
+     id="Combined-Shape-Copy"
+     fill="#ea7200"
+     style="fill-rule:evenodd;stroke:#000000;stroke-width:1" />
+  <path
+     d="m 442.7716,59.873211 c 4.80506,2.46255 9.01483,5.92201 12.35601,10.10577 5.16983,6.47358 8.26082,14.68036 8.26082,23.60916 0,8.621009 -2.88162,16.568899 -7.73367,22.933509 -3.22955,4.23632 -7.33243,7.77082 -12.03591,10.33507 11.84052,-1.59854 22.33183,-5.2878 30.28782,-10.39057 9.44845,-6.05999 15.34077,-14.11886 15.34077,-23.046499 0,-9.09668 -6.11564,-17.29025 -15.8789,-23.3869 -8.0813,-5.04636 -18.67766,-8.66008 -30.59694,-10.15954 z"
+     id="Combined-Shape-Copy-3"
+     stroke-dasharray="4"
+     style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1" />
+  <path
+     d="m 312.51651,91.543911 c 0,16.858139 11.39906,31.053899 26.90988,35.299979 -30.95413,-1.4702 -55.29998,-16.78835 -55.29998,-35.468469 0,-19.0008 25.18893,-34.52321 56.90086,-35.53118 -16.32086,3.68051 -28.51076,18.26654 -28.51076,35.69967 z"
+     id="Combined-Shape"
+     fill="#dbb748"
+     style="fill-rule:evenodd;stroke:#000000;stroke-width:1" />
+  <path
+     d="m 331.8678,57.828981 c -4.80507,2.46255 -9.01484,5.92201 -12.35601,10.10577 -5.16983,6.47358 -8.26083,14.68036 -8.26083,23.60916 0,8.621009 2.88162,16.568899 7.73368,22.933509 3.22955,4.23632 7.33242,7.77082 12.03591,10.33507 -11.84053,-1.59854 -22.33183,-5.28781 -30.28782,-10.39057 -9.44845,-6.05999 -15.34077,-14.11886 -15.34077,-23.046499 0,-9.09668 6.11564,-17.29025 15.87889,-23.3869 8.08131,-5.04636 18.67766,-8.66008 30.59695,-10.15954 z"
+     id="Combined-Shape-Copy-2"
+     stroke-dasharray="4"
+     style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1" />
+  <rect
+     style="fill:none;stroke-width:1.33333;stroke-dasharray:none"
+     id="rect13"
+     width="522.48083"
+     height="182.13239"
+     x="0"
+     y="0" />
+</svg>

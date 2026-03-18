@@ -1,0 +1,401 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="497.64459"
+   height="266.75958"
+   viewBox="0 0 497.64459 266.75958"
+   version="1.1"
+   id="svg4"
+   sodipodi:docname="am-pbf-feature.svg"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs4" />
+  <sodipodi:namedview
+     id="namedview4"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="1.0871212"
+     inkscape:cx="253.4216"
+     inkscape:cy="243.30314"
+     inkscape:window-width="1920"
+     inkscape:window-height="1057"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg4" />
+  <title
+     id="title1">Figure 9 </title>
+  <path
+     d=""
+     id="path2"
+     stroke="#000000"
+     style="fill:none;fill-rule:evenodd;stroke-width:1" />
+  <polygon
+     id="Path-44"
+     stroke="#000000"
+     points="353.03209,166.14806 245.00476,166.14806 246.87579,292.38799 353.03209,292.38799 "
+     style="fill:none;fill-rule:evenodd;stroke-width:1"
+     transform="translate(-170.43206,-152.69687)" />
+  <polygon
+     id="Path-42"
+     stroke="#000000"
+     points="245.00476,165.875 246.87579,292.11493 231.19409,304.44225 217.29269,289.32282 215.51239,170.67148 "
+     style="fill:none;fill-rule:evenodd;stroke-width:1"
+     transform="translate(-170.43206,-152.69687)" />
+  <polygon
+     id="Path-43"
+     stroke="#000000"
+     points="353.03209,292.38799 368.87051,306.46037 385.16534,291.03163 387.01162,169.71603 353.03209,166.14806 "
+     style="fill:none;fill-rule:evenodd;stroke-width:1"
+     transform="translate(-170.43206,-152.69687)" />
+  <polygon
+     id="Path-45"
+     stroke="#000000"
+     points="276.45614,334.15939 231.19409,304.44225 246.87579,292.11493 353.03209,292.11493 368.87051,306.46037 327.49623,334.15939 316.86328,327.93111 286.03947,327.93111 "
+     style="fill:none;fill-rule:evenodd;stroke-width:1"
+     transform="translate(-170.43206,-152.69687)" />
+  <polygon
+     id="Path-46"
+     stroke="#000000"
+     stroke-linejoin="round"
+     points="266.4755,335.50114 261.63778,324.35575 276.45614,334.15939 286.03947,327.93111 286.21544,410.11396 266.4755,404.24037 "
+     style="fill:none;fill-rule:evenodd;stroke-width:1"
+     transform="translate(-170.43206,-152.69687)" />
+  <polygon
+     id="Path-47"
+     stroke="#000000"
+     stroke-linejoin="round"
+     points="327.16561,333.70057 316.51135,327.93111 316.51135,410.11396 336.68089,404.48026 336.68089,335.10315 343.58211,323.37522 "
+     style="fill:none;fill-rule:evenodd;stroke-width:1"
+     transform="translate(-170.43206,-152.69687)" />
+  <path
+     d="m 145.57929,175.73424 v 81.18285 h -29.29698 l -0.17382,-81.18285 z"
+     id="Rectangle"
+     stroke="#000000"
+     style="fill:none;fill-rule:evenodd;stroke-width:1" />
+  <rect
+     id="rect2"
+     stroke="#000000"
+     x="87.400833"
+     y="126.12253"
+     width="8.3262587"
+     height="8.8116055"
+     style="fill:none;fill-rule:evenodd;stroke-width:1" />
+  <rect
+     id="Rectangle-Copy-113"
+     stroke="#000000"
+     x="87.400833"
+     y="108.1532"
+     width="8.3262587"
+     height="8.8116055"
+     style="fill:none;fill-rule:evenodd;stroke-width:1" />
+  <rect
+     id="Rectangle-Copy-255"
+     stroke="#000000"
+     x="87.400833"
+     y="90.21489"
+     width="8.3262587"
+     height="8.8116055"
+     style="fill:none;fill-rule:evenodd;stroke-width:1" />
+  <rect
+     id="Rectangle-Copy-256"
+     stroke="#000000"
+     transform="rotate(45)"
+     x="115.41587"
+     y="-14.317691"
+     width="8.3262587"
+     height="8.8116055"
+     style="fill:none;fill-rule:evenodd;stroke-width:1" />
+  <circle
+     id="Oval"
+     stroke="#000000"
+     cx="169.49409"
+     cy="76.571152"
+     r="4.2519722"
+     style="fill:none;fill-rule:evenodd;stroke-width:1" />
+  <circle
+     id="Oval-Copy-15"
+     stroke="#000000"
+     cx="169.49409"
+     cy="94.69577"
+     r="4.2519722"
+     style="fill:none;fill-rule:evenodd;stroke-width:1" />
+  <circle
+     id="Oval-Copy-17"
+     stroke="#000000"
+     cx="169.49409"
+     cy="112.82037"
+     r="4.2519722"
+     style="fill:none;fill-rule:evenodd;stroke-width:1" />
+  <circle
+     id="Oval-Copy-18"
+     stroke="#000000"
+     cx="169.49409"
+     cy="130.94501"
+     r="4.2519722"
+     style="fill:none;fill-rule:evenodd;stroke-width:1" />
+  <path
+     d="m 168.41717,75.315081 c 0.63622,0 1.17502,0.2503 1.55751,0.66199 0.41001,0.44129 0.64008,1.06041 0.64008,1.74146 0,0.68106 -0.23007,1.30017 -0.64008,1.74147 -0.38249,0.41168 -0.92129,0.66199 -1.55751,0.66199 -0.6637,0 -1.26456,-0.26901 -1.6995,-0.70395 -0.43494,-0.43494 -0.70396,-1.03581 -0.70396,-1.69951 0,-0.66369 0.26902,-1.26456 0.70396,-1.6995 0.43494,-0.43494 1.0358,-0.70395 1.6995,-0.70395 z"
+     id="Oval-Copy-14"
+     stroke="#000000"
+     style="fill:none;fill-rule:evenodd;stroke-width:1" />
+  <path
+     d="m 168.41717,91.325351 c 0.63622,0 1.17502,0.25031 1.55751,0.662 0.41001,0.44129 0.64008,1.0604 0.64008,1.74146 0,0.68106 -0.23007,1.30017 -0.64008,1.74146 -0.38249,0.41169 -0.92129,0.662 -1.55751,0.662 -0.6637,0 -1.26456,-0.26902 -1.6995,-0.70396 -0.43494,-0.43494 -0.70396,-1.03581 -0.70396,-1.6995 0,-0.6637 0.26902,-1.26456 0.70396,-1.6995 0.43494,-0.43494 1.0358,-0.70396 1.6995,-0.70396 z"
+     id="Oval-Copy-16"
+     stroke="#000000"
+     style="fill:none;fill-rule:evenodd;stroke-width:1" />
+  <path
+     d="m 167.74844,109.19497 c 0.3799,-8e-5 0.60928,-0.0751 0.7128,0.009 -0.0197,1.02282 -0.17458,1.53249 -0.46802,1.88693 -0.26572,0.32096 -0.64579,0.50026 -1.09527,0.50026 -0.42013,9e-5 -0.6892,0.0851 -0.81289,-0.029 -0.10725,-0.099 -0.0363,-0.33783 -0.0363,-0.66773 0,-0.46934 0.19023,-0.89425 0.4978,-1.20182 0.30757,-0.30757 0.73246,-0.49781 1.20189,-0.49781 z"
+     id="Oval-Copy-19"
+     stroke="#000000"
+     style="fill:none;fill-rule:evenodd;stroke-width:1" />
+  <path
+     d="m 167.38641,127.57458 c 0.25571,0.001 0.45557,-0.11754 0.50925,-0.0493 -0.009,0.92306 -0.13168,1.27808 -0.36522,1.52944 -0.20946,0.22545 -0.50496,0.36107 -0.85052,0.36108 -0.33322,-0.002 -0.53937,0.0963 -0.6139,0.0109 -0.0717,-0.0822 -0.0173,-0.26182 -0.0173,-0.5121 0,-0.37006 0.14999,-0.70509 0.3925,-0.9476 0.24251,-0.24251 0.57753,-0.39251 0.94516,-0.39251 z"
+     id="Oval-Copy-20"
+     stroke="#000000"
+     style="fill:none;fill-rule:evenodd;stroke-width:1" />
+  <line
+     x1="95.516922"
+     y1="129.44342"
+     x2="87.611649"
+     y2="134.59235"
+     id="Line-5"
+     stroke="#000000"
+     stroke-linecap="square"
+     style="fill:none;fill-rule:evenodd;stroke-width:1" />
+  <line
+     x1="95.516922"
+     y1="113.50787"
+     x2="87.611649"
+     y2="116.37531"
+     id="Line-5-Copy"
+     stroke="#000000"
+     stroke-linecap="square"
+     style="fill:none;fill-rule:evenodd;stroke-width:1" />
+  <line
+     x1="95.516922"
+     y1="96.980438"
+     x2="87.611649"
+     y2="98.217255"
+     id="Line-5-Copy-2"
+     stroke="#000000"
+     stroke-linecap="square"
+     style="fill:none;fill-rule:evenodd;stroke-width:1" />
+  <line
+     x1="97.218582"
+     y1="77.546417"
+     x2="86.900833"
+     y2="77.546417"
+     id="Line-5-Copy-3"
+     stroke="#000000"
+     stroke-linecap="square"
+     style="fill:none;fill-rule:evenodd;stroke-width:1" />
+  <path
+     d="m 49.976854,186.5503 c 5.62287,-14.09917 17.85378,-24.70366 33.03319,-29.78284"
+     id="Path-Copy-27"
+     stroke="#000000"
+     style="fill:none;fill-rule:evenodd;stroke-width:1.33333;stroke-dasharray:none" />
+  <text
+     id="1"
+     font-family="Roboto-Bold, Roboto"
+     font-size="12px"
+     font-weight="bold"
+     fill="#000000"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill-rule:evenodd;stroke:none;stroke-width:1"
+     x="-164.43205"
+     y="-146.69687"><tspan
+       x="42.976856"
+       y="204.3782"
+       id="tspan2"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">1</tspan></text>
+  <polygon
+     id="Path-14"
+     stroke="#000000"
+     stroke-width="2"
+     points="336.68089,335.10315 336.68089,404.48026 316.51135,410.11396 286.21544,410.11396 266.29985,404.48026 266.4755,335.50114 261.63778,324.35575 231.19409,304.44225 217.34082,289.46094 215.51239,170.67148 245.00476,166.14806 353.03209,166.14806 387.01162,169.71603 385.18945,290.30273 368.87051,306.46037 343.58211,323.37522 "
+     style="fill:none;fill-rule:evenodd"
+     transform="translate(-170.43206,-152.69687)" />
+  <rect
+     id="Rectangle-Copy-257"
+     stroke="#000000"
+     x="327.70465"
+     y="125.81189"
+     width="8.3262587"
+     height="8.8116055"
+     style="fill:none;fill-rule:evenodd;stroke-width:1" />
+  <circle
+     id="Oval-Copy-22"
+     stroke="#000000"
+     cx="409.79791"
+     cy="131.01367"
+     r="4.2519722"
+     style="fill:none;fill-rule:evenodd;stroke-width:1" />
+  <path
+     d="m 407.69276,127.64326 c 0.26664,-6e-5 0.45742,-0.0926 0.53055,-0.0231 -0.0323,0.89692 -0.1555,1.25193 -0.38904,1.50329 -0.20946,0.22546 -0.50495,0.36108 -0.85013,0.36108 -0.31018,-0.002 -0.52539,0.0569 -0.62519,-0.0316 -0.006,-0.83964 0.14362,-1.17466 0.38613,-1.41718 0.24251,-0.24251 0.57753,-0.3925 0.94768,-0.3925 z"
+     id="Oval-Copy-23"
+     stroke="#000000"
+     style="fill:none;fill-rule:evenodd;stroke-width:1" />
+  <polygon
+     id="Path-52"
+     stroke="#000000"
+     stroke-linejoin="round"
+     points="360.53873,511.24982 376.24242,523.07468 337.66231,547.01102 324.66137,541.85505 293.71658,542.47162 281.17549,547.01102 239.54345,523.07468 256.14347,511.24982 "
+     style="fill:none;fill-rule:evenodd;stroke-width:1"
+     transform="translate(65.567944,-325.22739)" />
+  <polygon
+     id="Path-53"
+     stroke="#000000"
+     points="324.24138,541.88735 337.65974,547.01102 344.57109,542.82673 344.57109,577.62655 324.24138,582.4854 "
+     style="fill:none;fill-rule:evenodd;stroke-width:1"
+     transform="translate(65.567944,-325.22739)" />
+  <polygon
+     id="Path-53-Copy"
+     stroke="#000000"
+     transform="matrix(-1,0,0,1,633.7272,-325.22739)"
+     points="273.91478,542.45615 286.98378,547.01102 294.24448,542.92024 294.24448,577.62655 273.91478,582.4854 "
+     style="fill:none;fill-rule:evenodd;stroke-width:1" />
+  <polygon
+     id="Path-54"
+     stroke="#000000"
+     points="383.26667,493.88269 368.63872,503.20207 360.43012,511.24982 376.24242,523.07468 392.05472,506.52552 "
+     style="fill:none;fill-rule:evenodd;stroke-width:1"
+     transform="translate(65.567944,-325.22739)" />
+  <polygon
+     id="Path-54-Copy"
+     stroke="#000000"
+     transform="matrix(-1,0,0,1,546.35574,-325.22739)"
+     points="247.41815,493.88269 232.79019,503.20207 224.5816,511.24982 241.24435,523.07468 256.2062,506.52552 "
+     style="fill:none;fill-rule:evenodd;stroke-width:1" />
+  <polygon
+     id="Path-55-Copy"
+     stroke="#000000"
+     transform="matrix(-1,0,0,1,586.20731,-325.22739)"
+     points="260.97208,491.5572 272.64177,503.20207 264.54178,511.24982 247.9976,511.24982 247.9976,506.98949 253.43155,496.36287 "
+     style="fill:none;fill-rule:evenodd;stroke-width:1" />
+  <polygon
+     id="Path-55"
+     stroke="#000000"
+     points="357.32305,492.17146 368.63872,503.20207 360.53873,511.24982 344.57109,511.24982 344.57109,506.98949 351.07809,495.95202 "
+     style="fill:none;fill-rule:evenodd;stroke-width:1"
+     transform="translate(65.567944,-325.22739)" />
+  <polygon
+     id="Path-56"
+     stroke="#000000"
+     stroke-linejoin="round"
+     points="324.24138,511.24982 324.24138,499.74391 334.84684,506.81353 351.07809,495.95202 344.57109,506.81353 344.57109,511.24982 "
+     style="fill:none;fill-rule:evenodd;stroke-width:1"
+     transform="translate(65.567944,-325.22739)" />
+  <polygon
+     id="Path-56-Copy"
+     stroke="#000000"
+     stroke-linejoin="round"
+     transform="matrix(-1,0,0,1,626.09686,-325.22739)"
+     points="266.81234,511.24982 266.81234,499.98586 277.49238,506.3523 293.71658,495.95202 287.88716,506.98949 287.88716,511.24982 "
+     style="fill:none;fill-rule:evenodd;stroke-width:1" />
+  <polygon
+     id="Path-59"
+     stroke="#000000"
+     fill="#db7900"
+     stroke-linejoin="round"
+     points="253.43867,465.81662 360.43012,465.81662 376.24242,479.64654 334.84684,506.81353 324.24138,499.74391 293.71658,499.98586 283.03654,506.3523 239.54345,478.36184 "
+     style="fill-rule:evenodd;stroke-width:1"
+     transform="translate(65.567944,-325.22739)" />
+  <polygon
+     id="Path-60"
+     stroke="#000000"
+     points="376.24242,479.64654 360.43012,465.81662 360.43012,448.5744 392.05472,448.5744 392.05472,463.62734 "
+     style="fill:none;fill-rule:evenodd;stroke-width:1"
+     transform="translate(65.567944,-325.22739)" />
+  <polygon
+     id="Path-61"
+     stroke="#000000"
+     points="224.5816,463.05682 224.5816,448.5744 253.4421,448.5744 253.43867,465.81662 239.54345,478.36184 "
+     style="fill:none;fill-rule:evenodd;stroke-width:1"
+     transform="translate(65.567944,-325.22739)" />
+  <line
+     x1="335.82074"
+     y1="129.13275"
+     x2="327.91547"
+     y2="134.28168"
+     id="Line-5-Copy-4"
+     stroke="#000000"
+     stroke-linecap="square"
+     style="fill:none;fill-rule:evenodd;stroke-width:1" />
+  <line
+     x1="360.8219"
+     y1="257.41647"
+     x2="388.86572"
+     y2="257.41647"
+     id="Line-6"
+     stroke="#000000"
+     stroke-linecap="square"
+     style="fill:none;fill-rule:evenodd;stroke-width:1" />
+  <line
+     x1="319.01004"
+     y1="123.34702"
+     x2="426.01004"
+     y2="123.34702"
+     id="Line-7"
+     stroke="#000000"
+     stroke-linecap="square"
+     style="fill:none;fill-rule:evenodd;stroke-width:1" />
+  <path
+     d="m 285.97686,227.15143 c 5.62287,-14.09917 17.85378,-24.70366 33.03318,-29.78284"
+     id="Path-Copy-28"
+     stroke="#000000"
+     style="fill:none;fill-rule:evenodd;stroke-width:1.33333;stroke-dasharray:none" />
+  <path
+     d="m 345.8324,162.63762 c -23.06685,-12.1031 -54.53606,-9.26012 -86.05688,6.01768"
+     id="Path-Copy-29"
+     stroke="#000000"
+     style="fill:none;fill-rule:evenodd;stroke-width:1.33333;stroke-dasharray:none" />
+  <text
+     id="2"
+     font-family="Roboto-Bold, Roboto"
+     font-size="12px"
+     font-weight="bold"
+     fill="#000000"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill-rule:evenodd;stroke:none;stroke-width:1"
+     x="69.567947"
+     y="-321.22739"><tspan
+       x="276.97684"
+       y="242.97934"
+       id="tspan3"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">2</tspan></text>
+  <text
+     id="3"
+     font-family="Roboto-Bold, Roboto"
+     font-size="12px"
+     font-weight="bold"
+     fill="#000000"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill-rule:evenodd;stroke:none;stroke-width:1"
+     x="63.567944"
+     y="-319.22739"><tspan
+       x="247.97685"
+       y="180.22464"
+       id="tspan4"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">3</tspan></text>
+  <polygon
+     id="Path-22"
+     stroke="#000000"
+     stroke-width="2"
+     points="224.5816,463.05682 224.5816,448.5744 392.05472,448.5744 392.05472,464.11047 376.24242,479.64654 357.32305,492.17146 368.63872,503.60092 383.26667,493.88269 392.05472,506.52552 376.24242,523.07468 344.57109,542.82673 344.57109,577.62655 324.24138,582.4854 294.24448,582.64384 273.91478,577.62655 273.91478,542.82673 239.54345,523.07468 224.5816,506.81353 233.36965,493.88269 247.9976,503.20207 259.66729,491.5572 239.54345,478.36184 "
+     style="fill:none;fill-rule:evenodd"
+     transform="translate(65.567944,-325.22739)" />
+  <rect
+     style="fill:none;stroke-width:1.33333;stroke-dasharray:none"
+     id="rect5"
+     width="497.64459"
+     height="266.75958"
+     x="0"
+     y="0" />
+</svg>

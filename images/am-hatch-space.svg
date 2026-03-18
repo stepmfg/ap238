@@ -1,0 +1,539 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="477.40765"
+   height="258.48083"
+   viewBox="0 0 477.40765 258.48083"
+   version="1.1"
+   id="svg9"
+   sodipodi:docname="am-hatch-space.svg"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs9" />
+  <sodipodi:namedview
+     id="namedview9"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="1.0871212"
+     inkscape:cx="153.15679"
+     inkscape:cy="150.39721"
+     inkscape:window-width="1920"
+     inkscape:window-height="1057"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg9" />
+  <title
+     id="title1">Figure 7 </title>
+  <path
+     d="M 80.258924,244.67797 V 29.782787 c 0,-3.38026 2.74023,-6.1205 6.12049,-6.1205 H 381.68151 v 0"
+     id="Path-32"
+     stroke="#000000"
+     stroke-width="2.29519"
+     style="fill:none;fill-rule:evenodd" />
+  <path
+     d="M 106.64055,243.5805 V 55.142917 c 0,-3.37671 2.73471,-6.11548 6.11142,-6.12049 l 268.92954,-0.39908 v 0"
+     id="Path-33"
+     stroke="#a70000"
+     stroke-width="1.53012"
+     style="fill:none;fill-rule:evenodd" />
+  <path
+     d="M 133.81845,243.5805 V 83.429577 c 0,-3.80279 3.08277,-6.88556 6.88555,-6.88556 h 242.52484 v 0"
+     id="Path-33-Copy"
+     stroke="#7030a0"
+     stroke-width="1.53012"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="161.66988"
+     y1="238.76202"
+     x2="220.85332"
+     y2="238.76202"
+     id="Path-34"
+     stroke="#1dc069"
+     style="fill:none;fill-rule:evenodd;stroke-width:0.765062" />
+  <line
+     x1="161.66988"
+     y1="223.75519"
+     x2="220.85332"
+     y2="223.75519"
+     id="Path-34-Copy-2"
+     stroke="#1dc069"
+     style="fill:none;fill-rule:evenodd;stroke-width:0.765062" />
+  <line
+     x1="160.73195"
+     y1="177.48413"
+     x2="219.91539"
+     y2="177.48413"
+     id="Path-34-Copy-8"
+     stroke="#1dc069"
+     style="fill:none;fill-rule:evenodd;stroke-width:0.765062" />
+  <line
+     x1="159.79402"
+     y1="162.47729"
+     x2="218.97746"
+     y2="162.47729"
+     id="Path-34-Copy-10"
+     stroke="#1dc069"
+     style="fill:none;fill-rule:evenodd;stroke-width:0.765062" />
+  <polygon
+     id="Rectangle"
+     fill="#1dc069"
+     transform="matrix(0.54098056,0.54098056,-0.54098056,0.54098056,188.25371,-193.76381)"
+     points="247.73901,298.8346 247.73901,303.27826 243.29535,303.27826 243.29535,298.8346 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Rectangle-Copy-94"
+     fill="#1dc069"
+     transform="matrix(0.54098056,0.54098056,-0.54098056,0.54098056,199.6807,-189.03059)"
+     points="247.73901,319.95733 247.73901,324.40099 243.29535,324.40099 243.29535,319.95733 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Rectangle-Copy-97"
+     fill="#1dc069"
+     transform="matrix(0.54098056,0.54098056,-0.54098056,0.54098056,231.24814,-176.47293)"
+     points="248.55631,377.97106 248.55631,382.41472 244.11265,382.41472 244.11265,377.97106 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Rectangle-Copy-98"
+     fill="#1dc069"
+     transform="matrix(0.54098056,0.54098056,-0.54098056,0.54098056,242.1488,-172.75358)"
+     points="249.81199,397.60075 249.81199,402.04442 245.36833,402.04442 245.36833,397.60075 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Rectangle-Copy-99"
+     fill="#1dc069"
+     transform="matrix(0.54098056,0.54098056,-0.54098056,0.54098056,253.19452,-168.17829)"
+     points="249.81199,418.01872 249.81199,422.46238 245.36833,422.46238 245.36833,418.01872 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Rectangle-Copy-100"
+     fill="#1dc069"
+     transform="matrix(0.54098056,0.54098056,-0.54098056,0.54098056,264.03487,-163.68807)"
+     points="249.81199,438.05706 249.81199,442.50073 245.36833,442.50073 245.36833,438.05706 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Rectangle-Copy-101"
+     fill="#1dc069"
+     transform="matrix(0.54098056,0.54098056,-0.54098056,0.54098056,275.00474,-159.53271)"
+     points="250.42497,458.08089 250.42497,462.52456 245.9813,462.52456 245.9813,458.08089 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Rectangle-Copy-102"
+     fill="#1dc069"
+     transform="matrix(0.54098056,0.54098056,-0.54098056,0.54098056,285.61617,-155.13731)"
+     points="250.42497,477.69607 250.42497,482.13974 245.9813,482.13974 245.9813,477.69607 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Rectangle-Copy-103"
+     fill="#1dc069"
+     transform="matrix(0.54098056,0.54098056,-0.54098056,0.54098056,310.79814,-215.93197)"
+     points="362.80361,477.69607 362.80361,482.13974 358.35994,482.13974 358.35994,477.69607 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Rectangle-Copy-104"
+     fill="#1dc069"
+     transform="matrix(0.54098056,0.54098056,-0.54098056,0.54098056,300.18671,-220.32737)"
+     points="362.80361,458.08089 362.80361,462.52456 358.35994,462.52456 358.35994,458.08089 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Rectangle-Copy-105"
+     fill="#1dc069"
+     transform="matrix(0.54098056,0.54098056,-0.54098056,0.54098056,289.57527,-224.72277)"
+     points="362.80361,438.46571 362.80361,442.90938 358.35994,442.90938 358.35994,438.46571 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Rectangle-Copy-106"
+     fill="#1dc069"
+     transform="matrix(0.54098056,0.54098056,-0.54098056,0.54098056,278.30063,-229.39288)"
+     points="362.80361,417.62458 362.80361,422.06825 358.35994,422.06825 358.35994,417.62458 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Rectangle-Copy-107"
+     fill="#1dc069"
+     transform="matrix(0.54098056,0.54098056,-0.54098056,0.54098056,267.6892,-233.78828)"
+     points="362.80361,398.0094 362.80361,402.45307 358.35994,402.45307 358.35994,398.0094 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Rectangle-Copy-108"
+     fill="#1dc069"
+     transform="matrix(0.54098056,0.54098056,-0.54098056,0.54098056,256.63562,-238.36682)"
+     points="362.80361,377.57692 362.80361,382.02059 358.35994,382.02059 358.35994,377.57692 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Rectangle-Copy-109"
+     fill="#1dc069"
+     transform="matrix(0.54098056,0.54098056,-0.54098056,0.54098056,245.80312,-242.85379)"
+     points="362.80361,357.55309 362.80361,361.99676 358.35994,361.99676 358.35994,357.55309 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Rectangle-Copy-110"
+     fill="#1dc069"
+     transform="matrix(0.54098056,0.54098056,-0.54098056,0.54098056,236.07598,-246.88291)"
+     points="362.80361,339.57251 362.80361,344.01617 358.35994,344.01617 358.35994,339.57251 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Rectangle-Copy-111"
+     fill="#1dc069"
+     transform="matrix(0.54098056,0.54098056,-0.54098056,0.54098056,225.46455,-251.27831)"
+     points="362.80361,319.95733 362.80361,324.40099 358.35994,324.40099 358.35994,319.95733 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Rectangle-Copy-112"
+     fill="#1dc069"
+     transform="matrix(0.54098056,0.54098056,-0.54098056,0.54098056,214.03756,-256.01151)"
+     points="362.80361,298.8346 362.80361,303.27826 358.35994,303.27826 358.35994,298.8346 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <line
+     x1="218.97746"
+     y1="238.76202"
+     x2="305.95123"
+     y2="238.76202"
+     id="Path-34-Copy"
+     stroke="#ffc100"
+     style="fill:none;fill-rule:evenodd;stroke-width:0.765062" />
+  <line
+     x1="219.91539"
+     y1="223.75519"
+     x2="305.95123"
+     y2="223.75519"
+     id="Path-34-Copy-3"
+     stroke="#ffc100"
+     style="fill:none;fill-rule:evenodd;stroke-width:0.765062" />
+  <line
+     x1="219.91539"
+     y1="177.48413"
+     x2="305.95123"
+     y2="177.48413"
+     id="Path-34-Copy-9"
+     stroke="#ffc100"
+     style="fill:none;fill-rule:evenodd;stroke-width:0.765062" />
+  <line
+     x1="218.97746"
+     y1="162.47729"
+     x2="305.95123"
+     y2="162.47729"
+     id="Path-34-Copy-11"
+     stroke="#ffc100"
+     style="fill:none;fill-rule:evenodd;stroke-width:0.765062" />
+  <line
+     x1="218.97746"
+     y1="146.84518"
+     x2="305.95123"
+     y2="146.84518"
+     id="Path-34-Copy-13"
+     stroke="#ffc100"
+     style="fill:none;fill-rule:evenodd;stroke-width:0.765062" />
+  <line
+     x1="218.97746"
+     y1="133.08893"
+     x2="305.95123"
+     y2="133.08893"
+     id="Path-34-Copy-15"
+     stroke="#ffc100"
+     style="fill:none;fill-rule:evenodd;stroke-width:0.765062" />
+  <line
+     x1="218.97746"
+     y1="118.08209"
+     x2="305.95123"
+     y2="118.08209"
+     id="Path-34-Copy-17"
+     stroke="#ffc100"
+     style="fill:none;fill-rule:evenodd;stroke-width:0.765062" />
+  <line
+     x1="218.66481"
+     y1="101.82468"
+     x2="305.48227"
+     y2="101.82468"
+     id="Path-34-Copy-19"
+     stroke="#ffc100"
+     style="fill:none;fill-rule:evenodd;stroke-width:0.765062" />
+  <path
+     id="Path-35"
+     d="m 150.88705,187.56582 6.88556,3.44278 -6.88556,3.44278 -10e-6,-3.06039 H 87.566684 l 7e-5,3.06039 -6.88556,-3.44278 6.88556,-3.44278 -7e-5,3.06011 h 63.320356 z"
+     fill="#000000"
+     fill-rule="nonzero"
+     style="stroke:none;stroke-width:0.765062" />
+  <path
+     id="Path-35-Copy"
+     d="m 126.20728,115.86025 6.88556,3.44278 -6.88556,3.44278 -3.7e-4,-3.06078 H 86.881194 l 4.3e-4,3.06078 -6.88556,-3.44278 6.88556,-3.44278 -4.3e-4,3.05972 h 39.325716 z"
+     fill="#000000"
+     fill-rule="nonzero"
+     style="stroke:none;stroke-width:0.765062" />
+  <path
+     id="Path-35-Copy-2"
+     d="m 298.97924,164.5248 6.88556,3.44278 -6.88556,3.44278 -6.7e-4,-3.06075 h -73.49874 l 6.5e-4,3.06075 -6.88556,-3.44278 6.88556,-3.44278 -6.5e-4,3.05974 h 73.49874 z"
+     fill="#000000"
+     fill-rule="nonzero"
+     style="stroke:none;stroke-width:0.765062" />
+  <line
+     x1="219.91539"
+     y1="193.11624"
+     x2="219.91539"
+     y2="207.99973"
+     id="Path-36"
+     stroke="#000000"
+     style="fill:none;fill-rule:evenodd;stroke-width:0.765062" />
+  <line
+     x1="179.51846"
+     y1="102.39084"
+     x2="179.51846"
+     y2="117.27432"
+     id="Path-36-Copy-2"
+     stroke="#000000"
+     style="fill:none;fill-rule:evenodd;stroke-width:0.765062" />
+  <line
+     x1="246.23964"
+     y1="193.11624"
+     x2="246.23964"
+     y2="207.99973"
+     id="Path-36-Copy"
+     stroke="#000000"
+     style="fill:none;fill-rule:evenodd;stroke-width:0.765062" />
+  <line
+     x1="160.73195"
+     y1="208.43573"
+     x2="219.91539"
+     y2="208.43573"
+     id="Path-34-Copy-4"
+     stroke="#1dc069"
+     style="fill:none;fill-rule:evenodd;stroke-width:0.765062" />
+  <line
+     x1="160.73195"
+     y1="193.11624"
+     x2="219.91539"
+     y2="193.11624"
+     id="Path-34-Copy-6"
+     stroke="#1dc069"
+     style="fill:none;fill-rule:evenodd;stroke-width:0.765062" />
+  <line
+     x1="219.91539"
+     y1="208.43573"
+     x2="305.95123"
+     y2="208.43573"
+     id="Path-34-Copy-5"
+     stroke="#ffc100"
+     style="fill:none;fill-rule:evenodd;stroke-width:0.765062" />
+  <line
+     x1="219.91539"
+     y1="193.11624"
+     x2="305.95123"
+     y2="193.11624"
+     id="Path-34-Copy-7"
+     stroke="#ffc100"
+     style="fill:none;fill-rule:evenodd;stroke-width:0.765062" />
+  <line
+     x1="159.79402"
+     y1="118.08209"
+     x2="218.97746"
+     y2="118.08209"
+     id="Path-34-Copy-16"
+     stroke="#1dc069"
+     style="fill:none;fill-rule:evenodd;stroke-width:0.765062" />
+  <line
+     x1="159.48138"
+     y1="101.82468"
+     x2="218.66481"
+     y2="101.82468"
+     id="Path-34-Copy-18"
+     stroke="#1dc069"
+     style="fill:none;fill-rule:evenodd;stroke-width:0.765062" />
+  <line
+     x1="159.79402"
+     y1="146.84518"
+     x2="218.97746"
+     y2="146.84518"
+     id="Path-34-Copy-12"
+     stroke="#1dc069"
+     style="fill:none;fill-rule:evenodd;stroke-width:0.765062" />
+  <line
+     x1="159.79402"
+     y1="133.08893"
+     x2="218.97746"
+     y2="133.08893"
+     id="Path-34-Copy-14"
+     stroke="#1dc069"
+     style="fill:none;fill-rule:evenodd;stroke-width:0.765062" />
+  <polygon
+     id="Rectangle-Copy-95"
+     fill="#1dc069"
+     transform="matrix(0.54098056,0.54098056,-0.54098056,0.54098056,210.47527,-185.07734)"
+     points="248.55631,339.57251 248.55631,344.01617 244.11265,344.01617 244.11265,339.57251 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Rectangle-Copy-96"
+     fill="#1dc069"
+     transform="matrix(0.54098056,0.54098056,-0.54098056,0.54098056,220.20242,-181.04822)"
+     points="248.55631,357.55309 248.55631,361.99676 244.11265,361.99676 244.11265,357.55309 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <path
+     id="Path-38"
+     d="m 239.21328,197.56769 6.88556,3.44277 -6.88556,3.44278 -5.9e-4,-3.0606 h -12.7949 l 6.1e-4,3.0606 -6.88555,-3.44278 6.88555,-3.44277 -6.1e-4,3.05988 h 12.7949 z"
+     fill="#000000"
+     fill-rule="nonzero"
+     style="stroke:none;stroke-width:0.765062" />
+  <path
+     id="Path-38-Copy"
+     d="m 100.54024,73.253377 6.88555,3.44278 -6.88555,3.44278 -4e-4,-3.06047 H 87.566684 l 7e-5,3.06047 -6.88556,-3.44278 6.88556,-3.44278 -7e-5,3.06003 h 12.973156 z"
+     fill="#000000"
+     fill-rule="nonzero"
+     style="stroke:none;stroke-width:0.765062" />
+  <path
+     d="m 424.97592,53.393347 c -36.72765,-7.25425 -56.03209,-18.25049 -55.58665,-29.97094"
+     id="Path-Copy-18"
+     stroke="#000000"
+     style="fill:none;fill-rule:evenodd;stroke-width:1;stroke-dasharray:none" />
+  <path
+     d="M 179.06614,107.45689 C 174.53697,98.577427 164.6851,91.898857 152.45824,88.700067"
+     id="Path-Copy-19"
+     stroke="#000000"
+     style="fill:none;fill-rule:evenodd;stroke-width:0.71224" />
+  <path
+     d="m 338.23817,62.904017 c 8.15825,24.26843 23.62814,43.429243 41.91063,53.663953"
+     id="Path-Copy-26"
+     stroke="#000000"
+     style="fill:none;fill-rule:evenodd;stroke-width:1;stroke-dasharray:none" />
+  <path
+     d="M 115.05673,191.0963 C 106.75998,180.25767 82.762914,174.47843 50.584264,174.47458"
+     id="Path-Copy-23"
+     stroke="#000000"
+     style="fill:none;fill-rule:evenodd;stroke-width:1;stroke-dasharray:none" />
+  <path
+     d="M 133.29416,140.48602 C 123.2039,130.02863 92.392824,125.69776 50.584264,127.74079"
+     id="Path-Copy-25"
+     stroke="#000000"
+     style="fill:none;fill-rule:evenodd;stroke-width:1;stroke-dasharray:none" />
+  <path
+     d="m 63.150364,38.887087 c 7.3865,12.93242 23.45364,22.65937 43.394086,27.31822"
+     id="Path-Copy-24"
+     stroke="#000000"
+     style="fill:none;fill-rule:evenodd;stroke-width:1;stroke-dasharray:none" />
+  <path
+     d="m 279.89642,167.83494 c 10.63754,-12.64519 33.28251,-22.24665 61.18759,-26.9509"
+     id="Path-Copy-21"
+     stroke="#000000"
+     style="fill:none;fill-rule:evenodd;stroke-width:1;stroke-dasharray:none" />
+  <path
+     d="m 232.28278,203.00532 c 13.92669,15.82119 44.98087,27.57819 83.82772,33.04317"
+     id="Path-Copy-22"
+     stroke="#000000"
+     style="fill:none;fill-rule:evenodd;stroke-width:1;stroke-dasharray:none" />
+  <text
+     id="1"
+     font-family="Roboto-Bold, Roboto"
+     font-size="12px"
+     font-weight="bold"
+     fill="#000000"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill-rule:evenodd;stroke:none;stroke-width:0.765062"
+     x="319.92813"
+     y="-58.504471"><tspan
+       x="429.81488"
+       y="57.758759"
+       id="tspan2"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.765062">1</tspan></text>
+  <text
+     id="3"
+     font-family="Roboto-Bold, Roboto"
+     font-size="12px"
+     font-weight="bold"
+     fill="#000000"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill-rule:evenodd;stroke:none;stroke-width:0.765062"
+     x="-33.627815"
+     y="-126.40496"><tspan
+       x="140.07344"
+       y="92.41864"
+       id="tspan3"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.765062">3</tspan></text>
+  <text
+     id="2-copy"
+     font-family="Roboto-Bold, Roboto"
+     font-size="12px"
+     font-weight="bold"
+     fill="#000000"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill-rule:evenodd;stroke:none;stroke-width:0.765062"
+     x="186.53944"
+     y="-18.021683"><tspan
+       x="388.89447"
+       y="122.35941"
+       id="tspan4"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.765062">2</tspan></text>
+  <text
+     id="7"
+     font-family="Roboto-Bold, Roboto"
+     font-size="12px"
+     font-weight="bold"
+     fill="#000000"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill-rule:evenodd;stroke:none;stroke-width:0.765062"
+     x="-35.627815"
+     y="-106.40497"><tspan
+       x="38.84322"
+       y="132.52631"
+       id="tspan5"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.765062">7</tspan></text>
+  <text
+     id="4"
+     font-family="Roboto-Bold, Roboto"
+     font-size="12px"
+     font-weight="bold"
+     fill="#000000"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill-rule:evenodd;stroke:none;stroke-width:0.765062"
+     x="-2.6312981"
+     y="-128.40497"><tspan
+       x="346.07568"
+       y="145.04153"
+       id="tspan6"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.765062">4</tspan></text>
+  <text
+     id="5"
+     font-family="Roboto-Bold, Roboto"
+     font-size="12px"
+     font-weight="bold"
+     fill="#000000"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill-rule:evenodd;stroke:none;stroke-width:0.765062"
+     x="-6.7915764"
+     y="-141.4433"><tspan
+       x="323.35831"
+       y="240.05533"
+       id="tspan7"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.765062">5</tspan></text>
+  <text
+     id="6"
+     font-family="Roboto-Bold, Roboto"
+     font-size="12px"
+     font-weight="bold"
+     fill="#000000"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill-rule:evenodd;stroke:none;stroke-width:0.765062"
+     x="-35.627815"
+     y="-80.404968"><tspan
+       x="38.172665"
+       y="177.83777"
+       id="tspan8"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.765062">6</tspan></text>
+  <text
+     id="8"
+     font-family="Roboto-Bold, Roboto"
+     font-size="12px"
+     font-weight="bold"
+     fill="#000000"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill-rule:evenodd;stroke:none;stroke-width:0.765062"
+     x="-29.627813"
+     y="-128.40497"><tspan
+       x="50.849751"
+       y="38.946716"
+       id="tspan9"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.765062">8</tspan></text>
+  <rect
+     style="fill:none;stroke-width:1;stroke-dasharray:none"
+     id="rect9"
+     width="477.40765"
+     height="258.48083"
+     x="0"
+     y="0" />
+</svg>

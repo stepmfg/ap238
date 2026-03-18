@@ -1,0 +1,2074 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="325.63065"
+   height="297.11499"
+   viewBox="0 0 325.63065 297.11499"
+   version="1.1"
+   id="svg9"
+   sodipodi:docname="am-pbf-twod-chess.svg"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs9" />
+  <sodipodi:namedview
+     id="namedview9"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="1.0871212"
+     inkscape:cx="154.99652"
+     inkscape:cy="263.54007"
+     inkscape:window-width="1920"
+     inkscape:window-height="1057"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg9" />
+  <title
+     id="title1">Figure 5 Color</title>
+  <line
+     x1="58.018692"
+     y1="144.45299"
+     x2="86.438995"
+     y2="144.45299"
+     id="Path-24-Copy-4"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="193.06015"
+     y1="61.940109"
+     x2="242.52832"
+     y2="61.940109"
+     id="Path-22-Copy-10"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="140.31488"
+     y1="114.29628"
+     x2="189.4462"
+     y2="114.33574"
+     id="Path-22-Copy-20"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="192.99893"
+     y1="167.00041"
+     x2="242.37241"
+     y2="167.00041"
+     id="Path-22-Copy-40"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="87.87886"
+     y1="167.00041"
+     x2="136.82758"
+     y2="167.00041"
+     id="Path-22-Copy-74"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="87.661163"
+     y1="61.940109"
+     x2="136.52356"
+     y2="61.940109"
+     id="Path-22-Copy-114"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="202.80896"
+     y1="246.61308"
+     x2="202.80896"
+     y2="287.51044"
+     id="Path-22-Copy-111"
+     stroke="#000000"
+     style="fill:none;fill-rule:evenodd;stroke-width:0.69678" />
+  <line
+     x1="203.10034"
+     y1="215.78862"
+     x2="202.80899"
+     y2="243.77824"
+     id="Path-22-Copy-70"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="193.06015"
+     y1="71.681778"
+     x2="242.52832"
+     y2="71.681778"
+     id="Path-22-Copy-11"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="140.31488"
+     y1="124.03792"
+     x2="189.4462"
+     y2="124.03792"
+     id="Path-22-Copy-21"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="192.99893"
+     y1="176.74202"
+     x2="242.37241"
+     y2="176.74202"
+     id="Path-22-Copy-41"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="87.87886"
+     y1="176.74202"
+     x2="137.47049"
+     y2="176.74202"
+     id="Path-22-Copy-75"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="87.661163"
+     y1="71.681778"
+     x2="136.52356"
+     y2="71.681778"
+     id="Path-22-Copy-115"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="193.06015"
+     y1="82.037735"
+     x2="244.15506"
+     y2="82.037735"
+     id="Path-22-Copy-12"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="140.31488"
+     y1="134.39388"
+     x2="191.40979"
+     y2="134.39388"
+     id="Path-22-Copy-22"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="192.99893"
+     y1="187.16997"
+     x2="244.62823"
+     y2="187.16997"
+     id="Path-22-Copy-42"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="87.87886"
+     y1="187.23116"
+     x2="138.59576"
+     y2="187.16997"
+     id="Path-22-Copy-76"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="87.661163"
+     y1="82.037735"
+     x2="138.75607"
+     y2="82.037735"
+     id="Path-22-Copy-116"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="193.06015"
+     y1="91.779373"
+     x2="244.15506"
+     y2="91.779373"
+     id="Path-22-Copy-13"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="140.31488"
+     y1="144.13554"
+     x2="191.40979"
+     y2="144.13554"
+     id="Path-22-Copy-23"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="192.99893"
+     y1="196.91161"
+     x2="244.62823"
+     y2="196.91161"
+     id="Path-22-Copy-43"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="87.87886"
+     y1="196.91161"
+     x2="138.59576"
+     y2="196.91161"
+     id="Path-22-Copy-77"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="87.661163"
+     y1="91.779373"
+     x2="138.75607"
+     y2="91.779373"
+     id="Path-22-Copy-117"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="188.86469"
+     y1="163.74461"
+     x2="188.86469"
+     y2="212.57768"
+     id="Path-22-Copy-30"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="188.94388"
+     y1="57.861374"
+     x2="188.94388"
+     y2="107.58549"
+     id="Path-22-Copy-50"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="136.11084"
+     y1="111.0869"
+     x2="136.11084"
+     y2="159.96101"
+     id="Path-22-Copy-60"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="178.7634"
+     y1="163.74461"
+     x2="178.7634"
+     y2="212.65385"
+     id="Path-22-Copy-31"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="178.76343"
+     y1="57.861374"
+     x2="178.76343"
+     y2="107.58549"
+     id="Path-22-Copy-51"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="125.93039"
+     y1="111.0869"
+     x2="125.93039"
+     y2="159.96098"
+     id="Path-22-Copy-61"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="168.58298"
+     y1="163.74461"
+     x2="168.57449"
+     y2="212.91502"
+     id="Path-22-Copy-32"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="168.58298"
+     y1="57.861374"
+     x2="168.58298"
+     y2="107.58549"
+     id="Path-22-Copy-52"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="115.74994"
+     y1="111.0869"
+     x2="115.74994"
+     y2="159.96101"
+     id="Path-22-Copy-62"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="158.4025"
+     y1="163.74461"
+     x2="158.4025"
+     y2="212.91499"
+     id="Path-22-Copy-33"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="158.4025"
+     y1="57.861374"
+     x2="158.4025"
+     y2="107.58549"
+     id="Path-22-Copy-53"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="105.56949"
+     y1="111.0869"
+     x2="105.56949"
+     y2="159.96101"
+     id="Path-22-Copy-63"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="148.22208"
+     y1="163.74461"
+     x2="148.21359"
+     y2="212.91499"
+     id="Path-22-Copy-34"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="148.22208"
+     y1="57.861374"
+     x2="148.22208"
+     y2="107.58549"
+     id="Path-22-Copy-54"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="95.412033"
+     y1="111.08687"
+     x2="95.412033"
+     y2="159.96101"
+     id="Path-22-Copy-64"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="153.47086"
+     y1="214.82677"
+     x2="153.47086"
+     y2="166.11244"
+     id="Path-22-Copy-35"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="153.48782"
+     y1="110.05449"
+     x2="153.48782"
+     y2="60.191025"
+     id="Path-22-Copy-55"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="100.65482"
+     y1="162.4453"
+     x2="100.65482"
+     y2="113.55989"
+     id="Path-22-Copy-65"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="163.66827"
+     y1="215.11937"
+     x2="163.66827"
+     y2="166.03401"
+     id="Path-22-Copy-37"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="163.66827"
+     y1="110.05449"
+     x2="163.66827"
+     y2="60.191025"
+     id="Path-22-Copy-56"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="111.15469"
+     y1="162.44533"
+     x2="110.80078"
+     y2="113.55989"
+     id="Path-22-Copy-66"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="173.84872"
+     y1="215.11937"
+     x2="173.84872"
+     y2="165.58247"
+     id="Path-22-Copy-38"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="173.84872"
+     y1="110.05449"
+     x2="173.84872"
+     y2="60.191025"
+     id="Path-22-Copy-57"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="121.01572"
+     y1="162.44533"
+     x2="121.00421"
+     y2="113.55989"
+     id="Path-22-Copy-67"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="184.02917"
+     y1="214.82677"
+     x2="184.01221"
+     y2="165.58247"
+     id="Path-22-Copy-39"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="184.02917"
+     y1="110.05449"
+     x2="184.02917"
+     y2="60.012466"
+     id="Path-22-Copy-58"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="131.51559"
+     y1="162.26979"
+     x2="131.16168"
+     y2="113.55989"
+     id="Path-22-Copy-68"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="143.55728"
+     y1="215.11937"
+     x2="143.55728"
+     y2="166.11244"
+     id="Path-22-Copy-36"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="61.341446"
+     y1="244.61363"
+     x2="61.337219"
+     y2="195.87212"
+     id="Path-22-Copy-80"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="61.337219"
+     y1="139.95241"
+     x2="61.337219"
+     y2="88.699112"
+     id="Path-22-Copy-92"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="71.517639"
+     y1="139.79402"
+     x2="71.517639"
+     y2="88.699112"
+     id="Path-22-Copy-93"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="81.873642"
+     y1="139.95241"
+     x2="81.873642"
+     y2="88.699112"
+     id="Path-22-Copy-94"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="66.602951"
+     y1="87.822037"
+     x2="66.602951"
+     y2="138.7159"
+     id="Path-22-Copy-95"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="76.607864"
+     y1="87.822037"
+     x2="76.607864"
+     y2="138.7159"
+     id="Path-22-Copy-96"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="85.831512"
+     y1="87.822037"
+     x2="85.831512"
+     y2="139.42119"
+     id="Path-22-Copy-97"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="81.873627"
+     y1="246.114"
+     x2="81.873627"
+     y2="196.15437"
+     id="Path-22-Copy-81"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="71.517654"
+     y1="244.83714"
+     x2="71.517654"
+     y2="196.15437"
+     id="Path-22-Copy-82"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="66.602951"
+     y1="193.58385"
+     x2="66.602951"
+     y2="243.60063"
+     id="Path-22-Copy-83"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="76.958923"
+     y1="193.58385"
+     x2="76.958923"
+     y2="244.02464"
+     id="Path-22-Copy-84"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="87.221451"
+     y1="209.81151"
+     x2="87.221451"
+     y2="243.32356"
+     id="Path-22-Copy-85"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="96.971863"
+     y1="215.7607"
+     x2="96.971863"
+     y2="243.57234"
+     id="Path-22-Copy-86"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="106.79816"
+     y1="215.94905"
+     x2="106.79816"
+     y2="243.77824"
+     id="Path-22-Copy-87"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="143.30737"
+     y1="110.05852"
+     x2="143.30737"
+     y2="60.334366"
+     id="Path-22-Copy-59"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="90.47435"
+     y1="162.55763"
+     x2="90.47435"
+     y2="113.55989"
+     id="Path-22-Copy-69"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="212.46423"
+     y1="216.29695"
+     x2="212.46423"
+     y2="243.12999"
+     id="Path-22-Copy-71"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="192.45438"
+     y1="216.29695"
+     x2="192.45438"
+     y2="243.12999"
+     id="Path-22-Copy-72"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="182.27393"
+     y1="216.29695"
+     x2="182.27393"
+     y2="242.49113"
+     id="Path-22-Copy-73"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="172.27209"
+     y1="215.86238"
+     x2="172.27209"
+     y2="243.97319"
+     id="Path-22-Copy-98"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="193.38217"
+     y1="101.52101"
+     x2="242.52832"
+     y2="101.52101"
+     id="Path-22-Copy-14"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="140.31488"
+     y1="153.87718"
+     x2="189.4462"
+     y2="153.91664"
+     id="Path-22-Copy-24"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="193.32434"
+     y1="206.58128"
+     x2="242.37241"
+     y2="206.58128"
+     id="Path-22-Copy-44"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="279.59058"
+     y1="246.61308"
+     x2="279.59058"
+     y2="176.74202"
+     id="Path-22-Copy-106"
+     stroke="#000000"
+     stroke-dasharray="2.78712"
+     style="fill:none;fill-rule:evenodd;stroke-width:0.69678" />
+  <path
+     d="m 279.59057,177.44674 1.36269,2.39603 h -2.72537 z"
+     id="Triangle-Copy-110"
+     stroke="#000000"
+     fill="#000000"
+     style="fill-rule:evenodd;stroke-width:0.69678" />
+  <line
+     x1="87.87886"
+     y1="206.58128"
+     x2="136.66003"
+     y2="206.58128"
+     id="Path-22-Copy-78"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="87.661163"
+     y1="101.52101"
+     x2="136.52356"
+     y2="101.52101"
+     id="Path-22-Copy-118"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="110.80508"
+     y1="227.11772"
+     x2="161.5513"
+     y2="227.11772"
+     id="Path-22-Copy-99"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="110.80508"
+     y1="236.9471"
+     x2="161.5513"
+     y2="236.9471"
+     id="Path-22-Copy-100"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="111.23154"
+     y1="217.87386"
+     x2="160.12363"
+     y2="217.87386"
+     id="Path-22-Copy-101"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="162.91544"
+     y1="241.82616"
+     x2="112.91794"
+     y2="241.82616"
+     id="Path-22-Copy-102"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="162.91544"
+     y1="232.2079"
+     x2="113.66946"
+     y2="232.22157"
+     id="Path-22-Copy-103"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="162.91544"
+     y1="222.37852"
+     x2="113.36719"
+     y2="222.37852"
+     id="Path-22-Copy-104"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="244.89386"
+     y1="105.6555"
+     x2="194.61691"
+     y2="105.6555"
+     id="Path-22-Copy-15"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="191.91922"
+     y1="158.52858"
+     x2="143.1051"
+     y2="158.52858"
+     id="Path-22-Copy-25"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="245.14297"
+     y1="211.23271"
+     x2="195.28149"
+     y2="211.23271"
+     id="Path-22-Copy-45"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="139.09796"
+     y1="211.23271"
+     x2="90.316788"
+     y2="211.23271"
+     id="Path-22-Copy-79"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="139.2655"
+     y1="106.17244"
+     x2="90.47435"
+     y2="106.17244"
+     id="Path-22-Copy-119"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="244.89386"
+     y1="96.473312"
+     x2="195.36621"
+     y2="96.473312"
+     id="Path-22-Copy-16"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="191.91922"
+     y1="149.22575"
+     x2="143.1051"
+     y2="149.22575"
+     id="Path-22-Copy-26"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="245.14297"
+     y1="201.92986"
+     x2="195.81833"
+     y2="201.92986"
+     id="Path-22-Copy-46"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="139.09796"
+     y1="201.92986"
+     x2="90.316788"
+     y2="201.92986"
+     id="Path-22-Copy-88"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="139.2655"
+     y1="96.869614"
+     x2="90.45137"
+     y2="96.869614"
+     id="Path-22-Copy-120"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="244.62372"
+     y1="86.857956"
+     x2="195.36621"
+     y2="86.857956"
+     id="Path-22-Copy-17"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="191.91922"
+     y1="139.48412"
+     x2="142.94638"
+     y2="139.48412"
+     id="Path-22-Copy-27"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="244.87125"
+     y1="192.18825"
+     x2="195.28149"
+     y2="192.18825"
+     id="Path-22-Copy-47"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="139.09796"
+     y1="191.9752"
+     x2="90.316788"
+     y2="192.26021"
+     id="Path-22-Copy-89"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="138.99658"
+     y1="87.127945"
+     x2="89.73616"
+     y2="87.127945"
+     id="Path-22-Copy-121"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="244.62372"
+     y1="76.636246"
+     x2="194.61691"
+     y2="76.636246"
+     id="Path-22-Copy-18"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="191.6503"
+     y1="129.12813"
+     x2="142.66849"
+     y2="129.12813"
+     id="Path-22-Copy-28"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="244.87125"
+     y1="181.83226"
+     x2="195.28149"
+     y2="181.83226"
+     id="Path-22-Copy-48"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="139.09796"
+     y1="181.83226"
+     x2="89.757401"
+     y2="181.83226"
+     id="Path-22-Copy-90"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="138.99658"
+     y1="76.771988"
+     x2="90.218079"
+     y2="76.771988"
+     id="Path-22-Copy-122"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="245.00131"
+     y1="67.02092"
+     x2="194.61691"
+     y2="67.02092"
+     id="Path-22-Copy-19"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="191.91922"
+     y1="119.38649"
+     x2="142.7879"
+     y2="119.38649"
+     id="Path-22-Copy-29"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="244.87125"
+     y1="172.09062"
+     x2="194.56888"
+     y2="172.09062"
+     id="Path-22-Copy-49"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="139.2655"
+     y1="172.09062"
+     x2="90.316788"
+     y2="172.09062"
+     id="Path-22-Copy-91"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="138.99658"
+     y1="67.03035"
+     x2="90.218079"
+     y2="67.03035"
+     id="Path-22-Copy-123"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="87.569626"
+     y1="149.22575"
+     x2="60.122467"
+     y2="149.17604"
+     id="Path-22-Copy-105"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="87.569626"
+     y1="159.58171"
+     x2="60.122467"
+     y2="159.53203"
+     id="Path-22-Copy-124"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="87.569626"
+     y1="169.9377"
+     x2="60.122467"
+     y2="169.88799"
+     id="Path-22-Copy-125"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="87.569626"
+     y1="179.31972"
+     x2="60.122467"
+     y2="179.27"
+     id="Path-22-Copy-126"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="87.569626"
+     y1="188.70204"
+     x2="60.122467"
+     y2="188.65233"
+     id="Path-22-Copy-127"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="92.057159"
+     y1="215.79326"
+     x2="92.057159"
+     y2="246.07686"
+     id="Path-23"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="102.23453"
+     y1="215.82582"
+     x2="102.23453"
+     y2="246.07686"
+     id="Path-23-Copy"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="166.82773"
+     y1="215.82582"
+     x2="167.16177"
+     y2="246.114"
+     id="Path-23-Copy-2"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="177.18372"
+     y1="215.7607"
+     x2="177.18372"
+     y2="246.114"
+     id="Path-23-Copy-3"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="187.53967"
+     y1="215.7607"
+     x2="187.53967"
+     y2="245.65172"
+     id="Path-23-Copy-4"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="197.89566"
+     y1="215.7607"
+     x2="197.89566"
+     y2="246.07686"
+     id="Path-23-Copy-5"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="207.19849"
+     y1="215.7607"
+     x2="207.19849"
+     y2="246.07686"
+     id="Path-23-Copy-6"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="58.018692"
+     y1="183.92897"
+     x2="86.438995"
+     y2="183.92897"
+     id="Path-24"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="58.018692"
+     y1="174.33815"
+     x2="86.438995"
+     y2="174.33815"
+     id="Path-24-Copy"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="58.099594"
+     y1="164.62224"
+     x2="86.519897"
+     y2="164.62224"
+     id="Path-24-Copy-2"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="58.018692"
+     y1="154.44179"
+     x2="86.438995"
+     y2="154.44179"
+     id="Path-24-Copy-3"
+     stroke="#db7900"
+     stroke-width="0.418068"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="87.569626"
+     y1="110.51634"
+     x2="246.24591"
+     y2="110.51634"
+     id="Path-25-Copy-2"
+     stroke="#a70000"
+     stroke-width="1.39356"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="87.569611"
+     y1="162.99831"
+     x2="246.24591"
+     y2="162.99831"
+     id="Path-25-Copy-3"
+     stroke="#a70000"
+     stroke-width="1.39356"
+     style="fill:none;fill-rule:evenodd" />
+  <path
+     d="m 87.542363,87.127955 h -24.05494 c -3.07459,0 -5.56861,2.48947 -5.57424,5.56406 l -0.26929,147.285065 c -0.006,3.07857 2.48548,5.5788 5.56404,5.58443 0.003,0 0.007,0 0.0102,0 H 211.73305 c 3.07857,0 5.57424,-2.49567 5.57424,-5.57424 v -24.74459 0"
+     id="Path-25-Copy-4"
+     stroke="#a70000"
+     stroke-width="1.39356"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="58.383072"
+     y1="193.04378"
+     x2="86.794907"
+     y2="193.04378"
+     id="Path-25-Copy-5"
+     stroke="#a70000"
+     stroke-width="1.39356"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="58.383072"
+     y1="140.65813"
+     x2="86.770828"
+     y2="140.65813"
+     id="Path-25-Copy-6"
+     stroke="#a70000"
+     stroke-width="1.39356"
+     style="fill:none;fill-rule:evenodd" />
+  <path
+     d="m 240.67168,57.157575 c 1.34687,0 2.56623,0.54593 3.44888,1.42858 0.88265,0.88264 1.42858,2.10201 1.42858,3.44888 v 0 148.754775 c 0,1.34687 -0.54593,2.56623 -1.42858,3.44888 -0.88265,0.88265 -2.10201,1.42858 -3.44888,1.42858 v 0 H 93.485993 c -1.7317,0 -3.29946,-0.70191 -4.43429,-1.83674 -1.13483,-1.13483 -1.83673,-2.70259 -1.83673,-4.43428 v 0 -147.361215 c 0,-1.34687 0.54592,-2.56624 1.42857,-3.44888 0.88265,-0.88265 2.10201,-1.42858 3.44889,-1.42858 v 0 z"
+     id="Rectangle"
+     stroke="#a70000"
+     stroke-width="1.39356"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="139.71768"
+     y1="57.112686"
+     x2="139.71768"
+     y2="215.12688"
+     id="Path-25"
+     stroke="#a70000"
+     stroke-width="1.39356"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="110.65973"
+     y1="215.94905"
+     x2="110.65973"
+     y2="245.65172"
+     id="Path-25-Copy-9"
+     stroke="#a70000"
+     stroke-width="1.39356"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="163.31723"
+     y1="216.11211"
+     x2="163.31723"
+     y2="246.114"
+     id="Path-25-Copy-10"
+     stroke="#a70000"
+     stroke-width="1.39356"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="192.45438"
+     y1="57.112686"
+     x2="192.45438"
+     y2="214.83952"
+     id="Path-25-Copy"
+     stroke="#a70000"
+     stroke-width="1.39356"
+     style="fill:none;fill-rule:evenodd" />
+  <polyline
+     id="Path-26"
+     stroke="#000000"
+     points="339.400574 205.689733 339.400574 199.868281 415.201957 199.868281 415.201957 205.689733"
+     style="fill:none;fill-rule:evenodd;stroke-width:1"
+     transform="matrix(0.69678025,0,0,0.69678025,-44.033247,-89.079865)" />
+  <polyline
+     id="Path-26-Copy"
+     stroke="#000000"
+     transform="matrix(0,0.69678025,-0.69678025,0,422.42682,-210.33795)"
+     points="383.837834 250.622957 383.837834 244.801505 459.639217 244.801505 459.639217 250.622957"
+     style="fill:none;fill-rule:evenodd;stroke-width:1" />
+  <path
+     id="Path"
+     d="m 230.36922,246.99685 3.07048,6.30311 -2.82378,-0.0294 -0.0115,0.10207 c -1.73123,13.76898 -13.38542,24.27145 -27.36841,24.48222 l -0.42877,0.003 v -0.69678 c 13.82761,0 25.41283,-10.32409 27.10856,-23.89726 l -2.7468,-0.0289 z"
+     fill="#000000"
+     fill-rule="nonzero"
+     style="stroke:none;stroke-width:1.33333;stroke-dasharray:none" />
+  <polygon
+     id="Triangle"
+     fill="#db7900"
+     transform="matrix(0,0.69678025,-0.69678025,0,394.78481,-225.85795)"
+     points="411.0003,218.51436 413.03994,214.96517 415.07957,218.51436 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Triangle-Copy-20"
+     fill="#db7900"
+     transform="matrix(0,0.69678025,-0.69678025,0,394.09832,-120.38023)"
+     points="334.81832,293.71112 336.85795,290.16193 338.89758,293.71112 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Triangle-Copy-30"
+     fill="#db7900"
+     transform="matrix(0,0.69678025,-0.69678025,0,499.70208,-120.65468)"
+     points="410.79507,369.31256 412.83471,365.72624 414.87434,369.31256 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Triangle-Copy-40"
+     fill="#db7900"
+     transform="matrix(0,0.69678025,-0.69678025,0,393.64778,-14.951425)"
+     points="258.84074,369.01691 260.88038,365.51807 262.92001,369.01691 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Triangle-Copy-10"
+     fill="#db7900"
+     transform="matrix(0,0.69678025,-0.69678025,0,288.78007,-119.85321)"
+     points="258.86519,218.51436 260.90483,214.96517 262.94446,218.51436 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Triangle-Copy-5"
+     fill="#db7900"
+     transform="matrix(0,0.69678025,0.69678025,0,38.186423,-171.29954)"
+     points="340.00492,225.81971 342.04455,222.27052 344.08418,225.81971 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Triangle-Copy-21"
+     fill="#db7900"
+     transform="matrix(0,0.69678025,0.69678025,0,-66.914983,-66.198125)"
+     points="264.30636,300.95984 266.346,297.41064 268.38563,300.95984 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Triangle-Copy-50"
+     fill="#db7900"
+     transform="matrix(-0.69678025,0,0,0.69678025,224.95897,-89.079865)"
+     points="190.98552,290.82305 193.02515,287.27386 195.06478,290.82305 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Triangle-Copy-90"
+     fill="#db7900"
+     transform="matrix(-0.69678025,0,0,0.69678025,166.70766,-89.079865)"
+     points="149.18517,258.0026 151.2248,254.45341 153.26444,258.0026 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Triangle-Copy-96"
+     fill="#db7900"
+     transform="matrix(-0.69678025,0,0,0.69678025,166.70766,-89.079865)"
+     points="149.18517,409.36039 151.2248,405.8112 153.26444,409.36039 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Triangle-Copy-99"
+     fill="#db7900"
+     transform="matrix(-0.69678025,0,0,-0.69678025,177.23916,576.28116)"
+     points="156.74243,479.22859 158.78206,475.6794 160.8217,479.22859 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Triangle-Copy-100"
+     fill="#db7900"
+     transform="matrix(-0.69678025,0,0,-0.69678025,197.9511,576.28116)"
+     points="171.60504,479.22859 173.64467,475.6794 175.68431,479.22859 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Triangle-Copy-101"
+     fill="#db7900"
+     transform="matrix(-0.69678025,0,0,-0.69678025,218.34596,576.28116)"
+     points="186.24011,479.22859 188.27974,475.6794 190.31937,479.22859 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Triangle-Copy-102"
+     fill="#db7900"
+     transform="matrix(-0.69678025,0,0,-0.69678025,237.97698,576.28116)"
+     points="200.32706,479.22859 202.36669,475.6794 204.40632,479.22859 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Triangle-Copy-103"
+     fill="#db7900"
+     transform="matrix(-0.69678025,0,0,-0.69678025,257.62961,576.28116)"
+     points="214.42951,479.22859 216.46915,475.6794 218.50878,479.22859 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Triangle-Copy-97"
+     fill="#db7900"
+     transform="matrix(-0.69678025,0,0,0.69678025,187.06856,-89.079865)"
+     points="163.79587,409.36039 165.83551,405.8112 167.87514,409.36039 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Triangle-Copy-98"
+     fill="#db7900"
+     transform="matrix(-0.69678025,0,0,0.69678025,207.78051,-89.079865)"
+     points="178.65848,409.36039 180.69812,405.8112 182.73775,409.36039 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Triangle-Copy-91"
+     fill="#db7900"
+     transform="matrix(-0.69678025,0,0,0.69678025,187.06856,-89.079865)"
+     points="163.79587,257.43396 165.83551,253.88477 167.87514,257.43396 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Triangle-Copy-92"
+     fill="#db7900"
+     transform="matrix(-0.69678025,0,0,0.69678025,207.78051,-89.079865)"
+     points="178.65848,257.43396 180.69812,253.88477 182.73775,257.43396 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Triangle-Copy-93"
+     fill="#db7900"
+     transform="matrix(-0.69678025,0,0,-0.69678025,197.34093,366.51167)"
+     points="171.16718,328.70087 173.20682,325.15167 175.24645,328.70087 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Triangle-Copy-94"
+     fill="#db7900"
+     transform="matrix(-0.69678025,0,0,-0.69678025,215.69627,366.51167)"
+     points="184.33873,328.70087 186.37836,325.15167 188.41799,328.70087 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Triangle-Copy-95"
+     fill="#db7900"
+     transform="matrix(-0.69678025,0,0,-0.69678025,177.23916,366.51167)"
+     points="156.74243,328.70087 158.78206,325.15167 160.8217,328.70087 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Triangle-Copy-51"
+     fill="#db7900"
+     transform="matrix(-0.69678025,0,0,0.69678025,245.27392,-89.079865)"
+     points="205.56324,290.82305 207.60287,287.27386 209.64251,290.82305 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Triangle-Copy-60"
+     fill="#db7900"
+     transform="matrix(-0.69678025,0,0,0.69678025,330.648,-89.079865)"
+     points="266.82651,214.43523 268.86615,210.88604 270.90578,214.43523 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Triangle-Copy-70"
+     fill="#db7900"
+     transform="matrix(-0.69678025,0,0,0.69678025,331.14778,-89.079865)"
+     points="267.18515,366.25674 269.22479,362.70755 271.26442,366.25674 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Triangle-Copy-71"
+     fill="#db7900"
+     transform="matrix(-0.69678025,0,0,0.69678025,351.00889,-89.079865)"
+     points="281.43722,366.39598 283.47685,362.84679 285.51648,366.39598 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Triangle-Copy-72"
+     fill="#db7900"
+     transform="matrix(-0.69678025,0,0,0.69678025,371.36979,-89.079865)"
+     points="296.04792,366.39598 298.08755,362.84679 300.12719,366.39598 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Triangle-Copy-73"
+     fill="#db7900"
+     transform="matrix(-0.69678025,0,0,0.69678025,391.69673,-89.079865)"
+     points="310.63426,366.39598 312.67389,362.84679 314.71353,366.39598 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Triangle-Copy-74"
+     fill="#db7900"
+     transform="matrix(-0.69678025,0,0,0.69678025,412.07461,-89.079865)"
+     points="325.25714,366.39598 327.29678,362.84679 329.33641,366.39598 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Triangle-Copy-75"
+     fill="#db7900"
+     transform="matrix(-0.69678025,0,0,-0.69678025,421.93796,516.8606)"
+     points="332.33495,436.58921 334.37458,433.04002 336.41422,436.58921 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Triangle-Copy-76"
+     fill="#db7900"
+     transform="matrix(-0.69678025,0,0,-0.69678025,401.57706,516.8606)"
+     points="317.72425,436.58921 319.76388,433.04002 321.80351,436.58921 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Triangle-Copy-80"
+     fill="#db7900"
+     transform="matrix(-0.69678025,0,0,-0.69678025,388.57124,576.22459)"
+     points="308.39144,479.188 310.43108,475.63881 312.47071,479.188 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Triangle-Copy-81"
+     fill="#db7900"
+     transform="matrix(-0.69678025,0,0,-0.69678025,408.58108,576.22459)"
+     points="322.75024,479.188 324.78987,475.63881 326.8295,479.188 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Triangle-Copy-82"
+     fill="#db7900"
+     transform="matrix(-0.69678025,0,0,-0.69678025,428.94198,576.22459)"
+     points="337.36094,479.188 339.40057,475.63881 341.44021,479.188 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Triangle-Copy-83"
+     fill="#db7900"
+     transform="matrix(-0.69678025,0,0,-0.69678025,449.64776,576.22459)"
+     points="352.21912,479.188 354.25876,475.63881 356.29839,479.188 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Triangle-Copy-84"
+     fill="#db7900"
+     transform="matrix(-0.69678025,0,0,-0.69678025,468.96168,576.22459)"
+     points="366.07853,479.188 368.11816,475.63881 370.15779,479.188 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Triangle-Copy-77"
+     fill="#db7900"
+     transform="matrix(-0.69678025,0,0,-0.69678025,381.18221,516.8606)"
+     points="303.08918,436.58921 305.12881,433.04002 307.16845,436.58921 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Triangle-Copy-78"
+     fill="#db7900"
+     transform="matrix(-0.69678025,0,0,-0.69678025,360.85527,516.8606)"
+     points="288.50284,436.58921 290.54248,433.04002 292.58211,436.58921 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Triangle-Copy-79"
+     fill="#db7900"
+     transform="matrix(-0.69678025,0,0,-0.69678025,340.46042,516.8606)"
+     points="273.86778,436.58921 275.90741,433.04002 277.94704,436.58921 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Triangle-Copy-61"
+     fill="#db7900"
+     transform="matrix(-0.69678025,0,0,0.69678025,351.00889,-89.079865)"
+     points="281.43722,214.43523 283.47685,210.88604 285.51648,214.43523 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Triangle-Copy-62"
+     fill="#db7900"
+     transform="matrix(-0.69678025,0,0,0.69678025,371.36979,-89.079865)"
+     points="296.04792,214.43523 298.08755,210.88604 300.12719,214.43523 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Triangle-Copy-63"
+     fill="#db7900"
+     transform="matrix(-0.69678025,0,0,0.69678025,391.73069,-89.079865)"
+     points="310.65862,214.43523 312.69826,210.88604 314.73789,214.43523 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Triangle-Copy-64"
+     fill="#db7900"
+     transform="matrix(-0.69678025,0,0,0.69678025,412.05763,-89.079865)"
+     points="325.24496,214.43523 327.28459,210.88604 329.32423,214.43523 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Triangle-Copy-65"
+     fill="#db7900"
+     transform="matrix(-0.69678025,0,0,-0.69678025,421.92098,306.02178)"
+     points="332.32277,285.29415 334.3624,281.74496 336.40203,285.29415 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Triangle-Copy-66"
+     fill="#db7900"
+     transform="matrix(-0.69678025,0,0,-0.69678025,401.59404,306.02178)"
+     points="317.73643,285.29415 319.77606,281.74496 321.8157,285.29415 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Triangle-Copy-67"
+     fill="#db7900"
+     transform="matrix(-0.69678025,0,0,-0.69678025,381.19918,306.02178)"
+     points="303.10136,285.29415 305.14099,281.74496 307.18063,285.29415 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Triangle-Copy-68"
+     fill="#db7900"
+     transform="matrix(-0.69678025,0,0,-0.69678025,360.83829,306.02178)"
+     points="288.49066,285.29415 290.53029,281.74496 292.56993,285.29415 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Triangle-Copy-69"
+     fill="#db7900"
+     transform="matrix(-0.69678025,0,0,-0.69678025,340.47739,306.02178)"
+     points="273.87996,285.29415 275.91959,281.74496 277.95922,285.29415 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Triangle-Copy-52"
+     fill="#db7900"
+     transform="matrix(-0.69678025,0,0,0.69678025,265.63481,-89.079865)"
+     points="220.17394,290.82305 222.21357,287.27386 224.25321,290.82305 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Triangle-Copy-53"
+     fill="#db7900"
+     transform="matrix(-0.69678025,0,0,0.69678025,286.04167,-89.079865)"
+     points="234.81762,290.82305 236.85726,287.27386 238.89689,290.82305 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Triangle-Copy-54"
+     fill="#db7900"
+     transform="matrix(-0.69678025,0,0,0.69678025,306.35661,-89.079865)"
+     points="249.39535,290.82305 251.43498,287.27386 253.47461,290.82305 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Triangle-Copy-55"
+     fill="#db7900"
+     transform="matrix(-0.69678025,0,0,-0.69678025,316.41868,411.30481)"
+     points="256.61576,360.84382 258.65539,357.29463 260.69503,360.84382 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Triangle-Copy-56"
+     fill="#db7900"
+     transform="matrix(-0.69678025,0,0,-0.69678025,295.89405,411.30481)"
+     points="241.88756,360.84382 243.92719,357.29463 245.96682,360.84382 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Triangle-Copy-57"
+     fill="#db7900"
+     transform="matrix(-0.69678025,0,0,-0.69678025,275.57911,411.30481)"
+     points="227.30983,360.84382 229.34947,357.29463 231.3891,360.84382 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Triangle-Copy-58"
+     fill="#db7900"
+     transform="matrix(-0.69678025,0,0,-0.69678025,255.17226,411.30481)"
+     points="212.66615,360.84382 214.70579,357.29463 216.74542,360.84382 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Triangle-Copy-59"
+     fill="#db7900"
+     transform="matrix(-0.69678025,0,0,-0.69678025,234.85731,411.30481)"
+     points="198.08843,360.84382 200.12806,357.29463 202.1677,360.84382 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Triangle-Copy-31"
+     fill="#db7900"
+     transform="matrix(0,0.69678025,0.69678025,0,-66.60158,-66.511535)"
+     points="340.39566,376.61791 342.4353,373.03159 344.47493,376.61791 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Triangle-Copy-41"
+     fill="#db7900"
+     transform="matrix(0,0.69678025,0.69678025,0,-172.14462,39.031515)"
+     points="189.02644,376.67744 191.06607,373.1786 193.1057,376.67744 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Triangle-Copy-85"
+     fill="#db7900"
+     transform="matrix(0,0.69678025,0.69678025,0,-178.70358,45.590465)"
+     points="146.6949,343.75913 148.73453,340.26029 150.77416,343.75913 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Triangle-Copy-86"
+     fill="#db7900"
+     transform="matrix(0,0.69678025,0.69678025,0,-189.05955,55.946435)"
+     points="146.6949,358.62174 148.73453,355.1229 150.77416,358.62174 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Triangle-Copy-87"
+     fill="#db7900"
+     transform="matrix(0,0.69678025,0.69678025,0,-199.36581,66.252705)"
+     points="146.6949,373.41301 148.73453,369.91417 150.77416,373.41301 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Triangle-Copy-88"
+     fill="#db7900"
+     transform="matrix(0,0.69678025,0.69678025,0,-208.74783,75.634725)"
+     points="146.6949,386.87783 148.73453,383.37899 150.77416,386.87783 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Triangle-Copy-89"
+     fill="#db7900"
+     transform="matrix(0,0.69678025,0.69678025,0,-218.13015,85.017045)"
+     points="146.6949,400.34308 148.73453,396.84424 150.77416,400.34308 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Triangle-Copy-11"
+     fill="#db7900"
+     transform="matrix(0,0.69678025,0.69678025,0,-66.895341,-66.217775)"
+     points="189.19443,225.81971 191.23406,222.27052 193.2737,225.81971 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Triangle-Copy-6"
+     fill="#db7900"
+     transform="matrix(0,0.69678025,0.69678025,0,28.444793,-161.5579)"
+     points="340.00492,239.80064 342.04455,236.25145 344.08418,239.80064 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Triangle-Copy-22"
+     fill="#db7900"
+     transform="matrix(0,0.69678025,0.69678025,0,-76.49814,-56.614975)"
+     points="264.53381,314.94077 266.57344,311.39157 268.61307,314.94077 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Triangle-Copy-32"
+     fill="#db7900"
+     transform="matrix(0,0.69678025,0.69678025,0,-76.343216,-56.769895)"
+     points="340.39566,390.59884 342.4353,387.01253 344.47493,390.59884 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Triangle-Copy-42"
+     fill="#db7900"
+     transform="matrix(0,0.69678025,0.69678025,0,-181.88626,48.773145)"
+     points="189.02644,390.65837 191.06607,387.15953 193.1057,390.65837 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Triangle-Copy-12"
+     fill="#db7900"
+     transform="matrix(0,0.69678025,0.69678025,0,-76.636977,-56.476135)"
+     points="189.19443,239.80064 191.23406,236.25145 193.2737,239.80064 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Triangle-Copy-7"
+     fill="#db7900"
+     transform="matrix(0,0.69678025,0.69678025,0,18.088813,-151.20193)"
+     points="340.00492,254.66325 342.04455,251.11406 344.08418,254.66325 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Triangle-Copy-23"
+     fill="#db7900"
+     transform="matrix(0,0.69678025,0.69678025,0,-86.854114,-46.258995)"
+     points="264.53381,329.80338 266.57344,326.25419 268.61307,329.80338 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Triangle-Copy-33"
+     fill="#db7900"
+     transform="matrix(0,0.69678025,0.69678025,0,-86.69919,-46.413925)"
+     points="340.39566,405.46145 342.4353,401.87514 344.47493,405.46145 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Triangle-Copy-43"
+     fill="#db7900"
+     transform="matrix(0,0.69678025,0.69678025,0,-192.24224,59.129125)"
+     points="189.02644,405.52099 191.06607,402.02215 193.1057,405.52099 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Triangle-Copy-13"
+     fill="#db7900"
+     transform="matrix(0,0.69678025,0.69678025,0,-87.081253,-46.031855)"
+     points="189.0677,254.66325 191.10734,251.11406 193.14697,254.66325 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Triangle-Copy-8"
+     fill="#db7900"
+     transform="matrix(0,0.69678025,0.69678025,0,8.3471828,-141.46029)"
+     points="340.00492,268.64419 342.04455,265.09499 344.08418,268.64419 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Triangle-Copy-24"
+     fill="#db7900"
+     transform="matrix(0,0.69678025,0.69678025,0,-96.437025,-36.676085)"
+     points="264.76161,343.78431 266.80124,340.23512 268.84087,343.78431 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Triangle-Copy-34"
+     fill="#db7900"
+     transform="matrix(0,0.69678025,0.69678025,0,-96.440827,-36.672285)"
+     points="340.39566,419.44238 342.4353,415.85607 344.47493,419.44238 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Triangle-Copy-44"
+     fill="#db7900"
+     transform="matrix(0,0.69678025,0.69678025,0,-201.91191,68.798795)"
+     points="189.02644,419.39864 191.06607,415.8998 193.1057,419.39864 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Triangle-Copy-14"
+     fill="#db7900"
+     transform="matrix(0,0.69678025,0.69678025,0,-96.734587,-36.378525)"
+     points="189.19443,268.64419 191.23406,265.09499 193.2737,268.64419 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Triangle-Copy-9"
+     fill="#db7900"
+     transform="matrix(0,0.69678025,0.69678025,0,-0.95564722,-132.15747)"
+     points="340.00492,281.99534 342.04455,278.44615 344.08418,281.99534 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Triangle-Copy-25"
+     fill="#db7900"
+     transform="matrix(0,0.69678025,0.69678025,0,-105.73985,-27.373265)"
+     points="264.76161,357.13547 266.80124,353.58628 268.84087,357.13547 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Triangle-Copy-35"
+     fill="#db7900"
+     transform="matrix(0,0.69678025,0.69678025,0,-105.74365,-27.369465)"
+     points="340.39566,432.79354 342.4353,429.20723 344.47493,432.79354 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Triangle-Copy-45"
+     fill="#db7900"
+     transform="matrix(0,0.69678025,0.69678025,0,-210.86786,77.754755)"
+     points="189.52426,432.7498 191.56389,429.25096 193.60352,432.7498 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Triangle-Copy-104"
+     fill="#db7900"
+     transform="matrix(0,0.69678025,0.69678025,0,-218.32522,85.212105)"
+     points="222.72856,476.6567 224.76819,473.15785 226.80783,476.6567 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Triangle-Copy-107"
+     fill="#db7900"
+     transform="matrix(0,0.69678025,-0.69678025,0,487.36955,31.571255)"
+     points="292.71016,469.65442 294.7498,466.15558 296.78943,469.65442 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Triangle-Copy-108"
+     fill="#db7900"
+     transform="matrix(0,0.69678025,-0.69678025,0,477.54016,21.741865)"
+     points="292.71016,455.54754 294.7498,452.0487 296.78943,455.54754 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Triangle-Copy-109"
+     fill="#db7900"
+     transform="matrix(0,0.69678025,-0.69678025,0,468.255,12.456705)"
+     points="292.71016,442.22173 294.7498,438.72289 296.78943,442.22173 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Triangle-Copy-105"
+     fill="#db7900"
+     transform="matrix(0,0.69678025,0.69678025,0,-208.72063,75.607515)"
+     points="222.72856,462.87246 224.76819,459.37361 226.80783,462.87246 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Triangle-Copy-106"
+     fill="#db7900"
+     transform="matrix(0,0.69678025,0.69678025,0,-199.15376,66.040655)"
+     points="222.54157,448.95536 224.58121,445.45652 226.62084,448.95536 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Triangle-Copy-15"
+     fill="#db7900"
+     transform="matrix(0,0.69678025,0.69678025,0,-106.03741,-27.075705)"
+     points="189.19443,281.99534 191.23406,278.44615 193.2737,281.99534 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Triangle-Copy"
+     fill="#db7900"
+     transform="matrix(0,0.69678025,-0.69678025,0,404.52645,-216.11631)"
+     points="411.0003,232.49529 413.03994,228.9461 415.07957,232.49529 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Triangle-Copy-26"
+     fill="#db7900"
+     transform="matrix(0,0.69678025,-0.69678025,0,403.83996,-110.63859)"
+     points="334.81832,307.69206 336.85795,304.14286 338.89758,307.69206 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Triangle-Copy-36"
+     fill="#db7900"
+     transform="matrix(0,0.69678025,-0.69678025,0,509.44372,-110.91305)"
+     points="410.79507,383.29349 412.83471,379.70718 414.87434,383.29349 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Triangle-Copy-46"
+     fill="#db7900"
+     transform="matrix(0,0.69678025,-0.69678025,0,403.56494,-5.034265)"
+     points="258.84074,383.24975 260.88038,379.75091 262.92001,383.24975 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Triangle-Copy-16"
+     fill="#db7900"
+     transform="matrix(0,0.69678025,-0.69678025,0,298.52171,-110.11158)"
+     points="258.86519,232.49529 260.90483,228.9461 262.94446,232.49529 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Triangle-Copy-2"
+     fill="#db7900"
+     transform="matrix(0,0.69678025,-0.69678025,0,414.88242,-205.76034)"
+     points="411.0003,247.3579 413.03994,243.80871 415.07957,247.3579 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Triangle-Copy-27"
+     fill="#db7900"
+     transform="matrix(0,0.69678025,-0.69678025,0,414.19593,-100.28262)"
+     points="334.81832,322.55467 336.85795,319.00547 338.89758,322.55467 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Triangle-Copy-37"
+     fill="#db7900"
+     transform="matrix(0,0.69678025,-0.69678025,0,519.79969,-100.55707)"
+     points="410.79507,398.1561 412.83471,394.56979 414.87434,398.1561 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Triangle-Copy-47"
+     fill="#db7900"
+     transform="matrix(0,0.69678025,-0.69678025,0,414.15942,5.288305)"
+     points="259.03587,398.25954 261.0755,394.7607 263.11513,398.25954 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Triangle-Copy-17"
+     fill="#db7900"
+     transform="matrix(0,0.69678025,-0.69678025,0,308.87768,-99.755595)"
+     points="258.86519,247.3579 260.90483,243.80871 262.94446,247.3579 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Triangle-Copy-3"
+     fill="#db7900"
+     transform="matrix(0,0.69678025,-0.69678025,0,424.62406,-196.0187)"
+     points="411.0003,261.33884 413.03994,257.78964 415.07957,261.33884 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Triangle-Copy-28"
+     fill="#db7900"
+     transform="matrix(0,0.69678025,-0.69678025,0,423.93757,-90.540975)"
+     points="334.81832,336.5356 336.85795,332.9864 338.89758,336.5356 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Triangle-Copy-38"
+     fill="#db7900"
+     transform="matrix(0,0.69678025,-0.69678025,0,529.54133,-90.815435)"
+     points="410.79507,412.13703 412.83471,408.55072 414.87434,412.13703 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Triangle-Copy-48"
+     fill="#db7900"
+     transform="matrix(0,0.69678025,-0.69678025,0,423.87047,14.999355)"
+     points="259.03587,412.19657 261.0755,408.69772 263.11513,412.19657 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Triangle-Copy-18"
+     fill="#db7900"
+     transform="matrix(0,0.69678025,-0.69678025,0,318.61932,-90.013965)"
+     points="258.86519,261.33884 260.90483,257.78964 262.94446,261.33884 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Triangle-Copy-4"
+     fill="#db7900"
+     transform="matrix(0,0.69678025,-0.69678025,0,434.36569,-186.27707)"
+     points="411.0003,275.31977 413.03994,271.77057 415.07957,275.31977 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Triangle-Copy-29"
+     fill="#db7900"
+     transform="matrix(0,0.69678025,-0.69678025,0,433.67921,-80.799345)"
+     points="334.81832,350.51653 336.85795,346.96734 338.89758,350.51653 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Triangle-Copy-39"
+     fill="#db7900"
+     transform="matrix(0,0.69678025,-0.69678025,0,539.28296,-81.073795)"
+     points="410.79507,426.11796 412.83471,422.53165 414.87434,426.11796 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Triangle-Copy-49"
+     fill="#db7900"
+     transform="matrix(0,0.69678025,-0.69678025,0,433.53929,24.668175)"
+     points="259.03587,426.073 261.0755,422.57416 263.11513,426.073 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Triangle-Copy-19"
+     fill="#db7900"
+     transform="matrix(0,0.69678025,-0.69678025,0,328.36095,-80.272325)"
+     points="258.86519,275.31977 260.90483,271.77057 262.94446,275.31977 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <rect
+     id="rect2"
+     fill="#ffffff"
+     x="95.55069"
+     y="212.69591"
+     width="12.777642"
+     height="1.5779545"
+     style="fill-rule:evenodd;stroke:none;stroke-width:0.69678" />
+  <text
+     id="1"
+     font-family="Roboto-Bold, Roboto"
+     font-size="8.36136px"
+     font-weight="bold"
+     fill="#000000"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.3333px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill-rule:evenodd;stroke:none;stroke-width:0.69678"
+     x="-48.033249"
+     y="-85.079865"><tspan
+       x="29.366623"
+       y="105.56316"
+       id="tspan2"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.3333px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.69678">1</tspan></text>
+  <text
+     id="2"
+     font-family="Roboto-Bold, Roboto"
+     font-size="8.36136px"
+     font-weight="bold"
+     fill="#000000"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.3333px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill-rule:evenodd;stroke:none;stroke-width:0.69678"
+     x="-44.033249"
+     y="-89.079865"><tspan
+       x="89.307281"
+       y="26.139511"
+       id="tspan3"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.3333px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.69678">2</tspan></text>
+  <text
+     id="3"
+     font-family="Roboto-Bold, Roboto"
+     font-size="8.36136px"
+     font-weight="bold"
+     fill="#000000"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.3333px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill-rule:evenodd;stroke:none;stroke-width:0.69678"
+     x="-44.033249"
+     y="-89.079865"><tspan
+       x="228.62314"
+       y="19.574966"
+       id="tspan5"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.3333px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.69678">3</tspan></text>
+  <text
+     id="4"
+     font-family="Roboto-Bold, Roboto"
+     font-size="8.36136px"
+     font-weight="bold"
+     fill="#000000"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.3333px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill-rule:evenodd;stroke:none;stroke-width:0.69678"
+     x="-44.033249"
+     y="-89.079865"><tspan
+       x="284.60663"
+       y="75.350815"
+       id="tspan6"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.3333px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.69678">4</tspan></text>
+  <text
+     id="5"
+     font-family="Roboto-Bold, Roboto"
+     font-size="8.36136px"
+     font-weight="bold"
+     fill="#000000"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.3333px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill-rule:evenodd;stroke:none;stroke-width:0.69678"
+     x="-44.033249"
+     y="-89.079865"><tspan
+       x="274.9306"
+       y="128.05821"
+       id="tspan7"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.3333px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.69678">5</tspan></text>
+  <text
+     id="6"
+     font-family="Roboto-Bold, Roboto"
+     font-size="8.36136px"
+     font-weight="bold"
+     fill="#000000"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.3333px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill-rule:evenodd;stroke:none;stroke-width:0.69678"
+     x="-44.033249"
+     y="-89.079865"><tspan
+       x="162.91544"
+       y="280.81219"
+       id="tspan8"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.3333px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.69678">6</tspan></text>
+  <text
+     id="6-4"
+     font-family="Roboto-Bold, Roboto"
+     font-size="8.36136px"
+     font-weight="bold"
+     fill="#000000"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.3333px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:0.69678"
+     x="4.199295"
+     y="-105.05652"><tspan
+       x="211.14798"
+       y="264.83551"
+       id="tspan8-6"
+       style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.3333px;font-family:Arial;-inkscape-font-specification:'Arial, Italic';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.69678">θ°</tspan></text>
+  <line
+     x1="281.01474"
+     y1="176.74181"
+     x2="246.17572"
+     y2="176.74181"
+     id="Line-12"
+     stroke="#000000"
+     stroke-linecap="square"
+     style="fill:none;fill-rule:evenodd;stroke-width:0.69678" />
+  <line
+     x1="281.01474"
+     y1="246.41982"
+     x2="216.91095"
+     y2="245.72304"
+     id="Line-13"
+     stroke="#000000"
+     stroke-linecap="square"
+     style="fill:none;fill-rule:evenodd;stroke-width:0.69678" />
+  <path
+     d="m 97.599063,28.229865 c 8.013247,6.90285 12.225107,17.36642 12.127917,28.51912"
+     id="Path-Copy-12"
+     stroke="#000000"
+     style="fill:none;fill-rule:evenodd;stroke-width:1.33333;stroke-dasharray:none" />
+  <path
+     d="m 230.73552,21.665305 c -8.01325,6.90284 -12.22512,17.36641 -12.12793,28.5191"
+     id="Path-Copy-13"
+     stroke="#000000"
+     style="fill:none;fill-rule:evenodd;stroke-width:1.33333;stroke-dasharray:none" />
+  <path
+     d="m 251.99838,83.721675 c 7.31277,-7.64101 17.98243,-11.29949 29.11475,-10.61874"
+     id="Path-Copy-14"
+     stroke="#000000"
+     style="fill:none;fill-rule:evenodd;stroke-width:1.33333;stroke-dasharray:none" />
+  <path
+     d="m 245.27127,136.5131 c 7.31277,-7.641 17.98243,-11.29947 29.11475,-10.61872"
+     id="Path-Copy-15"
+     stroke="#000000"
+     style="fill:none;fill-rule:evenodd;stroke-width:1.33333;stroke-dasharray:none" />
+  <path
+     d="m 173.69018,272.72562 c 7.31277,-7.64101 17.98243,-11.29948 29.11474,-10.61874"
+     id="Path-Copy-16"
+     stroke="#000000"
+     style="fill:none;fill-rule:evenodd;stroke-width:1.33333;stroke-dasharray:none" />
+  <path
+     d="m 37.991393,99.547575 c 4.56055,-4.43305 11.66676,-6.12285 19.35262,-5.01657"
+     id="Path-Copy-17"
+     stroke="#000000"
+     style="fill:none;fill-rule:evenodd;stroke-width:1.33333;stroke-dasharray:none" />
+  <rect
+     style="fill:none;stroke-width:1.33333;stroke-dasharray:none"
+     id="rect9"
+     width="325.63065"
+     height="297.11499"
+     x="0"
+     y="0" />
+</svg>

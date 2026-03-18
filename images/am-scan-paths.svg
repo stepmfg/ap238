@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="481.0871"
+   height="199.60973"
+   viewBox="0 0 481.0871 199.60973"
+   version="1.1"
+   id="svg8"
+   sodipodi:docname="am-scan-paths.svg"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs8" />
+  <sodipodi:namedview
+     id="namedview8"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="1.0871212"
+     inkscape:cx="233.18467"
+     inkscape:cy="165.11498"
+     inkscape:window-width="1920"
+     inkscape:window-height="1057"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg8" />
+  <title
+     id="title1">Figure 6 Copy</title>
+  <path
+     d="m 215.90073,49.924635 c 2.54112,-1.58119 5.57308,-2.17767 8.52378,-1.67688 v 0 l 189.61192,32.18046 c 1.55677,0.2642 2.85906,1.1344 3.70611,2.32774 0.84704,1.19334 1.23885,2.70982 0.97464,4.26657 -0.267,1.57321 -1.17922,2.96327 -2.5162,3.83431 v 0 L 298.19303,167.73746 c -6.34371,4.13285 -14.00751,5.73432 -21.47537,4.48761 v 0 L 88.733289,140.84235 c -1.55747,-0.26 -2.8621,-1.12669 -3.71237,-2.31774 -0.85026,-1.19105 -1.24616,-2.70646 -0.98615,-4.26392 0.27047,-1.6201 1.22455,-3.04566 2.61912,-3.91343 v 0 z"
+     id="Rectangle"
+     stroke="#a70000"
+     stroke-width="1.63376"
+     fill="#fffefe"
+     style="fill-rule:evenodd" />
+  <path
+     d="m 418.75575,85.835105 v 10.24412 c 0,2.20827 -1.11523,4.267185 -2.96485,5.473605 l -114.90463,74.9468 v 0 c -6.50753,4.24454 -14.36922,5.88929 -22.0299,4.60889 L 89.410809,149.30729 c -3.14766,-0.52838 -5.45317,-3.25315 -5.45317,-6.44485 v -7.67878 0"
+     id="Path"
+     stroke="#a70000"
+     stroke-width="1.63376"
+     style="fill:none;fill-rule:evenodd" />
+  <line
+     x1="143.60793"
+     y1="143.59615"
+     x2="276.95038"
+     y2="58.281815"
+     id="Path-27"
+     stroke="#dbb748"
+     stroke-linecap="round"
+     style="fill:none;fill-rule:evenodd;stroke-width:0.816879" />
+  <line
+     x1="98.177231"
+     y1="141.38914"
+     x2="242.31801"
+     y2="53.66304"
+     id="Path-27-Copy"
+     stroke="#dbb748"
+     stroke-linecap="round"
+     style="fill:none;fill-rule:evenodd;stroke-width:0.816879" />
+  <line
+     x1="179.46104"
+     y1="154.8795"
+     x2="314.70789"
+     y2="68.351334"
+     id="Path-27-Copy-2"
+     stroke="#dbb748"
+     stroke-linecap="round"
+     style="fill:none;fill-rule:evenodd;stroke-width:0.816879" />
+  <g
+     id="Group"
+     transform="matrix(0.81687858,0,0,0.81687858,302.99755,165.20414)"
+     stroke="#000000"
+     style="fill:none;fill-rule:evenodd;stroke-width:1">
+    <polyline
+       id="polyline1"
+       points="10.1505282 6.01012832 10.1505282 12.7087402 1.20496495e-13 12.7087402" />
+    <polyline
+       id="polyline2"
+       points="1.33912676e-13 -8.39154031e-14 10.1505282 0 10.1505282 6.01012832" />
+  </g>
+  <path
+     d="m 135.32506,56.906195 c 9.39443,8.09263 14.33226,20.35973 14.21832,33.43471"
+     id="Path-Copy-18"
+     stroke="#000000"
+     style="fill:none;fill-rule:evenodd;stroke-width:1.33333;stroke-dasharray:none" />
+  <path
+     d="m 210.71498,24.883185 c 32.60797,10.54554 51.45161,25.75151 53.85809,41.50844"
+     id="Path-Copy-19"
+     stroke="#000000"
+     style="fill:none;fill-rule:evenodd;stroke-width:1.33333;stroke-dasharray:none" />
+  <path
+     d="m 376.51408,50.877535 c -9.39443,8.09264 -14.33226,20.35973 -14.21832,33.43472"
+     id="Path-Copy-20"
+     stroke="#000000"
+     style="fill:none;fill-rule:evenodd;stroke-width:1.33333;stroke-dasharray:none" />
+  <path
+     d="M 348.85353,179.45725 C 339.44761,172.59417 325.37479,169.0906 310.48208,169.3444"
+     id="Path-Copy-21"
+     stroke="#000000"
+     style="fill:none;fill-rule:evenodd;stroke-width:1.33333;stroke-dasharray:none" />
+  <text
+     id="1"
+     font-family="Roboto-Bold, Roboto"
+     font-size="9.80254px"
+     font-weight="bold"
+     fill="#000000"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill-rule:evenodd;stroke:none;stroke-width:1.33333;stroke-dasharray:none"
+     x="69.526566"
+     y="-0.025115967"><tspan
+       x="123.27977"
+       y="57.480484"
+       id="tspan2"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:1.33333;stroke-dasharray:none">1</tspan></text>
+  <text
+     id="2"
+     font-family="Roboto-Bold, Roboto"
+     font-size="9.80254px"
+     font-weight="bold"
+     fill="#000000"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill-rule:evenodd;stroke:none;stroke-width:1.33333;stroke-dasharray:none"
+     x="41.171165"
+     y="18.971405"><tspan
+       x="196.47063"
+       y="27.957077"
+       id="tspan3"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:1.33333;stroke-dasharray:none">2</tspan></text>
+  <text
+     id="3"
+     font-family="Roboto-Bold, Roboto"
+     font-size="9.80254px"
+     font-weight="bold"
+     fill="#000000"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill-rule:evenodd;stroke:none;stroke-width:1.33333;stroke-dasharray:none"
+     x="73.526566"
+     y="-0.025115967"><tspan
+       x="378.11859"
+       y="53.341324"
+       id="tspan4"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:1.33333;stroke-dasharray:none">3</tspan></text>
+  <text
+     id="4"
+     font-family="Roboto-Bold, Roboto"
+     font-size="9.80254px"
+     font-weight="bold"
+     fill="#000000"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill-rule:evenodd;stroke:none;stroke-width:1.33333;stroke-dasharray:none"
+     x="77.526566"
+     y="-10.025116"><tspan
+       x="350.24023"
+       y="186.86314"
+       id="tspan5"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:1.33333;stroke-dasharray:none">4</tspan></text>
+  <path
+     id="Path-4-Copy-4"
+     d="m 47.162559,148.9947 -5.87629,11.35585 -2.88642,-3.9618 -22.528006,16.41316 -0.962024,-1.32048 22.52775,-16.41358 -2.88547,-3.96067 z"
+     fill-rule="nonzero"
+     style="fill:#000000;stroke:none;stroke-width:0.816879" />
+  <path
+     id="Path-4-Copy-5"
+     d="m 15.533727,171.33739 33.173492,5.8932 0.85726,-4.82503 10.25969,7.63053 -12.26023,3.62944 0.85737,-4.82569 -33.173374,-5.89389 z"
+     fill-rule="nonzero"
+     style="fill:#000000;stroke:none;stroke-width:0.816879" />
+  <text
+     id="Y-Copy"
+     font-family="Roboto-Bold, Roboto"
+     font-size="9.80254px"
+     font-weight="bold"
+     style="fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:0.816879"
+     x="12.519501"
+     y="117.49635"><tspan
+       x="47.728676"
+       y="150.89308"
+       id="tspan6"
+       style="stroke-width:0.816879">Y</tspan></text>
+  <text
+     id="Z-Copy-2"
+     font-family="Roboto-Bold, Roboto"
+     font-size="9.80254px"
+     font-weight="bold"
+     style="fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:0.816879"
+     x="12.519501"
+     y="117.49635"><tspan
+       x="12.519501"
+       y="126.48201"
+       id="tspan7"
+       style="stroke-width:0.816879">Z</tspan></text>
+  <text
+     id="X"
+     font-family="Roboto-Bold, Roboto"
+     font-size="9.80254px"
+     font-weight="bold"
+     style="fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:0.816879"
+     x="12.519501"
+     y="117.49635"><tspan
+       x="62.638748"
+       y="185.07454"
+       id="tspan8"
+       style="stroke-width:0.816879">X</tspan></text>
+  <path
+     id="Path-4-Copy-3"
+     d="m 15.770461,129.74053 5.71815,11.4363 -4.901873,-8.1e-4 6.02e-4,31.76449 h -1.633757 l -6.02e-4,-31.76449 -4.90067,8.1e-4 z"
+     fill-rule="nonzero"
+     style="fill:#000000;stroke:none;stroke-width:0.816879" />
+  <polygon
+     id="Triangle-Copy-11"
+     fill="#dbb748"
+     transform="matrix(-0.58761327,-0.56745154,-0.56745154,0.58761327,536.07556,183.66486)"
+     points="292.0176,79.88123 300.80742,97.321201 289.1171,90.226236 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Triangle-Copy-13"
+     fill="#dbb748"
+     transform="matrix(-0.54659846,-0.60705909,-0.60705909,0.54659846,667.88528,261.49089)"
+     points="387.81977,95.982144 396.6096,113.42212 384.91927,106.32715 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Triangle-Copy-12"
+     fill="#dbb748"
+     transform="matrix(-0.58761327,-0.56745154,-0.56745154,0.58761327,398.36648,128.02677)"
+     points="200.21938,64.654675 208.96615,80.478265 197.81721,74.72405 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Triangle-Copy-14"
+     fill="#dbb748"
+     transform="matrix(0.07119566,-0.81377011,-0.81377011,-0.07119566,375.07457,327.23939)"
+     points="194.58927,188.24306 197.71268,202.88927 185.52927,206.60925 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Triangle-Copy-15"
+     fill="#dbb748"
+     transform="matrix(0.07119566,-0.81377011,-0.81377011,-0.07119566,287.27914,231.42749)"
+     points="95.089272,171.53075 98.212677,186.17696 86.029272,189.89695 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <line
+     x1="341.62183"
+     y1="80.970139"
+     x2="382.24518"
+     y2="87.759232"
+     id="Path-29"
+     stroke="#000000"
+     stroke-linecap="round"
+     style="fill:none;fill-rule:evenodd;stroke-width:0.816879" />
+  <line
+     x1="222.95265"
+     y1="158.12407"
+     x2="355.80029"
+     y2="71.662186"
+     id="Path-27-Copy-3"
+     stroke="#dbb748"
+     stroke-linecap="round"
+     style="fill:none;fill-rule:evenodd;stroke-width:0.816879" />
+  <line
+     x1="259.69464"
+     y1="168.23933"
+     x2="390.77051"
+     y2="82.57637"
+     id="Path-27-Copy-5"
+     stroke="#dbb748"
+     stroke-linecap="round"
+     style="fill:none;fill-rule:evenodd;stroke-width:0.816879" />
+  <rect
+     style="fill:none;stroke-width:1.33333;stroke-dasharray:none"
+     id="rect8"
+     width="481.0871"
+     height="199.60973"
+     x="0"
+     y="0"
+     ry="0" />
+</svg>

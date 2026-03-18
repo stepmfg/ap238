@@ -34,7 +34,7 @@ of the activities identified as being within the scope of this
 application protocol in <a href="annexF.htm">Annex F</a>.</P>
 
 <P CLASS="note">
-<SPAN>NOTE 3</SPAN> The mapping specification given 
+<SPAN>NOTE 3</SPAN> The mapping specification given
 in <a href="clause5.htm#mappings">clause 5.1</a> defines how the
 integrated resources and application interpreted constructs are used
 to meet the information requirements of this application protocol.</P>
@@ -1482,7 +1482,7 @@ Adaptive_control is shown below.  Refer to ISO 14649-11 for the
 complete definition and explanation of usage.</P>
 
 <PRE CLASS="note">
-ENTITY Adaptive_control; 
+ENTITY Adaptive_control;
 END_ENTITY;
 </PRE>
 
@@ -1846,7 +1846,7 @@ Am_compound_feature is shown below.  Refer to ISO 14649-17 for the
 complete definition and explanation of usage.</P>
 
 <PRE CLASS="note">
-ENTITY Am_compound_feature 
+ENTITY Am_compound_feature
   SUBTYPE OF (Am_feature);
   its_am_features:	SET [2:?] OF Am_feature;
 END_ENTITY;
@@ -2002,7 +2002,7 @@ application object is shown below.</P>
 <PRE CLASS="note">
 ENTITY Am_downskin_identification 	-- ADDED BY 10303-238e4
 SUBTYPE OF (Am_pbf_identification);
-  downskin_angle	 : Angle_data_element;   
+  downskin_angle	 : Angle_data_element;
   downskin_thickness 	 : Layer_count;
 END_ENTITY;
 
@@ -2020,7 +2020,7 @@ slope classified as this type of skin.</p>
 surface where this strategy shall apply.
 
 
-<FIGURE ID="fig-downskin-thickness">
+<FIGURE ID="fig-ap-downskin-thickness">
 <IMG SRC="../images/am-downskin-thickness.svg" ALT="Downskin Thickness">
 <DIV class=key>
 <B>Key</B>
@@ -2028,7 +2028,7 @@ surface where this strategy shall apply.
 <p>2&emsp;Number of layers given by downskin_thickness</p>
 <p>3&emsp;No downskin feature present</p>
 </DIV>
-<FIGCAPTION>Figure 1 &mdash; Downskin Angle and Thickness</FIGCAPTION>
+<FIGCAPTION>Figure 1 &mdash; Downskin angle and thickness</FIGCAPTION>
 </FIGURE>
 
 
@@ -2109,7 +2109,7 @@ description for Am_feature, as adapted by this document, is shown
 below.</P>
 
 <PRE CLASS="note">
-ENTITY Am_feature 
+ENTITY Am_feature
   ABSTRACT SUPERTYPE OF (ONEOF (Am_compound_feature,
     Am_simple_feature, Am_gradient_feature, Am_heterogenuous_feature))
   SUBTYPE OF (Manufacturing_feature);
@@ -2210,10 +2210,10 @@ shell.</p>
 <p>The intersection_curve specifies a composite curve around the
 boundary of the shared area with counter clockwise curves describing
 outer boundaries and clockwise curves for inner boundaries.</p>
- 
 
 
-<FIGURE ID="fig-downskin-thickness">
+
+<FIGURE ID="fig-am-feature-intersection">
 <IMG SRC="../images/am-feature-intersection.svg" ALT="Feature Intersection">
 <DIV class=key>
 <B>Key</B>
@@ -2222,7 +2222,7 @@ outer boundaries and clockwise curves for inner boundaries.</p>
 <p>3&emsp;Intersection curve on feature A</p>
 <p>4&emsp;Intersection curve on feature B</p>
 </DIV>
-<FIGCAPTION>Figure 2 &mdash; Additive Manufacturing Feature Intersection</FIGCAPTION>
+<FIGCAPTION>Figure 2 &mdash; Additive manufacturing feature intersection</FIGCAPTION>
 </FIGURE>
 
 
@@ -2248,14 +2248,14 @@ secondary_material attributes;</LI>
 </UL>
 
 <PRE CLASS="note">
-ENTITY Am_gradient_feature 
+ENTITY Am_gradient_feature
   SUBTYPE OF (Am_feature);
 
   -- 10303-238: change to relate two features.  The attributes of the
   -- secondary feature give the original secondary_* attributes.  The
   -- primary_shape_representation of each feature provides the
   -- surfaces.
-     
+
   -- primary_surface:	elementary_surface;
   -- secondary_surface: elementary_surface;
   -- secondary_colour: 	OPTIONAL Colour;
@@ -2328,7 +2328,7 @@ below.  Refer to ISO 14649-17 for the complete definition and
 explanation of usage.</P>
 
 <PRE CLASS="note">
-ENTITY Am_heterogenuous_atom; 
+ENTITY Am_heterogenuous_atom;
   local_coord_axes:	Axis_placement_3d;
   -- its_material: 	material;
   its_colour: 		Colour;
@@ -2369,7 +2369,7 @@ Am_heterogenuous_feature is shown below.  Refer to ISO 14649-17 for
 the complete definition and explanation of usage.</P>
 
 <PRE CLASS="note">
-ENTITY Am_heterogenuous_feature 
+ENTITY Am_heterogenuous_feature
   SUBTYPE OF (Am_feature);
   items:	SET [1:?] OF Am_heterogenuous_atom;
 END_ENTITY;
@@ -2413,7 +2413,7 @@ END_TYPE;
 <H3 ID="ao-am_internal_composite_curve_segment">4.3.28 Am_internal_composite_curve_segment</H3>
 </DIV>
 
-<P>An Am_internal_composite_curve_segment application object is a type 
+<P>An Am_internal_composite_curve_segment application object is a type
 of Composite_curve_segment that describes a curve segment that does
 adjoins a curve segment of another Am_composite_curve.</P>
 
@@ -2619,7 +2619,7 @@ DERIVE
   master		: OPTIONAL Am_oned_pbf_contour_operation;
   discontinuous	: OPTIONAL BOOLEAN;
   contour_path: toolpath_list := SELF\Operation.its_toolpath;
-WHERE 
+WHERE
    WR1: NOT EXISTS (master) OR contour_offset = master.contour_offset;
    WR2: NOT EXISTS (master) OR contour_direction = master.contour_direction;
    *)
@@ -2638,8 +2638,8 @@ included in other regions that are also on the part boundary.</P>
 <P CLASS="note">
 <SPAN>NOTE 3</SPAN> The master of a region is determined by the
 identification of the region.  If one exists, then this contour
-describes process information that shall be applied to the paths of
-this parent while they are in this region.</P>
+describes process information that applies to the paths of this parent
+while they are in this region.</P>
 
 <H4 ID="ao-am_oned_pbf_contour_operation-contour_offset">4.3.34.1 contour_offset</H4>
 
@@ -2662,19 +2662,78 @@ layers unless a value of clockwise or counter clockwise is given.</p>
 <H3 ID="ao-am_oned_pbf_hatch_operation">4.3.35 Am_oned_pbf_hatch_operation</H3>
 </DIV>
 
-<P>An Am_oned_pbf_hatch_operation application object is a type of</P>
+<P>An Am_oned_pbf_hatch_operation application object is a type of
+Am_oned_pbf_infill_operation that defines how to fills an area with
+hatches.</P>
 
 <P>The data associated with a Am_oned_pbf_hatch_operation are the
 following:</P>
+
 <UL>
+<LI>hatch_space;</LI>
+<LI>hatch_style.</LI>
 </UL>
 
 <P CLASS="note">
-<SPAN>NOTE</SPAN> The EXPRESS description for the Am_oned_pbf_hatch_operation
+<SPAN>NOTE 1</SPAN> The EXPRESS description for the Am_oned_pbf_hatch_operation
 application object is shown below.</P>
 
 <PRE CLASS="note">
+ENTITY Am_oned_pbf_hatch_operation	-- ADDED BY 10303-238e4
+SUBTYPE OF (Am_oned_pbf_infill_operation);
+   hatch_space		: Length_data_element;
+   hatch_style		: OPTIONAL Hatch_type;
+   (*
+DERIVE
+   master		: OPTIONAL Am_oned_pbf_hatch_operation;
+   hatch_path: toolpath_list := SELF\Operation.its_toolpath;
+WHERE
+   WR1: NOT EXISTS (master) OR hatch_space = master.hatch_space;
+   WR2: NOT EXISTS (master) OR hatch_style = master.hatch_style;
+   *)
+END_ENTITY;
+
+TYPE Hatch_type = ENUMERATION OF (snake, raster_left, raster_right);
+END_TYPE;
 </PRE>
+
+<P CLASS="note">
+<SPAN>NOTE 2</SPAN> The master of a region is determined by the
+identification of the region.  If one exists, then this contour
+describes process information that applies to the paths of this parent
+while they are in this region.</P>
+
+<H4 ID="ao-am_oned_pbf_hatch_operation-hatch_space">4.3.35.1 hatch_space</H4>
+
+<p>The hatch_space specifies the distance between two consecutive
+parallel paths in the hatch.</p>
+
+<H4 ID="ao-am_oned_pbf_hatch_operation-hatch_style">4.3.35.2 hatch_style</H4>
+
+<p>The hatch_style specifies the method for moving the beam between
+the hatch scan paths.  The default is snake.</p>
+<UL>
+<LI>snake, the hatch paths alternate directions;</LI>
+<LI>raster_left, the hatch paths are all in the same direction starting from the left;</LI>
+<LI>raster_right, the hatch paths are all in the same direction starting from the right.</LI>
+</UL>
+
+
+<FIGURE ID="fig-am-hatch-space">
+<IMG SRC="../images/am-hatch-space.svg" ALT="Hatch Spacing">
+<DIV class=key>
+<B>Key</B>
+<p>1&emsp;Part Border</p>
+<p>2&emsp;Each contour can have a unique Power, Speed and Offset</p>
+<p>3&emsp;Hatch Spacing</p>
+<p>4&emsp;Stripe Length</p>
+<p>5&emsp;Stripe Overlap</p>
+<p>6&emsp;Hatch Offset</p>
+<p>7&emsp;Contour Offset N</p>
+<p>8&emsp;Contour Offset 1</p>
+</DIV>
+<FIGCAPTION>Figure 3 &mdash; Additive manufacturing hatch spacing</FIGCAPTION>
+</FIGURE>
 
 
 
@@ -2686,11 +2745,15 @@ application object is shown below.</P>
 <H3 ID="ao-am_oned_pbf_infill_operation">4.3.36 Am_oned_pbf_infill_operation</H3>
 </DIV>
 
-<P>An Am_oned_pbf_infill_operation application object is a type of</P>
+<P>An Am_oned_pbf_infill_operation application object is a type of
+Am_oned_pbf_operation that defines how to fill the area defined by a
+region with scan paths.</P>
 
 <P>The data associated with a Am_oned_pbf_infill_operation are the
 following:</P>
+
 <UL>
+<LI>offset.</LI>
 </UL>
 
 <P CLASS="note">
@@ -2698,7 +2761,20 @@ following:</P>
 application object is shown below.</P>
 
 <PRE CLASS="note">
+ENTITY Am_oned_pbf_infill_operation	-- ADDED BY 10303-238e4
+  ABSTRACT SUPERTYPE
+  SUBTYPE OF (Am_oned_pbf_operation);
+  offset		: Length_data_element;
+END_ENTITY;
 </PRE>
+
+
+<H4 ID="ao-am_oned_pbf_infill_operation-offset">4.3.36.1 offset</H4>
+
+<p>The offset specifies the offset for any scan paths in the infill
+that start at a part boundary. If the offset is negative then the scan
+paths begin and end beyond the boundary.</p>
+
 
 
 
@@ -2710,22 +2786,32 @@ application object is shown below.</P>
 <H3 ID="ao-am_oned_pbf_operation">4.3.37 Am_oned_pbf_operation</H3>
 </DIV>
 
-<P>An Am_oned_pbf_operation application object is a type of</P>
-
-<P>The data associated with a Am_oned_pbf_operation are the
-following:</P>
-<UL>
-</UL>
+<P>An Am_oned_pbf_operation application object is a type of
+Am_pbf_operation that defines paths for the laser.</P>
 
 <P CLASS="note">
 <SPAN>NOTE</SPAN> The EXPRESS description for the Am_oned_pbf_operation
 application object is shown below.</P>
 
 <PRE CLASS="note">
+ENTITY Am_oned_pbf_operation	-- ADDED BY 10303-238e4
+  ABSTRACT SUPERTYPE OF (ONEOF (Am_oned_pbf_contour_operation, Am_oned_pbf_infill_operation))
+  SUBTYPE OF (Am_pbf_operation);
+END_ENTITY;
 </PRE>
 
 
-
+<FIGURE ID="fig-am-scan-paths-space">
+<IMG SRC="../images/am-scan-paths.svg" ALT="Scan Paths">
+<DIV class=key>
+<B>Key</B>
+<p>1&emsp;Contour</p>
+<p>2&emsp;Scan Path</p>
+<p>3&emsp;Hatch Space</p>
+<p>4&emsp;Layer Thickness</p>
+</DIV>
+<FIGCAPTION>Figure 4 &mdash; Additive manufacturing scan paths</FIGCAPTION>
+</FIGURE>
 
 
 <!-- ============================== -->
@@ -2741,7 +2827,7 @@ application object is shown below.</P>
 requirements.</P>
 
 <P>
-The data associated with a Am_operation are the following:</P>
+The data associated with a Am_operation are the following:</P>
 <UL>
 <LI>all of the data defined by ISO 14649-17, as modified below for the
 its_support_geometry attribute.</LI>
@@ -2779,11 +2865,28 @@ Am_workingstep application object.
 <H3 ID="ao-am_pbf_feature">4.3.39 Am_pbf_feature</H3>
 </DIV>
 
-<P>An Am_pbf_feature application object is a type of</P>
+<P>An Am_pbf_feature application object is a type of Am_feature that
+describes a volume in a model where a selected manufacturing process
+is to be applied. Features may be defined in a CAD system for volumes
+that require special processing.</P>
+
+<FIGURE ID="fig-am-pbf-feature">
+<IMG SRC="../images/am-pbf-feature.svg" ALT="PBF Feature">
+<DIV class=key>
+<B>Key</B>
+<p>1&emsp;Downskin in original position</p>
+<p>2&emsp;Downskin feature (after vertical displacement)</p>
+<p>3&emsp;Core (after removal of downskin feature)</p>
+</DIV>
+<FIGCAPTION>Figure 5 &mdash; Additive manufacturing PBF feature</FIGCAPTION>
+</FIGURE>
 
 <P>The data associated with a Am_pbf_feature are the
 following:</P>
+
 <UL>
+<LI>process;</LI>
+<LI>shell.</LI>
 </UL>
 
 <P CLASS="note">
@@ -2791,7 +2894,27 @@ following:</P>
 application object is shown below.</P>
 
 <PRE CLASS="note">
+ENTITY Am_pbf_feature	-- ADDED BY 10303-238e4
+SUPERTYPE OF (ONEOF (Am_core_feature, Am_upskin_feature,
+  Am_downskin_feature, Am_support_feature, Am_application_feature,
+  Am_machining_feature))
+SUBTYPE OF (Am_feature);
+   process			: Am_pbf_identification;
+   shell	 		: closed_shell;
+END_ENTITY;
 </PRE>
+
+
+
+<H4 ID="ao-am_pbf_feature-process">4.3.39.1 am_pbf_feature to am_pbf_identification (as process)</H4>
+
+<p>The process specifies the identification of the process used to
+fill regions in this feature.</p>
+
+<H4 ID="ao-am_pbf_feature-shell">4.3.39.2 shell</H4>
+
+<p>The shell specifies a closed shell of faces describing the boundary
+of the volume on the feature.</p>
 
 
 
@@ -2803,11 +2926,21 @@ application object is shown below.</P>
 <H3 ID="ao-am_pbf_identification">4.3.40 Am_pbf_identification</H3>
 </DIV>
 
-<P>An Am_pbf_identification application object is a type of</P>
+<P>An Am_pbf_identification application object defines how to identify
+the manufacturing process to fill a region. The identification may
+take place externally in a CAD system, or internally in the planning
+system.</P>
 
 <P>The data associated with a Am_pbf_identification are the
 following:</P>
+
 <UL>
+<LI>id;</LI>
+<LI>description;</LI>
+<LI>small_area_limit;</LI>
+<LI>large_area_limit;</LI>
+<LI>precedence;</LI>
+<LI>parent.</LI>
 </UL>
 
 <P CLASS="note">
@@ -2815,8 +2948,66 @@ following:</P>
 application object is shown below.</P>
 
 <PRE CLASS="note">
+ENTITY Am_pbf_identification 	-- ADDED BY 10303-238e4
+SUPERTYPE OF (ONEOF (Am_core_identification, Am_upskin_identification,
+   Am_downskin_identification, Am_application_identification, Am_support_identification,
+   Am_machining_identification, Am_thin_wall_identification, Am_spike_identification));
+  id		: Identifier;
+  description	: OPTIONAL TEXT;
+  small_area_limit	: OPTIONAL Area_data_element;
+  large_area_limit	: OPTIONAL Area_data_element;
+  precedence		: OPTIONAL INTEGER;
+  parent		: OPTIONAL Am_pbf_identification;
+END_ENTITY;
 </PRE>
 
+
+<H4 ID="ao-am_pbf_identification-id">4.3.40.1 id</H4>
+
+<p>The id specifies a word or group of words which identify the process.</p>
+
+<H4 ID="ao-am_pbf_identification-description">4.3.40.2 description</H4>
+
+<p>The description specifies a description of the process.</p>
+
+<P CLASS="note">
+<SPAN>EXAMPLE</SPAN> "shallow overhang" or "steep overhang".
+
+
+<H4 ID="ao-am_pbf_identification-small_area_limit">4.3.40.3 small_area_limit</H4>
+
+<p>The small_area_limit specifies an area.  A region with an area
+smaller than this limit shall use the process of its neighbor.</p>  If
+there are two neighbors then the smallest shall be chosen.</P>
+
+<H4 ID="ao-am_pbf_identification-large_area_limit">4.3.40.4 large_area_limit</H4>
+
+<p>The large_area_limit specifies an area value.  A region with an
+area larger than this limit shall be ignored as too large for this
+process.</p>
+
+<P CLASS="note">
+<SPAN>NOTE</SPAN> The issue may be corrected by changing the settings
+of the region, such as reducing downskin area by decreasing the
+downskin angle.</P>
+
+
+<H4 ID="ao-am_pbf_identification-precedence">4.3.40.5 precedence</H4>
+
+<p>The precedence specifies a numeric rank for the process.  If
+multiple processes are possible, then the one with the highest
+precedence shall be used.</p>
+
+<H4 ID="ao-am_pbf_identification-parent">4.3.40.6 am_pbf_identification to am_pbf_identification (as parent)</H4>
+
+<p>The parent specifies an enclosing process.  Regions with this
+identification are subsidiaries of this parent and shall apply their
+process parameters to the infill and contour strategies of the parent.
+
+<P CLASS="note">
+<SPAN>EXAMPLE</SPAN> An upskin region may use the same striping
+parameters as the core, but reduce the laser power while they are in
+its area.</P>
 
 
 <!-- ============================== -->
@@ -2827,20 +3018,154 @@ application object is shown below.</P>
 <H3 ID="ao-am_pbf_infill_management_strategy">4.3.41 Am_pbf_infill_management_strategy</H3>
 </DIV>
 
-<P>An Am_pbf_infill_management_strategy application object is a type of</P>
+<P>An Am_pbf_infill_management_strategy application object is a type
+of Am_pbf_management_strategy that defines how to manage contours and
+infills across multiple regions.</P>
 
 <P>The data associated with a Am_pbf_infill_management_strategy are the
 following:</P>
+
 <UL>
+<LI>reverse_columns;</LI>
+<LI>reverse_rows;</LI>
+<LI>maximum_time_between_adjacent;</LI>
+<LI>minimum_time_between_adjacent;</LI>
+<LI>restriction_high_angle;</LI>
+<LI>restriction_low_angle.</LI>
 </UL>
 
 <P CLASS="note">
-<SPAN>NOTE</SPAN> The EXPRESS description for the Am_pbf_infill_management_strategy
+<SPAN>NOTE 1</SPAN> The EXPRESS description for the Am_pbf_infill_management_strategy
 application object is shown below.</P>
 
 <PRE CLASS="note">
+ENTITY Am_pbf_infill_management_strategy	-- ADDED BY 10303-238e4
+SUBTYPE OF (Am_pbf_management_strategy);
+   reverse_columns		: OPTIONAL BOOLEAN;
+   reverse_rows			: OPTIONAL BOOLEAN;
+   maximum_time_between_adjacent : OPTIONAL Duration;
+   minimum_time_between_adjacent : OPTIONAL Duration;
+   restriction_high_angle	: OPTIONAL Angle_data_element;
+   restriction_low_angle	: OPTIONAL Angle_data_element;
+END_ENTITY;
 </PRE>
 
+<p>The following algorithm shall be used to manage contours that apply
+to multiple regions of a slice.</p>
+<OL>
+<LI>For each region determine the parent (a region may be its own
+parent);</LI>
+<LI>Run the contour using the process parameters defined by the
+parent;</LI>
+<LI>While the contour is in this region use the locally defined
+technology;</LI>
+<LI>If there is no technology defined then use skywriting to go to the
+next region.</LI>
+</OL>
+
+<P CLASS="note">
+<SPAN>EXAMPLE 1</SPAN> Contours are defined by Am_pbf_twod_operations
+for the pillar and core region, and no contour path is defined for the
+downskin regions.</P>
+
+
+<p>The following algorithm shall be used to manage infills that apply
+to multiple regions of a slice.</p>
+<OL>
+<LI>Consolidate each region into its parent (a region may be its own
+parent);</LI>
+<LI>Divide the parent into stripes or tiles with the center of a
+"keystone" being on the origin;</LI>
+<LI>Remove tiles and stripes that have no area inside the region
+boundary;</LI>
+<LI>For a stripe start with the left most stripe or column;</LI>
+<LI>For a tile region start with the leftmost island on the bottom
+row;</LI>
+<LI>For a tile, increment the starting rotation of each row by the
+y_direction_increment and the starting rotation of each column by the
+x_direction_increment;</LI>
+<LI>Repeat the increment for a tile if the direction conflicts with
+the gas flow restrictions. Repeat the theta_interlayer_rotation if the
+stripes of a layer conflict with the gas flow;</LI>
+<LI>Reduce the length of any path that crosses an edge boundary by the
+hatch offset, and increase the length of any path that crosses into a
+tile or stripe of the same parent region by the hatch overlap;</LI>
+<LI>Increase the length of any path that crosses into another parent
+by the region overlap;</LI>
+<LI>While the infill is in a region, use the technology defined for
+that region.</LI>
+</OL>
+
+<P CLASS="note">
+<SPAN>EXAMPLE 2</SPAN> The pillar model uses striping for all
+regions. The core region is the parent. The laser power is reduced in
+the Am_pbf_infill_operations for the pillar and downskin regions.</P>
+
+<P CLASS="note">
+<SPAN>NOTE 2</SPAN> The order of execution for the tiles, stripes and
+regions is not defined by this algorithm.</P>
+
+
+<H4 ID="ao-am_pbf_infill_management_strategy-reverse_columns">4.3.41.1 reverse_columns</H4>
+
+<p>The reverse_columns specifies whether the striping and tiling
+algorithm shall start from the right or the left.  If reverse_columns
+is true start the striping and tiling algorithm from the right.  If
+reverse_columns is false or unspecified, start the striping and tiling
+algorithm from the left.
+
+<P CLASS="note">
+<SPAN>NOTE</SPAN> The left has the lowest value of X in the coordinate
+system of the slice.</P>
+
+
+
+<H4 ID="ao-am_pbf_infill_management_strategy-reverse_rows">4.3.41.2 reverse_rows</H4>
+
+<p>The reverse_rows specifies
+
+<p>The reverse_rows specifies whether the striping and tiling
+algorithm shall start from the top or the bottom.  If reverse_rows
+is true start the striping and tiling algorithm from the top.  If
+reverse_rows is false or unspecified, start the striping and tiling
+algorithm from the bottom.
+
+<P CLASS="note">
+<SPAN>NOTE</SPAN> The bottom has the lowest value of Y in the coordinate
+system of the slice.</P>
+
+
+<H4 ID="ao-am_pbf_infill_management_strategy-maximum_time_between_adjacent">4.3.41.3 maximum_time_between_adjacent</H4>
+
+<p>The maximum_time_between_adjacent specifies the maximum time gap
+allowed between hatching of adjacent islands or stripes.</p>
+
+<P CLASS="note">
+<SPAN>NOTE</SPAN> After this time the material may be too cold.</P>
+
+<H4 ID="ao-am_pbf_infill_management_strategy-minimum_time_between_adjacent">4.3.41.4 minimum_time_between_adjacent</H4>
+
+<p>The minimum_time_between_adjacent specifies the minimum time gap
+allowed between hatching of adjacent islands or stripes.</p>
+
+<P CLASS="note">
+<SPAN>NOTE</SPAN> Before this time the material may be too hot.</P>
+
+
+
+<H4 ID="ao-am_pbf_infill_management_strategy-restriction_high_angle">4.3.41.5 restriction_high_angle</H4>
+
+<p>The restriction_high_angle specifies the maximum angle of the
+direction of the gas flow that scan paths shall not to be filled
+within. Islands or stripes that will make paths within this angle
+shall increment their scan direction until an infill direction is
+computed that does not violate the angle restriction.</p>
+
+<H4 ID="ao-am_pbf_infill_management_strategy-restriction_low_angle">4.3.41.6 restriction_low_angle</H4>
+
+<p>The restriction_low_angle specifies the minimum angle of the
+direction of the gas flow that scan paths shall not to be filled
+within.</p>
 
 
 <!-- ============================== -->
@@ -2851,11 +3176,22 @@ application object is shown below.</P>
 <H3 ID="ao-am_pbf_machine_functions">4.3.42 Am_pbf_machine_functions</H3>
 </DIV>
 
-<P>An Am_pbf_machine_functions application object is a type of</P>
+<P>An Am_pbf_machine_functions application object is a type of
+Am_machine_functions that defines machine functions for powder bed
+fusion machines.</P>
 
 <P>The data associated with a Am_pbf_machine_functions are the
 following:</P>
 <UL>
+<LI>coating_speed;</LI>
+<LI>recoater_return_speed;</LI>
+<LI>minimum_time_between_layers;</LI>
+<LI>plate_temperature;</LI>
+<LI>plate_thickness;</LI>
+<LI>gas_rate;</LI>
+<LI>gas_direction;</LI>
+<LI>gas_type;</LI>
+<LI>feedstock_definition.</LI>
 </UL>
 
 <P CLASS="note">
@@ -2863,8 +3199,75 @@ following:</P>
 application object is shown below.</P>
 
 <PRE CLASS="note">
+ENTITY Am_pbf_machine_functions		-- ADDED BY 10303-238e4
+SUBTYPE OF (Am_machine_functions);
+   coating_speed	: OPTIONAL Velocity_data_element;
+   recoater_return_speed : OPTIONAL Velocity_data_element;
+   minimum_time_between_layers : OPTIONAL Duration;
+   plate_temperature	: OPTIONAL Thermodynamic_temperature_data_element;
+   plate_thickness	: OPTIONAL Length_data_element;
+   gas_rate		: OPTIONAL Value_with_unit;
+   gas_direction	: OPTIONAL direction;
+   gas_type		: OPTIONAL Material_identification;
+   feedstock_definition : OPTIONAL Material_identification;
+END_ENTITY;
 </PRE>
 
+<H4 ID="ao-am_pbf_machine_functions-coating_speed">4.3.42.1 coating_speed</H4>
+
+<p>The coating_speed specifies the speed that shall be used for
+coating when adding a new layer of material onto the part.</p>
+
+<H4 ID="ao-am_pbf_machine_functions-recoater_return_speed">4.3.42.2 recoater_return_speed</H4>
+
+<p>The recoater_return_speed specifies the speed that shall be used
+for returning the coater to the start position.</p>
+
+<P CLASS="note">
+<SPAN>NOTE</SPAN> If the coating time differs from an assumed time,
+then there may be more or less cooling between layers.</P>
+
+<H4 ID="ao-am_pbf_machine_functions-minimum_time_between_layers">4.3.42.3 minimum_time_between_layers</H4>
+
+<p>The minimum_time_between_layers specifies the minimum time between
+laser on of layer N, to laser-on of layer N+1.</p>
+
+<P CLASS="note">
+<SPAN>NOTE</SPAN> The minimum time includes scanning. If the scanning
+and coating finishes in less then this minimum, then there should be a
+pause after coating before the scanning process begins again.</P>
+
+<H4 ID="ao-am_pbf_machine_functions-plate_temperature">4.3.42.4 plate_temperature</H4>
+
+<p>The plate_temperature specifies specifies the temperature for the
+build plate that shall be achieved before the process begins, and
+shall be maintained during the process.</p>
+
+<H4 ID="ao-am_pbf_machine_functions-plate_thickness">4.3.42.5 plate_thickness</H4>
+
+<p>The plate_thickness specifies the thickness of the plate.</p>
+
+
+<H4 ID="ao-am_pbf_machine_functions-gas_rate">4.3.42.6 gas_rate</H4>
+
+<p>The gas_rate specifies the specified rate for the gas flow.  The
+rate may be specified as a velocity, or as the flow volume within the
+chamber.</p>
+
+<H4 ID="ao-am_pbf_machine_functions-gas_direction">4.3.42.7 gas_direction</H4>
+
+<p>The gas_direction specifies the direction in which the gas shall flow.
+
+<H4 ID="ao-am_pbf_machine_functions-gas_type">4.3.42.8 am_pbf_machine_functions to material (as gas_type)</H4>
+
+<p>The gas_type specifies a material definition for the composition of
+the gas.</p>
+
+
+<H4 ID="ao-am_pbf_machine_functions-feedstock_definition">4.3.42.9 am_pbf_machine_functions to material (as feedstock_definition)</H4>
+
+<p>The feedstock_definition specifies the material definition of the
+powder used for the manufacturing.</p>
 
 
 <!-- ============================== -->
@@ -2875,18 +3278,36 @@ application object is shown below.</P>
 <H3 ID="ao-am_pbf_management_strategy">4.3.43 Am_pbf_management_strategy</H3>
 </DIV>
 
-<P>An Am_pbf_management_strategy application object is a type of</P>
+<P>An Am_pbf_management_strategy application object describes how to
+manage a powder bed fusion process.</P>
 
-<P>The data associated with a Am_pbf_management_strategy are the
-following:</P>
-<UL>
-</UL>
+<p>The following algorithm shall be used.
+<OL>
+<LI>Select the models to be fused;</LI>
+<LI>Place the models onto a build plate;</LI>
+<LI>Optionally, define upskins, downskins, application, support and machining features;</LI>
+<LI>Select an appropriate fusion process for each feature by assigning an identification</LI>
+<LI>Optionally, save the result as a CAD model for later processing.</LI>
+</OL>
+
+<P CLASS="note">
+<SPAN>EXAMPLE</SPAN> A model may contain ten support pillars that use
+three kinds of processes. The ten support pillars become ten instances
+of the pbf_support_feature with the names Pillar 1 thru Pillar 10. The
+three types of pillars become three instances of
+Am_support_identification called "fat pillar", "thin pillar" and
+"regular pillar". The Pillar 1 is identified as a "fat pillar", Pillar
+6 and 9 are identified as "thin pillars", and the rest are identified
+as "regular pillars".</P>
+
 
 <P CLASS="note">
 <SPAN>NOTE</SPAN> The EXPRESS description for the Am_pbf_management_strategy
 application object is shown below.</P>
 
 <PRE CLASS="note">
+ENTITY Am_pbf_management_strategy;	-- ADDED BY 10303-238e4
+END_ENTITY;
 </PRE>
 
 
@@ -2899,21 +3320,27 @@ application object is shown below.</P>
 <H3 ID="ao-am_pbf_operation">4.3.44 Am_pbf_operation</H3>
 </DIV>
 
-<P>An Am_pbf_operation application object is a type of</P>
-
-<P>The data associated with a Am_pbf_operation are the
-following:</P>
-<UL>
-</UL>
+<P>An Am_pbf_operation application object is a type of Am_operation
+that describes how to generate scan paths for Powder Bed Fusion (PBF)
+machines. Using subtypes, the object describes how to slice a part
+into layers (3D), how to divide a layer into regions (2D), and how to
+fill a region with hatches and contours (1D). Machine functions and
+technology in the AM_pbf_operation then define how to fuse the
+contours and hatches to make a layer and build a part.</P>
 
 <P CLASS="note">
 <SPAN>NOTE</SPAN> The EXPRESS description for the Am_pbf_operation
 application object is shown below.</P>
 
 <PRE CLASS="note">
+ENTITY Am_pbf_operation		-- ADDED BY 10303-238e4
+  ABSTRACT SUPERTYPE OF (ONEOF (Am_oned_pbf_operation, Am_twod_pbf_operation, Am_threed_pbf_operation))
+  SUBTYPE OF (Am_operation);
+
+  SELF\Am_operation.machine_functions:	OPTIONAL Am_pbf_machine_functions;
+  SELF\Am_operation.its_technology:    	OPTIONAL Am_pbf_technology;
+END_ENTITY;
 </PRE>
-
-
 
 <!-- ============================== -->
 <DIV><DIV class=quick>
@@ -2923,11 +3350,18 @@ application object is shown below.</P>
 <H3 ID="ao-am_pbf_region">4.3.45 Am_pbf_region</H3>
 </DIV>
 
-<P>An Am_pbf_region application object is a type of</P>
+<P>An Am_pbf_region application object is a type of
+General_closed_profile that describes a boundary for a region on a
+slice. A process selected for the region may be used to define infills
+and contours for the areas in the region.</P>
 
 <P>The data associated with a Am_pbf_region are the
 following:</P>
+
 <UL>
+<LI>slice;</LI>
+<LI>process;</LI>
+<LI>feature.</LI>
 </UL>
 
 <P CLASS="note">
@@ -2935,9 +3369,50 @@ following:</P>
 application object is shown below.</P>
 
 <PRE CLASS="note">
+ENTITY Am_pbf_region	-- ADDED BY 10303-238e4
+  SUPERTYPE OF (ONEOF (Am_core_region, Am_upskin_region, Am_downskin_region,
+    Am_support_region, Am_application_region, Am_machining_region, Am_spike_region,
+    Am_thin_wall_region))
+  SUBTYPE OF (General_closed_profile);
+  slice		: Am_pbf_slice_number;
+  process	: Am_pbf_identification;
+  feature	: OPTIONAL Am_feature;
+END_ENTITY;
+
+TYPE Am_pbf_slice_number = NUMBER; END_TYPE;
 </PRE>
 
 
+<H4 ID="ao-am_pbf_region-slice">4.3.45.1 slice</H4>
+
+<p>The slice specifies the slice that contains this 2D region.</p>
+
+<H4 ID="ao-am_pbf_region-process">4.3.45.2 am_pbf_region to am_pbf_identification (as process)</H4>
+
+<p>The process specifies the process selected to fill this 2D region.</p>
+
+<H4 ID="ao-am_pbf_region-feature">4.3.45.3 am_pbf_region to am_feature (as feature)</H4>
+
+<p>The feature specifies the feature definition on the product model
+that corresponds to this 2D region on the slice.  The feature shall be
+specified if the region is derived from a volume identified by a CAD
+system.</p>
+
+
+<FIGURE ID="fig-am-pbf-region">
+<IMG SRC="../images/am-pbf-region.svg" ALT="PBF Region">
+<DIV class=key>
+<B>Key</B>
+<p>1&emsp;Upskin</p>
+<p>2&emsp;Downskin</p>
+<p>3&emsp;Build Plate</p>
+<p>4&emsp;Slice Boundary</p>
+<p>5&emsp;Core Region</p>
+<p>6&emsp;Downskin Region</p>
+<p>7&emsp;Upskin Region</p>
+</DIV>
+<FIGCAPTION>Figure 6 &mdash; Additive manufacturing regions on a slice</FIGCAPTION>
+</FIGURE>
 
 <!-- ============================== -->
 <DIV><DIV class=quick>
@@ -2947,20 +3422,83 @@ application object is shown below.</P>
 <H3 ID="ao-am_pbf_region_management_strategy">4.3.46 Am_pbf_region_management_strategy</H3>
 </DIV>
 
-<P>An Am_pbf_region_management_strategy application object is a type of</P>
+<P>An Am_pbf_region_management_strategy application object is a type
+of Am_pbf_management_strategy that defines how to manage the division
+of a slice into regions.</P>
 
 <P>The data associated with a Am_pbf_region_management_strategy are the
 following:</P>
+
 <UL>
+<LI>compute_downskin;</LI>
+<LI>compute_upskin;</LI>
+<LI>compute_spike;</LI>
+<LI>compute_thin_wall.</LI>
 </UL>
 
 <P CLASS="note">
-<SPAN>NOTE</SPAN> The EXPRESS description for the Am_pbf_region_management_strategy
+<SPAN>NOTE 1</SPAN> The EXPRESS description for the Am_pbf_region_management_strategy
 application object is shown below.</P>
 
 <PRE CLASS="note">
+ENTITY Am_pbf_region_management_strategy	-- ADDED BY 10303-238e4
+  SUBTYPE OF (Am_pbf_management_strategy);
+  compute_downskin	: OPTIONAL BOOLEAN;
+  compute_upskin	: OPTIONAL BOOLEAN;
+  compute_spike		: OPTIONAL BOOLEAN;
+  compute_thin_wall	: OPTIONAL BOOLEAN;
+END_ENTITY;
 </PRE>
 
+<p>The following algorithm shall be used to divide a slice into regions.
+
+<OL>
+<LI>Slice the model, and project the features onto regions on the
+slices;</LI>
+<LI>If upskins or downskins are to be found by geometric analysis,
+then compute areas for those regions;</LI>
+<LI>Identify the process selected for each region;</LI>
+<LI>Fill the region with the contours and infills defined by the
+Am_twod_operation selected for the process;</LI>
+<LI>If the contour offsets of the Am_twod_operation cannot fit into
+areas, and spikes and thin walls are to be computed, then make
+additional regions for these spikes and thin walls.</LI>
+</OL>
+
+<P CLASS="note">
+<SPAN>NOTE 2</SPAN> A model containing multiple types of support
+pillars may contain two kinds of downskins, and one kind of upskin. A
+slice in the model contains one of the downskins, and one pillar. The
+remainder of the slice is the core region, for a total of three
+regions on this slice.</P>
+
+<H4 ID="ao-am_pbf_region_management_strategy-compute_downskin">4.3.46.1 compute_downskin</H4>
+
+<p>The compute_downskin specifies whether to compute downskin regions
+using geometric analysis.  If compute_downskin is true, the downskin
+regions shall be computed using geometric analysis.  If
+compute_downskin is false or unspecified, they may not.</p>
+
+<H4 ID="ao-am_pbf_region_management_strategy-compute_upskin">4.3.46.2 compute_upskin</H4>
+
+<p>The compute_upskin specifies whether to compute upskin regions
+using geometric analysis.  If compute_upskin is true, the upskin
+regions shall be computed using geometric analysis.  If compute_upskin
+is false or unspecified, they may not.</p>
+
+<H4 ID="ao-am_pbf_region_management_strategy-compute_spike">4.3.46.3 compute_spike</H4>
+
+<p>The compute_spike specifies whether to compute spike regions
+using geometric analysis.  If compute_spike is true, the spike
+regions shall be computed using geometric analysis.  If compute_spike
+is false or unspecified, they may not.</p>
+
+<H4 ID="ao-am_pbf_region_management_strategy-compute_thin_wall">4.3.46.4 compute_thin_wall</H4>
+
+<p>The compute_thin_wall specifies whether to compute thin wall
+regions using geometric analysis.  If compute_thin_wall is true, the
+thin wall regions shall be computed using geometric analysis.  If
+compute_thin_wall is false or unspecified, they may not.</p>
 
 
 <!-- ============================== -->
@@ -2971,11 +3509,20 @@ application object is shown below.</P>
 <H3 ID="ao-am_pbf_technology">4.3.47 Am_pbf_technology</H3>
 </DIV>
 
-<P>An Am_pbf_technology application object is a type of</P>
+<P>An Am_pbf_technology application object is a type of Am_technology
+that defines the power, spot diameter, and scan speed of a thermal
+energy beam which is used to selectively fuse powder material into
+geometric patterns.</P>
 
 <P>The data associated with a Am_pbf_technology are the
 following:</P>
+
 <UL>
+<LI>beam_diameter;</LI>
+<LI>beam_power;</LI>
+<LI>beam_path_mode;</LI>
+<LI>beam_power_mode;</LI>
+<LI>scan_speed.</LI>
 </UL>
 
 <P CLASS="note">
@@ -2983,7 +3530,80 @@ following:</P>
 application object is shown below.</P>
 
 <PRE CLASS="note">
+ENTITY Am_pbf_technology	-- ADDED BY 10303-238e4
+SUBTYPE OF (Am_technology);
+   beam_diameter	: Length_data_element;
+   beam_power		: Power_data_element;
+   beam_path_mode	: OPTIONAL Beam_path_mode_type;
+   beam_power_mode	: OPTIONAL Beam_power_mode_type;
+   scan_speed		: Velocity_data_element;
+END_ENTITY;
+
+TYPE Beam_path_mode_type = ENUMERATION OF (
+  exact_stop, constant_build_speed, continuous
+  );
+END_TYPE;
+
+TYPE Beam_power_mode_type = ENUMERATION OF (
+  constant_power, constant_power_density
+  );
+END_TYPE;
 </PRE>
+
+<H4 ID="ao-am_pbf_technology-beam_diameter">4.3.47.1 beam_diameter</H4>
+
+<p>The beam_diameter specifies the spot diameter of the beam.</p>
+
+<P CLASS="note">
+<SPAN>NOTE</SPAN> For a Gaussian beam laser profile, the beam_diameter
+is assumed to be d4 sigma as per ISO 11146.</P>
+
+<H4 ID="ao-am_pbf_technology-beam_power">4.3.47.2 beam_power</H4>
+
+<p>The beam_power specifies the energy output of the beam.</p>
+
+
+<H4 ID="ao-am_pbf_technology-beam_path_mode">4.3.47.3 beam_path_mode</H4>
+
+<p>The beam_path_mode specifies the type of transition between scan
+paths.</p>
+
+<UL>
+<LI>exact_stop, stop the beam movement at the exact end of each move;</LI>
+<LI>constant_build_speed, keep the motion at a constant speed while the beam is switched on;</LI>
+<LI>continuous, matches the final speed with the starting speed of the following move.</LI>
+</UL>
+
+<H4 ID="ao-am_pbf_technology-beam_power_mode">4.3.47.4 beam_power_mode</H4>
+
+<p>The beam_power_mode specifies the type of power management.</p>
+
+<UL>
+<LI>constant_power, keeps the beam power constant during each move;</LI>
+<LI>constant_power_density, hold the power to speed ratio at a predefined constant during each move.</LI>
+</UL>
+
+<p>The formula for deriving the constant power density is given by the equation</p>
+
+<center>
+	L=(V/V<sub>0</sub> ) &bull; C &bull; L<sub>0</sub>+(1-C) &bull; L<sub>0</sub>
+
+</center>
+
+<p>where V is the instantaneous speed in millimeters per second
+(mm/s), V<sub>0</sub> is the nominal speed in mm/s, C is a unitless
+weighting factor between 0 and 1, L<sub>0</sub> is the nominal laser
+power in Watts, and L is the applied laser power in Watts.
+
+
+<P CLASS="note">
+<SPAN>NOTE</SPAN>The constant power density is controlled on the
+machine so the value of (C) does not need to be programmed.</P>
+
+<H4 ID="ao-am_pbf_technology-scan_speed">4.3.47.5 scan_speed</H4>
+
+<p>The scan_speed specifies the rate at which the beam moves over the
+scan path.</p>
 
 
 
@@ -2995,11 +3615,17 @@ application object is shown below.</P>
 <H3 ID="ao-am_region_intersection">4.3.48 Am_region_intersection</H3>
 </DIV>
 
-<P>An Am_region_intersection application object is a type of</P>
+<P>An Am_region_intersection application object is a type of
+Transition_feature that describes a shared boundary between two
+regions on a slice.</P>
 
 <P>The data associated with a Am_region_intersection are the
 following:</P>
+
 <UL>
+<LI>region_a;</LI>
+<LI>region_b;</LI>
+<LI>feature_boundary.</LI>
 </UL>
 
 <P CLASS="note">
@@ -3007,7 +3633,46 @@ following:</P>
 application object is shown below.</P>
 
 <PRE CLASS="note">
+ENTITY Am_region_intersection	-- ADDED BY 10303-238e4
+SUBTYPE OF (transition_feature);
+   region_a		: Am_pbf_region;
+   region_b		: Am_pbf_region;
+   feature_boundary	: Am_internal_composite_curve_segment;
+--WHERE
+--region_a and region_b are on the same slice
+END_ENTITY;
 </PRE>
+
+<H4 ID="ao-am_region_intersection-region_a">4.3.48.1 am_region_intersection to am_pbf_region (as region_a)</H4>
+
+<p>The region_a specifies the first region.</p>
+
+
+<H4 ID="ao-am_region_intersection-region_b">4.3.48.2 am_region_intersection to am_pbf_region (as region_b)</H4>
+
+<p>The region_b specifies the second region.</p>
+
+<H4 ID="ao-am_region_intersection-feature_boundary">4.3.48.3 feature_boundary</H4>
+
+<p>The feature_boundary specifies the shared boundary of the two
+regions.</p>
+
+<FIGURE ID="fig-am-pbf-region-isect">
+<IMG SRC="../images/am-pbf-region-isect.svg" ALT="PBF Region Intersection">
+<DIV class=key>
+<B>Key</B>
+<p>1&emsp;Vertex A</p>
+<p>2&emsp;Core Region</p>
+<p>3&emsp;Downskin Region</p>
+<p>4&emsp;Vertex B</p>
+<p>5&emsp;Upskin Region</p>
+<p>6&emsp;Upskin Region Boundary</p>
+<p>7&emsp;Core Region Boundary</p>
+<p>8&emsp;Downskin Region Boundary</p>
+<p>9&emsp;Part Boundary</p>
+</DIV>
+<FIGCAPTION>Figure 7 &mdash; Additive manufacturing region intersection</FIGCAPTION>
+</FIGURE>
 
 
 
@@ -3028,7 +3693,7 @@ Am_simple_feature is shown below.  Refer to ISO 14649-17 for the
 complete definition and explanation of usage.</P>
 
 <PRE CLASS="note">
-ENTITY Am_simple_feature 
+ENTITY Am_simple_feature
   SUBTYPE OF (Am_feature);
   skin_thickness:	OPTIONAL Length_data_element;
   skin_construction: 	OPTIONAL Am_construction;
@@ -3069,19 +3734,89 @@ END_ENTITY;
 <H3 ID="ao-am_spike_identification">4.3.51 Am_spike_identification</H3>
 </DIV>
 
-<P>An Am_spike_identification application object is a type of</P>
+<P>An Am_spike_identification application object is a type of
+Am_pbf_identification that identifies a region where a sharp feature
+cannot fit within a contour offset.</P>
+
+<P CLASS="note">
+<SPAN>NOTE</SPAN> A single vector is inserted into the spike region</P>
 
 <P>The data associated with a Am_spike_identification are the
 following:</P>
+
 <UL>
+<LI>corner_angle;</LI>
+<LI>radius_tip;</LI>
+<LI>trim_filter;</LI>
+<LI>line_extension;</LI>
+<LI>direction.</LI>
 </UL>
 
+
+<FIGURE ID="fig-am-spike-ident">
+<IMG SRC="../images/am-spike-ident.svg" ALT="PBF Spike Identification">
+<DIV class=key>
+<B>Key</B>
+<p>1&emsp;Contour</p>
+<p>2&emsp;Medial Axis</p>
+<p>3&emsp;Offset Contour</p>
+</DIV>
+<FIGCAPTION>Figure 8 &mdash; Additive manufacturing spike identification</FIGCAPTION>
+</FIGURE>
+
+
+
 <P CLASS="note">
-<SPAN>NOTE</SPAN> The EXPRESS description for the Am_spike_identification
+<SPAN>NOTE 2</SPAN> The EXPRESS description for the Am_spike_identification
 application object is shown below.</P>
 
 <PRE CLASS="note">
+ENTITY Am_spike_identification 	-- ADDED BY 10303-238e4
+  SUBTYPE OF (Am_pbf_identification);
+  corner_angle		: Angle_data_element;
+  radius_tip		: Length_data_element;
+  trim_filter		: Length_data_element;
+  line_extension 	: Length_data_element;
+  direction		: Spike_direction;
+END_ENTITY;
+
+TYPE Spike_direction = ENUMERATION OF (inside_outside, outside_inside);
+END_TYPE;
 </PRE>
+
+
+<H4 ID="ao-am_spike_identification-corner_angle">4.3.51.1 corner_angle</H4>
+
+<p>The corner_angle specifies an angle. This solution shall apply to
+corners on the part boundary that are less than this angle.</p>
+
+
+<H4 ID="ao-am_spike_identification-radius_tip">4.3.51.2 radius_tip</H4>
+
+<p>The radius_tip specifies a radius.  The solution shall scan a
+median line into the spike until there is insufficient room for a tip
+with this radius to fit between the edges.</p>
+
+<H4 ID="ao-am_spike_identification-trim_filter">4.3.51.3 trim_filter</H4>
+
+<p>The trim_filter specifies a length.  If the generated median line
+has length less than this trim then it shall be filtered out of the
+solution.</p>
+
+<H4 ID="ao-am_spike_identification-line_extension">4.3.51.4 line_extension</H4>
+
+<p>The line_extension specifies a length.  If the generated median
+line remains in the solution after the trim filter has been applied,
+then it shall be extended into the part by this distance beyond its
+intersection with the inner contour.</p>
+
+
+<H4 ID="ao-am_spike_identification-direction">4.3.51.5 direction</H4>
+
+<p>The direction specifies an orientation of inside_outside of the new
+median line shall start at the contour and move into the spike.  If
+the direction specifies an orientation of outside_to_inside the new
+median line shall start at the spike and move into the contour.</p>
 
 
 
@@ -3093,18 +3828,17 @@ application object is shown below.</P>
 <H3 ID="ao-am_spike_region">4.3.52 Am_spike_region</H3>
 </DIV>
 
-<P>An Am_spike_region application object is a type of</P>
-
-<P>The data associated with a Am_spike_region are the
-following:</P>
-<UL>
-</UL>
+<P>An Am_spike_region application object is a type of Am_pbf_region
+that describes an area where a contour cannot fit in a sharp corner.</P>
 
 <P CLASS="note">
 <SPAN>NOTE</SPAN> The EXPRESS description for the Am_spike_region
 application object is shown below.</P>
 
 <PRE CLASS="note">
+ENTITY Am_spike_region 	-- ADDED BY 10303-238e4
+  SUBTYPE OF (Am_pbf_region); 
+END_ENTITY;
 </PRE>
 
 
@@ -3117,18 +3851,24 @@ application object is shown below.</P>
 <H3 ID="ao-am_support_feature">4.3.53 Am_support_feature</H3>
 </DIV>
 
-<P>An Am_support_feature application object is a type of</P>
+<P>An Am_support_feature application object is a type of
+Am_pbf_feature that describes a volume that is being filled to provide
+a support structure.</P>
 
-<P>The data associated with a Am_support_feature are the
-following:</P>
-<UL>
-</UL>
+<P CLASS="note">
+<SPAN>NOTE 1</SPAN> A CAD system defines a feature on the model. An AM
+planning system then projects the volume onto the slices to create
+regions. The Am_twod_operation selected by the identification of the
+region is then used to contour and fill that region.</P>
 
 <P CLASS="note">
 <SPAN>NOTE</SPAN> The EXPRESS description for the Am_support_feature
 application object is shown below.</P>
 
 <PRE CLASS="note">
+ENTITY Am_support_feature	-- ADDED BY 10303-238e4
+  SUBTYPE OF (Am_pbf_feature);
+END_ENTITY;
 </PRE>
 
 
@@ -3141,18 +3881,22 @@ application object is shown below.</P>
 <H3 ID="ao-am_support_identification">4.3.54 Am_support_identification</H3>
 </DIV>
 
-<P>An Am_support_identification application object is a type of</P>
-
-<P>The data associated with a Am_support_identification are the
-following:</P>
-<UL>
-</UL>
+<P>An Am_support_identification application object is a type of
+Am_pbf_identification that identifies a feature that is being filled
+to provide a support structure.</P>
 
 <P CLASS="note">
-<SPAN>NOTE</SPAN> The EXPRESS description for the Am_support_identification
+<SPAN>NOTE 1</SPAN> Volumes that are supports can be fused more
+lightly to speed the manufacturing.</P>
+
+<P CLASS="note">
+<SPAN>NOTE 2</SPAN> The EXPRESS description for the Am_support_identification
 application object is shown below.</P>
 
 <PRE CLASS="note">
+ENTITY Am_support_identification 	-- ADDED BY 10303-238e4
+  SUBTYPE OF (Am_pbf_identification);
+END_ENTITY;
 </PRE>
 
 
@@ -3165,18 +3909,18 @@ application object is shown below.</P>
 <H3 ID="ao-am_support_region">4.3.55 Am_support_region</H3>
 </DIV>
 
-<P>An Am_support_region application object is a type of</P>
-
-<P>The data associated with a Am_support_region are the
-following:</P>
-<UL>
-</UL>
+<P>An Am_support_region application object is a type of Am_pbf_region
+that describes an area that is being filled to provide a support
+structure.</P>
 
 <P CLASS="note">
 <SPAN>NOTE</SPAN> The EXPRESS description for the Am_support_region
 application object is shown below.</P>
 
 <PRE CLASS="note">
+ENTITY Am_support_region	-- ADDED BY 10303-238e4
+  SUBTYPE OF (Am_pbf_region);
+END_ENTITY;
 </PRE>
 
 
@@ -3189,18 +3933,18 @@ application object is shown below.</P>
 <H3 ID="ao-am_technology">4.3.56 Am_technology</H3>
 </DIV>
 
-<P>An Am_technology application object is a type of</P>
-
-<P>The data associated with a Am_technology are the
-following:</P>
-<UL>
-</UL>
+<P>An Am_technology application object is a type of Technology that
+defines power and motion parameters for additive manufacturing
+processes.</P>
 
 <P CLASS="note">
 <SPAN>NOTE</SPAN> The EXPRESS description for the Am_technology
 application object is shown below.</P>
 
 <PRE CLASS="note">
+ENTITY Am_technology	-- ADDED BY 10303-238e4
+  SUBTYPE OF (Technology);
+END_ENTITY;
 </PRE>
 
 
@@ -3213,11 +3957,30 @@ application object is shown below.</P>
 <H3 ID="ao-am_thin_wall_identification">4.3.57 Am_thin_wall_identification</H3>
 </DIV>
 
-<P>An Am_thin_wall_identification application object is a type of</P>
+<P>An Am_thin_wall_identification application object is a type of
+Am_pbf_identification that identifies a region where a medial line is
+to be inserted into the path between two walls because one or more
+contours will not fit within the available part boundary.</P>
+
+
+<FIGURE ID="fig-am-thin-ident">
+<IMG SRC="../images/am-thin-ident.svg" ALT="PBF Thin Wall Identification">
+<DIV class=key>
+<B>Key</B>
+<p>1&emsp;Medial axis for contour 1 and 2</p>
+<p>2&emsp;Medial axis for contour 2</p>
+<p>3&emsp;Contour 2</p>
+<p>4&emsp;Contour 1</p>
+</DIV>
+<FIGCAPTION>Figure 9 &mdash; Additive manufacturing thin wall identification</FIGCAPTION>
+</FIGURE>
 
 <P>The data associated with a Am_thin_wall_identification are the
 following:</P>
+
 <UL>
+<LI>thinness_low;</LI>
+<LI>thinness_high.</LI>
 </UL>
 
 <P CLASS="note">
@@ -3225,7 +3988,28 @@ following:</P>
 application object is shown below.</P>
 
 <PRE CLASS="note">
+ENTITY Am_thin_wall_identification 	-- ADDED BY 10303-238e4
+  SUBTYPE OF (Am_pbf_identification); 
+  thinness_low	: count_measure;
+  thinness_high	: count_measure;
+END_ENTITY;
 </PRE>
+
+
+
+<H4 ID="ao-am_thin_wall_identification-thinness_low">4.3.57.1 thinness_low</H4>
+
+<p>The thinness_low specifies the minimum number of contours that must
+fit into the wall for this solution to apply.</p>
+
+<P CLASS="note">
+<SPAN>NOTE</SPAN> The solution is to add a medial line between the
+wall boundaries to compensate for the missing contour.</P>
+
+<H4 ID="ao-am_thin_wall_identification-thinness_high">4.3.57.2 thinness_high</H4>
+
+<p>The thinness_high specifies the maximum number of contours that can
+fit into the wall for this solution to apply.</p>
 
 
 
@@ -3237,18 +4021,18 @@ application object is shown below.</P>
 <H3 ID="ao-am_thin_wall_region">4.3.58 Am_thin_wall_region</H3>
 </DIV>
 
-<P>An Am_thin_wall_region application object is a type of</P>
-
-<P>The data associated with a Am_thin_wall_region are the
-following:</P>
-<UL>
-</UL>
+<P>An Am_thin_wall_region application object is a type of
+Am_pbf_region that describes an area where the distance between two
+walls is less than the outer contour offset</P>
 
 <P CLASS="note">
 <SPAN>NOTE</SPAN> The EXPRESS description for the Am_thin_wall_region
 application object is shown below.</P>
 
 <PRE CLASS="note">
+ENTITY Am_thin_wall_region 	-- ADDED BY 10303-238e4
+  SUBTYPE OF (Am_pbf_region); 
+END_ENTITY;
 </PRE>
 
 
@@ -3261,11 +4045,29 @@ application object is shown below.</P>
 <H3 ID="ao-am_threed_pbf_operation">4.3.59 Am_threed_pbf_operation</H3>
 </DIV>
 
-<P>An Am_threed_pbf_operation application object is a type of</P>
+<P>An Am_threed_pbf_operation application object is a type of
+Am_pbf_operation that describes how to slice a solid into layers for
+processing by Am_twod_pbf_operation application objects. The features
+in the solid are identified as volumes and projected into regions on
+each slice. The corresponding Am_twod_pbf_operation application object
+is then selected to generate contours and hatches appropriate to that
+feature.</P>
+
+<P CLASS="note">
+<SPAN>EXAMPLE</SPAN> A CAD system may identify feaures where upskin
+and downskin processes are to be applied so that melting is reduced in
+regions where there is less internal support.</P>
 
 <P>The data associated with a Am_threed_pbf_operation are the
 following:</P>
+
 <UL>
+<LI>theta_interlayer_rotation;</LI>
+<LI>theta_initial_layer_rotation;</LI>
+<LI>layer_thickness;</LI>
+<LI>its_twod_operations;</LI>
+<LI>region_management;</LI>
+<LI>slice_management.</LI>
 </UL>
 
 <P CLASS="note">
@@ -3273,9 +4075,73 @@ following:</P>
 application object is shown below.</P>
 
 <PRE CLASS="note">
+ENTITY Am_threed_pbf_operation	-- ADDED BY 10303-238e4
+  SUBTYPE OF (Am_pbf_operation);
+  theta_interlayer_rotation	: Angle_data_element;
+  theta_initial_layer_rotation	: OPTIONAL Angle_data_element;
+  layer_thickness		: Length_data_element;
+  its_twod_operations		: SET OF Am_twod_pbf_operation;
+  region_management		: OPTIONAL Am_pbf_region_management_strategy;
+  slice_management		: OPTIONAL Am_pbf_infill_management_strategy;
+END_ENTITY;
 </PRE>
 
+<FIGURE ID="fig-am-pbf-threed">
+<IMG SRC="../images/am-pbf-threed.svg" ALT="PBF Threed Operation">
+<DIV class=key>
+<B>Key</B>
+<p>1&emsp;Medial axis for contour 1 and 2</p>
+<p>2&emsp;Medial axis for contour 2</p>
+<p>3&emsp;Contour 2</p>
+<p>4&emsp;Contour 1</p>
+</DIV>
+<FIGCAPTION>Figure 10 &mdash; Additive manufacturing threed PBF operation</FIGCAPTION>
+</FIGURE>
 
+
+<H4 ID="ao-am_threed_pbf_operation-theta_interlayer_rotation">4.3.59.1 theta_interlayer_rotation</H4>
+
+<p>The theta_interlayer_rotation specifies the rotation angle (θ) for
+the coordinate system around the Z-axis of the current layer with
+respect to the coordinate system of the previous layer. The rotational
+direction shall be specified with a positive angle value indicating a
+counterclockwise rotation, and a negative angle value indicating a
+clockwise rotation.</p>
+
+<P CLASS="note">
+<SPAN>NOTE</SPAN> The coordinate system is defined by the placement of
+the part on the build plate.</P>
+
+
+<H4 ID="ao-am_threed_pbf_operation-theta_initial_layer_rotation">4.3.59.2 theta_initial_layer_rotation</H4>
+
+<p>The theta_initial_layer_rotation specifies the rotation angle (θ)
+for the coordinate system around the Z-axis of the first layer with
+respect to the coordinate system of the build plate.</p>
+
+<H4 ID="ao-am_threed_pbf_operation-layer_thickness">4.3.59.3 layer_thickness</H4>
+
+<p>The layer_thickness specifies the desired thickness of each layer.</p>
+
+<H4 ID="ao-am_threed_pbf_operation-its_twod_operations">4.3.59.4 am_threed_pbf_operation to am_twod_pbf_operation (as its_twod_operations)</H4>
+
+<p>The its_twod_operations specifies a collection of operations to be
+applied to the regions on each layer after slicing.</p>
+
+<P CLASS="note">
+<SPAN>NOTE</SPAN> No order is defined for the operations so that they
+may be performed in parallel using different laser heads.</P>
+
+<H4 ID="ao-am_threed_pbf_operation-region_management">4.3.59.5 am_threed_pbf_operation to am_pbf_region_management_strategy (as region_management)</H4>
+
+<p>The region_management specifies optional parameters for managing
+the regions on a layer.</p>
+
+<H4 ID="ao-am_threed_pbf_operation-slice_management">4.3.59.6 am_threed_pbf_operation to am_pbf_infill_management_strategy (as slice_management)</H4>
+
+<p>The slice_management specifies optional parameters for resolving
+differences between the contours and infills defined for the different
+regions on a layer.</p>
 
 
 <!-- ============================== -->
@@ -3313,11 +4179,35 @@ END_ENTITY;
 <H3 ID="ao-am_twod_pbf_chess_operation">4.3.61 Am_twod_pbf_chess_operation</H3>
 </DIV>
 
-<P>An Am_twod_pbf_chess_operation application object is a type of</P>
+<P>An Am_twod_pbf_chess_operation application object is a type of
+Am_twod_pbf_operation that divides each region into rectangular
+islands. A length and width are specified for each island. The
+theta_island_rotation describes an optional rotation from the previous
+island.</P>
+
+<FIGURE ID="fig-am-pbf-twod-chess">
+<IMG SRC="../images/am-pbf-twod-chess.svg" ALT="PBF Twod Chess Operation">
+<DIV class=key>
+<B>Key</B>
+<p>1&emsp;Layer i</p>
+<p>2&emsp;Layer i +1</p>
+<p>3&emsp;Rectangle Width</p>
+<p>4&emsp;Rectangle Length</p>
+<p>5&emsp;Tile</p>
+<p>6&emsp;Theta Region Rotation</p>
+</DIV>
+<FIGCAPTION>Figure 11 &mdash; Additive manufacturing twod chess</FIGCAPTION>
+</FIGURE>
 
 <P>The data associated with a Am_twod_pbf_chess_operation are the
 following:</P>
+
 <UL>
+<LI>rectangle_length;</LI>
+<LI>rectangle_width;</LI>
+<LI>x_direction_increment;</LI>
+<LI>y_direction_increment;</LI>
+<LI>island_overlap.</LI>
 </UL>
 
 <P CLASS="note">
@@ -3325,8 +4215,52 @@ following:</P>
 application object is shown below.</P>
 
 <PRE CLASS="note">
+ENTITY Am_twod_pbf_chess_operation	-- ADDED BY 10303-238e4
+  SUBTYPE OF (Am_twod_pbf_operation);
+  rectangle_length		: Length_data_element;
+  rectangle_width		: Length_data_element;
+  x_direction_increment		: OPTIONAL Angle_data_element;
+  y_direction_increment		: OPTIONAL Angle_data_element;
+  island_overlap		: OPTIONAL Length_data_element;
+   (*
+WHERE
+  WR1: infill_direction == 90 - island_direction;
+  WR2: individual_vector_direction == island_direction;
+   *)
+END_ENTITY;
 </PRE>
 
+
+<H4 ID="ao-am_twod_pbf_chess_operation-rectangle_length">4.3.61.1 rectangle_length</H4>
+
+<p>The rectangle_length specifies the length of a tile in the X
+direction of the layer coordinate system.</p>
+
+<H4 ID="ao-am_twod_pbf_chess_operation-rectangle_width">4.3.61.2 rectangle_width</H4>
+
+<p>The rectangle_width specifies the width of a tile in the Y
+direction of the layer coordinate system.</p>
+
+<H4 ID="ao-am_twod_pbf_chess_operation-x_direction_increment">4.3.61.3 x_direction_increment</H4>
+
+<p>The x_direction_increment specifies the rotation angle (θ) to
+change the orientation of the hatch paths for each tile increment in
+the x-direction. If the x_direction_increment is not specified then it
+shall be 90 degrees.</p>
+
+<H4 ID="ao-am_twod_pbf_chess_operation-y_direction_increment">4.3.61.4 y_direction_increment</H4>
+
+<p>The y_direction_increment specifies the rotation angle (θ) to
+change the orientation of the hatch paths for each tile increment in
+the y-direction. If the y_direction_increment is not specified then it
+shall be 90 degrees.</p>
+
+<H4 ID="ao-am_twod_pbf_chess_operation-island_overlap">4.3.61.5 island_overlap</H4>
+
+<p>The island_overlap specifies an additional length to be added to
+any vector that starts or ends at a boundary with another rectangle in
+the same region. If the overlap is negative then the vector shall stop
+before the boundary.</p>
 
 
 <!-- ============================== -->
@@ -3337,19 +4271,24 @@ application object is shown below.</P>
 <H3 ID="ao-am_twod_pbf_meander_operation">4.3.62 Am_twod_pbf_meander_operation</H3>
 </DIV>
 
-<P>An Am_twod_pbf_meander_operation application object is a type of</P>
+<P>An Am_twod_pbf_meander_operation application object is a type of
+Am_twod_pbf_operation that fills a region without dividing it into
+stripes or tiles.</P>
 
-<P>The data associated with a Am_twod_pbf_meander_operation are the
-following:</P>
-<UL>
-</UL>
+<P CLASS="note">
+<SPAN>NOTE</SPAN> All regions are contoured and infilled. A meander
+region is different because it is not tiled or striped.</P>
 
 <P CLASS="note">
 <SPAN>NOTE</SPAN> The EXPRESS description for the Am_twod_pbf_meander_operation
 application object is shown below.</P>
 
 <PRE CLASS="note">
+ENTITY Am_twod_pbf_meander_operation	-- ADDED BY 10303-238e4
+  SUBTYPE OF (Am_twod_pbf_operation);
+END_ENTITY;
 </PRE>
+
 
 
 
@@ -3361,20 +4300,70 @@ application object is shown below.</P>
 <H3 ID="ao-am_twod_pbf_operation">4.3.63 Am_twod_pbf_operation</H3>
 </DIV>
 
-<P>An Am_twod_pbf_operation application object is a type of</P>
+<P>An Am_twod_pbf_operation application object is a type of
+Am_pbf_operation that describes how to fill a region with contours and
+hatches.</P>
+
+<P CLASS="note">
+<SPAN>NOTE 1</SPAN> Regions are determined by projecting features onto
+slices, and/or by detecting geometric conditions on the slice.</P>
+
+<P CLASS="note">
+<SPAN>EXAMPLE</SPAN> Upskin and downskin regions may be identified by
+projecting features onto slices, while spikes and thin walls are
+identified by performing geometric analyses within those slices.</P>
 
 <P>The data associated with a Am_twod_pbf_operation are the
 following:</P>
+
 <UL>
+<LI>solution_for;</LI>
+<LI>its_oned_operations;</LI>
+<LI>region_overlap.</LI>
 </UL>
 
 <P CLASS="note">
-<SPAN>NOTE</SPAN> The EXPRESS description for the Am_twod_pbf_operation
+<SPAN>NOTE 2</SPAN> The EXPRESS description for the Am_twod_pbf_operation
 application object is shown below.</P>
 
 <PRE CLASS="note">
+-- ADDED BY 10303-238e4
+ENTITY Am_twod_pbf_operation
+  ABSTRACT SUPERTYPE OF (ONEOF (Am_twod_pbf_stripe_operation, Am_twod_pbf_chess_operation,
+    Am_twod_pbf_meander_operation))
+  SUBTYPE OF (Am_pbf_operation);
+  solution_for		: Am_pbf_identification;
+  its_oned_operations	: LIST OF Am_oned_pbf_operation;
+  region_overlap	: OPTIONAL Length_data_element;
+END_ENTITY;
 </PRE>
 
+
+<H4 ID="ao-am_twod_pbf_operation-solution_for">4.3.63.1 am_twod_pbf_operation to am_pbf_identification (as solution_for)</H4>
+
+<p>The solution_for specifies the identification for regions for which
+this operation describes the manufacturing solution.</p>
+
+<H4 ID="ao-am_twod_pbf_operation-its_oned_operations">4.3.63.2 am_twod_pbf_operation to am_oned_pbf_ operation (as its_oned_operations)</H4>
+
+<p>The its_oned_operations specifies a sequence of operations to
+contour and fill the region.</p>
+
+<P CLASS="note">
+<SPAN>NOTE</SPAN> The operations are ordered so that the sequence of
+contours and infills may be controlled.</P>
+
+<H4 ID="ao-am_twod_pbf_operation-region_overlap">4.3.63.3 region_overlap</H4>
+
+<p>The region_overlap specifies an additional length to be added to
+any vector that starts or ends at the boundary of another region. If
+the overlap is negative then the region will end before the
+boundary.</p>
+
+<P CLASS="note">
+<SPAN>NOTE</SPAN> Regions may be consolidated into parent regions. The
+region overlap applies to for vectors that cross between regions with
+different parents.</P>
 
 
 <!-- ============================== -->
@@ -3385,21 +4374,100 @@ application object is shown below.</P>
 <H3 ID="ao-am_twod_pbf_stripe_operation">4.3.64 Am_twod_pbf_stripe_operation</H3>
 </DIV>
 
-<P>An Am_twod_pbf_stripe_operation application object is a type of</P>
+<P>An Am_twod_pbf_stripe_operation application object is a type of
+Am_twod_pbf_operation that divides a region into stripes of a given
+width.</P>
+ 
+<P CLASS="note">
+<SPAN>NOTE 1</SPAN> The X and Y directions of each layer are determined
+by the interlayer_rotation in the 3D slicing operation.</P>
+
+<FIGURE ID="fig-am-pbf-twod-stripe">
+<IMG SRC="../images/am-pbf-twod-stripe.svg" ALT="PBF Twod Stripe Operation">
+<DIV class=key>
+<B>Key</B>
+<p>1&emsp;Scan Path</p>
+<p>2&emsp;Stripe Width</p>
+<p>3&emsp;Stripe</p>
+</DIV>
+<FIGCAPTION>Figure 12 &mdash; Additive manufacturing twod stripe</FIGCAPTION>
+</FIGURE>
 
 <P>The data associated with a Am_twod_pbf_stripe_operation are the
 following:</P>
+
 <UL>
+<LI>stripe_width;</LI>
+<LI>stripe_overlap;</LI>
+<LI>merge_short_vectors.</LI>
 </UL>
 
 <P CLASS="note">
-<SPAN>NOTE</SPAN> The EXPRESS description for the Am_twod_pbf_stripe_operation
+<SPAN>NOTE 2</SPAN> The EXPRESS description for the Am_twod_pbf_stripe_operation
 application object is shown below.</P>
 
 <PRE CLASS="note">
+ENTITY Am_twod_pbf_stripe_operation	-- ADDED BY 10303-238e4
+  SUBTYPE OF (Am_twod_pbf_operation);
+  stripe_width		: Length_data_element;
+  stripe_overlap	: OPTIONAL Length_data_element;
+  merge_short_vectors	: OPTIONAL Length_data_element;
+   (*
+DERIVE
+   stripe_vector_length := stripe_width + stripe_overlap;
+WHERE
+   WR1: infill_direction == 90 - stripe_direction;
+   WR2: individual_vector_direction == stripe_direction;
+   *)
+END_ENTITY;
 </PRE>
 
+<H4 ID="ao-am_twod_pbf_stripe_operation-stripe_width">4.3.64.1 stripe_width</H4>
 
+<p>The stripe_width specifies the width of each stripe tile.</p>
+
+<H4 ID="ao-am_twod_pbf_stripe_operation-stripe_overlap">4.3.64.2 stripe_overlap</H4>
+
+<p>The stripe_overlap specifies an additional length to be added to
+any vector that starts or ends at a boundary with another stripe in
+the same region. If the stripe overlap is negative then the stripe
+shall end before the boundary.</p>
+
+<P CLASS="note">
+<SPAN>NOTE</SPAN> Regions may be consolidated into parent regions. The
+stripe overlap applies to for stripes within the same parent.</P>
+
+<FIGURE ID="fig-am-pbf-twod-stripe-overlap">
+<IMG SRC="../images/am-pbf-twod-stripe-overlap.svg" ALT="PBF Twod Stripe Overlap">
+<DIV class=key>
+<B>Key</B>
+<p>1&emsp;Gas Flow (A)</p>
+<p>2&emsp;Stripe Direction (B)</p>
+<p>3&emsp;Infill Direction (B-90)</p>
+<p>4&emsp;Individual Vector Direction (B+90) = C</p>
+</DIV>
+<FIGCAPTION>Figure 13 &mdash; Additive manufacturing twod stripe overlap</FIGCAPTION>
+</FIGURE>
+
+<H4 ID="ao-am_twod_pbf_stripe_operation-merge_short_vectors">4.3.64.3 merge_short_vectors</H4>
+
+<p>The merge_short_vectors specifies a length.  Scan path vectors
+below this length shall be merged with the vectors of the stripe to
+the left if one exists, and to the right otherwise.</p>
+
+
+<FIGURE ID="fig-am-pbf-paths">
+<IMG SRC="../images/am-pbf-paths.svg" ALT="PBF Paths">
+<DIV class=key>
+<B>Key</B>
+<p>1&emsp;Stripe Overlap</p>
+<p>2&emsp;Contours</p>
+<p>3&emsp;Downskin Contours</p>
+<p>4&emsp;Downskin Region</p>
+<p>5&emsp;Merge Short Vectors</p>
+</DIV>
+<FIGCAPTION>Figure 14 &mdash; Additive manufacturing PBF paths</FIGCAPTION>
+</FIGURE>
 
 <!-- ============================== -->
 <DIV><DIV class=quick>
@@ -3409,18 +4477,18 @@ application object is shown below.</P>
 <H3 ID="ao-am_upskin_feature">4.3.65 Am_upskin_feature</H3>
 </DIV>
 
-<P>An Am_upskin_feature application object is a type of</P>
-
-<P>The data associated with a Am_upskin_feature are the
-following:</P>
-<UL>
-</UL>
+<P>An Am_upskin_feature application object is a type of Am_pbf_feature
+that describes a volume where melting to the material must be limited
+because of a void above the skin.</P>
 
 <P CLASS="note">
 <SPAN>NOTE</SPAN> The EXPRESS description for the Am_upskin_feature
 application object is shown below.</P>
 
 <PRE CLASS="note">
+ENTITY Am_upskin_feature 	-- ADDED BY 10303-238e4
+  SUBTYPE OF (Am_pbf_feature);
+END_ENTITY;
 </PRE>
 
 
@@ -3433,11 +4501,19 @@ application object is shown below.</P>
 <H3 ID="ao-am_upskin_identification">4.3.66 Am_upskin_identification</H3>
 </DIV>
 
-<P>An Am_upskin_identification application object is a type of</P>
+<P>An Am_upskin_identification application object is a type of
+Am_pbf_identification that identifies a feature where melting to the
+material must be limited because of a void above the skin. The
+geometric parameters require that if the dot product of the face
+normal at a surface point, and the Z axis, is above a given angle then
+then the surface point is in the region.</P>
 
 <P>The data associated with a Am_upskin_identification are the
 following:</P>
+
 <UL>
+<LI>upskin_angle;</LI>
+<LI>upskin_thickness.</LI>
 </UL>
 
 <P CLASS="note">
@@ -3445,8 +4521,23 @@ following:</P>
 application object is shown below.</P>
 
 <PRE CLASS="note">
+ENTITY Am_upskin_identification 	-- ADDED BY 10303-238e4
+  SUBTYPE OF (Am_pbf_identification);
+  upskin_angle		: Angle_data_element;
+  upskin_thickness	: Layer_count;
+END_ENTITY;
 </PRE>
 
+
+<H4 ID="ao-am_upskin_identification-upskin_angle">4.3.66.1 upskin_angle</H4>
+
+<p>The upskin_angle specifies the low value limit for any slope to be
+classified as this type of skin.</p>
+
+<H4 ID="ao-am_upskin_identification-upskin_thickness">4.3.66.2 upskin_thickness</H4>
+
+<p>The upskin_thickness specifies the number of layers below the
+surface where this strategy should apply</p>
 
 
 <!-- ============================== -->
@@ -3457,21 +4548,19 @@ application object is shown below.</P>
 <H3 ID="ao-am_upskin_region">4.3.67 Am_upskin_region</H3>
 </DIV>
 
-<P>An Am_upskin_region application object is a type of</P>
-
-<P>The data associated with a Am_upskin_region are the
-following:</P>
-<UL>
-</UL>
+<P>An Am_upskin_region application object is a type of Am_pbf_region
+that describes an area where melting to the material is to be
+optimized because of a void above the skin.</P>
 
 <P CLASS="note">
 <SPAN>NOTE</SPAN> The EXPRESS description for the Am_upskin_region
 application object is shown below.</P>
 
 <PRE CLASS="note">
+ENTITY Am_upskin_region 	-- ADDED BY 10303-238e4
+  SUBTYPE OF (Am_pbf_region);
+END_ENTITY;
 </PRE>
-
-
 
 
 <!-- ============================== -->
@@ -3518,7 +4607,7 @@ ENTITY Am_workingstep
 
   -- 10303-238: moved from Am_operation and changed from raw geometry
   -- into a product to match handling of as_is/to_be/removal
-  -- description.  
+  -- description.
   its_support_geometry:   OPTIONAL Product_view_definition;
 
 WHERE
@@ -3585,7 +4674,7 @@ is shown below.  Refer to ISO 14649-17 for the complete definition and
 explanation of usage.</P>
 
 <PRE CLASS="note">
-ENTITY Am_workpiece 
+ENTITY Am_workpiece
   SUBTYPE OF (Workpiece);
 END_ENTITY;
 </PRE>
@@ -3610,7 +4699,7 @@ Ap_lift_path_angle is shown below.  Refer to ISO 14649-10 for the
 complete definition and explanation of usage.</P>
 
 <PRE CLASS="note">
-ENTITY Ap_lift_path_angle 
+ENTITY Ap_lift_path_angle
   SUBTYPE OF (Approach_lift_path);
   angle:                      Angle_data_element;
   benddist:                   Length_data_element;
@@ -3635,7 +4724,7 @@ Ap_lift_path_tangent is shown below.  Refer to ISO 14649-10 for the
 complete definition and explanation of usage.</P>
 
 <PRE CLASS="note">
-ENTITY Ap_lift_path_tangent 
+ENTITY Ap_lift_path_tangent
   SUBTYPE OF (Approach_lift_path);
   radius:                     Length_data_element;
 END_ENTITY;
@@ -3659,7 +4748,7 @@ Ap_retract_angle is shown below.  Refer to ISO 14649-11 for the
 complete definition and explanation of usage.</P>
 
 <PRE CLASS="note">
-ENTITY Ap_retract_angle 
+ENTITY Ap_retract_angle
   SUBTYPE OF (Air_strategy);
   angle:         Angle_data_element;
   travel_length: Length_data_element;
@@ -3709,11 +4798,11 @@ Approach_lift_path is shown below.  Refer to ISO 14649-10 for the
 complete definition and explanation of usage.</P>
 
 <PRE CLASS="note">
-ENTITY Approach_lift_path 
+ENTITY Approach_lift_path
   ABSTRACT SUPERTYPE OF (ONEOF (Ap_lift_path_angle, Ap_lift_path_tangent))
   SUBTYPE OF (Parameterised_path);
-  fix_point:                  cartesian_point; 
-  fix_point_dir:              OPTIONAL direction; 
+  fix_point:                  cartesian_point;
+  fix_point_dir:              OPTIONAL direction;
 END_ENTITY;
 </PRE>
 
@@ -3799,7 +4888,7 @@ ENTITY Axis_trajectory	(* m0 *)
   axis_list:                  LIST [1:?] OF identifier;
   commands:                   LIST [1:?] OF bounded_curve;
 WHERE
-  WR1: SIZEOF(QUERY(cmd &lt;* commands | 
+  WR1: SIZEOF(QUERY(cmd &lt;* commands |
     cmd&#92;geometric_representation_item.dim &lt;&gt; 1)) = 0;
 END_ENTITY;
 </PRE>
@@ -3832,7 +4921,7 @@ shown below.  Refer to ISO 14649-11 for the complete definition and
 explanation of usage.</P>
 
 <PRE CLASS="note">
-ENTITY Back_boring      
+ENTITY Back_boring
   SUBTYPE OF (Drilling_type_operation);
 WHERE
   WR1:  EXISTS(SELF.its_machine_functions.oriented_spindle_stop);
@@ -3931,7 +5020,7 @@ is shown below.  Refer to ISO 14649-11 for the complete definition and
 explanation of usage.</P>
 
 <PRE CLASS="note">
-ENTITY Bidirectional    
+ENTITY Bidirectional
   SUBTYPE OF (Two5d_milling_strategy);
   feed_direction:        OPTIONAL direction;
   stepover_direction:    OPTIONAL Left_or_right;
@@ -3941,7 +5030,7 @@ END_ENTITY;
 TYPE Left_or_right = ENUMERATION OF (left, right);
 END_TYPE;
 
-TYPE Stroke_connection_strategy = ENUMERATION OF 
+TYPE Stroke_connection_strategy = ENUMERATION OF
    (straghtline, lift_shift_plunge, degouge, loop_back);
 END_TYPE;
 </PRE>
@@ -3964,7 +5053,7 @@ Bidirectional_contour is shown below.  Refer to ISO 14649-11 for the
 complete definition and explanation of usage.</P>
 
 <PRE CLASS="note">
-ENTITY Bidirectional_contour    
+ENTITY Bidirectional_contour
   SUBTYPE OF (Two5d_milling_strategy);
   feed_direction: 	OPTIONAL direction;
   stepover_direction: 	OPTIONAL Left_or_right;
@@ -4019,7 +5108,7 @@ shown below.  Refer to ISO 14649-11 for the complete definition and
 explanation of usage.</P>
 
 <PRE CLASS="note">
-ENTITY Boring   
+ENTITY Boring
   SUBTYPE OF (Boring_operation);
 END_ENTITY;
 </PRE>
@@ -4042,7 +5131,7 @@ Boring_operation is shown below.  Refer to ISO 14649-11 for the
 complete definition and explanation of usage.</P>
 
 <PRE CLASS="note">
-ENTITY Boring_operation 
+ENTITY Boring_operation
   ABSTRACT SUPERTYPE OF (ONEOF(Boring, Reaming))
   SUBTYPE OF (Drilling_type_operation);
   spindle_stop_at_bottom:         BOOLEAN;
@@ -4091,7 +5180,7 @@ Bottom_and_side_milling is shown below.  Refer to ISO 14649-11 for the
 complete definition and explanation of usage.</P>
 
 <PRE CLASS="note">
-ENTITY Bottom_and_side_milling  
+ENTITY Bottom_and_side_milling
   ABSTRACT SUPERTYPE OF (ONEOF(Bottom_and_side_rough_milling,
       Bottom_and_side_finish_milling))
   SUBTYPE OF (Two5d_milling_operation);
@@ -4120,7 +5209,7 @@ Bottom_and_side_rough_milling is shown below.  Refer to ISO 14649-11
 for the complete definition and explanation of usage.</P>
 
 <PRE CLASS="note">
-ENTITY Bottom_and_side_rough_milling    
+ENTITY Bottom_and_side_rough_milling
   SUBTYPE OF (Bottom_and_side_milling);
 WHERE
   WR1: EXISTS(SELF.allowance_side) AND (SELF.allowance_side&gt;=0.0);
@@ -4456,9 +5545,9 @@ technology-specific.</P>
 
 <P CLASS="note">
 <SPAN>NOTE 3</SPAN> Values that are unavailable for a technology may
-be written as “UNAVAILABLE”.  Values that are available for a
+be written as "UNAVAILABLE".  Values that are available for a
 technology but not defined in the current context may be written as
-“UNDEFINED”.</P>
+"UNDEFINED".</P>
 
 <H4 ID="ao-broadcast_content-export_stream">4.3.90.10 export_stream</H4>
 
@@ -4620,7 +5709,7 @@ SUBTYPE OF (Broadcast);
    point_content:	OPTIONAL Broadcast_content;
 
 -- WHERE
--- If there are points then there must be toolpaths   
+-- If there are points then there must be toolpaths
 END_ENTITY;
 </PRE>
 
@@ -4673,7 +5762,7 @@ END_ENTITY;
 
 <H4 ID="ao-broadcast_time-broadcast_interval">4.3.94.1 broadcast_interval</H4>
 
-<p>The broadcast_interval specifies time the interval between emitted messages. 
+<p>The broadcast_interval specifies time the interval between emitted messages.
 
 
 <H4 ID="ao-broadcast_time-time_content">4.3.94.2 broadcast_time to broadcast_content (as time_content)</H4>
@@ -4725,7 +5814,7 @@ Center_drilling is shown below.  Refer to ISO 14649-11 for the
 complete definition and explanation of usage.</P>
 
 <PRE CLASS="note">
-ENTITY Center_drilling  
+ENTITY Center_drilling
   SUBTYPE OF (Drilling_operation);
 END_ENTITY;
 </PRE>
@@ -4747,7 +5836,7 @@ is shown below.  Refer to ISO 14649-11 for the complete definition and
 explanation of usage.</P>
 
 <PRE CLASS="note">
-ENTITY Center_milling   
+ENTITY Center_milling
   SUBTYPE OF (Two5d_milling_strategy);
 END_ENTITY;
 </PRE>
@@ -4794,7 +5883,7 @@ shown below.  Refer to ISO 14649-10 for the complete definition and
 explanation of usage.</P>
 
 <PRE CLASS="note">
-ENTITY Channel; 
+ENTITY Channel;
   its_id: identifier;
 END_ENTITY;
 </PRE>
@@ -5118,7 +6207,7 @@ sides.</P>
 <p>M&emsp;middle point</p>
 <p>AX&emsp;axis point</p>
 </DIV>
-<FIGCAPTION>Figure 3 &mdash; Four level escape from P1 to P600 via absolute points AX1, AX2 and AX3</FIGCAPTION>
+<FIGCAPTION>Figure 15 &mdash; Four level escape from P1 to P600 via absolute points AX1, AX2 and AX3</FIGCAPTION>
 </FIGURE>
 
 
@@ -5138,7 +6227,7 @@ is shown below.  Refer to ISO 14649-10 for the complete definition and
 explanation of usage.</P>
 
 <PRE CLASS="note">
-ENTITY Connect_direct  
+ENTITY Connect_direct
   SUBTYPE OF (Connector);
 END_ENTITY;
 </PRE>
@@ -5205,7 +6294,7 @@ be moved from the middle point between two features.
 <p>L1&emsp;Level 1 increment</p>
 <p>L2&emsp;Level 2 increment</p>
 </DIV>
-<FIGCAPTION>Figure 4 &mdash; Escape from P1 to P6 via middle points M1 and M2</FIGCAPTION>
+<FIGCAPTION>Figure 16 &mdash; Escape from P1 to P6 via middle points M1 and M2</FIGCAPTION>
 </FIGURE>
 
 
@@ -5225,7 +6314,7 @@ Connect_secplane is shown below.  Refer to ISO 14649-10 for the
 complete definition and explanation of usage.</P>
 
 <PRE CLASS="note">
-ENTITY Connect_secplane 
+ENTITY Connect_secplane
   SUBTYPE OF (Connector);
   up_dir  : OPTIONAL direction;
   down_dir: OPTIONAL direction;
@@ -5290,7 +6379,7 @@ at Level 1 will move out, move across, and move down again.</P>
 <B>Key</B>
 <p>1&emsp;incremental distance</p>
 </DIV>
-<FIGCAPTION>Figure 5 &mdash; Level 1 escape from P1 to P4 when P2 and P3 are blocked</FIGCAPTION>
+<FIGCAPTION>Figure 17 &mdash; Level 1 escape from P1 to P4 when P2 and P3 are blocked</FIGCAPTION>
 </FIGURE>
 
 <!-- ============================== -->
@@ -5309,8 +6398,8 @@ shown below.  Refer to ISO 14649-10 for the complete definition and
 explanation of usage.</P>
 
 <PRE CLASS="note">
-ENTITY Connector 
-  ABSTRACT SUPERTYPE OF (ONEOF(Connect_secplane, Connect_direct)) 
+ENTITY Connector
+  ABSTRACT SUPERTYPE OF (ONEOF(Connect_secplane, Connect_direct))
   SUBTYPE OF (Parameterised_path);
 END_ENTITY;
 </PRE>
@@ -5377,7 +6466,7 @@ Contour_bidirectional is shown below.  Refer to ISO 14649-11 for the
 complete definition and explanation of usage.</P>
 
 <PRE CLASS="note">
-ENTITY Contour_bidirectional    
+ENTITY Contour_bidirectional
   SUBTYPE OF (Two5d_milling_strategy);
   feed_direction:       OPTIONAL direction;
   stepover_direction:   OPTIONAL Left_or_right;
@@ -5403,7 +6492,7 @@ Contour_parallel is shown below.  Refer to ISO 14649-11 for the
 complete definition and explanation of usage.</P>
 
 <PRE CLASS="note">
-ENTITY Contour_parallel         
+ENTITY Contour_parallel
   SUBTYPE OF (Two5d_milling_strategy);
   rotation_direction:   OPTIONAL Rot_direction;
   cutmode:              OPTIONAL Cutmode_type;
@@ -5427,7 +6516,7 @@ is shown below.  Refer to ISO 14649-11 for the complete definition and
 explanation of usage.</P>
 
 <PRE CLASS="note">
-ENTITY Contour_spiral   
+ENTITY Contour_spiral
   SUBTYPE OF (Two5d_milling_strategy);
   rotation_direction:     OPTIONAL Rot_direction;
   cutmode:                OPTIONAL Cutmode_type;
@@ -5580,7 +6669,7 @@ Counter_sinking is shown below.  Refer to ISO 14649-11 for the
 complete definition and explanation of usage.</P>
 
 <PRE CLASS="note">
-ENTITY Counter_sinking  
+ENTITY Counter_sinking
   SUBTYPE OF (Drilling_operation);
 END_ENTITY;
 </PRE>
@@ -5655,7 +6744,7 @@ Curve_with_normal_vector is shown below.  Refer to ISO 14649-10 for
 the complete definition and explanation of usage.</P>
 
 <PRE CLASS="note">
-ENTITY Curve_with_normal_vector; 
+ENTITY Curve_with_normal_vector;
   basiccurve:                 bounded_curve;
   surface_normal:             bounded_curve;
 END_ENTITY;
@@ -5695,7 +6784,7 @@ shown below.  Refer to ISO 14649-10 for the original definition and
 explanation of usage.</P>
 
 <PRE CLASS="note">
-ENTITY Cutter_contact_trajectory 
+ENTITY Cutter_contact_trajectory
   SUBTYPE OF (Trajectory);
   basiccurve:                  Curve_with_surface_normal;
   its_toolaxis:                OPTIONAL bounded_curve;
@@ -5738,7 +6827,7 @@ Cutter_contact_trajectory.</P>
 
 <P>The path_maximum_deviation specifies a linear distance.  If this
 distance is specified, the NC control shall not allow the physical
-motion of the cutter contact point during execution of the toolpath to 
+motion of the cutter contact point during execution of the toolpath to
 exceed this distance from the basiccurve specified by the toolpath.
 The path_maximum_deviation may not be specified for a particular
 Cutter_contact_trajectory. </P>
@@ -5754,7 +6843,7 @@ tool_axis_maximum_deviation may not be specified for a particular
 Cutter_contact_trajectory. </P>
 
 <P CLASS="note">
-<SPAN>NOTE</SPAN> <A href="#fig-toolpath_tolerance">Figure 6</A>
+<SPAN>NOTE</SPAN> <A href="#fig-toolpath_tolerance">Figure 18</A>
 illustrates the range of deviations described by the
 tool_direction_maximum_deviation and path_maximim_deviation
 parameters.  It is expected than an NC controller will adjust
@@ -5772,7 +6861,7 @@ within the allowed deviations.</P>
 <p>4&emsp;tool_direction_maximum_deviation</p>
 <p>5&emsp;path_maximim_deviation</p>
 </DIV>
-<FIGCAPTION>Figure 6 &mdash; Toolpath deviation parameters</FIGCAPTION>
+<FIGCAPTION>Figure 18 &mdash; Toolpath deviation parameters</FIGCAPTION>
 </FIGURE>
 
 
@@ -5811,7 +6900,7 @@ explanation of usage.</P>
 <PRE CLASS="note">
 ENTITY Cutter_location_trajectory
   SUBTYPE OF (Trajectory);
-  basiccurve:                  bounded_curve; 
+  basiccurve:                  bounded_curve;
   its_toolaxis:                OPTIONAL bounded_curve;
   its_toolref_direction:       OPTIONAL bounded_curve;      -- ADDED BY 10303-238
   surface_normal:              OPTIONAL bounded_curve;
@@ -5858,7 +6947,7 @@ tool_axis_maximum_deviation may not be specified for a particular
 Cutter_location_trajectory. </P>
 
 <P CLASS="note">
-<SPAN>NOTE</SPAN> <A href="#fig-toolpath_tolerance">Figure 6</A>
+<SPAN>NOTE</SPAN> <A href="#fig-toolpath_tolerance">Figure 18</A>
 illustrates the range of deviations described by the
 tool_direction_maximum_deviation and path_maximim_deviation
 parameters.</P>
@@ -6249,7 +7338,7 @@ application object is shown below.</P>
 <PRE CLASS="note">
 ENTITY Drill_and_fill_prototype		-- ADDED BY 10303-238e4
 SUBTYPE OF (Manufacturing_feature_prototype);
-  prototype_stackup		: OPTIONAL Drill_and_fill_stackup;	
+  prototype_stackup		: OPTIONAL Drill_and_fill_stackup;
   prototype_assembly		: OPTIONAL Product_view_definition;
   engineering_fit		: OPTIONAL Hole_class;
   iso_fit			: OPTIONAL Iso_286_hole_class;
@@ -6263,12 +7352,12 @@ TYPE Hole_class = ENUMERATION OF (
   location_clearance, slight_interference, transition, press_fit,
   medium_fit, force_fit
   );
-END_TYPE; 
+END_TYPE;
 
 TYPE Iso_286_hole_class = ENUMERATION OF (
   clearance_fit, interference_fit, transition_fit
   );
-END_TYPE; 
+END_TYPE;
 </PRE>
 
 
@@ -6301,8 +7390,8 @@ configuration of the fastener.</p>
 between the fastener and the hole.</p>
 
 <P CLASS="note">
-<SPAN>NOTE</SPAN> If the hole is a “tight_fit” then force will be
-necessary to insert the fastener, and if the hole is a “loose_fit”
+<SPAN>NOTE</SPAN> If the hole is a "tight_fit" then force will be
+necessary to insert the fastener, and if the hole is a "loose_fit"
 then the fastener will drop into place.</P>
 
 
@@ -6367,8 +7456,8 @@ application object is shown below.</P>
 ENTITY Drill_and_fill_stackup;	-- ADDED BY 10303-238e4
   measurement_state	: Measurement_condition;
   outer_part		: Product_view_definition;
-  measurement_direction	: OPTIONAL direction; 
-  measurement_diameter	: OPTIONAL Length_data_element; 
+  measurement_direction	: OPTIONAL direction;
+  measurement_diameter	: OPTIONAL Length_data_element;
   measurement_location	: OPTIONAL cartesian_point;
   layers		: OPTIONAL LIST [0:?] OF Stack_layer;
   computed_depth	: OPTIONAL Length_data_element;
@@ -6494,7 +7583,7 @@ application object is shown below.</P>
 ENTITY Drill_and_fill_twin	-- ADDED BY 10303-238e4
 SUBTYPE OF (Manufacturing_feature_twin);
   SELF\Manufacturing_feature_twin.prototype : OPTIONAL Drill_and_fill_prototype;
-  
+
   ordered_stackup	: OPTIONAL Drill_and_fill_stackup;
   fastener_in_place	: OPTIONAL Fastener_twin;
   collar_in_place	: OPTIONAL Collar_twin;
@@ -6621,7 +7710,7 @@ shown below.  Refer to ISO 14649-11 for the complete definition and
 explanation of usage.</P>
 
 <PRE CLASS="note">
-ENTITY Drilling 
+ENTITY Drilling
   SUBTYPE OF (Drilling_operation);
 END_ENTITY;
 </PRE>
@@ -6692,8 +7781,8 @@ Drilling_type_operation is shown below.  Refer to ISO 14649-11 for the
 complete definition and explanation of usage.</P>
 
 <PRE CLASS="note">
-ENTITY Drilling_type_operation  
-  ABSTRACT SUPERTYPE OF (ONEOF(Drilling_operation, Boring_operation, Back_boring, 
+ENTITY Drilling_type_operation
+  ABSTRACT SUPERTYPE OF (ONEOF(Drilling_operation, Boring_operation, Back_boring,
       Tapping, Thread_drilling))
   SUBTYPE OF (Milling_machining_operation);
   cutting_depth:              OPTIONAL Length_data_element;
@@ -6720,7 +7809,7 @@ Drilling_type_strategy is shown below.  Refer to ISO 14649-11 for the
 complete definition and explanation of usage.</P>
 
 <PRE CLASS="note">
-ENTITY Drilling_type_strategy;   
+ENTITY Drilling_type_strategy;
   reduced_cut_at_start:       OPTIONAL Ratio_data_element;
   reduced_feed_at_start:      OPTIONAL Ratio_data_element;
   depth_of_start:             OPTIONAL Length_data_element;
@@ -6728,9 +7817,9 @@ ENTITY Drilling_type_strategy;
   reduced_feed_at_end:        OPTIONAL Ratio_data_element;
   depth_of_end:               OPTIONAL Length_data_element;
 WHERE
-  WR1: EXISTS(depth_of_start) OR 
+  WR1: EXISTS(depth_of_start) OR
        NOT (EXISTS(reduced_cut_at_start) OR EXISTS(reduced_feed_at_start));
-  WR2: EXISTS(depth_of_end) OR 
+  WR2: EXISTS(depth_of_end) OR
        NOT (EXISTS(reduced_cut_at_end) OR EXISTS(reduced_feed_at_end));
 END_ENTITY;
 </PRE>
@@ -6844,7 +7933,7 @@ nose sideways, and avoid a special fixture.</P>
 <SPAN>NOTE</SPAN> X1 may escape to X2 on Level 1 using Feature Group
 1, but must go to Level 2 to reach X5 using Feature Group 4, and Level
 3 to reach X7 using Feature Group 6.</p>
-<FIGCAPTION>Figure 7 &mdash; Escape sequence groups for a set of features across three levels.</FIGCAPTION>
+<FIGCAPTION>Figure 19 &mdash; Escape sequence groups for a set of features across three levels.</FIGCAPTION>
 </FIGURE>
 
 
@@ -6964,7 +8053,7 @@ ENTITY Executable
   enabled: OPTIONAL BOOLEAN; 	     	     -- ADDED BY 10303-238
   removal: OPTIONAL Product_view_definition; -- ADDED BY 10303-238
   to_be:   OPTIONAL Product_view_definition; -- ADDED BY 10303-238
-  
+
   twin_source: OPTIONAL text;			-- ADDED BY 10303-238e2
   twin_plan: OPTIONAL Executable;               -- ADDED BY 10303-238e2
   twin_start : OPTIONAL Date_time;		-- ADDED BY 10303-238e2
@@ -6977,7 +8066,7 @@ ENTITY Executable
   its_broadcast: OPTIONAL Broadcast;		-- ADDED BY 10303-238e4
   phase: OPTIONAL Manufacturing_stage;		-- ADDED BY 10303-238e4
   twin_equipment: OPTIONAL Identifier;		-- ADDED BY 10303-238e4
-  
+
 INVERSE
   -- 10303-238: Additional CAM properties for planned executables or
   -- result properties for digital twins.
@@ -7664,7 +8753,7 @@ END_ENTITY;
 TYPE Manual_or_automated = ENUMERATION OF (
   manual, automated
   );
-END_TYPE; 
+END_TYPE;
 </PRE>
 
 
@@ -7677,7 +8766,7 @@ END_TYPE;
 <p>The additional_information specifies additional information about the operation.
 
 <P CLASS="note">
-<SPAN>EXAMPLE</SPAN> The additional information may be “cooling” or “laser heating”.
+<SPAN>EXAMPLE</SPAN> The additional information may be "cooling" or "laser heating".
 
 
 <!-- ============================== -->
@@ -7886,7 +8975,7 @@ application object is shown below.</P>
 <PRE CLASS="note">
 ENTITY	Fasten_with_codes	-- ADDED BY 10303-238e4
   SUBTYPE OF (Fill_type_operation);
-  pass_thru_codes	: LIST[1:?] OF STRING; 
+  pass_thru_codes	: LIST[1:?] OF STRING;
 END_ENTITY;
 </PRE>
 
@@ -7931,7 +9020,7 @@ ENTITY Fastener_group		-- ADDED BY 10303-238e4
 SUBTYPE OF (Drill_and_fill_group);
   fastener			: OPTIONAL Product_view_definition;
   collar			: OPTIONAL Product_view_definition;
-  washers			: LIST [0:?] OF Product_view_definition; 
+  washers			: LIST [0:?] OF Product_view_definition;
   fastener_sealant		: OPTIONAL Product_view_definition;
   fay_sealant			: OPTIONAL Product_view_definition;
   cap_sealant			: OPTIONAL Product_view_definition;
@@ -7975,7 +9064,7 @@ this group.</p>
 
 
 <H4 ID="ao-fastener_group-cap_sealant">4.3.171.6 fastener_group to product_view_definition (as cap_sealant)</H4>
-    
+
 <p>The cap_sealant specifies the sealant that shall be applied with
 this configuration to the collar of the fasteners positions in this
 group.</p>
@@ -8353,7 +9442,7 @@ Five_axes_const_tilt_yaw is shown below.  Refer to ISO 14649-11 for
 the complete definition and explanation of usage.</P>
 
 <PRE CLASS="note">
-ENTITY Five_axes_const_tilt_yaw         
+ENTITY Five_axes_const_tilt_yaw
   SUBTYPE OF (Tool_direction_for_milling);
   tilt_angle : Angle_data_element;
   yaw_angle  : Angle_data_element;
@@ -8378,7 +9467,7 @@ Five_axes_var_tilt_yaw is shown below.  Refer to ISO 14649-11 for the
 complete definition and explanation of usage.</P>
 
 <PRE CLASS="note">
-ENTITY Five_axes_var_tilt_yaw   
+ENTITY Five_axes_var_tilt_yaw
   SUBTYPE OF (Tool_direction_for_milling);
 END_ENTITY;
 </PRE>
@@ -8504,7 +9593,7 @@ Freeform_operation is shown below.  Refer to ISO 14649-11 for the
 complete definition and explanation of usage.</P>
 
 <PRE CLASS="note">
-ENTITY Freeform_operation       
+ENTITY Freeform_operation
   SUBTYPE OF (Milling_type_operation);
   its_machining_strategy: OPTIONAL Freeform_strategy;
 END_ENTITY;
@@ -8549,7 +9638,7 @@ Freeform_strategy is shown below.  Refer to ISO 14649-11 for the
 complete definition and explanation of usage.</P>
 
 <PRE CLASS="note">
-ENTITY Freeform_strategy        
+ENTITY Freeform_strategy
   ABSTRACT SUPERTYPE OF (ONEOF(Uv_strategy, Plane_cc_strategy, Plane_cl_strategy,
      Leading_line_strategy));
   pathmode:               Pathmode_type;
@@ -8894,7 +9983,7 @@ Leading_line_strategy is shown below.  Refer to ISO 14649-11 for the
 complete definition and explanation of usage.</P>
 
 <PRE CLASS="note">
-ENTITY Leading_line_strategy    
+ENTITY Leading_line_strategy
   SUBTYPE OF (Freeform_strategy);
   its_line : bounded_curve;
 END_ENTITY;
@@ -9063,7 +10152,7 @@ to ISO 14649-10 for the complete definition and explanation of
 usage.</P>
 
 <PRE CLASS="note">
-ENTITY Machine_functions 
+ENTITY Machine_functions
   ABSTRACT SUPERTYPE;
   -- 10303-238: consolidate other_functions from subtypes into
   --   the supertype for consistent handling across technologies
@@ -9429,8 +10518,8 @@ ENTITY Machining_operation
   -- its_id:                 identifier;
   retract_plane:          OPTIONAL Length_data_element;
   start_point:            OPTIONAL cartesian_point;
-  its_tool:               Machining_tool; 
-  its_technology:         Technology; 
+  its_tool:               Machining_tool;
+  its_technology:         Technology;
   its_machine_functions:  Machine_functions;
 END_ENTITY;
 </PRE>
@@ -9467,7 +10556,7 @@ Refer to ISO 14649-10 for the original definition and explanation of
 usage.</P>
 
 <PRE CLASS="note">
-ENTITY Machining_tool 
+ENTITY Machining_tool
   ABSTRACT SUPERTYPE;
   its_id:		label;
   its_usage:		OPTIONAL Tool_usage;	-- ADDED BY 10303-238
@@ -9573,7 +10662,7 @@ Operation, as adapted by this document is shown below.  Refer to ISO
 ENTITY Manufacturing_feature
   ABSTRACT SUPERTYPE
   SUBTYPE OF (shape_feature_definition);
-  
+
   its_broadcast: OPTIONAL Broadcast;		-- ADDED BY 10303-238e4
   twin_history: LIST [0:?] OF Phase_history;	-- ADDED BY 10303-238e4
 END_ENTITY;
@@ -9625,7 +10714,7 @@ Manufacturing_feature_prototype application object is shown below.</P>
 
 <PRE CLASS="note">
 ENTITY Manufacturing_feature_prototype	-- ADDED BY 10303-238e4
-SUBTYPE OF (Manufacturing_feature); 
+SUBTYPE OF (Manufacturing_feature);
   engineering_design		: OPTIONAL Manufacturing_feature;
   external_engineering_design	: OPTIONAL Identifier;
   expected_pmi: 		SET [0:?] OF Expected_property;
@@ -9677,7 +10766,7 @@ application object is shown below.</P>
 
 <PRE CLASS="note">
 ENTITY Manufacturing_feature_twin	-- ADDED BY 10303-238e4
-SUBTYPE OF (Manufacturing_feature); 
+SUBTYPE OF (Manufacturing_feature);
   manufacturing_prototype	: Manufacturing_feature_prototype;
   place			: OPTIONAL Bounding_geometry_select;
   measured_pmi		: SET [0:?] OF Measured_property;
@@ -9743,7 +10832,7 @@ explanation of usage.</P>
 ENTITY Manufacturing_project
   SUBTYPE OF (Product_version);
   -- 10303-238: id now provided by inherited product_version.id
-  -- its_id:          identifier;  
+  -- its_id:          identifier;
   main_workplan:   Workplan;
 
   -- 10303-238: relax to Product_view_definition for integration
@@ -10046,7 +11135,7 @@ ENTITY Milling_machine_functions
   mist:                 OPTIONAL BOOLEAN;
   through_spindle_coolant: BOOLEAN;
   through_pressure:     OPTIONAL Pressure_data_element;
-  axis_clamping:        LIST [0:?] OF identifier; 
+  axis_clamping:        LIST [0:?] OF identifier;
   chip_removal:         BOOLEAN;
   oriented_spindle_stop: OPTIONAL direction;
   its_process_model:    OPTIONAL Process_model_list;
@@ -10121,7 +11210,7 @@ complete definition and explanation of usage.</P>
 
 <PRE CLASS="note">
 ENTITY Milling_technology
-  SUBTYPE OF (Technology); 
+  SUBTYPE OF (Technology);
   cutspeed:                      OPTIONAL Velocity_data_element;
   spindle:                       OPTIONAL Frequency_data_element;
   feedrate_per_tooth:            OPTIONAL Length_data_element;
@@ -10156,7 +11245,7 @@ Milling_type_operation is shown below.  Refer to ISO 14649-11 for the
 complete definition and explanation of usage.</P>
 
 <PRE CLASS="note">
-ENTITY Milling_type_operation   
+ENTITY Milling_type_operation
   ABSTRACT SUPERTYPE OF (ONEOF(Freeform_operation, Two5d_milling_operation))
   SUBTYPE OF (Milling_machining_operation);
   approach:         OPTIONAL Approach_retract_strategy;
@@ -10458,7 +11547,7 @@ is shown below.  Refer to ISO 14649-10 for the complete definition and
 explanation of usage.</P>
 
 <PRE CLASS="note">
-ENTITY Offset_vector; 
+ENTITY Offset_vector;
   translate: LIST [3:3] OF Nc_variable;
   rotate:    OPTIONAL LIST [3:3] OF Nc_variable;
 WHERE
@@ -10939,7 +12028,7 @@ application object is shown below.</P>
 <PRE CLASS="note">
 ENTITY Place_item_operation	-- ADDED BY 10303-238e4
   SUBTYPE OF (Fill_type_operation);
-  placed_item			: Product_view_definition;    
+  placed_item			: Product_view_definition;
   depth				: OPTIONAL Length_data_element;
   allowable_minimum_force	: OPTIONAL Force_data_element;
   allowable_maximum_force	: OPTIONAL Force_data_element;
@@ -11240,7 +12329,7 @@ complete definition and explanation of usage.</P>
 
 <PRE CLASS="note">
 ENTITY Plunge_strategy
-  ABSTRACT SUPERTYPE OF (ONEOF (Plunge_toolaxis, Plunge_ramp, 
+  ABSTRACT SUPERTYPE OF (ONEOF (Plunge_toolaxis, Plunge_ramp,
      Plunge_helix, Plunge_zigzag))
   SUBTYPE OF (Approach_retract_strategy);
 END_ENTITY;
@@ -11812,7 +12901,7 @@ application object is shown below.</P>
 <PRE CLASS="note">
 ENTITY Reference_frame_group	-- ADDED BY 10303-238e4
 SUBTYPE OF (Drill_and_fill_group);
-  guide_verified	: BOOLEAN; 
+  guide_verified	: BOOLEAN;
   basis			: OPTIONAL Reference_frame_group;
   modification		: OPTIONAL Axis_placement_3d;
   verification_time	: Date_time; -- because stale after 12 hours
@@ -13104,7 +14193,7 @@ collar.</p>
 
 <H4 ID="ao-tighten_collar_operation-squeeze">4.3.303.2 squeeze</H4>
 
-<p>The squeeze specifies the force to be applied to the fastener 
+<p>The squeeze specifies the force to be applied to the fastener
 that is sufficient to achieve fastening requirements</p>
 
 <H4 ID="ao-tighten_collar_operation-swage">4.3.303.3 swage</H4>
@@ -13737,7 +14826,7 @@ TYPE Material_removal_measure = SELECT (
   Length_data_element,
   Material_removal_curve
 );
-END_TYPE; 
+END_TYPE;
 </PRE>
 
 
@@ -13795,8 +14884,8 @@ Trajectory.</P>
 
 <P>Each point in the seven-dimensional curve shall describe the
 cross-section area parameters illustrated
-in <a href="#fig-cross_section">Figure 8</a>
-and <a href="#fig-cross_section_turn">Figure 9</a>. These parameters
+in <a href="#fig-cross_section">Figure 20</a>
+and <a href="#fig-cross_section_turn">Figure 21</a>. These parameters
 are as follows:
 
 <FIGURE ID="fig-cross_section">
@@ -13815,7 +14904,7 @@ are as follows:
 <p>9&emsp;X<small>CGofs</small></p>
 <p>10&emsp;center of gravity</p>
 </DIV>
-<FIGCAPTION>Figure 8 &mdash; Cross-section parameters for milling</FIGCAPTION>
+<FIGCAPTION>Figure 20 &mdash; Cross-section parameters for milling</FIGCAPTION>
 </FIGURE>
 
 <FIGURE ID="fig-cross_section_turn">
@@ -13834,14 +14923,14 @@ are as follows:
 <p>9&emsp;X<small>CGofs</small></p>
 <p>10&emsp;center of gravity</p>
 </DIV>
-<FIGCAPTION>Figure 9 &mdash; Cross-section parameters for turning</FIGCAPTION>
+<FIGCAPTION>Figure 21 &mdash; Cross-section parameters for turning</FIGCAPTION>
 </FIGURE>
 
 <UL>
 <LI>dimension 0 shall describe the maximum axial depth of the tool
 contact cross section, shown by ADmax
-in <a href="#fig-cross_section">Figure 8</a>
-and <a href="#fig-cross_section_turn">Figure 9</a>. The maximum axial
+in <a href="#fig-cross_section">Figure 20</a>
+and <a href="#fig-cross_section_turn">Figure 21</a>. The maximum axial
 depth for milling shall be measured parallel to the tool axis,
 regardless of whether the direction of feed is perpendicular to the
 tool axis. The maximum axial depth for turning shall be measured
@@ -13849,35 +14938,35 @@ parallel to the spindle axis;</LI>
 
 <LI>dimension 1 shall describe the maximum radial depth of the tool
 contact cross section, shown by RDmax
-in <a href="#fig-cross_section">Figure 8</a>
-and <a href="#fig-cross_section_turn">Figure 9</a>. The maximum radial
+in <a href="#fig-cross_section">Figure 20</a>
+and <a href="#fig-cross_section_turn">Figure 21</a>. The maximum radial
 depth shall be measured perpendicular to both the tool axis and the
 feed direction;</LI>
 
 <LI>dimension 2 shall describe the location along the X axis where the
 maximum radial depth measure is located, shown by Xmaxofs
-in <a href="#fig-cross_section">Figure 8</a>
-and <a href="#fig-cross_section_turn">Figure 9</a>;</LI>
+in <a href="#fig-cross_section">Figure 20</a>
+and <a href="#fig-cross_section_turn">Figure 21</a>;</LI>
 
 <LI>dimension 3 shall describe the location along the Y axis where the
 maximum axial depth measure is located, shown by Ymaxofs
-in <a href="#fig-cross_section">Figure 8</a>
-and <a href="#fig-cross_section_turn">Figure 9</a>;</LI>
+in <a href="#fig-cross_section">Figure 20</a>
+and <a href="#fig-cross_section_turn">Figure 21</a>;</LI>
 
 <LI>dimension 4 shall describe the total area of the tool contact
 cross section in the X-Y plane, shown by CSA
-in <a href="#fig-cross_section">Figure 8</a>
-and <a href="#fig-cross_section_turn">Figure 9</a>;</LI>
+in <a href="#fig-cross_section">Figure 20</a>
+and <a href="#fig-cross_section_turn">Figure 21</a>;</LI>
 
 <LI>dimension 5 shall describe the location along the X axis of the
 centre of gravity of the tool contact cross section, shown by XCGofs
-in <a href="#fig-cross_section">Figure 8</a>
-and <a href="#fig-cross_section_turn">Figure 9</a>;</LI>
+in <a href="#fig-cross_section">Figure 20</a>
+and <a href="#fig-cross_section_turn">Figure 21</a>;</LI>
 
 <LI>dimension 6 shall describe the location along the Y axis of the
 centre of gravity of the tool contact cross section, shown by YCGofs
-in <a href="#fig-cross_section">Figure 8</a>
-and <a href="#fig-cross_section_turn">Figure 9</a>.</LI>
+in <a href="#fig-cross_section">Figure 20</a>
+and <a href="#fig-cross_section_turn">Figure 21</a>.</LI>
 </UL>
 
 
@@ -14050,8 +15139,8 @@ ENTITY Turning_technology
   inhibit_spindle_override:     BOOLEAN;
   its_adaptive_control:         OPTIONAL Adaptive_control;
 WHERE
-  WR1: (EXISTS(SELF.feedrate) AND 
-        NOT EXISTS(SELF.feed_per_revolution)) OR 
+  WR1: (EXISTS(SELF.feedrate) AND
+        NOT EXISTS(SELF.feed_per_revolution)) OR
         (NOT EXISTS(SELF.feedrate) AND EXISTS(SELF.feed_per_revolution));
 END_ENTITY;
 
@@ -14352,7 +15441,7 @@ known or lie outside of the set of milling tools described by ISO
 <p>7&emsp;taper_angle</p>
 <p>8&emsp;tool axis</p>
 </DIV>
-<FIGCAPTION>Figure 10 &mdash; User_defined_milling_tool parameters</FIGCAPTION>
+<FIGCAPTION>Figure 22 &mdash; User_defined_milling_tool parameters</FIGCAPTION>
 </FIGURE>
 
 <P CLASS="note">
@@ -14391,7 +15480,7 @@ END_ENTITY;
 <P>
 The corner_radius specifies the radius of the corner circle which
 describes the transition between the upper and lower line segments of
-the tool profile as shown in <a href="#fig-user_defined_tool">Figure 10</a>.</P>
+the tool profile as shown in <a href="#fig-user_defined_tool">Figure 22</a>.</P>
 
 
 <H4 ID="ao-user_defined_milling_tool-corner_radius_center_horizontal">4.3.333.2 corner_radius_center_horizontal</H4>
@@ -14420,7 +15509,7 @@ characterize the tool.</P>
 
 <P>The taper_angle specifies the angle between the upper line segment
 of the tool and the tool axis as shown
-in <a href="#fig-user_defined_tool">Figure 10</a>.</P>
+in <a href="#fig-user_defined_tool">Figure 22</a>.</P>
 
 <P CLASS="note">
 <SPAN>NOTE</SPAN> This angle will be positive when the tool diameter
@@ -14432,7 +15521,7 @@ when the tool diameter decreases when moving from tip to spindle.</P>
 
 <P>The tip_outer_angle specifies the angle between a radial line
 through the tool endpoint and the lower line segment of the tool as
-shown in <a href="#fig-user_defined_tool">Figure 10</a>.</P>
+shown in <a href="#fig-user_defined_tool">Figure 22</a>.</P>
 <P CLASS="note">
 <SPAN>NOTE</SPAN> This angle is always acute (less than 90 degrees)</P>
 
@@ -14795,11 +15884,11 @@ adapted by this document, is shown below.  Refer to ISO
 ENTITY Workpiece
   SUBTYPE OF (Product_view_definition);
   -- 10303-238: id now provided by inherited product_view_definition.id
-  -- its_id:          identifier;  
+  -- its_id:          identifier;
 
   -- 10303-238: its_material now defined as inverse described below
   -- its_material:            OPTIONAL material;
-  
+
   global_tolerance:        OPTIONAL Length_data_element;
   its_rawpiece:            OPTIONAL Workpiece;
 
