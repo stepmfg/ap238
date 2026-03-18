@@ -2024,7 +2024,7 @@ surface where this strategy shall apply.
 <IMG SRC="../images/am-downskin-thickness.svg" ALT="Downskin Thickness">
 <DIV class=key>
 <B>Key</B>
-<p>1&emsp;Area to be scanned as downskin</p>
+<p>1&emsp;Volume to be scanned as downskin</p>
 <p>2&emsp;Number of layers given by downskin_thickness</p>
 <p>3&emsp;No downskin feature present</p>
 </DIV>
@@ -2723,16 +2723,16 @@ the hatch scan paths.  The default is snake.</p>
 <IMG SRC="../images/am-hatch-space.svg" ALT="Hatch Spacing">
 <DIV class=key>
 <B>Key</B>
-<p>1&emsp;Part Border</p>
-<p>2&emsp;Each contour can have a unique Power, Speed and Offset</p>
-<p>3&emsp;Hatch Spacing</p>
-<p>4&emsp;Stripe Length</p>
-<p>5&emsp;Stripe Overlap</p>
-<p>6&emsp;Hatch Offset</p>
-<p>7&emsp;Contour Offset N</p>
-<p>8&emsp;Contour Offset 1</p>
+<p>1&emsp;Part border</p>
+<p>2&emsp;Each contour can have a unique power, speed and offset</p>
+<p>3&emsp;Hatch spacing</p>
+<p>4&emsp;Stripe width</p>
+<p>5&emsp;Stripe overlap</p>
+<p>6&emsp;Hatch offset</p>
+<p>7&emsp;Contour offset N</p>
+<p>8&emsp;Contour offset 1</p>
 </DIV>
-<FIGCAPTION>Figure 3 &mdash; Additive manufacturing hatch spacing</FIGCAPTION>
+<FIGCAPTION>Figure 3 &mdash; Additive manufacturing contour and hatch spacing</FIGCAPTION>
 </FIGURE>
 
 
@@ -2874,7 +2874,7 @@ that require special processing.</P>
 <IMG SRC="../images/am-pbf-feature.svg" ALT="PBF Feature">
 <DIV class=key>
 <B>Key</B>
-<p>1&emsp;Downskin in original position</p>
+<p>1&emsp;Downskin feature in original position</p>
 <p>2&emsp;Downskin feature (after vertical displacement)</p>
 <p>3&emsp;Core (after removal of downskin feature)</p>
 </DIV>
@@ -3059,8 +3059,7 @@ parent);</LI>
 parent;</LI>
 <LI>While the contour is in this region use the locally defined
 technology;</LI>
-<LI>If there is no technology defined then use skywriting to go to the
-next region.</LI>
+<LI>If there is no technology defined then go to the next region.</LI>
 </OL>
 
 <P CLASS="note">
@@ -3079,7 +3078,7 @@ parent);</LI>
 <LI>Remove tiles and stripes that have no area inside the region
 boundary;</LI>
 <LI>For a stripe start with the left most stripe or column;</LI>
-<LI>For a tile region start with the leftmost island on the bottom
+<LI>For a tile region start with the leftmost tile on the bottom
 row;</LI>
 <LI>For a tile, increment the starting rotation of each row by the
 y_direction_increment and the starting rotation of each column by the
@@ -3089,7 +3088,7 @@ the gas flow restrictions. Repeat the theta_interlayer_rotation if the
 stripes of a layer conflict with the gas flow;</LI>
 <LI>Reduce the length of any path that crosses an edge boundary by the
 hatch offset, and increase the length of any path that crosses into a
-tile or stripe of the same parent region by the hatch overlap;</LI>
+tile or stripe of the same parent region by the region overlap;</LI>
 <LI>Increase the length of any path that crosses into another parent
 by the region overlap;</LI>
 <LI>While the infill is in a region, use the technology defined for
@@ -3138,7 +3137,7 @@ system of the slice.</P>
 <H4 ID="ao-am_pbf_infill_management_strategy-maximum_time_between_adjacent">4.3.41.3 maximum_time_between_adjacent</H4>
 
 <p>The maximum_time_between_adjacent specifies the maximum time gap
-allowed between hatching of adjacent islands or stripes.</p>
+allowed between hatching of adjacent tiles or stripes.</p>
 
 <P CLASS="note">
 <SPAN>NOTE</SPAN> After this time the material may be too cold.</P>
@@ -3146,7 +3145,7 @@ allowed between hatching of adjacent islands or stripes.</p>
 <H4 ID="ao-am_pbf_infill_management_strategy-minimum_time_between_adjacent">4.3.41.4 minimum_time_between_adjacent</H4>
 
 <p>The minimum_time_between_adjacent specifies the minimum time gap
-allowed between hatching of adjacent islands or stripes.</p>
+allowed between hatching of adjacent tiles or stripes.</p>
 
 <P CLASS="note">
 <SPAN>NOTE</SPAN> Before this time the material may be too hot.</P>
@@ -3157,7 +3156,7 @@ allowed between hatching of adjacent islands or stripes.</p>
 
 <p>The restriction_high_angle specifies the maximum angle of the
 direction of the gas flow that scan paths shall not to be filled
-within. Islands or stripes that will make paths within this angle
+within. Tiles or stripes that will make paths within this angle
 shall increment their scan direction until an infill direction is
 computed that does not violate the angle restriction.</p>
 
@@ -3210,6 +3209,7 @@ SUBTYPE OF (Am_machine_functions);
    gas_direction	: OPTIONAL direction;
    gas_type		: OPTIONAL Material_identification;
    feedstock_definition : OPTIONAL Material_identification;
+   recoater_blade_definition : OPTIONAL Product_view_definition;
 END_ENTITY;
 </PRE>
 
@@ -3268,6 +3268,15 @@ the gas.</p>
 
 <p>The feedstock_definition specifies the material definition of the
 powder used for the manufacturing.</p>
+
+<H4 ID="ao-am_pbf_machine_functions-recoater_blade_definition">4.3.42.9 am_pbf_machine_functions to product_view_definition (as recoater_blade_definition)</H4>
+
+<p>The recoater_blade_definition specifies a product definition for
+the recoater blade</p>
+
+<P CLASS="note">
+<SPAN>NOTE</SPAN> The definition may include the geometry and material
+of the blade.</P>
 
 
 <!-- ============================== -->
@@ -3405,11 +3414,11 @@ system.</p>
 <B>Key</B>
 <p>1&emsp;Upskin</p>
 <p>2&emsp;Downskin</p>
-<p>3&emsp;Build Plate</p>
-<p>4&emsp;Slice Boundary</p>
-<p>5&emsp;Core Region</p>
-<p>6&emsp;Downskin Region</p>
-<p>7&emsp;Upskin Region</p>
+<p>3&emsp;Build plate</p>
+<p>4&emsp;Slice boundary</p>
+<p>5&emsp;Core region</p>
+<p>6&emsp;Downskin region</p>
+<p>7&emsp;Upskin region</p>
 </DIV>
 <FIGCAPTION>Figure 6 &mdash; Additive manufacturing regions on a slice</FIGCAPTION>
 </FIGURE>
@@ -3568,6 +3577,10 @@ is assumed to be d4 sigma as per ISO 11146.</P>
 <p>The beam_path_mode specifies the type of transition between scan
 paths.</p>
 
+<P CLASS="note">
+<SPAN>NOTE</SPAN> Some strategies for beam transition are colloquially
+referred to as skywriting.</P>
+
 <UL>
 <LI>exact_stop, stop the beam movement at the exact end of each move;</LI>
 <LI>constant_build_speed, keep the motion at a constant speed while the beam is switched on;</LI>
@@ -3662,14 +3675,14 @@ regions.</p>
 <DIV class=key>
 <B>Key</B>
 <p>1&emsp;Vertex A</p>
-<p>2&emsp;Core Region</p>
-<p>3&emsp;Downskin Region</p>
+<p>2&emsp;Core region</p>
+<p>3&emsp;Downskin region</p>
 <p>4&emsp;Vertex B</p>
-<p>5&emsp;Upskin Region</p>
-<p>6&emsp;Upskin Region Boundary</p>
-<p>7&emsp;Core Region Boundary</p>
-<p>8&emsp;Downskin Region Boundary</p>
-<p>9&emsp;Part Boundary</p>
+<p>5&emsp;Upskin region</p>
+<p>6&emsp;Upskin region boundary</p>
+<p>7&emsp;Core region boundary</p>
+<p>8&emsp;Downskin region boundary</p>
+<p>9&emsp;Part boundary</p>
 </DIV>
 <FIGCAPTION>Figure 7 &mdash; Additive manufacturing region intersection</FIGCAPTION>
 </FIGURE>
@@ -3758,13 +3771,11 @@ following:</P>
 <DIV class=key>
 <B>Key</B>
 <p>1&emsp;Contour</p>
-<p>2&emsp;Medial Axis</p>
-<p>3&emsp;Offset Contour</p>
+<p>2&emsp;Medial axis</p>
+<p>3&emsp;Offset contour</p>
 </DIV>
 <FIGCAPTION>Figure 8 &mdash; Additive manufacturing spike identification</FIGCAPTION>
 </FIGURE>
-
-
 
 <P CLASS="note">
 <SPAN>NOTE 2</SPAN> The EXPRESS description for the Am_spike_identification
@@ -4092,8 +4103,8 @@ END_ENTITY;
 <B>Key</B>
 <p>1&emsp;Medial axis for contour 1 and 2</p>
 <p>2&emsp;Medial axis for contour 2</p>
-<p>3&emsp;Contour 2</p>
-<p>4&emsp;Contour 1</p>
+<p>3&emsp;Contour 1</p>
+<p>4&emsp;Contour 2</p>
 </DIV>
 <FIGCAPTION>Figure 10 &mdash; Additive manufacturing threed PBF operation</FIGCAPTION>
 </FIGURE>
@@ -4110,7 +4121,8 @@ clockwise rotation.</p>
 
 <P CLASS="note">
 <SPAN>NOTE</SPAN> The coordinate system is defined by the placement of
-the part on the build plate.</P>
+the part on the build plate. The coordinate system of the build plate
+is as defined by ISO 17295.</P>
 
 
 <H4 ID="ao-am_threed_pbf_operation-theta_initial_layer_rotation">4.3.59.2 theta_initial_layer_rotation</H4>
@@ -4181,9 +4193,7 @@ END_ENTITY;
 
 <P>An Am_twod_pbf_chess_operation application object is a type of
 Am_twod_pbf_operation that divides each region into rectangular
-islands. A length and width are specified for each island. The
-theta_island_rotation describes an optional rotation from the previous
-island.</P>
+tiles. A length and width are specified for each tile.</P>
 
 <FIGURE ID="fig-am-pbf-twod-chess">
 <IMG SRC="../images/am-pbf-twod-chess.svg" ALT="PBF Twod Chess Operation">
@@ -4194,7 +4204,7 @@ island.</P>
 <p>3&emsp;Rectangle Width</p>
 <p>4&emsp;Rectangle Length</p>
 <p>5&emsp;Tile</p>
-<p>6&emsp;Theta Region Rotation</p>
+<p>6&emsp;Theta Interlayer Rotation</p>
 </DIV>
 <FIGCAPTION>Figure 11 &mdash; Additive manufacturing twod chess</FIGCAPTION>
 </FIGURE>
@@ -4207,7 +4217,7 @@ following:</P>
 <LI>rectangle_width;</LI>
 <LI>x_direction_increment;</LI>
 <LI>y_direction_increment;</LI>
-<LI>island_overlap.</LI>
+<LI>tile_overlap.</LI>
 </UL>
 
 <P CLASS="note">
@@ -4221,11 +4231,11 @@ ENTITY Am_twod_pbf_chess_operation	-- ADDED BY 10303-238e4
   rectangle_width		: Length_data_element;
   x_direction_increment		: OPTIONAL Angle_data_element;
   y_direction_increment		: OPTIONAL Angle_data_element;
-  island_overlap		: OPTIONAL Length_data_element;
+  tile_overlap			: OPTIONAL Length_data_element;
    (*
 WHERE
-  WR1: infill_direction == 90 - island_direction;
-  WR2: individual_vector_direction == island_direction;
+  WR1: infill_direction == 90 - tile_direction;
+  WR2: individual_vector_direction == tile_direction;
    *)
 END_ENTITY;
 </PRE>
@@ -4255,9 +4265,9 @@ change the orientation of the hatch paths for each tile increment in
 the y-direction. If the y_direction_increment is not specified then it
 shall be 90 degrees.</p>
 
-<H4 ID="ao-am_twod_pbf_chess_operation-island_overlap">4.3.61.5 island_overlap</H4>
+<H4 ID="ao-am_twod_pbf_chess_operation-tile_overlap">4.3.61.5 tile_overlap</H4>
 
-<p>The island_overlap specifies an additional length to be added to
+<p>The tile_overlap specifies an additional length to be added to
 any vector that starts or ends at a boundary with another rectangle in
 the same region. If the overlap is negative then the vector shall stop
 before the boundary.</p>

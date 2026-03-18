@@ -22914,6 +22914,32 @@ material_designation
 
 
 
+<H5 ID="map-am_pbf_machine_functions-recoater_blade_definition">5.1.14.24.2 am_pbf_machine_functions to product_view_definition (as recoater_blade_definition)</H5>
+
+<table class="map">
+<tr><th>AIM element:</th>
+<td>PATH</td>
+</tr>
+
+<tr><th>Reference path:</th>
+<td class="path">machining_functions &lt;=
+action_method <- 
+action_method_assignment.assigned_action_method
+{ action_method_assignment.role ->
+action_method_role
+action_method_role.name = 'recoater blade' }
+action_method_assignment =>
+applied_action_method_assignment
+applied_action_method_assignment.items[i] ->
+action_method_items
+action_method_items = product_definition 
+product_definition
+</td>
+</tr>
+</table>
+
+
+
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-am_pbf_management_strategy">AO</a>
@@ -24433,7 +24459,7 @@ plane_angle_measure_with_unit
 </table>
 
 
-<H5 ID="map-am_twod_pbf_chess_operation-island_overlap">5.1.14.40.5 island_overlap</H5>
+<H5 ID="map-am_twod_pbf_chess_operation-tile_overlap">5.1.14.40.5 tile_overlap</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -24451,7 +24477,7 @@ action_method
 characterized_action_definition = action_method 
 characterized_action_definition &lt;- 
 action_property.definition 
-{ action_property.name = 'island overlap' } 
+{ action_property.name = 'tile overlap' } 
 action_property &lt;- 
 action_property_representation.property 
 action_property_representation 
@@ -24518,7 +24544,7 @@ action_method
 machining_operation &lt;= 
 action_method 
 { ( action_method.description = 'pbf twod stripe' )
-( action_method.description = 'pbf twod island' )
+( action_method.description = 'pbf twod tile' )
 ( action_method.description = 'pbf twod meander' ) }
 </td>
 </tr>
