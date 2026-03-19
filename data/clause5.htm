@@ -20663,6 +20663,28 @@ machining_functions
 </tr>
 </table>
 
+<H5 ID="map-am_operation-its_technology">5.1.13.10.2 am_operation to am_technology (as its_technology)</H5>
+
+<table class="map">
+<tr><th>AIM element:</th>
+<td>PATH</td>
+</tr>
+
+<tr><th>Reference path:</th>
+<td class="path">additive_type_operation &lt;=
+machining_operation &lt;=
+action_method &lt;-
+action_method_relationship.relating_method
+action_method_relationship
+{ action_method_relationship =&gt;
+machining_technology_relationship }
+action_method_relationship.related_method -&gt;
+action_method =&gt;
+machining_technology
+</td>
+</tr>
+</table>
+
 
 
 <!-- ============================== -->
@@ -22914,7 +22936,7 @@ material_designation
 
 
 
-<H5 ID="map-am_pbf_machine_functions-recoater_blade_definition">5.1.14.24.2 am_pbf_machine_functions to product_view_definition (as recoater_blade_definition)</H5>
+<H5 ID="map-am_pbf_machine_functions-recoater_blade_definition">5.1.14.24.10 am_pbf_machine_functions to product_view_definition (as recoater_blade_definition)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>

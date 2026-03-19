@@ -2830,7 +2830,8 @@ requirements.</P>
 The data associated with a Am_operation are the following:</P>
 <UL>
 <LI>all of the data defined by ISO 14649-17, as modified below for the
-its_support_geometry attribute.</LI>
+its_support_geometry attribute;</LI>
+<LI>its_technology.</LI>
 </UL>
 
 <P CLASS="note">
@@ -2842,9 +2843,10 @@ as adapted by this document, is shown below.  Refer to ISO
 ENTITY Am_operation
   ABSTRACT SUPERTYPE OF (ONEOF (Am_twod_operation, Am_oned_operation))
   SUBTYPE OF (Operation);
-  machine_functions:	am_machine_functions;
-  -- 10303-238: moved to am_workingstep to match other shape handling.
+  machine_functions:	Am_machine_functions;
+  -- 10303-238: moved to Am_workingstep to match other shape handling.
   -- its_support_geometry: OPTIONAL advanced_brep_shape_representation;
+   its_technology:	   OPTIONAL Am_technology;   -- ADDED BY 10303-238e4
 END_ENTITY;
 </PRE>
 
@@ -2853,9 +2855,15 @@ END_ENTITY;
 
 <P>The its_support_geometry parameter defined by ISO 14649-17 shall be
 replaced by the its_support_geometry parameters defined by the
-Am_workingstep application object.
+Am_workingstep application object.</P>
 
 
+<H4 ID="ao-am_operation-its_technology">4.3.38.2 am_operation to am_technology (as its_technology)</H5></H4>
+
+<P>The its_technology parameter specifies an Am_technology application
+object which describes the technological parameters that apply to the
+operation.  The its_technology may not be specified for a particular
+Am_operation.</P>
 
 <!-- ============================== -->
 <DIV><DIV class=quick>
@@ -3270,7 +3278,7 @@ the gas.</p>
 <p>The feedstock_definition specifies the material definition of the
 powder used for the manufacturing.</p>
 
-<H4 ID="ao-am_pbf_machine_functions-recoater_blade_definition">4.3.42.9 am_pbf_machine_functions to product_view_definition (as recoater_blade_definition)</H4>
+<H4 ID="ao-am_pbf_machine_functions-recoater_blade_definition">4.3.42.10 am_pbf_machine_functions to product_view_definition (as recoater_blade_definition)</H4>
 
 <p>The recoater_blade_definition specifies a product definition for
 the recoater blade</p>

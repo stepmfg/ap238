@@ -1,7 +1,7 @@
 SCHEMA ap238_arm_schema;
 (*
-    ISO TC184/SC4/WG15N196 (superceeds N158)
-    ISO 10303-238 Edition 3
+    ISO TC184/SC4/WG15Nxxx (superceeds N196)
+    ISO 10303-238 Edition 4
     ARM EXPRESS SHORT FORM
 
   ------------------------------
@@ -203,6 +203,25 @@ USE FROM Tessellated_geometry_arm;				-- 10303-1819
 USE FROM Topologically_bounded_surface_arm;			-- 10303-1511
 USE FROM Vertex_colours_for_tessellated_geometry_arm;		-- 10303-1836
 
+-- Geometric set
+USE FROM Composite_constituent_shape_arm;			-- 10303-1767
+   -- Advanced_boundary_representation_arm
+   -- Basic_geometry_arm
+   -- Construction_geometry_arm
+   -- Constructive_solid_geometry_3d_arm
+   -- Curve_swept_solid_arm
+   -- Edge_based_wireframe_arm
+   -- Elementary_boundary_representation_arm
+   -- External_model_arm
+   -- Faceted_boundary_representation_arm
+   -- Geometrically_bounded_surface_arm
+   -- Geometrically_bounded_wireframe_arm
+   -- Manifold_surface_arm
+   -- Ply_orientation_specification_arm
+   -- Shell_based_wireframe_arm
+   -- Tessellated_geometry_arm
+   -- Value_with_unit_extension_arm
+
 -- Machine tool kinematic representation
 USE FROM Kinematic_analysis_control_and_result_arm;		-- 10303-1817
 
@@ -215,12 +234,25 @@ USE FROM External_representation_item_arm;			-- 10303-1779
 USE FROM Numeric_expression_arm;				-- 10303-1526
 USE FROM Product_categorization_arm;				-- 10303-1016
 
+-- USE FROM Independent_property_arm;				-- 10303-1036
 
 -- Stubs for P42 geometry.  No stepmod ARM definitions for these.
 TYPE bounded_pcurve  = STRING; END_TYPE; -- Part 42
 TYPE elementary_surface  = STRING; END_TYPE; -- Part 42
 
+-- EXTEND DEFINITION IMPORTED FROM SMRL
+ENTITY Manufacturing_feature
+  ABSTRACT SUPERTYPE
+  SUBTYPE OF (shape_feature_definition);
+  
+  its_broadcast: OPTIONAL Broadcast;		-- ADDED BY 10303-238e4
+  twin_history: LIST [0:?] OF Phase_history;	-- ADDED BY 10303-238e4
+END_ENTITY;
 
+-- restore from first edition
+ENTITY Toolpath_feature
+  SUBTYPE OF (Machining_feature);
+END_ENTITY;
 
 (* ************************************************************ *)
 (* ************************************************************ *)
@@ -237,7 +269,6 @@ TYPE date_time_item_238 = SELECT BASED_ON date_or_date_time_item WITH(
 	Operation,
 	Manufacturing_project,
 	Toolpath,
-	Workpiece,
 	Workpiece
 	);
 END_TYPE;
@@ -317,6 +348,9 @@ ENTITY Workpiece
   -- its_material:            OPTIONAL material;
 
   global_tolerance:        OPTIONAL Length_data_element;
+
+  -- Mapping for rawpiece changed by 10303-238e4, old mapping now used
+  --  by material_type
   its_rawpiece:            OPTIONAL Workpiece;
 
   -- 10303-238: its_geometry provided by product_view_definition
@@ -353,6 +387,9 @@ ENTITY Workpiece
   revision_people:        SET [0:?] OF Organization_or_person_in_organization_assignment;
   revision_timestamps:    SET [0:?] OF Date_or_date_time_assignment;
 
+  its_broadcast:	OPTIONAL Broadcast;		-- ADDED BY 10303-238e4
+  material_type:	OPTIONAL Material_workpiece;	-- ADDED BY 10303-238e4
+
 INVERSE
   -- 10303-238: changed type to material_identification for ARM
   --   integration.  Changed to inverse attribute to accommodate
@@ -367,14 +404,17 @@ INVERSE
   its_components:  SET [0:?] OF Next_assembly_usage for relating_view;
 END_ENTITY;
 
+-- ADDED BY 10303-238e4
+ENTITY Material_workpiece
+SUBTYPE OF (Workpiece);
+	its_material_properties:	SET [0:?] OF Material_property;
+END_ENTITY;
 
 ENTITY Machine_with_kinematics	-- ADDED BY 10303-238
   SUBTYPE OF (Product_view_definition);
   configuration:  OPTIONAL identifier;
   mechanism: Mechanism_representation;
 END_ENTITY;
-
-
 
 
 (* ************************************************************ *)
@@ -409,6 +449,44 @@ TYPE property_assignment_select_238 = SELECT BASED_ON property_assignment_select
 	Workpiece
 	);
 END_TYPE;
+
+
+
+-- ADDED BY 10303-238e4
+ENTITY Measured_property;
+  prototype		: Expected_property;
+  measured_value	: Value_with_unit;
+  measurement_process	: OPTIONAL Executable;
+  when			: OPTIONAL Date_time;
+(*  
+DERIVE
+  valid: measured_value > {prototype.lower_limit & > prototype.upper_limit}
+*)
+END_ENTITY;
+
+
+-- ADDED BY 10303-238e4
+ENTITY Expected_property;
+  applicable_phases	: SET [0:?] OF Manufacturing_stage;
+  definition		: OPTIONAL Denoted_specification_select; -- link to geom
+  external_definition 	: OPTIONAL Identifier; -- link to external geom
+  nominal_value		: Value_with_unit;
+  property_name		: OPTIONAL Identifier;		-- ISO 13399 full name
+  name_standard		: OPTIONAL Text;
+  lower_limit		: OPTIONAL Value_with_unit;
+  upper_limit		: OPTIONAL Value_with_unit;
+  notifiable_task	: OPTIONAL Executable;
+END_ENTITY;
+
+-- ADDED BY 10303-238e4
+TYPE Denoted_specification_select = SELECT (
+   Geometric_tolerance,
+   Geometric_dimension
+   ); END_TYPE;
+
+
+
+
 
 (* ************************************************************ *)
 (* Bounding geometry                                            *)
@@ -458,6 +536,10 @@ ENTITY Executable
   twin_exception : OPTIONAL text;		-- ADDED BY 10303-238e2
 
   machine_used: OPTIONAL Machine_usage;		-- ADDED BY 10303-238e2
+
+  its_broadcast: OPTIONAL Broadcast;		-- ADDED BY 10303-238e4
+  phase: OPTIONAL Manufacturing_stage;		-- ADDED BY 10303-238e4
+  twin_equipment: OPTIONAL Identifier;		-- ADDED BY 10303-238e4
   
 INVERSE
   -- 10303-238: Additional CAM properties for planned executables or
@@ -606,6 +688,7 @@ ENTITY Machining_tool
   ABSTRACT SUPERTYPE;
   its_id: 		label;
   its_usage:      	OPTIONAL Tool_usage;        -- ADDED BY 10303-238
+  its_broadcast:	OPTIONAL Broadcast; 	    -- ADDED BY 10303-238e4
 END_ENTITY;
 
 
@@ -664,6 +747,7 @@ END_ENTITY;
 ENTITY Program_structure
   ABSTRACT SUPERTYPE OF (ONEOF(Workplan, Parallel, Non_sequential, Selective, If_statement, While_statement, Assignment))
   SUBTYPE OF (Executable);
+  planning_operation: 	OPTIONAL Operation;	-- ADDED BY 10303-238e4
 END_ENTITY;
 
 (* ************************************************************ *)
@@ -679,6 +763,7 @@ ENTITY Workplan
   -- its_effect:                OPTIONAL in_process_geometry;
   its_minimum_machine_params:   OPTIONAL Machine_parameters; -- ADDED BY 10303-238
   toolpath_orientation:         OPTIONAL Axis_placement_3d;  -- ADDED BY 10303-238
+
 WHERE
    WR1: SIZEOF(QUERY(it <* its_elements | it = SELF)) = 0;
 END_ENTITY;
@@ -838,15 +923,22 @@ ENTITY Operation
   its_id:		identifier;
   its_toolpath:		OPTIONAL Toolpath_list;
   its_tool_direction:	OPTIONAL Tool_direction;
+  its_broadcast:	OPTIONAL Broadcast;	-- ADDED BY 10303-238e4
 
 INVERSE
   -- 10303-238: Additional CAM properties for operations
   process_properties: SET[0:?] OF Process_property FOR described_element;
 END_ENTITY;
 
+-- 10303-238e4 CHANGE - to refer to select of toolpath and ncfun
+--  rather than just toolpath
 ENTITY Toolpath_list;
-  its_list: LIST [1:?] OF Toolpath;
+  its_list: LIST [1:?] OF Toolpath_list_element;
 END_ENTITY;
+
+-- ADDED BY 10303-238e4
+TYPE Toolpath_list_element = SELECT(Toolpath, NC_function);
+END_TYPE;
 
 ENTITY Tool_direction
   ABSTRACT SUPERTYPE OF (ONEOF (Two_axes, Three_axes));
@@ -934,6 +1026,8 @@ ENTITY Toolpath
   its_technology:               OPTIONAL Technology;
   its_machine_functions:        OPTIONAL Machine_functions;
   its_id:                       identifier;  -- ADDED BY 10303-238
+  
+  its_broadcast:	OPTIONAL Broadcast;  -- ADDED BY 10303-238e4
 END_ENTITY;
 
 TYPE Toolpath_type = ENUMERATION OF (
@@ -974,7 +1068,7 @@ END_TYPE;
 
 ENTITY Feedstop
   SUBTYPE OF (Toolpath);
-  dwell:  Duration;
+  dwell:  Value_with_unit;    -- RELAXED BY 10303-238e4
 END_ENTITY;
 
 
@@ -1097,6 +1191,27 @@ END_ENTITY;
 
 ENTITY Connect_direct
   SUBTYPE OF (Connector);
+END_ENTITY;
+
+
+-- ADDED BY 10303-238e4
+ENTITY Connect_vector
+  SUBTYPE OF (Connector);
+  direction		: OPTIONAL direction;
+  distance	 	: Length_data_element;
+END_ENTITY;
+
+-- ADDED BY 10303-238e4
+ENTITY Connect_middle
+  SUBTYPE OF (Connector);
+  increment_direction		: OPTIONAL direction;
+  increment_distance		: Length_data_element;
+END_ENTITY;
+
+-- ADDED BY 10303-238e4
+ENTITY Connect_absolute
+  SUBTYPE OF (Connector);
+  location		: Axis_placement_3d;
 END_ENTITY;
 
 
@@ -2261,12 +2376,18 @@ ENTITY Am_machine_functions
   -- functions: 	OPTIONAL SET [1:?] OF Representation_item;
 END_ENTITY;
 
+-- ADDED BY 10303-238e4
+ENTITY Am_technology
+  SUBTYPE OF (Technology);
+END_ENTITY;
+
 ENTITY Am_operation
   ABSTRACT SUPERTYPE OF (ONEOF (Am_twod_operation, Am_oned_operation))
   SUBTYPE OF (Operation);
   machine_functions:	Am_machine_functions;
   -- 10303-238: moved to Am_workingstep to match other shape handling.
   -- its_support_geometry: OPTIONAL advanced_brep_shape_representation;
+   its_technology:	   OPTIONAL Am_technology;   -- ADDED BY 10303-238e4
 END_ENTITY;
 
 ENTITY Am_twod_operation
@@ -2366,5 +2487,1100 @@ END_ENTITY;
 
 TYPE Am_patterns = STRING;
 END_TYPE;
+
+(* ======================================== *)
+(* BROADCAST -- ADDED BY 10303-238e4 *)
+
+
+-- ADDED BY 10303-238e4
+ENTITY Broadcast
+SUPERTYPE OF (ONEOF(Broadcast_point, Broadcast_time, Broadcast_distance, Broadcast_count));
+   its_id		: Identifier;
+   start_content	: OPTIONAL Broadcast_content;
+   end_content		: OPTIONAL Broadcast_content;
+END_ENTITY;
+
+-- ADDED BY 10303-238e4
+ENTITY Broadcast_content;
+   its_id		: Identifier;
+   message		: Text;
+   measured_properties  : SET [0:?] OF Measured_property;
+   CBM_measurements	: SET [0:?] OF Machining_property;
+   ADF_measurements	: SET [0:?] OF Drill_and_Fill_property;
+   PBF_measurements	: SET [0:?] OF Powder_Bed_Fusion_property;
+   ACL_measurements	: SET [0:?] OF Automated_Composite_Laydown_property;
+   PLC_measurements	: SET [0:?] OF STRING;
+   Program_contexts	: SET [0:?] OF Program_context_property;
+   export_stream	: OPTIONAL Identifier;
+   digital_threads	: SET [0:?] OF Identifier;
+   time			: BOOLEAN;
+   sequence		: BOOLEAN;
+END_ENTITY;
+
+TYPE Machining_property = ENUMERATION OF (spindle_force, axis, location, feedrate, spindle_speed, loaded_tool, feed_override, speed_override); END_TYPE;
+
+TYPE Drill_and_Fill_property = ENUMERATION OF (rotational_force, axial_force, feedrate, spindle_speed, loaded_tool, feed_override, speed_override, fastener_identifier, collar_identifier, washer_identifier, sealant_identifier, robot_identifier, nose_identifier); END_TYPE;
+
+TYPE Powder_Bed_Fusion_property = ENUMERATION OF (sky_writing, location, spot_size, travel_distance, gas_pressure, gas_flow, recoating_time, build_plate_temperature, image, laser_number); END_TYPE;
+
+TYPE Automated_Composite_Laydown_property = ENUMERATION OF (speed, location, axis_roll_pitch_yaw, dancer_tension, dropped_tows, folded_tows, roller_wrap, heater_output, roller_compression, actual_tape_length, tape_identity, head_number); END_TYPE;
+
+TYPE Program_context_property = ENUMERATION OF (part, workpiece, feature, project, operator, workplans, workingstep, operation, tool, toolpath, feedrate, spindle_speed, laser_speed, laser_power, laser_diameter, prototype, twin, phase); END_TYPE;
+
+-- ADDED BY 10303-238e4
+ENTITY Broadcast_count
+SUBTYPE OF (Broadcast);
+   broadcast_count:		Count_measure;
+   count_content:		OPTIONAL Broadcast_content;
+END_ENTITY;
+
+-- ADDED BY 10303-238e4
+ENTITY Broadcast_distance
+SUBTYPE OF (Broadcast);
+   broadcast_distance:	Length_data_element;
+   distance_content:	OPTIONAL Broadcast_content;
+-- WHERE
+-- there must be toolpaths to measure the distance
+--   WR1: EXISTS (TOOLPATH_LIST);
+END_ENTITY;
+
+-- ADDED BY 10303-238e4
+ENTITY Broadcast_point
+SUBTYPE OF (Broadcast);
+   broadcast_points:	geometric_set;
+   point_content:	OPTIONAL Broadcast_content;
+-- WHERE
+-- If there are points then there must be toolpaths   
+--   WR1: SIZEOF (BROADCAST_POINTS) = 0 OR EXISTS (TOOLPATH_LIST);
+END_ENTITY;
+
+-- ADDED BY 10303-238e4
+ENTITY Broadcast_time
+SUBTYPE OF (Broadcast);
+   broadcast_interval:	Duration;
+   time_content:	OPTIONAL Broadcast_content;
+END_ENTITY;
+
+(* ======================================== *)
+(*                                          *)
+(* PRODUCT, FEATURE TWINS, PHASE, AND STAGE *)
+(*  ADDED BY 10303-238e4                    *)
+(*                                          *)
+(* ======================================== *)
+
+-- ADDED BY 10303-238e4
+ENTITY Product_view_twin
+  SUBTYPE OF (Product_view_definition);
+  manufacturing_prototype	: Product_view_prototype;
+  supplier_prototype		: OPTIONAL Product_view_prototype;
+  work_order			: OPTIONAL Identifier;
+  user_serial_number		: OPTIONAL Identifier;
+  envelope			: OPTIONAL Bounding_geometry_select;
+  system_serial_number		: OPTIONAL Identifier;
+  measured_properties		: OPTIONAL SET [0:?] OF Measured_property;
+  role				: OPTIONAL Text;
+(*
+DERVIED
+  serial_name : Identifier := its_id + user_serial_number;
+*)
+END_ENTITY;
+
+-- ADDED BY 10303-238e4
+ENTITY Product_view_prototype
+  SUBTYPE OF (Product_view_definition);
+  engineering_design		: OPTIONAL Product_view_definition;
+  external_engineering_design	: OPTIONAL Identifier;
+  expected_properties		: SET [0:?] OF Expected_property;
+END_ENTITY;
+
+
+-- ADDED BY 10303-238e4
+ENTITY Manufacturing_feature_twin
+SUBTYPE OF (Manufacturing_feature); 
+  manufacturing_prototype	: Manufacturing_feature_prototype;
+  place			: OPTIONAL Bounding_geometry_select;
+  measured_pmi		: SET [0:?] OF Measured_property;
+END_ENTITY;
+
+-- ADDED BY 10303-238e4
+ENTITY Manufacturing_feature_prototype
+SUBTYPE OF (Manufacturing_feature); 
+  engineering_design		: OPTIONAL Manufacturing_feature;
+  external_engineering_design	: OPTIONAL Identifier;
+  expected_pmi: 		SET [0:?] OF Expected_property;
+END_ENTITY;
+
+
+-- ADDED BY 10303-238e4
+ENTITY Phase_history;
+  phase			: Manufacturing_stage;
+  twin			: Manufacturing_feature_twin;
+  manufacturing_goal	: Text;
+  completed		: LIST [0:?] OF machining_workingstep;
+  recorded_states	: LIST [0:?] OF State_condition;
+END_ENTITY;
+
+-- ADDED BY 10303-238e4
+ENTITY Manufacturing_stage;
+  name		: Identifier;			-- phase 1, phase 2 etc.
+  purpose 	: OPTIONAL Text;
+  nested_in	: OPTIONAL Manufacturing_stage;
+  continue_on_entry : OPTIONAL Boolean;
+END_ENTITY;
+
+-- ADDED BY 10303-238e4
+ENTITY State_condition;
+  time			: Date_time;
+  condition		: State_condition_type;
+  explanation		: OPTIONAL Text;
+END_ENTITY;
+
+-- ADDED BY 10303-238e4
+-- Status of a twin with respect to progress
+TYPE State_condition_type = ENUMERATION OF (
+  ready,	-- twin is ready for processing;
+  started,	-- twin processing has started
+  blocked,	-- twin is waiting for something
+  rabbit,	-- twin is in a nested stage (down the rabbit hole)
+  flushed,	-- twin has returned from the nested stage
+  twisted,    	-- twin has been machined in an unplanned order
+  boogered,	-- twin is not making progress
+  revived,	-- twin started again after boogering
+  replaced,	-- twin had to be replaced
+  finished,	-- twin has finished the phase
+  graduated);	-- twin has finished and passed a test
+END_TYPE;
+
+-- actually a select of shape rep and some shape rep subtypes
+-- ENTITY Bounding_geometry_select; END_ENTITY;
+
+(* ======================================== *)
+(*                                          *)
+(* DRILL AND FILL PROCESS                   *)
+(*  ADDED BY 10303-238e4                    *)
+(*                                          *)
+(* ======================================== *)
+
+-- ADDED BY 10303-238e4
+ENTITY Drill_and_fill_twin
+SUBTYPE OF (Manufacturing_feature_twin);
+  --SELF\Manufacturing_feature_twin.prototype : OPTIONAL Drill_and_fill_prototype;
+  ordered_stackup	: OPTIONAL Drill_and_fill_stackup;
+  fastener_in_place	: OPTIONAL Fastener_twin;
+  collar_in_place	: OPTIONAL Collar_twin;
+  washers_in_place	: LIST [0:?] OF Washer_twin;
+  sealants_in_place	: LIST [0:?] OF Sealant_twin;
+  disposition		: OPTIONAL Drill_and_fill_condition;
+  replacement		: OPTIONAL Drill_and_fill_twin;
+  fasten_state		: OPTIONAL Fasten_state_condition;
+END_ENTITY;
+
+-- ADDED BY 10303-238e4
+TYPE Drill_and_fill_condition = ENUMERATION OF (pending, active, exception, hold, completed, replaced); END_TYPE;
+
+-- ADDED BY 10303-238e4
+TYPE Fasten_state_condition = ENUMERATION OF (planned, piloted, tacked, full_sized, installed, sealed, inspected); END_TYPE;
+
+
+-- ADDED BY 10303-238e4
+ENTITY Drill_and_fill_prototype
+SUBTYPE OF (Manufacturing_feature_prototype);
+  prototype_stackup		: OPTIONAL drill_and_fill_stackup;	
+  prototype_assembly		: OPTIONAL Product_view_definition;
+  engineering_fit		: OPTIONAL Hole_class;
+  iso_fit			: OPTIONAL Iso_286_hole_class;
+  not_normal_to_top		: OPTIONAL BOOLEAN;
+  potential_replacements	: SET [0:?] OF Drill_and_fill_prototype;
+END_ENTITY;
+
+-- ADDED BY 10303-238e4
+TYPE Hole_class = ENUMERATION OF (loose_fit, free_running, easy_running, sliding_fit, close_clearance, location_clearance, slight_interference, transition, press_fit, medium_fit, force_fit); END_TYPE; 
+
+-- ADDED BY 10303-238e4
+TYPE Iso_286_hole_class = ENUMERATION OF (clearance_fit, interference_fit, transition_fit); END_TYPE; 
+
+
+-- ADDED BY 10303-238e4
+ENTITY Drill_and_fill_stackup;
+  measurement_state	: Measurement_condition;
+  outer_part		: Product_view_definition;
+  measurement_direction	: OPTIONAL direction; 
+  measurement_diameter	: OPTIONAL Length_data_element; 
+  measurement_location	: OPTIONAL cartesian_point;
+  layers		: OPTIONAL LIST [0:?] OF Stack_layer;
+  computed_depth	: OPTIONAL Length_data_element;
+  when_computed		: OPTIONAL Date_time;
+  feed			: OPTIONAL Velocity_data_element;
+  speed			: OPTIONAL Frequency_data_element;
+END_ENTITY;
+
+-- ADDED BY 10303-238e4
+TYPE Measurement_condition = ENUMERATION OF (as_designed, as_planned, as_clamped, as_fastened); END_TYPE;
+
+-- ADDED BY 10303-238e4
+ENTITY Stack_layer;
+  usage		: Product_view_definition;
+  start_dist	: Length_data_element;
+  end_dist	: Length_data_element;
+  layer_feature	: OPTIONAL Manufacturing_feature;
+  feed		: OPTIONAL Velocity_data_element;
+  speed		: OPTIONAL Frequency_data_element;
+(*
+DERIVE
+  status		: OPTIONAL stack_layer_status;
+*)
+END_ENTITY;
+
+(*
+TYPE stack_layer_status = ENUMERATION OF (air_gap, overlap); END_TYPE;
+*)
+
+
+-- ADDED BY 10303-238e4
+ENTITY Fastener_twin
+  SUBTYPE OF (Product_view_twin);
+(*
+  SELF\Product_view_twin.manufacturing_prototype:	Fastener_prototype;
+  SELF\Product_view_twin.supplier_prototype:		OPTIONAL Fastener_prototype;
+*)  
+  fastens		: Drill_and_fill_twin;
+  is_temporary 		: OPTIONAL BOOLEAN;
+  grip_length		: OPTIONAL Measured_property;
+  diameter		: OPTIONAL Measured_property;
+  applied_squeeze	: OPTIONAL Measured_property;
+  button_height 	: OPTIONAL Measured_property;
+  button_diameter	: OPTIONAL Measured_property;
+  when_placed 		: OPTIONAL Date_time;
+  when_removed 		: OPTIONAL Date_time;
+(*
+DERIVE
+  its_id:			identifier := fastens.its_id;
+*)  
+END_ENTITY;
+
+
+-- ADDED BY 10303-238e4
+ENTITY Fastener_prototype
+  SUBTYPE OF (Product_view_prototype);
+  grip_length		: OPTIONAL Expected_property;
+  fastener_diameter	: OPTIONAL Expected_property;
+  hole_diameter_limits	: OPTIONAL Diameter_size;
+  button_height		: OPTIONAL Expected_property;
+  button_diameter	: OPTIONAL Expected_property;
+  required_squeeze	: OPTIONAL Expected_property;
+  code			: OPTIONAL Text;
+  time_limit		: OPTIONAL Expected_property;
+END_ENTITY;
+
+
+-- ADDED BY 10303-238e4
+ENTITY Collar_twin
+  SUBTYPE OF (Product_view_twin);
+(*
+  SELF\Product_view_twin.manufacturing_prototype: Collar_prototype;
+  SELF\Product_view_twin.supplier_prototype:      OPTIONAL Collar_prototype;
+*)  
+  holds: 			Fastener_twin;
+  applied_torque: 		OPTIONAL Measured_property;
+END_ENTITY;
+
+-- ADDED BY 10303-238e4
+ENTITY Collar_prototype
+  SUBTYPE OF (Product_view_prototype);
+  allowed_for: 		SET [0:?] OF Fastener_prototype;
+  required_torque: 	OPTIONAL Expected_property;
+END_ENTITY;
+
+-- ADDED BY 10303-238e4
+ENTITY Washer_twin
+  SUBTYPE OF (Product_view_twin);
+(*
+  SELF\Product_view_twin.manufacturing_prototype: Washer_prototype;
+  SELF\Product_view_twin.supplier_prototype:      OPTIONAL Washer_prototype;
+*)  
+  holds: 			Fastener_twin;
+END_ENTITY;
+
+-- ADDED BY 10303-238e4
+ENTITY Washer_prototype
+  SUBTYPE OF (Product_view_prototype);
+  allowed_for: 		SET [0:?] OF Fastener_prototype;
+  thickness:		Expected_property;
+  form:		OPTIONAL Washer_form;
+END_ENTITY;
+
+TYPE Washer_form = ENUMERATION OF (flat, concave, convex); END_TYPE;
+
+
+-- ADDED BY 10303-238e4
+ENTITY Sealant_twin
+  SUBTYPE OF (Product_view_twin);
+(*
+  SELF\Product_view_twin.manufacturing_prototype: Sealant_prototype;
+  SELF\Product_view_twin.supplier_prototype:      OPTIONAL Sealant_prototype;
+*)  
+  seals: 			Fastener_twin;
+  quantity: 			OPTIONAL Measured_property;
+END_ENTITY;
+
+-- ADDED BY 10303-238e4
+TYPE Sealant_type = ENUMERATION OF (fastener, fay, cap, special); END_TYPE;
+
+-- ADDED BY 10303-238e4
+ENTITY Sealant_prototype
+  SUBTYPE OF (Product_view_prototype);
+  allowed_for: 		SET [0:?] OF Fastener_prototype;
+  sealant_function:		Sealant_type;
+  quantity: 		OPTIONAL Expected_property;
+END_ENTITY;
+
+-- ADDED BY 10303-238e4
+ENTITY Nose_twin
+  SUBTYPE OF (Product_view_twin);
+(*
+  SELF\Product_view_twin.manufacturing_prototype: Nose_prototype;
+  SELF\Product_view_twin.supplier_prototype: 	  OPTIONAL Nose_prototype;
+*)
+  loaded_cutter: 		Cutting_tool_twin;
+  robot:			Identifier;
+END_ENTITY;
+
+-- ADDED BY 10303-238e4
+ENTITY Nose_prototype
+  SUBTYPE OF (Product_view_prototype);
+  allowed_cutters: 		SET [0:?] OF Cutting_tool_twin;
+  allowed_fasteners: 		SET [0:?] OF Fastener_prototype;
+  allowed_collars: 		SET [0:?] OF Collar_prototype;
+  allowed_washers: 		SET [0:?] OF Washer_prototype;
+  allowed_sealants: 	SET [0:?] OF Sealant_prototype;
+END_ENTITY;
+
+
+-- ADDED BY 10303-238e4
+ENTITY Cutting_tool_twin
+  SUBTYPE OF (Product_view_twin);
+(*
+  SELF\Product_view_twin.manufacturing_prototype: Cutting_tool_prototype;
+  SELF\Product_view_twin.supplier_prototype:      OPTIONAL Cutting_tool_prototype;
+*)  
+  life_used:		Ratio_data_element;
+(*
+-- DERIVED
+--  Time_remaining: time_unit := Prototype.Expected_tool_life * (1-measured_life_used)
+*)
+END_ENTITY;
+
+
+-- ADDED BY 10303-238e4
+ENTITY Cutting_tool_prototype
+  SUBTYPE OF (Product_view_prototype);
+  tool_life:				OPTIONAL Duration;
+  tool_life_estimates:		SET [0:?] OF Tool_life_estimate;
+END_ENTITY;
+
+
+-- ADDED BY 10303-238e4
+ENTITY Tool_life_estimate;
+  task: 		Executable;
+  added_cost: 		Ratio_data_element;
+END_ENTITY;
+
+
+-- ADDED BY 10303-238e4
+-- each group describes properties that are common to a set of holes
+ENTITY Drill_and_fill_group
+ABSTRACT SUPERTYPE
+SUBTYPE OF (Manufacturing_feature_group);
+  applicable_phases	: SET [0:?] OF Phase_stage;
+END_ENTITY;
+
+-- ADDED BY 10303-238e4
+ENTITY Phase_stage;
+  stage		: Manufacturing_stage;	-- phase 1 etc.
+  primary	: BOOLEAN;
+END_ENTITY;
+
+
+-- ADDED BY 10303-238e4
+ENTITY Reference_frame_group
+SUBTYPE OF (Drill_and_fill_group);
+  guide_verified	: BOOLEAN; 
+  basis			: OPTIONAL Reference_frame_group;
+  modification		: OPTIONAL Axis_placement_3d;
+  verification_time	: Date_time; -- because stale after 12 hours
+  valid_for		: SET [0:?] OF Robot_identifier;
+END_ENTITY;
+
+TYPE Robot_identifier = Identifier; END_TYPE;
+
+
+-- ADDED BY 10303-238e4
+ENTITY Three_twin_reference_frame_group
+SUBTYPE OF (Reference_frame_group);
+  guide_primary		: Drill_and_fill_twin;
+  guide_secondary	: OPTIONAL Drill_and_fill_twin;
+  guide_tertiary	: OPTIONAL Drill_and_fill_twin;
+END_ENTITY;
+
+-- ADDED BY 10303-238e4
+ENTITY Best_fit_reference_frame_group
+SUBTYPE OF (Reference_frame_group);
+  guides		: SET OF Drill_and_fill_twin;
+END_ENTITY;
+
+-- ADDED BY 10303-238e4
+-- group of holes with the same suggested fastener
+ENTITY Fastener_group
+SUBTYPE OF (Drill_and_fill_group);
+  fastener			: OPTIONAL Product_view_definition;
+  collar			: OPTIONAL Product_view_definition;
+  washers			: LIST [0:?] OF Product_view_definition; 
+  fastener_sealant		: OPTIONAL Product_view_definition;
+  fay_sealant			: OPTIONAL Product_view_definition;
+  cap_sealant			: OPTIONAL Product_view_definition;
+END_ENTITY;
+
+
+-- ADDED BY 10303-238e4
+ENTITY Same_assembly_group
+SUBTYPE OF (Drill_and_fill_group);
+  parts_joined		: SET OF Product_view_twin;
+END_ENTITY;
+
+-- ADDED BY 10303-238e4
+-- group of holes that are drilled together
+ENTITY Oneup_assembly_group
+SUBTYPE OF (Drill_and_fill_group);
+  must_follow: 		SET [1:?] OF Executable;
+END_ENTITY;
+
+
+-- ADDED BY 10303-238e4
+-- group of holes that prefer to use the same robot
+ENTITY Allowable_robot_group
+SUBTYPE OF (Drill_and_fill_group);
+  allowed_robot	: Identifier;
+  precedence 		: OPTIONAL NUMBER;
+END_ENTITY;
+
+-- ADDED BY 10303-238e4
+-- group of holes that prefer to use the same nose
+ENTITY Allowable_nose_group
+SUBTYPE OF (Drill_and_fill_group);
+  allowed_nose	: Identifier;
+  precedence 		: OPTIONAL NUMBER;
+END_ENTITY;
+
+-- ADDED BY 10303-238e4
+-- group of holes that prefer to use the same drill
+ENTITY Allowable_drill_group
+SUBTYPE OF (Drill_and_fill_group);
+  allowed_drill	: Identifier;
+  precedence 		: OPTIONAL NUMBER;
+END_ENTITY;
+
+-- ADDED BY 10303-238e4
+-- how to pull away for unplanned changes in sequence
+ENTITY Escape_sequence_group
+SUBTYPE OF (Drill_and_fill_group);
+  robots		: SET [0:?] OF Identifier;
+  level			: NUMBER;
+  escape_move		: Connector;
+  pose_constraints	: SET [0:?] OF Machine_axis_constraint;
+  pose_description	: OPTIONAL Text;
+END_ENTITY;
+
+
+-- ADDED BY 10303-238e4
+-- all the holes that must complete before this group begin
+ENTITY Precedence_group
+SUBTYPE OF (Drill_and_fill_group);
+  pre_conditions		: SET OF Drill_and_fill_group;
+END_ENTITY;
+
+-- ADDED BY 10303-238e4
+ENTITY Disabled_group
+SUBTYPE OF (Drill_and_fill_group);
+END_ENTITY;
+
+
+
+-- ADDED BY 10303-238e4
+-- Fill type operation, stack_up is the feature
+ENTITY Fill_type_operation
+  SUBTYPE OF (Machining_operation);
+END_ENTITY;
+
+-- ADDED BY 10303-238e4
+ENTITY Clamp_product_operation
+  SUBTYPE OF (Fill_type_operation);
+  clamped_item		: Product_view_definition;
+  force			: OPTIONAL Force_data_element;
+  high_speed		: BOOLEAN;
+END_ENTITY;
+
+-- ADDED BY 10303-238e4
+ENTITY	Fasten_with_codes
+  SUBTYPE OF (Fill_type_operation);
+  pass_thru_codes	: LIST[1:?] OF STRING; 
+END_ENTITY;
+
+-- ADDED BY 10303-238e4
+ENTITY Place_item_operation
+  SUBTYPE OF (Fill_type_operation);
+  placed_item			: Product_view_definition;    
+  depth				: OPTIONAL Length_data_element;
+  allowable_minimum_force	: OPTIONAL Force_data_element;
+  allowable_maximum_force	: OPTIONAL Force_data_element;
+  allowable_position_deviation	: OPTIONAL Length_data_element;
+  allowable_normal_deviation	: OPTIONAL Angle_data_element;
+  allowable_depth_deviation	: OPTIONAL Length_data_element;
+END_ENTITY;
+
+-- ADDED BY 10303-238e4
+ENTITY Place_fastener_operation
+  SUBTYPE OF (Place_item_operation);
+  grip_length		: OPTIONAL Length_data_element;
+  squeeze		: OPTIONAL Pressure_data_element;
+  button_height		: OPTIONAL Length_data_element;
+  button_diameter	: OPTIONAL Length_data_element;
+  verify_button		: OPTIONAL BOOLEAN;
+  verify_squeeze	: OPTIONAL BOOLEAN;
+  verify_material	: OPTIONAL BOOLEAN;
+  verify_grip		: OPTIONAL BOOLEAN;
+END_ENTITY;
+
+-- ADDED BY 10303-238e4
+ENTITY Place_tack_operation
+  SUBTYPE OF (Place_fastener_operation);
+END_ENTITY;
+
+-- ADDED BY 10303-238e4
+ENTITY Place_washer_operation
+  SUBTYPE OF (Place_item_operation);
+END_ENTITY;
+
+-- ADDED BY 10303-238e4
+ENTITY Place_collar_operation
+  SUBTYPE OF (Place_item_operation);
+END_ENTITY;
+
+-- ADDED BY 10303-238e4
+ENTITY Remove_tack_operation
+  SUBTYPE OF (Fill_type_operation);
+END_ENTITY;
+
+-- ADDED BY 10303-238e4
+ENTITY Seal_fastener_operation
+  SUBTYPE OF (Fill_type_operation);
+  quantity		: OPTIONAL Volume_data_element;
+  sealant		: OPTIONAL Material_identification;
+  seal_type		: OPTIONAL Sealant_type;
+  seal_check		: OPTIONAL BOOLEAN;
+END_ENTITY;
+
+-- ADDED BY 10303-238e4
+ENTITY Shave_fastener_operation
+  SUBTYPE OF (Fill_type_operation);
+  remaining	: OPTIONAL Length_data_element;
+END_ENTITY;
+
+
+-- ADDED BY 10303-238e4
+ENTITY Tighten_collar_operation 
+  SUBTYPE OF (Fill_type_operation);
+  torque		: OPTIONAL Value_with_unit;
+  squeeze		: OPTIONAL Force_data_element;
+  swage			: OPTIONAL Force_data_element;
+  pull			: OPTIONAL Force_data_element;
+END_ENTITY;
+
+-- ADDED BY 10303-238e4
+ENTITY Check_dimensions_operation 
+  SUBTYPE OF (Fill_type_operation);
+  check_location	: BOOLEAN;
+  check_size		: BOOLEAN;
+  check_orientation	: BOOLEAN;
+  check_form		: BOOLEAN;
+END_ENTITY;
+
+
+-- ADDED BY 10303-238e4
+ENTITY Adjust_placement_probing
+  SUBTYPE OF (Feature_complete_probing);
+  adjusted_product	: OPTIONAL Product_view_definition;
+  adjusted_process	: OPTIONAL Executable;
+END_ENTITY;
+-- ADDED BY 10303-238e4
+
+ENTITY External_operation
+  SUBTYPE OF (Operation);
+  mode				: Manual_or_automated;
+  additional_information 	: OPTIONAL Text;
+END_ENTITY;
+
+-- ADDED BY 10303-238e4
+TYPE Manual_or_automated = ENUMERATION OF (manual, automated); END_TYPE; 
+
+
+-- ADDED BY 10303-238e4
+ENTITY External_heating_operation
+  SUBTYPE OF (External_operation);
+END_ENTITY;
+
+-- ADDED BY 10303-238e4
+ENTITY External_marking_operation
+  SUBTYPE OF (External_operation);
+END_ENTITY;
+
+-- ADDED BY 10303-238e4
+ENTITY External_coating_operation
+  SUBTYPE OF (External_operation);
+END_ENTITY;
+
+-- ADDED BY 10303-238e4
+ENTITY External_packaging_operation
+  SUBTYPE OF (External_operation);
+END_ENTITY;
+
+-- ADDED BY 10303-238e4
+ENTITY External_fastening_operation
+  SUBTYPE OF (External_operation);
+END_ENTITY;
+
+-- ADDED BY 10303-238e4
+ENTITY External_fixturing_operation
+  SUBTYPE OF (External_operation);
+END_ENTITY;
+
+-- ADDED BY 10303-238e4
+ENTITY External_preparation_operation
+  SUBTYPE OF (External_operation);
+END_ENTITY;
+
+-- ADDED BY 10303-238e4
+ENTITY External_removal_operation
+  SUBTYPE OF (External_operation);
+END_ENTITY;
+
+-- ADDED BY 10303-238e4
+ENTITY External_check_operation
+  SUBTYPE OF (External_operation);
+END_ENTITY;
+
+-- ADDED BY 10303-238e4
+ENTITY External_check_burr_operation
+  SUBTYPE OF (External_operation);
+END_ENTITY;
+
+-- ADDED BY 10303-238e4
+ENTITY External_check_spiral_operation
+  SUBTYPE OF (External_operation);
+END_ENTITY;
+
+(* ======================================== *)
+(*                                          *)
+(* POWDER BED FUSION PROCESS                *)
+(*  ADDED BY 10303-238e4                    *)
+(*                                          *)
+(* ======================================== *)
+
+
+-- ADDED BY 10303-238e4
+ENTITY Am_pbf_operation
+ABSTRACT SUPERTYPE OF (ONEOF (Am_oned_pbf_operation, Am_twod_pbf_operation, Am_threed_pbf_operation)) 
+SUBTYPE OF (Am_operation);
+(*
+  SELF\Am_operation.machine_functions:	OPTIONAL Am_pbf_machine_functions;
+  SELF\Am_operation.its_technology:    	OPTIONAL Am_pbf_technology;
+  *)
+END_ENTITY;
+
+
+-- ADDED BY 10303-238e4
+ENTITY Am_threed_pbf_operation
+SUBTYPE OF (Am_pbf_operation);
+   theta_interlayer_rotation	: Angle_data_element;
+   theta_initial_layer_rotation	: OPTIONAL Angle_data_element;
+   layer_thickness		: Length_data_element;
+   its_twod_operations		: SET OF Am_twod_pbf_operation;
+   region_management		: OPTIONAL Am_pbf_region_management_strategy;
+   slice_management		: OPTIONAL Am_pbf_infill_management_strategy;
+END_ENTITY;
+
+
+-- ADDED BY 10303-238e4
+ENTITY Am_twod_pbf_operation
+ABSTRACT SUPERTYPE OF (ONEOF (Am_twod_pbf_stripe_operation, Am_twod_pbf_chess_operation, Am_twod_pbf_meander_operation))
+SUBTYPE OF (Am_pbf_operation);
+   solution_for		: Am_pbf_identification;
+   its_oned_operations	: LIST OF Am_oned_pbf_operation;
+   region_overlap	: OPTIONAL Length_data_element;
+   (*
+DERIVE
+   operation_name := its_id;
+   *)
+END_ENTITY;
+
+-- ADDED BY 10303-238e4
+ENTITY Am_twod_pbf_stripe_operation
+SUBTYPE OF (Am_twod_pbf_operation);
+   stripe_width		: Length_data_element;
+   stripe_overlap	: OPTIONAL Length_data_element;
+   merge_short_vectors	: OPTIONAL Length_data_element;
+   (*
+DERIVE
+   stripe_vector_length := stripe_width + stripe_overlap;
+WHERE
+   WR1: infill_direction == 90 - stripe_direction;
+   WR2: individual_vector_direction == stripe_direction;
+   *)
+END_ENTITY;
+
+-- ADDED BY 10303-238e4
+ENTITY Am_twod_pbf_chess_operation
+  SUBTYPE OF (Am_twod_pbf_operation);
+  rectangle_length			: Length_data_element;
+  rectangle_width			: Length_data_element;
+  x_direction_increment		: OPTIONAL Angle_data_element;
+  y_direction_increment		: OPTIONAL Angle_data_element;
+  tile_overlap			: OPTIONAL Length_data_element;
+   (*
+WHERE
+  WR1: infill_direction == 90 - tile_direction;
+  WR2: individual_vector_direction == tile_direction;
+   *)
+END_ENTITY;
+
+-- ADDED BY 10303-238e4
+ENTITY Am_twod_pbf_meander_operation
+  SUBTYPE OF (Am_twod_pbf_operation);
+END_ENTITY;
+
+-- ADDED BY 10303-238e4
+ENTITY Am_oned_pbf_operation
+  ABSTRACT SUPERTYPE OF (ONEOF (Am_oned_pbf_contour_operation, Am_oned_pbf_infill_operation)) 
+  SUBTYPE OF (Am_pbf_operation);
+(*
+DERIVE
+  scan_path: toolpath_list := SELF\Operation.its_toolpath;
+  *)
+END_ENTITY;
+
+
+-- ADDED BY 10303-238e4
+ENTITY Am_oned_pbf_contour_operation
+  SUBTYPE OF (Am_oned_pbf_operation);
+  contour_offset	: Length_data_element;
+  contour_direction	: OPTIONAL Contour_polarity;
+   (*
+DERIVE
+  master		: OPTIONAL Am_oned_pbf_contour_operation;
+  discontinuous	: OPTIONAL BOOLEAN;
+  contour_path: toolpath_list := SELF\Operation.its_toolpath;
+WHERE 
+   WR1: NOT EXISTS (master) OR contour_offset = master.contour_offset;
+   WR2: NOT EXISTS (master) OR contour_direction = master.contour_direction;
+   *)
+END_ENTITY;
+
+-- ADDED BY 10303-238e4
+TYPE Contour_polarity = ENUMERATION OF (
+  alternate, clockwise, counter_clockwise
+  );
+END_TYPE;
+
+-- ADDED BY 10303-238e4
+ENTITY Am_oned_pbf_infill_operation
+  ABSTRACT SUPERTYPE
+  SUBTYPE OF (Am_oned_pbf_operation);
+  offset		: Length_data_element;
+END_ENTITY;
+
+-- ADDED BY 10303-238e4
+ENTITY Am_oned_pbf_hatch_operation
+SUBTYPE OF (Am_oned_pbf_infill_operation);
+   hatch_space		: Length_data_element;
+   hatch_style		: OPTIONAL Hatch_type;
+   (*
+DERIVE
+   master		: OPTIONAL Am_oned_pbf_hatch_operation;
+   hatch_path: toolpath_list := SELF\Operation.its_toolpath;
+WHERE
+   WR1: NOT EXISTS (master) OR hatch_space = master.hatch_space;
+   WR2: NOT EXISTS (master) OR hatch_style = master.hatch_style;
+   *)
+END_ENTITY;
+
+-- ADDED BY 10303-238e4
+TYPE Hatch_type = ENUMERATION OF (snake, raster_left, raster_right);
+END_TYPE;
+
+-- ADDED BY 10303-238e4
+ENTITY Am_pbf_region
+SUPERTYPE OF (ONEOF (Am_core_region, Am_upskin_region, Am_downskin_region, Am_support_region, Am_application_region, Am_machining_region, Am_spike_region, Am_thin_wall_region))
+SUBTYPE OF (General_closed_profile);
+   slice		: Am_pbf_slice_number;
+   process		: Am_pbf_identification;
+   feature		: OPTIONAL Am_feature;
+END_ENTITY;
+
+-- ADDED BY 10303-238e4
+TYPE Am_pbf_slice_number = NUMBER; END_TYPE;
+
+-- ADDED BY 10303-238e4
+ENTITY Am_core_region 
+SUBTYPE OF (Am_pbf_region);
+END_ENTITY;
+
+-- ADDED BY 10303-238e4
+ENTITY Am_downskin_region 
+SUBTYPE OF (Am_pbf_region);
+END_ENTITY;
+
+-- ADDED BY 10303-238e4
+ENTITY Am_upskin_region 
+SUBTYPE OF (Am_pbf_region);
+END_ENTITY;
+
+-- ADDED BY 10303-238e4
+ENTITY Am_support_region
+SUBTYPE OF (Am_pbf_region);
+END_ENTITY;
+
+-- ADDED BY 10303-238e4
+ENTITY Am_application_region 
+SUBTYPE OF (Am_pbf_region);
+END_ENTITY;
+
+-- ADDED BY 10303-238e4
+ENTITY Am_machining_region 
+SUBTYPE OF (Am_pbf_region);
+END_ENTITY;
+
+-- ADDED BY 10303-238e4
+ENTITY Am_spike_region 
+SUBTYPE OF (Am_pbf_region); 
+END_ENTITY;
+
+-- ADDED BY 10303-238e4
+ENTITY Am_thin_wall_region 
+SUBTYPE OF (Am_pbf_region); 
+END_ENTITY;
+
+
+-- ADDED BY 10303-238e4
+ENTITY Am_pbf_feature
+SUPERTYPE OF (ONEOF (Am_core_feature, Am_upskin_feature, Am_downskin_feature, Am_support_feature, Am_application_feature, Am_machining_feature))
+SUBTYPE OF (Am_feature);
+   process			: Am_pbf_identification;
+   shell	 		: closed_shell;
+END_ENTITY;
+
+-- ADDED BY 10303-238e4
+ENTITY Am_core_feature 
+SUBTYPE OF (Am_pbf_feature);
+END_ENTITY;
+
+-- ADDED BY 10303-238e4
+ENTITY Am_downskin_feature 
+SUBTYPE OF (Am_pbf_feature);
+END_ENTITY;
+
+-- ADDED BY 10303-238e4
+ENTITY Am_upskin_feature 
+SUBTYPE OF (Am_pbf_feature);
+END_ENTITY;
+
+-- ADDED BY 10303-238e4
+ENTITY Am_support_feature
+SUBTYPE OF (Am_pbf_feature);
+END_ENTITY;
+
+-- ADDED BY 10303-238e4
+ENTITY Am_application_feature 
+SUBTYPE OF (Am_pbf_feature);
+END_ENTITY;
+
+-- ADDED BY 10303-238e4
+ENTITY Am_machining_feature 
+SUBTYPE OF (Am_pbf_feature);
+END_ENTITY;
+
+
+-- ADDED BY 10303-238e4
+ENTITY Am_feature_intersection
+SUBTYPE OF (transition_feature);
+   feature_a	 		: Am_pbf_feature;
+   face_a	 		: advanced_face;
+   feature_b	 		: Am_pbf_feature;
+   face_b	 		: advanced_face;
+   intersection_curve	: SET [1:?] OF composite_curve;
+--WHERE
+--face_a shall belong to region_a, and face_b shall belong to region_b
+--intersection_curve shall be on face_a and face_b
+END_ENTITY;
+
+
+-- ADDED BY 10303-238e4
+ENTITY Am_region_intersection
+SUBTYPE OF (transition_feature);
+   region_a		: Am_pbf_region;
+   region_b		: Am_pbf_region;
+   feature_boundary	: Am_internal_composite_curve_segment;
+--WHERE
+--region_a and region_b are on the same slice
+END_ENTITY;
+
+-- ADDED BY 10303-238e4
+ENTITY Am_composite_curve
+SUBTYPE OF (composite_curve);
+--WHERE
+--Each segment is internal or external 
+END_ENTITY;
+
+-- ADDED BY 10303-238e4
+ENTITY Am_internal_composite_curve_segment
+SUBTYPE OF (composite_curve_segment);
+--WHERE
+--An internal segment is shared by two features on the same slice.
+END_ENTITY;
+
+-- ADDED BY 10303-238e4
+ENTITY Am_external_composite_curve_segment
+SUBTYPE OF (composite_curve_segment);
+--An external segment is on the outer boundary of the slice
+END_ENTITY;
+
+-- ADDED BY 10303-238e4
+ENTITY Am_pbf_identification 
+SUPERTYPE OF (ONEOF (Am_core_identification, Am_upskin_identification, Am_downskin_identification, Am_application_identification, Am_support_identification, Am_machining_identification, Am_thin_wall_identification, Am_spike_identification));
+   id		: Identifier;
+   description	: OPTIONAL TEXT;
+   small_area_limit	: OPTIONAL Area_data_element;
+   large_area_limit	: OPTIONAL Area_data_element;
+   precedence		: OPTIONAL INTEGER;
+   parent		: OPTIONAL Am_pbf_identification;
+END_ENTITY;
+
+-- ADDED BY 10303-238e4
+ENTITY Am_core_identification 
+SUBTYPE OF (Am_pbf_identification);
+END_ENTITY;
+
+-- ADDED BY 10303-238e4
+ENTITY Am_downskin_identification 
+SUBTYPE OF (Am_pbf_identification);
+  downskin_angle	 : Angle_data_element;   
+  downskin_thickness 	 : Layer_count;
+END_ENTITY;
+
+-- ADDED BY 10303-238e4
+TYPE Layer_count = INTEGER; END_TYPE;
+
+-- ADDED BY 10303-238e4
+ENTITY Am_upskin_identification 
+SUBTYPE OF (Am_pbf_identification);
+   upskin_angle		: Angle_data_element;
+   upskin_thickness	: Layer_count;
+END_ENTITY;
+
+-- ADDED BY 10303-238e4
+ENTITY Am_application_identification 
+SUBTYPE OF (Am_pbf_identification);
+END_ENTITY;
+
+-- ADDED BY 10303-238e4
+ENTITY Am_support_identification 
+SUBTYPE OF (Am_pbf_identification);
+END_ENTITY;
+
+-- ADDED BY 10303-238e4
+ENTITY Am_machining_identification 
+SUBTYPE OF (Am_pbf_identification);
+END_ENTITY;
+
+-- ADDED BY 10303-238e4
+ENTITY Am_spike_identification 
+SUBTYPE OF (Am_pbf_identification);
+   corner_angle		: Angle_data_element;
+   radius_tip		: Length_data_element;
+   trim_filter		: Length_data_element;
+   line_extension 	: Length_data_element;
+   direction		: spike_direction;
+END_ENTITY;
+
+-- ADDED BY 10303-238e4
+TYPE spike_direction = ENUMERATION OF (inside_outside, outside_inside);
+END_TYPE;
+
+-- ADDED BY 10303-238e4
+ENTITY Am_thin_wall_identification 
+SUBTYPE OF (Am_pbf_identification); 
+   thinness_low		: count_measure;
+   thinness_high	: count_measure;
+END_ENTITY;
+
+
+
+-- ADDED BY 10303-238e4
+ENTITY Am_pbf_management_strategy;
+END_ENTITY;
+
+-- ADDED BY 10303-238e4
+ENTITY Am_pbf_region_management_strategy
+SUBTYPE OF (Am_pbf_management_strategy);
+  compute_downskin	: OPTIONAL BOOLEAN;
+  compute_upskin	: OPTIONAL BOOLEAN;
+  compute_spike		: OPTIONAL BOOLEAN;
+  compute_thin_wall	: OPTIONAL BOOLEAN;
+END_ENTITY;
+
+-- ADDED BY 10303-238e4
+ENTITY Am_pbf_infill_management_strategy
+SUBTYPE OF (Am_pbf_management_strategy);
+   reverse_columns		: OPTIONAL BOOLEAN;
+   reverse_rows			: OPTIONAL BOOLEAN;
+   maximum_time_between_adjacent : OPTIONAL Duration;
+   minimum_time_between_adjacent : OPTIONAL Duration;
+   restriction_high_angle	: OPTIONAL Angle_data_element;
+   restriction_low_angle	: OPTIONAL Angle_data_element;
+END_ENTITY;
+
+
+
+
+-- ADDED BY 10303-238e4
+ENTITY Am_pbf_technology
+SUBTYPE OF (Am_technology);
+   beam_diameter	: Length_data_element;
+   beam_power		: Power_data_element;
+   beam_path_mode	: OPTIONAL Beam_path_mode_type;
+   beam_power_mode	: OPTIONAL Beam_power_mode_type;
+   scan_speed		: Velocity_data_element;
+END_ENTITY;
+
+-- ADDED BY 10303-238e4
+TYPE Beam_path_mode_type = ENUMERATION OF (exact_stop, constant_build_speed, continuous); 
+END_TYPE;
+
+-- ADDED BY 10303-238e4
+TYPE Beam_power_mode_type = ENUMERATION OF (constant_power, constant_power_density); 
+END_TYPE;
+
+-- ADDED BY 10303-238e4
+ENTITY Am_pbf_machine_functions
+SUBTYPE OF (Am_machine_functions);
+   coating_speed	: OPTIONAL Velocity_data_element;
+   recoater_return_speed : OPTIONAL Velocity_data_element;
+   minimum_time_between_layers : OPTIONAL Duration;
+   plate_temperature	: OPTIONAL Thermodynamic_temperature_data_element;
+   plate_thickness	: OPTIONAL Length_data_element;
+   gas_rate		: OPTIONAL Value_with_unit;
+   gas_direction	: OPTIONAL direction;
+   gas_type		: OPTIONAL Material_identification;
+   feedstock_definition : OPTIONAL Material_identification;	   
+   recoater_blade_definition : OPTIONAL Product_view_definition;
+END_ENTITY;
 
 END_SCHEMA;
