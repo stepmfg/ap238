@@ -9060,8 +9060,8 @@ text.color-3 { stroke: none; fill: red; }
 <text class="box" x="11891" y="5489">6, 59 (<a xlink:href="#ref15b9f"  xlink:title="Unary_generic_expression.operand">6</a>, <a xlink:href="#ref15c4d"  xlink:title="Maths_value">9</a>, <a xlink:href="#ref15d58"  xlink:title="Multiple_arity_generic_expression.operands">6</a>, <a xlink:href="#ref16059"  xlink:title="Binary_generic_expression.operands">6</a>)</text>
 <rect x="12558" y="7795" width="101" height="20" rx="10" ry="10" />
 <text class="box" x="12609" y="7805">9, 60 (<a xlink:href="#ref15ba0"  xlink:title="Value_with_unit.unit">9</a>, <a xlink:href="#ref160b2"  xlink:title="Classified_attribute_select">7</a>, <a xlink:href="#ref1644a"  xlink:title="Maths_value_with_unit.unit">9</a>)</text>
-<rect x="12114" y="7015" width="149" height="20" rx="10" ry="10" />
-<text class="box" x="12188" y="7026">9, 64 (<a xlink:href="#ref16003"  xlink:title="Am_thin_wall_identification.thinness_low">5</a>, <a xlink:href="#ref16004"  xlink:title="Am_thin_wall_identification.thinness_high">5</a>, <a xlink:href="#ref1615d"  xlink:title="Broadcast_count.broadcast_count">5</a>)</text>
+<rect x="12184" y="7129" width="90" height="24" rx="12" ry="12" />
+<text class="box" x="12229" y="7141">9, 64 (<a xlink:href="#ref16003"  xlink:title="Am_thin_wall_identification.thinness_low">5</a>, <a xlink:href="#ref16004"  xlink:title="Am_thin_wall_identification.thinness_high">5</a>, <a xlink:href="#ref1615d"  xlink:title="Broadcast_count.broadcast_count">5</a>)</text>
 <rect x="12429" y="6863" width="455" height="20" rx="10" ry="10" />
 <text class="box" x="12656" y="6873">9, 65 (<a xlink:href="#ref15bcd"  xlink:title="Cartesian_point.coordinates">9</a>, <a xlink:href="#ref15bd0"  xlink:title="Su_parameters.a">6</a>, <a xlink:href="#ref15bd2"  xlink:title="Su_parameters.b">6</a>, <a xlink:href="#ref15bd4"  xlink:title="Su_parameters.c">6</a>, <a xlink:href="#ref15f7a"  xlink:title="Sphere_or_bounding_box">6</a>, <a xlink:href="#ref1613e"  xlink:title="Linear_path_feature_component.distance">4</a>, <a xlink:href="#ref16170"  xlink:title="Planar_box.size_in_x">9</a>, <a xlink:href="#ref16171"  xlink:title="Planar_box.size_in_y">9</a>, <a xlink:href="#ref161d1"  xlink:title="Circular_path_feature_component.radius">4</a>, <a xlink:href="#ref162e9"  xlink:title="Cylindrical_pair_value.actual_translation">6</a>, <a xlink:href="#ref162f2"  xlink:title="Cylindrical_point.z">9</a>, <a xlink:href="#ref1638f"  xlink:title="Gear_pair.radius_first_link">6</a>, <a xlink:href="#ref16390"  xlink:title="Gear_pair.radius_second_link">6</a>, <a xlink:href="#ref1643a"  xlink:title="Linear_flexible_and_pinion_pair.pinion_radius">6</a>, <a xlink:href="#ref164b1"  xlink:title="Parabola.focal_distance">9</a>, <a xlink:href="#ref164b6"  xlink:title="Partial_circular_path_feature_component.sweep_angle">4</a>, <a xlink:href="#ref164eb"  xlink:title="Planar_pair_value.actual_translation_x">6</a>, <a xlink:href="#ref164ec"  xlink:title="Planar_pair_value.actual_translation_y">6</a>, <a xlink:href="#ref16532"  xlink:title="Prismatic_pair_value.actual_translation">6</a>, <a xlink:href="#ref16587"  xlink:title="Rack_and_pinion_pair.pinion_radius">6</a>, <a xlink:href="#ref16588"  xlink:title="Rack_and_pinion_pair_value.actual_displacement">6</a>, <a xlink:href="#ref165ea"  xlink:title="Screw_pair.pitch">6</a>, <a xlink:href="#ref16684"  xlink:title="Text_literal_with_extent.width">9</a>, <a xlink:href="#ref16685"  xlink:title="Text_literal_with_extent.height">9</a>, <a xlink:href="#ref166c6"  xlink:title="Vector.magnitude">9</a>)</text>
 <rect x="12662" y="7004" width="224" height="39" rx="19" ry="19" />
@@ -9296,10 +9296,8 @@ text.color-3 { stroke: none; fill: red; }
 <text class="box" x="3260" y="7479"><tspan x="3260" dy="-0.4em" >7, 210 (<a xlink:href="#ref15c87"  xlink:title="Executable.twin_start">1</a>, <a xlink:href="#ref15c88"  xlink:title="Executable.twin_end">1</a>, <a xlink:href="#ref15cb9"  xlink:title="Measured_property.when">5</a>, </tspan>
 <tspan x="3260" dy="1.2em" ><a xlink:href="#ref15cc2"  xlink:title="Process_property.property_date">7</a>, <a xlink:href="#ref15d16"  xlink:title="Manufacturing_project.its_release">2</a>, <a xlink:href="#ref160f7"  xlink:title="Drill_and_fill_stackup.when_computed">5</a>, <a xlink:href="#ref16101"  xlink:title="Fastener_twin.when_placed">5</a>, <a xlink:href="#ref16102"  xlink:title="Fastener_twin.when_removed">5</a>)</tspan>
 </text>
-<rect x="12936" y="7168" width="162" height="20" rx="10" ry="10" />
-<text class="box" x="13017" y="7178"><tspan x="13017" dy="-0.4em" >9, 211 (<a xlink:href="#ref15c89"  xlink:title="Executable.twin_worktime">1</a>, <a xlink:href="#ref15d5e"  xlink:title="Cutting_component.expected_tool_life">1</a>, <a xlink:href="#ref15d62"  xlink:title="Cutting_edge_properties.expected_tool_life">1</a>, <a xlink:href="#ref15fe8"  xlink:title="Am_pbf_infill_management_strategy.maximum_time_between_adjacent">5</a>, <a xlink:href="#ref15fe9"  xlink:title="Am_pbf_infill_management_strategy.minimum_time_between_adjacent">5</a>, <a xlink:href="#ref15fee"  xlink:title="Am_pbf_machine_functions.minimum_time_between_layers">5</a>, <a xlink:href="#ref160ca"  xlink:title="Drilling_type_operation.dwell_time_bottom">1</a>, <a xlink:href="#ref162e4"  xlink:title="Cutting_tool_prototype.tool_life">5</a>, <a xlink:href="#ref16486"  xlink:title="Multistep_drilling.dwell_time_step">1</a>, </tspan>
-<tspan x="13017" dy="1.2em" ><a xlink:href="#ref1654d"  xlink:title="Time_interval_with_bounds.duration_from_primary_bound">7</a>, <a xlink:href="#ref1654f"  xlink:title="Process_operation_occurrence_relationship.waiting_time">2</a>)</tspan>
-</text>
+<rect x="12936" y="7168" width="206" height="22" rx="11" ry="11" />
+<text class="box" x="13039" y="7179">9, 211 (<a xlink:href="#ref15c89"  xlink:title="Executable.twin_worktime">1</a>, <a xlink:href="#ref15d5e"  xlink:title="Cutting_component.expected_tool_life">1</a>, <a xlink:href="#ref15d62"  xlink:title="Cutting_edge_properties.expected_tool_life">1</a>, <a xlink:href="#ref15fe8"  xlink:title="Am_pbf_infill_management_strategy.maximum_time_between_adjacent">5</a>, <a xlink:href="#ref15fe9"  xlink:title="Am_pbf_infill_management_strategy.minimum_time_between_adjacent">5</a>, <a xlink:href="#ref15fee"  xlink:title="Am_pbf_machine_functions.minimum_time_between_layers">5</a>, <a xlink:href="#ref160ca"  xlink:title="Drilling_type_operation.dwell_time_bottom">1</a>, <a xlink:href="#ref162e4"  xlink:title="Cutting_tool_prototype.tool_life">5</a>, <a xlink:href="#ref16486"  xlink:title="Multistep_drilling.dwell_time_step">1</a>, <a xlink:href="#ref1654d"  xlink:title="Time_interval_with_bounds.duration_from_primary_bound">7</a>, <a xlink:href="#ref1654f"  xlink:title="Process_operation_occurrence_relationship.waiting_time">2</a>)</text>
 <rect x="699" y="409" width="134" height="20" rx="10" ry="10" />
 <text class="box" x="766" y="419">1, 214 (<a xlink:href="#ref15c95"  xlink:title="Expected_property.applicable_phases">5</a>, <a xlink:href="#ref15d79"  xlink:title="Phase_history.phase">5</a>, <a xlink:href="#ref15fb5"  xlink:title="Phase_stage.stage">5</a>)</text>
 <rect x="12176" y="88" width="117" height="20" rx="10" ry="10" />
@@ -9388,8 +9386,8 @@ text.color-3 { stroke: none; fill: red; }
 </text>
 <rect x="12990" y="7284" width="117" height="20" rx="10" ry="10" />
 <text class="box" x="13049" y="7294">9, 267 (<a xlink:href="#ref15cf3"  xlink:title="Machine_parameters.spindle_speed">1</a>, <a xlink:href="#ref160f4"  xlink:title="Stack_layer.speed">5</a>, <a xlink:href="#ref160f9"  xlink:title="Drill_and_fill_stackup.speed">5</a>, <a xlink:href="#ref16278"  xlink:title="Const_cutting_speed.max_speed">1</a>, <a xlink:href="#ref1647c"  xlink:title="Milling_technology.spindle">1</a>)</text>
-<rect x="12186" y="7444" width="87" height="20" rx="10" ry="10" />
-<text class="box" x="12229" y="7454">9, 268 (<a xlink:href="#ref15cf4"  xlink:title="Machine_parameters.spindle_power">1</a>)</text>
+<rect x="12186" y="7454" width="87" height="20" rx="10" ry="10" />
+<text class="box" x="12229" y="7464">9, 268 (<a xlink:href="#ref15cf4"  xlink:title="Machine_parameters.spindle_power">1</a>)</text>
 <rect x="550" y="1265" width="82" height="25" rx="12" ry="12" />
 <text class="box" x="591" y="1277">1, 270 (<a xlink:href="#ref15cfe"  xlink:title="Workplan.its_minimum_machine_params">1</a>)</text>
 <rect x="337" y="934" width="93" height="20" rx="10" ry="10" />
@@ -9750,8 +9748,8 @@ text.color-3 { stroke: none; fill: red; }
 <text class="box" x="5446" y="1182">2, 526 (<a xlink:href="#ref15fbe"  xlink:title="Complex_product_select">2</a>, <a xlink:href="#ref1615b"  xlink:title="Breakdown_element_select">2</a>, <a xlink:href="#ref1649b"  xlink:title="Occurrence_placement.reference_physical_element">2</a>, <a xlink:href="#ref164ce"  xlink:title="Physical_element_placement.placed_physical_element">2</a>)</text>
 <rect x="8637" y="822" width="74" height="20" rx="10" ry="10" />
 <text class="box" x="8674" y="833">2, 527 (<a xlink:href="#ref16086"  xlink:title="Solution_element.resolved_requirement">6</a>)</text>
-<rect x="11660" y="7260" width="113" height="20" rx="10" ry="10" />
-<text class="box" x="11717" y="7270">9, 528 (<a xlink:href="#ref15fc4"  xlink:title="Am_pbf_identification.small_area_limit">5</a>, <a xlink:href="#ref15fc5"  xlink:title="Am_pbf_identification.large_area_limit">5</a>)</text>
+<rect x="11685" y="7296" width="113" height="20" rx="10" ry="10" />
+<text class="box" x="11742" y="7307">9, 528 (<a xlink:href="#ref15fc4"  xlink:title="Am_pbf_identification.small_area_limit">5</a>, <a xlink:href="#ref15fc5"  xlink:title="Am_pbf_identification.large_area_limit">5</a>)</text>
 <rect x="6491" y="4620" width="134" height="20" rx="10" ry="10" />
 <text class="box" x="6558" y="4630">5, 530 (<a xlink:href="#ref16008"  xlink:title="Am_twod_pbf_operation.solution_for">5</a>)</text>
 <rect x="11576" y="7957" width="87" height="20" rx="10" ry="10" />
@@ -9778,12 +9776,12 @@ text.color-3 { stroke: none; fill: red; }
 <text class="box" x="4041" y="2428">1, 546 (<a xlink:href="#ref15fe3"  xlink:title="Am_operation.machine_functions">1</a>)</text>
 <rect x="3367" y="2180" width="93" height="20" rx="10" ry="10" />
 <text class="box" x="3414" y="2190">1, 547 (<a xlink:href="#ref15fe4"  xlink:title="Am_operation.its_technology">1</a>)</text>
-<rect x="12062" y="7488" width="93" height="20" rx="10" ry="10" />
-<text class="box" x="12109" y="7498">9, 548 (<a xlink:href="#ref15fef"  xlink:title="Am_pbf_machine_functions.plate_temperature">5</a>)</text>
+<rect x="12184" y="7649" width="93" height="20" rx="10" ry="10" />
+<text class="box" x="12230" y="7659">9, 548 (<a xlink:href="#ref15fef"  xlink:title="Am_pbf_machine_functions.plate_temperature">5</a>)</text>
 <rect x="2297" y="2813" width="134" height="20" rx="10" ry="10" />
 <text class="box" x="2364" y="2823">1, 549 (<a xlink:href="#ref15ff3"  xlink:title="Am_pbf_machine_functions.gas_type">5</a>, <a xlink:href="#ref15ff4"  xlink:title="Am_pbf_machine_functions.feedstock_definition">5</a>, <a xlink:href="#ref165ef"  xlink:title="Seal_fastener_operation.sealant">5</a>)</text>
-<rect x="12177" y="7419" width="93" height="20" rx="10" ry="10" />
-<text class="box" x="12224" y="7430">9, 550 (<a xlink:href="#ref15ff7"  xlink:title="Am_pbf_technology.beam_power">5</a>)</text>
+<rect x="12176" y="7421" width="93" height="20" rx="10" ry="10" />
+<text class="box" x="12223" y="7432">9, 550 (<a xlink:href="#ref15ff7"  xlink:title="Am_pbf_technology.beam_power">5</a>)</text>
 <rect x="12940" y="7504" width="102" height="20" rx="10" ry="10" />
 <text class="box" x="12991" y="7514">9, 551 (<a xlink:href="#ref15ff8"  xlink:title="Am_pbf_technology.scan_speed">5</a>, <a xlink:href="#ref16137"  xlink:title="Feed_select">1</a>, <a xlink:href="#ref16277"  xlink:title="Const_cutting_speed.speed">1</a>)</text>
 <rect x="10063" y="9487" width="93" height="20" rx="10" ry="10" />
@@ -9836,8 +9834,8 @@ text.color-3 { stroke: none; fill: red; }
 <text class="box" x="3083" y="8894">7, 593 (<a xlink:href="#ref1669a"  xlink:title="Time_interval_effectivity.effectivity_period">7</a>)</text>
 <rect x="3288" y="8822" width="87" height="20" rx="10" ry="10" />
 <text class="box" x="3332" y="8832">7, 594 (<a xlink:href="#ref160b1"  xlink:title="Classified_attribute_select">7</a>)</text>
-<rect x="12660" y="7128" width="87" height="20" rx="10" ry="10" />
-<text class="box" x="12704" y="7138">9, 597 (<a xlink:href="#ref160c3"  xlink:title="Trajectory.its_material_removal_total_volume">1</a>)</text>
+<rect x="12669" y="7134" width="87" height="20" rx="10" ry="10" />
+<text class="box" x="12712" y="7144">9, 597 (<a xlink:href="#ref160c3"  xlink:title="Trajectory.its_material_removal_total_volume">1</a>)</text>
 <rect x="9924" y="9290" width="117" height="20" rx="10" ry="10" />
 <text class="box" x="9983" y="9300">9, 598 (<a xlink:href="#ref160c4"  xlink:title="Trajectory.cross_section_area_parameters">1</a>, <a xlink:href="#ref162d6"  xlink:title="Cutter_contact_trajectory.its_toolaxis">1</a>, <a xlink:href="#ref162d7"  xlink:title="Cutter_contact_trajectory.its_toolref_direction">1</a>, <a xlink:href="#ref162db"  xlink:title="Cutter_location_trajectory.its_toolaxis">1</a>, <a xlink:href="#ref162dc"  xlink:title="Cutter_location_trajectory.its_toolref_direction">1</a>, <a xlink:href="#ref162dd"  xlink:title="Cutter_location_trajectory.surface_normal">1</a>)</text>
 <rect x="12942" y="7419" width="141" height="20" rx="10" ry="10" />
@@ -9950,8 +9948,8 @@ text.color-3 { stroke: none; fill: red; }
 <text class="box" x="327" y="4079">4, 681 (<a xlink:href="#ref161c8"  xlink:title="Replicate_base_select">4</a>, <a xlink:href="#ref16261"  xlink:title="Compound_feature_select">4</a>)</text>
 <rect x="10627" y="9925" width="221" height="20" rx="10" ry="10" />
 <text class="box" x="10738" y="9935">9, 685 (<a xlink:href="#ref161cf"  xlink:title="Kinematic_path_segment.t_end">6</a>, <a xlink:href="#ref162cc"  xlink:title="Curve_with_explicit_knots.knot_values">9</a>, <a xlink:href="#ref16406"  xlink:title="Interpolated_configuration_segment.t_parameter">6</a>, <a xlink:href="#ref16419"  xlink:title="Kinematic_path.t_start">6</a>, <a xlink:href="#ref16649"  xlink:title="Surface_with_explicit_knots.u_knot_values">9</a>, <a xlink:href="#ref1664a"  xlink:title="Surface_with_explicit_knots.v_knot_values">9</a>)</text>
-<rect x="11634" y="7568" width="195" height="20" rx="10" ry="10" />
-<text class="box" x="11732" y="7578">9, 686 (<a xlink:href="#ref161d4"  xlink:title="Clamp_product_operation.force">5</a>, <a xlink:href="#ref164d1"  xlink:title="Place_item_operation.allowable_minimum_force">5</a>, <a xlink:href="#ref164d2"  xlink:title="Place_item_operation.allowable_maximum_force">5</a>, <a xlink:href="#ref16694"  xlink:title="Tighten_collar_operation.squeeze">5</a>, <a xlink:href="#ref16695"  xlink:title="Tighten_collar_operation.swage">5</a>, <a xlink:href="#ref16696"  xlink:title="Tighten_collar_operation.pull">5</a>)</text>
+<rect x="11757" y="7649" width="125" height="21" rx="10" ry="10" />
+<text class="box" x="11820" y="7660">9, 686 (<a xlink:href="#ref161d4"  xlink:title="Clamp_product_operation.force">5</a>, <a xlink:href="#ref164d1"  xlink:title="Place_item_operation.allowable_minimum_force">5</a>, <a xlink:href="#ref164d2"  xlink:title="Place_item_operation.allowable_maximum_force">5</a>, <a xlink:href="#ref16694"  xlink:title="Tighten_collar_operation.squeeze">5</a>, <a xlink:href="#ref16695"  xlink:title="Tighten_collar_operation.swage">5</a>, <a xlink:href="#ref16696"  xlink:title="Tighten_collar_operation.pull">5</a>)</text>
 <rect x="2662" y="6058" width="87" height="20" rx="10" ry="10" />
 <text class="box" x="2705" y="6068">4, 688 (<a xlink:href="#ref161e1"  xlink:title="End_type_select">4</a>)</text>
 <rect x="2569" y="6151" width="87" height="20" rx="10" ry="10" />
@@ -9976,8 +9974,8 @@ text.color-3 { stroke: none; fill: red; }
 <text class="box" x="4956" y="8369">8, 700 (<a xlink:href="#ref16200"  xlink:title="Filament_assembly_material">8</a>, <a xlink:href="#ref1621e"  xlink:title="Ply_stock_material">8</a>)</text>
 <rect x="10653" y="5607" width="93" height="20" rx="10" ry="10" />
 <text class="box" x="10700" y="5618">6, 702 (<a xlink:href="#ref16202"  xlink:title="Filament_laminate_shape.cross_section">8</a>)</text>
-<rect x="12266" y="7402" width="93" height="20" rx="10" ry="10" />
-<text class="box" x="12312" y="7412">9, 704 (<a xlink:href="#ref16204"  xlink:title="Constituent_part.weight">8</a>)</text>
+<rect x="12175" y="7378" width="93" height="20" rx="10" ry="10" />
+<text class="box" x="12221" y="7389">9, 704 (<a xlink:href="#ref16204"  xlink:title="Constituent_part.weight">8</a>)</text>
 <rect x="5628" y="7667" width="113" height="20" rx="10" ry="10" />
 <text class="box" x="5684" y="7678">8, 705 (<a xlink:href="#ref16205"  xlink:title="Component_class_for_assembly">8</a>, <a xlink:href="#ref16686"  xlink:title="Thickness_laminate_table_component">8</a>)</text>
 <rect x="10182" y="3954" width="93" height="20" rx="10" ry="10" />
@@ -10226,8 +10224,8 @@ text.color-3 { stroke: none; fill: red; }
 <text class="box" x="11547" y="2795">3, 972 (<a xlink:href="#ref165e3"  xlink:title="Runout_zone_definition.orientation_defining_relationship">3</a>)</text>
 <rect x="5372" y="3532" width="93" height="20" rx="10" ry="10" />
 <text class="box" x="5419" y="3542">5, 973 (<a xlink:href="#ref165e4"  xlink:title="Same_assembly_group.parts_joined">5</a>)</text>
-<rect x="12087" y="7515" width="93" height="20" rx="10" ry="10" />
-<text class="box" x="12133" y="7525">9, 976 (<a xlink:href="#ref165ee"  xlink:title="Seal_fastener_operation.quantity">5</a>)</text>
+<rect x="12062" y="7649" width="93" height="20" rx="10" ry="10" />
+<text class="box" x="12109" y="7659">9, 976 (<a xlink:href="#ref165ee"  xlink:title="Seal_fastener_operation.quantity">5</a>)</text>
 <rect x="5014" y="4296" width="93" height="20" rx="10" ry="10" />
 <text class="box" x="5060" y="4307">5, 977 (<a xlink:href="#ref165f0"  xlink:title="Seal_fastener_operation.seal_type">5</a>)</text>
 <rect x="5625" y="7302" width="93" height="20" rx="10" ry="10" />
@@ -12763,7 +12761,7 @@ text.color-3 { stroke: none; fill: red; }
 <circle  cx="161" cy="85" r="5" />
 <path class="dash" d="M3216 7477 L 3171 7478" />
 <circle  cx="3171" cy="7478" r="5" />
-<path class="dash" d="M12936 7176 L 12920 7176 12920 7191" />
+<path class="dash" d="M12936 7177 L 12920 7176 12920 7191" />
 <circle  cx="12920" cy="7191" r="5" />
 <path class="dash" d="M4634 5721 L 4599 5721 4599 5734" />
 <circle  cx="4599" cy="5734" r="5" />
@@ -12775,8 +12773,8 @@ text.color-3 { stroke: none; fill: red; }
 <circle  cx="12858" cy="7499" r="5" />
 <path class="dash" d="M12990 7293 L 12964 7293 12964 7304" />
 <circle  cx="12964" cy="7304" r="5" />
-<path class="dash" d="M12186 7454 L 12173 7454" />
-<circle  cx="12173" cy="7454" r="5" />
+<path class="dash" d="M12186 7463 L 12169 7463" />
+<circle  cx="12169" cy="7463" r="5" />
 <path class="dash" d="M550 1277 L 523 1277 523 1287" />
 <circle  cx="523" cy="1287" r="5" />
 <path class="dash" d="M3223 1580 L 3222 1594" />
@@ -12819,21 +12817,21 @@ text.color-3 { stroke: none; fill: red; }
 <circle  cx="9247" cy="1299" r="5" />
 <path class="dash" d="M9167 890 L 9243 889" />
 <circle  cx="9243" cy="889" r="5" />
-<path class="dash" d="M11717 7281 L 11798 7291" />
-<circle  cx="11798" cy="7291" r="5" />
+<path class="dash" d="M11798 7307 L 11828 7307 11828 7320" />
+<circle  cx="11828" cy="7320" r="5" />
 <path class="dash" d="M12561 1729 L 12561 1746" />
 <circle  cx="12561" cy="1746" r="5" />
 <path class="dash" d="M2141 3498 L 2090 3498 2090 3539" />
 <circle  cx="2090" cy="3539" r="5" />
 <path class="dash" d="M3367 2190 L 3329 2190" />
 <circle  cx="3329" cy="2190" r="5" />
-<path class="dash" d="M12109 7509 L 12109 7568" />
-<circle  cx="12109" cy="7568" r="5" />
+<path class="dash" d="M12226 7649 L 12225 7608" />
+<circle  cx="12225" cy="7608" r="5" />
 <path class="dash" d="M2297 2822 L 2204 2822 2204 2860" />
 <circle  cx="2204" cy="2860" r="5" />
 <path class="dash" d="M3273 9526 L 3273 9510" />
 <circle  cx="3273" cy="9510" r="5" />
-<path class="dash" d="M12660 7137 L 12500 7137 12500 7135" />
+<path class="dash" d="M12669 7142 L 12500 7142 12500 7135" />
 <circle  cx="12500" cy="7135" r="5" />
 <path class="dash" d="M9924 9301 L 9683 9301" />
 <circle  cx="9683" cy="9301" r="5" />
@@ -12881,14 +12879,14 @@ text.color-3 { stroke: none; fill: red; }
 <circle  cx="224" cy="6185" r="5" />
 <path class="dash" d="M507 6251 L 450 6251" />
 <circle  cx="450" cy="6251" r="5" />
-<path class="dash" d="M11732 7588 L 11836 7573" />
-<circle  cx="11836" cy="7573" r="5" />
+<path class="dash" d="M11821 7649 L 11821 7632" />
+<circle  cx="11821" cy="7632" r="5" />
 <path class="dash" d="M6016 5728 L 5975 5728 5975 5748" />
 <circle  cx="5975" cy="5748" r="5" />
 <path class="dash" d="M12397 1051 L 12365 1051 12365 1060" />
 <circle  cx="12365" cy="1060" r="5" />
-<path class="dash" d="M12312 7422 L 12128 7410" />
-<circle  cx="12128" cy="7410" r="5" />
+<path class="dash" d="M12175 7386 L 12128 7386 12128 7396" />
+<circle  cx="12128" cy="7396" r="5" />
 <path class="dash" d="M6337 7000 L 6337 7016" />
 <circle  cx="6337" cy="7016" r="5" />
 <path class="dash" d="M6624 6985 L 6592 6985 6592 7001" />
@@ -12959,8 +12957,8 @@ text.color-3 { stroke: none; fill: red; }
 <circle  cx="5331" cy="898" r="5" />
 <path class="dash" d="M11504 2796 L 11480 2796 11480 2806" />
 <circle  cx="11480" cy="2806" r="5" />
-<path class="dash" d="M12133 7535 L 12133 7595" />
-<circle  cx="12133" cy="7595" r="5" />
+<path class="dash" d="M12099 7649 L 12099 7635" />
+<circle  cx="12099" cy="7635" r="5" />
 <path class="dash" d="M5014 4306 L 4981 4305" />
 <circle  cx="4981" cy="4305" r="5" />
 <path class="dash" d="M7338 336 L 7309 336 7309 350" />
@@ -13542,7 +13540,7 @@ text.color-3 { stroke: none; fill: red; }
 <circle  cx="12203" cy="6704" r="5" />
 <circle  cx="12297" cy="6702" r="5" />
 <circle  cx="12405" cy="6703" r="5" />
-<path class="thick" d="M11996 6987 L 11995 7160M11995 7160 L 11995 7231 11930 7231M11995 7160 L 11995 7258 11915 7258M11995 7160 L 12553 7160 12553 7198M11995 7160 L 11995 7189 11946 7189M11995 7160 L 12296 7160 12296 7482M11995 7160 L 12886 7160 12886 7191M11995 7160 L 12322 7160 12322 7315M11995 7160 L 12782 7160 12782 7499M11995 7160 L 12863 7160 12863 7304M11995 7160 L 11995 7456 12047 7456M11995 7160 L 12810 7160 12810 7412M11995 7160 L 11995 7307 11877 7307M11995 7160 L 11995 7587 12049 7587M11995 7160 L 11995 7278 11961 7278M11995 7160 L 11995 7333 11912 7333M11995 7160 L 11995 7365 11949 7365M11995 7160 L 11995 7587 11879 7587M11995 7160 L 11995 7423 12048 7423M11995 7160 L 11995 7393 11914 7393M11995 7160 L 11995 7417 11943 7417M11995 7160 L 11995 7448 11928 7448M11995 7160 L 11995 7479 11923 7479M11995 7160 L 11995 7500 11925 7500M11995 7160 L 11995 7528 11931 7528M11995 7160 L 11995 7560 11884 7560M11995 7160 L 11995 7224 12048 7224M11995 7160 L 11995 7255 12048 7255M11995 7160 L 11995 7282 12048 7282M11995 7160 L 11995 7312 12049 7312M11995 7160 L 11995 7337 12046 7338M11995 7160 L 11995 7368 12048 7369M11995 7160 L 11995 7397 12049 7397M11995 7160 L 12834 7160 12834 7348M11995 7160 L 11995 7482 12047 7482M11995 7160 L 11995 7511 12047 7511M11995 7160 L 11995 7612 12049 7612M11995 7160 L 11995 7538 12047 7538M11995 7160 L 11995 7558 12047 7558" />
+<path class="thick" d="M11996 6987 L 11996 7074 11995 7074 11995 7160M11995 7160 L 11995 7231 11930 7231M11995 7160 L 11995 7258 11915 7258M11995 7160 L 12553 7160 12553 7198M11995 7160 L 11995 7189 11946 7189M11995 7160 L 12296 7160 12296 7482M11995 7160 L 12886 7160 12886 7191M11995 7160 L 12322 7160 12322 7315M11995 7160 L 12782 7160 12782 7499M11995 7160 L 12863 7160 12863 7304M11995 7160 L 11995 7461 12043 7461M11995 7160 L 12810 7160 12810 7412M11995 7160 L 11995 7335 11877 7335M11995 7160 L 11995 7596 12043 7596M11995 7160 L 11995 7278 11961 7278M11995 7160 L 11995 7362 11912 7362M11995 7160 L 11995 7395 11949 7395M11995 7160 L 11995 7616 11879 7616M11995 7160 L 11995 7409 12041 7409M11995 7160 L 11995 7422 11914 7422M11995 7160 L 11995 7446 11943 7446M11995 7160 L 11995 7477 11928 7477M11995 7160 L 11995 7508 11923 7508M11995 7160 L 11995 7529 11925 7529M11995 7160 L 11995 7557 11931 7557M11995 7160 L 11995 7589 11884 7589M11995 7160 L 11995 7185 12040 7185M11995 7160 L 11995 7216 12040 7216M11995 7160 L 11995 7243 12041 7243M11995 7160 L 11995 7273 12042 7273M11995 7160 L 11995 7299 12039 7299M11995 7160 L 11995 7331 12040 7331M11995 7160 L 11995 7359 12042 7359M11995 7160 L 12834 7160 12834 7348M11995 7160 L 11995 7491 12042 7491M11995 7160 L 11995 7520 12042 7520M11995 7160 L 11995 7622 12044 7622M11995 7160 L 11995 7548 12042 7548M11995 7160 L 11995 7568 12042 7568" />
 <circle  cx="11930" cy="7231" r="5" />
 <circle  cx="11915" cy="7258" r="5" />
 <circle  cx="12553" cy="7198" r="5" />
@@ -13551,35 +13549,35 @@ text.color-3 { stroke: none; fill: red; }
 <circle  cx="12322" cy="7315" r="5" />
 <circle  cx="12782" cy="7499" r="5" />
 <circle  cx="12863" cy="7304" r="5" />
-<circle  cx="12047" cy="7456" r="5" />
+<circle  cx="12043" cy="7461" r="5" />
 <circle  cx="12810" cy="7412" r="5" />
-<circle  cx="11877" cy="7307" r="5" />
-<circle  cx="12049" cy="7587" r="5" />
+<circle  cx="11877" cy="7335" r="5" />
+<circle  cx="12043" cy="7596" r="5" />
 <circle  cx="11961" cy="7278" r="5" />
-<circle  cx="11912" cy="7333" r="5" />
-<circle  cx="11949" cy="7365" r="5" />
-<circle  cx="11879" cy="7587" r="5" />
-<circle  cx="12048" cy="7423" r="5" />
-<circle  cx="11914" cy="7393" r="5" />
-<circle  cx="11943" cy="7417" r="5" />
-<circle  cx="11928" cy="7448" r="5" />
-<circle  cx="11923" cy="7479" r="5" />
-<circle  cx="11925" cy="7500" r="5" />
-<circle  cx="11931" cy="7528" r="5" />
-<circle  cx="11884" cy="7560" r="5" />
-<circle  cx="12048" cy="7224" r="5" />
-<circle  cx="12048" cy="7255" r="5" />
-<circle  cx="12048" cy="7282" r="5" />
-<circle  cx="12049" cy="7312" r="5" />
-<circle  cx="12046" cy="7338" r="5" />
-<circle  cx="12048" cy="7369" r="5" />
-<circle  cx="12049" cy="7397" r="5" />
+<circle  cx="11912" cy="7362" r="5" />
+<circle  cx="11949" cy="7395" r="5" />
+<circle  cx="11879" cy="7616" r="5" />
+<circle  cx="12041" cy="7409" r="5" />
+<circle  cx="11914" cy="7422" r="5" />
+<circle  cx="11943" cy="7446" r="5" />
+<circle  cx="11928" cy="7477" r="5" />
+<circle  cx="11923" cy="7508" r="5" />
+<circle  cx="11925" cy="7529" r="5" />
+<circle  cx="11931" cy="7557" r="5" />
+<circle  cx="11884" cy="7589" r="5" />
+<circle  cx="12040" cy="7185" r="5" />
+<circle  cx="12040" cy="7216" r="5" />
+<circle  cx="12041" cy="7243" r="5" />
+<circle  cx="12042" cy="7273" r="5" />
+<circle  cx="12039" cy="7299" r="5" />
+<circle  cx="12040" cy="7331" r="5" />
+<circle  cx="12042" cy="7359" r="5" />
 <circle  cx="12834" cy="7348" r="5" />
-<circle  cx="12047" cy="7482" r="5" />
-<circle  cx="12047" cy="7511" r="5" />
-<circle  cx="12049" cy="7612" r="5" />
-<circle  cx="12047" cy="7538" r="5" />
-<circle  cx="12047" cy="7558" r="5" />
+<circle  cx="12042" cy="7491" r="5" />
+<circle  cx="12042" cy="7520" r="5" />
+<circle  cx="12044" cy="7622" r="5" />
+<circle  cx="12042" cy="7548" r="5" />
+<circle  cx="12042" cy="7568" r="5" />
 <path class="thick" d="M9357 6962 L 9357 6981 9357 6981 9357 7000M9357 7000 L 9357 7028 9389 7028M9357 7000 L 9357 7055 9390 7055M9357 7000 L 9357 7111 9390 7111M9357 7000 L 9357 7139 9388 7139M9357 7000 L 9357 7255 9392 7255M9357 7000 L 9357 7228 9391 7228M9357 7000 L 9357 7083 9390 7083M9357 7000 L 9357 7317 9296 7317M9357 7000 L 9357 7054 9309 7054M9357 7000 L 9357 7022 9289 7022M9357 7000 L 9357 7362 9388 7362M9357 7000 L 9357 7314 9391 7314M9357 7000 L 9357 7422 9388 7422M9357 7000 L 9762 7000 9762 7065M9357 7000 L 9357 7092 9317 7092M9357 7000 L 9357 7523 9309 7523M9357 7000 L 9357 7483 9386 7483M9357 7000 L 9357 7119 9303 7119M9357 7000 L 9357 7155 9302 7155M9357 7000 L 9357 7197 9390 7197M9357 7000 L 9357 7205 9307 7205M9357 7000 L 9357 7245 9290 7245M9357 7000 L 9357 7171 9389 7171" />
 <circle  cx="9296" cy="7317" r="5" />
 <circle  cx="9309" cy="7054" r="5" />
@@ -16172,8 +16170,8 @@ text.color-3 { stroke: none; fill: red; }
 <text class="box"  x="12915" y="7319">Frequency_data_element</text>
 </a>
 <a xlink:href="../smrl/data/modules/value_with_unit_extension/sys/4_info_reqs.htm#value_with_unit_extension_arm.power_data_element"  xlink:title="definition">
-<rect  id="power_data_element" x="12052" y="7443" width="116" height="20" />
-<text class="box"  x="12110" y="7453">Power_data_element</text>
+<rect  id="power_data_element" x="12048" y="7449" width="116" height="20" />
+<text class="box"  x="12106" y="7459">Power_data_element</text>
 </a>
 <a xlink:href="clause4.htm#ao-machine_axis_travel"  xlink:title="definition">
 <rect  id="machine_axis_travel" x="464" y="1530" width="114" height="20" />
@@ -17070,8 +17068,8 @@ text.color-3 { stroke: none; fill: red; }
 <text class="box"  x="6412" y="4721">Am_pbf_identification</text>
 </a>
 <a xlink:href="../smrl/data/modules/value_with_unit_extension/sys/4_info_reqs.htm#value_with_unit_extension_arm.area_data_element"  xlink:title="definition">
-<rect  id="area_data_element" x="11762" y="7296" width="110" height="20" />
-<text class="box"  x="11817" y="7306">Area_data_element</text>
+<rect  id="area_data_element" x="11762" y="7325" width="110" height="20" />
+<text class="box"  x="11817" y="7335">Area_data_element</text>
 </a>
 <a xlink:href="../smrl/data/modules/advanced_boundary_representation/sys/4_info_reqs.htm#advanced_boundary_representation_arm.closed_shell"  xlink:title="definition">
 <rect  id="closed_shell" x="11473" y="7958" width="78" height="20" />
@@ -17234,8 +17232,8 @@ text.color-3 { stroke: none; fill: red; }
 <text class="box"  x="5271" y="4798">Am_pbf_management_strategy</text>
 </a>
 <a xlink:href="../smrl/data/modules/value_with_unit_extension/sys/4_info_reqs.htm#value_with_unit_extension_arm.thermodynamic_temperature_data_element"  xlink:title="definition">
-<rect  id="thermodynamic_temperature_data_element" x="12054" y="7573" width="221" height="20" />
-<text class="box"  x="12164" y="7583">Thermodynamic_temperature_data_element</text>
+<rect  id="thermodynamic_temperature_data_element" x="12048" y="7583" width="221" height="20" />
+<text class="box"  x="12159" y="7593">Thermodynamic_temperature_data_element</text>
 </a>
 <a xlink:href="clause4.htm#ao-am_pbf_region_management_strategy"  xlink:title="definition">
 <rect  id="am_pbf_region_management_strategy" x="5214" y="4657" width="203" height="115" />
@@ -17958,8 +17956,8 @@ text.color-3 { stroke: none; fill: red; }
 <text class="box"  x="11692" y="9547">Planar_box</text>
 </a>
 <a xlink:href="../smrl/data/modules/value_with_unit_extension/sys/4_info_reqs.htm#value_with_unit_extension_arm.capacitance_data_element"  xlink:title="definition">
-<rect  id="capacitance_data_element" x="11761" y="7323" width="146" height="20" />
-<text class="box"  x="11834" y="7333">Capacitance_data_element</text>
+<rect  id="capacitance_data_element" x="11761" y="7352" width="146" height="20" />
+<text class="box"  x="11834" y="7362">Capacitance_data_element</text>
 </a>
 <a xlink:href="../smrl/data/modules/ply_orientation_specification/sys/4_info_reqs.htm#ply_orientation_specification_arm.cartesian_11"  xlink:title="definition">
 <rect  id="cartesian_11" x="9126" y="8733" width="79" height="20" />
@@ -18002,8 +18000,8 @@ text.color-3 { stroke: none; fill: red; }
 <text class="box"  x="3537" y="4838">Thread_runout</text>
 </a>
 <a xlink:href="../smrl/data/modules/value_with_unit_extension/sys/4_info_reqs.htm#value_with_unit_extension_arm.celsius_temperature_data_element"  xlink:title="definition">
-<rect  id="celsius_temperature_data_element" x="11761" y="7350" width="183" height="20" />
-<text class="box"  x="11852" y="7361">Celsius_temperature_data_element</text>
+<rect  id="celsius_temperature_data_element" x="11761" y="7380" width="183" height="20" />
+<text class="box"  x="11852" y="7391">Celsius_temperature_data_element</text>
 </a>
 <a xlink:href="clause4.htm#ao-center_drilling"  xlink:title="definition">
 <rect  id="center_drilling" x="2735" y="876" width="83" height="20" />
@@ -18230,8 +18228,8 @@ text.color-3 { stroke: none; fill: red; }
 <text class="box"  x="8041" y="3719">Clamp_product_operation</text>
 </a>
 <a xlink:href="../smrl/data/modules/value_with_unit_extension/sys/4_info_reqs.htm#value_with_unit_extension_arm.force_data_element"  xlink:title="definition">
-<rect  id="force_data_element" x="11760" y="7578" width="114" height="20" />
-<text class="box"  x="11817" y="7588">Force_data_element</text>
+<rect  id="force_data_element" x="11760" y="7607" width="114" height="20" />
+<text class="box"  x="11817" y="7617">Force_data_element</text>
 </a>
 <a xlink:href="../smrl/data/modules/specification_control/sys/4_info_reqs.htm#specification_control_arm.class_breakdown_association"  xlink:title="definition">
 <rect  id="class_breakdown_association" x="5859" y="2870" width="161" height="115" />
@@ -18422,8 +18420,8 @@ text.color-3 { stroke: none; fill: red; }
 <text class="box"  x="5500" y="7014">Constituent_part</text>
 </a>
 <a xlink:href="../smrl/data/modules/value_with_unit_extension/sys/4_info_reqs.htm#value_with_unit_extension_arm.mass_data_element"  xlink:title="definition">
-<rect  id="mass_data_element" x="12053" y="7415" width="112" height="20" />
-<text class="box"  x="12109" y="7425">Mass_data_element</text>
+<rect  id="mass_data_element" x="12046" y="7401" width="112" height="20" />
+<text class="box"  x="12102" y="7412">Mass_data_element</text>
 </a>
 <a xlink:href="../smrl/data/modules/part_and_zone_laminate_tables/sys/4_info_reqs.htm#part_and_zone_laminate_tables_arm.ply"  xlink:title="definition">
 <rect  id="ply" x="5503" y="7091" width="35" height="115" />
@@ -18586,8 +18584,8 @@ text.color-3 { stroke: none; fill: red; }
 <text class="box"  x="11063" y="646">Concentricity_tolerance</text>
 </a>
 <a xlink:href="../smrl/data/modules/value_with_unit_extension/sys/4_info_reqs.htm#value_with_unit_extension_arm.conductance_data_element"  xlink:title="definition">
-<rect  id="conductance_data_element" x="11760" y="7379" width="149" height="20" />
-<text class="box"  x="11835" y="7389">Conductance_data_element</text>
+<rect  id="conductance_data_element" x="11760" y="7407" width="149" height="20" />
+<text class="box"  x="11835" y="7418">Conductance_data_element</text>
 </a>
 <a xlink:href="../smrl/data/modules/machining_features/sys/4_info_reqs.htm#machining_features_arm.conical_hole_bottom"  xlink:title="definition">
 <rect  id="conical_hole_bottom" x="559" y="5849" width="116" height="52" />
@@ -19126,8 +19124,8 @@ text.color-3 { stroke: none; fill: red; }
 <text class="box"  x="2920" y="4856">Diamond_knurl</text>
 </a>
 <a xlink:href="../smrl/data/modules/value_with_unit_extension/sys/4_info_reqs.htm#value_with_unit_extension_arm.dielectric_constant_data_element"  xlink:title="definition">
-<rect  id="dielectric_constant_data_element" x="11760" y="7408" width="178" height="20" />
-<text class="box"  x="11849" y="7418">Dielectric_constant_data_element</text>
+<rect  id="dielectric_constant_data_element" x="11760" y="7437" width="178" height="20" />
+<text class="box"  x="11849" y="7447">Dielectric_constant_data_element</text>
 </a>
 <a xlink:href="../smrl/data/modules/draughting_element_specialisations/sys/4_info_reqs.htm#draughting_element_specialisations_arm.dimension"  xlink:title="definition">
 <rect  id="dimension" x="10402" y="2450" width="95" height="22" />
@@ -19226,8 +19224,8 @@ text.color-3 { stroke: none; fill: red; }
 <text class="box"  x="6674" y="448">Document_with_additional_categories</text>
 </a>
 <a xlink:href="../smrl/data/modules/value_with_unit_extension/sys/4_info_reqs.htm#value_with_unit_extension_arm.dose_equivalent_data_element"  xlink:title="definition">
-<rect  id="dose_equivalent_data_element" x="11759" y="7437" width="164" height="20" />
-<text class="box"  x="11841" y="7447">Dose_equivalent_data_element</text>
+<rect  id="dose_equivalent_data_element" x="11759" y="7466" width="164" height="20" />
+<text class="box"  x="11841" y="7476">Dose_equivalent_data_element</text>
 </a>
 <a xlink:href="clause4.htm#ao-dovetail_mill"  xlink:title="definition">
 <rect  id="dovetail_mill" x="1478" y="2568" width="74" height="22" />
@@ -19282,20 +19280,20 @@ text.color-3 { stroke: none; fill: red; }
 <text class="box"  x="3943" y="6981">Effectivity_relationship</text>
 </a>
 <a xlink:href="../smrl/data/modules/value_with_unit_extension/sys/4_info_reqs.htm#value_with_unit_extension_arm.electric_charge_data_element"  xlink:title="definition">
-<rect  id="electric_charge_data_element" x="11759" y="7465" width="159" height="20" />
-<text class="box"  x="11839" y="7475">Electric_charge_data_element</text>
+<rect  id="electric_charge_data_element" x="11759" y="7494" width="159" height="20" />
+<text class="box"  x="11839" y="7504">Electric_charge_data_element</text>
 </a>
 <a xlink:href="../smrl/data/modules/value_with_unit_extension/sys/4_info_reqs.htm#value_with_unit_extension_arm.electric_current_data_element"  xlink:title="definition">
-<rect  id="electric_current_data_element" x="11759" y="7492" width="161" height="20" />
-<text class="box"  x="11840" y="7502">Electric_current_data_element</text>
+<rect  id="electric_current_data_element" x="11759" y="7521" width="161" height="20" />
+<text class="box"  x="11840" y="7531">Electric_current_data_element</text>
 </a>
 <a xlink:href="../smrl/data/modules/value_with_unit/sys/4_info_reqs.htm#value_with_unit_arm.electric_current_unit"  xlink:title="definition">
 <rect  id="electric_current_unit" x="12487" y="7929" width="116" height="20" />
 <text class="box"  x="12545" y="7939">Electric_current_unit</text>
 </a>
 <a xlink:href="../smrl/data/modules/value_with_unit_extension/sys/4_info_reqs.htm#value_with_unit_extension_arm.electric_potential_data_element"  xlink:title="definition">
-<rect  id="electric_potential_data_element" x="11760" y="7519" width="166" height="20" />
-<text class="box"  x="11843" y="7530">Electric_potential_data_element</text>
+<rect  id="electric_potential_data_element" x="11760" y="7548" width="166" height="20" />
+<text class="box"  x="11843" y="7559">Electric_potential_data_element</text>
 </a>
 <a xlink:href="../smrl/data/modules/basic_geometry/sys/4_info_reqs.htm#basic_geometry_arm.ellipse"  xlink:title="definition">
 <rect  id="ellipse" x="9685" y="9054" width="48" height="52" />
@@ -19306,8 +19304,8 @@ text.color-3 { stroke: none; fill: red; }
 <text class="box"  x="8999" y="8285">Ellipsoid</text>
 </a>
 <a xlink:href="../smrl/data/modules/value_with_unit_extension/sys/4_info_reqs.htm#value_with_unit_extension_arm.energy_data_element"  xlink:title="definition">
-<rect  id="energy_data_element" x="11760" y="7549" width="119" height="20" />
-<text class="box"  x="11819" y="7559">Energy_data_element</text>
+<rect  id="energy_data_element" x="11760" y="7577" width="119" height="20" />
+<text class="box"  x="11819" y="7588">Energy_data_element</text>
 </a>
 <a xlink:href="../smrl/data/modules/numeric_expression/sys/4_info_reqs.htm#numeric_expression_arm.equals_expression"  xlink:title="definition">
 <rect  id="equals_expression" x="12062" y="5639" width="106" height="20" />
@@ -19946,8 +19944,8 @@ text.color-3 { stroke: none; fill: red; }
 <text class="box"  x="726" y="1104">If_statement</text>
 </a>
 <a xlink:href="../smrl/data/modules/value_with_unit_extension/sys/4_info_reqs.htm#value_with_unit_extension_arm.illuminance_data_element"  xlink:title="definition">
-<rect  id="illuminance_data_element" x="12053" y="7216" width="136" height="20" />
-<text class="box"  x="12121" y="7227">Illuminance_data_element</text>
+<rect  id="illuminance_data_element" x="12045" y="7178" width="136" height="20" />
+<text class="box"  x="12113" y="7188">Illuminance_data_element</text>
 </a>
 <a xlink:href="../smrl/data/modules/tagged_text_representation/sys/4_info_reqs.htm#tagged_text_representation_arm.included_text_block"  xlink:title="definition">
 <rect  id="included_text_block" x="9391" y="7473" width="112" height="22" />
@@ -19974,8 +19972,8 @@ text.color-3 { stroke: none; fill: red; }
 <text class="box"  x="328" y="1054">Index_table</text>
 </a>
 <a xlink:href="../smrl/data/modules/value_with_unit_extension/sys/4_info_reqs.htm#value_with_unit_extension_arm.inductance_data_element"  xlink:title="definition">
-<rect  id="inductance_data_element" x="12053" y="7245" width="138" height="20" />
-<text class="box"  x="12122" y="7255">Inductance_data_element</text>
+<rect  id="inductance_data_element" x="12045" y="7206" width="138" height="20" />
+<text class="box"  x="12114" y="7216">Inductance_data_element</text>
 </a>
 <a xlink:href="../smrl/data/modules/effectivity_application/sys/4_info_reqs.htm#effectivity_application_arm.ineffectivity_assignment"  xlink:title="definition">
 <rect  id="ineffectivity_assignment" x="3722" y="7422" width="132" height="22" />
@@ -20254,8 +20252,8 @@ text.color-3 { stroke: none; fill: red; }
 <text class="box"  x="9223" y="7156">Logical_representation_item</text>
 </a>
 <a xlink:href="../smrl/data/modules/value_with_unit_extension/sys/4_info_reqs.htm#value_with_unit_extension_arm.loss_tangent_data_element"  xlink:title="definition">
-<rect  id="loss_tangent_data_element" x="12053" y="7274" width="151" height="20" />
-<text class="box"  x="12129" y="7284">Loss_tangent_data_element</text>
+<rect  id="loss_tangent_data_element" x="12046" y="7235" width="151" height="20" />
+<text class="box"  x="12121" y="7245">Loss_tangent_data_element</text>
 </a>
 <a xlink:href="../smrl/data/modules/manufacturing_configuration_effectivity/sys/4_info_reqs.htm#manufacturing_configuration_effectivity_arm.lot_configuration"  xlink:title="definition">
 <rect  id="lot_configuration" x="3819" y="7771" width="100" height="20" />
@@ -20266,12 +20264,12 @@ text.color-3 { stroke: none; fill: red; }
 <text class="box"  x="3790" y="7209">Lot_effectivity</text>
 </a>
 <a xlink:href="../smrl/data/modules/value_with_unit_extension/sys/4_info_reqs.htm#value_with_unit_extension_arm.luminous_flux_data_element"  xlink:title="definition">
-<rect  id="luminous_flux_data_element" x="12054" y="7302" width="153" height="20" />
-<text class="box"  x="12131" y="7312">Luminous_flux_data_element</text>
+<rect  id="luminous_flux_data_element" x="12047" y="7263" width="153" height="20" />
+<text class="box"  x="12123" y="7274">Luminous_flux_data_element</text>
 </a>
 <a xlink:href="../smrl/data/modules/value_with_unit_extension/sys/4_info_reqs.htm#value_with_unit_extension_arm.luminous_intensity_data_element"  xlink:title="definition">
-<rect  id="luminous_intensity_data_element" x="12051" y="7332" width="176" height="20" />
-<text class="box"  x="12139" y="7342">Luminous_intensity_data_element</text>
+<rect  id="luminous_intensity_data_element" x="12044" y="7294" width="176" height="20" />
+<text class="box"  x="12132" y="7304">Luminous_intensity_data_element</text>
 </a>
 <a xlink:href="../smrl/data/modules/value_with_unit/sys/4_info_reqs.htm#value_with_unit_arm.luminous_intensity_unit"  xlink:title="definition">
 <rect  id="luminous_intensity_unit" x="12486" y="7983" width="131" height="20" />
@@ -20286,12 +20284,12 @@ text.color-3 { stroke: none; fill: red; }
 <text class="box"  x="12344" y="1133">Machining_feature_size</text>
 </a>
 <a xlink:href="../smrl/data/modules/value_with_unit_extension/sys/4_info_reqs.htm#value_with_unit_extension_arm.magnetic_flux_data_element"  xlink:title="definition">
-<rect  id="magnetic_flux_data_element" x="12053" y="7361" width="151" height="20" />
-<text class="box"  x="12128" y="7371">Magnetic_flux_data_element</text>
+<rect  id="magnetic_flux_data_element" x="12045" y="7322" width="151" height="20" />
+<text class="box"  x="12121" y="7333">Magnetic_flux_data_element</text>
 </a>
 <a xlink:href="../smrl/data/modules/value_with_unit_extension/sys/4_info_reqs.htm#value_with_unit_extension_arm.magnetic_flux_density_data_element"  xlink:title="definition">
-<rect  id="magnetic_flux_density_data_element" x="12054" y="7388" width="191" height="20" />
-<text class="box"  x="12150" y="7398">Magnetic_flux_density_data_element</text>
+<rect  id="magnetic_flux_density_data_element" x="12047" y="7349" width="191" height="20" />
+<text class="box"  x="12142" y="7360">Magnetic_flux_density_data_element</text>
 </a>
 <a xlink:href="../smrl/data/modules/part_definition_relationship/sys/4_info_reqs.htm#part_definition_relationship_arm.make_from_relationship"  xlink:title="definition">
 <rect  id="make_from_relationship" x="10470" y="6586" width="129" height="52" />
@@ -21238,8 +21236,8 @@ text.color-3 { stroke: none; fill: red; }
 <text class="box"  x="12317" y="1177">Radial_size</text>
 </a>
 <a xlink:href="../smrl/data/modules/value_with_unit_extension/sys/4_info_reqs.htm#value_with_unit_extension_arm.radioactivity_data_element"  xlink:title="definition">
-<rect  id="radioactivity_data_element" x="12052" y="7471" width="147" height="20" />
-<text class="box"  x="12126" y="7481">Radioactivity_data_element</text>
+<rect  id="radioactivity_data_element" x="12047" y="7481" width="147" height="20" />
+<text class="box"  x="12120" y="7491">Radioactivity_data_element</text>
 </a>
 <a xlink:href="../smrl/data/modules/machining_features/sys/4_info_reqs.htm#machining_features_arm.radiused_slot_end_type"  xlink:title="definition">
 <rect  id="radiused_slot_end_type" x="826" y="4943" width="134" height="20" />
@@ -21394,8 +21392,8 @@ text.color-3 { stroke: none; fill: red; }
 <text class="box"  x="5980" y="1096">Requirement_version_relationship</text>
 </a>
 <a xlink:href="../smrl/data/modules/value_with_unit_extension/sys/4_info_reqs.htm#value_with_unit_extension_arm.resistance_data_element"  xlink:title="definition">
-<rect  id="resistance_data_element" x="12052" y="7497" width="140" height="20" />
-<text class="box"  x="12122" y="7507">Resistance_data_element</text>
+<rect  id="resistance_data_element" x="12047" y="7506" width="140" height="20" />
+<text class="box"  x="12117" y="7517">Resistance_data_element</text>
 </a>
 <a xlink:href="../smrl/data/modules/resource_item/sys/4_info_reqs.htm#resource_item_arm.resource_group_relationship"  xlink:title="definition">
 <rect  id="resource_group_relationship" x="6552" y="683" width="155" height="22" />
@@ -21526,8 +21524,8 @@ text.color-3 { stroke: none; fill: red; }
 <text class="box"  x="8038" y="4453">Seal_fastener_operation</text>
 </a>
 <a xlink:href="../smrl/data/modules/value_with_unit_extension/sys/4_info_reqs.htm#value_with_unit_extension_arm.volume_data_element"  xlink:title="definition">
-<rect  id="volume_data_element" x="12054" y="7600" width="119" height="20" />
-<text class="box"  x="12114" y="7610">Volume_data_element</text>
+<rect  id="volume_data_element" x="12049" y="7609" width="119" height="20" />
+<text class="box"  x="12108" y="7619">Volume_data_element</text>
 </a>
 <a xlink:href="../smrl/data/modules/machining_features/sys/4_info_reqs.htm#machining_features_arm.second_chamfer_offset"  xlink:title="definition">
 <rect  id="second_chamfer_offset" x="3687" y="3754" width="131" height="22" />
@@ -21690,8 +21688,8 @@ text.color-3 { stroke: none; fill: red; }
 <text class="box"  x="4746" y="7766">Smeared_material</text>
 </a>
 <a xlink:href="../smrl/data/modules/value_with_unit_extension/sys/4_info_reqs.htm#value_with_unit_extension_arm.solid_angle_data_element"  xlink:title="definition">
-<rect  id="solid_angle_data_element" x="12052" y="7524" width="138" height="20" />
-<text class="box"  x="12121" y="7535">Solid_angle_data_element</text>
+<rect  id="solid_angle_data_element" x="12047" y="7534" width="138" height="20" />
+<text class="box"  x="12116" y="7544">Solid_angle_data_element</text>
 </a>
 <a xlink:href="../smrl/data/modules/value_with_unit/sys/4_info_reqs.htm#value_with_unit_arm.solid_angle_unit"  xlink:title="definition">
 <rect  id="solid_angle_unit" x="12486" y="8088" width="93" height="20" />
@@ -22090,8 +22088,8 @@ text.color-3 { stroke: none; fill: red; }
 <text class="box"  x="9134" y="7442">Text_representation_item</text>
 </a>
 <a xlink:href="../smrl/data/modules/value_with_unit_extension/sys/4_info_reqs.htm#value_with_unit_extension_arm.thermal_resistance_data_element"  xlink:title="definition">
-<rect  id="thermal_resistance_data_element" x="12052" y="7549" width="178" height="20" />
-<text class="box"  x="12141" y="7559">Thermal_resistance_data_element</text>
+<rect  id="thermal_resistance_data_element" x="12047" y="7558" width="178" height="20" />
+<text class="box"  x="12136" y="7569">Thermal_resistance_data_element</text>
 </a>
 <a xlink:href="../smrl/data/modules/value_with_unit/sys/4_info_reqs.htm#value_with_unit_arm.thermodynamic_temperature_unit"  xlink:title="definition">
 <rect  id="thermodynamic_temperature_unit" x="12486" y="8115" width="176" height="20" />
@@ -28044,8 +28042,8 @@ text.color-3 { stroke: none; fill: red; }
 <circle  cx="11891" cy="5519" r="5" />
 <path d="M12659 7804 L 12734 7804 12734 7823" />
 <circle  cx="12734" cy="7823" r="5" />
-<path d="M12188 7036 L 12188 7095" />
-<circle  cx="12188" cy="7095" r="5" />
+<path d="M12184 7142 L 12160 7142 12160 7126" />
+<circle  cx="12160" cy="7126" r="5" />
 <path d="M12511 6883 L 12511 6918" />
 <circle  cx="12511" cy="6918" r="5" />
 <path d="M12662 7023 L 12526 7023 12526 7030" />
@@ -28610,8 +28608,8 @@ text.color-3 { stroke: none; fill: red; }
 <circle  cx="3324" cy="2822" r="5" />
 <path d="M3997 2426 L 3956 2426" />
 <circle  cx="3956" cy="2426" r="5" />
-<path d="M12224 7440 L 12110 7438" />
-<circle  cx="12110" cy="7438" r="5" />
+<path d="M12176 7432 L 12126 7432 12126 7444" />
+<circle  cx="12126" cy="7444" r="5" />
 <path d="M12940 7513 L 12895 7513" />
 <circle  cx="12895" cy="7513" r="5" />
 <path d="M10109 9487 L 10108 9468" />
