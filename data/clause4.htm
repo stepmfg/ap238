@@ -2019,6 +2019,10 @@ slope classified as this type of skin.</p>
 <p>The downskin_thickness specifies the the number of layers above the
 surface where this strategy shall apply.
 
+<P CLASS="note">
+<SPAN>NOTE</SPAN> <A href="#fig-ap-downskin-thickness">Figure 1</A>
+shows a volume scanned as downskin using a thickness of 3.</P>
+
 
 <FIGURE ID="fig-ap-downskin-thickness">
 <IMG SRC="../images/am-downskin-thickness.svg" ALT="Downskin Thickness">
@@ -2211,6 +2215,9 @@ shell.</p>
 boundary of the shared area with counter clockwise curves describing
 outer boundaries and clockwise curves for inner boundaries.</p>
 
+<P CLASS="note">
+<SPAN>NOTE</SPAN> <A href="#fig-am-feature-intersection">Figure 2</A>
+shows an intersection curve between two features</P>
 
 
 <FIGURE ID="fig-am-feature-intersection">
@@ -2712,6 +2719,10 @@ while they are in this region.</P>
 <p>The hatch_space specifies the distance between two consecutive
 parallel paths in the hatch.</p>
 
+<P CLASS="note">
+<SPAN>NOTE</SPAN> <A href="#fig-am-hatch-space">Figure 3</A>
+shows hatch spacing.
+
 <H4 ID="ao-am_oned_pbf_hatch_operation-hatch_style">4.3.35.2 hatch_style</H4>
 
 <p>The hatch_style specifies the method for moving the beam between
@@ -2805,19 +2816,6 @@ END_ENTITY;
 </PRE>
 
 
-<FIGURE ID="fig-am-scan-paths-space">
-<IMG SRC="../images/am-scan-paths.svg" ALT="Scan Paths">
-<DIV class=key>
-<B>Key</B>
-<p>1&emsp;Contour</p>
-<p>2&emsp;Scan Path</p>
-<p>3&emsp;Hatch Space</p>
-<p>4&emsp;Layer Thickness</p>
-</DIV>
-<FIGCAPTION>Figure 4 &mdash; Additive manufacturing scan paths</FIGCAPTION>
-</FIGURE>
-
-
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause5.htm#map-am_operation">Map</a>
@@ -2882,6 +2880,10 @@ describes a volume in a model where a selected manufacturing process
 is to be applied. Features may be defined in a CAD system for volumes
 that require special processing.</P>
 
+<P CLASS="note">
+<SPAN>NOTE 1</SPAN> <A href="#fig-am-pbf-feature">Figure 5</A>
+shows a downskin feature.</P>
+
 <FIGURE ID="fig-am-pbf-feature">
 <IMG SRC="../images/am-pbf-feature.svg" ALT="PBF Feature">
 <DIV class=key>
@@ -2902,7 +2904,7 @@ following:</P>
 </UL>
 
 <P CLASS="note">
-<SPAN>NOTE</SPAN> The EXPRESS description for the Am_pbf_feature
+<SPAN>NOTE 2</SPAN> The EXPRESS description for the Am_pbf_feature
 application object is shown below.</P>
 
 <PRE CLASS="note">
@@ -3351,7 +3353,11 @@ technology in the AM_pbf_operation then define how to fuse the
 contours and hatches to make a layer and build a part.</P>
 
 <P CLASS="note">
-<SPAN>NOTE</SPAN> The EXPRESS description for the Am_pbf_operation
+<SPAN>NOTE 1</SPAN> <A href="#fig-am-scan-paths-space">Figure 4</A>
+shows scan paths for contours and hatches.</P>
+
+<P CLASS="note">
+<SPAN>NOTE 2</SPAN> The EXPRESS description for the Am_pbf_operation
 application object is shown below.</P>
 
 <PRE CLASS="note">
@@ -3363,6 +3369,19 @@ ENTITY Am_pbf_operation		-- ADDED BY 10303-238e4
   SELF\Am_operation.its_technology:    	OPTIONAL Am_pbf_technology;
 END_ENTITY;
 </PRE>
+
+
+<FIGURE ID="fig-am-scan-paths-space">
+<IMG SRC="../images/am-scan-paths.svg" ALT="Scan Paths">
+<DIV class=key>
+<B>Key</B>
+<p>1&emsp;Contour</p>
+<p>2&emsp;Scan Path</p>
+<p>3&emsp;Hatch Space</p>
+<p>4&emsp;Layer Thickness</p>
+</DIV>
+<FIGCAPTION>Figure 4 &mdash; Additive manufacturing scan paths</FIGCAPTION>
+</FIGURE>
 
 <!-- ============================== -->
 <DIV><DIV class=quick>
@@ -3377,6 +3396,10 @@ General_closed_profile that describes a boundary for a region on a
 slice. A process selected for the region may be used to define infills
 and contours for the areas in the region.</P>
 
+<P CLASS="note">
+<SPAN>NOTE 1</SPAN> <A href="#fig-am-pbf-region">Figure 6</A>
+shows three regions on a slice.</P>
+
 <P>The data associated with a Am_pbf_region are the
 following:</P>
 
@@ -3387,7 +3410,7 @@ following:</P>
 </UL>
 
 <P CLASS="note">
-<SPAN>NOTE</SPAN> The EXPRESS description for the Am_pbf_region
+<SPAN>NOTE 2</SPAN> The EXPRESS description for the Am_pbf_region
 application object is shown below.</P>
 
 <PRE CLASS="note">
@@ -3645,6 +3668,11 @@ scan path.</p>
 Transition_feature that describes a shared boundary between two
 regions on a slice.</P>
 
+<P CLASS="note">
+<SPAN>NOTE</SPAN> <A href="#fig-am-pbf-region-isect">Figure 7</A>
+shows intersection curves for three regions.</P>
+
+
 <P>The data associated with a Am_region_intersection are the
 following:</P>
 
@@ -3765,7 +3793,12 @@ Am_pbf_identification that identifies a region where a sharp feature
 cannot fit within a contour offset.</P>
 
 <P CLASS="note">
-<SPAN>NOTE</SPAN> A single vector is inserted into the spike region</P>
+<SPAN>NOTE 1</SPAN> A single vector is inserted into the spike region</P>
+
+<P CLASS="note">
+<SPAN>NOTE 2</SPAN> <A href="#fig-am-spike-ident">Figure 8</A>
+shows a spike region.</P>
+
 
 <P>The data associated with a Am_spike_identification are the
 following:</P>
@@ -3777,7 +3810,6 @@ following:</P>
 <LI>line_extension;</LI>
 <LI>direction.</LI>
 </UL>
-
 
 <FIGURE ID="fig-am-spike-ident">
 <IMG SRC="../images/am-spike-ident.svg" ALT="PBF Spike Identification">
@@ -3791,7 +3823,7 @@ following:</P>
 </FIGURE>
 
 <P CLASS="note">
-<SPAN>NOTE 2</SPAN> The EXPRESS description for the Am_spike_identification
+<SPAN>NOTE 3</SPAN> The EXPRESS description for the Am_spike_identification
 application object is shown below.</P>
 
 <PRE CLASS="note">
@@ -3986,6 +4018,9 @@ Am_pbf_identification that identifies a region where a medial line is
 to be inserted into the path between two walls because one or more
 contours will not fit within the available part boundary.</P>
 
+<P CLASS="note">
+<SPAN>NOTE 1</SPAN> <A href="#fig-am-thin-ident">Figure 9</A>
+shows a thin walls.</P>
 
 <FIGURE ID="fig-am-thin-ident">
 <IMG SRC="../images/am-thin-ident.svg" ALT="PBF Thin Wall Identification">
@@ -4008,7 +4043,7 @@ following:</P>
 </UL>
 
 <P CLASS="note">
-<SPAN>NOTE</SPAN> The EXPRESS description for the Am_thin_wall_identification
+<SPAN>NOTE 2</SPAN> The EXPRESS description for the Am_thin_wall_identification
 application object is shown below.</P>
 
 <PRE CLASS="note">
@@ -4110,6 +4145,20 @@ ENTITY Am_threed_pbf_operation	-- ADDED BY 10303-238e4
 END_ENTITY;
 </PRE>
 
+
+<H4 ID="ao-am_threed_pbf_operation-theta_interlayer_rotation">4.3.59.1 theta_interlayer_rotation</H4>
+
+<p>The theta_interlayer_rotation specifies the rotation angle (θ) for
+the coordinate system around the Z-axis of the current layer with
+respect to the coordinate system of the previous layer. The rotational
+direction shall be specified with a positive angle value indicating a
+counterclockwise rotation, and a negative angle value indicating a
+clockwise rotation.</p>
+
+<P CLASS="note">
+<SPAN>NOTE</SPAN> <A href="#fig-am-pbf-threed">Figure 10</A>
+shows a rotation between two layers.</P>
+
 <FIGURE ID="fig-am-pbf-threed">
 <IMG SRC="../images/am-pbf-threed.svg" ALT="PBF Threed Operation">
 <DIV class=key>
@@ -4123,26 +4172,16 @@ END_ENTITY;
 <FIGCAPTION>Figure 10 &mdash; Additive manufacturing threed PBF operation</FIGCAPTION>
 </FIGURE>
 
-
-<H4 ID="ao-am_threed_pbf_operation-theta_interlayer_rotation">4.3.59.1 theta_interlayer_rotation</H4>
-
-<p>The theta_interlayer_rotation specifies the rotation angle (θ) for
-the coordinate system around the Z-axis of the current layer with
-respect to the coordinate system of the previous layer. The rotational
-direction shall be specified with a positive angle value indicating a
-counterclockwise rotation, and a negative angle value indicating a
-clockwise rotation.</p>
-
-<P CLASS="note">
-<SPAN>NOTE</SPAN> The coordinate system is defined by the placement of
-the part on the build plate. The coordinate system of the build plate
-is as defined by <a href="bibliography.htm#iso17295">ISO 17295</a>.</P>
-
 <H4 ID="ao-am_threed_pbf_operation-theta_initial_layer_rotation">4.3.59.2 theta_initial_layer_rotation</H4>
 
 <p>The theta_initial_layer_rotation specifies the rotation angle (θ)
 for the coordinate system around the Z-axis of the first layer with
 respect to the coordinate system of the build plate.</p>
+
+<P CLASS="note">
+<SPAN>NOTE</SPAN> The coordinate system is defined by the placement of
+the part on the build plate. The coordinate system of the build plate
+is as defined by <a href="bibliography.htm#iso17295">ISO 17295</a>.</P>
 
 <H4 ID="ao-am_threed_pbf_operation-layer_thickness">4.3.59.3 layer_thickness</H4>
 
@@ -4208,6 +4247,10 @@ END_ENTITY;
 Am_twod_pbf_operation that divides each region into rectangular
 tiles. A length and width are specified for each tile.</P>
 
+<P CLASS="note">
+<SPAN>NOTE 1</SPAN> <A href="#fig-am-pbf-twod-chess">Figure 11</A>
+shows the infill pattern generated by a chess operation.</P>
+
 <FIGURE ID="fig-am-pbf-twod-chess">
 <IMG SRC="../images/am-pbf-twod-chess.svg" ALT="PBF Twod Chess Operation">
 <DIV class=key>
@@ -4234,7 +4277,7 @@ following:</P>
 </UL>
 
 <P CLASS="note">
-<SPAN>NOTE</SPAN> The EXPRESS description for the Am_twod_pbf_chess_operation
+<SPAN>NOTE 2</SPAN> The EXPRESS description for the Am_twod_pbf_chess_operation
 application object is shown below.</P>
 
 <PRE CLASS="note">
@@ -4400,9 +4443,13 @@ different parents.</P>
 <P>An Am_twod_pbf_stripe_operation application object is a type of
 Am_twod_pbf_operation that divides a region into stripes of a given
 width.</P>
- 
+
 <P CLASS="note">
-<SPAN>NOTE 1</SPAN> The X and Y directions of each layer are determined
+<SPAN>NOTE 1</SPAN> <A href="#fig-am-pbf-twod-stripe">Figure 12</A>
+shows the infill pattern generated by a stripe operation.</P>
+
+<P CLASS="note">
+<SPAN>NOTE 2</SPAN> The X and Y directions of each layer are determined
 by the interlayer_rotation in the 3D slicing operation.</P>
 
 <FIGURE ID="fig-am-pbf-twod-stripe">
@@ -4426,7 +4473,7 @@ following:</P>
 </UL>
 
 <P CLASS="note">
-<SPAN>NOTE 2</SPAN> The EXPRESS description for the Am_twod_pbf_stripe_operation
+<SPAN>NOTE 3</SPAN> The EXPRESS description for the Am_twod_pbf_stripe_operation
 application object is shown below.</P>
 
 <PRE CLASS="note">
@@ -4445,6 +4492,10 @@ WHERE
 END_ENTITY;
 </PRE>
 
+<P CLASS="note">
+<SPAN>NOTE 4</SPAN> <A href="#fig-am-pbf-scan-dirs">Figure 13</A>
+shows direction relationships for a stripe.</P>
+
 <H4 ID="ao-am_twod_pbf_stripe_operation-stripe_width">4.3.64.1 stripe_width</H4>
 
 <p>The stripe_width specifies the width of each stripe tile.</p>
@@ -4460,8 +4511,8 @@ shall end before the boundary.</p>
 <SPAN>NOTE</SPAN> Regions may be consolidated into parent regions. The
 stripe overlap applies to for stripes within the same parent.</P>
 
-<FIGURE ID="fig-am-pbf-twod-stripe-overlap">
-<IMG SRC="../images/am-pbf-twod-stripe-overlap.svg" ALT="PBF Twod Stripe Overlap">
+<FIGURE ID="fig-am-pbf-scan-dirs">
+<IMG SRC="../images/am-pbf-scan-dirs.svg" ALT="Additive Scan Directions">
 <DIV class=key>
 <B>Key</B>
 <p>1&emsp;Gas flow direction</p>
@@ -4478,6 +4529,9 @@ stripe overlap applies to for stripes within the same parent.</P>
 below this length shall be merged with the vectors of the stripe to
 the left if one exists, and to the right otherwise.</p>
 
+<P CLASS="note">
+<SPAN>NOTE</SPAN> <A href="#fig-am-pbf-paths">Figure 14</A> shows a
+region where short vectors have been merged.</P>
 
 <FIGURE ID="fig-am-pbf-paths">
 <IMG SRC="../images/am-pbf-paths.svg" ALT="PBF Paths">
@@ -6221,14 +6275,16 @@ moves between features on the same toolpath, the second level enables
 safer moves between different toolpaths that are close together, the
 third level enables moves to a safe point above the manufacturing. A
 fourth level safe point may exist for travel between different
-sides.</P>
+sides.
+<A href="#fig-level3-escape">Figure 16</A> shows a four level escape.</P>
 
 <FIGURE ID="fig-level3-escape">
 <IMG SRC="../images/connect-level3.svg" ALT="Level 3 Escape">
 <DIV class=key>
 <B>Key</B>
-<p>M&emsp;middle point</p>
-<p>AX&emsp;axis point</p>
+<p>AX<EM>n</EM>&emsp;axis point</p>
+<p>M<EM>n</EM>&emsp;middle point</p>
+<p>P<EM>n</EM>&emsp;operation point</p>
 </DIV>
 <FIGCAPTION>Figure 15 &mdash; Four level escape from P1 to P600 via absolute points AX1, AX2 and AX3</FIGCAPTION>
 </FIGURE>
@@ -6295,7 +6351,8 @@ away from the feature, and then moves farther way for the Level 2. The
 escape then moves to a point that is in the middle of all the computed
 points for the Level 1 features. The inverse is then computed for the
 destination feature. Lastly the system computes a linear move between
-the two middle points.</P>
+the two middle points.
+<A href="#fig-level2-escape">Figure 16</A> shows an escape using middle points.</P>
 
 <H4 ID="ao-connect_middle-increment_direction">4.3.108.1 increment_direction</H4>
 
@@ -6316,6 +6373,8 @@ be moved from the middle point between two features.
 <B>Key</B>
 <p>L1&emsp;Level 1 increment</p>
 <p>L2&emsp;Level 2 increment</p>
+<p>M<EM>n</EM>&emsp;middle point</p>
+<p>P<EM>n</EM>&emsp;operation point</p>
 </DIV>
 <FIGCAPTION>Figure 16 &mdash; Escape from P1 to P6 via middle points M1 and M2</FIGCAPTION>
 </FIGURE>
@@ -6394,13 +6453,15 @@ start the escape, or in the inverse to complete an entry.</p>
 
 <P CLASS="note">
 <SPAN>NOTE</SPAN> An escape between two features connected by a vector
-at Level 1 will move out, move across, and move down again.</P>
+at Level 1 will move out, move across, and move down again.
+<A href="#fig-level1-escape">Figure 17</A> shows a vector escape.</P>
 
 <FIGURE ID="fig-level1-escape">
 <IMG SRC="../images/connect-level1.svg" ALT="Level 1 Escape">
 <DIV class=key>
 <B>Key</B>
 <p>1&emsp;incremental distance</p>
+<p>P<EM>n</EM>&emsp;operation point</p>
 </DIV>
 <FIGCAPTION>Figure 17 &mdash; Level 1 escape from P1 to P4 when P2 and P3 are blocked</FIGCAPTION>
 </FIGURE>
@@ -7949,22 +8010,6 @@ robots and features at more difficult locations.</P>
 may require additional escape moves between Levels 2 and 3 to move the
 nose sideways, and avoid a special fixture.</P>
 
-<FIGURE ID="fig-escape-feature-group">
-<IMG SRC="../images/escape-sequence-group.svg" ALT="Level 3 Escape Feature Group">
-<DIV class=key>
-<B>Key</B>
-<p>L&emsp;level</p>
-<p>FG&emsp;feature group</p>
-</DIV>
-
-<P CLASS="note">
-<SPAN>NOTE</SPAN> X1 may escape to X2 on Level 1 using Feature Group
-1, but must go to Level 2 to reach X5 using Feature Group 4, and Level
-3 to reach X7 using Feature Group 6.</p>
-<FIGCAPTION>Figure 19 &mdash; Escape sequence groups for a set of features across three levels.</FIGCAPTION>
-</FIGURE>
-
-
 <H4 ID="ao-escape_sequence_group-escape_move">4.3.146.3 4.3.146.3</H4>
 escape_sequence_group to connector (as escape_move)</H4>
 
@@ -7975,6 +8020,23 @@ escape_sequence_group to connector (as escape_move)</H4>
 a Level 1 group. A computed middle point is the typical escape move
 for a Level 2 group.  An absolute point in space is the typical escape
 move for a Level 3 group.</P>
+
+<P CLASS="note">
+<SPAN>EXAMPLE</SPAN> In <A href="#fig-escape-feature-group">Figure 19</A>,
+X1 may escape to X2 on level 1 using feature group 1, but must go to
+level 2 to reach X5 using feature group 4, and level 3 to reach X7
+using feature group 6.</p>
+
+<FIGURE ID="fig-escape-feature-group">
+<IMG SRC="../images/escape-sequence-group.svg" ALT="Level 3 Escape Feature Group">
+<DIV class=key>
+<B>Key</B>
+<p>L<EM>n</EM>&emsp;Level</p>
+<p>FG<EM>n</EM>&emsp;Feature group</p>
+</DIV>
+
+<FIGCAPTION>Figure 19 &mdash; Escape sequence groups for a set of features across three levels.</FIGCAPTION>
+</FIGURE>
 
 
 <H4 ID="ao-escape_sequence_group-pose_constraints">4.3.146.4 pose_constraints</H4>
