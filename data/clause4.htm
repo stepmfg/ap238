@@ -1958,7 +1958,7 @@ END_ENTITY;
 
 <P>An Am_downskin_feature application object is a type of
 Am_pbf_feature that describes a volume where melting to the material
-must be limited because of a void below the skin.</P>
+shall be limited because of a void below the skin.</P>
 
 <P CLASS="note">
 <SPAN>NOTE</SPAN> The EXPRESS description for the Am_downskin_feature
@@ -1982,7 +1982,7 @@ END_ENTITY;
 
 <P>An Am_downskin_identification application object is a type of
 Am_pbf_identification that identifies a feature where melting to the
-material must be limited because of a void below the skin. The
+material shall be limited because of a void below the skin. The
 geometric parameters require that if the dot product of the face
 normal at a surface point, and the Z axis, exceeds a given angle then
 the surface point is in the region.</P>
@@ -2514,7 +2514,11 @@ END_ENTITY;
 
 <P>An Am_machining_identification application object is a type of
 Am_pbf_identification that identifies a feature that will be removed
-by a subsequent machining operation, for example, a drill hole.</P>
+by a subsequent machining operation.</P>
+
+<P CLASS="note">
+<SPAN>EXAMPLE</SPAN> A drill hole is a feature that will be removed by
+a machining operation.</P>
 
 <P CLASS="note">
 <SPAN>NOTE 1</SPAN> Removal volumes may be fused more lightly to speed
@@ -4019,7 +4023,7 @@ END_ENTITY;
 
 <H4 ID="ao-am_thin_wall_identification-thinness_low">4.3.57.1 thinness_low</H4>
 
-<p>The thinness_low specifies the minimum number of contours that must
+<p>The thinness_low specifies the minimum number of contours that shall
 fit into the wall for this solution to apply.</p>
 
 <P CLASS="note">
@@ -4497,7 +4501,7 @@ the left if one exists, and to the right otherwise.</p>
 </DIV>
 
 <P>An Am_upskin_feature application object is a type of Am_pbf_feature
-that describes a volume where melting to the material must be limited
+that describes a volume where melting to the material shall be limited
 because of a void above the skin.</P>
 
 <P CLASS="note">
@@ -4522,7 +4526,7 @@ END_ENTITY;
 
 <P>An Am_upskin_identification application object is a type of
 Am_pbf_identification that identifies a feature where melting to the
-material must be limited because of a void above the skin. The
+material shall be limited because of a void above the skin. The
 geometric parameters require that if the dot product of the face
 normal at a surface point, and the Z axis, is above a given angle then
 then the surface point is in the region.</P>
@@ -5677,7 +5681,7 @@ SUBTYPE OF (Broadcast);
    distance_content:	OPTIONAL Broadcast_content;
 
 -- WHERE
--- there must be toolpaths to measure the distance
+-- there are toolpaths to measure the distance
 END_ENTITY;
 </PRE>
 
@@ -5728,7 +5732,7 @@ SUBTYPE OF (Broadcast);
    point_content:	OPTIONAL Broadcast_content;
 
 -- WHERE
--- If there are points then there must be toolpaths
+-- If there are points then there are toolpaths
 END_ENTITY;
 </PRE>
 
@@ -7682,8 +7686,13 @@ sealants.</P>
 <LI>active, if work is currently being performed;</LI>
 <LI>completed, if all the planned work has been completed;</LI>
 <LI>rejection_tag, if there is an issue that awaits resolution;</LI>
-<LI>replaced, if repeated, for example with a bigger hole and fastener.</LI>
+<LI>replaced, if work has been repeated.
+<P CLASS="note">
+<SPAN>EXAMPLE</SPAN> Work may be replaced by a bigger hole and
+fastener.</P></LI>
 </UL>
+
+
 
 
 <H4 ID="ao-drill_and_fill_twin-replacement">4.3.139.7 drill_and_fill_twin to drill_and_fill_twin (as replacement)</H4>
@@ -12411,7 +12420,7 @@ END_ENTITY;
 
 <P>A Precedence_group application object is a type of
 Drill_and_fill_group that describes a group of fastener locations that
-must be completed before the members of this group.</P>
+shall be completed before the members of this group.</P>
 
 <P>The data associated with a Precedence_group are the
 following:</P>
@@ -12433,7 +12442,7 @@ END_ENTITY;
 
 <H4 ID="ao-precedence_group-pre_conditions">4.3.251.1 precedence_group to drill_and_fill_group (as pre_conditions)</H4>
 
-<p>The pre_conditions specifies a collection of holes that must
+<p>The pre_conditions specifies a collection of holes that shall
 complete work in all groups before work begins on the members of this
 group.</p>
 
