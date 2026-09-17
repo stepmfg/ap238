@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>check Doc</title>
+
+<style>
+:root {
+    --bg: #f4f7f6;
+    --text: #2f3e46;
+    --nav-bg: #dfe7e5;
+    --card-bg: #ffffff;
+    --title: #344e41;
+    --subtitle: #3a5a40;
+    --accent: #52796f;
+    --footer-bg: #dfe7e5;
+    --border: #ccc;
+}
+
+.dark {
+    --bg: #1e2524;
+    --text: #e6edea;
+    --nav-bg: #24302e;
+    --card-bg: #2a3332;
+    --title: #cfe3dc;
+    --subtitle: #a8dadc;
+    --accent: #84c1b0;
+    --footer-bg: #24302e;
+    --border: #3a4a48;
+}
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+}
+
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* NAV */
+nav {
+    width: 260px;
+    background: var(--nav-bg);
+    padding: 20px;
+    box-sizing: border-box;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+}
+
+nav h2 {
+    color: var(--title);
+}
+
+nav a {
+    color: var(--text);
+    text-decoration: none;
+}
+
+nav a:hover {
+    color: var(--accent);
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav li {
+    padding: 3px;
+}
+
+/* sous-menu */
+.sub-list {
+    display: none;
+    margin-left: 15px;
+}
+
+.has-sub.open .sub-list {
+    display: block;
+}
+
+/* flèche gérée en CSS */
+.has-sub > span {
+    cursor: pointer;
+    user-select: none;
+}
+
+.has-sub > span::after {
+    content: " ▸";
+}
+
+.has-sub.open > span::after {
+    content: " ▾";
+}
+
+/* CONTENU */
+main {
+    flex: 1;
+    padding: 40px;
+    max-width: 900px;
+    margin: auto;
+    padding-bottom: 110px;
+}
+
+.card {
+    background: var(--card-bg);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+h1 { color: var(--title); }
+h2 { color: var(--subtitle); }
+h3 { color: var(--accent); }
+
+/* FOOTER */
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: var(--footer-bg);
+    border-top: 1px solid var(--border);
+    text-align: center;
+    padding: 15px;
+}
+
+/* THEME BUTTON */
+#themeBtn {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    z-index: 9999;
+
+    background: var(--card-bg);
+    color: var(--text);
+    border: 1px solid var(--border);
+    padding: 10px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+}
+.check{font-style: italic; font-size: small;}
+.tableCheck {font-size:small;}
+.yellow-text {background-color: yellow;}
+.field{width:500px;font-size: background-color: lightgoldenrodyellow;}
+</style>
+
+<script>
+/* menu */
+function toggleSub(el) {
+    const li = el.parentElement;
+    li.classList.toggle("open");
+}
+
+/* thème */
+function setTheme(isDark) {
+    document.body.classList.toggle("dark", isDark);
+    localStorage.setItem("theme", isDark ? "dark" : "light");
+
+    const btn = document.getElementById("themeBtn");
+    if (btn) btn.textContent = isDark ? "☀️" : "🌙";
+}
+
+function toggleTheme() {
+    const isDark = !document.body.classList.contains("dark");
+    setTheme(isDark);
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    const saved = localStorage.getItem("theme");
+    setTheme(saved === "dark");
+});
+document.addEventListener('change', function(e) {
+  if (!e.target.classList.contains('check')) return;
+
+  const row = e.target.closest('tr');
+  if (!row) return;
+
+  const field = row.querySelector('.field');
+  const select = row.querySelector('.status');
+
+  const show = e.target.checked;
+
+  if (field) field.style.display = show ? 'inline' : 'none';
+  if (select) select.style.display = show ? 'inline' : 'none';
+});
+</script>
+
+</head>
+
+<body>
+
+<button id="themeBtn" onclick="toggleTheme()">🌙</button>
+
+<div class="container">
+
+<nav>
+    <h2>STEPlib-NG series <br/>Check Doc</h2><ul><li><a href="#case1"><b>Check 1</b><br/><span class="check">Checking if the references are listed in one of the reference lists</span></a></li>
+<li><a href="#case2"><b>Check 2</b><br/><span class="check">Checking if a reference that appears only in a note is not listed in Normative references Clause</span></a></li>
+<ul><li class="has-sub"><span onclick="toggleSub(this)"><b>Check 3<br/><span class="check">Normative references (Clause 2)</b></span>
+<ul class="sub-list">
+<li><a href="#case3-1">Detection of normative references</a></li>
+<li><a href="#case3-2">List of identified normative references</a></li>
+<li><a href="#case3-3">Move from Clause Bibliography.</a></li>
+<li><a href="#case3-4">References cannot be found in the documentation.</a></li>
+<li><a href="#case3-5">Dated vs undated.</a></li></ul></li></ul>
+<ul><li class="has-sub"><span onclick="toggleSub(this)"><b>Check 4</b><br/><span class="check">Checking the correct usage of provisions</span></b></span>
+<ul class="sub-list">
+<li><a href="#case4-1">NOTE and EXAMPLE shall not contain requirement (IDP2, 24.5)</a></li>
+<li><a href="#case4-2">NOTE and EXAMPLE shall not contain recommendation (IDP2, 24.5)</a></li>
+<li><a href="#case4-3">NOTE and EXAMPLE shall not contain permission (IDP2, 24.5)</a></li>
+<li><a href="#case4-7">Checking the correct usage of provisions in the Introduction and the Scope</a></li></ul></li></ul>
+<li><a href="#case5"><b>Check 5</b><br/><span class="check">Checking incorrect usage of "Clause" and "Annex"</span></a></li>
+<li><a href="#case6"><b>Check 6</b><br/><span class="check">Checking inacurrate fragment (and/or - i.e. - e.g.)</span></a></li>
+<li><a href="#case7"><b>Check 7</b><br/><span class="check">Checking spelling typo</span></a></li>
+</ul></nav><main>
+<h1>STEPlib NG - checkDoc.sh executed the 2026-06-01 against ISO/DIS 10303-238 </h1>
+<section id="case1" class="card"><h2>#1 - Checking if the references are listed in one of the reference lists.</h2>
+<p>If the document is listed in the table below, please check the status and add the reference either in the Clause 2 or in the Bibliography.</p>
+<table><tr><th width="10%">Checked</th><th width="20%">reference not found</th><th width="60%">statement</th><th width="15%">status</th></tr>
+<tr class="item"><td><label><input type="checkbox" class="check"></td><td>EN 10027-1</td><td><input type="text" class="field" style="display:none;" placeholder="Please specify"></td><td><select class="status" style="display:none;"><option value="todo">To do</option><option value="wontfix">Wont fix</option><option value="done">Done</option></select></td></tr>
+<tr class="item"><td><label><input type="checkbox" class="check"></td><td>ISO 10303-1000</td><td><input type="text" class="field" style="display:none;" placeholder="Please specify"></td><td><select class="status" style="display:none;"><option value="todo">To do</option><option value="wontfix">Wont fix</option><option value="done">Done</option></select></td></tr>
+<tr class="item"><td><label><input type="checkbox" class="check"></td><td>ISO 10303-1061</td><td><input type="text" class="field" style="display:none;" placeholder="Please specify"></td><td><select class="status" style="display:none;"><option value="todo">To do</option><option value="wontfix">Wont fix</option><option value="done">Done</option></select></td></tr>
+<tr class="item"><td><label><input type="checkbox" class="check"></td><td>ISO 11146</td><td><input type="text" class="field" style="display:none;" placeholder="Please specify"></td><td><select class="status" style="display:none;"><option value="todo">To do</option><option value="wontfix">Wont fix</option><option value="done">Done</option></select></td></tr>
+</table>
+</section>
+<section id="case2" class="card"><h2>#2 - Checking if a reference that appears only in a note is not listed in Normative references Clause.</h2>
+<table><tr><th width="10%">Checked</th><th width="20%">move ref to bibio</th><th width="60%">statement</th><th width="15%">status</th></tr>
+<tr class="item"><td><label><input type="checkbox" class="check"></td><td>ISO 11146</td><td><input type="text" class="field" style="display:none;" placeholder="Please specify"></td><td><select class="status" style="display:none;"><option value="todo">To do</option><option value="wontfix">Wont fix</option><option value="done">Done</option></select></td></tr>
+</table></section>
+<section id="case3" class="card"><h2>#3 - Checking the Clause 2, Are the references cited normatively?</h2>
+<p><em>For ISO/DIS 10303-238:2026, the Clause 3 has not been processed.</em></p>
+<h3 id="case3-1">Detection of normative references</h3>
+<p>A requirement has been identified in connection with the reference ISO 10303-1006
+<select class="status"><option value="todo">--</option><option value="verified">verified, OK normative</option><option value="reject">verified, NOK informative</option><option value="needHelp">Need help</option></select></p>
+<div style="background-color: #EBEBEB; padding: 20px;">
+The mapping specification for the application objects in this UoF shall be as defined by ISO 10303-1006, ISO 10303-1026, ISO 10303-1030, ISO 10303-1110, ISO 10303-1118, ISO 10303-1681, and the specification below.
+</div>
+<p>A requirement has been identified in connection with the reference ISO 10303-1011
+<select class="status"><option value="todo">--</option><option value="verified">verified, OK normative</option><option value="reject">verified, NOK informative</option><option value="needHelp">Need help</option></select></p>
+<div style="background-color: #EBEBEB; padding: 20px;">
+The mapping specification for the application objects in this UoF shall be as defined by ISO 10303-1011 and the specification below.
+</div>
+<p>A requirement has been identified in connection with the reference ISO 10303-1012
+<select class="status"><option value="todo">--</option><option value="verified">verified, OK normative</option><option value="reject">verified, NOK informative</option><option value="needHelp">Need help</option></select></p>
+<div style="background-color: #EBEBEB; padding: 20px;">
+The mapping specification for the application objects in this UoF shall be as defined by ISO 10303-1012, ISO 10303-1013, ISO 10303-1014, ISO 10303-1015, and the specification below.
+</div>
+<p>A requirement has been identified in connection with the reference ISO 10303-1013
+<select class="status"><option value="todo">--</option><option value="verified">verified, OK normative</option><option value="reject">verified, NOK informative</option><option value="needHelp">Need help</option></select></p>
+<div style="background-color: #EBEBEB; padding: 20px;">
+The mapping specification for the application objects in this UoF shall be as defined by ISO 10303-1012, ISO 10303-1013, ISO 10303-1014, ISO 10303-1015, and the specification below.
+</div>
+<p>A requirement has been identified in connection with the reference ISO 10303-1015
+<select class="status"><option value="todo">--</option><option value="verified">verified, OK normative</option><option value="reject">verified, NOK informative</option><option value="needHelp">Need help</option></select></p>
+<div style="background-color: #EBEBEB; padding: 20px;">
+The mapping specification for the application objects in this UoF shall be as defined by ISO 10303-1012, ISO 10303-1013, ISO 10303-1014, ISO 10303-1015, and the specification below.
+</div>
+<p>A requirement has been identified in connection with the reference ISO 10303-1026
+<select class="status"><option value="todo">--</option><option value="verified">verified, OK normative</option><option value="reject">verified, NOK informative</option><option value="needHelp">Need help</option></select></p>
+<div style="background-color: #EBEBEB; padding: 20px;">
+The mapping specification for the application objects in this UoF shall be as defined by ISO 10303-1006, ISO 10303-1026, ISO 10303-1030, ISO 10303-1110, ISO 10303-1118, ISO 10303-1681, and the specification below.
+</div>
+<p>A requirement has been identified in connection with the reference ISO 10303-1030
+<select class="status"><option value="todo">--</option><option value="verified">verified, OK normative</option><option value="reject">verified, NOK informative</option><option value="needHelp">Need help</option></select></p>
+<div style="background-color: #EBEBEB; padding: 20px;">
+The mapping specification for the application objects in this UoF shall be as defined by ISO 10303-1006, ISO 10303-1026, ISO 10303-1030, ISO 10303-1110, ISO 10303-1118, ISO 10303-1681, and the specification below.
+</div>
+<p>A requirement has been identified in connection with the reference ISO 10303-1050
+<select class="status"><option value="todo">--</option><option value="verified">verified, OK normative</option><option value="reject">verified, NOK informative</option><option value="needHelp">Need help</option></select></p>
+<div style="background-color: #EBEBEB; padding: 20px;">
+The mapping specification for the application objects in this UoF shall be as defined by ISO 10303-1050, ISO 10303-1051, and ISO 10303-1052.
+</div>
+<p>A requirement has been identified in connection with the reference ISO 10303-1051
+<select class="status"><option value="todo">--</option><option value="verified">verified, OK normative</option><option value="reject">verified, NOK informative</option><option value="needHelp">Need help</option></select></p>
+<div style="background-color: #EBEBEB; padding: 20px;">
+The mapping specification for the application objects in this UoF shall be as defined by ISO 10303-1050, ISO 10303-1051, and ISO 10303-1052.
+</div>
+<p>A requirement has been identified in connection with the reference ISO 10303-1054
+<select class="status"><option value="todo">--</option><option value="verified">verified, OK normative</option><option value="reject">verified, NOK informative</option><option value="needHelp">Need help</option></select></p>
+<div style="background-color: #EBEBEB; padding: 20px;">
+The mapping specification for the application objects in this UoF shall be as defined by ISO 10303-1054, ISO 10303-1106, ISO 10303-1753, and ISO 10303-1782.
+</div>
+<p>A requirement has been identified in connection with the reference ISO 10303-1110
+<select class="status"><option value="todo">--</option><option value="verified">verified, OK normative</option><option value="reject">verified, NOK informative</option><option value="needHelp">Need help</option></select></p>
+<div style="background-color: #EBEBEB; padding: 20px;">
+The mapping specification for the application objects in this UoF shall be as defined by ISO 10303-1006, ISO 10303-1026, ISO 10303-1030, ISO 10303-1110, ISO 10303-1118, ISO 10303-1681, and the specification below.
+</div>
+<p>A requirement has been identified in connection with the reference ISO 10303-1118
+<select class="status"><option value="todo">--</option><option value="verified">verified, OK normative</option><option value="reject">verified, NOK informative</option><option value="needHelp">Need help</option></select></p>
+<div style="background-color: #EBEBEB; padding: 20px;">
+The mapping specification for the application objects in this UoF shall be as defined by ISO 10303-1006, ISO 10303-1026, ISO 10303-1030, ISO 10303-1110, ISO 10303-1118, ISO 10303-1681, and the specification below.
+</div>
+<p>A requirement has been identified in connection with the reference ISO 10303-1129
+<select class="status"><option value="todo">--</option><option value="verified">verified, OK normative</option><option value="reject">verified, NOK informative</option><option value="needHelp">Need help</option></select></p>
+<div style="background-color: #EBEBEB; padding: 20px;">
+The mapping specification for the application objects in this UoF shall be as defined by ISO 10303-1129, ISO 10303-1291, ISO 10303-1331, and ISO 10303-1779.
+</div>
+<p>A requirement has been identified in connection with the reference ISO 10303-1291
+<select class="status"><option value="todo">--</option><option value="verified">verified, OK normative</option><option value="reject">verified, NOK informative</option><option value="needHelp">Need help</option></select></p>
+<div style="background-color: #EBEBEB; padding: 20px;">
+The mapping specification for the application objects in this UoF shall be as defined by ISO 10303-1129, ISO 10303-1291, ISO 10303-1331, and ISO 10303-1779.
+</div>
+<p>A requirement has been identified in connection with the reference ISO 10303-1331
+<select class="status"><option value="todo">--</option><option value="verified">verified, OK normative</option><option value="reject">verified, NOK informative</option><option value="needHelp">Need help</option></select></p>
+<div style="background-color: #EBEBEB; padding: 20px;">
+The mapping specification for the application objects in this UoF shall be as defined by ISO 10303-1129, ISO 10303-1291, ISO 10303-1331, and ISO 10303-1779.
+</div>
+<p>A requirement has been identified in connection with the reference ISO 10303-1681
+<select class="status"><option value="todo">--</option><option value="verified">verified, OK normative</option><option value="reject">verified, NOK informative</option><option value="needHelp">Need help</option></select></p>
+<div style="background-color: #EBEBEB; padding: 20px;">
+The mapping specification for the application objects in this UoF shall be as defined by ISO 10303-1006, ISO 10303-1026, ISO 10303-1030, ISO 10303-1110, ISO 10303-1118, ISO 10303-1681, and the specification below.
+</div>
+<p>A requirement has been identified in connection with the reference ISO 10303-1753
+<select class="status"><option value="todo">--</option><option value="verified">verified, OK normative</option><option value="reject">verified, NOK informative</option><option value="needHelp">Need help</option></select></p>
+<div style="background-color: #EBEBEB; padding: 20px;">
+The mapping specification for the application objects in this UoF shall be as defined by ISO 10303-1054, ISO 10303-1106, ISO 10303-1753, and ISO 10303-1782.
+</div>
+<p>A requirement has been identified in connection with the reference ISO 10303-1782
+<select class="status"><option value="todo">--</option><option value="verified">verified, OK normative</option><option value="reject">verified, NOK informative</option><option value="needHelp">Need help</option></select></p>
+<div style="background-color: #EBEBEB; padding: 20px;">
+The mapping specification for the application objects in this UoF shall be as defined by ISO 10303-1054, ISO 10303-1106, ISO 10303-1753, and ISO 10303-1782.
+</div>
+<p>A requirement has been identified in connection with the reference ISO 10303-1814
+<select class="status"><option value="todo">--</option><option value="verified">verified, OK normative</option><option value="reject">verified, NOK informative</option><option value="needHelp">Need help</option></select></p>
+<div style="background-color: #EBEBEB; padding: 20px;">
+The mapping specification for the application objects in this UoF shall be as defined by ISO 10303-1814, ISO 10303-1846 and the specification below.
+</div>
+<p>A requirement has been identified in connection with the reference ISO 10303-21
+<select class="status"><option value="todo">--</option><option value="verified">verified, OK normative</option><option value="reject">verified, NOK informative</option><option value="needHelp">Need help</option></select></p>
+<div style="background-color: #EBEBEB; padding: 20px;">
+Conformance to this document shall be realized in an exchange structure described by either ISO 10303-21 or ISO 10303-28.
+</div>
+<p>A requirement has been identified in connection with the reference ISO 10303-28
+<select class="status"><option value="todo">--</option><option value="verified">verified, OK normative</option><option value="reject">verified, NOK informative</option><option value="needHelp">Need help</option></select></p>
+<div style="background-color: #EBEBEB; padding: 20px;">
+Conformance to this document shall be realized in an exchange structure described by either ISO 10303-21 or ISO 10303-28.
+</div>
+<p>A requirement has been identified in connection with the reference ISO 14649-10
+<select class="status"><option value="todo">--</option><option value="verified">verified, OK normative</option><option value="reject">verified, NOK informative</option><option value="needHelp">Need help</option></select></p>
+<div style="background-color: #EBEBEB; padding: 20px;">
+The following application object is used by the project UoF, and shall be as defined by ISO 14649-10:
+</div>
+<p>A requirement has been identified in connection with the reference ISO 14649-11
+<select class="status"><option value="todo">--</option><option value="verified">verified, OK normative</option><option value="reject">verified, NOK informative</option><option value="needHelp">Need help</option></select></p>
+<div style="background-color: #EBEBEB; padding: 20px;">
+The following application objects are used by the process data for milling UoF, and shall be as defined by ISO 14649-11.
+</div>
+<p>A requirement has been identified in connection with the reference ISO 14649-111
+<select class="status"><option value="todo">--</option><option value="verified">verified, OK normative</option><option value="reject">verified, NOK informative</option><option value="needHelp">Need help</option></select></p>
+<div style="background-color: #EBEBEB; padding: 20px;">
+The following application objects are used by the cutting tools for milling UoF, and shall be as defined by ISO 14649-111.
+</div>
+<p>A requirement has been identified in connection with the reference ISO 14649-12
+<select class="status"><option value="todo">--</option><option value="verified">verified, OK normative</option><option value="reject">verified, NOK informative</option><option value="needHelp">Need help</option></select></p>
+<div style="background-color: #EBEBEB; padding: 20px;">
+The following application objects are used by the process data for turning UoF, and shall be as defined by ISO 14649-12.
+</div>
+<p>A requirement has been identified in connection with the reference ISO 14649-121
+<select class="status"><option value="todo">--</option><option value="verified">verified, OK normative</option><option value="reject">verified, NOK informative</option><option value="needHelp">Need help</option></select></p>
+<div style="background-color: #EBEBEB; padding: 20px;">
+The following application objects are used by the cutting tools for turning UoF, and shall be as defined by ISO 14649-121.
+</div>
+<p>A requirement has been identified in connection with the reference ISO 14649-17
+<select class="status"><option value="todo">--</option><option value="verified">verified, OK normative</option><option value="reject">verified, NOK informative</option><option value="needHelp">Need help</option></select></p>
+<div style="background-color: #EBEBEB; padding: 20px;">
+The following application objects are used by the process data for additive manufacturing UoF, and shall be as defined by ISO 14649-17.
+</div>
+<h3 id="case3-2">List of identified normative references</h3>
+<em>This includes references from: mapping table, USE FROM and REFERENCE FROM.</em>
+<li>ISO 10303-21</li>
+<li>ISO 10303-28</li>
+<li>ISO 10303-41</li>
+<li>ISO 10303-42</li>
+<li>ISO 10303-43</li>
+<li>ISO 10303-45</li>
+<li>ISO 10303-46</li>
+<li>ISO 10303-47</li>
+<li>ISO 10303-49</li>
+<li>ISO 10303-61</li>
+<li>ISO 10303-105</li>
+<li>ISO 10303-113</li>
+<li>ISO 10303-238</li>
+<li>ISO 10303-1006</li>
+<li>ISO 10303-1011</li>
+<li>ISO 10303-1012</li>
+<li>ISO 10303-1013</li>
+<li>ISO 10303-1014</li>
+<li>ISO 10303-1015</li>
+<li>ISO 10303-1016</li>
+<li>ISO 10303-1026</li>
+<li>ISO 10303-1030</li>
+<li>ISO 10303-1039</li>
+<li>ISO 10303-1050</li>
+<li>ISO 10303-1051</li>
+<li>ISO 10303-1052</li>
+<li>ISO 10303-1054</li>
+<li>ISO 10303-1106</li>
+<li>ISO 10303-1110</li>
+<li>ISO 10303-1118</li>
+<li>ISO 10303-1129</li>
+<li>ISO 10303-1249</li>
+<li>ISO 10303-1291</li>
+<li>ISO 10303-1315</li>
+<li>ISO 10303-1324</li>
+<li>ISO 10303-1327</li>
+<li>ISO 10303-1329</li>
+<li>ISO 10303-1331</li>
+<li>ISO 10303-1362</li>
+<li>ISO 10303-1501</li>
+<li>ISO 10303-1502</li>
+<li>ISO 10303-1507</li>
+<li>ISO 10303-1510</li>
+<li>ISO 10303-1511</li>
+<li>ISO 10303-1512</li>
+<li>ISO 10303-1526</li>
+<li>ISO 10303-1628</li>
+<li>ISO 10303-1659</li>
+<li>ISO 10303-1681</li>
+<li>ISO 10303-1753</li>
+<li>ISO 10303-1767</li>
+<li>ISO 10303-1779</li>
+<li>ISO 10303-1782</li>
+<li>ISO 10303-1791</li>
+<li>ISO 10303-1812</li>
+<li>ISO 10303-1814</li>
+<li>ISO 10303-1816</li>
+<li>ISO 10303-1817</li>
+<li>ISO 10303-1819</li>
+<li>ISO 10303-1831</li>
+<li>ISO 10303-1835</li>
+<li>ISO 10303-1836</li>
+<li>ISO 10303-1846</li>
+<li>ISO 13584-20</li>
+<li>ISO 14649-10</li>
+<li>ISO 14649-11</li>
+<li>ISO 14649-12</li>
+<li>ISO 14649-17</li>
+<li>ISO 14649-111</li>
+<li>ISO 14649-121</li>
+<h3 id="case3-3">References in Clause 2, that should be moved or added to the bibliography because they are NOT cited in the text in such a way that some or all of their content constitutes requirements of the document.</h3>
+<p>ISO 10303-1 should be moved to the Bibliography</p>
+<p>ISO 10303-11 should be moved to the Bibliography</p>
+<p>ISO 10303-1509 should be moved to the Bibliography</p>
+<p>ISO 10303-1514 should be moved to the Bibliography</p>
+<p>ISO 14649-1 should be moved to the Bibliography</p>
+<p>ISO 286-1 should be moved to the Bibliography</p>
+<p>ISO/IEC 8824-1 should be moved to the Bibliography</p>
+<h3 id="case3-4">References in Clause 2, that cannot be found in the documentation,  please check.</h3>
+<p>The reference ISO 10303-1131 has not been found in the documentation, please check</p>
+<p>The reference ISO 10303-1796 has not been found in the documentation, please check</p>
+<p>The reference ISO 10303-1797 has not been found in the documentation, please check</p>
+<p>The reference ISO 10303-44 has not been found in the documentation, please check</p>
+<p>The reference ISO 1101 has not been found in the documentation, please check</p>
+<p>The reference ISO 23247-1 has not been found in the documentation, please check</p>
+<p>The reference ISO 2806 has not been found in the documentation, please check</p>
+<p>The reference ISO 286-2 has not been found in the documentation, please check</p>
+<p>The reference ISO 5459 has not been found in the documentation, please check</p>
+</section>
+<section id="case4" class="card"><h2>#4 - Checking the correct usage of provisions.</h2>
+<h3 id="case4-2">NOTE and EXAMPLE shall not contain recommendation (IDP2, 24.5)</h3>
+<table><tr><th>location</th><th>fragment</th></tr>
+<tr class="tableCheck"><td>clause5</td><td>NOTE The Extended_NC_function application object <span class="yellow-text">should</span> not be used to convey individual modal codes because it does not identify the common condition that the codes control.</td></tr>
+</table>
+<h3 id="case4-3">NOTE and EXAMPLE shall not contain permission (IDP2, 24.5)</h3>
+<table><tr><th>location</th><th>fragment</th></tr>
+<tr class="tableCheck"><td>clause4</td><td>NOTE After this time the material <span class="yellow-text">may</span> be too cold.</td></tr>
+<tr class="tableCheck"><td>clause4</td><td>NOTE Before this time the material <span class="yellow-text">may</span> be too hot.</td></tr>
+<tr class="tableCheck"><td>clause4</td><td>NOTE No order is defined for the operations so that they <span class="yellow-text">may</span> be performed in parallel using different laser heads.</td></tr>
+<tr class="tableCheck"><td>clause4</td><td>NOTE Regions <span class="yellow-text">may</span> be consolidated into parent regions.</td></tr>
+<tr class="tableCheck"><td>clause4</td><td>NOTE Regions <span class="yellow-text">may</span> be consolidated into parent regions.</td></tr>
+<tr class="tableCheck"><td>clause4</td><td>NOTE The best fit algorithm <span class="yellow-text">may</span> use the guides to determine an optimal displacement to modify the position, orientation and rotation of the members of the group.</td></tr>
+<tr class="tableCheck"><td>clause4</td><td>NOTE 3 Values that are unavailable for a technology <span class="yellow-text">may</span> be written as "UNAVAILABLE".</td></tr>
+<tr class="tableCheck"><td>clause4</td><td>NOTEDifferent torques <span class="yellow-text">may</span> be defined by making additional collar prototypes.</td></tr>
+<tr class="tableCheck"><td>clause4</td><td>NOTE The life_used ratio <span class="yellow-text">may</span> be converted into a time remaining using the tool_life of the prototype.</td></tr>
+<tr class="tableCheck"><td>clause4</td><td>NOTE There <span class="yellow-text">may</span> be zero layers if they have not been computed or cannot be shared.</td></tr>
+<tr class="tableCheck"><td>clause4</td><td>NOTE Different stackups <span class="yellow-text">may</span> be measured for different phases.</td></tr>
+<tr class="tableCheck"><td>clause4</td><td>NOTE There <span class="yellow-text">may</span> be fastener, fay, cap and special sealants.</td></tr>
+<tr class="tableCheck"><td>clause4</td><td>NOTE A visualization system <span class="yellow-text">may</span> show the property as GD&T on a model.</td></tr>
+<tr class="tableCheck"><td>clause4</td><td>NOTE In early phases, the recommended fastener <span class="yellow-text">may</span> be a tack.</td></tr>
+<tr class="tableCheck"><td>clause4</td><td>NOTE Washers <span class="yellow-text">may</span> be flat, concave and convex, thick or thin.</td></tr>
+<tr class="tableCheck"><td>clause4</td><td>NOTE 1 When specifying a freeform milling operation, particularly with an associated toolpath, the Freeform_rough_milling and Freeform_finish_milling subtypes <span class="yellow-text">may</span> be used to indicate whether the operation is used for roughing or finishing.</td></tr>
+<tr class="tableCheck"><td>clause4</td><td>NOTE A length measure value <span class="yellow-text">may</span> be used to describe the traversal of linear axes, while a plane angle measure value <span class="yellow-text">may</span> be used to describe the traversal of tilt tables and other angular axes.</td></tr>
+<tr class="tableCheck"><td>clause4</td><td>NOTE A monitoring system <span class="yellow-text">may</span> use the prototype to determine if the value is within tolerance.</td></tr>
+<tr class="tableCheck"><td>clause4</td><td>NOTE Each phase is typically modeled using a different twin, but applications <span class="yellow-text">may</span> use the same twin for multiple phases, or all phases.</td></tr>
+<tr class="tableCheck"><td>clause4</td><td>NOTE Some systems <span class="yellow-text">may</span> be able to compute this list using the assembly of the product.</td></tr>
+<tr class="tableCheck"><td>clause4</td><td>NOTE This document modifies the definition of Touch_probe in ISO 14649-10 to be a type of Machining_tool so that Tool_usage information <span class="yellow-text">may</span> be associated with it.</td></tr>
+<tr class="tableCheck"><td>clause4</td><td>NOTE A Workpiece object categorized as a tool <span class="yellow-text">may</span> describe a specific tool chosen to fullfill the tool requirements called out by a Machining_tool application object</td></tr>
+<tr class="tableCheck"><td>clause4</td><td>EXAMPLE An AM_feature_intersection <span class="yellow-text">may</span> define the boundary where the technology of a path changes from a downskin or low heat region, to a core or regular heat region.</td></tr>
+<tr class="tableCheck"><td>clause4</td><td>EXAMPLE A CAD system <span class="yellow-text">may</span> identify feaures where upskin and downskin processes are to be applied so that melting is reduced in regions where there is less internal support.</td></tr>
+<tr class="tableCheck"><td>clause4</td><td>EXAMPLE Upskin and downskin regions <span class="yellow-text">may</span> be identified by projecting features onto slices, while spikes and thin walls are identified by performing geometric analyses within those slices.</td></tr>
+<tr class="tableCheck"><td>clause4</td><td>EXAMPLE Work <span class="yellow-text">may</span> be replaced by a bigger hole and fastener.</td></tr>
+<tr class="tableCheck"><td>clause4</td><td>EXAMPLE In a three-level escape sequence some features <span class="yellow-text">may</span> require additional escape moves between Levels 2 and 3 to move the nose sideways, and avoid a special fixture.</td></tr>
+<tr class="tableCheck"><td>clause4</td><td>EXAMPLE An Executable that describes a planned process <span class="yellow-text">may</span> describe parameters extracted from CAM.</td></tr>
+<tr class="tableCheck"><td>clause4</td><td>EXAMPLE A robot <span class="yellow-text">may</span> escape from the drilling task to a resting place.</td></tr>
+<tr class="tableCheck"><td>clause4</td><td>EXAMPLE When a rotary C table is mounted on a rotary B table, there <span class="yellow-text">may</span> be two combinations of C and B angles that give the same tool axis direction.</td></tr>
+<tr class="tableCheck"><td>clause4</td><td>EXAMPLE One twin <span class="yellow-text">may</span> model a preparation phase where the hole is placed and tacked, and another <span class="yellow-text">may</span> model a completion phase where the final fastener is installed.</td></tr>
+<tr class="tableCheck"><td>clause4</td><td>EXAMPLE There <span class="yellow-text">may</span> be many instances of fasteners on a structure.</td></tr>
+<tr class="tableCheck"><td>clause4</td><td>EXAMPLE In a powder bed fusion process, a planning operation <span class="yellow-text">may</span> describe a 3D operation that is decomposed into millions of workingsteps containing 2D and 1D operations.</td></tr>
+</table>
+<h3 id="case4-4">Do not use must as an alternative for shall (IDP2, Clause 7)</h3>
+<table><tr><th>location</th><th>fragment</th></tr>
+<tr class="tableCheck"><td>clause4</td><td>In Figure 19, X1 may escape to X2 on level 1 using feature group 1, but <span class="yellow-text">must</span> go to level 2 to reach X5 using feature group 4, and level 3 to reach X7 using feature group 6.</td></tr>
+<tr class="tableCheck"><td>clause4</td><td>If conditions <span class="yellow-text">must</span> be applied sequentially, the Representation_items shall be nested, in the required order, within a List_representation_item.</td></tr>
+<tr class="tableCheck"><td>clause4</td><td>At least one Executable <span class="yellow-text">must</span> finish before work on this group begins.</td></tr>
+<tr class="tableCheck"><td>clause4</td><td>At times, there may be many Executables at least one of which <span class="yellow-text">must</span> finish before work begins.</td></tr>
+<tr class="tableCheck"><td>clause4</td><td>In the most complex case an Executable in the set may be a Workplan that describes multiple things that <span class="yellow-text">must</span> be completed before beginning the oneup assembly group.</td></tr>
+<tr class="tableCheck"><td>clause4</td><td>NOTE In the precedence group all <span class="yellow-text">must</span> complete, and in the same_assembly group only one <span class="yellow-text">must</span> complete.</td></tr>
+<tr class="tableCheck"><td>clause4</td><td>In some applications a guide is considered stale after 12 hours and <span class="yellow-text">must</span> be computed again.</td></tr>
+<tr class="tableCheck"><td>clause5</td><td>Finally, there are information requirements which were not considered by ISO 14649 for the isolated case of input to a CNC control, but which <span class="yellow-text">must</span> be considered by this document for integrating across the lifecycle such as geometric dimensions and tolerances.</td></tr>
+<tr class="tableCheck"><td>clause5</td><td>One <span class="yellow-text">must</span> then geometrically evaluate the distance between this placement and the depth surface to determine the depth of material.</td></tr>
+<tr class="tableCheck"><td>clause5</td><td>To determine the depth of the hole, one <span class="yellow-text">must</span> geometrically evaluate the distance in the negative Z direction between this placement and the depth surface.</td></tr>
+<tr class="tableCheck"><td>clause5</td><td>To determine the depth of the pocket, one <span class="yellow-text">must</span> geometrically evaluate the distance in the negative Z direction between this placement and the depth surface.</td></tr>
+<tr class="tableCheck"><td>clause5</td><td>To determine the depth of the Profile_feature, one <span class="yellow-text">must</span> geometrically evaluate the distance in the negative Z direction between this placement and the depth surface.</td></tr>
+<tr class="tableCheck"><td>clause5</td><td>To determine the depth of the slot, one <span class="yellow-text">must</span> geometrically evaluate the distance in the negative Z direction between this placement and the depth surface.</td></tr>
+<tr class="tableCheck"><td>clause5</td><td>To determine the depth of the step, one <span class="yellow-text">must</span> geometrically evaluate the distance in the negative Z direction between this placement and the depth surface.</td></tr>
+<tr class="tableCheck"><td>clause5</td><td>The items set <span class="yellow-text">must</span> refer to representation_item instances, so measurements are encoded as a measure_representation_item, which is a subtype of measure_with_unit and representation_item.</td></tr>
+<tr class="tableCheck"><td>clause5</td><td>Local rules on the ISO 10303 geometry definitions require that any enclosing representation <span class="yellow-text">must</span> refer to a geometric_representation_context to identify the dimensionality (2D, 3D, etc.) of the geometry.</td></tr>
+<tr class="tableCheck"><td>clause5</td><td>The definitions of Cutter_contact_trajectory, Cutter_location_trajectory, Axis_trajectory, and Toolpath_speed, require that the curves that describe location (basiccurve), tool axis, surface normal, and feed speed <span class="yellow-text">must</span> have the same parameterization.</td></tr>
+<tr class="tableCheck"><td>clause5</td><td>Where a planned process would produce results, such as touch_probing, the operations identify an external variable name, but the value <span class="yellow-text">must</span> be collected from a machine tool by some unspecified method.</td></tr>
+<tr class="tableCheck"><td>clause5</td><td>-- axis constraints property <span class="yellow-text">must</span> contain zero or more ranges (0 = SIZEOF (QUERY (prop <* get_action_property (SELF, 'axis constraints') | NOT ((0 < SIZEOF (QUERY (prep <* USEDIN (prop, 'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.ACTION_PROPERTY_REPRESENTATION.PROPERTY')</td></tr>
+<tr class="tableCheck"><td>clause5</td><td>-- axis commands property <span class="yellow-text">must</span> contain one or more bounded curves (0 = SIZEOF (QUERY (prop <* get_action_property (SELF, 'axis commands') |</td></tr>
+<tr class="tableCheck"><td>clause5</td><td>Extra via points between two non via points <span class="yellow-text">must</span> define arcs of the same radius.</td></tr>
+<tr class="tableCheck"><td>clause5</td><td>-- the types on either side of the initial value relationship <span class="yellow-text">must</span> match -- each nc_variable has at most one one initial value</td></tr>
+<tr class="tableCheck"><td>annexJ</td><td>The processing system <span class="yellow-text">must</span> generate toolpaths from the supplied features in order to machine the part.</td></tr>
+<tr class="tableCheck"><td>annexJ</td><td>The processing system <span class="yellow-text">must</span> generate toolpaths from the supplied features in order to machine the part.</td></tr>
+<tr class="tableCheck"><td>frame</td><td>You <span class="yellow-text">must</span> use a browser that can display frames to see this page.</td></tr>
+</table>
+<h3 id="case4-5">Avoid using might (ISO House Style)</h3>
+<table><tr><th>location</th><th>fragment</th></tr>
+<tr class="tableCheck"><td>scope</td><td>Future editions of this document <span class="yellow-text">might</span> include additional processes if additional ISO 14649 descriptions become available.</td></tr>
+</table>
+<h3 id="case4-6">Avoid using could (ISO House Style)</h3>
+<table><tr><th>location</th><th>fragment</th></tr>
+<tr class="tableCheck"><td>clause4</td><td>In addition, only length parameters <span class="yellow-text">could</span> be qualified with a tolerance.</td></tr>
+<tr class="tableCheck"><td>clause4</td><td>EXAMPLEA Feature_complete_probing <span class="yellow-text">could</span> adjust the position of a product such as a fastener, or a process such as a drilling operation.</td></tr>
+<tr class="tableCheck"><td>clause4</td><td>The message <span class="yellow-text">could</span> be put into a PPRINT command to show that the broadcast has been processed.</td></tr>
+<tr class="tableCheck"><td>clause4</td><td>The measured properties <span class="yellow-text">could</span> be used for values that are described by an external standard.</td></tr>
+<tr class="tableCheck"><td>clause4</td><td>The current operator id <span class="yellow-text">could</span> be held in the location such as "OPERATOR_BUFFER[68]".</td></tr>
+<tr class="tableCheck"><td>clause4</td><td>A drill and fill executable <span class="yellow-text">could</span> add a fastener, collar or washer.</td></tr>
+<tr class="tableCheck"><td>clause4</td><td>Also, when drilling on a machine with redundant (not necessarily parallel) linear axes, such as a machine with a movable quill (W axis), either the W or other axes <span class="yellow-text">could</span> be used to advance the drill.</td></tr>
+<tr class="tableCheck"><td>clause4</td><td>A material workpiece <span class="yellow-text">could</span> also be a Product_view_twin if it includes measured properties specific to an instance of the material.</td></tr>
+<tr class="tableCheck"><td>clause4</td><td>NOTE The planning operation describes information that <span class="yellow-text">could</span> be used to generate workingsteps just before or during manufacturing.</td></tr>
+<tr class="tableCheck"><td>clause4</td><td>This will be of benefit to related downstream tasks, such as inspection, which <span class="yellow-text">could</span> use the tracability to pinpoint critical areas of interest in the micro and macro process-plans.</td></tr>
+<tr class="tableCheck"><td>clause5</td><td>Before it is machined, the top of a feature often corresponds to a tangible location on the stock where a machinist <span class="yellow-text">could</span> measure or make a mark.</td></tr>
+<tr class="tableCheck"><td>clause5</td><td>This associativity through the entire design to manufacturing path is useful for related downstream tasks, such as inspection, which <span class="yellow-text">could</span> use the tracability to pinpoint critical areas of interest in the micro and macro process-plans.</td></tr>
+<tr class="tableCheck"><td>clause5</td><td>A feedrate <span class="yellow-text">could</span> be described either as a linear speed (length per unit of time), or as a length per tooth of the tool being used.</td></tr>
+<tr class="tableCheck"><td>clause5</td><td>The model <span class="yellow-text">could</span> represent the values, but <span class="yellow-text">could</span> not distinguish between as-planned and as-executed data sources.</td></tr>
+<tr class="tableCheck"><td>clause5</td><td>Furthermore, the model <span class="yellow-text">could</span> only represent as-executed values for a single execution run.</td></tr>
+<tr class="tableCheck"><td>annexK</td><td>A planning_operation has been added to Program_structure to describe information that <span class="yellow-text">could</span> be used to generate workingsteps just before or during manufacturing.</td></tr>
+</table>
+</section>
+<section id="case5" class="card"><h2>#5 - Checking incorrect usage of Clause, Annex, Figures, Tables, Formula (see IDP2 and ISO House Style, Referencing).</h2>
+<h3 id="check5-1">Clause incorrectly used</h3><p><em>Use Clause only when referring to a complete Clause</em></p>
+<div class="item"><label><input type="checkbox" class="done">In clause4, please verify 'The mapping specification given in clause 5.1 defines how the integrated resources and application interpreted constructs are used to meet the information requirements of this application protocol.'  </label></div>
+<div class="item"><label><input type="checkbox" class="done">In clause5, please verify 'NOTE It is customary to present mapping specifications in alphabetical order by UoF name, however this document presents the mapping specification in the same order as they appear in clause 4.2.'  </label></div>
+<h3 id="check5-4">Incorrect usage of capitals</h3><p><em>Clause, Annex, Figure, Table, and Formula should start with a capital letter when used as references.</em></p>
+<div class="item"><label><input type="checkbox" class="done">In annexG, please verify 'The application reference model is a graphical representation of the structure and constraints of the application objects specified in clause 4, including the application objects referenced from the ISO 10303-1000-series parts, ISO 14649-10, ISO 14649-11, ISO 14649-12, ISO 14649-17, ISO 14649-111 and ISO 14649-121.'  </label></div>
+<div class="item"><label><input type="checkbox" class="done">In annexK, please verify 'Change the measure UoF to reference application object definitions and mappings from ISO 10303-1054, 10303-1106, 10303-1753, and 10303-1782 rather than define them in clause 4 and 5.'  </label></div>
+<div class="item"><label><input type="checkbox" class="done">In annexK, please verify 'Move the Manufacturing_feature application object from the workpiece UoF into the manufacturing feature UoF and reference the application object definitions and mappings from ISO 10303-1814 rather than define it in clause 4 and 5.'  </label></div>
+<div class="item"><label><input type="checkbox" class="done">In annexK, please verify 'Change the manufacturing feature UoF to reference the following feature application object definitions and mappings from ISO 10303-1814 rather than define them in clause 4 and 5.'  </label></div>
+<div class="item"><label><input type="checkbox" class="done">In annexK, please verify 'Also remove definition in clause 5 for chamfer_requires_faces_or_features, edge_round_requires_faces_or_features, restrict_unneeded_feature_usage.'  </label></div>
+<div class="item"><label><input type="checkbox" class="done">In annexK, please verify 'Delete the turning feature UoF, moving the following application objects to the manufacturing feature UoF. Reference the definitions and mappings from ISO 10303-1814 rather than define them in clause 4 and 5.'  </label></div>
+<div class="item"><label><input type="checkbox" class="done">In annexK, please verify 'Added machining_twin_relationship to clause 5 for use in the mapping and guidance on Digital twin process in the Fundamental concepts and assumptions section.'  </label></div>
+<div class="item"><label><input type="checkbox" class="done">In annexK, please verify 'Added machining_fixture_usage to clause 5 for use in the mapping.'  </label></div>
+<div class="item"><label><input type="checkbox" class="done">In annexK, please verify 'Add extended_type_operation to clause 5 to support mapping of Extended_operation.'  </label></div>
+<div class="item"><label><input type="checkbox" class="done">In annexK, please verify 'Add via_arc_point and via_helix_point to clause 5 to support high-speed milling operations.'  </label></div>
+<div class="item"><label><input type="checkbox" class="done">In annexK, please verify 'Add additive_type_operation to clause 5 to support mapping of Am_operation and subtypes.'  </label></div>
+<div class="item"><label><input type="checkbox" class="done">In annexK, please verify 'Change the geometric dimensioning and tolerancing UoF to reference the following feature application object definitions and mappings from ISO 10303-1050 and ISO 10303-1051 rather than define them in clause 4 and 5.'  </label></div>
+<div class="item"><label><input type="checkbox" class="done">In annexK, please verify 'Remove definitions in clause 5 for directed_dimensional_location, externally_defined_dimension_definition, and placed_datum_target_feature.'  </label></div>
+<div class="item"><label><input type="checkbox" class="done">In annexK, please verify 'The information requirements described in clause 4 have not changed.'  </label></div>
+<div class="item"><label><input type="checkbox" class="done">In annexK, please verify 'The application interpreted model described in clause 5 has not changed.'  </label></div>
+<div class="item"><label><input type="checkbox" class="done">In clause5, please verify 'This clause specifies how each UoF and application object in clause 4 shall be represented by one or more AIM EXPRESS constructs given by Annex A.'  </label></div>
+<div class="item"><label><input type="checkbox" class="done">In introduction, please verify 'The information requirements of the application are specified in clause 4 using terminology appropriate to the application.'  </label></div>
+<div class="item"><label><input type="checkbox" class="done">In annexK, please verify 'The Process_property name has been reused for an application object defined by the Executable UoF that extends an Executable with additional information.'  </label></div>
+<div class="item"><label><input type="checkbox" class="done">In clause4, please verify 'The executable UoF specifies the information necessary to describe control flow of a machining program as well as the non-machining actions that may be performed by a numerical control.'  </label></div>
+<div class="item"><label><input type="checkbox" class="done">In clause4, please verify 'The following application objects are used by the executable UoF, and shall be as defined by ISO 14649-10.'  </label></div>
+<div class="item"><label><input type="checkbox" class="done">In clause4, please verify 'In addition, the following application objects are used by the executable UoF, and shall be as defined by this document'  </label></div>
+<div class="item"><label><input type="checkbox" class="done">In clause4, please verify 'The following application objects are used by the executable UoF, and shall be as defined by ISO 10303-1526.'  </label></div>
+<div class="item"><label><input type="checkbox" class="done">In clause6, please verify 'This conformance class includes the following application objects and their supertypes from the executable UoF'  </label></div>
+<div class="item"><label><input type="checkbox" class="done">In clause6, please verify 'This conformance class includes everything specified by CC1, plus all remaining application objects from the toolpath UoF and the Parallel application object from the executable UOF.'  </label></div>
+<div class="item"><label><input type="checkbox" class="done">In clause6, please verify 'This conformance class includes everything specified by CC2, plus all application objects from the manufacturing feature and manufacturing feature for turning UOFs and all remaining application objects from the executable UoF.'  </label></div>
+</section>
+<section id="case6" class="card"><h2>#6 - Avoid using and/or - i.e. - e.g. (ISO House Style and SC 4 Supplementary Directives).</h2>
+<table><tr><th>location</th><th>fragment</th></tr>
+<tr class="tableCheck"><td>clause4</td><td>Regions are determined by projecting features onto slices, <span class="yellow-text">and/or</span> by detecting geometric conditions on the slice.</td></tr>
+<tr class="tableCheck"><td>clause4</td><td>If there are many digital instances of the product, then each is distinguished from the others by a serial number <span class="yellow-text">and/or</span> an envelope.</td></tr>
+</table>
+</section>
+<section id="case7" class="card"><h2>#7 - Checking spelling typo.</h2>
+<table><tr><th>location</th><th>fragment</th></tr>
+<tr class="tableCheck"><td>annexD</td><td> preceeding ==> preceding, proceeding</td></tr>
+<tr class="tableCheck"><td>annexJ</td><td> implementors ==> implementers</td></tr>
+<tr class="tableCheck"><td>annexJ</td><td> implementors ==> implementers</td></tr>
+<tr class="tableCheck"><td>annexJ</td><td> REAM ==> STREAM</td></tr>
+<tr class="tableCheck"><td>annexJ</td><td> REAM ==> STREAM</td></tr>
+<tr class="tableCheck"><td>annexK</td><td> gage ==> gauge</td></tr>
+<tr class="tableCheck"><td>clause4</td><td> contstraints ==> constraints</td></tr>
+<tr class="tableCheck"><td>clause4</td><td> gage ==> gauge</td></tr>
+<tr class="tableCheck"><td>clause4</td><td> fullfill ==> fulfill, fulfil</td></tr>
+<tr class="tableCheck"><td>clause5</td><td> exemple ==> example</td></tr>
+<tr class="tableCheck"><td>clause5</td><td> meaurement ==> measurement</td></tr>
+<tr class="tableCheck"><td>clause5</td><td> thse ==> these, those, this</td></tr>
+<tr class="tableCheck"><td>clause5</td><td> sufficent ==> sufficient</td></tr>
+<tr class="tableCheck"><td>clause5</td><td> sucessfully ==> successfully</td></tr>
+<tr class="tableCheck"><td>clause5</td><td> definied ==> defined</td></tr>
+<tr class="tableCheck"><td>clause5</td><td> propery ==> property, properly</td></tr>
+<tr class="tableCheck"><td>clause5</td><td> propery ==> property, properly</td></tr>
+<tr class="tableCheck"><td>clause5</td><td> perfoms ==> performs</td></tr>
+<tr class="tableCheck"><td>clause5</td><td> preceeding ==> preceding, proceeding</td></tr>
+<tr class="tableCheck"><td>clause5</td><td> preceeding ==> preceding, proceeding</td></tr>
+<tr class="tableCheck"><td>clause6</td><td> preceeding ==> preceding, proceeding</td></tr>
+</table>
+<hr>
+</section>
+</main>
+
+</div>
+
+<footer>
+© 2026 — ISO/TC 184/SC 4 Quality Committee - <em>Draft version, please report your comments to <a href="mailto:vero@afnet-services.fr">Véronique Dubillot</a></em>
+</footer>
+
+</body>
+</html>
