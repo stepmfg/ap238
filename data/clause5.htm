@@ -15,7 +15,7 @@
 <H3 ID="maps-general">5.1.1 General</H3>
 
 <P>This clause specifies how each UoF and application object
-in <a href="clause4.htm">clause 4</a> shall be represented by one or
+in <a href="clause4.htm">Clause 4</a> shall be represented by one or
 more AIM EXPRESS constructs given by <a href="annexA.htm">Annex
 A</a>. Each mapping specification contains up to five elements.</P>
 
@@ -23,9 +23,9 @@ A</a>. Each mapping specification contains up to five elements.</P>
 <SPAN>NOTE</SPAN> It is customary to present mapping specifications in
 alphabetical order by UoF name, however this document presents the
 mapping specifications in the same order as they appear
-in <a href="clause4.htm#uofs">clause 4.2</a>.  This ordering matches
-the ordering of clauses in the ISO 14649 parts and is intended to
-simplify reference between these documents.</P>
+in <a href="clause4.htm#uofs">4.2</a>.  This ordering matches the
+ordering of clauses in the ISO 14649 parts and is intended to simplify
+reference between these documents.</P>
 
 <P><b>Application element</b>: The mapping for each application
 element is specified in a separate sub-clause below. Application
@@ -33656,7 +33656,7 @@ date_time_role
 5) The item_defined_transformation locates the workpiece within a setup in a manner similar to an assembly.  Here transform_item_1 refers to the original workpiece placement and transform_item_2 refers to the placement within the setup.   Previous APs have not clearly stated which side of the item_defined_transform refers to the enclosing assembly, which has led to confusion.</P>
 
 <P ID="mapnote-6" CLASS="numbered-notes">
-6) This ARM attribute is defined as a list.  The mapping path shown in the table shows how to relate the elements of the list.  Ordering is handled by the sequence_position attribute on the relationship, which is inherited from the sequential_method supertype.  This attribute holds a number indicating the position within the list.   For exemple,  the fifth item in the list would have sequence_position=5.</P>
+6) This ARM attribute is defined as a list.  The mapping path shown in the table shows how to relate the elements of the list.  Ordering is handled by the sequence_position attribute on the relationship, which is inherited from the sequential_method supertype.  This attribute holds a number indicating the position within the list.   For example,  the fifth item in the list would have sequence_position=5.</P>
 
 <P ID="mapnote-7" CLASS="numbered-notes">
 7) The Toolpath_list application object is not mapped.  Instead, the
@@ -33936,7 +33936,7 @@ USE FROM application_context_schema				-- 10303-41
 
 <P>In addition, there are several places where the ISO 14649 standards directly reference ISO 10303 integrated resources without giving any context as to how they should be used.  To cover these situations, additional definitions have been added to Clause 4 to provide guidance.  The ISO 10303 integrated representation also requires additional context descriptions for some types of information  See <a href="#context-concepts">Context concepts</a> for discussion of these context descriptions.</P>
 
-<P>Finally, there are information requirements which were not considered by ISO 14649 for the isolated case of input to a CNC control, but which must be considered by this document for integrating across the lifecycle such as geometric dimensions and tolerances.  Additional definitions have been added to Clause 4 to handle these.</P>
+<P>Finally, there are information requirements which were not considered by ISO 14649 for the isolated case of input to a CNC control, but which shall be considered by this document for integrating across the lifecycle such as geometric dimensions and tolerances.  Additional definitions have been added to Clause 4 to handle these.</P>
 
 
 <H4 ID="funcon-feature">5.2.2.2 Manufacturing feature concepts</H4>
@@ -34002,7 +34002,7 @@ USE FROM application_context_schema				-- 10303-41
 <P CLASS="note">
 <SPAN>NOTE</SPAN> Why were the reference points for features done this way?  Before it is machined, the top of a feature often corresponds to a tangible location on the stock where a machinist could measure or make a mark.  The bottom of the feature is usually buried within the stock.</P>
 <P CLASS="note">
-The ISO 10303 standards originally defined features on the final form of the part as input to process planning.  However, the features on the final part may not exactly match the features as machined.  Consider a flat surface with a hole drilled in it.  If the hole is drilled before the face is machined, the top of the hole will be higher than if it is drilled after the face is machined.   The location in space of the bottom of the hole remains the same regardless of the sequence of operations.</P>
+The ISO 10303 standards originally defined features on the final form of the part as input to process planning.  However, the features on the final part can differ from  he features as machined.  Consider a flat surface with a hole drilled in it.  If the hole is drilled before the face is machined, the top of the hole will be higher than if it is drilled after the face is machined.   The location in space of the bottom of the hole remains the same regardless of the sequence of operations.</P>
 <P CLASS="note">
 Since planning activity can explore different operation sequences, describing the location from a reference point at the bottom of the feature allows the numeric value of the location to remain constant, even if the volume of the feature changes during process planning.   Subsequent ISO 10303 standards continue to use this convention for compatibility.</P>
 <P CLASS="note">
@@ -34205,7 +34205,7 @@ away by subsequent operations.</P>
 
 <P>Two direction vectors are associated with the planar face.  One is part of the linear path and defines the direction that the swept profile sweeps along the path direction.  This shall be aligned along the Y axis of the feature placement.  The other direction vector is the removal_direction, which defines the surface normal of the plane.  This shall be aligned with the Z axis of the feature placement.  The profile is defined to extend along the X axis of the feature placement.</P>
 
-<P>In ISO 14649, the placement of the feature is defined to lie at the top of the material to be removed.  One must then geometrically evaluate the distance between this placement and the depth surface to determine the depth of material.</P>
+<P>In ISO 14649, the placement of the feature is defined to lie at the top of the material to be removed.  One can then geometrically evaluate the distance between this placement and the depth surface to determine the depth of material.</P>
 
 <P>This document adds the removal_depth and removal_direction attributes to the planar_face application object. These attributes are present for harmonization with the other ISO 10303 parts and also simplify conversion between the two conventions.</P>
 
@@ -34265,7 +34265,7 @@ away by subsequent operations.</P>
 
 <P>A direction vector is part of the linear path and defines the direction that the profile is swept.  This shall be aligned along the Z axis of the feature placement.  The profile lies in the XY plane of the feature placement with the profile origin aligned with feature placement.</P>
 
-<P>In ISO 14649, the pocket definitions have a profile but not a path attribute.  In order to convey depth, the placement of the feature is assumed to be at the top of the feature with Z pointed away from the material.  To determine the depth of the pocket, one must geometrically evaluate the distance in the negative Z direction between this placement and the depth surface.</P>
+<P>In ISO 14649, the pocket definitions have a profile but not a path attribute.  In order to convey depth, the placement of the feature is assumed to be at the top of the feature with Z pointed away from the material.  To determine the depth of the pocket, one can geometrically evaluate the distance in the negative Z direction between this placement and the depth surface.</P>
 
 <P>This document adds the course_of_travel attribute to the Pocket application object. This attribute represents the travel path for harmonization with the other ISO 10303 parts and simplifies conversion between the two conventions.</P>
 
@@ -34298,7 +34298,7 @@ away by subsequent operations.</P>
 
 <P>A direction vector is part of the linear path and defines the direction that the profile is swept.  This shall be aligned along the Z axis of the feature placement.  The swept profile lies in the XY plane of the feature placement with the origin of the swept profile aligned with feature placement.</P>
 
-<P>In ISO 14649, the feature definitions have a profile and path, but use a different convention for placement.  The placement of the feature is assumed to be at the top of the feature with Z pointed away from the material.  To determine the depth of the Profile_feature, one must geometrically evaluate the distance in the negative Z direction between this placement and the depth surface.  However, the depth is also present in the length of the travel path, given by the profile_swept_shape attribute.  </P>
+<P>In ISO 14649, the feature definitions have a profile and path, but use a different convention for placement.  The placement of the feature is assumed to be at the top of the feature with Z pointed away from the material.  To determine the depth of the Profile_feature, one can geometrically evaluate the distance in the negative Z direction between this placement and the depth surface.  However, the depth is also present in the length of the travel path, given by the profile_swept_shape attribute.  </P>
 
 
 <FIGURE ID="fig-shape_profile_origin">
@@ -34344,7 +34344,7 @@ away by subsequent operations.</P>
 
 <P>A direction vector is part of the travel path and defines the direction that the profile is swept.  This shall be aligned along the Z axis of the feature placement.  The profile lies in the XY plane of the feature placement with the profile origin aligned with feature placement at the bottom of the slot feature.</P>
 
-<P>In ISO 14649, the slot definition has a profile and path, but uses a different convention for the location and orientation of the feature placement.  The placement is defined at the top of the material with the Z axis pointing up and the travel path is defined to extend along the Y axis.  To determine the depth of the slot, one must geometrically evaluate the distance in the negative Z direction between this placement and the depth surface.</P>
+<P>In ISO 14649, the slot definition has a profile and path, but uses a different convention for the location and orientation of the feature placement.  The placement is defined at the top of the material with the Z axis pointing up and the travel path is defined to extend along the Y axis.  To determine the depth of the slot, one can geometrically evaluate the distance in the negative Z direction between this placement and the depth surface.</P>
 
 <P>This document adds depth attributes to the Square_u_profile and Rounded_u_profile application objects.  These attributes represent the depth of the profiles for harmonization with the other ISO 10303 parts and to simplify conversion between the two conventions.  The depths of other open profile types can be computed from existing parameters.</P>
 
@@ -34375,7 +34375,7 @@ away by subsequent operations.</P>
 
 <P>A direction vector is part of the travel path and defines the direction that the profile is swept.  This shall be aligned along the Z axis of the feature placement.  The profile lies in the XY plane of the feature placement with the profile origin aligned with feature placement at the point of the vee profile.</P>
 
-<P>In ISO 14649, the step definition has a profile and path, but uses a different convention for the location and orientation of the feature placement.  The placement is defined at the top of the material with the Z axis pointing up and the travel path is defined to extend along the Y axis.  To determine the depth of the step, one must geometrically evaluate the distance in the negative Z direction between this placement and the depth surface.</P>
+<P>In ISO 14649, the step definition has a profile and path, but uses a different convention for the location and orientation of the feature placement.  The placement is defined at the top of the material with the Z axis pointing up and the travel path is defined to extend along the Y axis.  To determine the depth of the step, one can geometrically evaluate the distance in the negative Z direction between this placement and the depth surface.</P>
 
 <P>This document adds the first_side_length and second_side_length attributes to the Vee_profile application object.  These attributes represent the length of each arm of the vee for harmonization with the other ISO 10303 parts and to simplify conversion between the two conventions.</P>
 
@@ -34464,7 +34464,7 @@ shared by many measure_with_unit instances.</P>
 
 <P>Measurements most often appear in the items set of the
 representation of an action_property, resource_property, or
-property_definition.  The items set must refer to representation_item
+property_definition.  The items set refers to representation_item
 instances, so measurements are encoded as a
 measure_representation_item, which is a subtype of measure_with_unit
 and representation_item.  The measure_with_unit subtypes for specific
@@ -34642,7 +34642,7 @@ The steradian unit is encoded by #20, which is a complex instance of solid_angle
 <P>An area measure is encoded using an instance of measure_with_unit (or measure_representation_item when used in a representation).  A derived_unit consisting of a length unit squared is used to describe the measure.</P>
 
 <P CLASS="note">
-<SPAN>NOTE</SPAN> ISO 10303-41 defines value-specific subtypes area_measure_with_unit and area_unit, but the use of these is deprecated because they are not usable as defined.   The unit for an area measure is described as a derived_unit, but a complex instance of area_unit and derived_unit is not permitted by the EXPRESS definition.</P>
+<SPAN>NOTE</SPAN> ISO 10303-41 defines value-specific subtypes area_measure_with_unit and area_unit, but the use of these is deprecated because they are not usable as defined.   The unit for an area measure is described as a derived_unit, but a complex instance of area_unit and derived_unit is not possible for the EXPRESS definition.</P>
 
 <P CLASS="note">
 <SPAN>EXAMPLE</SPAN> An area measurement used in a representation would be encoded as a measure_representation_item.  In the exchange file fragment below, #10 describes a value of 10 square millimetres.</P>
@@ -34670,7 +34670,7 @@ The square millimetre unit is encoded by #20, which is a derived_unit based on o
 <P>A count measure is encoded using an instance of measure_with_unit (or measure_representation_item when used in a representation).  A context_dependent_unit with a name of &quot;count&quot; is used to describe the measure.</P>
 
 <P CLASS="note">
-<SPAN>EXAMPLE</SPAN> In the exchange file fragment below, #10 describes a count of 5 encoded as a measure_with_unit. The count unit is encoded by #20. Example 1 in <A href="#measure-values-and-units">Measurement values and units</A> describes a count meaurement encoded using measure_representation_item.</P>
+<SPAN>EXAMPLE</SPAN> In the exchange file fragment below, #10 describes a count of 5 encoded as a measure_with_unit. The count unit is encoded by #20. Example 1 in <A href="#measure-values-and-units">Measurement values and units</A> describes a count measurement encoded using measure_representation_item.</P>
 
 <PRE CLASS="note">
 #10=MEASURE_WITH_UNIT(COUNT_MEASURE(5.),#20);
@@ -34985,7 +34985,7 @@ The N-m unit is encoded by #20, which is a derived_unit based on a derived_unit_
 
 <P>A volume measure is encoded using an instance of measure_with_unit (or measure_representation_item when used in a representation).  A derived_unit consisting of a length unit cubed is used to describe the measure.</P>
 <P CLASS="note">
-<SPAN>NOTE</SPAN> ISO 10303-41 defines value-specific subtypes volume_measure_with_unit and volume_unit, but the use of these is deprecated because they are not usable as defined.   The unit for a volume measure is described as a derived_unit, but a complex instance of volume_unit and derived_unit is not permitted by the EXPRESS definition.</P>
+<SPAN>NOTE</SPAN> ISO 10303-41 defines value-specific subtypes volume_measure_with_unit and volume_unit, but the use of these is deprecated because they are not usable as defined.   The unit for a volume measure is described as a derived_unit, but a complex instance of volume_unit and derived_unit is not possible for the EXPRESS definition.</P>
 <P CLASS="note">
 <SPAN>EXAMPLE</SPAN> A volume measurement used in a representation would be encoded as a measure_representation_item.  In the exchange file fragment below, #10 describes a value of 20 cubic millimetres.</P>
 <PRE CLASS="note">
@@ -35062,7 +35062,7 @@ The cubic millimetre unit is encoded by #20, which is a derived_unit based on a 
 
 <P>Since the range of symbolic values is fixed, it is recommended to instantiate this entity exactly once for each unique symbolic value that appears in the data set.  Properties that have the same symbolic value can share either the descriptive_representation_item or the enclosing representation.</P>
 <P CLASS="note">
-<SPAN>EXAMPLE</SPAN> In the exchange file fragment below, #10 and #20 describe two Milling_machine_functions application objects, each with chip removal on and coolant on.   Within the ARM, chip removal and coolant are both described as boolean parameters.   In the integrated representation, thse are represented as symbolic values 'chip removal on', 'chip removal off', 'coolant on', and 'coolant off'. </P>
+<SPAN>EXAMPLE</SPAN> In the exchange file fragment below, #10 and #20 describe two Milling_machine_functions application objects, each with chip removal on and coolant on.   Within the ARM, chip removal and coolant are both described as boolean parameters.   In the integrated representation, these are represented as symbolic values 'chip removal on', 'chip removal off', 'coolant on', and 'coolant off'. </P>
 <P CLASS="note">
 Only one descriptive_representation_item instance is needed to describe the 'chip removal on' value (#30), and it can be shared by all properties, along with its enclosing representation (#31).    The instance describing 'coolant on' (#40) and its enclosing representation (#41) is shared as well.</P>
 <PRE CLASS="note">
@@ -35094,7 +35094,7 @@ Only one descriptive_representation_item instance is needed to describe the 'chi
 
 <P>Context forms an important part of the ISO 10303 integrated representation, particularly with respect to the description of geometric properties.  The value of an action_property, resource_property, or property_definition is encoded as a set of representation_items within an instance of a representation.   The representation context_of_items attribute refers to a representation_context instance that supplies additional contextual information about the value.</P>
 
-<P>Local rules on the ISO 10303 geometry definitions require that any enclosing representation must refer to a geometric_representation_context to identify the dimensionality (2D, 3D, etc.) of the geometry. The geometry definitions are unitless, so global_unit_assigned_context is also used to specify length, plane angle, and solid angle units.  Finally, to enable solid model exchange between systems with dissimilar geometric accuracy, global_uncertainty_assigned_context is often used to document an uncertainty distance below which two points are considered to be the same.</P>
+<P>Local rules on the ISO 10303 geometry definitions require that any enclosing representation refer to a geometric_representation_context to identify the dimensionality (2D, 3D, etc.) of the geometry. The geometry definitions are unitless, so global_unit_assigned_context is also used to specify length, plane angle, and solid angle units.  Finally, to enable solid model exchange between systems with dissimilar geometric accuracy, global_uncertainty_assigned_context is often used to document an uncertainty distance below which two points are considered to be the same.</P>
 
 <P>A representation can only refer to a single representation_context instance, so a complex entity instance of the types is normally used.</P>
 <P CLASS="note">
@@ -35122,7 +35122,7 @@ Only one descriptive_representation_item instance is needed to describe the 'chi
 
 <P>A context is still required for a representation containing
 non-geometric representation_item instances.  In this case, an
-instance of the representation_context base type is sufficent.</P>
+instance of the representation_context base type is sufficient.</P>
 
 <P>In general, only one instance of each type of context is needed, as
 it can be shared by many representation instances.</P>
@@ -35185,7 +35185,7 @@ value.</P>
 
 <H5 ID="funcon-path-param">5.2.2.6.1 Matching curve parameterization</H5>
 
-<P>The definitions of <a href="clause4.htm#ao-cutter_contact_trajectory">Cutter_contact_trajectory</a>, <a href="clause4.htm#ao-cutter_location_trajectory">Cutter_location_trajectory</a>, <a href="clause4.htm#ao-axis_trajectory">Axis_trajectory</a>, and <a href="clause4.htm#ao-toolpath_speed">Toolpath_speed</a>, require that the curves that describe location (basiccurve), tool axis, surface normal, and feed speed must have the same parameterization.</P>
+<P>The definitions of <a href="clause4.htm#ao-cutter_contact_trajectory">Cutter_contact_trajectory</a>, <a href="clause4.htm#ao-cutter_location_trajectory">Cutter_location_trajectory</a>, <a href="clause4.htm#ao-axis_trajectory">Axis_trajectory</a>, and <a href="clause4.htm#ao-toolpath_speed">Toolpath_speed</a>, require that the curves that describe location (basiccurve), tool axis, surface normal, and feed speed shall have the same parameterization.</P>
 
 <P>When the curves are b-splines, the intent of this requirement is that all curves are evaluated at the same U and V values to get the appropriate XYZ or IJK values.  When the location curve is described using other types of bounded_curve, such as a polyline, ISO 14649 does not describe how the corresponding tool axis, surface normal, and feed speed values are to be determined for specific location values.</P>
 <P CLASS="note">
@@ -35349,7 +35349,7 @@ using the 'other functions' property.</P>
 of processes and makes no attempt to represent the results of
 execution.  Where a planned process would produce results, such as
 touch_probing, the operations identify an external variable name, but
-the value must be collected from a machine tool by some unspecified
+the value can be collected from a machine tool by some unspecified
 method.</p>
 
 <P CLASS="note">
@@ -35402,16 +35402,16 @@ value in the main workplan and all children Executables.</p>
 
 <p>An Executable within a twin process may set the twin_source and
 twin_exception parameters to describe whether it was machined or
-simulated, and whether it completed sucessfully.  The Executable may
+simulated, and whether it completed successfully.  The Executable may
 may set the twin_plan parameter to identify the Executable within a
 planned process that was machined or simulated.  If an Executable
 within a twin process was not planned before execution, the twin_plan
 parameter shall not be set.</p>
 
 <P CLASS="note">
-<SPAN>EXAMPLE 1</SPAN> An unplanned operation may not originate in a
-CAM system.  A workpiece may be delivered by a supplier, stored in a
-warehouse and cut to size before CAM-planned operations begin.
+<SPAN>EXAMPLE 1</SPAN> An unplanned operation can have an origin other
+than a CAM system.  A workpiece may be delivered by a supplier, stored
+in a warehouse and cut to size before CAM-planned operations begin.
 Operations like ordering and pre-cutting are not described in CAM
 because they are not executed by a machine control, but recording them
 in the results data may be important if the part fails in the field.
@@ -36145,7 +36145,7 @@ END_ENTITY; -- cylindrical_shape_representation
 
 <P><B>IP1</B>: The location of the <B>cylindrical_shape_representation</B> shall be defined to be at the centre of the circle that defines the cylinder.</P>
 
-<P><B>IP2</B>: The <B>cylindrical_shape_representation</B> shall be definied by forming a circular profile in the X-Y plane, and the length along the z direction.</P>
+<P><B>IP2</B>: The <B>cylindrical_shape_representation</B> shall be defined by forming a circular profile in the X-Y plane, and the length along the z direction.</P>
 
 
 
@@ -36672,11 +36672,11 @@ ENTITY grooving_turning_operation
   WR3:  (verify_optional_action_property        (SELF, 'allowance')) AND
         (verify_length_measure_action_property  (SELF, 'allowance'));
 
-  -- allowance propery required for roughing
+  -- allowance property required for roughing
   WR4:  NOT (SELF.description = 'roughing') OR
         (verify_required_action_property (SELF, 'allowance'));
 
-  -- allowance propery forbidden for cutting in
+  -- allowance property forbidden for cutting in
   WR5:  NOT (SELF.description = 'cutting in') OR
         (0 = SIZEOF (get_action_property (SELF, 'allowance')));
 END_ENTITY;
@@ -37060,7 +37060,7 @@ END_ENTITY;
 <!-- ============================== -->
 <H5 ID="aim-machining_dwell_time_representation">5.2.4.1.39 machining_dwell_time_representation</H5>
 
-<P>A <B>machining_dwell_time_representation</B> is a type of <B>representation</B> that represents the duration of time that a machine tool perfoms some action. The dwell time is described as one of the following:</P>
+<P>A <B>machining_dwell_time_representation</B> is a type of <B>representation</B> that represents the duration of time that a machine tool performs some action. The dwell time is described as one of the following:</P>
 <UL>
 <LI>as a time measure, as described by the ARM definitions for the Feedstop &quot;dwell&quot; attribute in ISO 14649-10, the Multistep_drilling &quot;dwell_time_step&quot; and Drilling_type_operation &quot;dwell_time_bottom&quot; attributes in ISO 14649-11, and Dwell_time in ISO 14649-12;</LI>
 <LI>as a count of spindle revolutions, as described by the ARM definitions for Dwell_revolution in ISO 14649-12.</LI>
@@ -37363,8 +37363,8 @@ END_ENTITY;
 
 <P>A <B>machining_final_feature_relationship </B>is a type
 of <B>action_method_relationship</B> that represents a feature visible
-on the final form of the workpiece that a workingstep may not
-manufacture directly, but in some way contributes to the creation of.
+on the final form of the workpiece that a workingstep in some way
+contributes to the creation of.
 See <a href="clause4.htm#ao-machining_workingstep">Machining_workingstep
 final_features</a> for more information.</P>
 
@@ -37462,7 +37462,7 @@ ENTITY machining_functions
          (verify_pressure_measure_action_property
            (SELF, 'through spindle pressure')) AND
 
-         -- axis constraints property must contain zero or more ranges
+         -- axis constraints property contain zero or more ranges
          (0 = SIZEOF (QUERY (prop &lt;* get_action_property
                 (SELF, 'axis constraints') | NOT
                  ((0 &lt; SIZEOF (QUERY (prep &lt;* USEDIN (prop,
@@ -39449,7 +39449,7 @@ ENTITY machining_toolpath
   WR10: NOT (SELF.description = 'axis trajectory') OR
         ((verify_required_action_property     (SELF, 'axis commands')) AND
 
-         -- axis commands property must contain one or more bounded curves
+         -- axis commands property contain one or more bounded curves
          (0 = SIZEOF (QUERY (prop &lt;* get_action_property (SELF, 'axis commands') |
           NOT ((0 &lt; SIZEOF (QUERY (prep &lt;* USEDIN (prop,
                'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.ACTION_PROPERTY_REPRESENTATION.PROPERTY') |
@@ -40829,13 +40829,13 @@ END_ENTITY;
 <P>A <b>via_arc_point</b> is a <b>cartesian_point</b>. When appearing in the <b>points</b> list of a <b>polyline</b>, the <b>via_arc_point</b> defines an arc starting at the previous point in the <b>polyline</b>, passing through the <b>via_arc_point</b>, and ending at the next point in the <b>polyline</b>. The arc defined by the <b>via_arc_point</b> shall be less than 2&pi;.</P>
 
 
-<P>If two via points are considered coincident if any two consecutive points in the via re considered coincident, they shall be considered to decrine a straight line segment rather than an arc.   context of enclosing representation.   Extra via points between two non via points must define arcs of the same radius.</P>
+<P>If two via points are considered coincident if any two consecutive points in the via re considered coincident, they shall be considered to decrine a straight line segment rather than an arc.   context of enclosing representation.   Extra via points between two non via points define arcs of the same radius.</P>
 
 <P CLASS="note">
 <SPAN>NOTE 1</SPAN> Since the arc defined by a via is less than  2&pi;, a full circle is described using more than one via point.   The use of a via point to describe an arc is also found in the circular_path entity in <a href="bibliography.htm#iso10303-105">ISO 10303-105</a>.</P>
 
 <p>
-If a via point and the preceeding or following point in a polyline are considered coincident, the via point shall be considered to define straight line segments rather than an arc.</p>
+If a via point and the preceding or following point in a polyline are considered coincident, the via point shall be considered to define straight line segments rather than an arc.</p>
 
 <P CLASS="note">
 <SPAN>NOTE 2</SPAN> Two points are considered coincident if they lie within the uncertainty distance given by the global_uncertainty_assigned_context of the enclosing representation.</P>
@@ -40896,7 +40896,7 @@ END_ENTITY;
 <P>A <b>via_helix_point</b> is a <b>cartesian_point</b>.  When appearing in the <b>points</b> list of a <b>polyline</b>, the <b>via_helix_point</b> defines an helix starting at the previous point in the <b>polyline</b>, passing through the <b>via_helix_point</b>, and ending at the next point in the <b>polyline</b>.   As with <b>via_arc_point</b>, when projected to the plane, the arc defined by the <b>via_helix_point</b> shall be less than 2&pi;.</P>
 
 <p>
-If a via point and the preceeding or following point in a polyline are considered coincident, the via point shall be considered to define straight line segments rather than a helix.</p>
+If a via point and the preceding or following point in a polyline are considered coincident, the via point shall be considered to define straight line segments rather than a helix.</p>
 
 <P CLASS="note">
 <SPAN>NOTE</SPAN> Two points are considered coincident if they lie within the uncertainty distance given by the global_uncertainty_assigned_context of the enclosing representation.</P>
@@ -41226,7 +41226,7 @@ WHERE
                    (rir.relating_representation_item :=: nv)
 	))))));
 
-  -- the types on either side of the initial value relationship must match
+  -- the types on either side of the initial value relationship match
   -- each nc_variable has at most one one initial value
   WR2: (0 = SIZEOF (QUERY (rir &lt;* representation_item_relationship |
   	 (rir.description = 'initial value')  AND 

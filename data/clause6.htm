@@ -65,11 +65,11 @@ Annotated example data sets for several conformance classes are provided in <a h
 <P>
 This conformance class supports the description of machining programs containing a single sequence of operations, each of which is described using the machine-independent path of the tool centre point, using a simplified set of curves types, as well as tool requirements, management information about the program, and all technology-specific process parameters.</P>
 <P>
-This conformance class includes all application objects from the measure, operation, project, workpiece, process data for milling, cutting tools for milling, process data for turning, cutting tools for turning, library reference, and management UoFs.</P>
+This conformance class includes all application objects from the Measure, Operation, Project, Workpiece, Process data for milling, Cutting tools for milling, Process data for turning, Cutting tools for turning, Library reference, and Management UoFs.</P>
 <P CLASS="note">
 <SPAN>NOTE</SPAN> Since this conformance class requires a toolpath for every operation, any specified strategy is simply for additional information.   In the absence of any other useful information, it is recommended that the machining operation be specified as a Freeform_operation with no associated strategies.</P>
 <P>
-This conformance class includes the following application objects and their supertypes from the executable UoF:</P>
+This conformance class includes the following application objects and their supertypes from the Executable UoF:</P>
 <UL>
 <LI>Machining_tool;</LI>
 <LI>Machining_workingstep;</LI>
@@ -79,7 +79,7 @@ This conformance class includes the following application objects and their supe
 <LI>Workplan.</LI>
 </UL>
 <P>
-This conformance class includes the following application objects and their supertypes from the toolpath UoF:</P>
+This conformance class includes the following application objects and their supertypes from the Toolpath UoF:</P>
 <UL>
 <LI>Cutter_location_trajectory;</LI>
 <LI>Feedstop;</LI>
@@ -102,7 +102,7 @@ In addition, the following apply to use of the application objects in this confo
 <P>
 This conformance class extends the previous conformance class to support the description of machining programs with the full range of toolpath specifications as well as full shape information for the workpiece, rawpiece and restricted areas on the setup.</P>
 <P>
-This conformance class includes everything specified by CC1, plus all remaining application objects from the toolpath UoF and the Parallel application object from the executable UoF.</P>
+This conformance class includes everything specified by CC1, plus all remaining application objects from the Toolpath UoF and the Parallel application object from the Executable UoF.</P>
 <P>
 In addition, the following apply to use of the application objects in this conformance class:</P>
 <UL>
@@ -116,7 +116,7 @@ In addition, the following apply to use of the application objects in this confo
 <P>
 This conformance class extends the previous conformance class to support the description of machining programs using the full range of executable constructs and manufacturing process features defined by implicit parameters.</P>
 <P>
-This conformance class includes everything specified by CC2, plus all application objects from the manufacturing feature and manufacturing feature for turning UoFs and all remaining application objects from the executable UoF.</P>
+This conformance class includes everything specified by CC2, plus all application objects from the Manufacturing feature and Manufacturing feature for turning UoFs and all remaining application objects from the Executable UoF.</P>
 <P>
 In addition, the following apply to use of the application objects in this conformance class:</P>
 <UL>
@@ -131,7 +131,7 @@ In addition, the following apply to use of the application objects in this confo
 <P>
 This conformance class extends the previous conformance class to support the description of geometric dimension and tolerance information sufficient to compute optimal speeds and feeds, manufacturing features appearing on the final product shape, and features with linkage to explicit geometry.</P>
 <P>
-This conformance class includes everything specified by CC3, plus all application objects from the geometric dimensioning and tolerancing UoF and all remaining application objects from other UoFs.</P>
+This conformance class includes everything specified by CC3, plus all application objects from the Geometric dimensioning and tolerancing UoF and all remaining application objects from other UoFs.</P>
 <P>
 In addition, the following apply to use of the application objects in this conformance class:</P>
 <UL>

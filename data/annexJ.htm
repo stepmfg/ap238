@@ -13,7 +13,7 @@
 
 <H2 ID="clause-J-1">J.1  General</H2>
 
-<P>This annex provides four example data sets to assist implementors in understanding the use and structure of this document.   The examples have been annotated with comments to illustrate the relationship between the application object concepts documented in 4.2 and the AIM instances organized according to the mapping paths documented in 5.1.</P>
+<P>This annex provides four example data sets to assist implementers in understanding the use and structure of this document.   The examples have been annotated with comments to illustrate the relationship between the application object concepts documented in 4.2 and the AIM instances organized according to the mapping paths documented in 5.1.</P>
 
 <P>The first data set is a conformance class one example that describes a simple workplan for milling a block using explicit toolpaths.  The second is a conformance class two example that adds workpiece and stock geometry descriptions to the first example. The third is a conformance class three example that describes a milling workplan for several features on a block.  This was adapted from an ARM example that appears in ISO 14649-11.  The fourth is a conformance class three example that describes a turning workplan for several features on a workpiece.  This was adapted from an ARM example that appears in ISO 14649-12.</P>
 
@@ -87,7 +87,7 @@ descriptive_representation_item.description
 
 <P>The comment indicates that #50, #59, #60, #61, and #62 describe the coolant parameter. Instance #50 is the machining_functions instance at the start of the reference path.  This is referred to by #59, an action property with a name of &quot;coolant.&quot;   This action_property is referred to by #60, which is an action_property_representation.  This refers to #61, which is a representation that contains descriptive_representation_item #62 in its items set.  The last lines of the reference path constrain the value of the description attribute to either &quot;coolant on&quot; or &quot;coolant off.&quot;   In instance #62, the value is &quot;coolant on,&quot; which is also documented at the end of the comment.  This can seem verbose, but implementation tests have shown that in normal use, almost all data in a file will be geometry instances that describe either workpiece shape or toolpath curves.</P>
 
-<P>It is hoped that this annotation will assist implementors in understanding the use and structure of the application objects, mapping reference paths, and corresponding integrated representation for the examples that follow.</P>
+<P>It is hoped that this annotation will assist implementers in understanding the use and structure of the application objects, mapping reference paths, and corresponding integrated representation for the examples that follow.</P>
 
 <H2 ID="clause-J-3">J.3  Machining project for CC1 and CC2 examples</H2>
 
@@ -2654,7 +2654,7 @@ END-ISO-10303-21;
 
 <H2 ID="clause-J-6">J.6  Data set for ISO 14649-11 example #1 (CC3)</H2>
 
-<P>The following test case is defined by ISO 14649-11:2004, Annex E.   It defines a simple machining project for a block that contains a hole and a pocket as shown in Figure J.2.  The data set follows the original ordering of application object instances in the ISO 14649-11 example.   This example is a conformance class three file and contains no toolpaths.   The processing system must generate toolpaths from the supplied features in order to machine the part.</P>
+<P>The following test case is defined by ISO 14649-11:2004, Annex E.   It defines a simple machining project for a block that contains a hole and a pocket as shown in Figure J.2.  The data set follows the original ordering of application object instances in the ISO 14649-11 example.   This example is a conformance class three file and contains no toolpaths.   The processing system can generate toolpaths from the supplied features in order to machine the part.</P>
 
 <FIGURE ID="fig-testcase_p11_1">
 <IMG SRC="../images/testcase_p11_1.svg">
@@ -4344,7 +4344,7 @@ END-ISO-10303-21;
 
 <H2 ID="clause-J-7">J.7  Data set for ISO 14649-12 example #1 (CC3)</H2>
 
-<P>The following example is defined by ISO 14649-12:2005, Annex D and describes a machining project for a turned part containing the features shown in Figure J.3.  The data set follows the original ordering of application object instances in the ISO 14649-12 example.  This example is a conformance class three file and contains no toolpaths.   The processing system must generate toolpaths from the supplied features in order to machine the part. </P>
+<P>The following example is defined by ISO 14649-12:2005, Annex D and describes a machining project for a turned part containing the features shown in Figure J.3.  The data set follows the original ordering of application object instances in the ISO 14649-12 example.  This example is a conformance class three file and contains no toolpaths.   The processing system can generate toolpaths from the supplied features in order to machine the part. </P>
 
 <FIGURE ID="fig-testcase_p12_1">
 <IMG SRC="../images/testcase_p12_1.svg">
