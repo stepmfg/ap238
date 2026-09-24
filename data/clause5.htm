@@ -33952,7 +33952,7 @@ USE FROM application_context_schema				-- 10303-41
 
 <P>Most of the machining_feature types defined by ISO 14649-10 use the same profile and path information requirements as the ISO 10303 integrated representation.  However, in some, the authors of ISO 14649-10 chose to merge profile parameters into the feature definition, change orientations, or change conventions for reference points.</P>
 
-<P>Several common cases are discussed below.  See <a href="#funcon-feature-bytype">Manufacturing feature details by type</a> for a systematic review of the profile and path conventions for feature types in the integrated representation, and an explanation of how to convert to the conventions used by ISO 14649.</P>
+<P>Several common cases are discussed below.  See <a href="#funcon-feature-bytype">Manufacturing feature details by type</a> for a systematic review of the profile and path conventions for feature types in the integrated representation, and an explanation of how to convert to the conventions used by the ISO 14649 series.</P>
 <P CLASS="note">
 <SPAN>EXAMPLE 2</SPAN> The ISO 14649-10 definition of a round hole has a diameter measure.  In the AIM mappings, we tie this to the diameter measure of a circular profile.  The profile and path representation is still used at the AIM level for harmonization, even when the concepts are only tangentially represented in the ARM.</P>
 
@@ -34509,7 +34509,7 @@ units.</P>
 
 <P>To convert to the ISO 14649 representation, convert the numeric
 value of each measure from the unit description provided with the
-measure to the default unit specified by ISO 14649.</P>
+measure to the default unit specified by the ISO 14649 series.</P>
 
 
 <H5 ID="measure-quals">5.2.2.4.2 Tolerance qualifications</H5>
@@ -34999,7 +34999,7 @@ The cubic millimetre unit is encoded by #20, which is a derived_unit based on a 
 <P CLASS="note">
 <SPAN>EXAMPLE 1</SPAN> A feedrate could be described either as a linear speed (length per unit of time), or as a length per tooth of the tool being used.</P>
 
-<P>The ISO 14649 documents use different modeling styles to describe these alternatives. The ISO 14649-11 milling model frequently uses different attributes for each alternative with a local rule forbidding the use of more than one at a time.  The ISO 14649-12 turning model frequently uses a SELECT type to model the alternatives.</P>
+<P>The ISO 14649 series uses different modeling styles to describe these alternatives. The ISO 14649-11 milling model frequently uses different attributes for each alternative with a local rule forbidding the use of more than one at a time.  The ISO 14649-12 turning model frequently uses a SELECT type to model the alternatives.</P>
 <P CLASS="note">
 <SPAN>EXAMPLE 2</SPAN> In ISO 14649-11, Milling_technology &quot;spindle&quot; and &quot;cutspeed&quot; are separate attributes that use different techniques (constant angular speed versus constant linear speed at the cutting point) to describe the machine tool spindle rotation.   A local rule on Milling_technology prevents the use of both.  ISO 14649-12 uses one attribute called &quot;spindle_speed&quot; defined as a Speed_select SELECT type that models the same two different ways to describe spindle rotation.</P>
 

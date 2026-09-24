@@ -26,29 +26,35 @@ including the scope and information requirements defined by the ISO
 geometry, geometric dimensioning and tolerancing, and product data
 management information.</P>
 
-<P>ISO 14649 defines a richer model for information transfer between
-CAD/CAM systems and computerized numerical control (CNC) machines than
-that of the older ISO 6983 &quot;G and M code&quot;
-language.  <a href="bibliography.htm#iso6983-1">ISO 6983-1</a>
-describes the path of the tool centre point with respect to machine
-axes.  ISO 14649 describes machining processes with respect to a part,
-including part geometry, manufacturing features, sequencing of
-operations, associated process parameters, and tool requirements.</P>
+<P>The ISO 14649 series defines a richer model for information
+transfer between CAD/CAM systems and computerized numerical control
+(CNC) machines than that of the older ISO 6983 &quot;G and M
+code&quot; language.  <a href="bibliography.htm#iso6983-1">ISO
+6983-1</a> describes the path of the tool centre point with respect to
+machine axes.  The ISO 14649 series describes machining processes with
+respect to a part, including part geometry, manufacturing features,
+sequencing of operations, associated process parameters, and tool
+requirements.</P>
 
-<P>
-This document specifies the integrated resources necessary to
-describe the information requirements identified by ISO 14649 in a
-manner consistent with the part shape, feature, geometric dimension
-and tolerance information created by design and process-planning
-activities and represented
+<p>The ISO 14649 parts available at the time of publication cover
+milling, drilling, turning, and additive manufacturing processes (ISO
+14649-11, ISO 14649-12, and ISO 14649-17).  Future editions of this
+document may include additional processes if additional ISO 14649
+parts become available.</P>
+
+<P>This document specifies the integrated resources necessary to
+describe the information requirements identified by the ISO 14649
+series in a manner consistent with the part shape, feature, geometric
+dimension and tolerance information created by design and
+process-planning activities and represented
 by <a href="bibliography.htm#iso10303-203">ISO 10303-203</a>,
 <a href="bibliography.htm#iso10303-214">ISO 10303-214</a>,
 <a href="bibliography.htm#iso10303-224">ISO 10303-224</a>, 
 <a href="bibliography.htm#iso10303-240">ISO 10303-240</a>, and
-<a href="bibliography.htm#iso10303-242">ISO 10303-242</a>.
-It is advisable that users of this document understand the
-basic principles and concepts of numerical controlled machining and
-associated processes and understand and have access to ISO 14649,
+<a href="bibliography.htm#iso10303-242">ISO 10303-242</a>.  It is
+advisable that users of this document understand the basic principles
+and concepts of numerical controlled machining and associated
+processes and understand and have access to the ISO 14649 series,
 particularly ISO 14649-1, ISO 14649-10, ISO 14649-11, ISO 14649-12,
 ISO 14649-111, and ISO 14649-121.  A discussion and data planning
 model is given in ISO 14649-1.</P>
@@ -61,6 +67,20 @@ to satisfy these requirements.</P>
 <P>Application protocols provide the basis for developing
 implementations of ISO 10303 and abstract test suites for the
 conformance testing of AP implementations.</P>
+
+<p>This document is a member of the &quot;STEP Manufacturing
+Suite&quot; of ISO 10303 application protocols, which cover
+information associated with the manufacture of a product, such as the
+input to process planning (<a href="bibliography.htm#iso10303-224">ISO
+10303-224</a>), the output from macro-process planning
+(<a href="bibliography.htm#iso10303-240">ISO 10303-240</a>),
+model-based machining (this document), casting
+(<a href="bibliography.htm#iso10303-223">ISO 10303-223</a>) and the
+output from dimensional inspection
+(<a href="bibliography.htm#iso10303-219">ISO 10303-219</a>).  While
+each application protocol has unique scope elements, other elements,
+such as manufacturing feature and manufacturing tolerance
+descriptions, are common to many of these application protocols.</P>
 
 <P><a href="clause1.htm">Clause 1</a> defines the scope of the
 application protocol and summarizes the functionality and data covered
