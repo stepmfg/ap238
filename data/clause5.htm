@@ -30913,32 +30913,25 @@ descriptive_representation_item.description
 
 <table class="map">
 <tr><th>AIM element:</th>
-<td>descriptive_representation_item.description</td>
+<td>identification_assignment.assigned_id</td>
 </tr>
 
 <tr><th>Source:</th>
-<td>10303-45</td>
+<td>10303-41</td>
 </tr>
 
 <tr><th>Reference path:</th>
 <td class="path">product_definition
-characterized_product_definition = product_definition
-characterized_product_definition
-characterized_definition = characterized_product_definition
-characterized_definition &lt;-
-property_definition.definition
-{property_definition.name = 'user serial number'}
-property_definition
-represented_definition = property_definition
-represented_definition &lt;-
-property_definition_representation.definition
-property_definition_representation 
-property_definition_representation.used_representation -&gt;
-representation
-representation.items[i] -&gt;
-representation_item =&gt;
-descriptive_representation_item 
-descriptive_representation_item.description 
+external_identification_item = product_definition
+external_identification_item &lt;-
+applied_external_identification_assignment.items[i]
+applied_external_identification_assignment &lt;=
+external_identification_assignment &lt;=
+identification_assignment
+{ identification_assignment.role -&gt;
+identification_role
+identification_role.name = 'user serial number' }
+identification_assignment.assigned_id
 </td>
 </tr>
 </table>

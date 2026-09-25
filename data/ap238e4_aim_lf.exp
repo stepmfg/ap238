@@ -6163,7 +6163,7 @@ ENTITY constructive_geometry_representation
               'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.CONNECTED_FACE_SET'
               , 
               'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.CONNECTED_EDGE_SET'
-               ] * TYPEOF(cgr_i)) <> 1))) = 0;
+               ] * TYPEOF(cgr_i)) = 1))) = 0;
     WR3: SIZEOF(USEDIN(SELF, 
               'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.REPRESENTATION_RELATIONSHIP.REP_2'
               )) > 0;
