@@ -200,6 +200,8 @@ and ISO 10303-1782.
 
 <H3 ID="mapuof-project">5.1.3 Mapping specification for project UoF</H3>
 
+<H4 ID="mapuof-project-general">5.1.3.1 General</H4>
+
 <P>The mapping specification for the application objects in this UoF
 shall be as defined by ISO 10303-1011 and the specification below.
 
@@ -209,7 +211,7 @@ shall be as defined by ISO 10303-1011 and the specification below.
 <A HREF="clause4.htm#ao-manufacturing_project">AO</a>
 <A HREF="annexG.htm#manufacturing_project">ARM</a>
 </DIV>
-<H4 ID="map-manufacturing_project">5.1.3.1 MANUFACTURING_PROJECT</H4>
+<H4 ID="map-manufacturing_project">5.1.3.2 MANUFACTURING_PROJECT</H4>
 </DIV>
 
 <table class="map">
@@ -231,7 +233,7 @@ machining_project }
 </table>
 
 
-<H5 ID="map-manufacturing_project-main_workplan">5.1.3.1.1 manufacturing_project to workplan (as main_workplan)</H5>
+<H5 ID="map-manufacturing_project-main_workplan">5.1.3.2.1 manufacturing_project to workplan (as main_workplan)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -259,7 +261,7 @@ machining_workplan
 </table>
 
 
-<H5 ID="map-manufacturing_project-its_workpieces">5.1.3.1.2 manufacturing_project to product_view_definition (as its_workpieces)</H5>
+<H5 ID="map-manufacturing_project-its_workpieces">5.1.3.2.2 manufacturing_project to product_view_definition (as its_workpieces)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -281,7 +283,7 @@ product_definition
 </table>
 
 
-<H5 ID="map-manufacturing_project-its_owner">5.1.3.1.3 manufacturing_project to person_in_organization (as its_owner)</H5>
+<H5 ID="map-manufacturing_project-its_owner">5.1.3.2.3 manufacturing_project to person_in_organization (as its_owner)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -307,7 +309,7 @@ person
 </table>
 
 
-<H5 ID="map-manufacturing_project-its_release">5.1.3.1.4 its_release</H5>
+<H5 ID="map-manufacturing_project-its_release">5.1.3.2.4 its_release</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -335,7 +337,7 @@ date_and_time
 </table>
 
 
-<H5 ID="map-manufacturing_project-its_status">5.1.3.1.5 manufacturing_project to approval (as its_status)</H5>
+<H5 ID="map-manufacturing_project-its_status">5.1.3.2.5 manufacturing_project to approval (as its_status)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -359,6 +361,8 @@ approval
 
 <H3 ID="mapuof-workpiece">5.1.4 Mapping specification for workpiece UoF</H3>
 
+<H4 ID="mapuof-workpiece-general">5.1.4.1 General</H4>
+
 <P>The mapping specification for the application objects in this UoF
 shall be as defined by ISO 10303-1006, ISO 10303-1026, ISO 10303-1030, ISO
 10303-1110, ISO 10303-1118, ISO 10303-1681, and the specification
@@ -369,7 +373,7 @@ below.
 <A HREF="clause4.htm#ao-workpiece">AO</a>
 <A HREF="annexG.htm#workpiece">ARM</a>
 </DIV>
-<H4 ID="map-workpiece">5.1.4.1 WORKPIECE</H4>
+<H4 ID="map-workpiece">5.1.4.2 WORKPIECE</H4>
 </DIV>
 
 <table class="map">
@@ -382,7 +386,7 @@ below.
 </tr>
 </table>
 
-<H5 ID="map-workpiece-global_tolerance">5.1.4.1.1 global_tolerance</H5>
+<H5 ID="map-workpiece-global_tolerance">5.1.4.2.1 global_tolerance</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -419,7 +423,7 @@ length_measure_with_unit
 </table>
 
 
-<H5 ID="map-workpiece-its_rawpiece">5.1.4.1.2 workpiece to workpiece (as its_rawpiece)</H5>
+<H5 ID="map-workpiece-its_rawpiece">5.1.4.2.2 workpiece to workpiece (as its_rawpiece)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -442,7 +446,7 @@ product_definition
 </table>
 
 
-<H5 ID="map-workpiece-its_geometry">5.1.4.1.3 its_geometry</H5>
+<H5 ID="map-workpiece-its_geometry">5.1.4.2.3 its_geometry</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -477,7 +481,7 @@ shape_representation
 </table>
 
 
-<H5 ID="map-workpiece-its_bounding_geometry">5.1.4.1.4 its_bounding_geometry</H5>
+<H5 ID="map-workpiece-its_bounding_geometry">5.1.4.2.4 its_bounding_geometry</H5>
 <div class="mapnote">
 <p>#1: if bounding geometry is a block</p>
 <p>#2: if bounding geometry is a  right_circular_cylinder</p>
@@ -537,7 +541,7 @@ cylindrical_shape_representation)
 </table>
 
 
-<H5 ID="map-workpiece-clamping_positions">5.1.4.1.5 clamping_positions</H5>
+<H5 ID="map-workpiece-clamping_positions">5.1.4.2.5 clamping_positions</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -574,7 +578,7 @@ cartesian_point
 </table>
 
 
-<H5 ID="map-workpiece-its_approvals">5.1.4.1.6 workpiece to approval (as its_approvals)</H5>
+<H5 ID="map-workpiece-its_approvals">5.1.4.2.6 workpiece to approval (as its_approvals)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -595,7 +599,7 @@ approval
 </table>
 
 
-<H5 ID="map-workpiece-its_categories">5.1.4.1.7 its_categories</H5>
+<H5 ID="map-workpiece-its_categories">5.1.4.2.7 its_categories</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -627,7 +631,7 @@ product_category.name
 </table>
 
 
-<H5 ID="map-workpiece-its_components">5.1.4.1.8 workpiece to next_assembly_usage (as its_components)</H5>
+<H5 ID="map-workpiece-its_components">5.1.4.2.8 workpiece to next_assembly_usage (as its_components)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -646,7 +650,7 @@ next_assembly_usage_occurrence
 </table>
 
 
-<H5 ID="map-workpiece-its_datestamps">5.1.4.1.9 workpiece to date_or_date_time_assignment (as its_datestamps)</H5>
+<H5 ID="map-workpiece-its_datestamps">5.1.4.2.9 workpiece to date_or_date_time_assignment (as its_datestamps)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -664,7 +668,7 @@ applied_date_assignment
 </table>
 
 
-<H5 ID="map-workpiece-its_orgs">5.1.4.1.10 workpiece to organization_or_person_in_organization_assignment (as its_orgs)</H5>
+<H5 ID="map-workpiece-its_orgs">5.1.4.2.10 workpiece to organization_or_person_in_organization_assignment (as its_orgs)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -682,7 +686,7 @@ applied_organization_assignment
 </table>
 
 
-<H5 ID="map-workpiece-its_people">5.1.4.1.11 workpiece to organization_or_person_in_organization_assignment (as its_people)</H5>
+<H5 ID="map-workpiece-its_people">5.1.4.2.11 workpiece to organization_or_person_in_organization_assignment (as its_people)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -700,7 +704,7 @@ applied_person_and_organization_assignment
 </table>
 
 
-<H5 ID="map-workpiece-its_related_geometry">5.1.4.1.12 its_related_geometry</H5>
+<H5 ID="map-workpiece-its_related_geometry">5.1.4.2.12 its_related_geometry</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -743,7 +747,7 @@ shape_representation
 </table>
 
 
-<H5 ID="map-workpiece-its_timestamps">5.1.4.1.13 workpiece to date_or_date_time_assignment (as its_timestamps)</H5>
+<H5 ID="map-workpiece-its_timestamps">5.1.4.2.13 workpiece to date_or_date_time_assignment (as its_timestamps)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -761,7 +765,7 @@ applied_date_and_time_assignment
 </table>
 
 
-<H5 ID="map-workpiece-product_approvals">5.1.4.1.14 workpiece to approval (as product_approvals)</H5>
+<H5 ID="map-workpiece-product_approvals">5.1.4.2.14 workpiece to approval (as product_approvals)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -786,7 +790,7 @@ approval
 </table>
 
 
-<H5 ID="map-workpiece-product_datestamps">5.1.4.1.15 workpiece to date_or_date_time_assignment (as product_datestamps)</H5>
+<H5 ID="map-workpiece-product_datestamps">5.1.4.2.15 workpiece to date_or_date_time_assignment (as product_datestamps)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -808,7 +812,7 @@ applied_date_assignment
 </table>
 
 
-<H5 ID="map-workpiece-product_orgs">5.1.4.1.16 workpiece to organization_or_person_in_organization_assignment (as product_orgs)</H5>
+<H5 ID="map-workpiece-product_orgs">5.1.4.2.16 workpiece to organization_or_person_in_organization_assignment (as product_orgs)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -830,7 +834,7 @@ applied_organization_assignment
 </table>
 
 
-<H5 ID="map-workpiece-product_people">5.1.4.1.17 workpiece to organization_or_person_in_organization_assignment (as product_people)</H5>
+<H5 ID="map-workpiece-product_people">5.1.4.2.17 workpiece to organization_or_person_in_organization_assignment (as product_people)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -852,7 +856,7 @@ applied_person_and_organization_assignment
 </table>
 
 
-<H5 ID="map-workpiece-product_timestamps">5.1.4.1.18 workpiece to date_or_date_time_assignment (as product_timestamps)</H5>
+<H5 ID="map-workpiece-product_timestamps">5.1.4.2.18 workpiece to date_or_date_time_assignment (as product_timestamps)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -874,7 +878,7 @@ applied_date_and_time_assignment
 </table>
 
 
-<H5 ID="map-workpiece-revision_approvals">5.1.4.1.19 workpiece to approval (as revision_approvals)</H5>
+<H5 ID="map-workpiece-revision_approvals">5.1.4.2.19 workpiece to approval (as revision_approvals)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -897,7 +901,7 @@ approval
 </table>
 
 
-<H5 ID="map-workpiece-revision_datestamps">5.1.4.1.20 workpiece to date_or_date_time_assignment (as revision_datestamps)</H5>
+<H5 ID="map-workpiece-revision_datestamps">5.1.4.2.20 workpiece to date_or_date_time_assignment (as revision_datestamps)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -917,7 +921,7 @@ applied_date_assignment
 </table>
 
 
-<H5 ID="map-workpiece-revision_id">5.1.4.1.21 revision_id</H5>
+<H5 ID="map-workpiece-revision_id">5.1.4.2.21 revision_id</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -940,7 +944,7 @@ product_definition_formation.id
 </table>
 
 
-<H5 ID="map-workpiece-revision_orgs">5.1.4.1.22 workpiece to organization_or_person_in_organization_assignment (as revision_orgs)</H5>
+<H5 ID="map-workpiece-revision_orgs">5.1.4.2.22 workpiece to organization_or_person_in_organization_assignment (as revision_orgs)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -960,7 +964,7 @@ applied_organization_assignment
 </table>
 
 
-<H5 ID="map-workpiece-revision_people">5.1.4.1.23 workpiece to organization_or_person_in_organization_assignment (as revision_people)</H5>
+<H5 ID="map-workpiece-revision_people">5.1.4.2.23 workpiece to organization_or_person_in_organization_assignment (as revision_people)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -980,7 +984,7 @@ applied_person_and_organization_assignment
 </table>
 
 
-<H5 ID="map-workpiece-revision_timestamps">5.1.4.1.24 workpiece to date_or_date_time_assignment (as revision_timestamps)</H5>
+<H5 ID="map-workpiece-revision_timestamps">5.1.4.2.24 workpiece to date_or_date_time_assignment (as revision_timestamps)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -1000,7 +1004,7 @@ applied_date_and_time_assignment
 </table>
 
 
-<H5 ID="map-workpiece-its_broadcast">5.1.4.1.25 workpiece to broadcast (as its_broadcast)</H5>
+<H5 ID="map-workpiece-its_broadcast">5.1.4.2.25 workpiece to broadcast (as its_broadcast)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -1026,7 +1030,7 @@ machining_broadcast_strategy
 </table>
 
 
-<H5 ID="map-workpiece-material_type">5.1.4.1.26 workpiece to material_workpiece (as material_type)</H5>
+<H5 ID="map-workpiece-material_type">5.1.4.2.26 workpiece to material_workpiece (as material_type)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -1056,7 +1060,7 @@ product_definition
 <A HREF="clause4.htm#ao-material_workpiece">AO</a>
 <A HREF="annexG.htm#material_workpiece">ARM</a>
 </DIV>
-<H4 ID="map-material_workpiece">5.1.4.2 MATERIAL_WORKPIECE</H4>
+<H4 ID="map-material_workpiece">5.1.4.3 MATERIAL_WORKPIECE</H4>
 </DIV>
 
 <table class="map">
@@ -1084,7 +1088,7 @@ product_category.name='material' }
 </table>
 
 
-<H5 ID="map-material_workpiece-its_material_properties">5.1.4.2.1 material_workpiece to material_property (as its_material_properties)</H5>
+<H5 ID="map-material_workpiece-its_material_properties">5.1.4.3.1 material_workpiece to material_property (as its_material_properties)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -1109,6 +1113,8 @@ material_property
 
 <H3 ID="mapuof-feature">5.1.5 Mapping specification for manufacturing feature UoF</H3>
 
+<H4 ID="mapuof-feature-general">5.1.5.1 General</H4>
+
 <P>The mapping specification for the application objects in this UoF
 shall be as defined by ISO 10303-1814, ISO 10303-1846 and the
 specification below.
@@ -1119,7 +1125,7 @@ specification below.
 <A HREF="clause4.htm#ao-manufacturing_feature">AO</a>
 <A HREF="annexG.htm#manufacturing_feature">ARM</a>
 </DIV>
-<H4 ID="map-manufacturing_feature">5.1.5.1 MANUFACTURING_FEATURE</H4>
+<H4 ID="map-manufacturing_feature">5.1.5.2 MANUFACTURING_FEATURE</H4>
 </DIV>
 
 <table class="map">
@@ -1138,7 +1144,7 @@ specification below.
 </table>
 
 
-<H5 ID="map-manufacturing_feature-twin_history">5.1.5.1.1 manufacturing_feature to phase_history (as twin_history)</H5>
+<H5 ID="map-manufacturing_feature-twin_history">5.1.5.2.1 manufacturing_feature to phase_history (as twin_history)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -1163,7 +1169,7 @@ machining_process_history
 </table>
 
 
-<H5 ID="map-manufacturing_feature-its_broadcast">5.1.5.1.2 manufacturing_feature to broadcast (as its_broadcast)</H5>
+<H5 ID="map-manufacturing_feature-its_broadcast">5.1.5.2.2 manufacturing_feature to broadcast (as its_broadcast)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -1193,7 +1199,7 @@ machining_broadcast_strategy
 <A HREF="clause4.htm#ao-toolpath_feature">AO</a>
 <A HREF="annexG.htm#toolpath_feature">ARM</a>
 </DIV>
-<H4 ID="map-toolpath_feature">5.1.5.2 TOOLPATH_FEATURE</H4>
+<H4 ID="map-toolpath_feature">5.1.5.3 TOOLPATH_FEATURE</H4>
 </DIV>
 
 <table class="map">
@@ -1217,6 +1223,8 @@ characterized_object
 
 <H3 ID="mapuof-executable">5.1.6 Mapping specification for executable UoF</H3>
 
+<H4 ID="mapuof-executable-general">5.1.6.1 General</H4>
+
 <P>The mapping specification for the application objects in this UoF
 shall be as defined by ISO 10303-1526 and the specification below.
 
@@ -1226,7 +1234,7 @@ shall be as defined by ISO 10303-1526 and the specification below.
 <A HREF="clause4.htm#ao-assignment">AO</a>
 <A HREF="annexG.htm#assignment">ARM</a>
 </DIV>
-<H4 ID="map-assignment">5.1.6.1 ASSIGNMENT</H4>
+<H4 ID="map-assignment">5.1.6.2 ASSIGNMENT</H4>
 </DIV>
 
 <table class="map">
@@ -1247,7 +1255,7 @@ action_method
 </table>
 
 
-<H5 ID="map-assignment-its_lvalue">5.1.6.1.1 assignment to nc_variable (as its_lvalue)</H5>
+<H5 ID="map-assignment-its_lvalue">5.1.6.2.1 assignment to nc_variable (as its_lvalue)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -1274,7 +1282,7 @@ expression_item_representation_item
 </table>
 
 
-<H5 ID="map-assignment-its_rvalue">5.1.6.1.2 assignment to rvalue (as its_rvalue)</H5>
+<H5 ID="map-assignment-its_rvalue">5.1.6.2.2 assignment to rvalue (as its_rvalue)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -1307,7 +1315,7 @@ expression_item_representation_item
 <A HREF="clause4.htm#ao-channel">AO</a>
 <A HREF="annexG.htm#channel">ARM</a>
 </DIV>
-<H4 ID="map-channel">5.1.6.2 CHANNEL</H4>
+<H4 ID="map-channel">5.1.6.3 CHANNEL</H4>
 </DIV>
 
 <table class="map">
@@ -1327,7 +1335,7 @@ expression_item_representation_item
 </table>
 
 
-<H5 ID="map-channel-its_id">5.1.6.2.1 its_id</H5>
+<H5 ID="map-channel-its_id">5.1.6.3.1 its_id</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -1354,7 +1362,7 @@ descriptive_representation_item.description
 <A HREF="clause4.htm#ao-display_message">AO</a>
 <A HREF="annexG.htm#display_message">ARM</a>
 </DIV>
-<H4 ID="map-display_message">5.1.6.3 DISPLAY_MESSAGE</H4>
+<H4 ID="map-display_message">5.1.6.4 DISPLAY_MESSAGE</H4>
 </DIV>
 
 <table class="map">
@@ -1376,7 +1384,7 @@ action_method
 </table>
 
 
-<H5 ID="map-display_message-its_text">5.1.6.3.1 its_text</H5>
+<H5 ID="map-display_message-its_text">5.1.6.4.1 its_text</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -1414,7 +1422,7 @@ descriptive_representation_item.description
 <A HREF="clause4.htm#ao-executable">AO</a>
 <A HREF="annexG.htm#executable">ARM</a>
 </DIV>
-<H4 ID="map-executable">5.1.6.4 EXECUTABLE</H4>
+<H4 ID="map-executable">5.1.6.5 EXECUTABLE</H4>
 </DIV>
 
 <table class="map">
@@ -1434,7 +1442,7 @@ action_method
 </table>
 
 
-<H5 ID="map-executable-as_is">5.1.6.4.1 executable to product_view_definition (as as_is)</H5>
+<H5 ID="map-executable-as_is">5.1.6.5.1 executable to product_view_definition (as as_is)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -1462,7 +1470,7 @@ product_definition
 
 
 
-<H5 ID="map-executable-enabled">5.1.6.4.2 enabled</H5>
+<H5 ID="map-executable-enabled">5.1.6.5.2 enabled</H5>
 
 <div class="mapnote">
 <p>#1: if value is true (mapping may be omitted if value is true)</p>
@@ -1501,7 +1509,7 @@ descriptive_representation_item.description
 </table>
 
 
-<H5 ID="map-executable-machine_used">5.1.6.4.3 executable to machine_usage (as machine_used)</H5>
+<H5 ID="map-executable-machine_used">5.1.6.5.3 executable to machine_usage (as machine_used)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -1522,7 +1530,7 @@ machining_machine_usage
 </tr>
 </table>
 
-<H5 ID="map-executable-process_properties">5.1.6.4.4 executable to process_property (as process_properties)</H5>
+<H5 ID="map-executable-process_properties">5.1.6.5.4 executable to process_property (as process_properties)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -1542,7 +1550,7 @@ machining_process_property
 </table>
 
 
-<H5 ID="map-executable-removal">5.1.6.4.5 executable to product_view_definition (as removal)</H5>
+<H5 ID="map-executable-removal">5.1.6.5.5 executable to product_view_definition (as removal)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -1567,7 +1575,7 @@ product_definition
 </table>
 
 
-<H5 ID="map-executable-to_be">5.1.6.4.6 executable to product_view_definition (as to_be)</H5>
+<H5 ID="map-executable-to_be">5.1.6.5.6 executable to product_view_definition (as to_be)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -1591,7 +1599,7 @@ product_definition
 </tr>
 </table>
 
-<H5 ID="map-executable-twin_end">5.1.6.4.7 twin_end</H5>
+<H5 ID="map-executable-twin_end">5.1.6.5.7 twin_end</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -1619,7 +1627,7 @@ date_and_time
 </table>
 
 
-<H5 ID="map-executable-twin_exception">5.1.6.4.8 twin_exception</H5>
+<H5 ID="map-executable-twin_exception">5.1.6.5.8 twin_exception</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -1650,7 +1658,7 @@ descriptive_representation_item.description
 </tr>
 </table>
 
-<H5 ID="map-executable-twin_plan">5.1.6.4.9 executable to executable (as twin_plan)</H5>
+<H5 ID="map-executable-twin_plan">5.1.6.5.9 executable to executable (as twin_plan)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -1673,7 +1681,7 @@ machining_process_executable
 
 
 
-<H5 ID="map-executable-twin_source">5.1.6.4.10 twin_source</H5>
+<H5 ID="map-executable-twin_source">5.1.6.5.10 twin_source</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -1705,7 +1713,7 @@ descriptive_representation_item.description
 </table>
 
 
-<H5 ID="map-executable-twin_start">5.1.6.4.11 twin_start</H5>
+<H5 ID="map-executable-twin_start">5.1.6.5.11 twin_start</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -1733,7 +1741,7 @@ date_and_time
 </table>
 
 
-<H5 ID="map-executable-twin_worktime">5.1.6.4.12 twin_worktime</H5>
+<H5 ID="map-executable-twin_worktime">5.1.6.5.12 twin_worktime</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -1767,7 +1775,7 @@ time_measure_with_unit
 
 
 
-<H5 ID="map-executable-its_broadcast">5.1.6.4.13 executable to broadcast (as its_broadcast)</H5>
+<H5 ID="map-executable-its_broadcast">5.1.6.5.13 executable to broadcast (as its_broadcast)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -1794,7 +1802,7 @@ machining_broadcast_strategy
 </table>
 
 
-<H5 ID="map-executable-phase">5.1.6.4.14 executable to manufacturing_stage (as phase)</H5>
+<H5 ID="map-executable-phase">5.1.6.5.14 executable to manufacturing_stage (as phase)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -1820,7 +1828,7 @@ machining_process_stage
 </table>
 
 
-<H5 ID="map-executable-twin_equipment">5.1.6.4.15 twin_equipment</H5>
+<H5 ID="map-executable-twin_equipment">5.1.6.5.15 twin_equipment</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -1860,7 +1868,7 @@ descriptive_representation_item.description
 <A HREF="clause4.htm#ao-extended_nc_function">AO</a>
 <A HREF="annexG.htm#extended_nc_function">ARM</a>
 </DIV>
-<H4 ID="map-extended_nc_function">5.1.6.5 EXTENDED_NC_FUNCTION</H4>
+<H4 ID="map-extended_nc_function">5.1.6.6 EXTENDED_NC_FUNCTION</H4>
 </DIV>
 
 <table class="map">
@@ -1882,7 +1890,7 @@ action_method
 </table>
 
 
-<H5 ID="map-extended_nc_function-extended_description">5.1.6.5.1 extended_description</H5>
+<H5 ID="map-extended_nc_function-extended_description">5.1.6.6.1 extended_description</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -1921,7 +1929,7 @@ descriptive_representation_item.description
 <A HREF="clause4.htm#ao-feature_complete_probing">AO</a>
 <A HREF="annexG.htm#feature_complete_probing">ARM</a>
 </DIV>
-<H4 ID="map-feature_complete_probing">5.1.6.6 FEATURE_COMPLETE_PROBING</H4>
+<H4 ID="map-feature_complete_probing">5.1.6.7 FEATURE_COMPLETE_PROBING</H4>
 </DIV>
 
 <table class="map">
@@ -1943,7 +1951,7 @@ action_method
 </table>
 
 
-<H5 ID="map-feature_complete_probing-expected_value">5.1.6.6.1 feature_complete_probing to manufacturing_feature (as expected_value)</H5>
+<H5 ID="map-feature_complete_probing-expected_value">5.1.6.7.1 feature_complete_probing to manufacturing_feature (as expected_value)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -1984,7 +1992,7 @@ shape_aspect
 </table>
 
 
-<H5 ID="map-feature_complete_probing-its_probe">5.1.6.6.2 feature_complete_probing to touch_probe  (as its_probe)</H5>
+<H5 ID="map-feature_complete_probing-its_probe">5.1.6.7.2 feature_complete_probing to touch_probe  (as its_probe)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -2006,7 +2014,7 @@ machining_tool
 
 
 
-<H5 ID="map-feature_complete_probing-start_position">5.1.6.6.3 start_position</H5>
+<H5 ID="map-feature_complete_probing-start_position">5.1.6.7.3 start_position</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -2046,7 +2054,7 @@ axis2_placement_3d
 <A HREF="clause4.htm#ao-fixture_usage">AO</a>
 <A HREF="annexG.htm#fixture_usage">ARM</a>
 </DIV>
-<H4 ID="map-fixture_usage">5.1.6.7 FIXTURE_USAGE</H4>
+<H4 ID="map-fixture_usage">5.1.6.8 FIXTURE_USAGE</H4>
 </DIV>
 
 <table class="map">
@@ -2065,7 +2073,7 @@ action_method
 </tr>
 </table>
 
-<H5 ID="map-fixture_usage-description">5.1.6.7.1 description</H5>
+<H5 ID="map-fixture_usage-description">5.1.6.8.1 description</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -2085,7 +2093,7 @@ action_method.description
 </table>
 
 
-<H5 ID="map-fixture_usage-its_id">5.1.6.7.2 its_id</H5>
+<H5 ID="map-fixture_usage-its_id">5.1.6.8.2 its_id</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -2105,7 +2113,7 @@ action_method.name
 </table>
 
 
-<H5 ID="map-fixture_usage-its_product">5.1.6.7.3 fixture_usage to product_view_definition (as its_product)</H5>
+<H5 ID="map-fixture_usage-its_product">5.1.6.8.3 fixture_usage to product_view_definition (as its_product)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -2130,7 +2138,7 @@ product_definition
 </table>
 
 
-<H5 ID="map-fixture_usage-mount_reference">5.1.6.7.4 mount_reference</H5>
+<H5 ID="map-fixture_usage-mount_reference">5.1.6.8.4 mount_reference</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -2164,7 +2172,7 @@ axis2_placement_3d
 
 
 
-<H5 ID="map-fixture_usage-workpiece_reference">5.1.6.7.5 workpiece_reference</H5>
+<H5 ID="map-fixture_usage-workpiece_reference">5.1.6.8.5 workpiece_reference</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -2205,7 +2213,7 @@ axis2_placement_3d
 <A HREF="clause4.htm#ao-if_statement">AO</a>
 <A HREF="annexG.htm#if_statement">ARM</a>
 </DIV>
-<H4 ID="map-if_statement">5.1.6.8 IF_STATEMENT</H4>
+<H4 ID="map-if_statement">5.1.6.9 IF_STATEMENT</H4>
 </DIV>
 
 <table class="map">
@@ -2226,7 +2234,7 @@ action_method
 </table>
 
 
-<H5 ID="map-if_statement-condition">5.1.6.8.1 if_statement to boolean_expression (as condition)</H5>
+<H5 ID="map-if_statement-condition">5.1.6.9.1 if_statement to boolean_expression (as condition)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -2258,7 +2266,7 @@ boolean_expression
 </table>
 
 
-<H5 ID="map-if_statement-true_branch">5.1.6.8.2 if_statement to executable (as true_branch)</H5>
+<H5 ID="map-if_statement-true_branch">5.1.6.9.2 if_statement to executable (as true_branch)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -2282,7 +2290,7 @@ machining_process_executable
 </table>
 
 
-<H5 ID="map-if_statement-false_branch">5.1.6.8.3 if_statement to executable (as false_branch)</H5>
+<H5 ID="map-if_statement-false_branch">5.1.6.9.3 if_statement to executable (as false_branch)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -2312,7 +2320,7 @@ machining_process_executable
 <A HREF="clause4.htm#ao-machine_axis_travel">AO</a>
 <A HREF="annexG.htm#machine_axis_travel">ARM</a>
 </DIV>
-<H4 ID="map-machine_axis_travel">5.1.6.9 MACHINE_AXIS_TRAVEL</H4>
+<H4 ID="map-machine_axis_travel">5.1.6.10 MACHINE_AXIS_TRAVEL</H4>
 </DIV>
 
 <table class="map">
@@ -2341,7 +2349,7 @@ resource_property.name = 'axis travel' }
 </table>
 
 
-<H5 ID="map-machine_axis_travel-axis_identifier">5.1.6.9.1 axis_identifier</H5>
+<H5 ID="map-machine_axis_travel-axis_identifier">5.1.6.10.1 axis_identifier</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -2362,7 +2370,7 @@ representation_item.name
 </table>
 
 
-<H5 ID="map-machine_axis_travel-travel_distance">5.1.6.9.2 travel_distance</H5>
+<H5 ID="map-machine_axis_travel-travel_distance">5.1.6.10.2 travel_distance</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -2385,7 +2393,7 @@ representation_item.name
 <A HREF="clause4.htm#ao-machine_parameters">AO</a>
 <A HREF="annexG.htm#machine_parameters">ARM</a>
 </DIV>
-<H4 ID="map-machine_parameters">5.1.6.10 MACHINE_PARAMETERS</H4>
+<H4 ID="map-machine_parameters">5.1.6.11 MACHINE_PARAMETERS</H4>
 </DIV>
 
 <table class="map">
@@ -2405,7 +2413,7 @@ action_resource
 </table>
 
 
-<H5 ID="map-machine_parameters-axis_travel">5.1.6.10.1 machine_parameters to machine_axis_travel (as axis_travel)</H5>
+<H5 ID="map-machine_parameters-axis_travel">5.1.6.11.1 machine_parameters to machine_axis_travel (as axis_travel)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -2434,7 +2442,7 @@ length_measure_with_unit
 </table>
 
 
-<H5 ID="map-machine_parameters-feedrate">5.1.6.10.2 feedrate</H5>
+<H5 ID="map-machine_parameters-feedrate">5.1.6.11.2 feedrate</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -2474,7 +2482,7 @@ numeric_measure }
 </table>
 
 
-<H5 ID="map-machine_parameters-number_of_control_axis">5.1.6.10.3 number_of_control_axis</H5>
+<H5 ID="map-machine_parameters-number_of_control_axis">5.1.6.11.3 number_of_control_axis</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -2510,7 +2518,7 @@ count_measure
 </table>
 
 
-<H5 ID="map-machine_parameters-number_of_simultaneous_axis">5.1.6.10.4 number_of_simultaneous_axis</H5>
+<H5 ID="map-machine_parameters-number_of_simultaneous_axis">5.1.6.11.4 number_of_simultaneous_axis</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -2546,7 +2554,7 @@ count_measure
 </table>
 
 
-<H5 ID="map-machine_parameters-positioning_accuracy">5.1.6.10.5 positioning_accuracy</H5>
+<H5 ID="map-machine_parameters-positioning_accuracy">5.1.6.11.5 positioning_accuracy</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -2579,7 +2587,7 @@ length_measure_with_unit
 </table>
 
 
-<H5 ID="map-machine_parameters-spindle_power">5.1.6.10.6 spindle_power</H5>
+<H5 ID="map-machine_parameters-spindle_power">5.1.6.11.6 spindle_power</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -2615,7 +2623,7 @@ numeric_measure }
 </table>
 
 
-<H5 ID="map-machine_parameters-spindle_torque">5.1.6.10.7 spindle_torque</H5>
+<H5 ID="map-machine_parameters-spindle_torque">5.1.6.11.7 spindle_torque</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -2651,7 +2659,7 @@ numeric_measure }
 </table>
 
 
-<H5 ID="map-machine_parameters-spindle_speed">5.1.6.10.8 spindle_speed</H5>
+<H5 ID="map-machine_parameters-spindle_speed">5.1.6.11.8 spindle_speed</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -2691,7 +2699,7 @@ numeric_measure }
 </table>
 
 
-<H5 ID="map-machine_parameters-table_indexing">5.1.6.10.9 table_indexing</H5>
+<H5 ID="map-machine_parameters-table_indexing">5.1.6.11.9 table_indexing</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -2725,7 +2733,7 @@ descriptive_representation_item.description
 </table>
 
 
-<H5 ID="map-machine_parameters-table_length">5.1.6.10.10 table_length</H5>
+<H5 ID="map-machine_parameters-table_length">5.1.6.11.10 table_length</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -2758,7 +2766,7 @@ length_measure_with_unit
 </table>
 
 
-<H5 ID="map-machine_parameters-table_width">5.1.6.10.11 table_width</H5>
+<H5 ID="map-machine_parameters-table_width">5.1.6.11.11 table_width</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -2791,7 +2799,7 @@ length_measure_with_unit
 </table>
 
 
-<H5 ID="map-machine_parameters-work_volume_height">5.1.6.10.12 work_volume_height</H5>
+<H5 ID="map-machine_parameters-work_volume_height">5.1.6.11.12 work_volume_height</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -2824,7 +2832,7 @@ length_measure_with_unit
 </table>
 
 
-<H5 ID="map-machine_parameters-work_volume_length">5.1.6.10.13 work_volume_length</H5>
+<H5 ID="map-machine_parameters-work_volume_length">5.1.6.11.13 work_volume_length</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -2857,7 +2865,7 @@ length_measure_with_unit
 </table>
 
 
-<H5 ID="map-machine_parameters-work_volume_width">5.1.6.10.14 work_volume_width</H5>
+<H5 ID="map-machine_parameters-work_volume_width">5.1.6.11.14 work_volume_width</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -2897,7 +2905,7 @@ length_measure_with_unit
 <A HREF="clause4.htm#ao-machine_usage">AO</a>
 <A HREF="annexG.htm#machine_usage">ARM</a>
 </DIV>
-<H4 ID="map-machine_usage">5.1.6.11 MACHINE_USAGE</H4>
+<H4 ID="map-machine_usage">5.1.6.12 MACHINE_USAGE</H4>
 </DIV>
 
 <table class="map">
@@ -2916,7 +2924,7 @@ action_method
 </tr>
 </table>
 
-<H5 ID="map-machine_usage-description">5.1.6.11.1 description</H5>
+<H5 ID="map-machine_usage-description">5.1.6.12.1 description</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -2936,7 +2944,7 @@ action_method.description
 </table>
 
 
-<H5 ID="map-machine_usage-its_id">5.1.6.11.2 its_id</H5>
+<H5 ID="map-machine_usage-its_id">5.1.6.12.2 its_id</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -2956,7 +2964,7 @@ action_method.name
 </table>
 
 
-<H5 ID="map-machine_usage-its_product">5.1.6.11.3 machine_usage to product_view_definition (as its_product)</H5>
+<H5 ID="map-machine_usage-its_product">5.1.6.12.3 machine_usage to product_view_definition (as its_product)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -2986,7 +2994,7 @@ product_definition
 <A HREF="clause4.htm#ao-machine_with_kinematics">AO</a>
 <A HREF="annexG.htm#machine_with_kinematics">ARM</a>
 </DIV>
-<H4 ID="map-machine_with_kinematics">5.1.6.12 MACHINE_WITH_KINEMATICS</H4>
+<H4 ID="map-machine_with_kinematics">5.1.6.13 MACHINE_WITH_KINEMATICS</H4>
 </DIV>
 
 <table class="map">
@@ -2999,7 +3007,7 @@ product_definition
 </tr>
 </table>
 
-<H5 ID="map-machine_with_kinematics-configuration">5.1.6.12.1 configuration</H5>
+<H5 ID="map-machine_with_kinematics-configuration">5.1.6.13.1 configuration</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -3033,7 +3041,7 @@ descriptive_representation_item.description
 </tr>
 </table>
 
-<H5 ID="map-machine_with_kinematics-mechanism">5.1.6.12.2 mechanism</H5>
+<H5 ID="map-machine_with_kinematics-mechanism">5.1.6.13.2 mechanism</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -3077,7 +3085,7 @@ mechanism_representation
 <A HREF="clause4.htm#ao-machining_tool">AO</a>
 <A HREF="annexG.htm#machining_tool">ARM</a>
 </DIV>
-<H4 ID="map-machining_tool">5.1.6.13 MACHINING_TOOL</H4>
+<H4 ID="map-machining_tool">5.1.6.14 MACHINING_TOOL</H4>
 </DIV>
 
 <table class="map">
@@ -3097,7 +3105,7 @@ action_resource
 </table>
 
 
-<H5 ID="map-machining_tool-its_id">5.1.6.13.1 its_id</H5>
+<H5 ID="map-machining_tool-its_id">5.1.6.14.1 its_id</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -3117,7 +3125,7 @@ action_resource.name
 </table>
 
 
-<H5 ID="map-machining_tool-its_usage">5.1.6.13.2 machining_tool to tool_usage (as its_usage)</H5>
+<H5 ID="map-machining_tool-its_usage">5.1.6.14.2 machining_tool to tool_usage (as its_usage)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -3141,7 +3149,7 @@ machining_tool_usage
 
 
 
-<H5 ID="map-machining_tool-its_broadcast">5.1.6.13.3 machining_tool to broadcast (as its_broadcast)</H5>
+<H5 ID="map-machining_tool-its_broadcast">5.1.6.14.3 machining_tool to broadcast (as its_broadcast)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -3176,7 +3184,7 @@ machining_broadcast_strategy
 <A HREF="clause4.htm#ao-machining_workingstep">AO</a>
 <A HREF="annexG.htm#machining_workingstep">ARM</a>
 </DIV>
-<H4 ID="map-machining_workingstep">5.1.6.14 MACHINING_WORKINGSTEP</H4>
+<H4 ID="map-machining_workingstep">5.1.6.15 MACHINING_WORKINGSTEP</H4>
 </DIV>
 
 <table class="map">
@@ -3198,7 +3206,7 @@ action_method
 </table>
 
 
-<H5 ID="map-machining_workingstep-its_feature">5.1.6.14.1 machining_workingstep to manufacturing_feature (as its_feature)</H5>
+<H5 ID="map-machining_workingstep-its_feature">5.1.6.15.1 machining_workingstep to manufacturing_feature (as its_feature)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -3245,7 +3253,7 @@ shape_aspect
 <A HREF="clause4.htm#ao-nc_constant">AO</a>
 <A HREF="annexG.htm#nc_constant">ARM</a>
 </DIV>
-<H4 ID="map-nc_constant">5.1.6.15 NC_CONSTANT</H4>
+<H4 ID="map-nc_constant">5.1.6.16 NC_CONSTANT</H4>
 </DIV>
 
 <table class="map">
@@ -3273,7 +3281,7 @@ literal_number =&gt;
 </table>
 
 
-<H5 ID="map-nc_constant-its_name">5.1.6.15.1 its_name</H5>
+<H5 ID="map-nc_constant-its_name">5.1.6.16.1 its_name</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -3293,7 +3301,7 @@ representation_item.name
 </table>
 
 
-<H5 ID="map-nc_constant-its_value">5.1.6.15.2 its_value</H5>
+<H5 ID="map-nc_constant-its_value">5.1.6.16.2 its_value</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -3324,7 +3332,7 @@ literal_number.the_value
 <A HREF="clause4.htm#ao-nc_function">AO</a>
 <A HREF="annexG.htm#nc_function">ARM</a>
 </DIV>
-<H4 ID="map-nc_function">5.1.6.16 NC_FUNCTION</H4>
+<H4 ID="map-nc_function">5.1.6.17 NC_FUNCTION</H4>
 </DIV>
 
 <table class="map">
@@ -3350,7 +3358,7 @@ action_method
 <A HREF="clause4.htm#ao-nc_variable">AO</a>
 <A HREF="annexG.htm#nc_variable">ARM</a>
 </DIV>
-<H4 ID="map-nc_variable">5.1.6.17 NC_VARIABLE</H4>
+<H4 ID="map-nc_variable">5.1.6.18 NC_VARIABLE</H4>
 </DIV>
 
 <table class="map">
@@ -3382,7 +3390,7 @@ numeric_variable =&gt;
 </table>
 
 
-<H5 ID="map-nc_variable-its_name">5.1.6.17.1 its_name</H5>
+<H5 ID="map-nc_variable-its_name">5.1.6.18.1 its_name</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -3402,7 +3410,7 @@ representation_item.name
 </table>
 
 
-<H5 ID="map-nc_variable-initial_value">5.1.6.17.2 initial_value</H5>
+<H5 ID="map-nc_variable-initial_value">5.1.6.18.2 initial_value</H5>
 <div class="mapnote">
 <p><A href="#mapnote-4">See NOTE 4</A></p>
 </div>
@@ -3450,7 +3458,7 @@ literal_number.the_value
 <A HREF="clause4.htm#ao-non_sequential">AO</a>
 <A HREF="annexG.htm#non_sequential">ARM</a>
 </DIV>
-<H4 ID="map-non_sequential">5.1.6.18 NON_SEQUENTIAL</H4>
+<H4 ID="map-non_sequential">5.1.6.19 NON_SEQUENTIAL</H4>
 </DIV>
 
 <table class="map">
@@ -3471,7 +3479,7 @@ action_method
 </table>
 
 
-<H5 ID="map-non_sequential-its_elements">5.1.6.18.1 non_sequential to executable (as its_elements)</H5>
+<H5 ID="map-non_sequential-its_elements">5.1.6.19.1 non_sequential to executable (as its_elements)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -3498,7 +3506,7 @@ machining_process_executable
 <A HREF="clause4.htm#ao-offset_vector">AO</a>
 <A HREF="annexG.htm#offset_vector">ARM</a>
 </DIV>
-<H4 ID="map-offset_vector">5.1.6.19 OFFSET_VECTOR</H4>
+<H4 ID="map-offset_vector">5.1.6.20 OFFSET_VECTOR</H4>
 </DIV>
 
 <table class="map">
@@ -3518,7 +3526,7 @@ representation
 </table>
 
 
-<H5 ID="map-offset_vector-translate">5.1.6.19.1 offset_vector to nc_variable (as translate)</H5>
+<H5 ID="map-offset_vector-translate">5.1.6.20.1 offset_vector to nc_variable (as translate)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -3543,7 +3551,7 @@ expression_item_representation_item
 </table>
 
 
-<H5 ID="map-offset_vector-rotate">5.1.6.19.2 offset_vector to nc_variable (as rotate)</H5>
+<H5 ID="map-offset_vector-rotate">5.1.6.20.2 offset_vector to nc_variable (as rotate)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -3573,7 +3581,7 @@ expression_item_representation_item
 <A HREF="clause4.htm#ao-optional_stop">AO</a>
 <A HREF="annexG.htm#optional_stop">ARM</a>
 </DIV>
-<H4 ID="map-optional_stop">5.1.6.20 OPTIONAL_STOP</H4>
+<H4 ID="map-optional_stop">5.1.6.21 OPTIONAL_STOP</H4>
 </DIV>
 
 <table class="map">
@@ -3601,7 +3609,7 @@ action_method
 <A HREF="clause4.htm#ao-parallel">AO</a>
 <A HREF="annexG.htm#parallel">ARM</a>
 </DIV>
-<H4 ID="map-parallel">5.1.6.21 PARALLEL</H4>
+<H4 ID="map-parallel">5.1.6.22 PARALLEL</H4>
 </DIV>
 
 <table class="map">
@@ -3622,7 +3630,7 @@ action_method
 </table>
 
 
-<H5 ID="map-parallel-branches">5.1.6.21.1 parallel to executable (as branches)</H5>
+<H5 ID="map-parallel-branches">5.1.6.22.1 parallel to executable (as branches)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -3653,7 +3661,7 @@ machining_process_executable
 <A HREF="clause4.htm#ao-process_property">AO</a>
 <A HREF="annexG.htm#process_property">ARM</a>
 </DIV>
-<H4 ID="map-process_property">5.1.6.22 PROCESS_PROPERTY</H4>
+<H4 ID="map-process_property">5.1.6.23 PROCESS_PROPERTY</H4>
 </DIV>
 
 <table class="map">
@@ -3673,7 +3681,7 @@ action_property
 </table>
 
 
-<H5 ID="map-process_property-property_date">5.1.6.22.1 property_date</H5>
+<H5 ID="map-process_property-property_date">5.1.6.23.1 property_date</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -3707,7 +3715,7 @@ date_and_time
 <A HREF="clause4.htm#ao-program_stop">AO</a>
 <A HREF="annexG.htm#program_stop">ARM</a>
 </DIV>
-<H4 ID="map-program_stop">5.1.6.23 PROGRAM_STOP</H4>
+<H4 ID="map-program_stop">5.1.6.24 PROGRAM_STOP</H4>
 </DIV>
 
 <table class="map">
@@ -3734,7 +3742,7 @@ action_method
 <A HREF="clause4.htm#ao-program_structure">AO</a>
 <A HREF="annexG.htm#program_structure">ARM</a>
 </DIV>
-<H4 ID="map-program_structure">5.1.6.24 PROGRAM_STRUCTURE</H4>
+<H4 ID="map-program_structure">5.1.6.25 PROGRAM_STRUCTURE</H4>
 </DIV>
 
 <table class="map">
@@ -3753,7 +3761,7 @@ action_method
 </tr>
 </table>
 
-<H5 ID="map-program_structure-planning_operation">5.1.6.24.1 program_structure to operation (as planning_operation)</H5>
+<H5 ID="map-program_structure-planning_operation">5.1.6.25.1 program_structure to operation (as planning_operation)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -3781,7 +3789,7 @@ machining_operation
 <A HREF="clause4.htm#ao-rapid_movement">AO</a>
 <A HREF="annexG.htm#rapid_movement">ARM</a>
 </DIV>
-<H4 ID="map-rapid_movement">5.1.6.25 RAPID_MOVEMENT</H4>
+<H4 ID="map-rapid_movement">5.1.6.26 RAPID_MOVEMENT</H4>
 </DIV>
 
 <table class="map">
@@ -3807,7 +3815,7 @@ action_method
 <A HREF="clause4.htm#ao-return_home">AO</a>
 <A HREF="annexG.htm#return_home">ARM</a>
 </DIV>
-<H4 ID="map-return_home">5.1.6.26 RETURN_HOME</H4>
+<H4 ID="map-return_home">5.1.6.27 RETURN_HOME</H4>
 </DIV>
 
 <table class="map">
@@ -3834,7 +3842,7 @@ action_method
 <A HREF="clause4.htm#ao-selective">AO</a>
 <A HREF="annexG.htm#selective">ARM</a>
 </DIV>
-<H4 ID="map-selective">5.1.6.27 SELECTIVE</H4>
+<H4 ID="map-selective">5.1.6.28 SELECTIVE</H4>
 </DIV>
 
 <table class="map">
@@ -3855,7 +3863,7 @@ action_method
 </table>
 
 
-<H5 ID="map-selective-its_elements">5.1.6.27.1 selective to executable (as its_elements)</H5>
+<H5 ID="map-selective-its_elements">5.1.6.28.1 selective to executable (as its_elements)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -3883,7 +3891,7 @@ machining_process_executable
 <A HREF="clause4.htm#ao-set_mark">AO</a>
 <A HREF="annexG.htm#set_mark">ARM</a>
 </DIV>
-<H4 ID="map-set_mark">5.1.6.28 SET_MARK</H4>
+<H4 ID="map-set_mark">5.1.6.29 SET_MARK</H4>
 </DIV>
 
 <table class="map">
@@ -3910,7 +3918,7 @@ action_method
 <A HREF="clause4.htm#ao-setup">AO</a>
 <A HREF="annexG.htm#setup">ARM</a>
 </DIV>
-<H4 ID="map-setup">5.1.6.29 SETUP</H4>
+<H4 ID="map-setup">5.1.6.30 SETUP</H4>
 </DIV>
 
 <table class="map">
@@ -3932,7 +3940,7 @@ machining_setup }
 </table>
 
 
-<H5 ID="map-setup-its_id">5.1.6.29.1 its_id</H5>
+<H5 ID="map-setup-its_id">5.1.6.30.1 its_id</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -3953,7 +3961,7 @@ product.id
 </table>
 
 
-<H5 ID="map-setup-its_origin">5.1.6.29.2 its_origin</H5>
+<H5 ID="map-setup-its_origin">5.1.6.30.2 its_origin</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -3995,7 +4003,7 @@ axis2_placement_3d
 </table>
 
 
-<H5 ID="map-setup-its_secplane">5.1.6.29.3 setup to elementary_surface (as its_secplane)</H5>
+<H5 ID="map-setup-its_secplane">5.1.6.30.3 setup to elementary_surface (as its_secplane)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -4033,7 +4041,7 @@ elementary_surface
 </table>
 
 
-<H5 ID="map-setup-its_workpiece_setup">5.1.6.29.4 setup to workpiece_setup (as its_workpiece_setup)</H5>
+<H5 ID="map-setup-its_workpiece_setup">5.1.6.30.4 setup to workpiece_setup (as its_workpiece_setup)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -4052,7 +4060,7 @@ machining_setup_workpiece_relationship
 </table>
 
 
-<H5 ID="map-setup-its_fixture_usage">5.1.6.29.5 setup to fixture_usage (as its_fixture_usage)</H5>
+<H5 ID="map-setup-its_fixture_usage">5.1.6.30.5 setup to fixture_usage (as its_fixture_usage)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -4084,7 +4092,7 @@ machining_fixture_usage
 <A HREF="clause4.htm#ao-setup_instruction">AO</a>
 <A HREF="annexG.htm#setup_instruction">ARM</a>
 </DIV>
-<H4 ID="map-setup_instruction">5.1.6.30 SETUP_INSTRUCTION</H4>
+<H4 ID="map-setup_instruction">5.1.6.31 SETUP_INSTRUCTION</H4>
 </DIV>
 
 <table class="map">
@@ -4105,7 +4113,7 @@ action_method
 </table>
 
 
-<H5 ID="map-setup_instruction-description">5.1.6.30.1 description</H5>
+<H5 ID="map-setup_instruction-description">5.1.6.31.1 description</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -4126,7 +4134,7 @@ action_method.description
 </table>
 
 
-<H5 ID="map-setup_instruction-external_document">5.1.6.30.2 external_document</H5>
+<H5 ID="map-setup_instruction-external_document">5.1.6.31.2 external_document</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -4153,7 +4161,7 @@ document.id
 <A HREF="clause4.htm#ao-tool_length_probing">AO</a>
 <A HREF="annexG.htm#tool_length_probing">ARM</a>
 </DIV>
-<H4 ID="map-tool_length_probing">5.1.6.31 TOOL_LENGTH_PROBING</H4>
+<H4 ID="map-tool_length_probing">5.1.6.32 TOOL_LENGTH_PROBING</H4>
 </DIV>
 
 <table class="map">
@@ -4180,7 +4188,7 @@ action_method
 <A HREF="clause4.htm#ao-tool_probing">AO</a>
 <A HREF="annexG.htm#tool_probing">ARM</a>
 </DIV>
-<H4 ID="map-tool_probing">5.1.6.32 TOOL_PROBING</H4>
+<H4 ID="map-tool_probing">5.1.6.33 TOOL_PROBING</H4>
 </DIV>
 
 <table class="map">
@@ -4203,7 +4211,7 @@ action_method
 </table>
 
 
-<H5 ID="map-tool_probing-offset">5.1.6.32.1 offset</H5>
+<H5 ID="map-tool_probing-offset">5.1.6.33.1 offset</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -4237,7 +4245,7 @@ cartesian_point
 </table>
 
 
-<H5 ID="map-tool_probing-max_wear">5.1.6.32.2 max_wear</H5>
+<H5 ID="map-tool_probing-max_wear">5.1.6.33.2 max_wear</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -4274,7 +4282,7 @@ positive_length_measure
 </table>
 
 
-<H5 ID="map-tool_probing-its_tool">5.1.6.32.3 tool_probing to machining_tool (as its_tool)</H5>
+<H5 ID="map-tool_probing-its_tool">5.1.6.33.3 tool_probing to machining_tool (as its_tool)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -4300,7 +4308,7 @@ machining_tool
 <A HREF="clause4.htm#ao-tool_radius_probing">AO</a>
 <A HREF="annexG.htm#tool_radius_probing">ARM</a>
 </DIV>
-<H4 ID="map-tool_radius_probing">5.1.6.33 TOOL_RADIUS_PROBING</H4>
+<H4 ID="map-tool_radius_probing">5.1.6.34 TOOL_RADIUS_PROBING</H4>
 </DIV>
 
 <table class="map">
@@ -4327,7 +4335,7 @@ action_method
 <A HREF="clause4.htm#ao-tool_usage">AO</a>
 <A HREF="annexG.htm#tool_usage">ARM</a>
 </DIV>
-<H4 ID="map-tool_usage">5.1.6.34 TOOL_USAGE</H4>
+<H4 ID="map-tool_usage">5.1.6.35 TOOL_USAGE</H4>
 </DIV>
 
 <table class="map">
@@ -4347,7 +4355,7 @@ action_method
 </table>
 
 
-<H5 ID="map-tool_usage-description">5.1.6.34.1 description</H5>
+<H5 ID="map-tool_usage-description">5.1.6.35.1 description</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -4368,7 +4376,7 @@ action_method.description
 
 
 
-<H5 ID="map-tool_usage-gage_placement">5.1.6.34.2 gage_placement</H5>
+<H5 ID="map-tool_usage-gage_placement">5.1.6.35.2 gage_placement</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -4400,7 +4408,7 @@ axis2_placement_3d
 </tr>
 </table>
 
-<H5 ID="map-tool_usage-its_carousel">5.1.6.34.3 its_carousel</H5>
+<H5 ID="map-tool_usage-its_carousel">5.1.6.35.3 its_carousel</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -4432,7 +4440,7 @@ descriptive_representation_item.description
 </table>
 
 
-<H5 ID="map-tool_usage-its_id">5.1.6.34.4 its_id</H5>
+<H5 ID="map-tool_usage-its_id">5.1.6.35.4 its_id</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -4452,7 +4460,7 @@ action_method.name
 </table>
 
 
-<H5 ID="map-tool_usage-its_library_reference">5.1.6.34.5 tool_usage to externally_defined_representation (as its_library_reference)</H5>
+<H5 ID="map-tool_usage-its_library_reference">5.1.6.35.5 tool_usage to externally_defined_representation (as its_library_reference)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -4477,7 +4485,7 @@ externally_defined_representation_with_parameters
 </table>
 
 
-<H5 ID="map-tool_usage-its_position">5.1.6.34.6 its_position</H5>
+<H5 ID="map-tool_usage-its_position">5.1.6.35.6 its_position</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -4509,7 +4517,7 @@ descriptive_representation_item.description
 </table>
 
 
-<H5 ID="map-tool_usage-its_product">5.1.6.34.7 tool_usage to workpiece (as its_product)</H5>
+<H5 ID="map-tool_usage-its_product">5.1.6.35.7 tool_usage to workpiece (as its_product)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -4535,7 +4543,7 @@ product_definition
 
 
 
-<H5 ID="map-tool_usage-tool_end_placement">5.1.6.34.8 tool_end_placement</H5>
+<H5 ID="map-tool_usage-tool_end_placement">5.1.6.35.8 tool_end_placement</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -4574,7 +4582,7 @@ axis2_placement_3d
 <A HREF="clause4.htm#ao-touch_probe">AO</a>
 <A HREF="annexG.htm#touch_probe">ARM</a>
 </DIV>
-<H4 ID="map-touch_probe">5.1.6.35 TOUCH_PROBE</H4>
+<H4 ID="map-touch_probe">5.1.6.36 TOUCH_PROBE</H4>
 </DIV>
 
 <table class="map">
@@ -4595,7 +4603,7 @@ action_resource
 </table>
 
 
-<H5 ID="map-touch_probe-ball_radius">5.1.6.35.1 ball_radius</H5>
+<H5 ID="map-touch_probe-ball_radius">5.1.6.36.1 ball_radius</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -4631,7 +4639,7 @@ length_measure_with_unit
 </table>
 
 
-<H5 ID="map-touch_probe-overall_assembly_length">5.1.6.35.2 overall_assembly_length</H5>
+<H5 ID="map-touch_probe-overall_assembly_length">5.1.6.36.2 overall_assembly_length</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -4668,7 +4676,7 @@ length_measure_with_unit
 
   
 
-<H5 ID="map-touch_probe-stylus_diameter">5.1.6.35.3 stylus_diameter</H5>
+<H5 ID="map-touch_probe-stylus_diameter">5.1.6.36.3 stylus_diameter</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -4709,7 +4717,7 @@ length_measure_with_unit
 <A HREF="clause4.htm#ao-touch_probing">AO</a>
 <A HREF="annexG.htm#touch_probing">ARM</a>
 </DIV>
-<H4 ID="map-touch_probing">5.1.6.36 TOUCH_PROBING</H4>
+<H4 ID="map-touch_probing">5.1.6.37 TOUCH_PROBING</H4>
 </DIV>
 
 <table class="map">
@@ -4730,7 +4738,7 @@ action_method
 </table>
 
 
-<H5 ID="map-touch_probing-measured_offset">5.1.6.36.1 touch_probing to nc_variable (as measured_offset)</H5>
+<H5 ID="map-touch_probing-measured_offset">5.1.6.37.1 touch_probing to nc_variable (as measured_offset)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -4764,7 +4772,7 @@ expression_item_representation_item
 <A HREF="clause4.htm#ao-wait_for_mark">AO</a>
 <A HREF="annexG.htm#wait_for_mark">ARM</a>
 </DIV>
-<H4 ID="map-wait_for_mark">5.1.6.37 WAIT_FOR_MARK</H4>
+<H4 ID="map-wait_for_mark">5.1.6.38 WAIT_FOR_MARK</H4>
 </DIV>
 
 <table class="map">
@@ -4786,7 +4794,7 @@ action_method
 </table>
 
 
-<H5 ID="map-wait_for_mark-its_channel">5.1.6.37.1 wait_for_mark to channel (as its_channel)</H5>
+<H5 ID="map-wait_for_mark-its_channel">5.1.6.38.1 wait_for_mark to channel (as its_channel)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -4816,7 +4824,7 @@ representation
 <A HREF="clause4.htm#ao-while_statement">AO</a>
 <A HREF="annexG.htm#while_statement">ARM</a>
 </DIV>
-<H4 ID="map-while_statement">5.1.6.38 WHILE_STATEMENT</H4>
+<H4 ID="map-while_statement">5.1.6.39 WHILE_STATEMENT</H4>
 </DIV>
 
 <table class="map">
@@ -4837,7 +4845,7 @@ action_method
 </table>
 
 
-<H5 ID="map-while_statement-condition">5.1.6.38.1 while_statement to boolean_expression (as condition)</H5>
+<H5 ID="map-while_statement-condition">5.1.6.39.1 while_statement to boolean_expression (as condition)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -4869,7 +4877,7 @@ boolean_expression
 </table>
 
 
-<H5 ID="map-while_statement-body">5.1.6.38.2 while_statement to executable (as body)</H5>
+<H5 ID="map-while_statement-body">5.1.6.39.2 while_statement to executable (as body)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -4896,7 +4904,7 @@ machining_process_executable
 <A HREF="clause4.htm#ao-workingstep">AO</a>
 <A HREF="annexG.htm#workingstep">ARM</a>
 </DIV>
-<H4 ID="map-workingstep">5.1.6.39 WORKINGSTEP</H4>
+<H4 ID="map-workingstep">5.1.6.40 WORKINGSTEP</H4>
 </DIV>
 
 <table class="map">
@@ -4917,7 +4925,7 @@ action_method
 </table>
 
 
-<H5 ID="map-workingstep-its_secplane">5.1.6.39.1 its_secplane</H5>
+<H5 ID="map-workingstep-its_secplane">5.1.6.40.1 its_secplane</H5>
 <table class="map">
 <tr><th>AIM element:</th>
 <td>elementary_surface</td>
@@ -4950,7 +4958,7 @@ elementary_surface
 </table>
 
 
-<H5 ID="map-workingstep-final_features">5.1.6.39.2 workingstep to manufacturing_feature (as final_features)</H5>
+<H5 ID="map-workingstep-final_features">5.1.6.40.2 workingstep to manufacturing_feature (as final_features)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -4991,7 +4999,7 @@ shape_aspect
 </table>
 
 
-<H5 ID="map-workingstep-its_operation">5.1.6.39.3 workingstep to machining_operation (as its_operation)</H5>
+<H5 ID="map-workingstep-its_operation">5.1.6.40.3 workingstep to machining_operation (as its_operation)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -5014,7 +5022,7 @@ machining_operation
 </table>
 
 
-<H5 ID="map-workingstep-toolpath_orientation">5.1.6.39.4 toolpath_orientation</H5>
+<H5 ID="map-workingstep-toolpath_orientation">5.1.6.40.4 toolpath_orientation</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -5053,7 +5061,7 @@ axis2_placement_3d
 <A HREF="clause4.htm#ao-workpiece_complete_probing">AO</a>
 <A HREF="annexG.htm#workpiece_complete_probing">ARM</a>
 </DIV>
-<H4 ID="map-workpiece_complete_probing">5.1.6.40 WORKPIECE_COMPLETE_PROBING</H4>
+<H4 ID="map-workpiece_complete_probing">5.1.6.41 WORKPIECE_COMPLETE_PROBING</H4>
 </DIV>
 
 <table class="map">
@@ -5075,7 +5083,7 @@ action_method
 </table>
 
 
-<H5 ID="map-workpiece_complete_probing-its_workpiece">5.1.6.40.1 workpiece_complete_probing to product_view_definition (as its_workpiece)</H5>
+<H5 ID="map-workpiece_complete_probing-its_workpiece">5.1.6.41.1 workpiece_complete_probing to product_view_definition (as its_workpiece)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -5101,7 +5109,7 @@ product_definition
 </table>
 
 
-<H5 ID="map-workpiece_complete_probing-probing_distance">5.1.6.40.2 probing_distance</H5>
+<H5 ID="map-workpiece_complete_probing-probing_distance">5.1.6.41.2 probing_distance</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -5135,7 +5143,7 @@ length_measure_with_unit
 </table>
 
 
-<H5 ID="map-workpiece_complete_probing-its_probe">5.1.6.40.3 workpiece_complete_probing to touch_probe  (as its_probe)</H5>
+<H5 ID="map-workpiece_complete_probing-its_probe">5.1.6.41.3 workpiece_complete_probing to touch_probe  (as its_probe)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -5156,7 +5164,7 @@ machining_tool
 </table>
 
 
-<H5 ID="map-workpiece_complete_probing-computed_offset">5.1.6.40.4 workpiece_complete_probing to offset_vector (as computed_offset)</H5>
+<H5 ID="map-workpiece_complete_probing-computed_offset">5.1.6.41.4 workpiece_complete_probing to offset_vector (as computed_offset)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -5187,7 +5195,7 @@ machining_offset_vector_representation
 <A HREF="clause4.htm#ao-workpiece_probing">AO</a>
 <A HREF="annexG.htm#workpiece_probing">ARM</a>
 </DIV>
-<H4 ID="map-workpiece_probing">5.1.6.41 WORKPIECE_PROBING</H4>
+<H4 ID="map-workpiece_probing">5.1.6.42 WORKPIECE_PROBING</H4>
 </DIV>
 
 <table class="map">
@@ -5209,7 +5217,7 @@ action_method
 </table>
 
 
-<H5 ID="map-workpiece_probing-start_position">5.1.6.41.1 start_position</H5>
+<H5 ID="map-workpiece_probing-start_position">5.1.6.42.1 start_position</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -5243,7 +5251,7 @@ axis2_placement_3d
 </table>
 
 
-<H5 ID="map-workpiece_probing-its_workpiece">5.1.6.41.2 workpiece_probing to product_view_definition (as its_workpiece)</H5>
+<H5 ID="map-workpiece_probing-its_workpiece">5.1.6.42.2 workpiece_probing to product_view_definition (as its_workpiece)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -5269,7 +5277,7 @@ product_definition
 </table>
 
 
-<H5 ID="map-workpiece_probing-its_direction">5.1.6.41.3 its_direction</H5>
+<H5 ID="map-workpiece_probing-its_direction">5.1.6.42.3 its_direction</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -5302,7 +5310,7 @@ direction
 </table>
 
 
-<H5 ID="map-workpiece_probing-expected_value">5.1.6.41.4 expected_value</H5>
+<H5 ID="map-workpiece_probing-expected_value">5.1.6.42.4 expected_value</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -5336,7 +5344,7 @@ length_measure_with_unit
 </table>
 
 
-<H5 ID="map-workpiece_probing-its_probe">5.1.6.41.5 workpiece_probing to touch_probe  (as its_probe)</H5>
+<H5 ID="map-workpiece_probing-its_probe">5.1.6.42.5 workpiece_probing to touch_probe  (as its_probe)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -5362,7 +5370,7 @@ machining_tool
 <A HREF="clause4.htm#ao-workpiece_setup">AO</a>
 <A HREF="annexG.htm#workpiece_setup">ARM</a>
 </DIV>
-<H4 ID="map-workpiece_setup">5.1.6.42 WORKPIECE_SETUP</H4>
+<H4 ID="map-workpiece_setup">5.1.6.43 WORKPIECE_SETUP</H4>
 </DIV>
 
 <table class="map">
@@ -5382,7 +5390,7 @@ product_definition_relationship
 </table>
 
 
-<H5 ID="map-workpiece_setup-its_workpiece">5.1.6.42.1 workpiece_setup to product_view_definition (as its_workpiece)</H5>
+<H5 ID="map-workpiece_setup-its_workpiece">5.1.6.43.1 workpiece_setup to product_view_definition (as its_workpiece)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -5399,7 +5407,7 @@ product_definition
 </table>
 
 
-<H5 ID="map-workpiece_setup-its_origin">5.1.6.42.2 its_origin</H5>
+<H5 ID="map-workpiece_setup-its_origin">5.1.6.43.2 its_origin</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -5439,7 +5447,7 @@ axis2_placement_3d
 </table>
 
 
-<H5 ID="map-workpiece_setup-its_offset">5.1.6.42.3 workpiece_setup to offset_vector (as its_offset)</H5>
+<H5 ID="map-workpiece_setup-its_offset">5.1.6.43.3 workpiece_setup to offset_vector (as its_offset)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -5468,7 +5476,7 @@ machining_offset_vector_representation
 </table>
 
 
-<H5 ID="map-workpiece_setup-its_restricted_area">5.1.6.42.4 workpiece_setup to restricted_area_select (as its_restricted_area)</H5>
+<H5 ID="map-workpiece_setup-its_restricted_area">5.1.6.43.4 workpiece_setup to restricted_area_select (as its_restricted_area)</H5>
 <div class="mapnote">
 <p>#1: if restricted_area is a block</p>
 <p>#2: if restricted_area is a  right_circular_cylinder</p>
@@ -5522,7 +5530,7 @@ bounded_surface)
 </table>
 
 
-<H5 ID="map-workpiece_setup-its_instructions">5.1.6.42.5 workpiece_setup to setup_instruction (as its_instructions)</H5>
+<H5 ID="map-workpiece_setup-its_instructions">5.1.6.43.5 workpiece_setup to setup_instruction (as its_instructions)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -5566,7 +5574,7 @@ machining_operator_instruction
 <A HREF="clause4.htm#ao-workplan">AO</a>
 <A HREF="annexG.htm#workplan">ARM</a>
 </DIV>
-<H4 ID="map-workplan">5.1.6.43 WORKPLAN</H4>
+<H4 ID="map-workplan">5.1.6.44 WORKPLAN</H4>
 </DIV>
 
 <table class="map">
@@ -5587,7 +5595,7 @@ action_method
 </table>
 
 
-<H5 ID="map-workplan-its_elements">5.1.6.43.1 workplan to executable (as its_elements)</H5>
+<H5 ID="map-workplan-its_elements">5.1.6.44.1 workplan to executable (as its_elements)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -5615,7 +5623,7 @@ machining_process_executable
 </table>
 
 
-<H5 ID="map-workplan-its_channel">5.1.6.43.2 workplan to channel (as its_channel)</H5>
+<H5 ID="map-workplan-its_channel">5.1.6.44.2 workplan to channel (as its_channel)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -5640,7 +5648,7 @@ representation
 </table>
 
 
-<H5 ID="map-workplan-its_setup">5.1.6.43.3 workplan to setup (as its_setup)</H5>
+<H5 ID="map-workplan-its_setup">5.1.6.44.3 workplan to setup (as its_setup)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -5668,7 +5676,7 @@ product_definition_formation
 </table>
 
 
-<H5 ID="map-workplan-its_minimum_machine_params">5.1.6.43.4 workplan to machine_parameters (as its_minimum_machine_params)</H5>
+<H5 ID="map-workplan-its_minimum_machine_params">5.1.6.44.4 workplan to machine_parameters (as its_minimum_machine_params)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -5690,7 +5698,7 @@ machining_execution_resource
 
 
 
-<H5 ID="map-workplan-toolpath_orientation">5.1.6.43.5 toolpath_orientation</H5>
+<H5 ID="map-workplan-toolpath_orientation">5.1.6.44.5 toolpath_orientation</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -5727,6 +5735,8 @@ axis2_placement_3d
 
 <H3 ID="mapuof-operation">5.1.7 Mapping specification for operation UoF</H3>
 
+<H4 ID="mapuof-operation-general">5.1.7.1 General</H4>
+
 <p>The mapping specification for the application objects in this UoF shall be as defined by the specification below.</p>
 
 
@@ -5735,7 +5745,7 @@ axis2_placement_3d
 <A HREF="clause4.htm#ao-extended_operation">AO</a>
 <A HREF="annexG.htm#extended_operation">ARM</a>
 </DIV>
-<H4 ID="map-extended_operation">5.1.7.1 EXTENDED_OPERATION</H4>
+<H4 ID="map-extended_operation">5.1.7.2 EXTENDED_OPERATION</H4>
 </DIV>
 
 <table class="map">
@@ -5756,7 +5766,7 @@ action_method
 </table>
 
 
-<H5 ID="map-extended_operation-description">5.1.7.1.1 description</H5>
+<H5 ID="map-extended_operation-description">5.1.7.2.1 description</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -5776,7 +5786,7 @@ action_method.description
 </tr>
 </table>
 
-<H5 ID="map-extended_operation-its_machine_functions">5.1.7.1.2 extended_operation to machine_functions (as its_machine_functions)</H5>
+<H5 ID="map-extended_operation-its_machine_functions">5.1.7.2.2 extended_operation to machine_functions (as its_machine_functions)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -5798,7 +5808,7 @@ machining_functions
 </tr>
 </table>
 
-<H5 ID="map-extended_operation-its_technology">5.1.7.1.3 extended_operation to technology (as its_technology)</H5>
+<H5 ID="map-extended_operation-its_technology">5.1.7.2.3 extended_operation to technology (as its_technology)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -5821,7 +5831,7 @@ machining_technology
 </table>
 
 
-<H5 ID="map-extended_operation-its_tool">5.1.7.1.4 extended_operation to machining_tool (as its_tool)</H5>
+<H5 ID="map-extended_operation-its_tool">5.1.7.2.4 extended_operation to machining_tool (as its_tool)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -5850,7 +5860,7 @@ machining_tool
 <A HREF="clause4.htm#ao-machine_functions">AO</a>
 <A HREF="annexG.htm#machine_functions">ARM</a>
 </DIV>
-<H4 ID="map-machine_functions">5.1.7.2 MACHINE_FUNCTIONS</H4>
+<H4 ID="map-machine_functions">5.1.7.3 MACHINE_FUNCTIONS</H4>
 </DIV>
 
 <table class="map">
@@ -5869,7 +5879,7 @@ action_method
 </tr>
 </table>
 
-<H5 ID="map-machine_functions-other_functions">5.1.7.2.1 machine_functions to representation_item (as other_functions)</H5>
+<H5 ID="map-machine_functions-other_functions">5.1.7.3.1 machine_functions to representation_item (as other_functions)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -5900,7 +5910,7 @@ representation_item
 <A HREF="clause4.htm#ao-machining_operation">AO</a>
 <A HREF="annexG.htm#machining_operation">ARM</a>
 </DIV>
-<H4 ID="map-machining_operation">5.1.7.3 MACHINING_OPERATION</H4>
+<H4 ID="map-machining_operation">5.1.7.4 MACHINING_OPERATION</H4>
 </DIV>
 
 <table class="map">
@@ -5919,7 +5929,7 @@ action_method
 </tr>
 </table>
 
-<H5 ID="map-machining_operation-retract_plane">5.1.7.3.1 retract_plane</H5>
+<H5 ID="map-machining_operation-retract_plane">5.1.7.4.1 retract_plane</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -5952,7 +5962,7 @@ length_measure_with_unit
 </table>
 
 
-<H5 ID="map-machining_operation-start_point">5.1.7.3.2 start_point</H5>
+<H5 ID="map-machining_operation-start_point">5.1.7.4.2 start_point</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -5985,7 +5995,7 @@ cartesian_point
 </table>
 
 
-<H5 ID="map-machining_operation-its_tool">5.1.7.3.3 machining_operation to machining_tool (as its_tool)</H5>
+<H5 ID="map-machining_operation-its_tool">5.1.7.4.3 machining_operation to machining_tool (as its_tool)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -6005,7 +6015,7 @@ machining_tool
 </table>
 
 
-<H5 ID="map-machining_operation-its_technology">5.1.7.3.4 machining_operation to technology (as its_technology)</H5>
+<H5 ID="map-machining_operation-its_technology">5.1.7.4.4 machining_operation to technology (as its_technology)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -6027,7 +6037,7 @@ machining_technology
 </table>
 
 
-<H5 ID="map-machining_operation-its_machine_functions">5.1.7.3.5 machining_operation to machine_functions (as its_machine_functions)</H5>
+<H5 ID="map-machining_operation-its_machine_functions">5.1.7.4.5 machining_operation to machine_functions (as its_machine_functions)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -6054,7 +6064,7 @@ machining_functions
 <A HREF="clause4.htm#ao-operation">AO</a>
 <A HREF="annexG.htm#operation">ARM</a>
 </DIV>
-<H4 ID="map-operation">5.1.7.4 OPERATION</H4>
+<H4 ID="map-operation">5.1.7.5 OPERATION</H4>
 </DIV>
 
 <table class="map">
@@ -6074,7 +6084,7 @@ action_method
 </table>
 
 
-<H5 ID="map-operation-its_id">5.1.7.4.1 its_id</H5>
+<H5 ID="map-operation-its_id">5.1.7.5.1 its_id</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -6094,7 +6104,7 @@ action_method.name
 </table>
 
 
-<H5 ID="map-operation-its_toolpath">5.1.7.4.2 operation to toolpath (as its_toolpath)</H5>
+<H5 ID="map-operation-its_toolpath">5.1.7.5.2 operation to toolpath (as its_toolpath)</H5>
 <div class="mapnote">
 <p><A href="#mapnote-7">See NOTE 7</A></p>
 </div>
@@ -6121,7 +6131,7 @@ machining_toolpath
 </table>
 
 
-<H5 ID="map-operation-its_tool_direction">5.1.7.4.3 operation to tool_direction (as its_tool_direction)</H5>
+<H5 ID="map-operation-its_tool_direction">5.1.7.5.3 operation to tool_direction (as its_tool_direction)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -6146,7 +6156,7 @@ machining_tool_direction_representation
 </table>
 
 
-<H5 ID="map-operation-process_properties">5.1.7.4.4 operation to process_property (as process_properties)</H5>
+<H5 ID="map-operation-process_properties">5.1.7.5.4 operation to process_property (as process_properties)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -6166,7 +6176,7 @@ machining_process_property
 </table>
 
 
-<H5 ID="map-operation-its_broadcast">5.1.7.4.5 operation to broadcast (as its_broadcast)</H5>
+<H5 ID="map-operation-its_broadcast">5.1.7.5.5 operation to broadcast (as its_broadcast)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -6199,7 +6209,7 @@ machining_broadcast_strategy
 <A HREF="clause4.htm#ao-technology">AO</a>
 <A HREF="annexG.htm#technology">ARM</a>
 </DIV>
-<H4 ID="map-technology">5.1.7.5 TECHNOLOGY</H4>
+<H4 ID="map-technology">5.1.7.6 TECHNOLOGY</H4>
 </DIV>
 
 <table class="map">
@@ -6219,7 +6229,7 @@ action_method
 </table>
 
 
-<H5 ID="map-technology-feedrate">5.1.7.5.1 feedrate</H5>
+<H5 ID="map-technology-feedrate">5.1.7.6.1 feedrate</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -6259,7 +6269,7 @@ numeric_measure }
 </table>
 
 
-<H5 ID="map-technology-feedrate_reference">5.1.7.5.2 feedrate_reference</H5>
+<H5 ID="map-technology-feedrate_reference">5.1.7.6.2 feedrate_reference</H5>
 <div class="mapnote">
 <p>#1: if value is tool center point  (mapping may be omitted if value is tool center point)</p>
 <p>#2: if value is cutter contact point </p>
@@ -6302,7 +6312,7 @@ descriptive_representation_item.description
 <A HREF="clause4.htm#ao-three_axes">AO</a>
 <A HREF="annexG.htm#three_axes">ARM</a>
 </DIV>
-<H4 ID="map-three_axes">5.1.7.6 THREE_AXES</H4>
+<H4 ID="map-three_axes">5.1.7.7 THREE_AXES</H4>
 </DIV>
 
 <table class="map">
@@ -6328,7 +6338,7 @@ representation
 <A HREF="clause4.htm#ao-tool_direction">AO</a>
 <A HREF="annexG.htm#tool_direction">ARM</a>
 </DIV>
-<H4 ID="map-tool_direction">5.1.7.7 TOOL_DIRECTION</H4>
+<H4 ID="map-tool_direction">5.1.7.8 TOOL_DIRECTION</H4>
 </DIV>
 
 <table class="map">
@@ -6353,7 +6363,7 @@ representation
 <A HREF="clause4.htm#ao-toolpath_list">AO</a>
 <A HREF="annexG.htm#toolpath_list">ARM</a>
 </DIV>
-<H4 ID="map-toolpath_list">5.1.7.8 TOOLPATH_LIST</H4>
+<H4 ID="map-toolpath_list">5.1.7.9 TOOLPATH_LIST</H4>
 </DIV>
 
 <table class="map">
@@ -6369,7 +6379,7 @@ representation
 <A HREF="clause4.htm#ao-two_axes">AO</a>
 <A HREF="annexG.htm#two_axes">ARM</a>
 </DIV>
-<H4 ID="map-two_axes">5.1.7.9 TWO_AXES</H4>
+<H4 ID="map-two_axes">5.1.7.10 TWO_AXES</H4>
 </DIV>
 
 <table class="map">
@@ -33586,6 +33596,8 @@ shall be as defined by ISO 10303-1129, ISO 10303-1291, ISO 10303-1331, and ISO
 
 <H3 ID="mapuof-management">5.1.19 Mapping specification for management UoF</H3>
 
+<H4 ID="mapuof-management-general">5.1.19.1 General</H4>
+
 <P>The mapping specification for the application objects in this UoF
 shall be as defined by ISO 10303-1012, ISO 10303-1013, ISO 10303-1014, ISO
 10303-1015, and the specification below.
@@ -33596,7 +33608,7 @@ shall be as defined by ISO 10303-1012, ISO 10303-1013, ISO 10303-1014, ISO
 <A HREF="clause4.htm#ao-last_modified_timestamp">AO</a>
 <A HREF="annexG.htm#last_modified_timestamp">ARM</a>
 </DIV>
-<H4 ID="map-last_modified_timestamp">5.1.19.1 LAST_MODIFIED_TIMESTAMP</H4>
+<H4 ID="map-last_modified_timestamp">5.1.19.2 LAST_MODIFIED_TIMESTAMP</H4>
 </DIV>
 
 <table class="map">
