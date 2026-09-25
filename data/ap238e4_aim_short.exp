@@ -743,7 +743,7 @@ ENTITY machining_functions
          (verify_pressure_measure_action_property
            (SELF, 'through spindle pressure')) AND
 
-         -- axis constraints property must contain zero or more ranges
+         -- axis constraints property contain zero or more ranges
          (0 = SIZEOF (QUERY (prop <* get_action_property
                 (SELF, 'axis constraints') | NOT
                  ((0 < SIZEOF (QUERY (prep <* USEDIN (prop,
@@ -892,7 +892,7 @@ ENTITY machining_toolpath
   WR10: NOT (SELF.description = 'axis trajectory') OR
         ((verify_required_action_property     (SELF, 'axis commands')) AND
 
-         -- axis commands property must contain one or more bounded curves
+         -- axis commands property contain one or more bounded curves
          (0 = SIZEOF (QUERY (prop <* get_action_property (SELF, 'axis commands') |
           NOT ((0 < SIZEOF (QUERY (prep <* USEDIN (prop,
                'MODEL_BASED_INTEGRATED_MANUFACTURING_SCHEMA.ACTION_PROPERTY_REPRESENTATION.PROPERTY') |
@@ -3850,10 +3850,10 @@ FUNCTION verify_ballnose_endmill_dimensions (
     END_LOCAL;
 
     RETURN ((0 = SIZEOF(rads)) OR
-            ((1 = SIZEOF(rads)) AND
-             (1 = SIZEOF(dias)) AND
-             (rads[1].value_component = dias[1].value_component/2))
-        );
+    	   ((1 = SIZEOF(rads)) AND
+  	    (1 = SIZEOF(dias))) AND
+	   (rads[1]\representation_item\measure_representation_item\measure_with_unit.value_component =
+	    dias[1]\representation_item\measure_representation_item\measure_with_unit.value_component/2));
 END_FUNCTION;
 
 
@@ -3871,7 +3871,8 @@ FUNCTION verify_bullnose_endmill_dimensions (
 
     RETURN  ((1 = SIZEOF(rads)) AND
              (1 = SIZEOF(dias)) AND
-             (rads[1].value_component < dias[1].value_component/2)
+             (rads[1]\representation_item\measure_representation_item\measure_with_unit.value_component <
+	      dias[1]\representation_item\measure_representation_item\measure_with_unit.value_component/2)
         );
 END_FUNCTION;
 
@@ -3936,7 +3937,7 @@ WHERE
                    (rir.relating_representation_item :=: nv)
 	))))));
 
-  -- the types on either side of the initial value relationship must match
+  -- the types on either side of the initial value relationship match
   -- each nc_variable has at most one one initial value
   WR2: (0 = SIZEOF (QUERY (rir <* representation_item_relationship |
   	 (rir.description = 'initial value')  AND 

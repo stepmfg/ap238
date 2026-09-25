@@ -41607,14 +41607,15 @@ FUNCTION verify_ballnose_endmill_dimensions (
     END_LOCAL;
 
     RETURN ((0 = SIZEOF(rads)) OR
-            ((1 = SIZEOF(rads)) AND
-             (1 = SIZEOF(dias)) AND
-             (rads[1].value_component = dias[1].value_component/2))
-        );
+    	   ((1 = SIZEOF(rads)) AND
+  	    (1 = SIZEOF(dias))) AND
+	   (rads[1]\representation_item\measure_representation_item\measure_with_unit.value_component =
+	    dias[1]\representation_item\measure_representation_item\measure_with_unit.value_component/2));
 END_FUNCTION;
 (*
 </PRE>
-
+(rads[1]\representation_item\measure_representation_item\measure_with_unit.value_component =
+dias[1]\representation_item\measure_representation_item\measure_with_unit.value_component/2));
 
 <H6 CLASS="section-underlined">Argument definitions:</H6>
 
@@ -41642,7 +41643,8 @@ FUNCTION verify_bullnose_endmill_dimensions (
 
     RETURN  ((1 = SIZEOF(rads)) AND
              (1 = SIZEOF(dias)) AND
-             (rads[1].value_component &lt; dias[1].value_component/2)
+             (rads[1]\representation_item\measure_representation_item\measure_with_unit.value_component &lt;
+	      dias[1]\representation_item\measure_representation_item\measure_with_unit.value_component/2)
         );
 END_FUNCTION;
 (*

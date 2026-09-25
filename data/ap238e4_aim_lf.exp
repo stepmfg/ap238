@@ -38049,7 +38049,9 @@ FUNCTION verify_ballnose_endmill_dimensions (
       'effective cutting diameter');
   END_LOCAL;
     RETURN ((0 = SIZEOF(rads)) OR ((1 = SIZEOF(rads)) AND (1 = SIZEOF(dias)
-      )) AND (rads[1].value_component = dias[1].value_component / 2));
+      )) AND (rads[1]\representation_item\measure_representation_item\
+      measure_with_unit.value_component = dias[1]\representation_item\
+      measure_representation_item\measure_with_unit.value_component/2));
 END_FUNCTION; -- 10303-238: model_based_integrated_manufacturing_schema
 
 FUNCTION verify_bullnose_endmill_dimensions (
@@ -38061,8 +38063,10 @@ FUNCTION verify_bullnose_endmill_dimensions (
     dias : SET OF representation_item := get_tool_body_item(mt, 
       'effective cutting diameter');
   END_LOCAL;
-    RETURN (((1 = SIZEOF(rads)) AND (1 = SIZEOF(dias))) AND (rads[1].
-      value_component < dias[1].value_component / 2));
+    RETURN (((1 = SIZEOF(rads)) AND (1 = SIZEOF(dias))) AND (rads[1]\
+      representation_item\measure_representation_item\measure_with_unit.
+      value_component < dias[1]\representation_item\measure_representation_item\
+      measure_with_unit.value_component/2));
 END_FUNCTION; -- 10303-238: model_based_integrated_manufacturing_schema
 
 FUNCTION verify_count_measure_action_property (

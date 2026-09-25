@@ -832,7 +832,7 @@ WHERE
     WR1: (0 = SIZEOF(axis_travel)) OR
  	 ((NOT EXISTS (work_volume_length)) AND
  	  (NOT EXISTS (work_volume_width)) AND
- 	  (NOT EXISTS (work_volume_length)));
+ 	  (NOT EXISTS (work_volume_height)));
 END_ENTITY;
 
 ENTITY Machine_axis_travel; 	-- ADDED BY 10303-238

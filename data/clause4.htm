@@ -1749,8 +1749,8 @@ region is then used to contour and fill that region.</P>
 application object is shown below.</P>
 
 <PRE CLASS="note">
-ENTITY Am_application_region 	-- ADDED BY 10303-238e4
-  SUBTYPE OF (Am_pbf_region);
+ENTITY Am_application_feature  	-- ADDED BY 10303-238e4
+SUBTYPE OF (Am_pbf_feature);
 END_ENTITY;
 </PRE>
 
@@ -10341,7 +10341,7 @@ WHERE
     WR1: (0 = SIZEOF(axis_travel)) OR
  	 ((NOT EXISTS (work_volume_length)) AND
  	  (NOT EXISTS (work_volume_width)) AND
- 	  (NOT EXISTS (work_volume_length)));
+ 	  (NOT EXISTS (work_volume_height)));
 END_ENTITY;
 </PRE>
 
