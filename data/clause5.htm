@@ -13423,10 +13423,107 @@ action_resource
 
 <!-- ============================== -->
 <DIV><DIV class=quick>
+<A HREF="clause4.htm#ao-combined_drill_and_countersink">AO</a>
+<A HREF="annexG.htm#combined_drill_and_countersink">ARM</a>
+</DIV>
+<H4 ID="map-combined_drill_and_countersink">5.1.10.3 COMBINED_DRILL_AND_COUNTERSINK</H4>
+</DIV>
+
+<table class="map">
+<tr><th>AIM element:</th>
+<td>machining_tool</td>
+</tr>
+
+<tr><th>Source:</th>
+<td>10303-238</td>
+</tr>
+
+<tr><th>Reference path:</th>
+<td class="path">machining_tool &lt;=
+action_resource
+{ action_resource.description = 'combined drill and countersink' }
+</td>
+</tr>
+</table>
+
+
+<H5 ID="map-combined_drill_and_countersink-drill_length">5.1.10.3.1 drill_length</H5>
+
+<table class="map">
+<tr><th>AIM element:</th>
+<td>length_measure_with_unit</td>
+</tr>
+
+<tr><th>Source:</th>
+<td>10303-41</td>
+</tr>
+
+<tr><th>Reference path:</th>
+<td class="path">machining_tool &lt;=
+action_resource
+characterized_resource_definition  = action_resource
+characterized_resource_definition &lt;-
+resource_property.resource
+{ resource_property.name = 'tool body' }
+resource_property &lt;-
+resource_property_representation.property
+resource_property_representation
+resource_property_representation.representation -&gt;
+{ representation =&gt;
+machining_tool_body_representation }
+representation
+representation.items[i] -&gt;
+{ representation_item.name =  'drill length' }
+representation_item =&gt;
+measure_representation_item &lt;=
+measure_with_unit =&gt;
+length_measure_with_unit
+</td>
+</tr>
+</table>
+
+<H5 ID="map-combined_drill_and_countersink-countersink_angle">5.1.10.3.2 countersink_angle</H5>
+
+<table class="map">
+<tr><th>AIM element:</th>
+<td>plane_angle_measure_with_unit</td>
+</tr>
+
+<tr><th>Source:</th>
+<td>10303-41</td>
+</tr>
+
+<tr><th>Reference path:</th>
+<td class="path">machining_tool &lt;=
+action_resource
+characterized_resource_definition  = action_resource
+characterized_resource_definition &lt;-
+resource_property.resource
+{ resource_property.name = 'tool body' }
+resource_property &lt;-
+resource_property_representation.property
+resource_property_representation
+resource_property_representation.representation -&gt;
+{ representation =&gt;
+machining_tool_body_representation }
+representation
+representation.items[i] -&gt;
+{ representation_item.name =  'countersink angle' }
+representation_item =&gt;
+measure_representation_item &lt;=
+measure_with_unit =&gt;
+plane_angle_measure_with_unit
+</td>
+</tr>
+</table>
+
+
+<!-- ============================== -->
+<DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-combined_drill_and_reamer">AO</a>
 <A HREF="annexG.htm#combined_drill_and_reamer">ARM</a>
 </DIV>
-<H4 ID="map-combined_drill_and_reamer">5.1.10.3 COMBINED_DRILL_AND_REAMER</H4>
+<H4 ID="map-combined_drill_and_reamer">5.1.10.4 COMBINED_DRILL_AND_REAMER</H4>
 </DIV>
 
 <table class="map">
@@ -13447,7 +13544,7 @@ action_resource
 </table>
 
 
-<H5 ID="map-combined_drill_and_reamer-drill_length">5.1.10.3.1 drill_length</H5>
+<H5 ID="map-combined_drill_and_reamer-drill_length">5.1.10.4.1 drill_length</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -13488,7 +13585,7 @@ length_measure_with_unit
 <A HREF="clause4.htm#ao-combined_drill_and_tap">AO</a>
 <A HREF="annexG.htm#combined_drill_and_tap">ARM</a>
 </DIV>
-<H4 ID="map-combined_drill_and_tap">5.1.10.4 COMBINED_DRILL_AND_TAP</H4>
+<H4 ID="map-combined_drill_and_tap">5.1.10.5 COMBINED_DRILL_AND_TAP</H4>
 </DIV>
 
 <table class="map">
@@ -13509,7 +13606,7 @@ action_resource
 </table>
 
 
-<H5 ID="map-combined_drill_and_tap-drill_length">5.1.10.4.1 drill_length</H5>
+<H5 ID="map-combined_drill_and_tap-drill_length">5.1.10.5.1 drill_length</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -13550,7 +13647,7 @@ length_measure_with_unit
 <A HREF="clause4.htm#ao-counterbore">AO</a>
 <A HREF="annexG.htm#counterbore">ARM</a>
 </DIV>
-<H4 ID="map-counterbore">5.1.10.5 COUNTERBORE</H4>
+<H4 ID="map-counterbore">5.1.10.6 COUNTERBORE</H4>
 </DIV>
 
 <table class="map">
@@ -13576,7 +13673,7 @@ action_resource
 <A HREF="clause4.htm#ao-countersink">AO</a>
 <A HREF="annexG.htm#countersink">ARM</a>
 </DIV>
-<H4 ID="map-countersink">5.1.10.6 COUNTERSINK</H4>
+<H4 ID="map-countersink">5.1.10.7 COUNTERSINK</H4>
 </DIV>
 
 <table class="map">
@@ -13597,7 +13694,7 @@ action_resource
 </table>
 
 
-<H5 ID="map-countersink-minimum_cutting_diameter">5.1.10.6.1 minimum_cutting_diameter</H5>
+<H5 ID="map-countersink-minimum_cutting_diameter">5.1.10.7.1 minimum_cutting_diameter</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -13633,7 +13730,7 @@ length_measure_with_unit
 </table>
 
 
-<H5 ID="map-countersink-maximum_usable_length">5.1.10.6.2 maximum_usable_length</H5>
+<H5 ID="map-countersink-maximum_usable_length">5.1.10.7.2 maximum_usable_length</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -13674,7 +13771,7 @@ length_measure_with_unit
 <A HREF="clause4.htm#ao-cutting_component">AO</a>
 <A HREF="annexG.htm#cutting_component">ARM</a>
 </DIV>
-<H4 ID="map-cutting_component">5.1.10.7 CUTTING_COMPONENT</H4>
+<H4 ID="map-cutting_component">5.1.10.8 CUTTING_COMPONENT</H4>
 </DIV>
 
 <table class="map">
@@ -13698,7 +13795,7 @@ action_resource_type.name = 'milling cutting edge' }
 </table>
 
 
-<H5 ID="map-cutting_component-tool_functional_length">5.1.10.7.1 tool_functional_length</H5>
+<H5 ID="map-cutting_component-tool_functional_length">5.1.10.8.1 tool_functional_length</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -13731,7 +13828,7 @@ length_measure_with_unit
 </table>
 
 
-<H5 ID="map-cutting_component-its_material">5.1.10.7.2 cutting_component to material (as its_material)</H5>
+<H5 ID="map-cutting_component-its_material">5.1.10.8.2 cutting_component to material (as its_material)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -13750,7 +13847,7 @@ material_designation
 </table>
 
 
-<H5 ID="map-cutting_component-expected_tool_life">5.1.10.7.3 expected_tool_life</H5>
+<H5 ID="map-cutting_component-expected_tool_life">5.1.10.8.3 expected_tool_life</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -13783,7 +13880,7 @@ time_measure_with_unit
 </table>
 
 
-<H5 ID="map-cutting_component-its_technology">5.1.10.7.4 cutting_component to milling_technology (as its_technology)</H5>
+<H5 ID="map-cutting_component-its_technology">5.1.10.8.4 cutting_component to milling_technology (as its_technology)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -13814,7 +13911,7 @@ machining_technology
 <A HREF="clause4.htm#ao-dovetail_mill">AO</a>
 <A HREF="annexG.htm#dovetail_mill">ARM</a>
 </DIV>
-<H4 ID="map-dovetail_mill">5.1.10.8 DOVETAIL_MILL</H4>
+<H4 ID="map-dovetail_mill">5.1.10.9 DOVETAIL_MILL</H4>
 </DIV>
 
 <table class="map">
@@ -13835,7 +13932,7 @@ action_resource
 </table>
 
 
-<H5 ID="map-dovetail_mill-included_angle">5.1.10.8.1 included_angle</H5>
+<H5 ID="map-dovetail_mill-included_angle">5.1.10.9.1 included_angle</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -13876,7 +13973,7 @@ plane_angle_measure_with_unit
 <A HREF="clause4.htm#ao-drilling_cutting_tool">AO</a>
 <A HREF="annexG.htm#drilling_cutting_tool">ARM</a>
 </DIV>
-<H4 ID="map-drilling_cutting_tool">5.1.10.9 DRILLING_CUTTING_TOOL</H4>
+<H4 ID="map-drilling_cutting_tool">5.1.10.10 DRILLING_CUTTING_TOOL</H4>
 </DIV>
 
 <table class="map">
@@ -13904,7 +14001,7 @@ action_resource
 </table>
 
 
-<H5 ID="map-drilling_cutting_tool-point_angle">5.1.10.9.1 point_angle</H5>
+<H5 ID="map-drilling_cutting_tool-point_angle">5.1.10.10.1 point_angle</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -13945,7 +14042,7 @@ plane_angle_measure_with_unit
 <A HREF="clause4.htm#ao-endmill">AO</a>
 <A HREF="annexG.htm#endmill">ARM</a>
 </DIV>
-<H4 ID="map-endmill">5.1.10.10 ENDMILL</H4>
+<H4 ID="map-endmill">5.1.10.11 ENDMILL</H4>
 </DIV>
 
 <table class="map">
@@ -13969,7 +14066,7 @@ action_resource
 </table>
 
 
-<H5 ID="map-endmill-tool_cutting_edge_angle">5.1.10.10.1 tool_cutting_edge_angle</H5>
+<H5 ID="map-endmill-tool_cutting_edge_angle">5.1.10.11.1 tool_cutting_edge_angle</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -14010,7 +14107,7 @@ plane_angle_measure_with_unit
 <A HREF="clause4.htm#ao-facemill">AO</a>
 <A HREF="annexG.htm#facemill">ARM</a>
 </DIV>
-<H4 ID="map-facemill">5.1.10.11 FACEMILL</H4>
+<H4 ID="map-facemill">5.1.10.12 FACEMILL</H4>
 </DIV>
 
 <table class="map">
@@ -14031,7 +14128,7 @@ action_resource
 </table>
 
 
-<H5 ID="map-facemill-tool_cutting_edge_angle">5.1.10.11.1 tool_cutting_edge_angle</H5>
+<H5 ID="map-facemill-tool_cutting_edge_angle">5.1.10.12.1 tool_cutting_edge_angle</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -14072,7 +14169,7 @@ plane_angle_measure_with_unit
 <A HREF="clause4.htm#ao-milling_cutting_tool">AO</a>
 <A HREF="annexG.htm#milling_cutting_tool">ARM</a>
 </DIV>
-<H4 ID="map-milling_cutting_tool">5.1.10.12 MILLING_CUTTING_TOOL</H4>
+<H4 ID="map-milling_cutting_tool">5.1.10.13 MILLING_CUTTING_TOOL</H4>
 </DIV>
 
 <table class="map">
@@ -14102,7 +14199,7 @@ action_resource
 </table>
 
 
-<H5 ID="map-milling_cutting_tool-number_of_effective_teeth">5.1.10.12.1 number_of_effective_teeth</H5>
+<H5 ID="map-milling_cutting_tool-number_of_effective_teeth">5.1.10.13.1 number_of_effective_teeth</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -14141,7 +14238,7 @@ count_measure
 </table>
 
 
-<H5 ID="map-milling_cutting_tool-edge_radius">5.1.10.12.2 edge_radius</H5>
+<H5 ID="map-milling_cutting_tool-edge_radius">5.1.10.13.2 edge_radius</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -14182,7 +14279,7 @@ length_measure_with_unit
 <A HREF="clause4.htm#ao-milling_machine_cutting_tool">AO</a>
 <A HREF="annexG.htm#milling_machine_cutting_tool">ARM</a>
 </DIV>
-<H4 ID="map-milling_machine_cutting_tool">5.1.10.13 MILLING_MACHINE_CUTTING_TOOL</H4>
+<H4 ID="map-milling_machine_cutting_tool">5.1.10.14 MILLING_MACHINE_CUTTING_TOOL</H4>
 </DIV>
 
 <table class="map">
@@ -14205,7 +14302,7 @@ action_resource_type.name = 'milling cutting tool' }
 </table>
 
 
-<H5 ID="map-milling_machine_cutting_tool-its_cutting_edges">5.1.10.13.1 milling_machine_cutting_tool to cutting_component (as its_cutting_edges)</H5>
+<H5 ID="map-milling_machine_cutting_tool-its_cutting_edges">5.1.10.14.1 milling_machine_cutting_tool to cutting_component (as its_cutting_edges)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -14225,7 +14322,7 @@ machining_cutting_component
 </table>
 
 
-<H5 ID="map-milling_machine_cutting_tool-overall_assembly_length">5.1.10.13.2 overall_assembly_length</H5>
+<H5 ID="map-milling_machine_cutting_tool-overall_assembly_length">5.1.10.14.2 overall_assembly_length</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -14261,7 +14358,7 @@ length_measure_with_unit
 </table>
 
 
-<H5 ID="map-milling_machine_cutting_tool-effective_cutting_diameter">5.1.10.13.3 effective_cutting_diameter</H5>
+<H5 ID="map-milling_machine_cutting_tool-effective_cutting_diameter">5.1.10.14.3 effective_cutting_diameter</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -14297,7 +14394,7 @@ length_measure_with_unit
 </table>
 
 
-<H5 ID="map-milling_machine_cutting_tool-maximum_depth_of_cut">5.1.10.13.4 maximum_depth_of_cut</H5>
+<H5 ID="map-milling_machine_cutting_tool-maximum_depth_of_cut">5.1.10.14.4 maximum_depth_of_cut</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -14333,7 +14430,7 @@ length_measure_with_unit
 </table>
 
 
-<H5 ID="map-milling_machine_cutting_tool-hand_of_cut">5.1.10.13.5 hand_of_cut</H5>
+<H5 ID="map-milling_machine_cutting_tool-hand_of_cut">5.1.10.14.5 hand_of_cut</H5>
 
 <table class="map">
 
@@ -14373,7 +14470,7 @@ descriptive_representation_item.description
 </table>
 
 
-<H5 ID="map-milling_machine_cutting_tool-coolant_through_tool">5.1.10.13.6 coolant_through_tool</H5>
+<H5 ID="map-milling_machine_cutting_tool-coolant_through_tool">5.1.10.14.6 coolant_through_tool</H5>
 
 <table class="map">
 
@@ -14417,7 +14514,7 @@ descriptive_representation_item.description
 <A HREF="clause4.htm#ao-profiled_end_mill">AO</a>
 <A HREF="annexG.htm#profiled_end_mill">ARM</a>
 </DIV>
-<H4 ID="map-profiled_end_mill">5.1.10.14 PROFILED_END_MILL</H4>
+<H4 ID="map-profiled_end_mill">5.1.10.15 PROFILED_END_MILL</H4>
 </DIV>
 
 <table class="map">
@@ -14443,7 +14540,7 @@ action_resource
 <A HREF="clause4.htm#ao-reaming_cutting_tool">AO</a>
 <A HREF="annexG.htm#reaming_cutting_tool">ARM</a>
 </DIV>
-<H4 ID="map-reaming_cutting_tool">5.1.10.15 REAMING_CUTTING_TOOL</H4>
+<H4 ID="map-reaming_cutting_tool">5.1.10.16 REAMING_CUTTING_TOOL</H4>
 </DIV>
 
 <table class="map">
@@ -14466,7 +14563,7 @@ action_resource
 </table>
 
 
-<H5 ID="map-reaming_cutting_tool-taper_length">5.1.10.15.1 taper_length</H5>
+<H5 ID="map-reaming_cutting_tool-taper_length">5.1.10.16.1 taper_length</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -14507,7 +14604,7 @@ length_measure_with_unit
 <A HREF="clause4.htm#ao-rotating_boring_cutting_tool">AO</a>
 <A HREF="annexG.htm#rotating_boring_cutting_tool">ARM</a>
 </DIV>
-<H4 ID="map-rotating_boring_cutting_tool">5.1.10.16 ROTATING_BORING_CUTTING_TOOL</H4>
+<H4 ID="map-rotating_boring_cutting_tool">5.1.10.17 ROTATING_BORING_CUTTING_TOOL</H4>
 </DIV>
 
 <table class="map">
@@ -14528,7 +14625,7 @@ action_resource
 </table>
 
 
-<H5 ID="map-rotating_boring_cutting_tool-retract_movement_forbidden">5.1.10.16.1 retract_movement_forbidden</H5>
+<H5 ID="map-rotating_boring_cutting_tool-retract_movement_forbidden">5.1.10.17.1 retract_movement_forbidden</H5>
 
 <table class="map">
 
@@ -14572,7 +14669,7 @@ descriptive_representation_item.description
 <A HREF="clause4.htm#ao-shouldermill">AO</a>
 <A HREF="annexG.htm#shouldermill">ARM</a>
 </DIV>
-<H4 ID="map-shouldermill">5.1.10.17 SHOULDERMILL</H4>
+<H4 ID="map-shouldermill">5.1.10.18 SHOULDERMILL</H4>
 </DIV>
 
 <table class="map">
@@ -14598,7 +14695,7 @@ action_resource
 <A HREF="clause4.htm#ao-side_mill">AO</a>
 <A HREF="annexG.htm#side_mill">ARM</a>
 </DIV>
-<H4 ID="map-side_mill">5.1.10.18 SIDE_MILL</H4>
+<H4 ID="map-side_mill">5.1.10.19 SIDE_MILL</H4>
 </DIV>
 
 <table class="map">
@@ -14619,7 +14716,7 @@ action_resource
 </table>
 
 
-<H5 ID="map-side_mill-cutter_width">5.1.10.18.1 cutter_width</H5>
+<H5 ID="map-side_mill-cutter_width">5.1.10.19.1 cutter_width</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -14660,7 +14757,7 @@ length_measure_with_unit
 <A HREF="clause4.htm#ao-spade_drill">AO</a>
 <A HREF="annexG.htm#spade_drill">ARM</a>
 </DIV>
-<H4 ID="map-spade_drill">5.1.10.19 SPADE_DRILL</H4>
+<H4 ID="map-spade_drill">5.1.10.20 SPADE_DRILL</H4>
 </DIV>
 
 <table class="map">
@@ -14686,7 +14783,7 @@ action_resource
 <A HREF="clause4.htm#ao-spotdrill">AO</a>
 <A HREF="annexG.htm#spotdrill">ARM</a>
 </DIV>
-<H4 ID="map-spotdrill">5.1.10.20 SPOTDRILL</H4>
+<H4 ID="map-spotdrill">5.1.10.21 SPOTDRILL</H4>
 </DIV>
 
 <table class="map">
@@ -14712,7 +14809,7 @@ action_resource
 <A HREF="clause4.htm#ao-step_drill">AO</a>
 <A HREF="annexG.htm#step_drill">ARM</a>
 </DIV>
-<H4 ID="map-step_drill">5.1.10.21 STEP_DRILL</H4>
+<H4 ID="map-step_drill">5.1.10.22 STEP_DRILL</H4>
 </DIV>
 
 <table class="map">
@@ -14733,7 +14830,7 @@ action_resource
 </table>
 
 
-<H5 ID="map-step_drill-diameters">5.1.10.21.1 diameters</H5>
+<H5 ID="map-step_drill-diameters">5.1.10.22.1 diameters</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -14775,7 +14872,7 @@ length_measure_with_unit
 </table>
 
 
-<H5 ID="map-step_drill-step_length">5.1.10.21.2 step_length</H5>
+<H5 ID="map-step_drill-step_length">5.1.10.22.2 step_length</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -14822,7 +14919,7 @@ length_measure_with_unit
 <A HREF="clause4.htm#ao-t_slot_mill">AO</a>
 <A HREF="annexG.htm#t_slot_mill">ARM</a>
 </DIV>
-<H4 ID="map-t_slot_mill">5.1.10.22 T_SLOT_MILL</H4>
+<H4 ID="map-t_slot_mill">5.1.10.23 T_SLOT_MILL</H4>
 </DIV>
 
 <table class="map">
@@ -14843,7 +14940,7 @@ action_resource
 </table>
 
 
-<H5 ID="map-t_slot_mill-cutting_width">5.1.10.22.1 cutting_width</H5>
+<H5 ID="map-t_slot_mill-cutting_width">5.1.10.23.1 cutting_width</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -14884,7 +14981,7 @@ length_measure_with_unit
 <A HREF="clause4.htm#ao-tapered_drill">AO</a>
 <A HREF="annexG.htm#tapered_drill">ARM</a>
 </DIV>
-<H4 ID="map-tapered_drill">5.1.10.23 TAPERED_DRILL</H4>
+<H4 ID="map-tapered_drill">5.1.10.24 TAPERED_DRILL</H4>
 </DIV>
 
 <table class="map">
@@ -14905,7 +15002,7 @@ action_resource
 </table>
 
 
-<H5 ID="map-tapered_drill-taper_angle">5.1.10.23.1 taper_angle</H5>
+<H5 ID="map-tapered_drill-taper_angle">5.1.10.24.1 taper_angle</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -14946,7 +15043,7 @@ plane_angle_measure_with_unit
 <A HREF="clause4.htm#ao-tapered_reamer">AO</a>
 <A HREF="annexG.htm#tapered_reamer">ARM</a>
 </DIV>
-<H4 ID="map-tapered_reamer">5.1.10.24 TAPERED_REAMER</H4>
+<H4 ID="map-tapered_reamer">5.1.10.25 TAPERED_REAMER</H4>
 </DIV>
 
 <table class="map">
@@ -14967,7 +15064,7 @@ action_resource
 </table>
 
 
-<H5 ID="map-tapered_reamer-taper_angle">5.1.10.24.1 taper_angle</H5>
+<H5 ID="map-tapered_reamer-taper_angle">5.1.10.25.1 taper_angle</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -15008,7 +15105,7 @@ plane_angle_measure_with_unit
 <A HREF="clause4.htm#ao-tapping_cutting_tool">AO</a>
 <A HREF="annexG.htm#tapping_cutting_tool">ARM</a>
 </DIV>
-<H4 ID="map-tapping_cutting_tool">5.1.10.25 TAPPING_CUTTING_TOOL</H4>
+<H4 ID="map-tapping_cutting_tool">5.1.10.26 TAPPING_CUTTING_TOOL</H4>
 </DIV>
 
 <table class="map">
@@ -15030,7 +15127,7 @@ action_resource
 </table>
 
 
-<H5 ID="map-tapping_cutting_tool-thread_form_type">5.1.10.25.1 thread_form_type</H5>
+<H5 ID="map-tapping_cutting_tool-thread_form_type">5.1.10.26.1 thread_form_type</H5>
 
 <table class="map">
 
@@ -15067,7 +15164,7 @@ descriptive_representation_item.description
 </table>
 
 
-<H5 ID="map-tapping_cutting_tool-thread_size">5.1.10.25.2 thread_size</H5>
+<H5 ID="map-tapping_cutting_tool-thread_size">5.1.10.26.2 thread_size</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -15103,7 +15200,7 @@ length_measure_with_unit
 </table>
 
 
-<H5 ID="map-tapping_cutting_tool-thread_pitch">5.1.10.25.3 thread_pitch</H5>
+<H5 ID="map-tapping_cutting_tool-thread_pitch">5.1.10.26.3 thread_pitch</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -15139,7 +15236,7 @@ length_measure_with_unit
 </table>
 
 
-<H5 ID="map-tapping_cutting_tool-taper_thread_count">5.1.10.25.4 taper_thread_count</H5>
+<H5 ID="map-tapping_cutting_tool-taper_thread_count">5.1.10.26.4 taper_thread_count</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -15183,7 +15280,7 @@ count_measure
 <A HREF="clause4.htm#ao-thread_mill">AO</a>
 <A HREF="annexG.htm#thread_mill">ARM</a>
 </DIV>
-<H4 ID="map-thread_mill">5.1.10.26 THREAD_MILL</H4>
+<H4 ID="map-thread_mill">5.1.10.27 THREAD_MILL</H4>
 </DIV>
 
 <table class="map">
@@ -15204,7 +15301,7 @@ action_resource
 </table>
 
 
-<H5 ID="map-thread_mill-thread_form_type">5.1.10.26.1 thread_form_type</H5>
+<H5 ID="map-thread_mill-thread_form_type">5.1.10.27.1 thread_form_type</H5>
 
 <table class="map">
 
@@ -15241,7 +15338,7 @@ descriptive_representation_item.description
 </table>
 
 
-<H5 ID="map-thread_mill-thread_size">5.1.10.26.2 thread_size</H5>
+<H5 ID="map-thread_mill-thread_size">5.1.10.27.2 thread_size</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -15277,7 +15374,7 @@ length_measure_with_unit
 </table>
 
 
-<H5 ID="map-thread_mill-thread_pitch">5.1.10.26.3 thread_pitch</H5>
+<H5 ID="map-thread_mill-thread_pitch">5.1.10.27.3 thread_pitch</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -15318,7 +15415,7 @@ length_measure_with_unit
 <A HREF="clause4.htm#ao-twist_drill">AO</a>
 <A HREF="annexG.htm#twist_drill">ARM</a>
 </DIV>
-<H4 ID="map-twist_drill">5.1.10.27 TWIST_DRILL</H4>
+<H4 ID="map-twist_drill">5.1.10.28 TWIST_DRILL</H4>
 </DIV>
 
 <table class="map">
@@ -15345,7 +15442,7 @@ action_resource
 <A HREF="clause4.htm#ao-user_defined_milling_tool">AO</a>
 <A HREF="annexG.htm#user_defined_milling_tool">ARM</a>
 </DIV>
-<H4 ID="map-user_defined_milling_tool">5.1.10.28 USER_DEFINED_MILLING_TOOL</H4>
+<H4 ID="map-user_defined_milling_tool">5.1.10.29 USER_DEFINED_MILLING_TOOL</H4>
 </DIV>
 
 <table class="map">
@@ -15366,7 +15463,7 @@ action_resource
 </table>
 
 
-<H5 ID="map-user_defined_milling_tool-corner_radius">5.1.10.28.1 corner_radius</H5>
+<H5 ID="map-user_defined_milling_tool-corner_radius">5.1.10.29.1 corner_radius</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -15402,7 +15499,7 @@ length_measure_with_unit
 </table>
 
 
-<H5 ID="map-user_defined_milling_tool-corner_radius_center_horizontal">5.1.10.28.2 corner_radius_center_horizontal</H5>
+<H5 ID="map-user_defined_milling_tool-corner_radius_center_horizontal">5.1.10.29.2 corner_radius_center_horizontal</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -15438,7 +15535,7 @@ length_measure_with_unit
 </table>
 
 
-<H5 ID="map-user_defined_milling_tool-corner_radius_center_vertical">5.1.10.28.3 corner_radius_center_vertical</H5>
+<H5 ID="map-user_defined_milling_tool-corner_radius_center_vertical">5.1.10.29.3 corner_radius_center_vertical</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -15474,7 +15571,7 @@ length_measure_with_unit
 </table>
 
 
-<H5 ID="map-user_defined_milling_tool-description">5.1.10.28.4 description</H5>
+<H5 ID="map-user_defined_milling_tool-description">5.1.10.29.4 description</H5>
 
 <table class="map">
 
@@ -15511,7 +15608,7 @@ descriptive_representation_item.description
 </table>
 
 
-<H5 ID="map-user_defined_milling_tool-taper_angle">5.1.10.28.5 taper_angle</H5>
+<H5 ID="map-user_defined_milling_tool-taper_angle">5.1.10.29.5 taper_angle</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -15547,7 +15644,7 @@ plane_angle_measure_with_unit
 </table>
 
 
-<H5 ID="map-user_defined_milling_tool-tip_outer_angle">5.1.10.28.6 tip_outer_angle</H5>
+<H5 ID="map-user_defined_milling_tool-tip_outer_angle">5.1.10.29.6 tip_outer_angle</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -25584,6 +25681,45 @@ descriptive_representation_item.description
 </table>
 
 
+<H5 ID="map-check_dimensions_operation-make_correction">5.1.15.6.5 make_correction</H5>
+
+<div class="mapnote">
+<p>#1: if value is true</p>
+<p>#2: if value is false (mapping may be omitted if value is false)</p>
+</div>
+
+<table class="map">
+<tr><th>AIM element:</th>
+<td>descriptive_representation_item.description</td>
+</tr>
+
+<tr><th>Source:</th>
+<td>10303-45</td>
+</tr>
+
+<tr><th>Reference path:</th>
+<td class="path">filling_type_operation &lt;= 
+machining_operation &lt;= 
+action_method 
+characterized_action_definition = action_method 
+characterized_action_definition &lt;- 
+action_property.definition 
+{ action_property.name = 'make correction' } 
+action_property &lt;- 
+action_property_representation.property 
+action_property_representation 
+action_property_representation.representation -&gt; 
+representation representation.items[i] -&gt; 
+representation_item =&gt; 
+descriptive_representation_item 
+descriptive_representation_item.description 
+{ #1: (descriptive_representation_item.description = 'make correction' )
+#2: (descriptive_representation_item. description = 'no make correction' ) } 
+</td>
+</tr>
+</table>
+
+
 
 <!-- ============================== -->
 <DIV><DIV class=quick>
@@ -31278,13 +31414,130 @@ action_method
 </table>
 
 
+<!-- ============================== -->
+<DIV><DIV class=quick>
+<A HREF="clause4.htm#ao-response_group">AO</a>
+<A HREF="annexG.htm#response_group">ARM</a>
+</DIV>
+<H4 ID="map-response_group">5.1.15.58 RESPONSE_GROUP</H4>
+</DIV>
+
+<table class="map">
+<tr><th>AIM element:</th>
+<td>filling_type_group</td>
+</tr>
+
+<tr><th>Source:</th>
+<td>10303-238</td>
+</tr>
+
+<tr><th>Reference path:</th>
+<td class="path">filling_type_group &lt;=
+machining_group &lt;=
+group
+group.description 
+{ group.description = 'response' } 
+</td>
+</tr>
+</table>
+
+<H5 ID="map-response_group-measured_properties">5.1.15.58.1 response_group to measured_property (as measured_properties)</H5>
+
+<table class="map">
+<tr><th>AIM element:</th>
+<td>PATH</td>
+</tr>
+
+<tr><th>Reference path:</th>
+<td class="path">filling_type_group &lt;=
+machining_group &lt;=
+characterized_object
+characterized_definition = characterized_object
+characterized_definition &lt;-
+property_definition.definition
+property_definition =>
+twin_measured_property
+</td>
+</tr>
+</table>
+
+
+<H5 ID="map-response_group-response_options">5.1.15.58.2 response_group to executable (as response_options)</H5>
+
+<table class="map">
+<tr><th>AIM element:</th>
+<td>PATH</td>
+</tr>
+
+<tr><th>Reference path:</th>
+<td class="path">filling_type_group &lt;=
+machining_group &lt;=
+characterized_object
+action_method_items = characterized_object
+action_method_items &lt;-
+applied_action_method_assignment.items[i]
+applied_action_method_assignment &lt;=
+action_method_assignment
+{ action_method_assignment.role -&gt;
+action_method_role
+action_method_role.name = 'response option' }
+action_method_assignment.assigned_action_method -&gt;
+action_method =&gt;
+machining_process_executable
+</td>
+</tr>
+</table>
+
+<H5 ID="map-response_group-solution_request">5.1.15.58.3 solution_request</H5>
+
+<div class="mapnote">
+<p>#1: if value is true</p>
+<p>#2: if value is false (mapping may be omitted if value is false)</p>
+</div>
+
+<table class="map">
+<tr><th>AIM element:</th>
+<td>descriptive_representation_item.description</td>
+</tr>
+
+<tr><th>Source:</th>
+<td>10303-45</td>
+</tr>
+
+<tr><th>Reference path:</th>
+<td class="path">filling_type_group &lt;=
+machining_group &lt;=
+characterized_object
+characterized_definition = characterized_object
+characterized_definition &lt;-
+property_definition.definition
+property_definition
+{property_definition.name = 'solution request'}
+represented_definition = property_definition
+represented_definition &lt;-
+property_definition_representation.definition
+property_definition_representation
+property_definition_representation.used_representation -&gt;
+representation
+representation.items[i]-&gt;
+representation_item =&gt; 
+descriptive_representation_item 
+descriptive_representation_item.description 
+{ #1: (descriptive_representation_item.description = 'solution request' ) 
+#2: (descriptive_representation_item.description = 'no solution request' ) } 
+</td>
+</tr>
+</table>
+
+
+
 
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-same_assembly_group">AO</a>
 <A HREF="annexG.htm#same_assembly_group">ARM</a>
 </DIV>
-<H4 ID="map-same_assembly_group">5.1.15.58 SAME_ASSEMBLY_GROUP</H4>
+<H4 ID="map-same_assembly_group">5.1.15.59 SAME_ASSEMBLY_GROUP</H4>
 </DIV>
 
 <table class="map">
@@ -31307,7 +31560,7 @@ group.description
 </table>
 
 
-<H5 ID="map-same_assembly_group-parts_joined">5.1.15.58.1 same_assembly_group to product_view_twin (as parts_joined)</H5>
+<H5 ID="map-same_assembly_group-parts_joined">5.1.15.59.1 same_assembly_group to product_view_twin (as parts_joined)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -31344,7 +31597,7 @@ product_definition
 <A HREF="clause4.htm#ao-seal_fastener_operation">AO</a>
 <A HREF="annexG.htm#seal_fastener_operation">ARM</a>
 </DIV>
-<H4 ID="map-seal_fastener_operation">5.1.15.59 SEAL_FASTENER_OPERATION</H4>
+<H4 ID="map-seal_fastener_operation">5.1.15.60 SEAL_FASTENER_OPERATION</H4>
 </DIV>
 
 <table class="map">
@@ -31366,7 +31619,7 @@ action_method
 </table>
 
 
-<H5 ID="map-seal_fastener_operation-quantity">5.1.15.59.1 quantity</H5>
+<H5 ID="map-seal_fastener_operation-quantity">5.1.15.60.1 quantity</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -31403,7 +31656,7 @@ volume_measure }
 </table>
 
 
-<H5 ID="map-seal_fastener_operation-sealant">5.1.15.59.2 seal_product_operation to material (as sealant)</H5>
+<H5 ID="map-seal_fastener_operation-sealant">5.1.15.60.2 seal_product_operation to material (as sealant)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -31433,7 +31686,7 @@ material_designation
 </table>
 
 
-<H5 ID="map-seal_fastener_operation-seal_type">5.1.15.59.3 seal_type</H5>
+<H5 ID="map-seal_fastener_operation-seal_type">5.1.15.60.3 seal_type</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -31469,7 +31722,7 @@ descriptive_representation_item.description
 </table>
 
 
-<H5 ID="map-seal_fastener_operation-seal_check">5.1.15.59.4 seal_check</H5>
+<H5 ID="map-seal_fastener_operation-seal_check">5.1.15.60.4 seal_check</H5>
 
 <div class="mapnote">
 <p>#1: if value is true</p>
@@ -31514,7 +31767,7 @@ descriptive_representation_item.description
 <A HREF="clause4.htm#ao-sealant_prototype">AO</a>
 <A HREF="annexG.htm#sealant_prototype">ARM</a>
 </DIV>
-<H4 ID="map-sealant_prototype">5.1.15.60 SEALANT_PROTOTYPE</H4>
+<H4 ID="map-sealant_prototype">5.1.15.61 SEALANT_PROTOTYPE</H4>
 </DIV>
 
 <table class="map">
@@ -31542,7 +31795,7 @@ product_category.name='sealant' }
 </table>
 
 
-<H5 ID="map-sealant_prototype-allowed_for">5.1.15.60.1 sealant_prototype to fastener_prototype (as allowed_for)</H5>
+<H5 ID="map-sealant_prototype-allowed_for">5.1.15.61.1 sealant_prototype to fastener_prototype (as allowed_for)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -31565,7 +31818,7 @@ product_definition
 </table>
 
 
-<H5 ID="map-sealant_prototype-sealant_function">5.1.15.60.2 sealant_function</H5>
+<H5 ID="map-sealant_prototype-sealant_function">5.1.15.61.2 sealant_function</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -31604,7 +31857,7 @@ descriptive_representation_item.description
 </table>
 
 
-<H5 ID="map-sealant_prototype-quantity">5.1.15.60.3 sealant_prototype to expected_property (as quantity)</H5>
+<H5 ID="map-sealant_prototype-quantity">5.1.15.61.3 sealant_prototype to expected_property (as quantity)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -31632,7 +31885,7 @@ twin_expected_property
 <A HREF="clause4.htm#ao-sealant_twin">AO</a>
 <A HREF="annexG.htm#sealant_twin">ARM</a>
 </DIV>
-<H4 ID="map-sealant_twin">5.1.15.61 SEALANT_TWIN</H4>
+<H4 ID="map-sealant_twin">5.1.15.62 SEALANT_TWIN</H4>
 </DIV>
 
 <table class="map">
@@ -31660,7 +31913,7 @@ product_category.name='sealant' }
 </table>
 
 
-<H5 ID="map-sealant_twin-seals">5.1.15.61.1 sealant_twin to fastener_twin (as seals)</H5>
+<H5 ID="map-sealant_twin-seals">5.1.15.62.1 sealant_twin to fastener_twin (as seals)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -31683,7 +31936,7 @@ product_definition
 </table>
 
 
-<H5 ID="map-sealant_twin-quantity">5.1.15.61.2 sealant_twin to measured_property (as quantity)</H5>
+<H5 ID="map-sealant_twin-quantity">5.1.15.62.2 sealant_twin to measured_property (as quantity)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -31711,7 +31964,7 @@ twin_measured_property
 <A HREF="clause4.htm#ao-shave_fastener_operation">AO</a>
 <A HREF="annexG.htm#shave_fastener_operation">ARM</a>
 </DIV>
-<H4 ID="map-shave_fastener_operation">5.1.15.62 SHAVE_FASTENER_OPERATION</H4>
+<H4 ID="map-shave_fastener_operation">5.1.15.63 SHAVE_FASTENER_OPERATION</H4>
 </DIV>
 
 <table class="map">
@@ -31733,7 +31986,7 @@ action_method
 </table>
 
 
-<H5 ID="map-shave_fastener_operation-remaining">5.1.15.62.1 remaining</H5>
+<H5 ID="map-shave_fastener_operation-remaining">5.1.15.63.1 remaining</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -31773,7 +32026,7 @@ length_measure_with_unit
 <A HREF="clause4.htm#ao-stack_layer">AO</a>
 <A HREF="annexG.htm#stack_layer">ARM</a>
 </DIV>
-<H4 ID="map-stack_layer">5.1.15.63 STACK_LAYER</H4>
+<H4 ID="map-stack_layer">5.1.15.64 STACK_LAYER</H4>
 </DIV>
 
 <table class="map">
@@ -31793,7 +32046,7 @@ action_method
 </table>
 
 
-<H5 ID="map-stack_layer-usage">5.1.15.63.1 stack_layer to product_view_definition (as usage)</H5>
+<H5 ID="map-stack_layer-usage">5.1.15.64.1 stack_layer to product_view_definition (as usage)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -31818,7 +32071,7 @@ product_definition
 </table>
 
 
-<H5 ID="map-stack_layer-start_dist">5.1.15.63.2 start_dist</H5>
+<H5 ID="map-stack_layer-start_dist">5.1.15.64.2 start_dist</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -31851,7 +32104,7 @@ length_measure_with_unit
 </table>
 
 
-<H5 ID="map-stack_layer-end_dist">5.1.15.63.3 end_dist</H5>
+<H5 ID="map-stack_layer-end_dist">5.1.15.64.3 end_dist</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -31884,7 +32137,7 @@ length_measure_with_unit
 </table>
 
 
-<H5 ID="map-stack_layer-layer_feature">5.1.15.63.4 stack_layer to manufacturing_feature (as layer_feature)</H5>
+<H5 ID="map-stack_layer-layer_feature">5.1.15.64.4 stack_layer to manufacturing_feature (as layer_feature)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -31909,7 +32162,7 @@ shape_aspect
 </table>
 
 
-<H5 ID="map-stack_layer-feed">5.1.15.63.5 feed</H5>
+<H5 ID="map-stack_layer-feed">5.1.15.64.5 feed</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -31945,7 +32198,7 @@ numeric_measure }
 </table>
 
 
-<H5 ID="map-stack_layer-speed">5.1.15.63.6 speed</H5>
+<H5 ID="map-stack_layer-speed">5.1.15.64.6 speed</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -31988,7 +32241,7 @@ numeric_measure }
 <A HREF="clause4.htm#ao-state_condition">AO</a>
 <A HREF="annexG.htm#state_condition">ARM</a>
 </DIV>
-<H4 ID="map-state_condition">5.1.15.64 STATE_CONDITION</H4>
+<H4 ID="map-state_condition">5.1.15.65 STATE_CONDITION</H4>
 </DIV>
 
 <table class="map">
@@ -32008,7 +32261,7 @@ action_method
 </table>
 
 
-<H5 ID="map-state_condition-time">5.1.15.64.1 time</H5>
+<H5 ID="map-state_condition-time">5.1.15.65.1 time</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -32037,7 +32290,7 @@ date_and_time
 </table>
 
 
-<H5 ID="map-state_condition-condition">5.1.15.64.2 condition</H5>
+<H5 ID="map-state_condition-condition">5.1.15.65.2 condition</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -32068,7 +32321,7 @@ action_method.name
 </table>
 
 
-<H5 ID="map-state_condition-explanation">5.1.15.64.3 explanation</H5>
+<H5 ID="map-state_condition-explanation">5.1.15.65.3 explanation</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -32094,7 +32347,7 @@ action_method.description
 <A HREF="clause4.htm#ao-three_twin_reference_frame_group">AO</a>
 <A HREF="annexG.htm#three_twin_reference_frame_group">ARM</a>
 </DIV>
-<H4 ID="map-three_twin_reference_frame_group">5.1.15.65 THREE_TWIN_REFERENCE_FRAME_GROUP</H4>
+<H4 ID="map-three_twin_reference_frame_group">5.1.15.66 THREE_TWIN_REFERENCE_FRAME_GROUP</H4>
 </DIV>
 
 <table class="map">
@@ -32117,7 +32370,7 @@ group.description
 </table>
 
 
-<H5 ID="map-three_twin_reference_frame_group-guide_primary">5.1.15.65.1 three_twin_reference_frame_group to drill_and_fill_twin (as guide_primary)</H5>
+<H5 ID="map-three_twin_reference_frame_group-guide_primary">5.1.15.66.1 three_twin_reference_frame_group to drill_and_fill_twin (as guide_primary)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -32150,7 +32403,7 @@ twin_feature
 </table>
 
 
-<H5 ID="map-three_twin_reference_frame_group-guide_secondary">5.1.15.65.2 three_twin_reference_frame_group to drill_and_fill_twin (as guide_secondary)</H5>
+<H5 ID="map-three_twin_reference_frame_group-guide_secondary">5.1.15.66.2 three_twin_reference_frame_group to drill_and_fill_twin (as guide_secondary)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -32183,7 +32436,7 @@ twin_feature
 </table>
 
 
-<H5 ID="map-three_twin_reference_frame_group-guide_tertiary">5.1.15.65.3 three_twin_reference_frame_group to drill_and_fill_twin (as guide_tertiary)</H5>
+<H5 ID="map-three_twin_reference_frame_group-guide_tertiary">5.1.15.66.3 three_twin_reference_frame_group to drill_and_fill_twin (as guide_tertiary)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -32222,7 +32475,7 @@ twin_feature
 <A HREF="clause4.htm#ao-tighten_collar_operation">AO</a>
 <A HREF="annexG.htm#tighten_collar_operation">ARM</a>
 </DIV>
-<H4 ID="map-tighten_collar_operation">5.1.15.66 TIGHTEN_COLLAR_OPERATION</H4>
+<H4 ID="map-tighten_collar_operation">5.1.15.67 TIGHTEN_COLLAR_OPERATION</H4>
 </DIV>
 
 <table class="map">
@@ -32244,7 +32497,7 @@ action_method
 </table>
 
 
-<H5 ID="map-tighten_collar_operation-torque">5.1.15.66.1 torque</H5>
+<H5 ID="map-tighten_collar_operation-torque">5.1.15.67.1 torque</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -32281,7 +32534,7 @@ numeric_measure }
 </table>
 
 
-<H5 ID="map-tighten_collar_operation-squeeze">5.1.15.66.2 squeeze</H5>
+<H5 ID="map-tighten_collar_operation-squeeze">5.1.15.67.2 squeeze</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -32318,7 +32571,7 @@ numeric_measure }
 </table>
 
 
-<H5 ID="map-tighten_collar_operation-swage">5.1.15.66.3 swage</H5>
+<H5 ID="map-tighten_collar_operation-swage">5.1.15.67.3 swage</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -32355,7 +32608,7 @@ numeric_measure }
 </table>
 
 
-<H5 ID="map-tighten_collar_operation-pull">5.1.15.66.4 pull</H5>
+<H5 ID="map-tighten_collar_operation-pull">5.1.15.67.4 pull</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -32398,12 +32651,12 @@ numeric_measure }
 <A HREF="clause4.htm#ao-tool_life_estimate">AO</a>
 <A HREF="annexG.htm#tool_life_estimate">ARM</a>
 </DIV>
-<H4 ID="map-tool_life_estimate">5.1.15.67 TOOL_LIFE_ESTIMATE</H4>
+<H4 ID="map-tool_life_estimate">5.1.15.68 TOOL_LIFE_ESTIMATE</H4>
 </DIV>
 
 <table class="map">
 <tr><th>AIM element:</th>
-<td>twin_measured_property</td>
+<td>machining_process_cost</td>
 </tr>
 
 <tr><th>Source:</th>
@@ -32418,7 +32671,7 @@ action_method
 </table>
 
 
-<H5 ID="map-tool_life_estimate-task">5.1.15.67.1 tool_life_estimate to executable (as task)</H5>
+<H5 ID="map-tool_life_estimate-task">5.1.15.68.1 tool_life_estimate to executable (as task)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -32439,7 +32692,7 @@ machining_process_executable
 </table>
 
 
-<H5 ID="map-tool_life_estimate-added_cost">5.1.15.67.2 added_cost</H5>
+<H5 ID="map-tool_life_estimate-added_cost">5.1.15.68.2 added_cost</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -32479,7 +32732,7 @@ ratio_measure_with_unit
 <A HREF="clause4.htm#ao-washer_prototype">AO</a>
 <A HREF="annexG.htm#washer_prototype">ARM</a>
 </DIV>
-<H4 ID="map-washer_prototype">5.1.15.68 WASHER_PROTOTYPE</H4>
+<H4 ID="map-washer_prototype">5.1.15.69 WASHER_PROTOTYPE</H4>
 </DIV>
 
 <table class="map">
@@ -32507,7 +32760,7 @@ product_category.name='washer' }
 </table>
 
 
-<H5 ID="map-washer_prototype-allowed_for">5.1.15.68.1 washer_prototype to fastener_prototype (as allowed_for)</H5>
+<H5 ID="map-washer_prototype-allowed_for">5.1.15.69.1 washer_prototype to fastener_prototype (as allowed_for)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -32530,7 +32783,7 @@ product_definition
 </table>
 
 
-<H5 ID="map-washer_prototype-thickness">5.1.15.68.2 washer_prototype to expected_property (as thickness)</H5>
+<H5 ID="map-washer_prototype-thickness">5.1.15.69.2 washer_prototype to expected_property (as thickness)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -32552,7 +32805,7 @@ twin_expected_property
 </table>
 
 
-<H5 ID="map-washer_prototype-form">5.1.15.68.3 form</H5>
+<H5 ID="map-washer_prototype-form">5.1.15.69.3 form</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -32596,7 +32849,7 @@ descriptive_representation_item.description
 <A HREF="clause4.htm#ao-washer_twin">AO</a>
 <A HREF="annexG.htm#washer_twin">ARM</a>
 </DIV>
-<H4 ID="map-washer_twin">5.1.15.69 WASHER_TWIN</H4>
+<H4 ID="map-washer_twin">5.1.15.70 WASHER_TWIN</H4>
 </DIV>
 
 <table class="map">
@@ -32624,7 +32877,7 @@ product_category.name='washer' }
 </table>
 
 
-<H5 ID="map-washer_twin-holds">5.1.15.69.1 washer_twin to fastener_twin (as holds)</H5>
+<H5 ID="map-washer_twin-holds">5.1.15.70.1 washer_twin to fastener_twin (as holds)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>

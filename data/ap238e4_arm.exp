@@ -1303,6 +1303,12 @@ ENTITY Countersink
   maximum_usable_length: Length_data_element;
 END_ENTITY;
 
+ENTITY Combined_drill_and_countersink;	-- ADDED BY 10303-238e4
+  SUBTYPE OF (Countersink);
+  drill_length: 	Length_data_element;
+  countersink_angle: 	OPTIONAL Angle_data_element;
+END_ENTITY;
+
 ENTITY Twist_drill
   SUPERTYPE OF (Tapered_drill)
   SUBTYPE OF (Drilling_cutting_tool);
@@ -3003,6 +3009,13 @@ ENTITY Disabled_group
 SUBTYPE OF (Drill_and_fill_group);
 END_ENTITY;
 
+-- ADDED BY 10303-238e4
+ENTITY Response_group
+SUBTYPE OF (Drill_and_fill_group);
+  measured_properties	: SET [1:?] OF Measured_property;
+  response_options	: SET [1:?] OF Executable;
+  request_solution	: OPTIONAL BOOLEAN;
+END_ENTITY;
 
 
 -- ADDED BY 10303-238e4
@@ -3098,10 +3111,11 @@ END_ENTITY;
 -- ADDED BY 10303-238e4
 ENTITY Check_dimensions_operation 
   SUBTYPE OF (Fill_type_operation);
-  check_location	: BOOLEAN;
-  check_size		: BOOLEAN;
-  check_orientation	: BOOLEAN;
-  check_form		: BOOLEAN;
+  check_location	: OPTIONAL BOOLEAN;
+  check_size		: OPTIONAL BOOLEAN;
+  check_orientation	: OPTIONAL BOOLEAN;
+  check_form		: OPTIONAL BOOLEAN;
+  make_correction	: OPTIONAL BOOLEAN;
 END_ENTITY;
 
 
