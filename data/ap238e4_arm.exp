@@ -245,8 +245,8 @@ ENTITY Manufacturing_feature
   ABSTRACT SUPERTYPE
   SUBTYPE OF (shape_feature_definition);
   
-  its_broadcast: OPTIONAL Broadcast;		-- ADDED BY 10303-238e4
-  twin_history: LIST [0:?] OF Phase_history;	-- ADDED BY 10303-238e4
+  its_broadcast: OPTIONAL Broadcast;			-- ADDED BY 10303-238e4
+  feature_phases: LIST [0:?] OF Feature_history;	-- ADDED BY 10303-238e4
 END_ENTITY;
 
 -- restore from first edition
@@ -467,7 +467,7 @@ END_ENTITY;
 
 -- ADDED BY 10303-238e4
 ENTITY Expected_property;
-  applicable_phases	: SET [0:?] OF Manufacturing_stage;
+  applicable_phases	: SET [0:?] OF Manufacturing_phase;
   definition		: OPTIONAL Denoted_specification_select; -- link to geom
   external_definition 	: OPTIONAL Identifier; -- link to external geom
   nominal_value		: Value_with_unit;
@@ -538,7 +538,7 @@ ENTITY Executable
   machine_used: OPTIONAL Machine_usage;		-- ADDED BY 10303-238e2
 
   its_broadcast: OPTIONAL Broadcast;		-- ADDED BY 10303-238e4
-  phase: OPTIONAL Manufacturing_stage;		-- ADDED BY 10303-238e4
+  phase: OPTIONAL Manufacturing_phase;		-- ADDED BY 10303-238e4
   twin_equipment: OPTIONAL Identifier;		-- ADDED BY 10303-238e4
   
 INVERSE
@@ -2618,19 +2618,19 @@ END_ENTITY;
 
 
 -- ADDED BY 10303-238e4
-ENTITY Phase_history;
-  phase			: Manufacturing_stage;
+ENTITY Feature_history;
+  phase			: OPTIONAL Manufacturing_phase;
   twin			: Manufacturing_feature_twin;
-  manufacturing_goal	: Text;
-  completed		: LIST [0:?] OF machining_workingstep;
+  manufacturing_goal	: OPTIONAL Text;
+  completed		: LIST [0:?] OF Machining_workingstep;
   recorded_states	: LIST [0:?] OF State_condition;
 END_ENTITY;
 
 -- ADDED BY 10303-238e4
-ENTITY Manufacturing_stage;
+ENTITY Manufacturing_phase;
   name		: Identifier;			-- phase 1, phase 2 etc.
   purpose 	: OPTIONAL Text;
-  nested_in	: OPTIONAL Manufacturing_stage;
+  nested_in	: OPTIONAL Manufacturing_phase;
   continue_on_entry : OPTIONAL Boolean;
 END_ENTITY;
 
@@ -2639,6 +2639,7 @@ ENTITY State_condition;
   time			: Date_time;
   condition		: State_condition_type;
   explanation		: OPTIONAL Text;
+  raised_by 		: OPTIONAL Machining_workingstep;
 END_ENTITY;
 
 -- ADDED BY 10303-238e4
@@ -2650,8 +2651,7 @@ TYPE State_condition_type = ENUMERATION OF (
   rabbit,	-- twin is in a nested stage (down the rabbit hole)
   flushed,	-- twin has returned from the nested stage
   twisted,    	-- twin has been machined in an unplanned order
-  boogered,	-- twin is not making progress
-  revived,	-- twin started again after boogering
+  revived,	-- twin started again after being blocked
   replaced,	-- twin had to be replaced
   finished,	-- twin has finished the phase
   graduated);	-- twin has finished and passed a test
@@ -2902,7 +2902,7 @@ END_ENTITY;
 
 -- ADDED BY 10303-238e4
 ENTITY Phase_stage;
-  stage		: Manufacturing_stage;	-- phase 1 etc.
+  stage		: Manufacturing_phase;	-- phase 1 etc.
   primary	: BOOLEAN;
 END_ENTITY;
 
