@@ -2969,7 +2969,11 @@ following:</P>
 <LI>small_area_limit;</LI>
 <LI>large_area_limit;</LI>
 <LI>precedence;</LI>
-<LI>parent.</LI>
+<LI>parent;</LI>
+<LI>first_layer;</LI>
+<LI>interval;</LI>
+<LI>last_layer;</LI>
+<LI>resticted_to.</LI>
 </UL>
 
 <P CLASS="note">
@@ -2987,6 +2991,10 @@ SUPERTYPE OF (ONEOF (Am_core_identification, Am_upskin_identification,
   large_area_limit	: OPTIONAL Area_data_element;
   precedence		: OPTIONAL INTEGER;
   parent		: OPTIONAL Am_pbf_identification;
+  first_layer		: OPTIONAL Count_measure;
+  interval		: OPTIONAL Count_measure;
+  last_layer		: OPTIONAL Count_measure;
+  resticted_to		: OPTIONAL Closed_composite_curve;
 END_ENTITY;
 </PRE>
 
@@ -3038,6 +3046,36 @@ parent.</p>
 <SPAN>EXAMPLE</SPAN> An upskin region may use the same striping
 parameters as the core, but reduce the laser power while they are in
 its area.</P>
+
+<H4 ID="ao-am_pbf_identification-first_layer">4.3.40.7 first_layer</H4>
+
+<p>The first_layer specifies a layer count after which processing of
+the identified region shall begin.  If first_layer is not specified,
+then the first layer of the region shall be used.</p>
+
+<H4 ID="ao-am_pbf_identification-interval">4.3.40.8 interval</H4>
+
+<p>The interval specifies a layer count.  Processing of the identified
+region shall occur every interval layers after the first_layer.  If
+interval is not specified, then every layer shall be processed.</p>
+
+<P CLASS="note">
+<SPAN>EXAMPLE</SPAN> A support structure that contours every layer,
+but infills every other layer, can set the interval of the contour to
+1 (the default) and the interval of the infill to 2.</P>
+
+<H4 ID="ao-am_pbf_identification-last_layer">4.3.40.9 last_layer</H4>
+
+<p>The last_layer specifies a layer count after which processing of
+the identified region shall stop.  If last_layer is not specified,
+then the last layer of the region shall be used.</p>
+
+<H4 ID="ao-am_pbf_identification-resticted_to">4.3.40.10 resticted_to</H4>
+
+<p>The resticted_to specifies a boundary curve.  The process shall be
+executed for the identified region only when the beam is within this
+boundary.  If resticted_to is not specified, then the entire region
+shall be processed.</p>
 
 
 <!-- ============================== -->

@@ -3433,6 +3433,10 @@ SUPERTYPE OF (ONEOF (Am_core_identification, Am_upskin_identification, Am_downsk
    large_area_limit	: OPTIONAL Area_data_element;
    precedence		: OPTIONAL INTEGER;
    parent		: OPTIONAL Am_pbf_identification;
+   first_layer		: OPTIONAL Count_measure;
+   interval		: OPTIONAL Count_measure;
+   last_layer		: OPTIONAL Count_measure;
+   resticted_to		: OPTIONAL Closed_composite_curve;
 END_ENTITY;
 
 -- ADDED BY 10303-238e4
