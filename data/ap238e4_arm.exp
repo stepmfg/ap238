@@ -2577,8 +2577,9 @@ END_ENTITY;
 -- ADDED BY 10303-238e4
 ENTITY Product_view_twin
   SUBTYPE OF (Product_view_definition);
-  manufacturing_prototype	: Product_view_prototype;
-  supplier_prototype		: OPTIONAL Product_view_prototype;
+  designed_prototype		: Product_view_prototype; 
+  planned_prototype		: SET [0:?] Product_view_prototype;
+  manufacturing_prototype	: OPTIONAL Product_view_prototype; 
   work_order			: OPTIONAL Identifier;
   user_serial_number		: OPTIONAL Identifier;
   envelope			: OPTIONAL Bounding_geometry_select;
@@ -2745,10 +2746,6 @@ TYPE stack_layer_status = ENUMERATION OF (air_gap, overlap); END_TYPE;
 -- ADDED BY 10303-238e4
 ENTITY Fastener_twin
   SUBTYPE OF (Product_view_twin);
-(*
-  SELF\Product_view_twin.manufacturing_prototype:	Fastener_prototype;
-  SELF\Product_view_twin.supplier_prototype:		OPTIONAL Fastener_prototype;
-*)  
   fastens		: Drill_and_fill_twin;
   is_temporary 		: OPTIONAL BOOLEAN;
   grip_length		: OPTIONAL Measured_property;
@@ -2782,10 +2779,6 @@ END_ENTITY;
 -- ADDED BY 10303-238e4
 ENTITY Collar_twin
   SUBTYPE OF (Product_view_twin);
-(*
-  SELF\Product_view_twin.manufacturing_prototype: Collar_prototype;
-  SELF\Product_view_twin.supplier_prototype:      OPTIONAL Collar_prototype;
-*)  
   holds: 			Fastener_twin;
   applied_torque: 		OPTIONAL Measured_property;
 END_ENTITY;
@@ -2800,10 +2793,6 @@ END_ENTITY;
 -- ADDED BY 10303-238e4
 ENTITY Washer_twin
   SUBTYPE OF (Product_view_twin);
-(*
-  SELF\Product_view_twin.manufacturing_prototype: Washer_prototype;
-  SELF\Product_view_twin.supplier_prototype:      OPTIONAL Washer_prototype;
-*)  
   holds: 			Fastener_twin;
 END_ENTITY;
 
@@ -2821,10 +2810,6 @@ TYPE Washer_form = ENUMERATION OF (flat, concave, convex); END_TYPE;
 -- ADDED BY 10303-238e4
 ENTITY Sealant_twin
   SUBTYPE OF (Product_view_twin);
-(*
-  SELF\Product_view_twin.manufacturing_prototype: Sealant_prototype;
-  SELF\Product_view_twin.supplier_prototype:      OPTIONAL Sealant_prototype;
-*)  
   seals: 			Fastener_twin;
   quantity: 			OPTIONAL Measured_property;
 END_ENTITY;
@@ -2843,10 +2828,6 @@ END_ENTITY;
 -- ADDED BY 10303-238e4
 ENTITY Nose_twin
   SUBTYPE OF (Product_view_twin);
-(*
-  SELF\Product_view_twin.manufacturing_prototype: Nose_prototype;
-  SELF\Product_view_twin.supplier_prototype: 	  OPTIONAL Nose_prototype;
-*)
   loaded_cutter: 		Cutting_tool_twin;
   robot:			Identifier;
 END_ENTITY;
@@ -2865,31 +2846,14 @@ END_ENTITY;
 -- ADDED BY 10303-238e4
 ENTITY Cutting_tool_twin
   SUBTYPE OF (Product_view_twin);
-(*
-  SELF\Product_view_twin.manufacturing_prototype: Cutting_tool_prototype;
-  SELF\Product_view_twin.supplier_prototype:      OPTIONAL Cutting_tool_prototype;
-*)  
-  life_used:		Ratio_data_element;
-(*
--- DERIVED
---  Time_remaining: time_unit := Prototype.Expected_tool_life * (1-measured_life_used)
-*)
 END_ENTITY;
 
 
 -- ADDED BY 10303-238e4
 ENTITY Cutting_tool_prototype
   SUBTYPE OF (Product_view_prototype);
-  tool_life:				OPTIONAL Duration;
-  tool_life_estimates:		SET [0:?] OF Tool_life_estimate;
 END_ENTITY;
 
-
--- ADDED BY 10303-238e4
-ENTITY Tool_life_estimate;
-  task: 		Executable;
-  added_cost: 		Ratio_data_element;
-END_ENTITY;
 
 
 -- ADDED BY 10303-238e4
@@ -2897,13 +2861,7 @@ END_ENTITY;
 ENTITY Drill_and_fill_group
 ABSTRACT SUPERTYPE
 SUBTYPE OF (Manufacturing_feature_group);
-  applicable_phases	: SET [0:?] OF Phase_stage;
-END_ENTITY;
-
--- ADDED BY 10303-238e4
-ENTITY Phase_stage;
-  stage		: Manufacturing_phase;	-- phase 1 etc.
-  primary	: BOOLEAN;
+  applicable_phases	: SET [0:?] OF Manufacturing_phase;
 END_ENTITY;
 
 

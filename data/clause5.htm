@@ -1082,7 +1082,7 @@ product
 product_related_product_category.products[i]
 product_related_product_category &lt;= 
 product_category
-product_category.name='material' }
+product_category.name = 'material' }
 </td>
 </tr>
 </table>
@@ -2232,13 +2232,87 @@ product
 product_related_product_category.products[i]
 product_related_product_category &lt;= 
 product_category
-product_category.name='twin model' }
+product_category.name = 'twin model' }
 </td>
 </tr>
 </table>
 
 
-<H5 ID="map-product_view_twin-manufacturing_prototype">5.1.6.8.1 product_view_twin to product_view_definition (as manufacturing_prototype)</H5>
+
+<H5 ID="map-product_view_twin-designed_prototype">5.1.6.8.1 product_view_twin to product_view_prototype (as designed_prototype)</H5>
+
+<table class="map">
+<tr><th>AIM element:</th>
+<td>PATH</td>
+</tr>
+
+<tr><th>Reference path:</th>
+<td class="path">product_definition
+characterized_product_definition = product_definition
+characterized_product_definition
+characterized_definition = characterized_product_definition
+characterized_definition &lt;-
+property_definition.definition
+{ property_definition =&gt;
+product_definition_shape }
+property_definition &lt;-
+property_definition_relationship.relating_property_definition
+property_definition_relationship
+{ property_definition_relationship.name = 'designed prototype' }
+{ property_definition_relationship =&gt;
+twin_prototype_relationship }
+property_definition_relationship.related_property_definition -&gt;
+property_definition
+{ property_definition =&gt;
+product_definition_shape }
+property_definition.definition -&gt;
+characterized_definition
+characterized_definition = characterized_product_definition
+characterized_product_definition
+characterized_product_definition = product_definition
+product_definition
+</td>
+</tr>
+</table>
+
+
+<H5 ID="map-product_view_twin-planned_prototype">5.1.6.8.2 product_view_twin to product_view_prototype (as planned_prototype)</H5>
+
+<table class="map">
+<tr><th>AIM element:</th>
+<td>PATH</td>
+</tr>
+
+<tr><th>Reference path:</th>
+<td class="path">product_definition
+characterized_product_definition = product_definition
+characterized_product_definition
+characterized_definition = characterized_product_definition
+characterized_definition &lt;-
+property_definition.definition
+{ property_definition =&gt;
+product_definition_shape }
+property_definition &lt;-
+property_definition_relationship.relating_property_definition
+property_definition_relationship
+{ property_definition_relationship.name = 'planned prototype' }
+{ property_definition_relationship =&gt;
+twin_prototype_relationship }
+property_definition_relationship.related_property_definition -&gt;
+property_definition
+{ property_definition =&gt;
+product_definition_shape }
+property_definition.definition -&gt;
+characterized_definition
+characterized_definition = characterized_product_definition
+characterized_product_definition
+characterized_product_definition = product_definition
+product_definition
+</td>
+</tr>
+</table>
+
+<H5 ID="map-product_view_twin-manufacturing_prototype">5.1.6.8.3 product_view_twin to product_view_prototype (as manufacturing_prototype)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -2275,44 +2349,7 @@ product_definition
 </table>
 
 
-<H5 ID="map-product_view_twin-supplier_prototype">5.1.6.8.2 product_view_twin to product_view_definition (as supplier_prototype)</H5>
-
-<table class="map">
-<tr><th>AIM element:</th>
-<td>PATH</td>
-</tr>
-
-<tr><th>Reference path:</th>
-<td class="path">product_definition
-characterized_product_definition = product_definition
-characterized_product_definition
-characterized_definition = characterized_product_definition
-characterized_definition &lt;-
-property_definition.definition
-{ property_definition =&gt;
-product_definition_shape }
-property_definition &lt;-
-property_definition_relationship.relating_property_definition
-property_definition_relationship
-{ property_definition_relationship.name = 'supplier prototype' }
-{ property_definition_relationship =&gt;
-twin_prototype_relationship }
-property_definition_relationship.related_property_definition -&gt;
-property_definition
-{ property_definition =&gt;
-product_definition_shape }
-property_definition.definition -&gt;
-characterized_definition
-characterized_definition = characterized_product_definition
-characterized_product_definition
-characterized_product_definition = product_definition
-product_definition
-</td>
-</tr>
-</table>
-
-
-<H5 ID="map-product_view_twin-work_order">5.1.6.8.3 work_order</H5>
+<H5 ID="map-product_view_twin-work_order">5.1.6.8.4 work_order</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -2347,7 +2384,7 @@ descriptive_representation_item.description
 </table>
 
 
-<H5 ID="map-product_view_twin-user_serial_number">5.1.6.8.4 user_serial_number</H5>
+<H5 ID="map-product_view_twin-user_serial_number">5.1.6.8.5 user_serial_number</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -2375,7 +2412,7 @@ identification_assignment.assigned_id
 </table>
 
 
-<H5 ID="map-product_view_twin-envelope">5.1.6.8.5 envelope</H5>
+<H5 ID="map-product_view_twin-envelope">5.1.6.8.6 envelope</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -2410,7 +2447,7 @@ shape_representation
 </table>
 
 
-<H5 ID="map-product_view_twin-system_serial_number">5.1.6.8.6 system_serial_number</H5>
+<H5 ID="map-product_view_twin-system_serial_number">5.1.6.8.7 system_serial_number</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -2429,7 +2466,7 @@ product_definition.id
 </table>
 
 
-<H5 ID="map-product_view_twin-measured_properties">5.1.6.8.7 product_view_twin to measured_property (as measured_properties)</H5>
+<H5 ID="map-product_view_twin-measured_properties">5.1.6.8.8 product_view_twin to measured_property (as measured_properties)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -2450,7 +2487,7 @@ twin_measured_property
 </table>
 
 
-<H5 ID="map-product_view_twin-role">5.1.6.8.8 role</H5>
+<H5 ID="map-product_view_twin-role">5.1.6.8.9 role</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -27277,7 +27314,7 @@ product
 product_related_product_category.products[i]
 product_related_product_category &lt;= 
 product_category
-product_category.name='collar' }
+product_category.name = 'collar' }
 </td>
 </tr>
 </table>
@@ -27356,7 +27393,7 @@ product
 product_related_product_category.products[i]
 product_related_product_category &lt;= 
 product_category
-product_category.name='collar' }
+product_category.name = 'collar' }
 </td>
 </tr>
 </table>
@@ -27687,69 +27724,7 @@ product
 product_related_product_category.products[i]
 product_related_product_category &lt;= 
 product_category
-product_category.name='cutting tool' }
-</td>
-</tr>
-</table>
-
-
-<H5 ID="map-cutting_tool_prototype-tool_life">5.1.16.13.1 tool_life</H5>
-
-<table class="map">
-<tr><th>AIM element:</th>
-<td>time_measure_with_unit</td>
-</tr>
-
-<tr><th>Source:</th>
-<td>10303-41</td>
-</tr>
-
-<tr><th>Reference path:</th>
-<td class="path">product_definition
-characterized_product_definition = product_definition
-characterized_product_definition
-characterized_definition = characterized_product_definition
-characterized_definition &lt;-
-property_definition.definition
-{ property_definition.name = 'tool life' }
-property_definition &lt;-
-property_definition_representation.definition
-{property_definition_representation =&gt;
-shape_definition_representation}
-property_definition_representation
-property_definition_representation.used_representation -&gt;
-representation
-representation.items[i] -&gt;
-representation_item =&gt;
-measure_representation_item
-measure_representation_item &lt;=
-measure_with_unit =&gt;
-time_measure_with_unit
-</td>
-</tr>
-</table>
-
-
-<H5 ID="map-cutting_tool_prototype-tool_life_estimates">5.1.16.13.2 cutting_tool_prototype to tool_life_estimate (as tool_life_estimates)</H5>
-
-<table class="map">
-<tr><th>AIM element:</th>
-<td>PATH</td>
-</tr>
-
-<tr><th>Reference path:</th>
-<td class="path">product_definition
-action_method_items = product_definition 
-action_method_items &lt;-
-applied_action_method_assignment.items[i]
-applied_action_method_assignment &lt;=
-action_method_assignment
-{ action_method_assignment.role -&gt;
-action_method_role
-action_method_role.name = 'tool life estimate' }
-action_method_assignment.assigned_action_method -&gt;
-action_method =&gt;
-machining_process_cost
+product_category.name = 'cutting tool' }
 </td>
 </tr>
 </table>
@@ -27783,44 +27758,7 @@ product
 product_related_product_category.products[i]
 product_related_product_category &lt;= 
 product_category
-product_category.name='cutting tool' }
-</td>
-</tr>
-</table>
-
-
-<H5 ID="map-cutting_tool_twin-life_used">5.1.16.14.1 life_used</H5>
-
-<table class="map">
-<tr><th>AIM element:</th>
-<td>ratio_measure_with_unit</td>
-</tr>
-
-<tr><th>Source:</th>
-<td>10303-41</td>
-</tr>
-
-<tr><th>Reference path:</th>
-<td class="path">product_definition
-characterized_product_definition = product_definition
-characterized_product_definition
-characterized_definition = characterized_product_definition
-characterized_definition &lt;-
-property_definition.definition
-{ property_definition.name = 'life used' }
-property_definition &lt;-
-property_definition_representation.definition
-{property_definition_representation =&gt;
-shape_definition_representation}
-property_definition_representation
-property_definition_representation.used_representation -&gt;
-representation
-representation.items[i] -&gt;
-representation_item =&gt;
-measure_representation_item
-measure_representation_item &lt;=
-measure_with_unit =&gt;
-ratio_measure_with_unit
+product_category.name = 'cutting tool' }
 </td>
 </tr>
 </table>
@@ -27850,7 +27788,6 @@ machining_group &lt;=
 group
 group.description 
 { group.description = 'disabled' } 
-5 Operations Mapping specification
 </td>
 </tr>
 </table>
@@ -27884,7 +27821,7 @@ machining_group &lt;=
 </table>
 
 
-<H5 ID="map-drill_and_fill_group-applicable_phases">5.1.16.16.1 drill_and_fill_group to phase_stage (as applicable_phases)</H5>
+<H5 ID="map-drill_and_fill_group-applicable_phases">5.1.16.16.1 drill_and_fill_group to manufacturing_phase (as applicable_phases)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -27903,6 +27840,9 @@ action_method_assignment
 { action_method_assignment.role -&gt;
 action_method_role
 action_method_role.name = 'phase' }
+action_method_assignment.assigned_action_method -&gt;
+action_method =&gt;
+machining_process_stage
 </td>
 </tr>
 </table>
@@ -29728,7 +29668,7 @@ product
 product_related_product_category.products[i]
 product_related_product_category &lt;= 
 product_category
-product_category.name='fastener' }
+product_category.name = 'fastener' }
 </td>
 </tr>
 </table>
@@ -29960,7 +29900,7 @@ product
 product_related_product_category.products[i]
 product_related_product_category &lt;= 
 product_category
-product_category.name='fastener' }
+product_category.name = 'fastener' }
 </td>
 </tr>
 </table>
@@ -30260,7 +30200,7 @@ product
 product_related_product_category.products[i]
 product_related_product_category &lt;= 
 product_category
-product_category.name='nose' }
+product_category.name = 'nose' }
 </td>
 </tr>
 </table>
@@ -30409,7 +30349,7 @@ product
 product_related_product_category.products[i]
 product_related_product_category &lt;= 
 product_category
-product_category.name='nose' }
+product_category.name = 'nose' }
 </td>
 </tr>
 </table>
@@ -30532,91 +30472,10 @@ machining_process_executable
 
 <!-- ============================== -->
 <DIV><DIV class=quick>
-<A HREF="clause4.htm#ao-phase_stage">AO</a>
-<A HREF="annexG.htm#phase_stage">ARM</a>
-</DIV>
-<H4 ID="map-phase_stage">5.1.16.41 PHASE_STAGE</H4>
-</DIV>
-
-<table class="map">
-<tr><th>AIM element:</th>
-<td>applied_action_method_assignment</td>
-</tr>
-
-<tr><th>Source:</th>
-<td>10303-1249</td>
-</tr>
-
-<tr><th>Reference path:</th>
-<td class="path">applied_action_method_assignment &lt;=
-action_method_assignment
-{ action_method_assignment.role -&gt;
-action_method_role
-action_method_role.name = 'phase stage' }
-</td>
-</tr>
-</table>
-
-
-<H5 ID="map-phase_stage-stage">5.1.16.41.1 phase_stage to manufacturing_phase (as stage)</H5>
-
-<table class="map">
-<tr><th>AIM element:</th>
-<td>PATH</td>
-</tr>
-
-<tr><th>Reference path:</th>
-<td class="path">applied_action_method_assignment &lt;=
-action_method_assignment
-action_method_assignment.assigned_action_method -&gt;
-action_method =&gt;
-machining_process_stage
-</td>
-</tr>
-</table>
-
-
-<H5 ID="map-phase_stage-primary">5.1.16.41.2 primary</H5>
-
-<div class="mapnote">
-<p>#1: if value is true</p>
-<p>#2: if value is false (mapping may be omitted if value is false)</p>
-</div>
-
-<table class="map">
-<tr><th>AIM element:</th>
-<td>identification_assignment.assigned_id</td>
-</tr>
-
-<tr><th>Source:</th>
-<td>10303-41</td>
-</tr>
-
-<tr><th>Reference path:</th>
-<td class="path">applied_action_method_assignment
-identification_item = applied_action_method_assignment
-identification_item &lt;-
-applied_identification_assignment.items[i]
-applied_identification_assignment &lt;=
-identification_assignment
-{ identification_assignment.role -&gt;
-identification_role
-identification_role.name = 'precedence' }
-identification_assignment.assigned_id
-{ #1: (identification_assignment.assigned_id = 'primary' ) 
-#2: (identification_assignment.assigned_id = 'secondary' ) }
-</td>
-</tr>
-</table>
-
-
-
-<!-- ============================== -->
-<DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-place_collar_operation">AO</a>
 <A HREF="annexG.htm#place_collar_operation">ARM</a>
 </DIV>
-<H4 ID="map-place_collar_operation">5.1.16.42 PLACE_COLLAR_OPERATION</H4>
+<H4 ID="map-place_collar_operation">5.1.16.41 PLACE_COLLAR_OPERATION</H4>
 </DIV>
 
 <table class="map">
@@ -30644,7 +30503,7 @@ action_method
 <A HREF="clause4.htm#ao-place_fastener_operation">AO</a>
 <A HREF="annexG.htm#place_fastener_operation">ARM</a>
 </DIV>
-<H4 ID="map-place_fastener_operation">5.1.16.43 PLACE_FASTENER_OPERATION</H4>
+<H4 ID="map-place_fastener_operation">5.1.16.42 PLACE_FASTENER_OPERATION</H4>
 </DIV>
 
 <table class="map">
@@ -30666,7 +30525,7 @@ action_method
 </table>
 
 
-<H5 ID="map-place_fastener_operation-grip_length">5.1.16.43.1 grip_length</H5>
+<H5 ID="map-place_fastener_operation-grip_length">5.1.16.42.1 grip_length</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -30700,7 +30559,7 @@ length_measure_with_unit
 </table>
 
 
-<H5 ID="map-place_fastener_operation-squeeze">5.1.16.43.2 squeeze</H5>
+<H5 ID="map-place_fastener_operation-squeeze">5.1.16.42.2 squeeze</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -30737,7 +30596,7 @@ numeric_measure }
 </table>
 
 
-<H5 ID="map-place_fastener_operation-button_height">5.1.16.43.3 button_height</H5>
+<H5 ID="map-place_fastener_operation-button_height">5.1.16.42.3 button_height</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -30771,7 +30630,7 @@ length_measure_with_unit
 </table>
 
 
-<H5 ID="map-place_fastener_operation-button_diameter">5.1.16.43.4 button_diameter</H5>
+<H5 ID="map-place_fastener_operation-button_diameter">5.1.16.42.4 button_diameter</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -30805,7 +30664,7 @@ length_measure_with_unit
 </table>
 
 
-<H5 ID="map-place_fastener_operation-verify_button">5.1.16.43.5 verify_button</H5>
+<H5 ID="map-place_fastener_operation-verify_button">5.1.16.42.5 verify_button</H5>
 
 <div class="mapnote">
 <p>#1: if value is true</p>
@@ -30844,7 +30703,7 @@ descriptive_representation_item.description
 </table>
 
 
-<H5 ID="map-place_fastener_operation-verify_squeeze">5.1.16.43.6 verify_squeeze</H5>
+<H5 ID="map-place_fastener_operation-verify_squeeze">5.1.16.42.6 verify_squeeze</H5>
 
 <table class="map">
 #1: if value is true
@@ -30880,7 +30739,7 @@ descriptive_representation_item.description
 </table>
 
 
-<H5 ID="map-place_fastener_operation-verify_material">5.1.16.43.7 verify_material</H5>
+<H5 ID="map-place_fastener_operation-verify_material">5.1.16.42.7 verify_material</H5>
 
 <div class="mapnote">
 <p>#1: if value is true</p>
@@ -30919,7 +30778,7 @@ descriptive_representation_item.description
 </table>
 
 
-<H5 ID="map-place_fastener_operation-verify_grip">5.1.16.43.8 verify_grip</H5>
+<H5 ID="map-place_fastener_operation-verify_grip">5.1.16.42.8 verify_grip</H5>
 
 <table class="map">
 #1: if value is true
@@ -30961,7 +30820,7 @@ descriptive_representation_item.description
 <A HREF="clause4.htm#ao-place_item_operation">AO</a>
 <A HREF="annexG.htm#place_item_operation">ARM</a>
 </DIV>
-<H4 ID="map-place_item_operation">5.1.16.44 PLACE_ITEM_OPERATION</H4>
+<H4 ID="map-place_item_operation">5.1.16.43 PLACE_ITEM_OPERATION</H4>
 </DIV>
 
 <table class="map">
@@ -30986,7 +30845,7 @@ action_method
 </table>
 
 
-<H5 ID="map-place_item_operation-placed_item">5.1.16.44.1 place_item_operation to product_view_definition (as placed_item)</H5>
+<H5 ID="map-place_item_operation-placed_item">5.1.16.43.1 place_item_operation to product_view_definition (as placed_item)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -31012,7 +30871,7 @@ product_definition
 </table>
 
 
-<H5 ID="map-place_item_operation-depth">5.1.16.44.2 depth</H5>
+<H5 ID="map-place_item_operation-depth">5.1.16.43.2 depth</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -31046,7 +30905,7 @@ length_measure_with_unit
 </table>
 
 
-<H5 ID="map-place_item_operation-allowable_minimum_force">5.1.16.44.3 allowable_minimum_force</H5>
+<H5 ID="map-place_item_operation-allowable_minimum_force">5.1.16.43.3 allowable_minimum_force</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -31083,7 +30942,7 @@ numeric_measure }
 </table>
 
 
-<H5 ID="map-place_item_operation-allowable_maximum_force">5.1.16.44.4 allowable_maximum_force</H5>
+<H5 ID="map-place_item_operation-allowable_maximum_force">5.1.16.43.4 allowable_maximum_force</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -31120,7 +30979,7 @@ numeric_measure }
 </table>
 
 
-<H5 ID="map-place_item_operation-allowable_position_deviation">5.1.16.44.5 allowable_position_deviation</H5>
+<H5 ID="map-place_item_operation-allowable_position_deviation">5.1.16.43.5 allowable_position_deviation</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -31154,7 +31013,7 @@ length_measure_with_unit
 </table>
 
 
-<H5 ID="map-place_item_operation-allowable_normal_deviation">5.1.16.44.6 allowable_normal_deviation</H5>
+<H5 ID="map-place_item_operation-allowable_normal_deviation">5.1.16.43.6 allowable_normal_deviation</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -31188,7 +31047,7 @@ plane_angle_measure_with_unit
 </table>
 
 
-<H5 ID="map-place_item_operation-allowable_depth_deviation">5.1.16.44.7 allowable_depth_deviation</H5>
+<H5 ID="map-place_item_operation-allowable_depth_deviation">5.1.16.43.7 allowable_depth_deviation</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -31228,7 +31087,7 @@ length_measure_with_unit
 <A HREF="clause4.htm#ao-place_tack_operation">AO</a>
 <A HREF="annexG.htm#place_tack_operation">ARM</a>
 </DIV>
-<H4 ID="map-place_tack_operation">5.1.16.45 PLACE_TACK_OPERATION</H4>
+<H4 ID="map-place_tack_operation">5.1.16.44 PLACE_TACK_OPERATION</H4>
 </DIV>
 
 <table class="map">
@@ -31256,7 +31115,7 @@ action_method
 <A HREF="clause4.htm#ao-place_washer_operation">AO</a>
 <A HREF="annexG.htm#place_washer_operation">ARM</a>
 </DIV>
-<H4 ID="map-place_washer_operation">5.1.16.46 PLACE_WASHER_OPERATION</H4>
+<H4 ID="map-place_washer_operation">5.1.16.45 PLACE_WASHER_OPERATION</H4>
 </DIV>
 
 <table class="map">
@@ -31284,7 +31143,7 @@ action_method
 <A HREF="clause4.htm#ao-precedence_group">AO</a>
 <A HREF="annexG.htm#precedence_group">ARM</a>
 </DIV>
-<H4 ID="map-precedence_group">5.1.16.47 PRECEDENCE_GROUP</H4>
+<H4 ID="map-precedence_group">5.1.16.46 PRECEDENCE_GROUP</H4>
 </DIV>
 
 <table class="map">
@@ -31307,7 +31166,7 @@ group.description
 </table>
 
 
-<H5 ID="map-precedence_group-pre_conditions">5.1.16.47.1 precedence_group to drill_and_fill_group (as pre_conditions)</H5>
+<H5 ID="map-precedence_group-pre_conditions">5.1.16.46.1 precedence_group to drill_and_fill_group (as pre_conditions)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -31338,7 +31197,7 @@ filling_type_group
 <A HREF="clause4.htm#ao-reference_frame_group">AO</a>
 <A HREF="annexG.htm#reference_frame_group">ARM</a>
 </DIV>
-<H4 ID="map-reference_frame_group">5.1.16.48 REFERENCE_FRAME_GROUP</H4>
+<H4 ID="map-reference_frame_group">5.1.16.47 REFERENCE_FRAME_GROUP</H4>
 </DIV>
 
 <table class="map">
@@ -31360,7 +31219,7 @@ machining_group &lt;=
 </table>
 
 
-<H5 ID="map-reference_frame_group-guide_verified">5.1.16.48.1 guide_verified</H5>
+<H5 ID="map-reference_frame_group-guide_verified">5.1.16.47.1 guide_verified</H5>
 
 <div class="mapnote">
 <p>#1: if value is true</p>
@@ -31402,7 +31261,7 @@ descriptive_representation_item.description
 </table>
 
 
-<H5 ID="map-reference_frame_group-basis">5.1.16.48.2 reference_frame_group to reference_frame_group (as basis)</H5>
+<H5 ID="map-reference_frame_group-basis">5.1.16.47.2 reference_frame_group to reference_frame_group (as basis)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -31425,7 +31284,7 @@ filling_type_group
 </table>
 
 
-<H5 ID="map-reference_frame_group-modification">5.1.16.48.3 modification</H5>
+<H5 ID="map-reference_frame_group-modification">5.1.16.47.3 modification</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -31460,7 +31319,7 @@ axis2_placement_3d
 </table>
 
 
-<H5 ID="map-reference_frame_group-verification_time">5.1.16.48.4 verification_time</H5>
+<H5 ID="map-reference_frame_group-verification_time">5.1.16.47.4 verification_time</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -31490,7 +31349,7 @@ date_and_time
 </table>
 
 
-<H5 ID="map-reference_frame_group-valid_for">5.1.16.48.5 valid_for</H5>
+<H5 ID="map-reference_frame_group-valid_for">5.1.16.47.5 valid_for</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -31531,7 +31390,7 @@ descriptive_representation_item.description
 <A HREF="clause4.htm#ao-remove_tack_operation">AO</a>
 <A HREF="annexG.htm#remove_tack_operation">ARM</a>
 </DIV>
-<H4 ID="map-remove_tack_operation">5.1.16.49 REMOVE_TACK_OPERATION</H4>
+<H4 ID="map-remove_tack_operation">5.1.16.48 REMOVE_TACK_OPERATION</H4>
 </DIV>
 
 <table class="map">
@@ -31558,7 +31417,7 @@ action_method
 <A HREF="clause4.htm#ao-response_group">AO</a>
 <A HREF="annexG.htm#response_group">ARM</a>
 </DIV>
-<H4 ID="map-response_group">5.1.16.50 RESPONSE_GROUP</H4>
+<H4 ID="map-response_group">5.1.16.49 RESPONSE_GROUP</H4>
 </DIV>
 
 <table class="map">
@@ -31580,7 +31439,7 @@ group.description
 </tr>
 </table>
 
-<H5 ID="map-response_group-measured_properties">5.1.16.50.1 response_group to measured_property (as measured_properties)</H5>
+<H5 ID="map-response_group-measured_properties">5.1.16.49.1 response_group to measured_property (as measured_properties)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -31601,7 +31460,7 @@ twin_measured_property
 </table>
 
 
-<H5 ID="map-response_group-response_options">5.1.16.50.2 response_group to executable (as response_options)</H5>
+<H5 ID="map-response_group-response_options">5.1.16.49.2 response_group to executable (as response_options)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -31627,7 +31486,7 @@ machining_process_executable
 </tr>
 </table>
 
-<H5 ID="map-response_group-solution_request">5.1.16.50.3 solution_request</H5>
+<H5 ID="map-response_group-solution_request">5.1.16.49.3 solution_request</H5>
 
 <div class="mapnote">
 <p>#1: if value is true</p>
@@ -31676,7 +31535,7 @@ descriptive_representation_item.description
 <A HREF="clause4.htm#ao-same_assembly_group">AO</a>
 <A HREF="annexG.htm#same_assembly_group">ARM</a>
 </DIV>
-<H4 ID="map-same_assembly_group">5.1.16.51 SAME_ASSEMBLY_GROUP</H4>
+<H4 ID="map-same_assembly_group">5.1.16.50 SAME_ASSEMBLY_GROUP</H4>
 </DIV>
 
 <table class="map">
@@ -31699,7 +31558,7 @@ group.description
 </table>
 
 
-<H5 ID="map-same_assembly_group-parts_joined">5.1.16.51.1 same_assembly_group to product_view_twin (as parts_joined)</H5>
+<H5 ID="map-same_assembly_group-parts_joined">5.1.16.50.1 same_assembly_group to product_view_twin (as parts_joined)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -31736,7 +31595,7 @@ product_definition
 <A HREF="clause4.htm#ao-seal_fastener_operation">AO</a>
 <A HREF="annexG.htm#seal_fastener_operation">ARM</a>
 </DIV>
-<H4 ID="map-seal_fastener_operation">5.1.16.52 SEAL_FASTENER_OPERATION</H4>
+<H4 ID="map-seal_fastener_operation">5.1.16.51 SEAL_FASTENER_OPERATION</H4>
 </DIV>
 
 <table class="map">
@@ -31758,7 +31617,7 @@ action_method
 </table>
 
 
-<H5 ID="map-seal_fastener_operation-quantity">5.1.16.52.1 quantity</H5>
+<H5 ID="map-seal_fastener_operation-quantity">5.1.16.51.1 quantity</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -31795,7 +31654,7 @@ volume_measure }
 </table>
 
 
-<H5 ID="map-seal_fastener_operation-sealant">5.1.16.52.2 seal_product_operation to material (as sealant)</H5>
+<H5 ID="map-seal_fastener_operation-sealant">5.1.16.51.2 seal_product_operation to material (as sealant)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -31825,7 +31684,7 @@ material_designation
 </table>
 
 
-<H5 ID="map-seal_fastener_operation-seal_type">5.1.16.52.3 seal_type</H5>
+<H5 ID="map-seal_fastener_operation-seal_type">5.1.16.51.3 seal_type</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -31861,7 +31720,7 @@ descriptive_representation_item.description
 </table>
 
 
-<H5 ID="map-seal_fastener_operation-seal_check">5.1.16.52.4 seal_check</H5>
+<H5 ID="map-seal_fastener_operation-seal_check">5.1.16.51.4 seal_check</H5>
 
 <div class="mapnote">
 <p>#1: if value is true</p>
@@ -31906,7 +31765,7 @@ descriptive_representation_item.description
 <A HREF="clause4.htm#ao-sealant_prototype">AO</a>
 <A HREF="annexG.htm#sealant_prototype">ARM</a>
 </DIV>
-<H4 ID="map-sealant_prototype">5.1.16.53 SEALANT_PROTOTYPE</H4>
+<H4 ID="map-sealant_prototype">5.1.16.52 SEALANT_PROTOTYPE</H4>
 </DIV>
 
 <table class="map">
@@ -31928,13 +31787,13 @@ product
 product_related_product_category.products[i]
 product_related_product_category &lt;= 
 product_category
-product_category.name='sealant' }
+product_category.name = 'sealant' }
 </td>
 </tr>
 </table>
 
 
-<H5 ID="map-sealant_prototype-allowed_for">5.1.16.53.1 sealant_prototype to fastener_prototype (as allowed_for)</H5>
+<H5 ID="map-sealant_prototype-allowed_for">5.1.16.52.1 sealant_prototype to fastener_prototype (as allowed_for)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -31957,7 +31816,7 @@ product_definition
 </table>
 
 
-<H5 ID="map-sealant_prototype-sealant_function">5.1.16.53.2 sealant_function</H5>
+<H5 ID="map-sealant_prototype-sealant_function">5.1.16.52.2 sealant_function</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -31996,7 +31855,7 @@ descriptive_representation_item.description
 </table>
 
 
-<H5 ID="map-sealant_prototype-quantity">5.1.16.53.3 sealant_prototype to expected_property (as quantity)</H5>
+<H5 ID="map-sealant_prototype-quantity">5.1.16.52.3 sealant_prototype to expected_property (as quantity)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -32024,7 +31883,7 @@ twin_expected_property
 <A HREF="clause4.htm#ao-sealant_twin">AO</a>
 <A HREF="annexG.htm#sealant_twin">ARM</a>
 </DIV>
-<H4 ID="map-sealant_twin">5.1.16.54 SEALANT_TWIN</H4>
+<H4 ID="map-sealant_twin">5.1.16.53 SEALANT_TWIN</H4>
 </DIV>
 
 <table class="map">
@@ -32046,13 +31905,13 @@ product
 product_related_product_category.products[i]
 product_related_product_category &lt;= 
 product_category
-product_category.name='sealant' }
+product_category.name = 'sealant' }
 </td>
 </tr>
 </table>
 
 
-<H5 ID="map-sealant_twin-seals">5.1.16.54.1 sealant_twin to fastener_twin (as seals)</H5>
+<H5 ID="map-sealant_twin-seals">5.1.16.53.1 sealant_twin to fastener_twin (as seals)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -32075,7 +31934,7 @@ product_definition
 </table>
 
 
-<H5 ID="map-sealant_twin-quantity">5.1.16.54.2 sealant_twin to measured_property (as quantity)</H5>
+<H5 ID="map-sealant_twin-quantity">5.1.16.53.2 sealant_twin to measured_property (as quantity)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -32103,7 +31962,7 @@ twin_measured_property
 <A HREF="clause4.htm#ao-shave_fastener_operation">AO</a>
 <A HREF="annexG.htm#shave_fastener_operation">ARM</a>
 </DIV>
-<H4 ID="map-shave_fastener_operation">5.1.16.55 SHAVE_FASTENER_OPERATION</H4>
+<H4 ID="map-shave_fastener_operation">5.1.16.54 SHAVE_FASTENER_OPERATION</H4>
 </DIV>
 
 <table class="map">
@@ -32125,7 +31984,7 @@ action_method
 </table>
 
 
-<H5 ID="map-shave_fastener_operation-remaining">5.1.16.55.1 remaining</H5>
+<H5 ID="map-shave_fastener_operation-remaining">5.1.16.54.1 remaining</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -32165,7 +32024,7 @@ length_measure_with_unit
 <A HREF="clause4.htm#ao-stack_layer">AO</a>
 <A HREF="annexG.htm#stack_layer">ARM</a>
 </DIV>
-<H4 ID="map-stack_layer">5.1.16.56 STACK_LAYER</H4>
+<H4 ID="map-stack_layer">5.1.16.55 STACK_LAYER</H4>
 </DIV>
 
 <table class="map">
@@ -32185,7 +32044,7 @@ action_method
 </table>
 
 
-<H5 ID="map-stack_layer-usage">5.1.16.56.1 stack_layer to product_view_definition (as usage)</H5>
+<H5 ID="map-stack_layer-usage">5.1.16.55.1 stack_layer to product_view_definition (as usage)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -32210,7 +32069,7 @@ product_definition
 </table>
 
 
-<H5 ID="map-stack_layer-start_dist">5.1.16.56.2 start_dist</H5>
+<H5 ID="map-stack_layer-start_dist">5.1.16.55.2 start_dist</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -32243,7 +32102,7 @@ length_measure_with_unit
 </table>
 
 
-<H5 ID="map-stack_layer-end_dist">5.1.16.56.3 end_dist</H5>
+<H5 ID="map-stack_layer-end_dist">5.1.16.55.3 end_dist</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -32276,7 +32135,7 @@ length_measure_with_unit
 </table>
 
 
-<H5 ID="map-stack_layer-layer_feature">5.1.16.56.4 stack_layer to manufacturing_feature (as layer_feature)</H5>
+<H5 ID="map-stack_layer-layer_feature">5.1.16.55.4 stack_layer to manufacturing_feature (as layer_feature)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -32301,7 +32160,7 @@ shape_aspect
 </table>
 
 
-<H5 ID="map-stack_layer-feed">5.1.16.56.5 feed</H5>
+<H5 ID="map-stack_layer-feed">5.1.16.55.5 feed</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -32337,7 +32196,7 @@ numeric_measure }
 </table>
 
 
-<H5 ID="map-stack_layer-speed">5.1.16.56.6 speed</H5>
+<H5 ID="map-stack_layer-speed">5.1.16.55.6 speed</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -32380,7 +32239,7 @@ numeric_measure }
 <A HREF="clause4.htm#ao-three_twin_reference_frame_group">AO</a>
 <A HREF="annexG.htm#three_twin_reference_frame_group">ARM</a>
 </DIV>
-<H4 ID="map-three_twin_reference_frame_group">5.1.16.57 THREE_TWIN_REFERENCE_FRAME_GROUP</H4>
+<H4 ID="map-three_twin_reference_frame_group">5.1.16.56 THREE_TWIN_REFERENCE_FRAME_GROUP</H4>
 </DIV>
 
 <table class="map">
@@ -32403,7 +32262,7 @@ group.description
 </table>
 
 
-<H5 ID="map-three_twin_reference_frame_group-guide_primary">5.1.16.57.1 three_twin_reference_frame_group to drill_and_fill_twin (as guide_primary)</H5>
+<H5 ID="map-three_twin_reference_frame_group-guide_primary">5.1.16.56.1 three_twin_reference_frame_group to drill_and_fill_twin (as guide_primary)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -32436,7 +32295,7 @@ twin_feature
 </table>
 
 
-<H5 ID="map-three_twin_reference_frame_group-guide_secondary">5.1.16.57.2 three_twin_reference_frame_group to drill_and_fill_twin (as guide_secondary)</H5>
+<H5 ID="map-three_twin_reference_frame_group-guide_secondary">5.1.16.56.2 three_twin_reference_frame_group to drill_and_fill_twin (as guide_secondary)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -32469,7 +32328,7 @@ twin_feature
 </table>
 
 
-<H5 ID="map-three_twin_reference_frame_group-guide_tertiary">5.1.16.57.3 three_twin_reference_frame_group to drill_and_fill_twin (as guide_tertiary)</H5>
+<H5 ID="map-three_twin_reference_frame_group-guide_tertiary">5.1.16.56.3 three_twin_reference_frame_group to drill_and_fill_twin (as guide_tertiary)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -32508,7 +32367,7 @@ twin_feature
 <A HREF="clause4.htm#ao-tighten_collar_operation">AO</a>
 <A HREF="annexG.htm#tighten_collar_operation">ARM</a>
 </DIV>
-<H4 ID="map-tighten_collar_operation">5.1.16.58 TIGHTEN_COLLAR_OPERATION</H4>
+<H4 ID="map-tighten_collar_operation">5.1.16.57 TIGHTEN_COLLAR_OPERATION</H4>
 </DIV>
 
 <table class="map">
@@ -32530,7 +32389,7 @@ action_method
 </table>
 
 
-<H5 ID="map-tighten_collar_operation-torque">5.1.16.58.1 torque</H5>
+<H5 ID="map-tighten_collar_operation-torque">5.1.16.57.1 torque</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -32567,7 +32426,7 @@ numeric_measure }
 </table>
 
 
-<H5 ID="map-tighten_collar_operation-squeeze">5.1.16.58.2 squeeze</H5>
+<H5 ID="map-tighten_collar_operation-squeeze">5.1.16.57.2 squeeze</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -32604,7 +32463,7 @@ numeric_measure }
 </table>
 
 
-<H5 ID="map-tighten_collar_operation-swage">5.1.16.58.3 swage</H5>
+<H5 ID="map-tighten_collar_operation-swage">5.1.16.57.3 swage</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -32641,7 +32500,7 @@ numeric_measure }
 </table>
 
 
-<H5 ID="map-tighten_collar_operation-pull">5.1.16.58.4 pull</H5>
+<H5 ID="map-tighten_collar_operation-pull">5.1.16.57.4 pull</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -32681,91 +32540,10 @@ numeric_measure }
 
 <!-- ============================== -->
 <DIV><DIV class=quick>
-<A HREF="clause4.htm#ao-tool_life_estimate">AO</a>
-<A HREF="annexG.htm#tool_life_estimate">ARM</a>
-</DIV>
-<H4 ID="map-tool_life_estimate">5.1.16.59 TOOL_LIFE_ESTIMATE</H4>
-</DIV>
-
-<table class="map">
-<tr><th>AIM element:</th>
-<td>machining_process_cost</td>
-</tr>
-
-<tr><th>Source:</th>
-<td>10303-238</td>
-</tr>
-
-<tr><th>Reference path:</th>
-<td class="path">machining_process_cost &lt;=
-action_method
-</td>
-</tr>
-</table>
-
-
-<H5 ID="map-tool_life_estimate-task">5.1.16.59.1 tool_life_estimate to executable (as task)</H5>
-
-<table class="map">
-<tr><th>AIM element:</th>
-<td>PATH</td>
-</tr>
-
-<tr><th>Reference path:</th>
-<td class="path">machining_process_cost &lt;=
-action_method &lt;-
-action_method_relationship.relating_method
-action_method_relationship
-{ action_method_relationship.name = 'cost executable' }
-action_method_relationship.related_method -&gt;
-action_method =&gt;
-machining_process_executable
-</td>
-</tr>
-</table>
-
-
-<H5 ID="map-tool_life_estimate-added_cost">5.1.16.59.2 added_cost</H5>
-
-<table class="map">
-<tr><th>AIM element:</th>
-<td>ratio_measure_with_unit</td>
-</tr>
-
-<tr><th>Source:</th>
-<td>10303-41</td>
-</tr>
-
-<tr><th>Reference path:</th>
-<td class="path">machining_process_cost &lt;=
-action_method 
-characterized_action_definition = action_method 
-characterized_action_definition &lt;- 
-action_property.definition 
-{ action_property.name = 'added cost' }
-action_property &lt;- 
-action_property_representation.property 
-action_property_representation 
-action_property_representation.representation -&gt; 
-representation
-representation.items[i] -&gt;
-representation_item =&gt;
-measure_representation_item
-measure_representation_item &lt;=
-measure_with_unit =&gt;
-ratio_measure_with_unit
-</td>
-</tr>
-</table>
-
-
-
-<!-- ============================== -->
-<DIV><DIV class=quick>
 <A HREF="clause4.htm#ao-washer_prototype">AO</a>
 <A HREF="annexG.htm#washer_prototype">ARM</a>
 </DIV>
-<H4 ID="map-washer_prototype">5.1.16.60 WASHER_PROTOTYPE</H4>
+<H4 ID="map-washer_prototype">5.1.16.58 WASHER_PROTOTYPE</H4>
 </DIV>
 
 <table class="map">
@@ -32787,13 +32565,13 @@ product
 product_related_product_category.products[i]
 product_related_product_category &lt;= 
 product_category
-product_category.name='washer' }
+product_category.name = 'washer' }
 </td>
 </tr>
 </table>
 
 
-<H5 ID="map-washer_prototype-allowed_for">5.1.16.60.1 washer_prototype to fastener_prototype (as allowed_for)</H5>
+<H5 ID="map-washer_prototype-allowed_for">5.1.16.58.1 washer_prototype to fastener_prototype (as allowed_for)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -32816,7 +32594,7 @@ product_definition
 </table>
 
 
-<H5 ID="map-washer_prototype-thickness">5.1.16.60.2 washer_prototype to expected_property (as thickness)</H5>
+<H5 ID="map-washer_prototype-thickness">5.1.16.58.2 washer_prototype to expected_property (as thickness)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -32838,7 +32616,7 @@ twin_expected_property
 </table>
 
 
-<H5 ID="map-washer_prototype-form">5.1.16.60.3 form</H5>
+<H5 ID="map-washer_prototype-form">5.1.16.58.3 form</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>
@@ -32882,7 +32660,7 @@ descriptive_representation_item.description
 <A HREF="clause4.htm#ao-washer_twin">AO</a>
 <A HREF="annexG.htm#washer_twin">ARM</a>
 </DIV>
-<H4 ID="map-washer_twin">5.1.16.61 WASHER_TWIN</H4>
+<H4 ID="map-washer_twin">5.1.16.59 WASHER_TWIN</H4>
 </DIV>
 
 <table class="map">
@@ -32904,13 +32682,13 @@ product
 product_related_product_category.products[i]
 product_related_product_category &lt;= 
 product_category
-product_category.name='washer' }
+product_category.name = 'washer' }
 </td>
 </tr>
 </table>
 
 
-<H5 ID="map-washer_twin-holds">5.1.16.61.1 washer_twin to fastener_twin (as holds)</H5>
+<H5 ID="map-washer_twin-holds">5.1.16.59.1 washer_twin to fastener_twin (as holds)</H5>
 
 <table class="map">
 <tr><th>AIM element:</th>

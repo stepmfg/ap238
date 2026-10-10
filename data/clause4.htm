@@ -1145,7 +1145,6 @@ drill and fill UoF, and shall be as defined by this document:</P>
 <LI><A HREF="#ao-nose_prototype">Nose_prototype</a></LI>
 <LI><A HREF="#ao-nose_twin">Nose_twin</a></LI>
 <LI><A HREF="#ao-oneup_assembly_group">Oneup_assembly_group</a></LI>
-<LI><A HREF="#ao-phase_stage">Phase_stage</a></LI>
 <LI><A HREF="#ao-place_collar_operation">Place_collar_operation</a></LI>
 <LI><A HREF="#ao-place_fastener_operation">Place_fastener_operation</a></LI>
 <LI><A HREF="#ao-place_item_operation">Place_item_operation</a></LI>
@@ -1163,7 +1162,6 @@ drill and fill UoF, and shall be as defined by this document:</P>
 <LI><A HREF="#ao-stack_layer">Stack_layer</a></LI>
 <LI><A HREF="#ao-three_twin_reference_frame_group">Three_twin_reference_frame_group</a></LI>
 <LI><A HREF="#ao-tighten_collar_operation">Tighten_collar_operation </a></LI>
-<LI><A HREF="#ao-tool_life_estimate">Tool_life_estimate</a></LI>
 <LI><A HREF="#ao-washer_prototype">Washer_prototype</a></LI>
 <LI><A HREF="#ao-washer_twin">Washer_twin</a></LI>
 </UL>
@@ -6197,8 +6195,6 @@ application object is shown below.</P>
 <PRE CLASS="note">
 ENTITY Collar_twin	-- ADDED BY 10303-238e4
   SUBTYPE OF (Product_view_twin);
-  SELF\Product_view_twin.manufacturing_prototype: Collar_prototype;
-  SELF\Product_view_twin.supplier_prototype:      OPTIONAL Collar_prototype;
   holds: 			Fastener_twin;
   applied_torque: 		OPTIONAL Measured_property;
 END_ENTITY;
@@ -7268,15 +7264,6 @@ Product_view_prototype that describes manufacturing requirements for a
 cutting tool that will be used to drill material stackups for
 fasteners.</P>
 
-<P>The data associated with a Cutting_tool_prototype are the
-following:</P>
-
-<UL>
-<LI>tool_life;</LI>
-<LI>tool_life_estimates.</LI>
-</UL>
-
-
 <P CLASS="note">
 <SPAN>NOTE</SPAN> The EXPRESS description for the Cutting_tool_prototype
 application object is shown below.</P>
@@ -7284,26 +7271,8 @@ application object is shown below.</P>
 <PRE CLASS="note">
 ENTITY Cutting_tool_prototype	-- ADDED BY 10303-238e4
   SUBTYPE OF (Product_view_prototype);
-  tool_life:			OPTIONAL Duration;
-  tool_life_estimates:		SET [0:?] OF Tool_life_estimate;
 END_ENTITY;
 </PRE>
-
-
-<H4 ID="ao-cutting_tool_prototype-tool_life">4.3.132.1 tool_life</H4>
-
-<p>The tool_life specifies the expected usable duration of tools that use this prototype.
-
-<P CLASS="note">
-<SPAN>NOTE</SPAN> The actual life of the tool will vary. This is an
-estimate based on an expected mix of tasks and enables predictions of
-the remaining tool life to be given which may be more or less accurate
-depending on the tasks actually given to the tool.</P>
-
-<H4 ID="ao-cutting_tool_prototype-tool_life_estimates">4.3.132.2 cutting_tool_prototype to tool_life_estimate (as tool_life_estimates)</H4>
-
-<p>The tool_life_estimates specifies a collection of estimates of the
-amount of tool life removed by a set of tasks.</p>
 
 
 <!-- ============================== -->
@@ -7318,13 +7287,6 @@ amount of tool life removed by a set of tasks.</p>
 Product_view_twin that describes key properties of a cutting tool that
 has been used to execute manufacturing operations.</P>
 
-<P>The data associated with a Cutting_tool_twin are the
-following:</P>
-
-<UL>
-<LI>life_used.</LI>
-</UL>
-
 <P CLASS="note">
 <SPAN>NOTE</SPAN> The EXPRESS description for the Cutting_tool_twin
 application object is shown below.</P>
@@ -7332,28 +7294,8 @@ application object is shown below.</P>
 <PRE CLASS="note">
 ENTITY Cutting_tool_twin	-- ADDED BY 10303-238e4
   SUBTYPE OF (Product_view_twin);
-  SELF\Product_view_twin.manufacturing_prototype: Cutting_tool_prototype;
-  SELF\Product_view_twin.supplier_prototype:      OPTIONAL Cutting_tool_prototype;
-  life_used:		Ratio_data_element;
-
-  --  life remaining is prototype.tool_life * (1-life_used)
 END_ENTITY;
 </PRE>
-
-
-
-<H4 ID="ao-cutting_tool_twin-life_used">4.3.133.1 life_used</H4>
-
-<p>The life_used specifies the ratio of tool life consumed for this
-physical tool to the tool life specified by the
-manufacturing_prototype.</p>
-
-<P CLASS="note">
-<SPAN>NOTE</SPAN> The life_used ratio may be converted into a time
-remaining using the tool_life of the prototype. Sometimes a tool may
-be used for longer than its tool_life in which case the life_used will
-exceed 100%.</P>
-
 
 
 
@@ -7456,14 +7398,14 @@ application object is shown below.</P>
 ENTITY Drill_and_fill_group	-- ADDED BY 10303-238e4
 ABSTRACT SUPERTYPE
 SUBTYPE OF (Manufacturing_feature_group);
-  applicable_phases	: SET [0:?] OF Phase_stage;
+  applicable_phases	: SET [0:?] OF Manufacturing_phase;
 END_ENTITY;
 </PRE>
 
 
-<H4 ID="ao-drill_and_fill_group-applicable_phases">4.3.137.1 drill_and_fill_group to phase_stage (as applicable_phases)</H4>
+<H4 ID="ao-drill_and_fill_group-applicable_phases">4.3.137.1 drill_and_fill_group to manufacturing_phase (as applicable_phases)</H4>
 
-<p>The applicable_phases specifies the manufacturing stages when this
+<p>The applicable_phases specifies the manufacturing phases when this
 group contains relevant planning information. If the collection is
 empty the group shall apply to all phases.</p>
 
@@ -9364,9 +9306,6 @@ application object is shown below.</P>
 <PRE CLASS="note">
 ENTITY Fastener_twin	-- ADDED BY 10303-238e4
   SUBTYPE OF (Product_view_twin);
-  SELF\Product_view_twin.manufacturing_prototype:	Fastener_prototype;
-  SELF\Product_view_twin.supplier_prototype:		OPTIONAL Fastener_prototype;
-
   fastens		: Drill_and_fill_twin;
   is_temporary 		: OPTIONAL BOOLEAN;
   grip_length		: OPTIONAL Measured_property;
@@ -11769,9 +11708,6 @@ application object is shown below.</P>
 <PRE CLASS="note">
 ENTITY Nose_twin	-- ADDED BY 10303-238e4
   SUBTYPE OF (Product_view_twin);
-  SELF\Product_view_twin.manufacturing_prototype: Nose_prototype;
-  SELF\Product_view_twin.supplier_prototype: 	  OPTIONAL Nose_prototype;
-
   loaded_cutter: 	Cutting_tool_twin;
   robot:		Identifier;
 END_ENTITY;
@@ -11824,8 +11760,9 @@ END_ENTITY;
 </DIV>
 
 <P>An Oneup_assembly_group application object is a type of
-Drill_and_fill_group that describes a collection of operations that
-shall be completed before work begins on the holes in the group.</P>
+Drill_and_fill_group that describes a collection of operations, at
+least one of which shall be completed, before work begins on the holes
+in the group.</P>
 
 <P CLASS="note">
 <SPAN>NOTE 1</SPAN> This enables flexible ordering of manufacturing
@@ -11991,59 +11928,12 @@ END_ENTITY;
 </PRE>
 
 
-
-<!-- ============================== -->
-<DIV><DIV class=quick>
-<A HREF="clause5.htm#map-phase_stage">Map</a>
-<A HREF="annexG.htm#phase_stage">ARM</a>
-</DIV>
-<H3 ID="ao-phase_stage">4.3.236 Phase_stage</H3>
-</DIV>
-
-<P>A Phase_stage application object determines if a group holds the
-primary or alternate information for a manufacturing stage.</P>
-
-<P>The data associated with a Phase_stage are the
-following:</P>
-
-<UL>
-<LI>stage;</LI>
-<LI>primary.</LI>
-</UL>
-
-<P CLASS="note">
-<SPAN>NOTE</SPAN> The EXPRESS description for the Phase_stage
-application object is shown below.</P>
-
-<PRE CLASS="note">
-ENTITY Phase_stage;	-- ADDED BY 10303-238e4
-  stage		: Manufacturing_phase;	-- phase 1 etc.
-  primary	: BOOLEAN;
-END_ENTITY;
-</PRE>
-
-
-<H4 ID="ao-phase_stage-stage">4.3.236.1 phase_stage to manufacturing_phase (as stage)</H4>
-
-<p>The stage specifies a manufacturing stage where the information
-described by a group applies.  stage is not specified a referencing
-Drill_and_fill_group applies to all stages.</p>
-
-<H4 ID="ao-phase_stage-primary">4.3.236.2 primary</H4>
-
-<p>The primary specifies whether a referencing Drill_and_fill_group
-shall be preferred if a twin is in multiple groups of the same type.
-If primary is true then a referencing Drill_and_fill_group shall be
-preferred.  If primary is false or not specified, a referencing
-Drill_and_fill_group shall not be preferred.</p>
-
-
 <!-- ============================== -->
 <DIV><DIV class=quick>
 <A HREF="clause5.htm#map-place_collar_operation">Map</a>
 <A HREF="annexG.htm#place_collar_operation">ARM</a>
 </DIV>
-<H3 ID="ao-place_collar_operation">4.3.237 Place_collar_operation</H3>
+<H3 ID="ao-place_collar_operation">4.3.236 Place_collar_operation</H3>
 </DIV>
 
 <P>A Place_collar_operation application object is a type of
@@ -12071,7 +11961,7 @@ END_ENTITY;
 <A HREF="clause5.htm#map-place_fastener_operation">Map</a>
 <A HREF="annexG.htm#place_fastener_operation">ARM</a>
 </DIV>
-<H3 ID="ao-place_fastener_operation">4.3.238 Place_fastener_operation</H3>
+<H3 ID="ao-place_fastener_operation">4.3.237 Place_fastener_operation</H3>
 </DIV>
 
 <P>A Place_fastener_operation application object is a type of
@@ -12110,13 +12000,13 @@ ENTITY Place_fastener_operation		-- ADDED BY 10303-238e4
 END_ENTITY;
 </PRE>
 
-<H4 ID="ao-place_fastener_operation-grip_length">4.3.238.1 grip_length</H4>
+<H4 ID="ao-place_fastener_operation-grip_length">4.3.237.1 grip_length</H4>
 
 <p>The grip_length specifies the expected grip length for the placed
 item.</p>
 
 
-<H4 ID="ao-place_fastener_operation-squeeze">4.3.238.2 squeeze</H4>
+<H4 ID="ao-place_fastener_operation-squeeze">4.3.237.2 squeeze</H4>
 
 <p>The squeeze specifies the pressure to force a fastener into the
 fastener hole.</p>
@@ -12125,32 +12015,32 @@ fastener hole.</p>
 <SPAN>EXAMPLE</SPAN> A rivet is a squeezed fastener.</P>
 
 
-<H4 ID="ao-place_fastener_operation-button_height">4.3.238.3 button_height</H4>
+<H4 ID="ao-place_fastener_operation-button_height">4.3.237.3 button_height</H4>
 
 <p>The button_height specifies the button height for a squeezed fastener.</p>
 
 
-<H4 ID="ao-place_fastener_operation-button_diameter">4.3.238.4 button_diameter</H4>
+<H4 ID="ao-place_fastener_operation-button_diameter">4.3.237.4 button_diameter</H4>
 
 <p>The button_diameter specifies the button diameter for a squeezed
 fastener.</p>
 
 
-<H4 ID="ao-place_fastener_operation-verify_button">4.3.238.5 verify_button</H4>
+<H4 ID="ao-place_fastener_operation-verify_button">4.3.237.5 verify_button</H4>
 
 <p>The verify_button specifies whether verification is performed that
 the delivered button meets the requirements of the fastener location.
 Verification is performed if verify_button is true.  Verification is
 not performed if verify_button is false or unspecified.</p>
 
-<H4 ID="ao-place_fastener_operation-verify_squeeze">4.3.238.6 verify_squeeze</H4>
+<H4 ID="ao-place_fastener_operation-verify_squeeze">4.3.237.6 verify_squeeze</H4>
 
 <p>The verify_squeeze specifies whether verification is performed that
 the squeeze pressure meets the requirements of the fastener location.
 Verification is performed if verify_squeeze is true.  Verification is
 not performed if verify_squeeze is false or unspecified.</p>
 
-<H4 ID="ao-place_fastener_operation-verify_material">4.3.238.7 verify_material</H4>
+<H4 ID="ao-place_fastener_operation-verify_material">4.3.237.7 verify_material</H4>
 
 <p>The verify_material specifies whether verification is performed
 that the material of the fastener meets the requirements of the
@@ -12161,7 +12051,7 @@ unspecified.</p>
 <P CLASS="note">
 <SPAN>EXAMPLE</SPAN> A camera may be used to inspect the color.</P>
 
-<H4 ID="ao-place_fastener_operation-verify_grip">4.3.238.8 verify_grip</H4>
+<H4 ID="ao-place_fastener_operation-verify_grip">4.3.237.8 verify_grip</H4>
 
 <p>The verify_grip specifies whether verification is performed that
 the grip length is sufficient for the depth of the hole stack.
@@ -12175,7 +12065,7 @@ performed if verify_grip is false or unspecified.</p>
 <A HREF="clause5.htm#map-place_item_operation">Map</a>
 <A HREF="annexG.htm#place_item_operation">ARM</a>
 </DIV>
-<H3 ID="ao-place_item_operation">4.3.239 Place_item_operation</H3>
+<H3 ID="ao-place_item_operation">4.3.238 Place_item_operation</H3>
 </DIV>
 
 <P>A Place_item_operation application object is a type of
@@ -12211,19 +12101,19 @@ ENTITY Place_item_operation	-- ADDED BY 10303-238e4
 END_ENTITY;
 </PRE>
 
-<H4 ID="ao-place_item_operation-placed_item">4.3.239.1 place_item_operation to product_view_definition (as placed_item)</H4>
+<H4 ID="ao-place_item_operation-placed_item">4.3.238.1 place_item_operation to product_view_definition (as placed_item)</H4>
 
 <p>The placed_item specifies the definition of the item to be placed
 into the feature. The digital twin selected shall use this product as
 the engineering definition of its prototype.</p>
 
-<H4 ID="ao-place_item_operation-depth">4.3.239.2 depth</H4>
+<H4 ID="ao-place_item_operation-depth">4.3.238.2 depth</H4>
 
 <p>The depth specifies the distance from the top of the feature, in
 the direction of the axis of the feature, where the item is to be
 placed.</p>
 
-<H4 ID="ao-place_item_operation-allowable_minimum_force">4.3.239.3 allowable_minimum_force</H4>
+<H4 ID="ao-place_item_operation-allowable_minimum_force">4.3.238.3 allowable_minimum_force</H4>
 
 <p>The allowable_minimum_force specifies the minimum force necessary
 to place the fastener, or insert a rivet, into the feature.</p>
@@ -12232,7 +12122,7 @@ to place the fastener, or insert a rivet, into the feature.</p>
 <SPAN>NOTE</SPAN> The manufacturing system may indicate an exception
 condition if this minimum is not met.</P>
 
-<H4 ID="ao-place_item_operation-allowable_maximum_force">4.3.239.4 allowable_maximum_force</H4>
+<H4 ID="ao-place_item_operation-allowable_maximum_force">4.3.238.4 allowable_maximum_force</H4>
 
 <p>The allowable_maximum_force specifies the maximum force necessary
 to place the fastener, or insert a rivet, into the feature.</p>
@@ -12241,7 +12131,7 @@ to place the fastener, or insert a rivet, into the feature.</p>
 <SPAN>NOTE</SPAN> The manufacturing system may indicate an exception
 condition if this maximum is exceeded.</P>
 
-<H4 ID="ao-place_item_operation-allowable_position_deviation">4.3.239.5 allowable_position_deviation</H4>
+<H4 ID="ao-place_item_operation-allowable_position_deviation">4.3.238.5 allowable_position_deviation</H4>
 
 <p>The allowable_position_deviation specifies the maximum deviation
 allowed for the position of the item.</p>
@@ -12250,7 +12140,7 @@ allowed for the position of the item.</p>
 <SPAN>NOTE</SPAN> The manufacturing system may indicate an exception
 condition if this deviation is exceeded</P>
 
-<H4 ID="ao-place_item_operation-allowable_normal_deviation">4.3.239.6 allowable_normal_deviation</H4>
+<H4 ID="ao-place_item_operation-allowable_normal_deviation">4.3.238.6 allowable_normal_deviation</H4>
 
 <p>The allowable_normal_deviation specifies the maximum deviation
 allowed for the direction of the normal.</p>
@@ -12260,7 +12150,7 @@ allowed for the direction of the normal.</p>
 condition if an angular deviation is exceeded</P>
 
 
-<H4 ID="ao-place_item_operation-allowable_depth_deviation">4.3.239.7 allowable_depth_deviation</H4>
+<H4 ID="ao-place_item_operation-allowable_depth_deviation">4.3.238.7 allowable_depth_deviation</H4>
 
 <p>The allowable_depth_deviation specifies the maximum deviation
 allowed for the depth of the hole.</p>
@@ -12275,7 +12165,7 @@ condition if the depth is exceeded.</P>
 <A HREF="clause5.htm#map-place_tack_operation">Map</a>
 <A HREF="annexG.htm#place_tack_operation">ARM</a>
 </DIV>
-<H3 ID="ao-place_tack_operation">4.3.240 Place_tack_operation</H3>
+<H3 ID="ao-place_tack_operation">4.3.239 Place_tack_operation</H3>
 </DIV>
 
 <P>A Place_tack_operation application object is a type of
@@ -12303,7 +12193,7 @@ END_ENTITY;
 <A HREF="clause5.htm#map-place_washer_operation">Map</a>
 <A HREF="annexG.htm#place_washer_operation">ARM</a>
 </DIV>
-<H3 ID="ao-place_washer_operation">4.3.241 Place_washer_operation</H3>
+<H3 ID="ao-place_washer_operation">4.3.240 Place_washer_operation</H3>
 </DIV>
 
 <P>A Place_washer_operation application object is a type of
@@ -12327,7 +12217,7 @@ END_ENTITY;
 <A HREF="clause5.htm#map-plane_cc_strategy">Map</a>
 <A HREF="annexG.htm#plane_cc_strategy">ARM</a>
 </DIV>
-<H3 ID="ao-plane_cc_strategy">4.3.242 Plane_cc_strategy</H3>
+<H3 ID="ao-plane_cc_strategy">4.3.241 Plane_cc_strategy</H3>
 </DIV>
 
 <P>The Plane_cc_strategy application object shall be as defined by ISO 14649-11.</P>
@@ -12350,7 +12240,7 @@ END_ENTITY;
 <A HREF="clause5.htm#map-plane_cl_strategy">Map</a>
 <A HREF="annexG.htm#plane_cl_strategy">ARM</a>
 </DIV>
-<H3 ID="ao-plane_cl_strategy">4.3.243 Plane_cl_strategy</H3>
+<H3 ID="ao-plane_cl_strategy">4.3.242 Plane_cl_strategy</H3>
 </DIV>
 
 <P>The Plane_cl_strategy application object shall be as defined by ISO 14649-11.</P>
@@ -12373,7 +12263,7 @@ END_ENTITY;
 <A HREF="clause5.htm#map-plane_finish_milling">Map</a>
 <A HREF="annexG.htm#plane_finish_milling">ARM</a>
 </DIV>
-<H3 ID="ao-plane_finish_milling">4.3.244 Plane_finish_milling</H3>
+<H3 ID="ao-plane_finish_milling">4.3.243 Plane_finish_milling</H3>
 </DIV>
 
 <P>The Plane_finish_milling application object shall be as defined by ISO 14649-11.</P>
@@ -12395,7 +12285,7 @@ END_ENTITY;
 <A HREF="clause5.htm#map-plane_milling">Map</a>
 <A HREF="annexG.htm#plane_milling">ARM</a>
 </DIV>
-<H3 ID="ao-plane_milling">4.3.245 Plane_milling</H3>
+<H3 ID="ao-plane_milling">4.3.244 Plane_milling</H3>
 </DIV>
 
 <P>The Plane_milling application object shall be as defined by ISO 14649-11.</P>
@@ -12420,7 +12310,7 @@ END_ENTITY;
 <A HREF="clause5.htm#map-plane_rough_milling">Map</a>
 <A HREF="annexG.htm#plane_rough_milling">ARM</a>
 </DIV>
-<H3 ID="ao-plane_rough_milling">4.3.246 Plane_rough_milling</H3>
+<H3 ID="ao-plane_rough_milling">4.3.245 Plane_rough_milling</H3>
 </DIV>
 
 <P>The Plane_rough_milling application object shall be as defined by ISO 14649-11.</P>
@@ -12444,7 +12334,7 @@ END_ENTITY;
 <A HREF="clause5.htm#map-plunge_helix">Map</a>
 <A HREF="annexG.htm#plunge_helix">ARM</a>
 </DIV>
-<H3 ID="ao-plunge_helix">4.3.247 Plunge_helix</H3>
+<H3 ID="ao-plunge_helix">4.3.246 Plunge_helix</H3>
 </DIV>
 <P>
 The Plunge_helix application object shall be as defined by ISO 14649-11.</P>
@@ -12467,7 +12357,7 @@ END_ENTITY;
 <A HREF="clause5.htm#map-plunge_ramp">Map</a>
 <A HREF="annexG.htm#plunge_ramp">ARM</a>
 </DIV>
-<H3 ID="ao-plunge_ramp">4.3.248 Plunge_ramp</H3>
+<H3 ID="ao-plunge_ramp">4.3.247 Plunge_ramp</H3>
 </DIV>
 
 <P>The Plunge_ramp application object shall be as defined by ISO 14649-11.</P>
@@ -12490,7 +12380,7 @@ END_ENTITY;
 <A HREF="clause5.htm#map-plunge_strategy">Map</a>
 <A HREF="annexG.htm#plunge_strategy">ARM</a>
 </DIV>
-<H3 ID="ao-plunge_strategy">4.3.249 Plunge_strategy</H3>
+<H3 ID="ao-plunge_strategy">4.3.248 Plunge_strategy</H3>
 </DIV>
 
 <P>The Plunge_strategy application object shall be as defined by ISO 14649-11.</P>
@@ -12514,7 +12404,7 @@ END_ENTITY;
 <A HREF="clause5.htm#map-plunge_toolaxis">Map</a>
 <A HREF="annexG.htm#plunge_toolaxis">ARM</a>
 </DIV>
-<H3 ID="ao-plunge_toolaxis">4.3.250 Plunge_toolaxis</H3>
+<H3 ID="ao-plunge_toolaxis">4.3.249 Plunge_toolaxis</H3>
 </DIV>
 
 <P>The Plunge_toolaxis application object shall be as defined by ISO 14649-11.</P>
@@ -12536,7 +12426,7 @@ END_ENTITY;
 <A HREF="clause5.htm#map-plunge_zigzag">Map</a>
 <A HREF="annexG.htm#plunge_zigzag">ARM</a>
 </DIV>
-<H3 ID="ao-plunge_zigzag">4.3.251 Plunge_zigzag</H3>
+<H3 ID="ao-plunge_zigzag">4.3.250 Plunge_zigzag</H3>
 </DIV>
 
 <P>The Plunge_zigzag application object shall be as defined by ISO 14649-11.</P>
@@ -12560,7 +12450,7 @@ END_ENTITY;
 <A HREF="clause5.htm#map-precedence_group">Map</a>
 <A HREF="annexG.htm#precedence_group">ARM</a>
 </DIV>
-<H3 ID="ao-precedence_group">4.3.252 Precedence_group</H3>
+<H3 ID="ao-precedence_group">4.3.251 Precedence_group</H3>
 </DIV>
 
 <P>A Precedence_group application object is a type of
@@ -12585,7 +12475,7 @@ SUBTYPE OF (Drill_and_fill_group);
 END_ENTITY;
 </PRE>
 
-<H4 ID="ao-precedence_group-pre_conditions">4.3.252.1 precedence_group to drill_and_fill_group (as pre_conditions)</H4>
+<H4 ID="ao-precedence_group-pre_conditions">4.3.251.1 precedence_group to drill_and_fill_group (as pre_conditions)</H4>
 
 <p>The pre_conditions specifies a collection of holes that shall
 complete work in all groups before work begins on the members of this
@@ -12602,7 +12492,7 @@ the same_assembly group only one must complete.</P>
 <A HREF="clause5.htm#map-process_model">Map</a>
 <A HREF="annexG.htm#process_model">ARM</a>
 </DIV>
-<H3 ID="ao-process_model">4.3.253 Process_model</H3>
+<H3 ID="ao-process_model">4.3.252 Process_model</H3>
 </DIV>
 
 <P>The Process_model application object shall be as defined by ISO 14649-11.</P>
@@ -12624,7 +12514,7 @@ END_ENTITY;
 <A HREF="clause5.htm#map-process_model_list">Map</a>
 <A HREF="annexG.htm#process_model_list">ARM</a>
 </DIV>
-<H3 ID="ao-process_model_list">4.3.254 Process_model_list</H3>
+<H3 ID="ao-process_model_list">4.3.253 Process_model_list</H3>
 </DIV>
 
 <P>The Process_model_list application object shall be as defined by ISO 14649-11.</P>
@@ -12647,7 +12537,7 @@ END_ENTITY;
 <A HREF="clause5.htm#map-process_property">Map</a>
 <A HREF="annexG.htm#process_property">ARM</a>
 </DIV>
-<H3 ID="ao-process_property">4.3.255 Process_property</H3>
+<H3 ID="ao-process_property">4.3.254 Process_property</H3>
 </DIV>
 
 <P>A Process_property is a type of Activity_property which specifies
@@ -12672,7 +12562,7 @@ ENTITY Process_property
 END_ENTITY;
 </PRE>
 
-<H4 ID="ao-process_property-property_date">4.3.255.1 property_date</H4>
+<H4 ID="ao-process_property-property_date">4.3.254.1 property_date</H4>
 
 The property_date specifies a characteristic point in time for the
 property.  The property_date may be omitted for a particular
@@ -12685,7 +12575,7 @@ Process_property.
 <A HREF="clause5.htm#map-product_view_prototype">Map</a>
 <A HREF="annexG.htm#product_view_prototype">ARM</a>
 </DIV>
-<H3 ID="ao-product_view_prototype">4.3.256 Product_view_prototype</H3>
+<H3 ID="ao-product_view_prototype">4.3.255 Product_view_prototype</H3>
 </DIV>
 
 <P>A Product_view_prototype application object is a type of
@@ -12715,18 +12605,18 @@ ENTITY Product_view_prototype	-- ADDED BY 10303-238e4
 END_ENTITY;
 </PRE>
 
-<H4 ID="ao-product_view_prototype-engineering_design">4.3.256.1 product_view_prototype to product_view_definition (as engineering_design)</H4>
+<H4 ID="ao-product_view_prototype-engineering_design">4.3.255.1 product_view_prototype to product_view_definition (as engineering_design)</H4>
 
 <p>The engineering_design specifies the design data of the product
 prototype.</p>
 
-<H4 ID="ao-product_view_prototype-external_engineering_design">4.3.256.2 external_engineering_design</H4>
+<H4 ID="ao-product_view_prototype-external_engineering_design">4.3.255.2 external_engineering_design</H4>
 
 <p>The external_engineering_design identifies the design data of the
 product prototype in an external model.</p>
 
 
-<H4 ID="ao-product_view_prototype-expected_properties">4.3.256.3 product_view_prototype to expected_property (as expected_properties)</H4>
+<H4 ID="ao-product_view_prototype-expected_properties">4.3.255.3 product_view_prototype to expected_property (as expected_properties)</H4>
 
 <p>The expected_properties specifies the expected properties of this
 product with upper and lower limits defined as necessary.</p>
@@ -12740,7 +12630,7 @@ product with upper and lower limits defined as necessary.</p>
 <A HREF="clause5.htm#map-product_view_twin">Map</a>
 <A HREF="annexG.htm#product_view_twin">ARM</a>
 </DIV>
-<H3 ID="ao-product_view_twin">4.3.257 Product_view_twin</H3>
+<H3 ID="ao-product_view_twin">4.3.256 Product_view_twin</H3>
 </DIV>
 
 <P>A Product_view_twin application object is a type of
@@ -12757,8 +12647,9 @@ structure.</P>
 following:</P>
 
 <UL>
+<LI>designed_prototype;</LI>
+<LI>planned_prototype;</LI>
 <LI>manufacturing_prototype;</LI>
-<LI>supplier_prototype;</LI>
 <LI>work_order;</LI>
 <LI>user_serial_number;</LI>
 <LI>envelope;</LI>
@@ -12775,8 +12666,9 @@ application object is shown below.</P>
 <PRE CLASS="note">
 ENTITY Product_view_twin	-- ADDED BY 10303-238e4
   SUBTYPE OF (Product_view_definition);
-  manufacturing_prototype	: Product_view_prototype;
-  supplier_prototype		: OPTIONAL Product_view_prototype;
+  designed_prototype		: Product_view_prototype; 
+  planned_prototype		: SET [0:?] Product_view_prototype;
+  manufacturing_prototype	: OPTIONAL Product_view_prototype; 
   work_order			: OPTIONAL Identifier;
   user_serial_number		: OPTIONAL Identifier;
   envelope			: OPTIONAL Bounding_geometry_select;
@@ -12787,28 +12679,39 @@ END_ENTITY;
 </PRE>
 
 
-<H4 ID="ao-product_view_twin-manufacturing_prototype">4.3.257.1 product_view_twin to product_view_definition (as manufacturing_prototype)</H4>
+<H4 ID="ao-product_view_twin-designed_prototype">4.3.256.1 product_view_twin to product_view_prototype (as designed_prototype)</H4>
 
-<p>The manufacturing_prototype specifies the manufacturing
-requirements that shall be met by the product.</p>
+<p>The designed_prototype specifies design geometry and requirements
+that shall be met by the product</p>
 
-<H4 ID="ao-product_view_twin-supplier_prototype">4.3.257.2 product_view_twin to product_view_definition (as supplier_prototype)</H4>
+<P CLASS="note">
+<SPAN>NOTE</SPAN> The requirements are descrbed by a product model and
+can be met by the products of many suppliers.</P>
 
-<p>The supplier_prototype specifies the properties promised by the
-supplier of the product. </p>
+<H4 ID="ao-product_view_twin-planned_prototype">4.3.256.2 product_view_twin to product_view_prototype (as planned_prototype)</H4>
 
-<H4 ID="ao-product_view_twin-work_order">4.3.257.3 work_order</H4>
+<p>The planned_prototype specifies a set of zero or more supplier
+products that meet the design requirements.</p>
+
+
+<H4 ID="ao-product_view_twin-manufacturing_prototype">4.3.256.3 product_view_twin to product_view_prototype (as manufacturing_prototype)</H4>
+
+<p>The manufacturing_prototype specifies the product selected as the
+solution during manufacturing.  The manufacturing_prototype may be
+omitted from the planned_prototype set.</p>
+
+<H4 ID="ao-product_view_twin-work_order">4.3.256.4 work_order</H4>
 
 <p>The work_order specifies the order that enabled production of this
 digital twin instance.</p>
 
-<H4 ID="ao-product_view_twin-user_serial_number">4.3.257.4 user_serial_number</H4>
+<H4 ID="ao-product_view_twin-user_serial_number">4.3.256.5 user_serial_number</H4>
 
 <p>The user_serial_number specifies an identifier that is unique to
 this digital twin instance. The user_serial_number shall be unique
 within the context of the digital twin prototype.</p>
 
-<H4 ID="ao-product_view_twin-envelope">4.3.257.5 envelope</H4>
+<H4 ID="ao-product_view_twin-envelope">4.3.256.6 envelope</H4>
 
 <p>The envelope specifies the world coordinates of the twin on the
 product. </p>
@@ -12818,7 +12721,7 @@ product. </p>
 into many locations on a structure. The envelope determines the
 location of each fastener instance.</P>
 
-<H4 ID="ao-product_view_twin-system_serial_number">4.3.257.6 system_serial_number</H4>
+<H4 ID="ao-product_view_twin-system_serial_number">4.3.256.7 system_serial_number</H4>
 
 <p>The system_serial_number specifies an identifier that is unique to
 this digital twin instance with respect to the processing system.</p>
@@ -12828,7 +12731,7 @@ this digital twin instance with respect to the processing system.</p>
 of the digital twin by an information processing system.</P>
 
 
-<H4 ID="ao-product_view_twin-measured_properties">4.3.257.7 product_view_twin to measured_property (as measured_properties)</H4>
+<H4 ID="ao-product_view_twin-measured_properties">4.3.256.8 product_view_twin to measured_property (as measured_properties)</H4>
 
 <p>The measured_properties specifies the as-measured properties of the twin.</p>
 
@@ -12837,7 +12740,7 @@ of the digital twin by an information processing system.</P>
 its diameter, corner radius and functional length.</P>
 
 
-<H4 ID="ao-product_view_twin-role">4.3.257.8 role</H4>
+<H4 ID="ao-product_view_twin-role">4.3.256.9 role</H4>
 
 <p>The role specifies the role of the twin on the product. The role
 may be used for products that have a defined role in the assembly, but
@@ -12854,7 +12757,7 @@ product functionality.</P>
 <A HREF="clause5.htm#map-profiled_corner">Map</a>
 <A HREF="annexG.htm#profiled_corner">ARM</a>
 </DIV>
-<H3 ID="ao-profiled_corner">4.3.258 Profiled_corner</H3>
+<H3 ID="ao-profiled_corner">4.3.257 Profiled_corner</H3>
 </DIV>
 
 <P>The Profiled_corner application object shall be as defined by ISO 14649-121.</P>
@@ -12876,7 +12779,7 @@ END_ENTITY;
 <A HREF="clause5.htm#map-profiled_end_mill">Map</a>
 <A HREF="annexG.htm#profiled_end_mill">ARM</a>
 </DIV>
-<H3 ID="ao-profiled_end_mill">4.3.259 Profiled_end_mill</H3>
+<H3 ID="ao-profiled_end_mill">4.3.258 Profiled_end_mill</H3>
 </DIV>
 
 <P>The Profiled_end_mill application object shall be as defined by ISO 14649-111.</P>
@@ -12898,7 +12801,7 @@ END_ENTITY;
 <A HREF="clause5.htm#map-program_stop">Map</a>
 <A HREF="annexG.htm#program_stop">ARM</a>
 </DIV>
-<H3 ID="ao-program_stop">4.3.260 Program_stop</H3>
+<H3 ID="ao-program_stop">4.3.259 Program_stop</H3>
 </DIV>
 
 <P>The Program_stop application object shall be as defined by ISO
@@ -12921,7 +12824,7 @@ END_ENTITY;
 <A HREF="clause5.htm#map-program_structure">Map</a>
 <A HREF="annexG.htm#program_structure">ARM</a>
 </DIV>
-<H3 ID="ao-program_structure">4.3.261 Program_structure</H3>
+<H3 ID="ao-program_structure">4.3.260 Program_structure</H3>
 </DIV>
 
 <P>The Program_structure application object shall be as defined by ISO
@@ -12951,7 +12854,7 @@ ENTITY Program_structure
 END_ENTITY;
 </PRE>
 
-<H4 ID="ao-program_structure-planning_operation">4.3.261.1 planning_operation</H4>
+<H4 ID="ao-program_structure-planning_operation">4.3.260.1 planning_operation</H4>
 
 <p>The planning_operation specifies an Operation object that describes
 requirements that are met by the Executables that comprise the
@@ -12975,7 +12878,7 @@ to generate the workingsteps on demand because of the data volume.</P>
 <A HREF="clause5.htm#map-rapid_movement">Map</a>
 <A HREF="annexG.htm#rapid_movement">ARM</a>
 </DIV>
-<H3 ID="ao-rapid_movement">4.3.262 Rapid_movement</H3>
+<H3 ID="ao-rapid_movement">4.3.261 Rapid_movement</H3>
 </DIV>
 
 <P>The Rapid_movement application object shall be as defined by ISO
@@ -13003,7 +12906,7 @@ END_ENTITY;
 <A HREF="clause5.htm#map-reaming">Map</a>
 <A HREF="annexG.htm#reaming">ARM</a>
 </DIV>
-<H3 ID="ao-reaming">4.3.263 Reaming</H3>
+<H3 ID="ao-reaming">4.3.262 Reaming</H3>
 </DIV>
 
 <P>The Reaming application object shall be as defined by ISO 14649-11.</P>
@@ -13024,7 +12927,7 @@ END_ENTITY;
 <A HREF="clause5.htm#map-reaming_cutting_tool">Map</a>
 <A HREF="annexG.htm#reaming_cutting_tool">ARM</a>
 </DIV>
-<H3 ID="ao-reaming_cutting_tool">4.3.264 Reaming_cutting_tool</H3>
+<H3 ID="ao-reaming_cutting_tool">4.3.263 Reaming_cutting_tool</H3>
 </DIV>
 
 <P>The Reaming_cutting_tool application object shall be as defined by ISO 14649-111.</P>
@@ -13048,7 +12951,7 @@ END_ENTITY;
 <A HREF="clause5.htm#map-reference_frame_group">Map</a>
 <A HREF="annexG.htm#reference_frame_group">ARM</a>
 </DIV>
-<H3 ID="ao-reference_frame_group">4.3.265 Reference_frame_group</H3>
+<H3 ID="ao-reference_frame_group">4.3.264 Reference_frame_group</H3>
 </DIV>
 
 <P>A Reference_frame_group application object is a type of
@@ -13084,7 +12987,7 @@ END_ENTITY;
 TYPE Robot_identifier = Identifier; END_TYPE;
 </PRE>
 
-<H4 ID="ao-reference_frame_group-guide_verified">4.3.265.1 guide_verified</H4>
+<H4 ID="ao-reference_frame_group-guide_verified">4.3.264.1 guide_verified</H4>
 
 <p>The guide_verified specifies whether the guide has been checked.
 If guide_verified is true, the guide has been checked.  If
@@ -13092,20 +12995,20 @@ guide_verified is false or unspecified, the guide has not been
 checked.</p>
 
 
-<H4 ID="ao-reference_frame_group-basis">4.3.265.2 reference_frame_group to reference_frame_group (as basis)</H4>
+<H4 ID="ao-reference_frame_group-basis">4.3.264.2 reference_frame_group to reference_frame_group (as basis)</H4>
 
 <p>The basis specifies an origin to use when computing the
 modification for this reference frame group.  If the basis is not
 specified then the global coordinate system shall be used as the base.</p>
 
-<H4 ID="ao-reference_frame_group-modification">4.3.265.3 modification</H4>
+<H4 ID="ao-reference_frame_group-modification">4.3.264.3 modification</H4>
 
 <p>The modification specifies the new origin with respect to the basis
 that shall correctly position and orient any drilling operations
 generated to make holes for the members of this group.</p>
 
 
-<H4 ID="ao-reference_frame_group-verification_time">4.3.265.4 verification_time</H4>
+<H4 ID="ao-reference_frame_group-verification_time">4.3.264.4 verification_time</H4>
 
 <p>The verification_time specifies the date and time when the guides
 were last checked.</p>
@@ -13114,7 +13017,7 @@ were last checked.</p>
 <SPAN>EXAMPLE</SPAN> In some applications a guide is considered stale
 after 12 hours and must be computed again.</P>
 
-<H4 ID="ao-reference_frame_group-valid_for">4.3.265.5 valid_for</H4>
+<H4 ID="ao-reference_frame_group-valid_for">4.3.264.5 valid_for</H4>
 
 <p>The valid_for identifies a collection of robots that the reference
 frame group is only valid for.</p>
@@ -13130,7 +13033,7 @@ accurate.</P>
 <A HREF="clause5.htm#map-remove_tack_operation">Map</a>
 <A HREF="annexG.htm#remove_tack_operation">ARM</a>
 </DIV>
-<H3 ID="ao-remove_tack_operation">4.3.266 Remove_tack_operation</H3>
+<H3 ID="ao-remove_tack_operation">4.3.265 Remove_tack_operation</H3>
 </DIV>
 
 <P>A Remove_tack_operation application object is a type of
@@ -13152,7 +13055,7 @@ END_ENTITY;
 <A HREF="clause5.htm#map-response_group">Map</a>
 <A HREF="annexG.htm#response_group">ARM</a>
 </DIV>
-<H3 ID="ao-response_group">4.3.267 Response_group</H3>
+<H3 ID="ao-response_group">4.3.266 Response_group</H3>
 </DIV>
 
 <P>A Response_group application object is a type of
@@ -13180,7 +13083,7 @@ SUBTYPE OF (Drill_and_fill_group);
 END_ENTITY;
 </PRE>
 
-<H4 ID="ao-response_group-measured_properties">4.3.267.1 response_group to measured_property (as measured_properties)</H4>
+<H4 ID="ao-response_group-measured_properties">4.3.266.1 response_group to measured_property (as measured_properties)</H4>
 
 <p>The measured_properties specifies properties that may have emergent
 issues.</p>
@@ -13194,7 +13097,7 @@ issues.</p>
 all have the same correction method.</P>
 
 
-<H4 ID="ao-response_group-response_options">4.3.267.2 response_group to executable (as response_options)</H4>
+<H4 ID="ao-response_group-response_options">4.3.266.2 response_group to executable (as response_options)</H4>
 
 <p>The response_options specifies one or more executables to respond
 to the measured properties.</p>
@@ -13203,7 +13106,7 @@ to the measured properties.</p>
 <SPAN>NOTE</SPAN> When multiple response options are available an
 operator or AI system selects the best solution.</P>
 
-<H4 ID="ao-response_group-solution_request">4.3.267.3 solution_request</H4>
+<H4 ID="ao-response_group-solution_request">4.3.266.3 solution_request</H4>
 
 <p>The solution_request specifies whether a request for a solution
 shall be generated to respond to the measured_properties.  A request
@@ -13219,7 +13122,7 @@ or by making a request to a tool path generation service.</P>
 <A HREF="clause5.htm#map-return_home">Map</a>
 <A HREF="annexG.htm#return_home">ARM</a>
 </DIV>
-<H3 ID="ao-return_home">4.3.268 Return_home</H3>
+<H3 ID="ao-return_home">4.3.267 Return_home</H3>
 </DIV>
 
 <P>The Return_home application object shall be as defined by ISO 14649-10.</P>
@@ -13240,7 +13143,7 @@ END_ENTITY;
 <A HREF="clause5.htm#map-rotating_boring_cutting_tool">Map</a>
 <A HREF="annexG.htm#rotating_boring_cutting_tool">ARM</a>
 </DIV>
-<H3 ID="ao-rotating_boring_cutting_tool">4.3.269 Rotating_boring_cutting_tool</H3>
+<H3 ID="ao-rotating_boring_cutting_tool">4.3.268 Rotating_boring_cutting_tool</H3>
 </DIV>
 
 <P>The Rotating_boring_cutting_tool application object shall be as defined by ISO 14649-111.</P>
@@ -13263,7 +13166,7 @@ END_ENTITY;
 <A HREF="clause5.htm#map-rounded_corner">Map</a>
 <A HREF="annexG.htm#rounded_corner">ARM</a>
 </DIV>
-<H3 ID="ao-rounded_corner">4.3.270 Rounded_corner</H3>
+<H3 ID="ao-rounded_corner">4.3.269 Rounded_corner</H3>
 </DIV>
 
 <P>The Rounded_corner application object shall be as defined by ISO 14649-121.</P>
@@ -13285,7 +13188,7 @@ END_ENTITY;
 <A HREF="clause5.htm#map-same_assembly_group">Map</a>
 <A HREF="annexG.htm#same_assembly_group">ARM</a>
 </DIV>
-<H3 ID="ao-same_assembly_group">4.3.271 Same_assembly_group</H3>
+<H3 ID="ao-same_assembly_group">4.3.270 Same_assembly_group</H3>
 </DIV>
 
 <P>A Same_assembly_group application object is a type of
@@ -13311,7 +13214,7 @@ SUBTYPE OF (Drill_and_fill_group);
 END_ENTITY;
 </PRE>
 
-<H4 ID="ao-same_assembly_group-parts_joined">4.3.271.1 same_assembly_group to product_view_twin (as parts_joined)</H4>
+<H4 ID="ao-same_assembly_group-parts_joined">4.3.270.1 same_assembly_group to product_view_twin (as parts_joined)</H4>
 
 <p>The parts_joined specifies the collection of products pierced by
 the fasteners in this group. </p>
@@ -13327,7 +13230,7 @@ the assembly of the product.</P>
 <A HREF="clause5.htm#map-seal_fastener_operation">Map</a>
 <A HREF="annexG.htm#seal_fastener_operation">ARM</a>
 </DIV>
-<H3 ID="ao-seal_fastener_operation">4.3.272 Seal_fastener_operation</H3>
+<H3 ID="ao-seal_fastener_operation">4.3.271 Seal_fastener_operation</H3>
 </DIV>
 
 <P>A Seal_fastener_operation application object is a type of
@@ -13359,15 +13262,15 @@ END_ENTITY;
 </PRE>
 
 
-<H4 ID="ao-seal_fastener_operation-quantity">4.3.272.1 quantity</H4>
+<H4 ID="ao-seal_fastener_operation-quantity">4.3.271.1 quantity</H4>
 
 <p>The quantity specifies the volume of sealant to be applied.</p>
 
-<H4 ID="ao-seal_fastener_operation-sealant">4.3.272.2 seal_product_operation to material (as sealant)</H4>
+<H4 ID="ao-seal_fastener_operation-sealant">4.3.271.2 seal_product_operation to material (as sealant)</H4>
 
 <p>The sealant specifies the sealant material definition.</p>
 
-<H4 ID="ao-seal_fastener_operation-seal_type">4.3.272.3 seal_type</H4>
+<H4 ID="ao-seal_fastener_operation-seal_type">4.3.271.3 seal_type</H4>
 
 <p>The seal_type specifies the type of sealant.</p>
 
@@ -13375,7 +13278,7 @@ END_ENTITY;
 <SPAN>NOTE</SPAN> Fay, cap, fastener and special are supported.</P>
 
 
-<H4 ID="ao-seal_fastener_operation-seal_check">4.3.272.4 seal_check</H4>
+<H4 ID="ao-seal_fastener_operation-seal_check">4.3.271.4 seal_check</H4>
 
 <p>The seal_check specifies whether to check the sealant after
 installation.  If seal_check is true, the sealant shall be checked.
@@ -13388,7 +13291,7 @@ checked.</p>
 <A HREF="clause5.htm#map-sealant_prototype">Map</a>
 <A HREF="annexG.htm#sealant_prototype">ARM</a>
 </DIV>
-<H3 ID="ao-sealant_prototype">4.3.273 Sealant_prototype</H3>
+<H3 ID="ao-sealant_prototype">4.3.272 Sealant_prototype</H3>
 </DIV>
 
 <P>A Sealant_prototype application object is a type of
@@ -13421,16 +13324,16 @@ TYPE Sealant_type = ENUMERATION OF (fastener, fay, cap, special); END_TYPE;
 </PRE>
 
 
-<H4 ID="ao-sealant_prototype-allowed_for">4.3.273.1 sealant_prototype to fastener_prototype (as allowed_for)</H4>
+<H4 ID="ao-sealant_prototype-allowed_for">4.3.272.1 sealant_prototype to fastener_prototype (as allowed_for)</H4>
 
 <p>The allowed_for specifies a collection of fasteners that may be
 sealed by instances of this prototype.</p>
 
-<H4 ID="ao-sealant_prototype-sealant_function">4.3.273.2 sealant_function</H4>
+<H4 ID="ao-sealant_prototype-sealant_function">4.3.272.2 sealant_function</H4>
 
 <p>The sealant_function specifies the role of this sealant.</p>
 
-<H4 ID="ao-sealant_prototype-quantity">4.3.273.3 sealant_prototype to expected_property (as quantity)</H4>
+<H4 ID="ao-sealant_prototype-quantity">4.3.272.3 sealant_prototype to expected_property (as quantity)</H4>
 
 <p>The quantity specifies the volume of sealant that shall be applied
 to the allowed fasteners.</p>
@@ -13447,7 +13350,7 @@ prototype.</P>
 <A HREF="clause5.htm#map-sealant_twin">Map</a>
 <A HREF="annexG.htm#sealant_twin">ARM</a>
 </DIV>
-<H3 ID="ao-sealant_twin">4.3.274 Sealant_twin</H3>
+<H3 ID="ao-sealant_twin">4.3.273 Sealant_twin</H3>
 </DIV>
 
 <P>A Sealant_twin application object is a type of Product_view_twin
@@ -13468,22 +13371,19 @@ application object is shown below.</P>
 <PRE CLASS="note">
 ENTITY Sealant_twin	-- ADDED BY 10303-238e4
   SUBTYPE OF (Product_view_twin);
-  SELF\Product_view_twin.manufacturing_prototype: Sealant_prototype;
-  SELF\Product_view_twin.supplier_prototype:      OPTIONAL Sealant_prototype;
-
   seals: 		Fastener_twin;
   quantity: 		OPTIONAL Measured_property;
 END_ENTITY;
 </PRE>
 
 
-<H4 ID="ao-sealant_twin-seals">4.3.274.1 sealant_twin to fastener_twin (as seals)</H4>
+<H4 ID="ao-sealant_twin-seals">4.3.273.1 sealant_twin to fastener_twin (as seals)</H4>
 
 <p>The seals specifies the fastener twin sealed by this sealant.</p>
 
 
 
-<H4 ID="ao-sealant_twin-quantity">4.3.274.2 sealant_twin to measured_property (as quantity)</H4>
+<H4 ID="ao-sealant_twin-quantity">4.3.273.2 sealant_twin to measured_property (as quantity)</H4>
 
 <p>The quantity specifies the quantity of sealant applied.</p>
 
@@ -13495,7 +13395,7 @@ END_ENTITY;
 <A HREF="clause5.htm#map-selective">Map</a>
 <A HREF="annexG.htm#selective">ARM</a>
 </DIV>
-<H3 ID="ao-selective">4.3.275 Selective</H3>
+<H3 ID="ao-selective">4.3.274 Selective</H3>
 </DIV>
 
 <P>The Selective application object shall be as defined by ISO 14649-10.</P>
@@ -13518,7 +13418,7 @@ END_ENTITY;
 <A HREF="clause5.htm#map-set_mark">Map</a>
 <A HREF="annexG.htm#set_mark">ARM</a>
 </DIV>
-<H3 ID="ao-set_mark">4.3.276 Set_mark</H3>
+<H3 ID="ao-set_mark">4.3.275 Set_mark</H3>
 </DIV>
 
 <P>The Set_mark application object shall be as defined by ISO
@@ -13541,7 +13441,7 @@ END_ENTITY;
 <A HREF="clause5.htm#map-setup">Map</a>
 <A HREF="annexG.htm#setup">ARM</a>
 </DIV>
-<H3 ID="ao-setup">4.3.277 Setup</H3>
+<H3 ID="ao-setup">4.3.276 Setup</H3>
 </DIV>
 
 <P>The Setup application object shall be as defined by ISO 14649-10.
@@ -13568,7 +13468,7 @@ ENTITY Setup;
 END_ENTITY;
 </PRE>
 
-<H4 ID="ao-setup-its_fixture_usage">4.3.277.1 its_fixture_usage</H4>
+<H4 ID="ao-setup-its_fixture_usage">4.3.276.1 its_fixture_usage</H4>
 
 <P>The <b>its_fixture_usage</b> specifies
 a <a href="#ao-fixture_usage">Fixture_usage</a> which describes the
@@ -13584,7 +13484,7 @@ Fixture_usage</a> for the application assertion.
 <A HREF="clause5.htm#map-setup_instruction">Map</a>
 <A HREF="annexG.htm#setup_instruction">ARM</a>
 </DIV>
-<H3 ID="ao-setup_instruction">4.3.278 Setup_instruction</H3>
+<H3 ID="ao-setup_instruction">4.3.277 Setup_instruction</H3>
 </DIV>
 
 <P>The Setup_instruction application object shall be as defined by ISO 14649-10.</P>
@@ -13608,7 +13508,7 @@ END_ENTITY;
 <A HREF="clause5.htm#map-shave_fastener_operation">Map</a>
 <A HREF="annexG.htm#shave_fastener_operation">ARM</a>
 </DIV>
-<H3 ID="ao-shave_fastener_operation">4.3.279 Shave_fastener_operation</H3>
+<H3 ID="ao-shave_fastener_operation">4.3.278 Shave_fastener_operation</H3>
 </DIV>
 
 <P>A Shave_fastener_operation application object is a type of
@@ -13638,7 +13538,7 @@ ENTITY Shave_fastener_operation		-- ADDED BY 10303-238e4
 END_ENTITY;
 </PRE>
 
-<H4 ID="ao-shave_fastener_operation-remaining">4.3.279.1 remaining</H4>
+<H4 ID="ao-shave_fastener_operation-remaining">4.3.278.1 remaining</H4>
 
 <p>The remaining specifies the length of material above the skin to
 remain after shaving.</p>
@@ -13649,7 +13549,7 @@ remain after shaving.</p>
 <A HREF="clause5.htm#map-shouldermill">Map</a>
 <A HREF="annexG.htm#shouldermill">ARM</a>
 </DIV>
-<H3 ID="ao-shouldermill">4.3.280 Shouldermill</H3>
+<H3 ID="ao-shouldermill">4.3.279 Shouldermill</H3>
 </DIV>
 
 <P>The Shouldermill application object shall be as defined by ISO 14649-111.</P>
@@ -13671,7 +13571,7 @@ END_ENTITY;
 <A HREF="clause5.htm#map-side_finish_milling">Map</a>
 <A HREF="annexG.htm#side_finish_milling">ARM</a>
 </DIV>
-<H3 ID="ao-side_finish_milling">4.3.281 Side_finish_milling</H3>
+<H3 ID="ao-side_finish_milling">4.3.280 Side_finish_milling</H3>
 </DIV>
 
 <P>The Side_finish_milling application object shall be as defined by ISO 14649-11.</P>
@@ -13693,7 +13593,7 @@ END_ENTITY;
 <A HREF="clause5.htm#map-side_mill">Map</a>
 <A HREF="annexG.htm#side_mill">ARM</a>
 </DIV>
-<H3 ID="ao-side_mill">4.3.282 Side_mill</H3>
+<H3 ID="ao-side_mill">4.3.281 Side_mill</H3>
 </DIV>
 
 <P>The Side_mill application object shall be as defined by ISO 14649-111.</P>
@@ -13716,7 +13616,7 @@ END_ENTITY;
 <A HREF="clause5.htm#map-side_milling">Map</a>
 <A HREF="annexG.htm#side_milling">ARM</a>
 </DIV>
-<H3 ID="ao-side_milling">4.3.283 Side_milling</H3>
+<H3 ID="ao-side_milling">4.3.282 Side_milling</H3>
 </DIV>
 
 <P>The Side_milling application object shall be as defined by ISO 14649-11.</P>
@@ -13742,7 +13642,7 @@ END_ENTITY;
 <A HREF="clause5.htm#map-side_rough_milling">Map</a>
 <A HREF="annexG.htm#side_rough_milling">ARM</a>
 </DIV>
-<H3 ID="ao-side_rough_milling">4.3.284 Side_rough_milling</H3>
+<H3 ID="ao-side_rough_milling">4.3.283 Side_rough_milling</H3>
 </DIV>
 
 <P>The Side_rough_milling application object shall be as defined by ISO 14649-11.</P>
@@ -13765,7 +13665,7 @@ END_ENTITY;
 <A HREF="clause5.htm#map-spade_drill">Map</a>
 <A HREF="annexG.htm#spade_drill">ARM</a>
 </DIV>
-<H3 ID="ao-spade_drill">4.3.285 Spade_drill</H3>
+<H3 ID="ao-spade_drill">4.3.284 Spade_drill</H3>
 </DIV>
 
 <P>The Spade_drill application object shall be as defined by ISO 14649-111.</P>
@@ -13787,7 +13687,7 @@ END_ENTITY;
 <A HREF="clause5.htm#map-spotdrill">Map</a>
 <A HREF="annexG.htm#spotdrill">ARM</a>
 </DIV>
-<H3 ID="ao-spotdrill">4.3.286 Spotdrill</H3>
+<H3 ID="ao-spotdrill">4.3.285 Spotdrill</H3>
 </DIV>
 
 <P>The Spotdrill application object shall be as defined by ISO 14649-111.</P>
@@ -13810,7 +13710,7 @@ END_ENTITY;
 <A HREF="clause5.htm#map-stack_layer">Map</a>
 <A HREF="annexG.htm#stack_layer">ARM</a>
 </DIV>
-<H3 ID="ao-stack_layer">4.3.287 Stack_layer</H3>
+<H3 ID="ao-stack_layer">4.3.286 Stack_layer</H3>
 </DIV>
 
 <P>A Stack_layer application object describes the starting and ending
@@ -13845,22 +13745,22 @@ END_ENTITY;
 </PRE>
 
 
-<H4 ID="ao-stack_layer-usage">4.3.287.1 stack_layer to product_view_definition (as usage)</H4>
+<H4 ID="ao-stack_layer-usage">4.3.286.1 stack_layer to product_view_definition (as usage)</H4>
 
 <p>The usage specifies the product that defines this material layer of
 the stackup.</p>
 
-<H4 ID="ao-stack_layer-start_dist">4.3.287.2 start_dist</H4>
+<H4 ID="ao-stack_layer-start_dist">4.3.286.2 start_dist</H4>
 
 <p>The start_dist specifies distance of the feature drill path from
 the top of the hole to the start of this layer.</p>
 
-<H4 ID="ao-stack_layer-end_dist">4.3.287.3 end_dist</H4>
+<H4 ID="ao-stack_layer-end_dist">4.3.286.3 end_dist</H4>
 
 <p>The end_dist specifies distance of the feature drill path from the
 top of the hole to the end of this layer.</p>
 
-<H4 ID="ao-stack_layer-layer_feature">4.3.287.4 stack_layer to manufacturing_feature (as layer_feature)</H4>
+<H4 ID="ao-stack_layer-layer_feature">4.3.286.4 stack_layer to manufacturing_feature (as layer_feature)</H4>
 
 <p>The layer_feature specifies a feature description of the volume
 removed on this layer in the coordinates of the assembly.</p>
@@ -13869,12 +13769,12 @@ removed on this layer in the coordinates of the assembly.</p>
 <SPAN>EXAMPLE</SPAN> Each layer of a drill hole may be described by a
 round hole feature for that layer.</P>
 
-<H4 ID="ao-stack_layer-feed">4.3.287.5 feed</H4>
+<H4 ID="ao-stack_layer-feed">4.3.286.5 feed</H4>
 
 <p>The feed specifies the recommended drilling feedrate for this
 layer.</p>
 
-<H4 ID="ao-stack_layer-speed">4.3.287.6 speed</H4>
+<H4 ID="ao-stack_layer-speed">4.3.286.6 speed</H4>
 
 <p>The speed specifies the recommended spindle speed for this layer.</p>
 
@@ -13885,7 +13785,7 @@ layer.</p>
 <A HREF="clause5.htm#map-state_condition">Map</a>
 <A HREF="annexG.htm#state_condition">ARM</a>
 </DIV>
-<H3 ID="ao-state_condition">4.3.288 State_condition</H3>
+<H3 ID="ao-state_condition">4.3.287 State_condition</H3>
 </DIV>
 
 <P>A State_condition application object describes the progress of a
@@ -13931,12 +13831,12 @@ END_TYPE;
 </PRE>
 
 
-<H4 ID="ao-state_condition-time">4.3.288.1 time</H4>
+<H4 ID="ao-state_condition-time">4.3.287.1 time</H4>
 
 <p>The time specifies the date and time when the condition was recorded.</p>
 
 
-<H4 ID="ao-state_condition-condition">4.3.288.2 condition</H4>
+<H4 ID="ao-state_condition-condition">4.3.287.2 condition</H4>
 
 <p>The condition specifies the condition of the twin.</p>
 
@@ -13955,12 +13855,12 @@ END_TYPE;
 </UL>
 
 
-<H4 ID="ao-state_condition-explanation">4.3.288.3 explanation</H4>
+<H4 ID="ao-state_condition-explanation">4.3.287.3 explanation</H4>
 
 <p>The explanation specifies a more detailed explanation of the
 condition of the twin.</p>
 
-<H4 ID="ao-state_condition-raised_by">4.3.288.4 state_condition to machining_workingstep (as raised_by)</H4>
+<H4 ID="ao-state_condition-raised_by">4.3.287.4 state_condition to machining_workingstep (as raised_by)</H4>
 
 <p>The raised_by specifies the Machining_workingstep that was being
 executed when the condition was recorded.</p>
@@ -13971,7 +13871,7 @@ executed when the condition was recorded.</p>
 <A HREF="clause5.htm#map-step_drill">Map</a>
 <A HREF="annexG.htm#step_drill">ARM</a>
 </DIV>
-<H3 ID="ao-step_drill">4.3.289 Step_drill</H3>
+<H3 ID="ao-step_drill">4.3.288 Step_drill</H3>
 </DIV>
 
 <P>The Step_drill application object shall be as defined by ISO 14649-111.</P>
@@ -13995,7 +13895,7 @@ END_ENTITY;
 <A HREF="clause5.htm#map-t_slot_mill">Map</a>
 <A HREF="annexG.htm#t_slot_mill">ARM</a>
 </DIV>
-<H3 ID="ao-t_slot_mill">4.3.290 T_slot_mill</H3>
+<H3 ID="ao-t_slot_mill">4.3.289 T_slot_mill</H3>
 </DIV>
 
 <P>The T_slot_mill application object shall be as defined by ISO 14649-111.</P>
@@ -14018,7 +13918,7 @@ END_ENTITY;
 <A HREF="clause5.htm#map-tapered_drill">Map</a>
 <A HREF="annexG.htm#tapered_drill">ARM</a>
 </DIV>
-<H3 ID="ao-tapered_drill">4.3.291 Tapered_drill</H3>
+<H3 ID="ao-tapered_drill">4.3.290 Tapered_drill</H3>
 </DIV>
 
 <P>The Tapered_drill application object shall be as defined by ISO 14649-111.</P>
@@ -14041,7 +13941,7 @@ END_ENTITY;
 <A HREF="clause5.htm#map-tapered_reamer">Map</a>
 <A HREF="annexG.htm#tapered_reamer">ARM</a>
 </DIV>
-<H3 ID="ao-tapered_reamer">4.3.292 Tapered_reamer</H3>
+<H3 ID="ao-tapered_reamer">4.3.291 Tapered_reamer</H3>
 </DIV>
 
 <P>The Tapered_reamer application object shall be as defined by ISO 14649-111.</P>
@@ -14064,7 +13964,7 @@ END_ENTITY;
 <A HREF="clause5.htm#map-tapping">Map</a>
 <A HREF="annexG.htm#tapping">ARM</a>
 </DIV>
-<H3 ID="ao-tapping">4.3.293 Tapping</H3>
+<H3 ID="ao-tapping">4.3.292 Tapping</H3>
 </DIV>
 
 <P>The Tapping application object shall be as defined by ISO 14649-11.</P>
@@ -14086,7 +13986,7 @@ END_ENTITY;
 <A HREF="clause5.htm#map-tapping_cutting_tool">Map</a>
 <A HREF="annexG.htm#tapping_cutting_tool">ARM</a>
 </DIV>
-<H3 ID="ao-tapping_cutting_tool">4.3.294 Tapping_cutting_tool</H3>
+<H3 ID="ao-tapping_cutting_tool">4.3.293 Tapping_cutting_tool</H3>
 </DIV>
 
 <P>The Tapping_cutting_tool application object shall be as defined by ISO 14649-111.</P>
@@ -14113,7 +14013,7 @@ END_ENTITY;
 <A HREF="clause5.htm#map-technology">Map</a>
 <A HREF="annexG.htm#technology">ARM</a>
 </DIV>
-<H3 ID="ao-technology">4.3.295 Technology</H3>
+<H3 ID="ao-technology">4.3.294 Technology</H3>
 </DIV>
 
 <P>The Technology application object shall be as defined by ISO 14649-10.</P>
@@ -14140,7 +14040,7 @@ END_TYPE;
 <A HREF="clause5.htm#map-thread_drilling">Map</a>
 <A HREF="annexG.htm#thread_drilling">ARM</a>
 </DIV>
-<H3 ID="ao-thread_drilling">4.3.296 Thread_drilling</H3>
+<H3 ID="ao-thread_drilling">4.3.295 Thread_drilling</H3>
 </DIV>
 
 <P>The Thread_drilling application object shall be as defined by ISO 14649-11.</P>
@@ -14163,7 +14063,7 @@ END_ENTITY;
 <A HREF="clause5.htm#map-thread_mill">Map</a>
 <A HREF="annexG.htm#thread_mill">ARM</a>
 </DIV>
-<H3 ID="ao-thread_mill">4.3.297 Thread_mill</H3>
+<H3 ID="ao-thread_mill">4.3.296 Thread_mill</H3>
 </DIV>
 
 <P>The Thread_mill application object shall be as defined by ISO 14649-111.</P>
@@ -14188,7 +14088,7 @@ END_ENTITY;
 <A HREF="clause5.htm#map-thread_strategy">Map</a>
 <A HREF="annexG.htm#thread_strategy">ARM</a>
 </DIV>
-<H3 ID="ao-thread_strategy">4.3.298 Thread_strategy</H3>
+<H3 ID="ao-thread_strategy">4.3.297 Thread_strategy</H3>
 </DIV>
 
 <P>The Thread_strategy application object shall be as defined by ISO 14649-12.</P>
@@ -14222,7 +14122,7 @@ END_TYPE;
 <A HREF="clause5.htm#map-threading">Map</a>
 <A HREF="annexG.htm#threading">ARM</a>
 </DIV>
-<H3 ID="ao-threading">4.3.299 Threading</H3>
+<H3 ID="ao-threading">4.3.298 Threading</H3>
 </DIV>
 
 <P>The Threading application object shall be as defined by ISO 14649-12.</P>
@@ -14246,7 +14146,7 @@ END_ENTITY;
 <A HREF="clause5.htm#map-threading_finish">Map</a>
 <A HREF="annexG.htm#threading_finish">ARM</a>
 </DIV>
-<H3 ID="ao-threading_finish">4.3.300 Threading_finish</H3>
+<H3 ID="ao-threading_finish">4.3.299 Threading_finish</H3>
 </DIV>
 
 <P>The Threading_finish application object shall be as defined by ISO 14649-12.</P>
@@ -14268,7 +14168,7 @@ END_ENTITY;
 <A HREF="clause5.htm#map-threading_rough">Map</a>
 <A HREF="annexG.htm#threading_rough">ARM</a>
 </DIV>
-<H3 ID="ao-threading_rough">4.3.301 Threading_rough</H3>
+<H3 ID="ao-threading_rough">4.3.300 Threading_rough</H3>
 </DIV>
 
 <P>The Threading_rough application object shall be as defined by ISO 14649-12.</P>
@@ -14292,7 +14192,7 @@ END_ENTITY;
 <A HREF="clause5.htm#map-three_axes">Map</a>
 <A HREF="annexG.htm#three_axes">ARM</a>
 </DIV>
-<H3 ID="ao-three_axes">4.3.302 Three_axes</H3>
+<H3 ID="ao-three_axes">4.3.301 Three_axes</H3>
 </DIV>
 
 <P>The Three_axes application object shall be as defined by ISO 14649-10.</P>
@@ -14314,7 +14214,7 @@ END_ENTITY;
 <A HREF="clause5.htm#map-three_axes_tilted_tool">Map</a>
 <A HREF="annexG.htm#three_axes_tilted_tool">ARM</a>
 </DIV>
-<H3 ID="ao-three_axes_tilted_tool">4.3.303 Three_axes_tilted_tool</H3>
+<H3 ID="ao-three_axes_tilted_tool">4.3.302 Three_axes_tilted_tool</H3>
 </DIV>
 
 <P>The Three_axes_tilted_tool application object shall be as defined by ISO 14649-11.</P>
@@ -14338,7 +14238,7 @@ END_ENTITY;
 <A HREF="clause5.htm#map-three_twin_reference_frame_group">Map</a>
 <A HREF="annexG.htm#three_twin_reference_frame_group">ARM</a>
 </DIV>
-<H3 ID="ao-three_twin_reference_frame_group">4.3.304 Three_twin_reference_frame_group</H3>
+<H3 ID="ao-three_twin_reference_frame_group">4.3.303 Three_twin_reference_frame_group</H3>
 </DIV>
 
 <P>A Three_twin_reference_frame_group application object is a type of
@@ -14368,13 +14268,13 @@ END_ENTITY;
 </PRE>
 
 
-<H4 ID="ao-three_twin_reference_frame_group-guide_primary">4.3.304.1 three_twin_reference_frame_group to drill_and_fill_twin (as guide_primary)</H4>
+<H4 ID="ao-three_twin_reference_frame_group-guide_primary">4.3.303.1 three_twin_reference_frame_group to drill_and_fill_twin (as guide_primary)</H4>
 
 <p>The guide_primary specifies the primary reference point for the
 guide. This point shall be given and defines the displacement required
 to correctly position the group.</p>
 
-<H4 ID="ao-three_twin_reference_frame_group-guide_secondary">4.3.304.2 three_twin_reference_frame_group to drill_and_fill_twin (as guide_secondary)</H4>
+<H4 ID="ao-three_twin_reference_frame_group-guide_secondary">4.3.303.2 three_twin_reference_frame_group to drill_and_fill_twin (as guide_secondary)</H4>
 
 <p>The guide_secondary specifies the secondary reference point for the
 guide. If specified, this point determines the axis of the guide.</p>
@@ -14383,7 +14283,7 @@ guide. If specified, this point determines the axis of the guide.</p>
 <SPAN>NOTE</SPAN> This guide enables the direction of a feature to be
 correctly oriented.</P>
 
-<H4 ID="ao-three_twin_reference_frame_group-guide_tertiary">4.3.304.3 three_twin_reference_frame_group to drill_and_fill_twin (as guide_tertiary)</H4>
+<H4 ID="ao-three_twin_reference_frame_group-guide_tertiary">4.3.303.3 three_twin_reference_frame_group to drill_and_fill_twin (as guide_tertiary)</H4>
 
 <p>The guide_tertiary specifies the tertiary reference point for the
 guide. If specified, this point determines the reference axis of the
@@ -14401,7 +14301,7 @@ rotated around the feature axis.</P>
 <A HREF="clause5.htm#map-tighten_collar_operation">Map</a>
 <A HREF="annexG.htm#tighten_collar_operation">ARM</a>
 </DIV>
-<H3 ID="ao-tighten_collar_operation">4.3.305 Tighten_collar_operation</H3>
+<H3 ID="ao-tighten_collar_operation">4.3.304 Tighten_collar_operation</H3>
 </DIV>
 
 <P>A Tighten_collar_operation application object is a type of
@@ -14432,22 +14332,22 @@ ENTITY Tighten_collar_operation 	-- ADDED BY 10303-238e4
 END_ENTITY;
 </PRE>
 
-<H4 ID="ao-tighten_collar_operation-torque">4.3.305.1 torque</H4>
+<H4 ID="ao-tighten_collar_operation-torque">4.3.304.1 torque</H4>
 
 <p>The torque specifies the torque to be applied to tighten the
 collar.</p>
 
-<H4 ID="ao-tighten_collar_operation-squeeze">4.3.305.2 squeeze</H4>
+<H4 ID="ao-tighten_collar_operation-squeeze">4.3.304.2 squeeze</H4>
 
 <p>The squeeze specifies the force to be applied to the fastener
 that is sufficient to achieve fastening requirements</p>
 
-<H4 ID="ao-tighten_collar_operation-swage">4.3.305.3 swage</H4>
+<H4 ID="ao-tighten_collar_operation-swage">4.3.304.3 swage</H4>
 
 <p>The swage specifies the force to be applied to form the collar
 around the fastener.</p>
 
-<H4 ID="ao-tighten_collar_operation-pull">4.3.305.4 pull</H4>
+<H4 ID="ao-tighten_collar_operation-pull">4.3.304.4 pull</H4>
 
 <p>The pull specifies the force to be applied to pull a fastener,
 swage a collar, or break a pintail.</p>
@@ -14457,7 +14357,7 @@ swage a collar, or break a pintail.</p>
 <A HREF="clause5.htm#map-tolerances">Map</a>
 <A HREF="annexG.htm#tolerances">ARM</a>
 </DIV>
-<H3 ID="ao-tolerances">4.3.306 Tolerances</H3>
+<H3 ID="ao-tolerances">4.3.305 Tolerances</H3>
 </DIV>
 
 <P>The Tolerances application object shall be as defined by ISO 14649-11.</P>
@@ -14480,7 +14380,7 @@ END_ENTITY;
 <A HREF="clause5.htm#map-tool_direction">Map</a>
 <A HREF="annexG.htm#tool_direction">ARM</a>
 </DIV>
-<H3 ID="ao-tool_direction">4.3.307 Tool_direction</H3>
+<H3 ID="ao-tool_direction">4.3.306 Tool_direction</H3>
 </DIV>
 
 <P>The Tool_direction application object shall be as defined by ISO 14649-10.</P>
@@ -14502,7 +14402,7 @@ END_ENTITY;
 <A HREF="clause5.htm#map-tool_direction_for_milling">Map</a>
 <A HREF="annexG.htm#tool_direction_for_milling">ARM</a>
 </DIV>
-<H3 ID="ao-tool_direction_for_milling">4.3.308 Tool_direction_for_milling</H3>
+<H3 ID="ao-tool_direction_for_milling">4.3.307 Tool_direction_for_milling</H3>
 </DIV>
 
 <P>The Tool_direction_for_milling application object shall be as defined by ISO 14649-11.</P>
@@ -14526,7 +14426,7 @@ END_ENTITY;
 <A HREF="clause5.htm#map-tool_length_probing">Map</a>
 <A HREF="annexG.htm#tool_length_probing">ARM</a>
 </DIV>
-<H3 ID="ao-tool_length_probing">4.3.309 Tool_length_probing</H3>
+<H3 ID="ao-tool_length_probing">4.3.308 Tool_length_probing</H3>
 </DIV>
 
 <P>The Tool_length_probing application object shall be as defined by
@@ -14546,58 +14446,10 @@ END_ENTITY;
 
 <!-- ============================== -->
 <DIV><DIV class=quick>
-<A HREF="clause5.htm#map-tool_life_estimate">Map</a>
-<A HREF="annexG.htm#tool_life_estimate">ARM</a>
-</DIV>
-<H3 ID="ao-tool_life_estimate">4.3.310 Tool_life_estimate</H3>
-</DIV>
-
-<P>A Tool_life_estimate application object specifies the estimates of
-the expected tool wear when a cutter performs a selected task.</P>
-
-<P>The data associated with a Tool_life_estimate are the
-following:</P>
-
-<UL>
-<LI>task;</LI>
-<LI>added_cost.</LI>
-</UL>
-
-<P CLASS="note">
-<SPAN>NOTE</SPAN> The EXPRESS description for the Tool_life_estimate
-application object is shown below.</P>
-
-<PRE CLASS="note">
-ENTITY Tool_life_estimate;	-- ADDED BY 10303-238e4
-  task: 		Executable;
-  added_cost: 		Ratio_data_element;
-END_ENTITY;
-</PRE>
-
-
-<H4 ID="ao-tool_life_estimate-task">4.3.310.1 tool_life_estimate to executable (as task)</H4>
-
-<p>The task specifies a machining executable whose life cycle cost for
-this tool has been estimated.</p>
-
-<H4 ID="ao-tool_life_estimate-added_cost">4.3.310.2 added_cost</H4>
-
-<p>The added_cost specifies the portion of the total tool life that
-will be removed when a cutting tool twin with this cutting tool
-prototype is applied to this task.</p>
-
-<P CLASS="note">
-<SPAN>NOTE</SPAN> The estimates can be for one tool instance only,
-every instance of a tool product as supplied by a supplier, or a
-family of similar tools as identified by an OEM.</P>
-
-
-<!-- ============================== -->
-<DIV><DIV class=quick>
 <A HREF="clause5.htm#map-tool_probing">Map</a>
 <A HREF="annexG.htm#tool_probing">ARM</a>
 </DIV>
-<H3 ID="ao-tool_probing">4.3.311 Tool_probing</H3>
+<H3 ID="ao-tool_probing">4.3.309 Tool_probing</H3>
 </DIV>
 
 <P>The Tool_probing application object shall be as defined by ISO
@@ -14624,7 +14476,7 @@ END_ENTITY;
 <A HREF="clause5.htm#map-tool_radius_probing">Map</a>
 <A HREF="annexG.htm#tool_radius_probing">ARM</a>
 </DIV>
-<H3 ID="ao-tool_radius_probing">4.3.312 Tool_radius_probing</H3>
+<H3 ID="ao-tool_radius_probing">4.3.310 Tool_radius_probing</H3>
 </DIV>
 
 <P>The Tool_radius_probing application object shall be as defined by
@@ -14647,7 +14499,7 @@ END_ENTITY;
 <A HREF="clause5.htm#map-tool_usage">Map</a>
 <A HREF="annexG.htm#tool_usage">ARM</a>
 </DIV>
-<H3 ID="ao-tool_usage">4.3.313 Tool_usage</H3>
+<H3 ID="ao-tool_usage">4.3.311 Tool_usage</H3>
 </DIV>
 
 <P>A Tool_usage specifies a physical cutting tool that satisfies tool
@@ -14692,12 +14544,12 @@ END_ENTITY;
 </PRE>
 
 
-<H4 ID="ao-tool_usage-description">4.3.313.1 description</H4>
+<H4 ID="ao-tool_usage-description">4.3.311.1 description</H4>
 
 <P>The description specifies text that characterizes the Tool_usage.
 The description may be omitted for a particular Tool_usage.</P>
 
-<H4 ID="ao-tool_usage-gage_placement">4.3.313.2 gage_placement</H4>
+<H4 ID="ao-tool_usage-gage_placement">4.3.311.2 gage_placement</H4>
 
 <P>The gage_placement specifies the location on the its_product tool
 model where the tool is mounted on a machine. The gage_placement may
@@ -14706,18 +14558,18 @@ not specified, the location shall be on the tool axis given by the
 tool_end_placement at the distance from the origin given by the
 overall assembly length of the referencing Machining_tool.</P>
 
-<H4 ID="ao-tool_usage-its_carousel">4.3.313.3 its_carousel</H4>
+<H4 ID="ao-tool_usage-its_carousel">4.3.311.3 its_carousel</H4>
 
 <P>The its_carousel specifies a machine tool turret, magazine, or
 carousel.  The its_carousel may be omitted for a particular
 Tool_usage.</P>
 
-<H4 ID="ao-tool_usage-its_id">4.3.313.4 its_id</H4>
+<H4 ID="ao-tool_usage-its_id">4.3.311.4 its_id</H4>
 
 <P>The its_id specifies a word or group of words which identify the
 Tool_usage.</P>
 
-<H4 ID="ao-tool_usage-its_library_reference">4.3.313.5 its_library_reference</H4>
+<H4 ID="ao-tool_usage-its_library_reference">4.3.311.5 its_library_reference</H4>
 
 <P>The its_library_reference specifies an
 Externally_defined_representation object that identifies the tool
@@ -14735,13 +14587,13 @@ data about cutting tools and cutting tool assemblies, including
 reference dictionaries that describe tool properties.</P>
 
 
-<H4 ID="ao-tool_usage-its_position">4.3.313.6 its_position</H4>
+<H4 ID="ao-tool_usage-its_position">4.3.311.6 its_position</H4>
 
 <P>The its_position specifies a location within a machine tool turret,
 magazine, or carousel. The its_position may be omitted for a
 particular Tool_usage. </P>
 
-<H4 ID="ao-tool_usage-its_product">4.3.313.7 its_product</H4>
+<H4 ID="ao-tool_usage-its_product">4.3.311.7 its_product</H4>
 
 <P>The its_product specifies a Product_view_definition object that
 describes the physical shape and associated product information of the
@@ -14750,7 +14602,7 @@ Tool_usage.
 See <a href="#aa-tool_usage-to-product_view_definition">Tool_usage to
 Product_view_definition</a> for the application assertion.</P>
 
-<H4 ID="ao-tool_usage-tool_end_placement">4.3.313.8 tool_end_placement</H4>
+<H4 ID="ao-tool_usage-tool_end_placement">4.3.311.8 tool_end_placement</H4>
 
 <P>The tool_end_placement specifies the location on the its_product
 tool model of the tool end point. The axis parameter of the
@@ -14765,7 +14617,7 @@ of the its_product tool model.</P>
 <A HREF="clause5.htm#map-toolpath">Map</a>
 <A HREF="annexG.htm#toolpath">ARM</a>
 </DIV>
-<H3 ID="ao-toolpath">4.3.314 Toolpath</H3>
+<H3 ID="ao-toolpath">4.3.312 Toolpath</H3>
 </DIV>
 
 <P>The Toolpath application object shall be as defined by ISO
@@ -14810,12 +14662,12 @@ END_TYPE;
 </PRE>
 
 
-<H4 ID="ao-toolpath-its_id">4.3.314.1 its_id</H4>
+<H4 ID="ao-toolpath-its_id">4.3.312.1 its_id</H4>
 
 <P>The its_id specifies the string identifier of the Toolpath.  The
 its_id may be omitted for a particular Toolpath. </P>
 
-<H4 ID="ao-toolpath-its_broadcast">4.3.314.2 its_broadcast</H4>
+<H4 ID="ao-toolpath-its_broadcast">4.3.312.2 its_broadcast</H4>
 
 <P>The its_broadcast specifies a Broadcast object that describes the
 conditions and contents of messages that are to be issued about the
@@ -14828,7 +14680,7 @@ execution encounters the toolpath.</P>
 <A HREF="clause5.htm#map-toolpath_feature">Map</a>
 <A HREF="annexG.htm#toolpath_feature">ARM</a>
 </DIV>
-<H3 ID="ao-toolpath_feature">4.3.315 Toolpath_feature</H3>
+<H3 ID="ao-toolpath_feature">4.3.313 Toolpath_feature</H3>
 </DIV>
 
 <p>The Toolpath_feature application object shall be as defined by ISO
@@ -14851,7 +14703,7 @@ END_ENTITY;
 <A HREF="clause5.htm#map-toolpath_list">Map</a>
 <A HREF="annexG.htm#toolpath_list">ARM</a>
 </DIV>
-<H3 ID="ao-toolpath_list">4.3.316 Toolpath_list</H3>
+<H3 ID="ao-toolpath_list">4.3.314 Toolpath_list</H3>
 </DIV>
 
 <P>The Toolpath_list application object shall be as defined by ISO
@@ -14878,7 +14730,7 @@ END_ENTITY;
 TYPE Toolpath_list_element = SELECT(Toolpath, NC_function); END_TYPE;
 </PRE>
 
-<H4 ID="ao-toolpath_list-its_list">4.3.316.1 its_list</H4>
+<H4 ID="ao-toolpath_list-its_list">4.3.314.1 its_list</H4>
 
 <P>The its_list set shall be as defined by ISO 14649-10 to be of type
 Toolpath, but this document relaxes this requirement to also allow
@@ -14896,7 +14748,7 @@ operations and workingsteps.</P>
 <A HREF="clause5.htm#map-toolpath_speed">Map</a>
 <A HREF="annexG.htm#toolpath_speed">ARM</a>
 </DIV>
-<H3 ID="ao-toolpath_speed">4.3.317 Toolpath_speed</H3>
+<H3 ID="ao-toolpath_speed">4.3.315 Toolpath_speed</H3>
 </DIV>
 
 <P>The Toolpath_speed application object shall be as defined by ISO
@@ -14924,7 +14776,7 @@ END_ENTITY;
 </PRE>
 
 
-<H4 ID="ao-toolpath_speed-speed">4.3.317.1 speed</H4>
+<H4 ID="ao-toolpath_speed-speed">4.3.315.1 speed</H4>
 
 <P>The speed parameter shall be as defined by ISO 14649-10 to be of type
 b_spline_curve, but this document relaxes this requirement so
@@ -14949,7 +14801,7 @@ with the same distribution of points.</P>
 <A HREF="clause5.htm#map-touch_probe">Map</a>
 <A HREF="annexG.htm#touch_probe">ARM</a>
 </DIV>
-<H3 ID="ao-touch_probe">4.3.318 Touch_probe</H3>
+<H3 ID="ao-touch_probe">4.3.316 Touch_probe</H3>
 </DIV>
 
 <P>A Touch_probe is a type
@@ -14981,20 +14833,20 @@ ENTITY Touch_probe;
 END_ENTITY;
 </PRE>
 
-<H4 ID="ao-touch_probe-ball_radius">4.3.318.1 ball_radius</H4>
+<H4 ID="ao-touch_probe-ball_radius">4.3.316.1 ball_radius</H4>
 
 <p>The ball_radius specifies the radius of the ball at the tip of the
 probe.  The ball_radius may be omitted for a particular
 Touch_probe.</P>
 
-<H4 ID="ao-touch_probe-overall_assembly_length">4.3.318.2 overall_assembly_length</H4>
+<H4 ID="ao-touch_probe-overall_assembly_length">4.3.316.2 overall_assembly_length</H4>
 
 <p>The overall_assembly_length specifies the length of the probe tool
 assembly measured from the gage plane to the center of the ball, if
 any, at the tip of the probe.</p>
 
 
-<H4 ID="ao-touch_probe-stylus_diameter">4.3.318.3 stylus_diameter</H4>
+<H4 ID="ao-touch_probe-stylus_diameter">4.3.316.3 stylus_diameter</H4>
 
 <p>The stylus_diameter specifies the diameter of the probe shaft.  The
 stylus_diameter may be omitted for a particular Touch_probe.</P>
@@ -15005,7 +14857,7 @@ stylus_diameter may be omitted for a particular Touch_probe.</P>
 <A HREF="clause5.htm#map-touch_probing">Map</a>
 <A HREF="annexG.htm#touch_probing">ARM</a>
 </DIV>
-<H3 ID="ao-touch_probing">4.3.319 Touch_probing</H3>
+<H3 ID="ao-touch_probing">4.3.317 Touch_probing</H3>
 </DIV>
 
 <P>The Touch_probing application object shall be as defined by ISO
@@ -15034,7 +14886,7 @@ END_ENTITY;
 <A HREF="clause5.htm#map-trajectory">Map</a>
 <A HREF="annexG.htm#trajectory">ARM</a>
 </DIV>
-<H3 ID="ao-trajectory">4.3.320 Trajectory</H3>
+<H3 ID="ao-trajectory">4.3.318 Trajectory</H3>
 </DIV>
 
 <P>The Trajectory application object shall be as defined by ISO
@@ -15076,7 +14928,7 @@ END_TYPE;
 </PRE>
 
 
-<H4 ID="ao-trajectory-its_material_removal_depth">4.3.320.1 its_material_removal_depth</H4>
+<H4 ID="ao-trajectory-its_material_removal_depth">4.3.318.1 its_material_removal_depth</H4>
 
 <P>The its_material_removal_depth specifies the length of material
 removed at each point of the Trajectory as measured along the axis of
@@ -15096,7 +14948,7 @@ generated toolpaths so that adaptive controls may adjust feed and
 speed.</P>
 
 
-<H4 ID="ao-trajectory-its_material_removal_overcut">4.3.320.2 its_material_removal_overcut</H4>
+<H4 ID="ao-trajectory-its_material_removal_overcut">4.3.318.2 its_material_removal_overcut</H4>
 
 <P>The its_material_removal_overcut specifies the length of material
 removed at each point of the Trajectory as measured perpendicular to
@@ -15109,14 +14961,14 @@ its_material_removal_overcut may be omitted for a particular
 Trajectory.</P>
 
 
-<H4 ID="ao-trajectory-its_material_removal_total_volume">4.3.320.3 its_material_removal_total_volume</H4>
+<H4 ID="ao-trajectory-its_material_removal_total_volume">4.3.318.3 its_material_removal_total_volume</H4>
 
 <P>The its_material_removal_total_volume specifies the total volume of
 material removed by the Trajectory.  The
 its_material_removal_total_volume may be omitted for a
 particular Trajectory.</P>
 
-<H4 ID="ao-trajectory-cross_section_area_parameters">4.3.320.4 cross_section_area_parameters</H4>
+<H4 ID="ao-trajectory-cross_section_area_parameters">4.3.318.4 cross_section_area_parameters</H4>
 
 <P>The cross_section_area_parameters specifies the area of material
 removed at each point of the Trajectory as measured perpendicular to
@@ -15221,7 +15073,7 @@ and <a href="#fig-cross_section_turn">Figure 21</a>.</LI>
 <A HREF="clause5.htm#map-turning_machine_cutting_tool">Map</a>
 <A HREF="annexG.htm#turning_machine_cutting_tool">ARM</a>
 </DIV>
-<H3 ID="ao-turning_machine_cutting_tool">4.3.321 Turning_machine_cutting_tool</H3>
+<H3 ID="ao-turning_machine_cutting_tool">4.3.319 Turning_machine_cutting_tool</H3>
 </DIV>
 
 <P>The Turning_machine_cutting_tool application object shall be as defined by
@@ -15254,7 +15106,7 @@ END_TYPE;
 <A HREF="clause5.htm#map-turning_machine_functions">Map</a>
 <A HREF="annexG.htm#turning_machine_functions">ARM</a>
 </DIV>
-<H3 ID="ao-turning_machine_functions">4.3.322 Turning_machine_functions</H3>
+<H3 ID="ao-turning_machine_functions">4.3.320 Turning_machine_functions</H3>
 </DIV>
 
 <P>The Turning_machine_functions application object shall be as
@@ -15298,7 +15150,7 @@ END_TYPE;
 
 
 
-<H4 ID="ao-turning_machine_functions-other_functions">4.3.322.1 other_functions</H4>
+<H4 ID="ao-turning_machine_functions-other_functions">4.3.320.1 other_functions</H4>
 
 <P>The other_functions parameter defined by ISO 14649-12 shall be
 replaced by the other_functions parameter defined by the
@@ -15310,7 +15162,7 @@ Machine_functions application object.
 <A HREF="clause5.htm#map-turning_machining_operation">Map</a>
 <A HREF="annexG.htm#turning_machining_operation">ARM</a>
 </DIV>
-<H3 ID="ao-turning_machining_operation">4.3.323 Turning_machining_operation</H3>
+<H3 ID="ao-turning_machining_operation">4.3.321 Turning_machining_operation</H3>
 </DIV>
 
 <P>The Turning_machining_operation application object shall be as defined by
@@ -15337,7 +15189,7 @@ END_ENTITY;
 <A HREF="clause5.htm#map-turning_machining_strategy">Map</a>
 <A HREF="annexG.htm#turning_machining_strategy">ARM</a>
 </DIV>
-<H3 ID="ao-turning_machining_strategy">4.3.324 Turning_machining_strategy</H3>
+<H3 ID="ao-turning_machining_strategy">4.3.322 Turning_machining_strategy</H3>
 </DIV>
 
 <P>The Turning_machining_strategy application object shall be as defined by
@@ -15365,7 +15217,7 @@ END_ENTITY;
 <A HREF="clause5.htm#map-turning_technology">Map</a>
 <A HREF="annexG.htm#turning_technology">ARM</a>
 </DIV>
-<H3 ID="ao-turning_technology">4.3.325 Turning_technology</H3>
+<H3 ID="ao-turning_technology">4.3.323 Turning_technology</H3>
 </DIV>
 
 <P>The Turning_technology application object shall be as defined by ISO 14649-12.</P>
@@ -15400,7 +15252,7 @@ END_TYPE;
 <A HREF="clause5.htm#map-turning_threading_tool">Map</a>
 <A HREF="annexG.htm#turning_threading_tool">ARM</a>
 </DIV>
-<H3 ID="ao-turning_threading_tool">4.3.326 Turning_threading_tool</H3>
+<H3 ID="ao-turning_threading_tool">4.3.324 Turning_threading_tool</H3>
 </DIV>
 
 <P>The Turning_threading_tool application object shall be as defined by ISO 14649-121.</P>
@@ -15436,7 +15288,7 @@ END_TYPE;
 <A HREF="clause5.htm#map-turning_workingstep">Map</a>
 <A HREF="annexG.htm#turning_workingstep">ARM</a>
 </DIV>
-<H3 ID="ao-turning_workingstep">4.3.327 Turning_workingstep</H3>
+<H3 ID="ao-turning_workingstep">4.3.325 Turning_workingstep</H3>
 </DIV>
 
 <P>The Turning_workingstep application object shall be as defined by
@@ -15474,7 +15326,7 @@ WHERE
 END_ENTITY;
 </PRE>
 
-<H4 ID="ao-turning_workingstep-its_effect">4.3.327.1 its_effect</H4>
+<H4 ID="ao-turning_workingstep-its_effect">4.3.325.1 its_effect</H4>
 
 <P>The its_effect parameter defined by ISO 14649-12 shall be replaced by the
 set of as-is, to-be, and removal parameters inherited from the
@@ -15482,7 +15334,7 @@ Executable application object.
 
 
 
-<H4 ID="ao-turning_workingstep-its_operation">4.3.327.2 its_operation</H4>
+<H4 ID="ao-turning_workingstep-its_operation">4.3.325.2 its_operation</H4>
 
 <P>The its_operation parameter defined by ISO 14649-12 shall be
 replaced by the its_operation parameter inherited from the Workingstep
@@ -15495,7 +15347,7 @@ application object.
 <A HREF="clause5.htm#map-twist_drill">Map</a>
 <A HREF="annexG.htm#twist_drill">ARM</a>
 </DIV>
-<H3 ID="ao-twist_drill">4.3.328 Twist_drill</H3>
+<H3 ID="ao-twist_drill">4.3.326 Twist_drill</H3>
 </DIV>
 
 <P>The Twist_drill application object shall be as defined by ISO 14649-111.</P>
@@ -15519,7 +15371,7 @@ END_ENTITY;
 <A HREF="clause5.htm#map-two_axes">Map</a>
 <A HREF="annexG.htm#two_axes">ARM</a>
 </DIV>
-<H3 ID="ao-two_axes">4.3.329 Two_axes</H3>
+<H3 ID="ao-two_axes">4.3.327 Two_axes</H3>
 </DIV>
 
 <P>The Two_axes application object shall be as defined by ISO 14649-10.</P>
@@ -15541,7 +15393,7 @@ END_ENTITY;
 <A HREF="clause5.htm#map-two5d_milling_operation">Map</a>
 <A HREF="annexG.htm#two5d_milling_operation">ARM</a>
 </DIV>
-<H3 ID="ao-two5d_milling_operation">4.3.330 Two5d_milling_operation</H3>
+<H3 ID="ao-two5d_milling_operation">4.3.328 Two5d_milling_operation</H3>
 </DIV>
 
 <P>The Two5d_milling_operation application object shall be as defined by ISO 14649-11.</P>
@@ -15565,7 +15417,7 @@ END_ENTITY;
 <A HREF="clause5.htm#map-two5d_milling_strategy">Map</a>
 <A HREF="annexG.htm#two5d_milling_strategy">ARM</a>
 </DIV>
-<H3 ID="ao-two5d_milling_strategy">4.3.331 Two5d_milling_strategy</H3>
+<H3 ID="ao-two5d_milling_strategy">4.3.329 Two5d_milling_strategy</H3>
 </DIV>
 
 <P>The Two5d_milling_strategy application object shall be as defined by ISO 14649-11.</P>
@@ -15590,7 +15442,7 @@ END_ENTITY;
 <A HREF="clause5.htm#map-unidirectional">Map</a>
 <A HREF="annexG.htm#unidirectional">ARM</a>
 </DIV>
-<H3 ID="ao-unidirectional">4.3.332 Unidirectional</H3>
+<H3 ID="ao-unidirectional">4.3.330 Unidirectional</H3>
 </DIV>
 
 <P>The Unidirectional application object shall be as defined by ISO 14649-11.</P>
@@ -15614,7 +15466,7 @@ END_ENTITY;
 <A HREF="clause5.htm#map-unidirectional_turning">Map</a>
 <A HREF="annexG.htm#unidirectional_turning">ARM</a>
 </DIV>
-<H3 ID="ao-unidirectional_turning">4.3.333 Unidirectional_turning</H3>
+<H3 ID="ao-unidirectional_turning">4.3.331 Unidirectional_turning</H3>
 </DIV>
 
 <P>The Unidirectional_turning application object shall be as defined by ISO 14649-12.</P>
@@ -15643,7 +15495,7 @@ END_ENTITY;
 <A HREF="clause5.htm#map-unload_tool">Map</a>
 <A HREF="annexG.htm#unload_tool">ARM</a>
 </DIV>
-<H3 ID="ao-unload_tool">4.3.334 Unload_tool</H3>
+<H3 ID="ao-unload_tool">4.3.332 Unload_tool</H3>
 </DIV>
 
 <P>The Unload_tool application object shall be as defined by ISO 14649-11.</P>
@@ -15666,7 +15518,7 @@ END_ENTITY;
 <A HREF="clause5.htm#map-user_defined_milling_tool">Map</a>
 <A HREF="annexG.htm#user_defined_milling_tool">ARM</a>
 </DIV>
-<H3 ID="ao-user_defined_milling_tool">4.3.335 User_defined_milling_tool</H3>
+<H3 ID="ao-user_defined_milling_tool">4.3.333 User_defined_milling_tool</H3>
 </DIV>
 
 <P>A User_defined_milling_tool is a type of
@@ -15722,14 +15574,14 @@ ENTITY User_defined_milling_tool
 END_ENTITY;
 </PRE>
 
-<H4 ID="ao-user_defined_milling_tool-corner_radius">4.3.335.1 corner_radius</H4>
+<H4 ID="ao-user_defined_milling_tool-corner_radius">4.3.333.1 corner_radius</H4>
 <P>
 The corner_radius specifies the radius of the corner circle which
 describes the transition between the upper and lower line segments of
 the tool profile as shown in <a href="#fig-user_defined_tool">Figure 22</a>.</P>
 
 
-<H4 ID="ao-user_defined_milling_tool-corner_radius_center_horizontal">4.3.335.2 corner_radius_center_horizontal</H4>
+<H4 ID="ao-user_defined_milling_tool-corner_radius_center_horizontal">4.3.333.2 corner_radius_center_horizontal</H4>
 
 <P>The corner_radius_center_horizontal specifies the radial distance
 from the tool axis to the centre of the corner circle.  If positive,
@@ -15738,20 +15590,20 @@ axis.  If negative, the corner circle and its centre are on opposite
 sides of the tool axis.</P>
 
 
-<H4 ID="ao-user_defined_milling_tool-corner_radius_center_vertical">4.3.335.3 corner_radius_center_vertical</H4>
+<H4 ID="ao-user_defined_milling_tool-corner_radius_center_vertical">4.3.333.3 corner_radius_center_vertical</H4>
 
 <P>The corner_radius_center_vertical specifies the distance from the
 tool endpoint to the centre of the corner circle measured parallel
 with the tool axis.</P>
 
 
-<H4 ID="ao-user_defined_milling_tool-description">4.3.335.4 description</H4>
+<H4 ID="ao-user_defined_milling_tool-description">4.3.333.4 description</H4>
 
 <P>The description specifies a word or group of words which
 characterize the tool.</P>
 
 
-<H4 ID="ao-user_defined_milling_tool-taper_angle">4.3.335.5 taper_angle</H4>
+<H4 ID="ao-user_defined_milling_tool-taper_angle">4.3.333.5 taper_angle</H4>
 
 <P>The taper_angle specifies the angle between the upper line segment
 of the tool and the tool axis as shown
@@ -15763,7 +15615,7 @@ increases when moving from tip to spindle.  The angle will be negative
 when the tool diameter decreases when moving from tip to spindle.</P>
 
 
-<H4 ID="ao-user_defined_milling_tool-tip_outer_angle">4.3.335.6 tip_outer_angle</H4>
+<H4 ID="ao-user_defined_milling_tool-tip_outer_angle">4.3.333.6 tip_outer_angle</H4>
 
 <P>The tip_outer_angle specifies the angle between a radial line
 through the tool endpoint and the lower line segment of the tool as
@@ -15777,7 +15629,7 @@ shown in <a href="#fig-user_defined_tool">Figure 22</a>.</P>
 <A HREF="clause5.htm#map-user_defined_turning_tool">Map</a>
 <A HREF="annexG.htm#user_defined_turning_tool">ARM</a>
 </DIV>
-<H3 ID="ao-user_defined_turning_tool">4.3.336 User_defined_turning_tool</H3>
+<H3 ID="ao-user_defined_turning_tool">4.3.334 User_defined_turning_tool</H3>
 </DIV>
 
 <P>The User_defined_turning_tool application object shall be as defined by
@@ -15801,7 +15653,7 @@ END_ENTITY;
 <A HREF="clause5.htm#map-uv_strategy">Map</a>
 <A HREF="annexG.htm#uv_strategy">ARM</a>
 </DIV>
-<H3 ID="ao-uv_strategy">4.3.337 Uv_strategy</H3>
+<H3 ID="ao-uv_strategy">4.3.335 Uv_strategy</H3>
 </DIV>
 
 <P>The Uv_strategy application object shall be as defined by ISO 14649-11.</P>
@@ -15825,7 +15677,7 @@ END_ENTITY;
 <A HREF="clause5.htm#map-wait_for_mark">Map</a>
 <A HREF="annexG.htm#wait_for_mark">ARM</a>
 </DIV>
-<H3 ID="ao-wait_for_mark">4.3.338 Wait_for_mark</H3>
+<H3 ID="ao-wait_for_mark">4.3.336 Wait_for_mark</H3>
 </DIV>
 
 <P>The Wait_for_mark application object shall be as defined by ISO 14649-10.</P>
@@ -15848,7 +15700,7 @@ END_ENTITY;
 <A HREF="clause5.htm#map-washer_prototype">Map</a>
 <A HREF="annexG.htm#washer_prototype">ARM</a>
 </DIV>
-<H3 ID="ao-washer_prototype">4.3.339 Washer_prototype</H3>
+<H3 ID="ao-washer_prototype">4.3.337 Washer_prototype</H3>
 </DIV>
 
 <P>A Washer_prototype application object is a type of
@@ -15880,17 +15732,17 @@ TYPE Washer_form = ENUMERATION OF (flat, concave, convex); END_TYPE;
 </PRE>
 
 
-<H4 ID="ao-washer_prototype-allowed_for">4.3.339.1 washer_prototype to fastener_prototype (as allowed_for)</H4>
+<H4 ID="ao-washer_prototype-allowed_for">4.3.337.1 washer_prototype to fastener_prototype (as allowed_for)</H4>
 
 <p>The allowed_for specifies the set of fasteners that may be combined
 with this prototype.</p>
 
-<H4 ID="ao-washer_prototype-thickness">4.3.339.2 washer_prototype to expected_property (as thickness)</H4>
+<H4 ID="ao-washer_prototype-thickness">4.3.337.2 washer_prototype to expected_property (as thickness)</H4>
 
 <p>The thickness specifies the length of the fastener assembly used by
 this type of washer.</p>
 
-<H4 ID="ao-washer_prototype-form">4.3.339.3 form</H4>
+<H4 ID="ao-washer_prototype-form">4.3.337.3 form</H4>
 
 <p>The form specifies a form of flat, concave or convex. If form is
 not specified, the washer is flat.</p>
@@ -15900,7 +15752,7 @@ not specified, the washer is flat.</p>
 <A HREF="clause5.htm#map-washer_twin">Map</a>
 <A HREF="annexG.htm#washer_twin">ARM</a>
 </DIV>
-<H3 ID="ao-washer_twin">4.3.340 Washer_twin</H3>
+<H3 ID="ao-washer_twin">4.3.338 Washer_twin</H3>
 </DIV>
 
 <P>A Washer_twin application object is a type of Product_view_twin
@@ -15920,14 +15772,11 @@ application object is shown below.</P>
 <PRE CLASS="note">
 ENTITY Washer_twin	-- ADDED BY 10303-238e4
   SUBTYPE OF (Product_view_twin);
-  SELF\Product_view_twin.manufacturing_prototype: Washer_prototype;
-  SELF\Product_view_twin.supplier_prototype:      OPTIONAL Washer_prototype;
-
   holds: 		Fastener_twin;
 END_ENTITY;
 </PRE>
 
-<H4 ID="ao-washer_twin-holds">4.3.340.1 washer_twin to fastener_twin (as holds)</H4>
+<H4 ID="ao-washer_twin-holds">4.3.338.1 washer_twin to fastener_twin (as holds)</H4>
 
 <p>The holds specifies the fastener instance that is combined with
 this washer instance.</p>
@@ -15938,7 +15787,7 @@ this washer instance.</p>
 <A HREF="clause5.htm#map-while_statement">Map</a>
 <A HREF="annexG.htm#while_statement">ARM</a>
 </DIV>
-<H3 ID="ao-while_statement">4.3.341 While_statement</H3>
+<H3 ID="ao-while_statement">4.3.339 While_statement</H3>
 </DIV>
 
 <P>The While_statement application object shall be as defined by ISO 14649-10.</P>
@@ -15961,7 +15810,7 @@ END_ENTITY;
 <A HREF="clause5.htm#map-workingstep">Map</a>
 <A HREF="annexG.htm#workingstep">ARM</a>
 </DIV>
-<H3 ID="ao-workingstep">4.3.342 Workingstep</H3>
+<H3 ID="ao-workingstep">4.3.340 Workingstep</H3>
 </DIV>
 
 <P>The Workingstep application object shall be as defined by ISO
@@ -16001,7 +15850,7 @@ END_ENTITY;
 
 
 
-<H4 ID="ao-workingstep-final_features">4.3.342.1 final_features</H4>
+<H4 ID="ao-workingstep-final_features">4.3.340.1 final_features</H4>
 
 <P>The final_features specifies a set of zero or more
 Manufacturing_feature objects visible on the final form of the
@@ -16041,7 +15890,7 @@ reference the pocket to indicate participation in the creation of that
 feature.</P>
 
 
-<H4 ID="ao-workingstep-its_operation">4.3.342.2 its_operation</H4>
+<H4 ID="ao-workingstep-its_operation">4.3.340.2 its_operation</H4>
 
 <P>The its_operation specifies an Operation object that describes the
 action performed by the Workingstep.
@@ -16056,7 +15905,7 @@ characteristic of a workingstep.</P>
 
 
 
-<H4 ID="ao-workingstep-toolpath_orientation">4.3.342.3 toolpath_orientation</H4>
+<H4 ID="ao-workingstep-toolpath_orientation">4.3.340.3 toolpath_orientation</H4>
 
 <P>The toolpath_orientation specifies the placement of the set of
 toolpaths given by the its_operation its_toolpath parameter.  The
@@ -16081,7 +15930,7 @@ planning with origins that were convenient for the designer.</P>
 <A HREF="clause5.htm#map-workpiece">Map</a>
 <A HREF="annexG.htm#workpiece">ARM</a>
 </DIV>
-<H3 ID="ao-workpiece">4.3.343 Workpiece</H3>
+<H3 ID="ao-workpiece">4.3.341 Workpiece</H3>
 </DIV>
 
 <P>The Workpiece application object is a type of
@@ -16204,7 +16053,7 @@ TYPE bounding_geometry_select = SELECT (
 END_TYPE;
 </PRE>
 
-<H4 ID="ao-workpiece-its_id">4.3.343.1 its_id</H4>
+<H4 ID="ao-workpiece-its_id">4.3.341.1 its_id</H4>
 
 <P>The its_id parameter defined by ISO 14649-10 shall be given by the
 id parameter of the of_product parameter of the defined_version
@@ -16214,7 +16063,7 @@ parameter inherited from Product_view_definition.</P>
 <SPAN>NOTE</SPAN> The integrated representation of this information is
 unchanged from previous edition of this document.</P>
 
-<H4 ID="ao-workpiece-its_material">4.3.343.2 its_material</H4>
+<H4 ID="ao-workpiece-its_material">4.3.341.2 its_material</H4>
 
 <P>The its_material parameter defined by ISO 14649-10 shall be
 represented by the set of Material_identification application objects
@@ -16225,7 +16074,7 @@ with an items parameter that contains the Workpiece.</P>
 unchanged from previous edition of this document.</P>
 
 
-<H4 ID="ao-workpiece-its_geometry">4.3.343.3 its_geometry</H4>
+<H4 ID="ao-workpiece-its_geometry">4.3.341.3 its_geometry</H4>
 
 <P>The its_geometry parameter defined by ISO 14649-10 shall be given
 by the inherited primary_shape_representation parameter defined by
@@ -16247,7 +16096,7 @@ integrated representation allows the use of shapes described by AIC
 and AIC 512 (faceted brep), as well as the original AIC 514 (advanced
 brep) descriptions.</P>
 
-<H4 ID="ao-workpiece-its_bounding_geometry">4.3.343.4 its_bounding_geometry</H4>
+<H4 ID="ao-workpiece-its_bounding_geometry">4.3.341.4 its_bounding_geometry</H4>
 
 <P>The its_bounding_geometry parameter shall be as defined by ISO
 14649-10 to be of type block, right_circular_cylinder, or
@@ -16267,7 +16116,7 @@ integrated representation allows the use of shapes described by AIC
 and AIC 512 (faceted brep), as well as the original AIC 514 (advanced
 brep) descriptions.</P>
 
-<H4 ID="ao-workpiece-its_approvals">4.3.343.5 its_approvals</H4>
+<H4 ID="ao-workpiece-its_approvals">4.3.341.5 its_approvals</H4>
 
 <P>The its_approvals specifies the set of Approval objects that define
 the approval status of the manufacturing description of the revision
@@ -16277,7 +16126,7 @@ See <a href="#aa-workpiece-to-approval-as-its_approvals">Workpiece to
 Approval (as its_approvals)</a> for the application assertion.</P>
 
 
-<H4 ID="ao-workpiece-its_categories">4.3.343.6 its_categories</H4>
+<H4 ID="ao-workpiece-its_categories">4.3.341.6 its_categories</H4>
 
 <P>The its_categories specifies the set of names that identify
 categories that apply to the Workpiece.  The its_categories may be
@@ -16303,7 +16152,7 @@ product information of a machining tool;</LI>
 <LI>workpiece: the Workpiece object describes the final state of a machined part.</LI>
 </UL>
 
-<H4 ID="ao-workpiece-its_components">4.3.343.7 its_components</H4>
+<H4 ID="ao-workpiece-its_components">4.3.341.7 its_components</H4>
 
 <P>The its_components parameter defined by this document is
 represented by the set of Next_assembly_usage application objects with
@@ -16314,7 +16163,7 @@ a relating_view parameter that contains the Workpiece.</P>
 unchanged from previous edition of this document.</P>
 
 
-<H4 ID="ao-workpiece-its_datestamps">4.3.343.8 its_datestamps</H4>
+<H4 ID="ao-workpiece-its_datestamps">4.3.341.8 its_datestamps</H4>
 <P>
 The its_datestamps specifies the set of Date_or_date_time_assignment
 objects that define dates and associated roles that apply to the
@@ -16326,7 +16175,7 @@ to Date_or_date_time_assignment (as its_datestamps)</a> for the
 application assertion.</P>
 
 
-<H4 ID="ao-workpiece-its_orgs">4.3.343.9 its_orgs</H4>
+<H4 ID="ao-workpiece-its_orgs">4.3.341.9 its_orgs</H4>
 
 <P>The its_orgs specifies the set of
 Organization_or_person_in_organization_assignment objects that define
@@ -16338,7 +16187,7 @@ to Organization_or_person_in_organization_assignment (as its_orgs)</a>
 for the application assertion.</P>
 
 
-<H4 ID="ao-workpiece-its_people">4.3.343.10 its_people</H4>
+<H4 ID="ao-workpiece-its_people">4.3.341.10 its_people</H4>
 
 <P>The its_people specifies the set of
 Organization_or_person_in_organization_assignment objects that define
@@ -16350,7 +16199,7 @@ to Organization_or_person_in_organization_assignment (as
 its_people)</a> for the application assertion.</P>
 
 
-<H4 ID="ao-workpiece-its_related_geometry">4.3.343.11 its_related_geometry</H4>
+<H4 ID="ao-workpiece-its_related_geometry">4.3.341.11 its_related_geometry</H4>
 
 <P>The its_related_geometry specifies the set of zero or more shape
 representations associated with the its_geometry shape representation
@@ -16364,7 +16213,7 @@ most common usage is to specify the advanced brep shape of a workpiece
 as its_related_geometry while the its_geometry simply contains an
 axis2_placement_3d.</P>
 
-<H4 ID="ao-workpiece-its_timestamps">4.3.343.12 its_timestamps</H4>
+<H4 ID="ao-workpiece-its_timestamps">4.3.341.12 its_timestamps</H4>
 
 <P>The its_timestamps specifies the set of
 Date_or_date_time_assignment objects that define dates with times and
@@ -16376,7 +16225,7 @@ to Date_or_date_time_assignment (as its_timestamps)</a> for the
 application assertion.</P>
 
 
-<H4 ID="ao-workpiece-product_approvals">4.3.343.13 product_approvals</H4>
+<H4 ID="ao-workpiece-product_approvals">4.3.341.13 product_approvals</H4>
 
 <P>The product_approvals specifies the set of Approval objects that
 define approval status across all revisions of the Workpiece. The
@@ -16386,7 +16235,7 @@ to Approval (as product_approvals)</a> for the application
 assertion.</P>
 
 
-<H4 ID="ao-workpiece-product_datestamps">4.3.343.14 product_datestamps</H4>
+<H4 ID="ao-workpiece-product_datestamps">4.3.341.14 product_datestamps</H4>
 
 <P>The product_datestamps specifies the set of
 Date_or_date_time_assignment objects that define dates and associated
@@ -16397,7 +16246,7 @@ to Date_or_date_time_assignment (as product_datestamps)</a> for the
 application assertion.</P>
 
 
-<H4 ID="ao-workpiece-product_orgs">4.3.343.15 product_orgs</H4>
+<H4 ID="ao-workpiece-product_orgs">4.3.341.15 product_orgs</H4>
 
 <P>The product_orgs specifies the set of
 Organization_or_person_in_organization_assignment objects that define
@@ -16409,7 +16258,7 @@ to Organization_or_person_in_organization_assignment (as
 product_orgs)</a> for the application assertion.</P>
 
 
-<H4 ID="ao-workpiece-product_people">4.3.343.16 product_people</H4>
+<H4 ID="ao-workpiece-product_people">4.3.341.16 product_people</H4>
 
 <P>The product_people specifies the set of
 Organization_or_person_in_organization_assignment objects that define
@@ -16421,7 +16270,7 @@ to Organization_or_person_in_organization_assignment (as
 product_people)</a> for the application assertion.</P>
 
 
-<H4 ID="ao-workpiece-product_timestamps">4.3.343.17 product_timestamps</H4>
+<H4 ID="ao-workpiece-product_timestamps">4.3.341.17 product_timestamps</H4>
 
 <P>The product_timestamps specifies the set of
 Date_or_date_time_assignment objects that define dates with times and
@@ -16433,7 +16282,7 @@ to Date_or_date_time_assignment (as product_timestamps)</a> for the
 application assertion.</P>
 
 
-<H4 ID="ao-workpiece-revision_approvals">4.3.343.18 revision_approvals</H4>
+<H4 ID="ao-workpiece-revision_approvals">4.3.341.18 revision_approvals</H4>
 <P>
 The revision_approvals specifies the set of Approval objects that
 define the approval status of the revision given by the revision_id of
@@ -16444,7 +16293,7 @@ to Approval (as revision_approvals)</a> for the application
 assertion.</P>
 
 
-<H4 ID="ao-workpiece-revision_datestamps">4.3.343.19 revision_datestamps</H4>
+<H4 ID="ao-workpiece-revision_datestamps">4.3.341.19 revision_datestamps</H4>
 
 <P>The revision_datestamps specifies the set of
 Date_or_date_time_assignment objects that define dates and associated
@@ -16456,13 +16305,13 @@ to Date_or_date_time_assignment (as revision_datestamps)</a> for the
 application assertion.</P>
 
 
-<H4 ID="ao-workpiece-revision_id">4.3.343.20 revision_id</H4>
+<H4 ID="ao-workpiece-revision_id">4.3.341.20 revision_id</H4>
 
 <P>The revision_id identifies the revision of the Workpiece.  The
 revision_id may be omitted for a particular Workpiece.</P>
 
 
-<H4 ID="ao-workpiece-revision_orgs">4.3.343.21 revision_orgs</H4>
+<H4 ID="ao-workpiece-revision_orgs">4.3.341.21 revision_orgs</H4>
 
 <P>The revision_orgs specifies the set of
 Organization_or_person_in_organization_assignment objects that define
@@ -16474,7 +16323,7 @@ to Organization_or_person_in_organization_assignment (as
 revision_orgs)</a> for the application assertion.</P>
 
 
-<H4 ID="ao-workpiece-revision_people">4.3.343.22 revision_people</H4>
+<H4 ID="ao-workpiece-revision_people">4.3.341.22 revision_people</H4>
 
 <P>The revision_people specifies the set of
 Organization_or_person_in_organization_assignment objects that define
@@ -16486,7 +16335,7 @@ to Organization_or_person_in_organization_assignment (as
 revision_people)</a> for the application assertion.</P>
 
 
-<H4 ID="ao-workpiece-revision_timestamps">4.3.343.23 revision_timestamps</H4>
+<H4 ID="ao-workpiece-revision_timestamps">4.3.341.23 revision_timestamps</H4>
 
 <P>The revision_timestamps specifies the set of
 Date_or_date_time_assignment objects that define dates with times and
@@ -16497,14 +16346,14 @@ See <a href="#aa-workpiece-to-date_or_date_time_assignment-as-revision_timestamp
 to Date_or_date_time_assignment (as revision_timestamps)</a> for the
 application assertion.</P>
 
-<H4 ID="ao-workpiece-its_broadcast">4.3.343.24 its_broadcast</H4>
+<H4 ID="ao-workpiece-its_broadcast">4.3.341.24 its_broadcast</H4>
 
 <P>The its_broadcast specifies a Broadcast object that describes the
 conditions and contents of messages that are to be issued about the
 workpiece.  The Broadcast object shall be evaluated every time process
 execution encounters a workingstep that operates on the workpiece.</P>
 
-<H4 ID="ao-workpiece-its_material_type">4.3.343.25 material_type</H4>
+<H4 ID="ao-workpiece-its_material_type">4.3.341.25 material_type</H4>
 
 <P>The material_type specifies the Material_workpiece object that
 describes properties of the material of the Workpiece.</P>
@@ -16521,7 +16370,7 @@ a different integrated representation.</P>
 <A HREF="clause5.htm#map-workpiece_complete_probing">Map</a>
 <A HREF="annexG.htm#workpiece_complete_probing">ARM</a>
 </DIV>
-<H3 ID="ao-workpiece_complete_probing">4.3.344 Workpiece_complete_probing</H3>
+<H3 ID="ao-workpiece_complete_probing">4.3.342 Workpiece_complete_probing</H3>
 </DIV>
 
 <P>The Workpiece_complete_probing application object shall be as
@@ -16553,7 +16402,7 @@ END_ENTITY;
 </PRE>
 
 
-<H4 ID="ao-workpiece_complete_probing-its_workpiece">4.3.344.1 its_workpiece</H4>
+<H4 ID="ao-workpiece_complete_probing-its_workpiece">4.3.342.1 its_workpiece</H4>
 
 <P>The its_workpiece parameter shall be as defined by ISO 14649-10 to be of
 type Workpiece, but this document relaxes this requirement to
@@ -16565,7 +16414,7 @@ allow any type of Product_view_definition.
 <A HREF="clause5.htm#map-workpiece_probing">Map</a>
 <A HREF="annexG.htm#workpiece_probing">ARM</a>
 </DIV>
-<H3 ID="ao-workpiece_probing">4.3.345 Workpiece_probing</H3>
+<H3 ID="ao-workpiece_probing">4.3.343 Workpiece_probing</H3>
 </DIV>
 
 <P>The Workpiece_probing application object shall be as defined by ISO
@@ -16597,7 +16446,7 @@ ENTITY Workpiece_probing
 END_ENTITY;
 </PRE>
 
-<H4 ID="ao-workpiece_probing-its_workpiece">4.3.345.1 its_workpiece</H4>
+<H4 ID="ao-workpiece_probing-its_workpiece">4.3.343.1 its_workpiece</H4>
 
 <P>The its_workpiece parameter shall be as defined by ISO 14649-10 to be of
 type Workpiece, but this document relaxes this requirement to
@@ -16610,7 +16459,7 @@ allow any type of Product_view_definition.
 <A HREF="clause5.htm#map-workpiece_setup">Map</a>
 <A HREF="annexG.htm#workpiece_setup">ARM</a>
 </DIV>
-<H3 ID="ao-workpiece_setup">4.3.346 Workpiece_setup</H3>
+<H3 ID="ao-workpiece_setup">4.3.344 Workpiece_setup</H3>
 </DIV>
 
 <P>The Workpiece_setup application object shall be as defined by ISO
@@ -16645,7 +16494,7 @@ END_TYPE;
 </PRE>
 
 
-<H4 ID="ao-workpiece_setup-its_workpiece">4.3.346.1 its_workpiece</H4>
+<H4 ID="ao-workpiece_setup-its_workpiece">4.3.344.1 its_workpiece</H4>
 
 <P>The its_workpiece parameter shall be as defined by ISO 14649-10 to be of
 type Workpiece, but this document relaxes this requirement to
@@ -16657,7 +16506,7 @@ allow any type of Product_view_definition.
 <A HREF="clause5.htm#map-workplan">Map</a>
 <A HREF="annexG.htm#workplan">ARM</a>
 </DIV>
-<H3 ID="ao-workplan">4.3.347 Workplan</H3>
+<H3 ID="ao-workplan">4.3.345 Workplan</H3>
 </DIV>
 
 <P>The Workplan application object shall be as defined by ISO
@@ -16692,13 +16541,13 @@ WHERE
 END_ENTITY;
 </PRE>
 
-<H4 ID="ao-workplan-its_effect">4.3.347.1 its_effect</H4>
+<H4 ID="ao-workplan-its_effect">4.3.345.1 its_effect</H4>
 
 <P>The its_effect parameter defined by ISO 14649-10 shall be replaced
 by the set of as-is, to-be, and removal parameters inherited from the
 Executable application object.
 
-<H4 ID="ao-workplan-its_minimum_machine_params">4.3.347.2 its_minimum_machine_params</H4>
+<H4 ID="ao-workplan-its_minimum_machine_params">4.3.345.2 its_minimum_machine_params</H4>
 
 <P>The its_minimum_machine_params specifies a Machine_parameters
 object which describe the minimum machine tool characteristics
@@ -16708,7 +16557,7 @@ See <a href="#aa-workplan-to-machine_parameters">Workplan to
 Machine_parameters</a> for the application assertion.</P>
 
 
-<H4 ID="ao-workplan-toolpath_orientation">4.3.347.3 toolpath_orientation</H4>
+<H4 ID="ao-workplan-toolpath_orientation">4.3.345.3 toolpath_orientation</H4>
 
 <P>The toolpath_orientation specifies the placement of the set of
 toolpaths associated with the Executables given by the its_elements
