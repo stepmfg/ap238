@@ -6279,7 +6279,7 @@ following:</P>
 application object is shown below.</P>
 
 <PRE CLASS="note">
-ENTITY Combined_drill_and_countersink;	-- ADDED BY 10303-238e4
+ENTITY Combined_drill_and_countersink	-- ADDED BY 10303-238e4
   SUBTYPE OF (Countersink);
   drill_length: 	Length_data_element;
   countersink_angle: 	OPTIONAL Angle_data_element;
@@ -12705,7 +12705,7 @@ application object is shown below.</P>
 ENTITY Product_view_twin	-- ADDED BY 10303-238e4
   SUBTYPE OF (Product_view_definition);
   designed_prototype		: Product_view_prototype; 
-  planned_prototype		: SET [0:?] Product_view_prototype;
+  planned_prototype		: SET [0:?] OF Product_view_prototype;
   manufacturing_prototype	: OPTIONAL Product_view_prototype; 
   work_order			: OPTIONAL Identifier;
   user_serial_number		: OPTIONAL Identifier;
