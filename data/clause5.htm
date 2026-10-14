@@ -194,8 +194,8 @@ follows the &lt;* symbol;</td>
 
 
 <P>The mapping specification for the application objects in this UoF
-shall be as defined by ISO 10303-1054, ISO 10303-1106, ISO 10303-1753,
-and ISO 10303-1782.
+shall be as defined by ISO/TS 10303-1054, ISO/TS 10303-1106, ISO/TS 10303-1753,
+and ISO/TS 10303-1782.
 
 
 <H3 ID="mapuof-project">5.1.3 Mapping specification for project UoF</H3>
@@ -203,7 +203,7 @@ and ISO 10303-1782.
 <H4 ID="mapuof-project-general">5.1.3.1 General</H4>
 
 <P>The mapping specification for the application objects in this UoF
-shall be as defined by ISO 10303-1011 and the specification below.
+shall be as defined by ISO/TS 10303-1011 and the specification below.
 
 
 <!-- ============================== -->
@@ -364,8 +364,8 @@ approval
 <H4 ID="mapuof-workpiece-general">5.1.4.1 General</H4>
 
 <P>The mapping specification for the application objects in this UoF
-shall be as defined by ISO 10303-1006, ISO 10303-1026, ISO 10303-1030, ISO
-10303-1110, ISO 10303-1118, ISO 10303-1681, and the specification
+shall be as defined by ISO/TS 10303-1006, ISO/TS 10303-1026, ISO/TS 10303-1030, ISO
+10303-1110, ISO/TS 10303-1118, ISO/TS 10303-1681, and the specification
 below.
 
 <!-- ============================== -->
@@ -1116,7 +1116,7 @@ material_property
 <H4 ID="mapuof-feature-general">5.1.5.1 General</H4>
 
 <P>The mapping specification for the application objects in this UoF
-shall be as defined by ISO 10303-1814, ISO 10303-1846 and the
+shall be as defined by ISO/TS 10303-1814, ISO/TS 10303-1846 and the
 specification below.
 
 
@@ -2662,7 +2662,7 @@ machining_workingstep
 <H4 ID="mapuof-executable-general">5.1.7.1 General</H4>
 
 <P>The mapping specification for the application objects in this UoF
-shall be as defined by ISO 10303-1526 and the specification below.
+shall be as defined by ISO/TS 10303-1526 and the specification below.
 
 
 <!-- ============================== -->
@@ -33799,13 +33799,13 @@ machining_broadcast_content
 <H3 ID="mapuof-gdt">5.1.18 Mapping specification for geometric dimensioning and tolerancing UoF</H3>
 
 <P>The mapping specification for the application objects in this UoF
-shall be as defined by ISO 10303-1050, ISO 10303-1051, and ISO 10303-1052.</P>
+shall be as defined by ISO/TS 10303-1050, ISO/TS 10303-1051, and ISO/TS 10303-1052.</P>
 
 
 <H3 ID="mapuof-library_reference">5.1.19 Mapping specification for library reference UoF</H3>
 
 <P>The mapping specification for the application objects in this UoF
-shall be as defined by ISO 10303-1129, ISO 10303-1291, ISO 10303-1331, and ISO
+shall be as defined by ISO/TS 10303-1129, ISO/TS 10303-1291, ISO/TS 10303-1331, and ISO
 10303-1779.
 
 
@@ -33814,7 +33814,7 @@ shall be as defined by ISO 10303-1129, ISO 10303-1291, ISO 10303-1331, and ISO
 <H4 ID="mapuof-management-general">5.1.20.1 General</H4>
 
 <P>The mapping specification for the application objects in this UoF
-shall be as defined by ISO 10303-1012, ISO 10303-1013, ISO 10303-1014, ISO
+shall be as defined by ISO/TS 10303-1012, ISO/TS 10303-1013, ISO/TS 10303-1014, ISO
 10303-1015, and the specification below.
 
 
@@ -33883,7 +33883,7 @@ concepts.</P>
 9) The process_model_list application object is not mapped. Instead, the mapping goes directly to the process model objects.  Ordering is handled by the sequence_position attribute on the relationship as described in <A href="#mapnote-6">NOTE 6</A></P>
 
 <P ID="mapnote-10" CLASS="numbered-notes">
-10) The ARM attribute corner_transitions is defined as a list, but list ordering is not encoded by the mapping.  If ordering is desired, the corner transitions shall be ordered by corner_identity.</P>
+10) The ARM attribute corner_transitions is defined as a list, but list ordering is not encoded by the mapping.  If ordering is desired, the corner transitions can be ordered by corner_identity.</P>
 
 
 
@@ -34138,7 +34138,7 @@ USE FROM application_context_schema				-- 10303-41
 
 <P>Where the ISO 14649 standards describe requirements not already handled by other APs, this integration process is straightforward.  However, there are several areas where the ISO 14649 standards redefine concepts that have already been addressed by existing application protocols.</P>
 
-<P>The first is the definition of manufacturing features.  Requirements for manufacturing features are documented in ISO 10303-1814.  During development of the ISO 14649 standards, efforts were made to align ISO 14649 feature definitions with those already existing in ISO 10303.  Progress was made, but a number of differences remain.  See <a href="#funcon-feature">Manufacturing feature concepts</a> for discussion of the general feature concepts and <a href="#funcon-feature-bytype">Manufacturing feature details by type</a> for an explanation of how differences are handled for specific feature types within this document.</P>
+<P>The first is the definition of manufacturing features.  Requirements for manufacturing features are documented in ISO/TS 10303-1814.  During development of the ISO 14649 standards, efforts were made to align ISO 14649 feature definitions with those already existing in ISO 10303.  Progress was made, but a number of differences remain.  See <a href="#funcon-feature">Manufacturing feature concepts</a> for discussion of the general feature concepts and <a href="#funcon-feature-bytype">Manufacturing feature details by type</a> for an explanation of how differences are handled for specific feature types within this document.</P>
 
 <P>The second is the use of units of measurement.  The ISO 14649 standards constrain the usage of units to simplify their model.  Within the context of ISO 10303 application protocols, this constraint is inappropriate because of the general unit handling mechanism of the ISO 10303 integrated resources.  See <a href="#measure-concepts">Measurement concepts</a> for discussion of measurement concepts in more detail. </P>
 
@@ -34208,13 +34208,17 @@ USE FROM application_context_schema				-- 10303-41
 
 <P>ISO 14649 requires a depth surface for all machining_feature types, even where profile and path information is available.  Within this document, this constraint is relaxed since depth is already available from the profile and path parameters. The depth surface is represented by a parameter called &quot;maximum feature depth,&quot; which is also an optional parameter in the AP 224 and AP 214 models.</P>
 <P CLASS="note">
-<SPAN>NOTE</SPAN> Why were the reference points for features done this way?  Before it is machined, the top of a feature often corresponds to a tangible location on the stock where a machinist could measure or make a mark.  The bottom of the feature is usually buried within the stock.</P>
+<SPAN>NOTE</SPAN> Why were the reference points for features done this way?  Before it is machined, the top of a feature often corresponds to a tangible location on the stock where a machinist can measure or make a mark.  The bottom of the feature is usually buried within the stock.</P>
 <P CLASS="note">
 The ISO 10303 standards originally defined features on the final form of the part as input to process planning.  However, the features on the final part can differ from  he features as machined.  Consider a flat surface with a hole drilled in it.  If the hole is drilled before the face is machined, the top of the hole will be higher than if it is drilled after the face is machined.   The location in space of the bottom of the hole remains the same regardless of the sequence of operations.</P>
 <P CLASS="note">
 Since planning activity can explore different operation sequences, describing the location from a reference point at the bottom of the feature allows the numeric value of the location to remain constant, even if the volume of the feature changes during process planning.   Subsequent ISO 10303 standards continue to use this convention for compatibility.</P>
 <P CLASS="note">
-ISO 14649 chose to use the top to more closely match the conventions used by machinists.  Application software built around AP 238 may find it useful to present location information to a human using the ISO 14649 conventions, while still using the ISO 10303 convention for data exchange.</P>
+ISO 14649 chose to use the top to more closely match the conventions
+used by machinists.  Application software built around AP 238 can find
+it useful to present location information to a human using the ISO
+14649 conventions, while still using the ISO 10303 convention for data
+exchange.</P>
 
 
 <H6 ID="funcon-feature-profiles">5.2.2.2.1.2 Orientation of profiles</H6>
@@ -34341,7 +34345,7 @@ the features associated with a particular process, but it is desirable
 to link the features on the final form with the set of workingsteps
 that contribute to their manufacture.  This associativity through the
 entire design to manufacturing path is useful for related downstream
-tasks, such as inspection, which could use the tracability to pinpoint
+tasks, such as inspection, which can use the tracability to pinpoint
 critical areas of interest in the micro and macro process-plans.</P>
 
 <P CLASS="note">
@@ -34443,7 +34447,7 @@ away by subsequent operations.</P>
 
 <P>A direction vector is part of the linear path and defines the direction that the profile is swept.  This shall be aligned along the Z axis of the feature placement.  The profile lies in the XY plane of the feature placement with the feature placement at the centre of the profile.</P>
 
-<P>In ISO 14649, a hole does not use profile or path definitions. Instead, the diameter is an attribute of the Round_hole definition.  To convey depth, the feature placement is assumed to be at the top of the hole with Z pointed away from the material.  To determine the depth of the hole, one must geometrically evaluate the distance in the negative Z direction between this placement and the depth surface.  </P>
+<P>In ISO 14649, a hole does not use profile or path definitions. Instead, the diameter is an attribute of the Round_hole definition.  To convey depth, the feature placement is assumed to be at the top of the hole with Z pointed away from the material.  To determine the depth of the hole, geometrically evaluate the distance in the negative Z direction between this placement and the depth surface.  </P>
 
 <P>This document adds the course_of_travel attribute to the Round_hole application object.  This attribute represents the travel path for harmonization with the other ISO 10303 parts and simplifies conversion between the two conventions.</P>
 
@@ -34613,7 +34617,7 @@ referring to the features on either side of the transition.  </P>
 <SPAN>NOTE 1</SPAN> Why were two approaches used?  Historically, the
 ISO 10303 approach was defined first, but this requires that brep
 geometry be present in order to describe transition features.  From
-the ISO 14649 perspective, geometry is optional and may be omitted, so
+the ISO 14649 perspective, geometry is optional and can be omitted, so
 it made sense to define transition features as a relationship between
 two features instead. </P>
 
@@ -35217,7 +35221,7 @@ The cubic millimetre unit is encoded by #20, which is a derived_unit based on a 
 
 <P>A number of properties on the technology and machining strategy application objects describe feedrate, spindle speed, or dwell time values. Several alternative types of measure value can be used to describe each of these values.</P>
 <P CLASS="note">
-<SPAN>EXAMPLE 1</SPAN> A feedrate could be described either as a linear speed (length per unit of time), or as a length per tooth of the tool being used.</P>
+<SPAN>EXAMPLE 1</SPAN> A feedrate can be described either as a linear speed (length per unit of time), or as a length per tooth of the tool being used.</P>
 
 <P>The ISO 14649 series uses different modeling styles to describe these alternatives. The ISO 14649-11 milling model frequently uses different attributes for each alternative with a local rule forbidding the use of more than one at a time.  The ISO 14649-12 turning model frequently uses a SELECT type to model the alternatives.</P>
 <P CLASS="note">
@@ -35432,6 +35436,11 @@ value.</P>
 
 <P>When describing a toolpath consisting of a circular arc, the trimmed_curve subtype of bounded_curve is used.  The trimmed_curve.basis_curve attribute is an instance of circle, and the trim_1 and trim_2 attributes contain cartesian_points representing the start and end points respectively.  The direction of traversal is indicated by comparing the trimmed_curve sense_agreement attribute with the mathematical sense of the underlying circle.</P>
 
+<P>A toolpath containing a circular arc may be described using a
+polyline with an instance of
+the <a href="#aim-via_arc_point">via_arc_point</a> subtype of
+cartesian_point.</P>
+
 <P CLASS="note">
 <SPAN>NOTE</SPAN> Given a circle in the XY plane with an axis placement along the positive Z axis, a sense_agreement of true indicates counterclockwise motion (from +X,0 to 0,+Y to -X,0 to 0,-Y), while a sense_agreement of false indicates clockwise motion.</P>
 
@@ -35448,17 +35457,23 @@ value.</P>
 </PRE>
 
 
-<P>A toolpath containing a circular arc may be described using a
-polyline with an instance of
-the <a href="#aim-via_arc_point">via_arc_point</a> subtype of
-cartesian_point.</P>
-
 
 <H5 ID="funcon-path-circles">5.2.2.6.4 Complete circles</H5>
 
-<P>When describing a toolpath consisting of a complete circle, the trimmed_curve approach described in the previous section is used, but the trim_1 (start) and trim_2 (end) points shall be the same point in space, and specify where the cutter enters &amp; exits the circle.  The start and end shall either reference the same cartesian_point instance or two instances with identical XYZ values.</P>
+<P>When describing a toolpath consisting of a complete circle, the
+trimmed_curve approach described in the previous section is used, but
+the trim_1 (start) and trim_2 (end) points shall be the same point in
+space, and specify where the cutter enters &amp; exits the circle.
+The start and end shall either reference the same cartesian_point
+instance or two instances with identical XYZ values.</P>
+
+<P>A toolpath containing a complete circle may be described using a
+polyline with two instances of
+the <a href="#aim-via_arc_point">via_arc_point</a> subtype of
+cartesian_point.</P>
+
 <P CLASS="note">
-<SPAN>NOTE</SPAN> Use of the same cartesian_point instance is preferred as this avoids numeric comparisons between coordinate values.</P>
+<SPAN>NOTE</SPAN> Use of the same cartesian_point instance avoids numeric comparisons between coordinate values.</P>
 <P CLASS="note">
 <SPAN>EXAMPLE</SPAN> Arcs and complete circles can occur when roughing out a circular pocket.  An entry arc, full circle and then exit arc are illustrated in <a href="#fig-circular_toolpath">Figure 37</a>.  </P>
 
@@ -35468,12 +35483,6 @@ cartesian_point.</P>
 <FIGCAPTION>Figure 37 &mdash; Toolpath with complete circle</FIGCAPTION>
 </FIGURE>
 
-
-
-<P>A toolpath containing a complete circle may be described using a
-polyline with two instances of
-the <a href="#aim-via_arc_point">via_arc_point</a> subtype of
-cartesian_point.</P>
 
 
 
@@ -35495,15 +35504,13 @@ shall be one of the range of possible modes.</P>
 <P CLASS="note">
 <SPAN>NOTE</SPAN>
 The <a href="clause4.htm#ao-extended_nc_function">Extended_NC_function</a>
-application object should not be used to convey individual modal codes
-because it does not identify the common condition that the codes
-control.  Also, an Extended_NC_function can not appear between two
-toolpaths, only between Operations
+application object does not identify the common condition that
+individual modal codes control.</P>
 
 <P CLASS="note">
 <SPAN>EXAMPLE</SPAN> An advanced fiber placement tool as illustrated
 in <a href="#fig-fiber_placement">Figure 38</a> can contain many
-spools of fiber, heaters, and tapehead activity state.  These may be
+spools of fiber, heaters, and tapehead activity state.  These can be
 controlled by numeric codes like the ones listed below.
 
 <PRE CLASS="note">
@@ -35565,9 +35572,9 @@ method.</p>
 During testing with the first edition of this document, results of
 execution such as geometry as-machined, motion reported by the machine
 tool, and cutting tools selected at machining time were mixed with the
-planned process data in single, combined, data sets.  The model could
-represent the values, but could not distinguish between as-planned and
-as-executed data sources.  Furthermore, the model could only represent
+planned process data in single, combined, data sets.  The model 
+represented the values, but did not distinguish between as-planned and
+as-executed data sources.  Furthermore, the model only represented
 as-executed values for a single execution run.</P>
 
 <P CLASS="note">
@@ -35575,9 +35582,8 @@ The twin_start, twin_end, twin_plan and other parameters added to
 Executable by the second edition of this document enable a clear
 distinction between as-planned and as-executed values, and scale to
 represent values from many execution runs.  The external reference
-mechanism introduced by ISO 10303-21:2016 may be used to organize
-as-planned and as-executed processes into separate exchange
-structures.</P>
+mechanism in ISO 10303-21 can be used to organize as-planned and
+as-executed processes into separate exchange structures.</P>
 
 <p>This document extends the process model with additional parameters
 to describe a process that has been executed by a machine tool or
@@ -35618,11 +35624,11 @@ parameter shall not be set.</p>
 
 <P CLASS="note">
 <SPAN>EXAMPLE 1</SPAN> An unplanned operation can have an origin other
-than a CAM system.  A workpiece may be delivered by a supplier, stored
+than a CAM system.  A workpiece can be delivered by a supplier, stored
 in a warehouse and cut to size before CAM-planned operations begin.
 Operations like ordering and pre-cutting are not described in CAM
 because they are not executed by a machine control, but recording them
-in the results data may be important if the part fails in the field.
+in the results data can be important if the part fails in the field.
 The Extended_operation can describe operations for which there is no
 STEP-NC definition, with details determined by the enterprise.</P>
 

@@ -63,7 +63,7 @@ Dimension_value_with_limitation.</P>
 
 <P>Rename the Project application object
 to <a href="clause4.htm#ao-manufacturing_project">Manufacturing_project</a>
-to avoid name conflict with 10303-1061.  Made a subtype of
+to avoid name conflict with ISO 10303-1061.  Made a subtype of
 Product_version for ARM integration.  The mapping is unchanged but the
 prior its_id attribute is now covered by the inherited
 Product_version.id mapping.</P>
@@ -78,32 +78,32 @@ to the Person_in_organization application object defined by ISO
 
 <P>Replace General_property, Part_property, and Process_property
 application objects with the Assigned_property application object
-defined by ISO 10303-1030.  Add workpiece, shape_element to the ARM
+defined by ISO/TS 10303-1030.  Add workpiece, shape_element to the ARM
 definition for property assignment select.  The Process_property name
 has been reused for an application object defined by the Executable
 UoF that extends an Executable with additional information.</P>
 
 <P>Replace Hardness application object with the Hardness application
-object defined by ISO 10303-1110.  The integrated representation of
+object defined by ISO/TS 10303-1110.  The integrated representation of
 this changed from a material_property_representation to a
 hardness_representation.</P>
 
 <P>Replace Material application object with the
-Material_identification application object defined by ISO 10303-1681.
+Material_identification application object defined by ISO/TS 10303-1681.
 Add Workpiece, Cutting_component, Cutting_edge_properties to the ARM
 definition for material_item_select.</P>
 
 <P>Replace Material_property application object with the
-Material_property object defined by ISO 10303-1681.</P>
+Material_property object defined by ISO/TS 10303-1681.</P>
 
 <P>Replace the Property_parameter and Descriptive_parameter
 application objects with a reference to the Representation_item and
-String_representation_item objects defined by ISO 10303-1006.  Replace
+String_representation_item objects defined by ISO/TS 10303-1006.  Replace
 the Numeric_parameter application object with a reference to the
-Numerical_item_with_unit object defined by ISO 10303-1118.</P>
+Numerical_item_with_unit object defined by ISO/TS 10303-1118.</P>
 
 <P>Replace Surface_property application object with the
-Surface_condition application object defined by ISO 10303-1110.</P>
+Surface_condition application object defined by ISO/TS 10303-1110.</P>
 
 <P>Made <a href="clause4.htm#ao-workpiece">Workpiece</a> a subtype of
 Product_view_definition for ARM integration.  Mapping is unchanged but
@@ -118,7 +118,7 @@ Material_identification for ARM integration.  The integrated
 representation has not changed.</P>
 
 <P>Replace Workpiece_assembly_component application object with the
-Next_assembly_usage application object defined by ISO 10303-1026.  The
+Next_assembly_usage application object defined by ISO/TS 10303-1026.  The
 Workpiece its_components parameter is now represented by the set of
 Next_assembly_usage application objects with a relating_view parameter
 that contains the Workpiece.  The integrated representation of this
@@ -129,16 +129,16 @@ references to modules and adding other subtypes of the Geometric_model
 application object supported by ISO 10303-242.</P>
 
 <UL>
-<LI>ISO 10303-1501 replaces AIC 501 
-<LI>ISO 10303-1502 replaces AIC 502
-<LI>ISO 10303-1507 replaces AIC 507
-<LI>ISO 10303-1324 replaces AIC 508
-<LI>ISO 10303-1509 replaces AIC 509
-<LI>ISO 10303-1510 replaces AIC 510
-<LI>ISO 10303-1511 replaces AIC 511
-<LI>ISO 10303-1514 replaces AIC 514
-<LI>ISO 10303-1819 add Tessellated geometry
-<LI>ISO 10303-1831 add Scan data 3D shape
+<LI>ISO/TS 10303-1501 replaces AIC 501 
+<LI>ISO/TS 10303-1502 replaces AIC 502
+<LI>ISO/TS 10303-1507 replaces AIC 507
+<LI>ISO/TS 10303-1324 replaces AIC 508
+<LI>ISO/TS 10303-1509 replaces AIC 509
+<LI>ISO/TS 10303-1510 replaces AIC 510
+<LI>ISO/TS 10303-1511 replaces AIC 511
+<LI>ISO/TS 10303-1514 replaces AIC 514
+<LI>ISO/TS 10303-1819 add Tessellated geometry
+<LI>ISO/TS 10303-1831 add Scan data 3D shape
 </UL>
 
 
@@ -148,12 +148,12 @@ application object supported by ISO 10303-242.</P>
 <P>Move the Manufacturing_feature application object from
 the <a href="clause4.htm#uof-workpiece">workpiece UoF</a> into the
 manufacturing feature UoF and reference the application object
-definitions and mappings from ISO 10303-1814 rather than define it in
+definitions and mappings from ISO/TS 10303-1814 rather than define it in
 Clause 4 and 5.</P>
 
 <P>Change the <a href="clause4.htm#uof-feature">manufacturing feature
 UoF</a> to reference the following feature application object
-definitions and mappings from ISO 10303-1814 rather than define them
+definitions and mappings from ISO/TS 10303-1814 rather than define them
 in Clause 4 and 5.  Also remove definition in Clause 5 for
 chamfer_requires_faces_or_features,
 edge_round_requires_faces_or_features,
@@ -256,7 +256,7 @@ changed as noted below.</P>
 
 <P>Delete the turning feature UoF, moving the following application
 objects to the <a href="clause4.htm#uof-feature">manufacturing feature
-UoF</a>. Reference the definitions and mappings from ISO 10303-1814
+UoF</a>. Reference the definitions and mappings from ISO/TS 10303-1814
 rather than define them in Clause 4 and 5.  The names of some
 application objects have changed.</P>
 
@@ -281,7 +281,7 @@ application objects have changed.</P>
 <H3 ID="clause-K-1-executable">K.1.6 Changes in executable UoF</H3>
 
 <P>Replace Boolean_expression application object and all subtypes with
-the objects of the same name defined by ISO 10303-1526.  These objects
+the objects of the same name defined by ISO/TS 10303-1526.  These objects
 were originally defined by ISO 13584-20 and are equivalent.</P>
 
 <P>Make the <a href="clause4.htm#ao-executable">Executable</a>
@@ -351,7 +351,7 @@ kinematics representation.</P>
 subtype of Activity_property for supplemental information about a
 process description.  The Process_property application object defined
 by the first edition has been replaced by the Assigned_property
-application object defined by ISO 10303-1030.</P>  Mapping
+application object defined by ISO/TS 10303-1030.</P>  Mapping
 uses <a href="clause5.htm#aim-machining_process_property">machining_process_property</a>
 AIM object.</P>
 
@@ -538,9 +538,9 @@ to Clause 5 to support mapping of Am_operation and subtypes. </P>
 
 <P>Change the <a href="clause4.htm#uof-gdt">geometric dimensioning and
 tolerancing UoF</a> to reference the following feature application
-object definitions and mappings from ISO 10303-1050 and ISO 10303-1051
+object definitions and mappings from ISO/TS 10303-1050 and ISO/TS 10303-1051
 rather than define them in Clause 4 and 5.  Also reference default
-tolerance application object definitions in ISO 10303-1052.</P>
+tolerance application object definitions in ISO/TS 10303-1052.</P>
 
 <UL>
 <LI>Angular_location_dimension;</LI>
@@ -606,16 +606,16 @@ placed_datum_target_feature.</P>
 <P>Replace the entire library reference UoF with references to
 appropriate module definitions.
 
-<P>Externally_defined_representation is now defined by ISO 10303-1779.
+<P>Externally_defined_representation is now defined by ISO/TS 10303-1779.
 Library_property_value is now External_representation_item defined by
-ISO 10303-1779.</P>
+ISO/TS 10303-1779.</P>
 
 <P>Library_part_assignment is now External_source from ISO
 10303-1331.
 
 <P>Property_BSU is replaced by Plib_property_reference defined by ISO
 10303-1129.  Class_BSU and Supplier_BSU are now Plib_class_reference
-defined by ISO 10303-1291. The BSU application object was an abstract
+defined by ISO/TS 10303-1291. The BSU application object was an abstract
 supertype and is not longer used.</P>
 
 
@@ -631,7 +631,7 @@ unchanged.</P>
 
 <P>Replace the Assigned_date and Assigned_time application object
 definitions and mappings with a reference to the
-Date_or_date_time_assignment definition in ISO 10303-1014.  The
+Date_or_date_time_assignment definition in ISO/TS 10303-1014.  The
 integrated representation of this information is unchanged.</P>
 
 <P>Replace the Assigned_organization and Assigned_person application
@@ -740,13 +740,13 @@ subtype has been added to describe material-as-product.</p>
 
 <p>The <A HREF="clause4.htm#ao-am_technology">Am_technology</a> base
 type has been added and Am_operation has been extended to refer to it.
-This type was present in an early version of ISO 10303-17 but removed
+This type was present in an early version of ISO 14649-17 but removed
 because technology specific definitions (like PBF) had not yet been
 prepared.</p>
 
 <p>The <A HREF="clause4.htm#ao-toolpath_feature">Toolpath_feature</a>
 application object has been restored after being erroneously removed
-in the second edition during harmonization with ISO 10303-1814.</p>
+in the second edition during harmonization with ISO/TS 10303-1814.</p>
 
 <p>This revision maintains harmonization with AP242 fourth edition
 through shared use of the ISO 10303 resource parts collectively
