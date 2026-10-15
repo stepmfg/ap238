@@ -194,8 +194,8 @@ follows the &lt;* symbol;</td>
 
 
 <P>The mapping specification for the application objects in this UoF
-shall be as defined by ISO/TS 10303-1054, ISO/TS 10303-1106, ISO/TS 10303-1753,
-and ISO/TS 10303-1782.
+shall be as specified by ISO/TS 10303-1054, ISO/TS 10303-1106, ISO/TS
+10303-1753, and ISO/TS 10303-1782.
 
 
 <H3 ID="mapuof-project">5.1.3 Mapping specification for project UoF</H3>
@@ -203,7 +203,7 @@ and ISO/TS 10303-1782.
 <H4 ID="mapuof-project-general">5.1.3.1 General</H4>
 
 <P>The mapping specification for the application objects in this UoF
-shall be as defined by ISO/TS 10303-1011 and the specification below.
+shall be as specified by ISO/TS 10303-1011 and the specification below.
 
 
 <!-- ============================== -->
@@ -364,7 +364,7 @@ approval
 <H4 ID="mapuof-workpiece-general">5.1.4.1 General</H4>
 
 <P>The mapping specification for the application objects in this UoF
-shall be as defined by ISO/TS 10303-1006, ISO/TS 10303-1026, ISO/TS
+shall be as specified by ISO/TS 10303-1006, ISO/TS 10303-1026, ISO/TS
 10303-1030, ISO/TS 10303-1110, ISO/TS 10303-1118, ISO/TS 10303-1681,
 and the specification below.
 
@@ -1116,7 +1116,7 @@ material_property
 <H4 ID="mapuof-feature-general">5.1.5.1 General</H4>
 
 <P>The mapping specification for the application objects in this UoF
-shall be as defined by ISO/TS 10303-1814, ISO/TS 10303-1846 and the
+shall be as specified by ISO/TS 10303-1814, ISO/TS 10303-1846 and the
 specification below.
 
 
@@ -2662,7 +2662,7 @@ machining_workingstep
 <H4 ID="mapuof-executable-general">5.1.7.1 General</H4>
 
 <P>The mapping specification for the application objects in this UoF
-shall be as defined by ISO/TS 10303-1526 and the specification below.
+shall be as specified by ISO/TS 10303-1526 and the specification below.
 
 
 <!-- ============================== -->
@@ -7173,7 +7173,7 @@ axis2_placement_3d
 
 <H4 ID="mapuof-operation-general">5.1.8.1 General</H4>
 
-<p>The mapping specification for the application objects in this UoF shall be as defined by the specification below.</p>
+<p>The mapping specification for the application objects in this UoF shall be as specified by the specification below.</p>
 
 
 <!-- ============================== -->
@@ -33799,13 +33799,13 @@ machining_broadcast_content
 <H3 ID="mapuof-gdt">5.1.18 Mapping specification for geometric dimensioning and tolerancing UoF</H3>
 
 <P>The mapping specification for the application objects in this UoF
-shall be as defined by ISO/TS 10303-1050, ISO/TS 10303-1051, and ISO/TS 10303-1052.</P>
+shall be as specified by ISO/TS 10303-1050, ISO/TS 10303-1051, and ISO/TS 10303-1052.</P>
 
 
 <H3 ID="mapuof-library_reference">5.1.19 Mapping specification for library reference UoF</H3>
 
 <P>The mapping specification for the application objects in this UoF
-shall be as defined by ISO/TS 10303-1129, ISO/TS 10303-1291, ISO/TS
+shall be as specified by ISO/TS 10303-1129, ISO/TS 10303-1291, ISO/TS
 10303-1331, and ISO/TS 10303-1779.
 
 
@@ -33814,7 +33814,7 @@ shall be as defined by ISO/TS 10303-1129, ISO/TS 10303-1291, ISO/TS
 <H4 ID="mapuof-management-general">5.1.20.1 General</H4>
 
 <P>The mapping specification for the application objects in this UoF
-shall be as defined by ISO/TS 10303-1012, ISO/TS 10303-1013, ISO/TS
+shall be as specified by ISO/TS 10303-1012, ISO/TS 10303-1013, ISO/TS
 10303-1014, ISO/TS 10303-1015, and the specification below.
 
 
@@ -34854,7 +34854,12 @@ The steradian unit is encoded by #20, which is a complex instance of solid_angle
 <P>An area measure is encoded using an instance of measure_with_unit (or measure_representation_item when used in a representation).  A derived_unit consisting of a length unit squared is used to describe the measure.</P>
 
 <P CLASS="note">
-<SPAN>NOTE</SPAN> ISO 10303-41 defines value-specific subtypes area_measure_with_unit and area_unit, but the use of these is deprecated because they are not usable as defined.   The unit for an area measure is described as a derived_unit, but a complex instance of area_unit and derived_unit is not possible for the EXPRESS definition.</P>
+<SPAN>NOTE</SPAN> ISO 10303-41 defines value-specific subtypes
+area_measure_with_unit and area_unit, but the use of these is
+deprecated because they are not usable as defined.  The unit for an
+area measure is described as a derived_unit, but a complex instance of
+area_unit and derived_unit is not possible for the EXPRESS
+definition.</P>
 
 <P CLASS="note">
 <SPAN>EXAMPLE</SPAN> An area measurement used in a representation would be encoded as a measure_representation_item.  In the exchange file fragment below, #10 describes a value of 10 square millimetres.</P>
@@ -36114,7 +36119,10 @@ END_ENTITY;
 <!-- ============================== -->
 <H5 ID="aim-block_shape_representation">5.2.4.1.9 block_shape_representation</H5>
 
-<P>A <B>block_shape_representation</B> specifies the representation of a shape that is a rectangular volume defined as a rectangular area of a defined length. The enclosed area shall be as defined by four straight sides with opposite sides equal in length.</P>
+<P>A <B>block_shape_representation</B> specifies the representation of
+a shape that is a rectangular volume defined as a rectangular area of
+a defined length. The enclosed area shall be as defined by four
+straight sides with opposite sides equal in length.</P>
 
 <P CLASS="note">
 <SPAN>NOTE</SPAN> This definition has been harmonized with the equivalent definition in ISO 10303-224.</P>
@@ -36317,7 +36325,10 @@ END_ENTITY;
 <!-- ============================== -->
 <H5 ID="aim-cylindrical_shape_representation">5.2.4.1.14 cylindrical_shape_representation</H5>
 
-<P>A <B>cylindrical_shape_representation</B> specifies representation of a shape that is a cylindrical volume defined as a circular area of a defined length. The enclosed area shall be as defined by a circle with a specified radius.</P>
+<P>A <B>cylindrical_shape_representation</B> specifies representation
+of a shape that is a cylindrical volume defined as a circular area of
+a defined length. The enclosed area shall be as defined by a circle
+with a specified radius.</P>
 <P CLASS="note">
 <SPAN>NOTE</SPAN> This definition has been harmonized with the equivalent definition in ISO 10303-224.</P>
 
@@ -40411,9 +40422,14 @@ END_ENTITY;
 <!-- ============================== -->
 <H5 ID="aim-ngon_shape_representation">5.2.4.1.98 ngon_shape_representation</H5>
 
-<P>An <B>ngon_shape_representation</B> specifies representation of a shape that is a volume defined as a ngon area of a defined length. The enclosed area shall be as defined by three or more straight sides. </P>
+<P>An <B>ngon_shape_representation</B> specifies representation of a
+shape that is a volume defined as a ngon area of a defined length. The
+enclosed area shall be as defined by three or more straight
+sides. </P>
+
 <P CLASS="note">
-<SPAN>NOTE</SPAN> This definition has been harmonized with the equivalent definition in ISO 10303-224.</P>
+<SPAN>NOTE</SPAN> This definition has been harmonized with the
+equivalent definition in ISO 10303-224.</P>
 
 <H6 CLASS="section-underlined">EXPRESS specification:</H6>
 <PRE CLASS="code">
