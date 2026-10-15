@@ -193,7 +193,7 @@ Person_in_organization application object definition.</P>
 <H3 ID="uof-workpiece">4.2.4 Workpiece</H3>
 
 <P>The Workpiece UoF specifies the mechanical product that is to be
-produced by a machining program.  This description may include
+produced by a machining program.  This description can include
 material, surface condition, features, and the AS-IS and TO-BE shape
 of the product.</P>
 
@@ -309,9 +309,9 @@ and shall be as defined by ISO/TS 10303-1681.</P>
 <SPAN>NOTE 7</SPAN>The previous edition of this document included
 definitions and mappings for the Material and Material_property
 application objects.  These have been replaced by references to the
-Material_identification and Material_property objects defined in ISO
-10303-1110.  The integrated representation of this information is
-unchanged from previous edition of this document.
+Material_identification and Material_property objects defined in
+ISO/TS 10303-1110.  The integrated representation of this information
+is unchanged from previous edition of this document.
 </P>
 
 <UL>
@@ -501,7 +501,7 @@ feature UoF, and shall be as defined by ISO/TS 10303-1814.</P>
 </UL>
 
 <P>This document extends the following application objects with
-additional information requirements beyond those specified by ISO
+additional information requirements beyond those specified by ISO/TS
 10303-1814.</P>
 
 <UL>
@@ -1209,7 +1209,7 @@ this information is unchanged from previous edition of this
 document.</P>
 
 <P>The following application objects are used by the Geometric
-dimensioning and tolerancing UoF, and shall be as defined by ISO
+dimensioning and tolerancing UoF, and shall be as defined by ISO/TS
 10303-1050.</P>
 
 <UL>
@@ -1236,7 +1236,7 @@ dimensioning and tolerancing UoF, and shall be as defined by ISO
 </UL>
 
 <P>The following application objects are used by the Geometric
-dimensioning and tolerancing UoF, and shall be as defined by ISO
+dimensioning and tolerancing UoF, and shall be as defined by ISO/TS
 10303-1051.</P>
 
 <UL>
@@ -1299,7 +1299,7 @@ dimensioning and tolerancing UoF, and shall be as defined by ISO
 </UL>
 
 <P>The following application objects are used by the Geometric
-dimensioning and tolerancing UoF, and shall be as defined by ISO
+dimensioning and tolerancing UoF, and shall be as defined by ISO/TS
 10303-1052.</P>
 
 <UL>
@@ -1448,7 +1448,7 @@ and shall be as defined by ISO/TS 10303-1015.</P>
 <SPAN>NOTE 4</SPAN>The previous edition of this document included
 application object definitions and mappings for the following two
 security classification application objects. These have been replaced
-by a reference to the objects with the same names defined by ISO
+by a reference to the objects with the same names defined by ISO/TS
 10303-1015.  The integrated representation of this information is
 unchanged from previous edition of this document.</P>
 
@@ -2167,7 +2167,7 @@ features. Multiple boundaries may exist. Each one is described by a
 different feature intersection.
 
 <P CLASS="note">
-<SPAN>EXAMPLE</SPAN> An AM_feature_intersection may define the
+<SPAN>EXAMPLE</SPAN> An AM_feature_intersection can define the
 boundary where the technology of a path changes from a downskin or low
 heat region, to a core or regular heat region.</P>
 
@@ -3044,7 +3044,7 @@ process parameters to the infill and contour strategies of the
 parent.</p>
 
 <P CLASS="note">
-<SPAN>EXAMPLE</SPAN> An upskin region may use the same striping
+<SPAN>EXAMPLE</SPAN> An upskin region can use the same striping
 parameters as the core, but reduce the laser power while they are in
 its area.</P>
 
@@ -3343,7 +3343,7 @@ powder used for the manufacturing.</p>
 the recoater blade</p>
 
 <P CLASS="note">
-<SPAN>NOTE</SPAN> The definition may include the geometry and material
+<SPAN>NOTE</SPAN> The definition can include the geometry and material
 of the blade.</P>
 
 
@@ -3368,7 +3368,7 @@ manage a powder bed fusion process.</P>
 </OL>
 
 <P CLASS="note">
-<SPAN>EXAMPLE</SPAN> A model may contain ten support pillars that use
+<SPAN>EXAMPLE</SPAN> A model can contain ten support pillars that use
 three kinds of processes. The ten support pillars become ten instances
 of the pbf_support_feature with the names Pillar 1 thru Pillar 10. The
 three types of pillars become three instances of
@@ -3565,7 +3565,7 @@ additional regions for these spikes and thin walls.</LI>
 
 <P CLASS="note">
 <SPAN>NOTE 2</SPAN> A model containing multiple types of support
-pillars may contain two kinds of downskins, and one kind of upskin. A
+pillars can contain two kinds of downskins, and one kind of upskin. A
 slice in the model contains one of the downskins, and one pillar. The
 remainder of the slice is the core region, for a total of three
 regions on this slice.</P>
@@ -4166,7 +4166,7 @@ is then selected to generate contours and hatches appropriate to that
 feature.</P>
 
 <P CLASS="note">
-<SPAN>EXAMPLE</SPAN> A CAD system may identify feaures where upskin
+<SPAN>EXAMPLE</SPAN> A CAD system can identify feaures where upskin
 and downskin processes are to be applied so that melting is reduced in
 regions where there is less internal support.</P>
 
@@ -5124,7 +5124,7 @@ END_ENTITY;
 <p>The guides specifies a collection of guide features used to compute the a reference frame.</p>
 
 <P CLASS="note">
-<SPAN>NOTE</SPAN> The best fit algorithm may use the guides to
+<SPAN>NOTE</SPAN> The best fit algorithm can use the guides to
 determine an optimal displacement to modify the position, orientation
 and rotation of the members of the group.</P>
 
@@ -5661,10 +5661,10 @@ used to specify the values:</p>
 
 <P CLASS="note">
 <SPAN>NOTE 1</SPAN> The value given in the context is the one
-currently defined in the project.  Depending on the context this value
-may change very quickly, such as feedrate, quite slowly, such as the
-cutting tool, or never, such as the project.  Different data transfer
-mechanisms can be appropriate for different values. Streaming
+currently defined in the project.  Depending on the context, this
+value can change very quickly, such as feedrate, quite slowly, such as
+the cutting tool, or never, such as the project.  Different data
+transfer mechanisms can be appropriate for different values. Streaming
 protocols are better suited for feedrate capture, but event-based
 protocols are more suited to project and tool state changes.</P>
 
@@ -5745,7 +5745,7 @@ predicted execution time of the event.
 <P CLASS="note">
 <SPAN>EXAMPLE</SPAN> If count is 1 then the broadcast will occur at
 the mid-point of the operation.  Depending where the broadcast is
-applied, the number may apply to an operation, workingstep or other
+applied, the number can apply to an operation, workingstep or other
 executable, feature, toolpath or workpiece.</P>
 
 <H4 ID="ao-broadcast_count-count_content">4.3.91.2 broadcast_count to broadcast_content (as count_content)</H4>
@@ -6388,7 +6388,7 @@ move.
 moves between features on the same toolpath, the second level enables
 safer moves between different toolpaths that are close together, the
 third level enables moves to a safe point above the manufacturing. A
-fourth level safe point may exist for travel between different
+fourth level safe point can exist for travel between different
 sides.
 <A href="#fig-level3-escape">Figure 15</A> shows a four level escape.</P>
 
@@ -7516,7 +7516,7 @@ sequence of material layers in a feature.</p>
 design geometry.</P>
 
 <P CLASS="note">
-<SPAN>NOTE 2</SPAN> The layers of the prototype stackup may include
+<SPAN>NOTE 2</SPAN> The layers of the prototype stackup can include
 optimal speeds and feeds for drilling each material layer in the
 stackup.</P>
 
@@ -7542,7 +7542,8 @@ then the fastener will drop into place.</P>
 
 <H4 ID="ao-drill_and_fill_prototype-iso_fit">4.3.138.4 iso_fit</H4>
 
-<p>The iso_fit specifies the classification of engineering fit defined in ISO 286-1.</p>
+<p>The iso_fit specifies the engineering fit.  The value shall be
+one of the classifications specified by ISO 286-1.</p>
 
 
 <H4 ID="ao-drill_and_fill_prototype-not_normal_to_top">4.3.138.5 not_normal_to_top</H4>
@@ -7758,7 +7759,7 @@ END_TYPE;
 dimensions of the material layers in the feature.</p>
 
 <P CLASS="note">
-<SPAN>EXAMPLE</SPAN> In aerospace the material layers may describe the
+<SPAN>EXAMPLE</SPAN> In aerospace the material layers can describe the
 thickness of the composite skin, titanium frame and filler shims.</P>
 
 <P CLASS="note">
@@ -8068,7 +8069,7 @@ robots and features at more difficult locations.</P>
 
 <P CLASS="note">
 <SPAN>EXAMPLE</SPAN> In a three-level escape sequence some features
-may require additional escape moves between Levels 2 and 3 to move the
+can require additional escape moves between Levels 2 and 3 to move the
 nose sideways, and avoid a special fixture.</P>
 
 <H4 ID="ao-escape_sequence_group-escape_move">4.3.147.3 escape_sequence_group to connector (as escape_move)</H4>
@@ -8183,14 +8184,15 @@ as adapted by this document, is shown below. Refer to ISO
 <P CLASS="note">The shapes from the ISO 14649 In_process_geometry
 concept are replaced by complete product descriptions. The
 product_view_definition.primary_shape_representation gives the shape
-representation, which can be described by an edge-based wireframe (ISO
-10303-1501), shell-based wireframe (ISO/TS 10303-1502),
-geometrically-bounded surfaces (ISO/TS 10303-1507), non-manifold surfaces
-(ISO/TS 10303-1324), manifold surfaces (ISO/TS 10303-1509),
-geometrically-bounded wireframe (ISO/TS 10303-1510), faceted brep (ISO
-10303-1512), tessellated geometry (ISO/TS 10303-1819), scan data 3D shape
-(ISO/TS 10303-1831), as well as the advanced brep (ISO/TS 10303-1514)
-descriptions originally supported by the ISO 14649 series.</P>
+representation, which can be described by an edge-based wireframe
+(ISO/TS 10303-1501), shell-based wireframe (ISO/TS 10303-1502),
+geometrically-bounded surfaces (ISO/TS 10303-1507), non-manifold
+surfaces (ISO/TS 10303-1324), manifold surfaces (ISO/TS 10303-1509),
+geometrically-bounded wireframe (ISO/TS 10303-1510), faceted brep
+(ISO/TS 10303-1512), tessellated geometry (ISO/TS 10303-1819), scan
+data 3D shape (ISO/TS 10303-1831), as well as the advanced brep
+(ISO/TS 10303-1514) descriptions originally supported by the ISO 14649
+series.</P>
 
 <PRE CLASS="note">
 ENTITY Executable
@@ -8271,8 +8273,8 @@ parameter that contains the Executable.</P>
 
 <P CLASS="note">
 <SPAN>EXAMPLE</SPAN> An Executable that describes a planned process
-may describe parameters extracted from CAM.  An Executable that
-describes a digital twin may describe result properties from machining
+can describe parameters extracted from CAM.  An Executable that
+describes a digital twin can describe result properties from machining
 or simulation.</P>
 
 
@@ -8449,7 +8451,7 @@ applies to all phases.</p>
 describes this property.</p>
 
 <P CLASS="note">
-<SPAN>NOTE</SPAN> A visualization system may show the property as
+<SPAN>NOTE</SPAN> A visualization system can show the property as
 GD&amp;T on a model.</P>
 
 <H4 ID="ao-expected_property-external_definition">4.3.150.3 external_definition</H4>
@@ -8496,7 +8498,7 @@ executed if a measured property using this expected property is not
 within limits.</p>
 
 <P CLASS="note">
-<SPAN>EXAMPLE</SPAN> A robot may escape from the drilling task to a resting place.</P>
+<SPAN>EXAMPLE</SPAN> A robot can escape from the drilling task to a resting place.</P>
 
 
 
@@ -9377,7 +9379,7 @@ is_temporary is false or not specified.</p>
 <p>The grip_length specifies the measured grip length of the fastener.</p>
 
 <P CLASS="note">
-<SPAN>NOTE</SPAN> The value may come from a catalog.</P>
+<SPAN>NOTE</SPAN> The value can come from a catalog.</P>
 
 
 <H4 ID="ao-fastener_twin-diameter">4.3.174.4 fastener_twin to measured_property (as diameter)</H4>
@@ -9385,7 +9387,7 @@ is_temporary is false or not specified.</p>
 <p>The diameter specifies the measured grip diameter of the fastener.</p>
 
 <P CLASS="note">
-<SPAN>NOTE</SPAN> The value may come from a catalog.</P>
+<SPAN>NOTE</SPAN> The value can come from a catalog.</P>
 
 
 <H4 ID="ao-fastener_twin-applied_squeeze">4.3.174.5 fastener_twin to measured_property (as applied_squeeze)</H4>
@@ -9400,7 +9402,7 @@ squeeze a fastener into place.</p>
 fastener that has been squeezed into place.</p>
 
 <P CLASS="note">
-<SPAN>NOTE</SPAN> The value may come from a catalog.</P>
+<SPAN>NOTE</SPAN> The value can come from a catalog.</P>
 
 
 <H4 ID="ao-fastener_twin-button_height">4.3.174.7 fastener_twin to measured_property (as button_height)</H4>
@@ -9409,7 +9411,7 @@ fastener that has been squeezed into place.</p>
 fastener that has been squeezed into place.</p>
 
 <P CLASS="note">
-<SPAN>NOTE</SPAN> The value may come from a catalog.</P>
+<SPAN>NOTE</SPAN> The value can come from a catalog.</P>
 
 
 <H4 ID="ao-fastener_twin-when_placed">4.3.174.8 when_placed</H4>
@@ -9477,7 +9479,7 @@ a <A href="clause5.htm#funcon-twin-process">digital twin process</A>.</P>
 
 <P>The expected_value specifies a Manufacturing_feature which
 describes the feature that shall be measured.  The expected_value may
-not be specified for a particular Feature_complete_probing.  If the
+be omitted for a particular Feature_complete_probing.  If the
 expected_value is not specified, the Feature_complete_probing shall be
 the its_operation of a Workingstep and the feature to be measured
 shall be given by the its_feature of that
@@ -9796,7 +9798,7 @@ specifies a finishing operation.</P>
 <SPAN>NOTE 1</SPAN> When specifying a freeform milling operation,
 particularly with an associated toolpath, the Freeform_rough_milling
 and Freeform_finish_milling subtypes can indicate whether the
-operation is used for roughing or finishing.  Some CNC controls may
+operation is used for roughing or finishing.  Some CNC controls can
 provide important efficiency gains when provided with this
 information.</P>
 
@@ -10422,7 +10424,7 @@ integrated representation of this information is unchanged from
 previous edition of this document.</P>
 
 <P CLASS="note">
-<SPAN>EXAMPLE</SPAN> A condition that has several possible states may
+<SPAN>EXAMPLE</SPAN> A condition that has several possible states can
 be described by a String_representation_item subtype with a value such
 as "<em>condition-name</em> on" or "<em>condition-name</em> off".  A
 condition that has a state defined by a measured value, such as
@@ -10888,8 +10890,9 @@ requirements.</P>
 
 <P CLASS="note">
 <SPAN>NOTE</SPAN> The ISO/TS 10303-1814 EXPRESS description for
-Operation, as adapted by this document is shown below.  Refer to ISO
-10303-1814 for the original definition and explanation of usage.</P>
+Operation, as adapted by this document is shown below.  Refer to
+ISO/TS 10303-1814 for the original definition and explanation of
+usage.</P>
 
 <PRE CLASS="note">
 ENTITY Manufacturing_feature
@@ -10915,8 +10918,8 @@ describe the twins that modeled the feature at each stage of its
 manufacturing.</p>
 
 <P CLASS="note">
-<SPAN>EXAMPLE</SPAN> One twin may model a preparation phase where the
-hole is placed and tacked, and another may model a completion phase
+<SPAN>EXAMPLE</SPAN> One twin can model a preparation phase where the
+hole is placed and tacked, and another can model a completion phase
 where the final fastener is installed.</P>
 
 
@@ -11256,7 +11259,7 @@ END_ENTITY;
 <p>The prototype specifies the required value for this property.</p>
 
 <P CLASS="note">
-<SPAN>NOTE</SPAN> A monitoring system may use the prototype to
+<SPAN>NOTE</SPAN> A monitoring system can use the prototype to
 determine if the value is within tolerance.</P>
 
 <H4 ID="ao-measured_property-measured_value">4.3.215.2 measured_value</H4>
@@ -12160,7 +12163,7 @@ placed.</p>
 to place the fastener, or insert a rivet, into the feature.</p>
 
 <P CLASS="note">
-<SPAN>NOTE</SPAN> The manufacturing system may indicate an exception
+<SPAN>NOTE</SPAN> The manufacturing system can indicate an exception
 condition if this minimum is not met.</P>
 
 <H4 ID="ao-place_item_operation-allowable_maximum_force">4.3.238.4 allowable_maximum_force</H4>
@@ -12169,7 +12172,7 @@ condition if this minimum is not met.</P>
 to place the fastener, or insert a rivet, into the feature.</p>
 
 <P CLASS="note">
-<SPAN>NOTE</SPAN> The manufacturing system may indicate an exception
+<SPAN>NOTE</SPAN> The manufacturing system can indicate an exception
 condition if this maximum is exceeded.</P>
 
 <H4 ID="ao-place_item_operation-allowable_position_deviation">4.3.238.5 allowable_position_deviation</H4>
@@ -12178,7 +12181,7 @@ condition if this maximum is exceeded.</P>
 allowed for the position of the item.</p>
 
 <P CLASS="note">
-<SPAN>NOTE</SPAN> The manufacturing system may indicate an exception
+<SPAN>NOTE</SPAN> The manufacturing system can indicate an exception
 condition if this deviation is exceeded</P>
 
 <H4 ID="ao-place_item_operation-allowable_normal_deviation">4.3.238.6 allowable_normal_deviation</H4>
@@ -12187,7 +12190,7 @@ condition if this deviation is exceeded</P>
 allowed for the direction of the normal.</p>
 
 <P CLASS="note">
-<SPAN>NOTE</SPAN> The manufacturing system may indicate an exception
+<SPAN>NOTE</SPAN> The manufacturing system can indicate an exception
 condition if an angular deviation is exceeded</P>
 
 
@@ -12197,7 +12200,7 @@ condition if an angular deviation is exceeded</P>
 allowed for the depth of the hole.</p>
 
 <P CLASS="note">
-<SPAN>NOTE</SPAN> The manufacturing system may indicate an exception
+<SPAN>NOTE</SPAN> The manufacturing system can indicate an exception
 condition if the depth is exceeded.</P>
 
 
@@ -12663,7 +12666,7 @@ product prototype in an external model.</p>
 product with upper and lower limits defined as necessary.</p>
 
 <P CLASS="note">
-<SPAN>EXAMPLE</SPAN> The prototype of a cutter may have expected dimensions for its diameter.
+<SPAN>EXAMPLE</SPAN> The prototype of a cutter can have expected dimensions for its diameter.
 
 
 <!-- ============================== -->
@@ -12777,15 +12780,15 @@ of the digital twin by an information processing system.</P>
 <p>The measured_properties specifies the as-measured properties of the twin.</p>
 
 <P CLASS="note">
-<SPAN>EXAMPLE</SPAN> A cutter twin may have measured properties for
+<SPAN>EXAMPLE</SPAN> A cutter twin can have measured properties for
 its diameter, corner radius and functional length.</P>
 
 
 <H4 ID="ao-product_view_twin-role">4.3.256.9 role</H4>
 
 <p>The role specifies the role of the twin on the product. The role
-may be used for products that have a defined role in the assembly, but
-no specific requirements for the manufacturing.</p>
+may be specified for products that have a defined role in the
+assembly, but no specific requirements for the manufacturing.</p>
 
 <P CLASS="note">
 <SPAN>EXAMPLE</SPAN> Fasteners have manufacturing specific
@@ -12909,7 +12912,7 @@ fusion processes.</P>
 
 <P CLASS="note">
 <SPAN>EXAMPLE</SPAN> In a powder bed fusion process, a planning
-operation may describe a 3D operation that is decomposed into millions
+operation can describe a 3D operation that is decomposed into millions
 of workingsteps containing 2D and 1D operations.  It is more efficient
 to generate the workingsteps on demand because of the data volume.</P>
 
@@ -12996,9 +12999,9 @@ END_ENTITY;
 </DIV>
 
 <P>A Reference_frame_group application object is a type of
-Drill_and_fill_group that describes a reference frame that may be used
-to adjust the coordinate location and axis orientation of a group of
-fastener locations.</P>
+Drill_and_fill_group that describes a reference frame that may be
+specified to adjust the coordinate location and axis orientation of a
+group of fastener locations.</P>
 
 <P>The data associated with a Reference_frame_group are the
 following:</P>
@@ -13381,7 +13384,7 @@ to the allowed fasteners.</p>
 
 <P CLASS="note">
 <SPAN>NOTE</SPAN> If different sealant requirements exist for
-different fasteners then each may have a different sealant
+different fasteners then each can have a different sealant
 prototype.</P>
 
 
@@ -14594,8 +14597,8 @@ The description may be omitted for a particular Tool_usage.</P>
 
 <P>The gage_placement specifies the location on the its_product tool
 model where the tool is mounted on a machine. The gage_placement may
-not be specified for a particular Tool_usage. If the gage_placement is
-not specified, the location shall be on the tool axis given by the
+be omitted for a particular Tool_usage. If the gage_placement is not
+specified, the location shall be on the tool axis given by the
 tool_end_placement at the distance from the origin given by the
 overall assembly length of the referencing Machining_tool.</P>
 
@@ -14622,10 +14625,10 @@ to Externally_defined_representation</a> for the application
 assertion.</P>
 
 <P CLASS="note">
-<SPAN>EXAMPLE</SPAN> <a href="bibliography.htm#iso13399-1">ISO
-13399</a> is one such external specification which describes various
-data about cutting tools and cutting tool assemblies, including
-reference dictionaries that describe tool properties.</P>
+<SPAN>EXAMPLE</SPAN> <a href="bibliography.htm#iso13399">ISO 13399</a>
+is one such external specification which describes various data about
+cutting tools and cutting tool assemblies, including reference
+dictionaries that describe tool properties.</P>
 
 
 <H4 ID="ao-tool_usage-its_position">4.3.311.6 its_position</H4>
@@ -14973,19 +14976,19 @@ END_TYPE;
 
 <P>The its_material_removal_depth specifies the length of material
 removed at each point of the Trajectory as measured along the axis of
-the cutting tool.  This may be specified as a either a constant depth
-or as a one-dimensional curve specifying the depth at each point along
-the toolpath.  The curve shall obey the same parameterization
-constraints as the &quot;its_speed&quot; data associated with
+the cutting tool.  This value may be specified a constant depth or as
+a one-dimensional curve specifying the depth at each point along the
+toolpath.  The curve shall obey the same parameterization constraints
+as the &quot;its_speed&quot; data associated with
 a <a href="#ao-toolpath">Toolpath</a>. The its_material_removal_depth
 may be omitted for a particular Trajectory.</P>
 
 <P CLASS="note">
 <SPAN>NOTE</SPAN> Machining strategies have cutting depth fields used
 as input to the toolpath generation process.  The
-its_material_removal_depth and its_material_removal_overcut fields may
+its_material_removal_depth and its_material_removal_overcut fields can
 describe how much material will be actually removed by each of the
-generated toolpaths so that adaptive controls may adjust feed and
+generated toolpaths so that adaptive controls can adjust feed and
 speed.</P>
 
 
@@ -14993,9 +14996,9 @@ speed.</P>
 
 <P>The its_material_removal_overcut specifies the length of material
 removed at each point of the Trajectory as measured perpendicular to
-the axis of the cutting tool.  This may be specified as a either a
-constant overcut or as a one-dimensional curve specifying the overcut
-at each point along the toolpath.  The curve shall obey the same
+the axis of the cutting tool.  This may be specified as a constant
+overcut or as a one-dimensional curve specifying the overcut at each
+point along the toolpath.  The curve shall obey the same
 parameterization constraints as the &quot;its_speed&quot; data
 associated with a <a href="#ao-toolpath">Toolpath</a>.  The
 its_material_removal_overcut may be omitted for a particular
@@ -15898,8 +15901,8 @@ Manufacturing_feature objects visible on the final form of the
 workpiece that the workingstep contributes to.  If a workingstep calls
 out a process-specific feature consumed or obscured by further
 activities in a process, final_features may be used for traceability
-to features on the final form of the workpiece.  It is not required
-that final_features be specified for a particular Workingstep.
+to features on the final form of the workpiece.  The final_features
+may be omitted for a particular Workingstep.
 See <a href="#aa-workingstep-to-manufacturing_feature-as-final_features">Workingstep
 to Manufacturing_feature (as final_features)</a> for the application
 assertion.
@@ -16175,7 +16178,7 @@ omitted for a particular Workpiece. Where applicable, the following
 values shall be used:</P>
 
 <P CLASS="note">
-<SPAN>NOTE</SPAN> A Workpiece object categorized as a tool may
+<SPAN>NOTE</SPAN> A Workpiece object categorized as a tool can
 describe a specific tool chosen to fulfill the tool requirements
 called out by a Machining_tool application object</P>
 
@@ -16593,7 +16596,7 @@ Executable application object.
 <P>The its_minimum_machine_params specifies a Machine_parameters
 object which describe the minimum machine tool characteristics
 required to execute the workplan. The its_minimum_machine_params may
-not be specified for a particular Workplan.
+be omitted for a particular Workplan.
 See <a href="#aa-workplan-to-machine_parameters">Workplan to
 Machine_parameters</a> for the application assertion.</P>
 
